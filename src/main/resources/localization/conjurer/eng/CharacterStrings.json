@@ -1,0 +1,14 @@
+
+{
+	"Conjurer":
+	{
+		"NAMES": [ "The Conjurer", "The Conjurer"],
+	  	"OPTIONS": [
+		  "Genshin Impact",
+		  "Persona",
+		  "Shin Megami Tensei",
+		  "Touhou Project"
+		],
+		"TEXT": [ "(W.I.P.)" ]
+	}
+}
