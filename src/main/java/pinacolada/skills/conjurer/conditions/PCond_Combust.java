@@ -9,13 +9,15 @@ import pinacolada.cards.base.PCLCardTarget;
 import pinacolada.cards.base.PCLUseInfo;
 import pinacolada.resources.PCLEnum;
 import pinacolada.resources.PGR;
+import pinacolada.resources.conjurer.ConjurerEnum;
+import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.*;
 
 public class PCond_Combust extends PCond
 {
 
     public static final PSkillData DATA = register(PCond_Combust.class, PCLEffectType.General, 1, 1)
-            .setColors(PCLEnum.Cards.THE_CONJURER)
+            .setColors(ConjurerEnum.Cards.THE_CONJURER)
             .selfTarget();
 
     public PCond_Combust()
@@ -70,9 +72,9 @@ public class PCond_Combust extends PCond
     {
         if (hasParentType(PTrigger.class))
         {
-            return TEXT.conditions.wheneverYou(affinities.isEmpty() ? PGR.core.tooltips.combust.title : EUIRM.strings.verbNoun(PGR.core.tooltips.combust.title, getAffinityLevelOrString()));
+            return TEXT.conditions.wheneverYou(affinities.isEmpty() ? ConjurerResources.conjurer.tooltips.combust.title : EUIRM.strings.verbNoun(ConjurerResources.conjurer.tooltips.combust.title, getAffinityLevelOrString()));
         }
-        String base = affinities.isEmpty() ? PGR.core.tooltips.combust.title : EUIRM.strings.adjNoun(getAffinityLevelOrString(), PGR.core.tooltips.combust.title);
+        String base = affinities.isEmpty() ? ConjurerResources.conjurer.tooltips.combust.title : EUIRM.strings.adjNoun(getAffinityLevelOrString(), ConjurerResources.conjurer.tooltips.combust.title);
         return alt ? TEXT.conditions.not(base) : base;
     }
 }

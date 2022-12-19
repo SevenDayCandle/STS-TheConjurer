@@ -2,13 +2,14 @@ package pinacolada.skills.conjurer.conditions;
 
 import pinacolada.cards.base.PCLCardTarget;
 import pinacolada.cards.base.PCLUseInfo;
-import pinacolada.resources.PGR;
+import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.CMove;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PSkillData;
 import pinacolada.skills.PSkillSaveData;
 import pinacolada.ui.combat.ConjurerReactionMeter;
 
-import static pinacolada.resources.PCLEnum.Cards.THE_CONJURER;
+import static pinacolada.resources.conjurer.ConjurerEnum.Cards.THE_CONJURER;
 
 public class PCond_PayReaction extends PCond
 {
@@ -44,12 +45,12 @@ public class PCond_PayReaction extends PCond
     @Override
     public String getSampleText()
     {
-        return TEXT.actions.pay("X", PGR.core.tooltips.reaction.title);
+        return TEXT.actions.pay("X", ConjurerResources.conjurer.tooltips.reaction.title);
     }
 
     @Override
     public String getSubText()
     {
-        return capital(TEXT.actions.pay(amount, PGR.core.tooltips.reaction.title), true);
+        return capital(TEXT.actions.pay(amount, ConjurerResources.conjurer.tooltips.reaction.title), true);
     }
 }

@@ -22,7 +22,7 @@ public class ConjurerResources extends PCLResources<ConjurerConfig, ConjurerImag
 
     public ConjurerResources()
     {
-        super(ID, PCLEnum.Cards.THE_CONJURER, PCLEnum.Characters.THE_CONJURER, new ConjurerPlayerData(), new ConjurerConfig(), new ConjurerImages(ID));
+        super(ID, ConjurerEnum.Cards.THE_CONJURER, ConjurerEnum.Characters.THE_CONJURER, new ConjurerPlayerData(), new ConjurerConfig(), new ConjurerImages(ID));
     }
 
     public void initializeColor()

@@ -10,7 +10,7 @@ public class ConjurerLoadout extends PCLLoadout
 {
     public ConjurerLoadout(int series, int unlockLevel)
     {
-        super(PCLEnum.Cards.THE_CONJURER, series, unlockLevel);
+        super(ConjurerEnum.Cards.THE_CONJURER, series, unlockLevel);
     }
 
     @Override

@@ -1,11 +1,11 @@
 {
 				"Burning":	{
-								"DESCRIPTION": "[A-R] #yElemental #yDebuff. Receive more #yAttack damage.",
+								"DESCRIPTION": "[A-R] #yElemental #yDebuff. When you attack a creature with [Burning], gain [Vigor].",
 								"NAMES": ["burning"],
 								"PROPER_NAME": "Burning"
 				},
 				"Chilled":	{
-								"DESCRIPTION": "[A-B] #yElemental #yDebuff. Reduces outgoing #yAttack damage.",
+								"DESCRIPTION": "[A-B] #yElemental #yDebuff. Deal less #yAttack damage and receive additional damage from #yOrbs and [~Magic] #yAttacks.",
 								"NAMES": ["chilled"],
 								"PROPER_NAME": "Chilled"
 				},
@@ -70,7 +70,7 @@
 								"PROPER_NAME": "Redox"
 				},
 				"Stoned":	{
-								"DESCRIPTION": "[A-O] #yElemental #yDebuff. When you attack a creature with [Stoned], gain [Block] next turn.",
+								"DESCRIPTION": "[A-O] #yElemental #yDebuff. When you target a creature with [Stoned], gain [Block] next turn.",
 								"NAMES": ["stoned"],
 								"PROPER_NAME": "Stoned"
 				}

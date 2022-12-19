@@ -54,12 +54,13 @@
             <groupId>pinacolada</groupId>
             <artifactId>pinacolada</artifactId>
             <version>v1.0.0</version>
-            <scope>compile</scope>
+            <scope>system</scope>
+            <systemPath>${Steam.path}/common/SlayTheSpire/mods/PCLCore.jar</systemPath>
         </dependency>
     </dependencies>
 
     <build>
-        <finalName>TheConjurer</finalName>
+        <finalName>pinacolada.TheConjurer</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

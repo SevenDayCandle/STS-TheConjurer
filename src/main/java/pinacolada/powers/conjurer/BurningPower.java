@@ -3,16 +3,18 @@ package pinacolada.powers.conjurer;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import pinacolada.actions.PCLActions;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.effects.AttackEffects;
 import pinacolada.effects.SFX;
+import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 
 public class BurningPower extends AbstractPCLElementalPower
 {
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, BurningPower.class);
     public static final PCLAffinity AFFINITY = setAffinity(POWER_ID, PCLAffinity.Red);
-    public static final int MULTIPLIER = setMultiplier(POWER_ID, 30);
+    public static final int MULTIPLIER = setMultiplier(POWER_ID, 25);
 
     public BurningPower(AbstractCreature owner, AbstractCreature source, int amount)
     {
@@ -37,8 +39,13 @@ public class BurningPower extends AbstractPCLElementalPower
     }
 
     @Override
-    public float atDamageReceive(float damage, DamageInfo.DamageType type)
+    public int onAttacked(DamageInfo info, int damageAmount)
     {
-        return super.atDamageReceive(type == DamageInfo.DamageType.NORMAL ? calculateDamage(damage, getIntensifyMultiplier()) : damage, type);
+        if (info.type == DamageInfo.DamageType.NORMAL && damageAmount > 0)
+        {
+            PCLActions.bottom.gain(PCLPowerHelper.Vigor, (int) calculateDamage(damageAmount, getIntensifyMultiplier()));
+        }
+
+        return super.onAttacked(info, damageAmount);
     }
 }

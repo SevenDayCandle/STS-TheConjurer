@@ -3,6 +3,8 @@ package pinacolada.skills.conjurer.moves;
 import pinacolada.cards.base.PCLUseInfo;
 import pinacolada.resources.PCLEnum;
 import pinacolada.resources.PGR;
+import pinacolada.resources.conjurer.ConjurerEnum;
+import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkillData;
 import pinacolada.skills.PSkillSaveData;
 import pinacolada.skills.skills.base.moves.PMove_Gain;
@@ -10,7 +12,7 @@ import pinacolada.ui.combat.ConjurerReactionMeter;
 
 public class PMove_GainReaction extends PMove_Gain
 {
-    public static final PSkillData DATA = register(PMove_GainReaction.class, PCLEffectType.General, PCLEnum.Cards.THE_ETERNAL);
+    public static final PSkillData DATA = register(PMove_GainReaction.class, PCLEffectType.General, ConjurerEnum.Cards.THE_CONJURER);
 
     public PMove_GainReaction()
     {
@@ -30,7 +32,7 @@ public class PMove_GainReaction extends PMove_Gain
     @Override
     public String gainText()
     {
-        return PGR.core.tooltips.reaction.title;
+        return ConjurerResources.conjurer.tooltips.reaction.title;
     }
 
     @Override

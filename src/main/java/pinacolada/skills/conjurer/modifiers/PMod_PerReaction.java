@@ -5,6 +5,8 @@ import pinacolada.cards.base.PCLCardTarget;
 import pinacolada.cards.base.PCLUseInfo;
 import pinacolada.resources.PCLEnum;
 import pinacolada.resources.PGR;
+import pinacolada.resources.conjurer.ConjurerEnum;
+import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMod;
 import pinacolada.skills.PSkill;
 import pinacolada.skills.PSkillData;
@@ -16,7 +18,7 @@ import static pinacolada.skills.PSkill.PCLEffectType.General;
 public class PMod_PerReaction extends PMod
 {
 
-    public static final PSkillData DATA = register(PMod_PerReaction.class, General, PCLEnum.Cards.THE_CONJURER).selfTarget();
+    public static final PSkillData DATA = register(PMod_PerReaction.class, General, ConjurerEnum.Cards.THE_CONJURER).selfTarget();
 
     public PMod_PerReaction(PSkillSaveData content)
     {
@@ -36,19 +38,19 @@ public class PMod_PerReaction extends PMod
     @Override
     public String getSampleText()
     {
-        return TEXT.conditions.per("X", PGR.core.tooltips.reaction.title);
+        return TEXT.conditions.per("X", ConjurerResources.conjurer.tooltips.reaction.title);
     }
 
     @Override
     public String getSubText()
     {
-        return amount > 1 ? EUIRM.strings.numNoun(getAmountRawString(), PGR.core.tooltips.reaction.title) : PGR.core.tooltips.reaction.title;
+        return amount > 1 ? EUIRM.strings.numNoun(getAmountRawString(), ConjurerResources.conjurer.tooltips.reaction.title) : ConjurerResources.conjurer.tooltips.reaction.title;
     }
 
     @Override
     public String getText(boolean addPeriod)
     {
-        String payString = alt ? (capital(TEXT.actions.pay("X", PGR.core.tooltips.reaction.title), true) + ": ") : "";
+        String payString = alt ? (capital(TEXT.actions.pay("X", ConjurerResources.conjurer.tooltips.reaction.title), true) + ": ") : "";
         return payString + super.getText(addPeriod);
     }
 

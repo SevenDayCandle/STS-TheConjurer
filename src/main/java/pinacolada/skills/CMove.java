@@ -1,37 +1,52 @@
 package pinacolada.skills;
 
 import pinacolada.cards.base.PCLAffinity;
-import pinacolada.cards.base.PCLCard;
+import pinacolada.cards.base.PCLCardTarget;
+import pinacolada.resources.PCLTooltips;
+import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.resources.conjurer.ConjurerTooltips;
+import pinacolada.skills.conjurer.moves.PMove_ApplyElement;
 import pinacolada.skills.conjurer.moves.PMove_GainReaction;
-import skills.decider.moves.PMove_ActivateAura;
-import skills.decider.moves.PMove_GainAura;
-import skills.decider.moves.PMove_Shift;
 
 public abstract class CMove
 {
-    public static PMove activateAura(PCLAffinity... amount)
+    public static PMove applyElement(PCLCardTarget target, int amount, PCLAffinity... affinities)
     {
-        return new PMove_ActivateAura(amount);
+        return new PMove_ApplyElement(target, amount, affinities);
     }
 
-    public static PMove gainAura(int amount, PCLAffinity... affinities)
+    public static PMove applyElementToAll(int amount, PCLAffinity... affinities)
     {
-        return new PMove_GainAura(amount, affinities);
+        return applyElement(PCLCardTarget.All, amount, affinities);
     }
 
-    public static PMove gainAura(PCLCard card, PSkill.PCLCardValueSource valueSource, PCLAffinity... affinities)
+    public static PMove applyElementToAllies(int amount, PCLAffinity... affinities)
     {
-        return new PMove_GainAura(0, affinities)
-                .setSource(card, valueSource);
+        return applyElement(PCLCardTarget.AllAlly, amount, affinities);
+    }
+
+    public static PMove applyElementToEnemies(int amount, PCLAffinity... affinities)
+    {
+        return applyElement(PCLCardTarget.AllEnemy, amount, affinities);
+    }
+
+    public static PMove applyElementToRandom(int amount, PCLAffinity... affinities)
+    {
+        return applyElement(PCLCardTarget.RandomEnemy, amount, affinities);
+    }
+
+    public static PMove applyElementToSingle(int amount, PCLAffinity... affinities)
+    {
+        return applyElement(PCLCardTarget.Single, amount, affinities);
+    }
+
+    public static PMove applyElementToSelf(int amount, PCLAffinity... affinities)
+    {
+        return applyElement(PCLCardTarget.Self, amount, affinities);
     }
 
     public static PMove gainReaction(int amount)
     {
         return new PMove_GainReaction(amount);
-    }
-
-    public static PMove shift(PCLAffinity... amount)
-    {
-        return new PMove_Shift(amount);
     }
 }

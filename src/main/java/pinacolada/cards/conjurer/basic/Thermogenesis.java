@@ -5,17 +5,19 @@ import pinacolada.cards.base.*;
 import pinacolada.effects.AttackEffects;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.CMove;
+import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
-public class RoilingMagma extends PCLCard
+public class Thermogenesis extends PCLCard
 {
-    public static final PCLCardData DATA = register(RoilingMagma.class, ConjurerResources.conjurer)
-            .setAttack(2, CardRarity.COMMON, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
-            .setDamage(9, 3)
+    public static final PCLCardData DATA = register(Thermogenesis.class, ConjurerResources.conjurer)
+            .setAttack(1,CardRarity.UNCOMMON, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
+            .setDamage(6, 3)
             .setAffinities(PCLAffinity.Red)
             .setCore();
 
-    public RoilingMagma()
+    public Thermogenesis()
     {
         super(DATA);
     }
@@ -23,6 +25,6 @@ public class RoilingMagma extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.FIRE);
-        addUseMove(PMove.applyToSingle(3, PCLPowerHelper.Burning));
+        addUseMove(PCond.onDraw(), CMove.applyElementToRandom(2, PCLAffinity.Red));
     }
 }

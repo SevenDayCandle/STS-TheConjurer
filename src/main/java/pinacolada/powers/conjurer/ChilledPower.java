@@ -1,19 +1,19 @@
 package pinacolada.powers.conjurer;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.effects.AttackEffects;
 import pinacolada.effects.SFX;
+import pinacolada.interfaces.subscribers.OnOrbApplyLockOnSubscriber;
+import pinacolada.misc.CombatManager;
 import pinacolada.resources.conjurer.ConjurerResources;
 
-public class ChilledPower extends AbstractPCLElementalPower
+public class ChilledPower extends AbstractPCLElementalPower implements OnOrbApplyLockOnSubscriber
 {
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, ChilledPower.class);
     public static final PCLAffinity AFFINITY = setAffinity(POWER_ID, PCLAffinity.Blue);
-    public static final int MULTIPLIER = setMultiplier(POWER_ID, 2);
-    public static final int DENOMINATOR = setTop(POWER_ID, 8);
+    public static final int MULTIPLIER = setMultiplier(POWER_ID, 25);
 
     public ChilledPower(AbstractCreature owner, AbstractCreature source, int amount)
     {
@@ -38,8 +38,30 @@ public class ChilledPower extends AbstractPCLElementalPower
     }
 
     @Override
+    public void onInitialApplication()
+    {
+        super.onInitialApplication();
+
+        CombatManager.onOrbApplyLockOn.subscribe(this);
+    }
+
+    @Override
+    public void onRemove()
+    {
+        super.onRemove();
+
+        CombatManager.onOrbApplyLockOn.unsubscribe(this);
+    }
+
+/*    @Override
     public float atDamageGive(float damage, DamageInfo.DamageType type)
     {
         return super.atDamageGive((type == DamageInfo.DamageType.NORMAL) ? calculateDamage(damage, getIntensifyMultiplier()) : damage, type);
+    }*/
+
+    @Override
+    public float onOrbApplyLockOn(AbstractCreature abstractCreature, float damage)
+    {
+        return calculateDamage(damage, getIntensifyMultiplier());
     }
 }

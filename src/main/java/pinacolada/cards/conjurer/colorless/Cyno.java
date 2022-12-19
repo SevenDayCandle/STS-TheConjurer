@@ -4,6 +4,7 @@ import pinacolada.cards.base.*;
 import pinacolada.effects.PCLEffekseerEFX;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.PCLEnum;
+import pinacolada.resources.conjurer.ConjurerEnum;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
@@ -81,7 +82,7 @@ public class Cyno extends PCLCard
                 debuffs.add(PMove.applyToSingle(3, PCLPowerHelper.Shackles));
                 debuffs.add(PMove.applyToSingle(3, PCLPowerHelper.Poison));
 
-                if (GameUtilities.getPlayerClass() == PCLEnum.Characters.THE_CONJURER)
+                if (GameUtilities.getPlayerClass() == ConjurerEnum.Characters.THE_CONJURER)
                 {
                     debuffs.add(PMove.applyToSingle(3, PCLPowerHelper.Burning));
                     debuffs.add(PMove.applyToSingle(3, PCLPowerHelper.Flowed));

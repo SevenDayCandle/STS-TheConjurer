@@ -9,22 +9,22 @@ import pinacolada.effects.AttackEffects;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CMove;
 
-public class GlintstonePebble extends PCLCard
+public class PowderSnow extends PCLCard
 {
-    public static final PCLCardData DATA = register(GlintstonePebble.class, ConjurerResources.conjurer)
+    public static final PCLCardData DATA = register(PowderSnow.class, ConjurerResources.conjurer)
             .setAttack(0, CardRarity.COMMON, PCLAttackType.Ranged)
             .setDamage(2, 2)
             .setAffinities(PCLAffinity.Blue)
             .setCore();
 
-    public GlintstonePebble()
+    public PowderSnow()
     {
         super(DATA);
     }
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.BLUNT_LIGHT);
-        addUseMove(CMove.gainReaction(3).setUpgrade(2));
+        addDamageMove(AttackEffects.ICE);
+        addUseMove(CMove.applyElementToSingle(3, PCLAffinity.Blue).setUpgrade(1));
     }
 }

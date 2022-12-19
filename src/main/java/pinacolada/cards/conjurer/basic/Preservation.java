@@ -5,27 +5,26 @@ import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.PCLCardTarget;
-import pinacolada.effects.AttackEffects;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PCond;
+import pinacolada.skills.PMove;
 import pinacolada.skills.PTrait;
+import pinacolada.skills.skills.base.modifiers.PMod_PerDistinctPower;
 
-public class BeastClaw extends PCLCard
+public class Preservation extends PCLCard
 {
-    public static final PCLCardData DATA = register(BeastClaw.class, ConjurerResources.conjurer)
-            .setAttack(1, CardRarity.COMMON)
-            .setDamage(6, 1)
+    public static final PCLCardData DATA = register(Preservation.class, ConjurerResources.conjurer)
+            .setSkill(1, CardRarity.COMMON, PCLCardTarget.Team)
+            .setBlock(7, 1)
             .setAffinities(PCLAffinity.Orange)
             .setCore();
 
-    public BeastClaw()
+    public Preservation()
     {
         super(DATA);
     }
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.CLAW);
-        addUseMove(PCond.checkPower(PCLCardTarget.Single, 1), PTrait.hasDamage(4).setUpgrade(3));
+        addUseMove(PMove.retain(1).setUpgrade(1));
     }
 }

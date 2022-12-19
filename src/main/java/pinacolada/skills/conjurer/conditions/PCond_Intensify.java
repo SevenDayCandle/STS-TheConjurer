@@ -8,6 +8,7 @@ import pinacolada.cards.base.PCLCardTarget;
 import pinacolada.cards.base.PCLUseInfo;
 import pinacolada.resources.PCLEnum;
 import pinacolada.resources.PGR;
+import pinacolada.resources.conjurer.ConjurerEnum;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PSkill;
 import pinacolada.skills.PSkillData;
@@ -17,7 +18,7 @@ public class PCond_Intensify extends PCond
 {
 
     public static final PSkillData DATA = register(PCond_Intensify.class, PCLEffectType.General, 1, 1)
-            .setColors(PCLEnum.Cards.THE_CONJURER)
+            .setColors(ConjurerEnum.Cards.THE_CONJURER)
             .selfTarget();
 
     public PCond_Intensify()
