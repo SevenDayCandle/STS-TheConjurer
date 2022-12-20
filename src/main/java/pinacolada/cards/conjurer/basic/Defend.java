@@ -15,7 +15,6 @@ public class Defend extends PCLCard
     {
         super(DATA);
 
-        this.cropPortrait = false;
         this.tags.add(CardTags.STARTER_DEFEND);
     }
 }

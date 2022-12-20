@@ -14,7 +14,6 @@ public class Strike extends PCLCard
     {
         super(DATA);
 
-        this.cropPortrait = false;
         this.tags.add(CardTags.STARTER_STRIKE);
         this.tags.add(CardTags.STRIKE);
     }

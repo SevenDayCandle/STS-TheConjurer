@@ -60,7 +60,7 @@
     </dependencies>
 
     <build>
-        <finalName>pinacolada.TheConjurer</finalName>
+        <finalName>TheConjurer</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

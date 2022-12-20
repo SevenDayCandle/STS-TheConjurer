@@ -3,16 +3,9 @@ package pinacolada.resources.conjurer;
 import basemod.BaseMod;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.helpers.CardHelper;
-import com.megacrit.cardcrawl.localization.CharacterStrings;
-import com.megacrit.cardcrawl.localization.PotionStrings;
-import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.localization.RelicStrings;
-import extendedui.EUIUtils;
 import pinacolada.characters.ConjurerCharacter;
 import pinacolada.misc.CombatManager;
-import pinacolada.resources.PCLEnum;
 import pinacolada.resources.PCLResources;
-import pinacolada.ui.characterSelection.PCLLoadoutsContainer;
 import pinacolada.ui.combat.ConjurerReactionMeter;
 
 public class ConjurerResources extends PCLResources<ConjurerConfig, ConjurerImages, ConjurerTooltips>
@@ -22,7 +15,7 @@ public class ConjurerResources extends PCLResources<ConjurerConfig, ConjurerImag
 
     public ConjurerResources()
     {
-        super(ID, ConjurerEnum.Cards.THE_CONJURER, ConjurerEnum.Characters.THE_CONJURER, new ConjurerPlayerData(), new ConjurerConfig(), new ConjurerImages(ID));
+        super(ID, ConjurerEnum.Cards.THE_CONJURER, ConjurerEnum.Characters.THE_CONJURER, new ConjurerConfig(), new ConjurerImages(ID), ConjurerPlayerData::new);
     }
 
     public void initializeColor()
@@ -34,44 +27,26 @@ public class ConjurerResources extends PCLResources<ConjurerConfig, ConjurerImag
                 images.powerL, images.orbB, images.orbC);
     }
 
-    protected void initializeCards()
-    {
-        EUIUtils.logInfo(this, "InitializeCards();");
-
-        tooltips = new ConjurerTooltips();
-        loadCustomCards();
-        loadCustomRelics();
-    }
-
-    protected void initializeStrings()
-    {
-        EUIUtils.logInfo(this, "InitializeStrings();");
-
-        loadCustomStrings(CharacterStrings.class);
-        loadCustomCardStrings();
-        loadCustomStrings(RelicStrings.class);
-        loadCustomStrings(PowerStrings.class);
-        loadCustomStrings(PotionStrings.class);
-    }
-
     protected void initializePotions()
     {
-        EUIUtils.logInfo(this, "InitializePotions();");
-
         loadCustomPotions();
     }
 
-    protected void initializeCharacter()
+    public void receiveEditCards()
+    {
+        tooltips = new ConjurerTooltips();
+        loadCustomCards();
+    }
+
+    public void receiveEditCharacters()
     {
         BaseMod.addCharacter(new ConjurerCharacter(), images.charButton, images.charBackground, playerClass);
     }
 
     protected void postInitialize()
     {
-        data.initialize();
-        PCLLoadoutsContainer.preloadResources(data);
+        super.postInitialize();
         CombatManager.playerSystem.registerMeter(playerClass, ConjurerReactionMeter.meter);
-        tooltips.initializeIcons();
     }
 
 }

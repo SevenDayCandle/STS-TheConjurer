@@ -28,6 +28,6 @@ public class DustTornado extends PCLCard
     public void setup(Object input)
     {
         addUseMove(PCond.exhaust(1), PMove.summon(1, PCLCardGroupHelper.DiscardPile));
-        addUseMove(CCond.redox(), CMove.applyElementToEnemies(5, PCLAffinity.Green));
+        addUseMove(CCond.redox(), CMove.applyElementToEnemies(3, PCLAffinity.Green, PCLAffinity.Orange));
     }
 }

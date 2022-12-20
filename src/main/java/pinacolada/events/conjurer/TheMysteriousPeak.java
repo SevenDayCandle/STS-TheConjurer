@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import eatyourbeets.events.base.EYBEventOption;
 import eatyourbeets.events.base.EYBEventPhase;
 import eatyourbeets.events.base.EYBEventStrings;
-import pinacolada.cards.conjurer.colorless.SheerCold;
+import pinacolada.cards.conjurer.basic.SheerCold;
 import pinacolada.events.base.PCLEvent;
 import pinacolada.effects.GameEffects;
 import pinacolada.utilities.RandomizedList;

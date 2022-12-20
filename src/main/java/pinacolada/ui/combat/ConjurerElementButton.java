@@ -20,8 +20,8 @@ import pinacolada.cards.base.PCLCardAffinity;
 import pinacolada.effects.PCLEffects;
 import pinacolada.effects.affinity.GenericFlashEffect;
 import pinacolada.misc.CombatManager;
-import pinacolada.powers.PCLPowerHelper;
 import pinacolada.powers.conjurer.AbstractPCLElementalPower;
+import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.PGR;
 import pinacolada.resources.pcl.PCLCoreStrings;
 import pinacolada.utilities.GameUtilities;
@@ -52,7 +52,7 @@ public class ConjurerElementButton extends EUIButton
         super(PGR.core.images.core.squareBG2.texture(), hb);
         this.meter = meter;
         this.affinity = affinity;
-        reactionStrings = PGR.getPowerStrings(affinity.getElementPower().ID);
+        reactionStrings = PGR.getPowerStrings(elementID());
         elementImage = new EUIImage(texture, hb).setColor(Color.GRAY).setScale(0.5f, 0.5f);
 
         setOnClick(this::tryAddLevel);
@@ -122,9 +122,9 @@ public class ConjurerElementButton extends EUIButton
         return elementPower().ID;
     }
 
-    public PCLPowerHelper elementPower()
+    public PCLElementHelper elementPower()
     {
-        return affinity.getElementPower();
+        return PCLElementHelper.get(affinity);
     }
 
     public void flash()
@@ -257,7 +257,7 @@ public class ConjurerElementButton extends EUIButton
     {
         if (PGR.isLoaded())
         {
-            PCLPowerHelper power = elementPower();
+            PCLElementHelper power = elementPower();
 
             ArrayList<String> strings = new ArrayList<>();
             strings.add(PCLCoreStrings.headerString(PGR.core.tooltips.level.title, level));

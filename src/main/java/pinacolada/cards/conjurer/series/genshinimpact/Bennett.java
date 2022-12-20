@@ -2,9 +2,9 @@ package pinacolada.cards.conjurer.series.genshinimpact;
 
 
 import pinacolada.cards.base.PCLAffinity;
-import pinacolada.cards.base.PCLAttackType;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
+import pinacolada.cards.base.PCLCardTarget;
 import pinacolada.effects.AttackEffects;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
@@ -15,8 +15,9 @@ import pinacolada.skills.PMove;
 public class Bennett extends PCLCard
 {
     public static final PCLCardData DATA = register(Bennett.class, ConjurerResources.conjurer)
-            .setAttack(1, CardRarity.COMMON, PCLAttackType.Normal)
-            .setDamage(10, 2)
+            .setSummon(1, CardRarity.COMMON)
+            .setDamage(4, 0)
+            .setHp(8, 2)
             .setAffinities(PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
@@ -27,8 +28,7 @@ public class Bennett extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.BLUNT_HEAVY);
-        addUseMove(PMove.gain(4, PCLPowerHelper.Vigor, PCLPowerHelper.Burning).setUpgrade(1));
-        addUseMove(PCond.redox(), PMove.gain(4, PCLPowerHelper.Vigor));
+        addDamageMove(AttackEffects.BLUNT_LIGHT);
+        addUseMove(PCond.cooldown(1), PMove.apply(PCLCardTarget.Team, 3, PCLPowerHelper.Vigor).setUpgrade(1));
     }
 }

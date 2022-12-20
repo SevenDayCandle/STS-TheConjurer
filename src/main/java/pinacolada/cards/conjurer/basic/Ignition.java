@@ -1,6 +1,5 @@
 package pinacolada.cards.conjurer.basic;
 
-
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
@@ -9,22 +8,22 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CMove;
 import pinacolada.skills.PMove;
 
-public class Condensation extends PCLCard
+public class Ignition extends PCLCard
 {
-    public static final PCLCardData DATA = register(Condensation.class, ConjurerResources.conjurer)
-            .setSkill(1, CardRarity.COMMON, PCLCardTarget.SingleAlly)
+    public static final PCLCardData DATA = register(Ignition.class, ConjurerResources.conjurer)
+            .setSkill(2, CardRarity.UNCOMMON, PCLCardTarget.Team)
             .setCostUpgrades(-1)
-            .setAffinities(PCLAffinity.Blue)
+            .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
             .setCore();
 
-    public Condensation()
+    public Ignition()
     {
         super(DATA);
     }
 
     public void setup(Object input)
     {
-        addUseMove(PMove.triggerAlly(PCLCardTarget.SingleAlly, 2));
-        addUseMove(CMove.applyElementToSingle(3, PCLAffinity.Blue));
+        addUseMove(PMove.triggerAlly(PCLCardTarget.AllAlly, 2));
+        addUseMove(CMove.applyElement(PCLCardTarget.Team, 3, PCLAffinity.Red));
     }
 }

@@ -15,7 +15,6 @@ import pinacolada.interfaces.subscribers.OnTryGainResolveSubscriber;
 import pinacolada.misc.CombatManager;
 import pinacolada.powers.PCLPower;
 import pinacolada.resources.conjurer.ConjurerResources;
-import powers.decider.AbstractAura;
 
 public class ElementalMasteryPower extends PCLPower implements OnTryGainResolveSubscriber
 {
@@ -68,7 +67,7 @@ public class ElementalMasteryPower extends PCLPower implements OnTryGainResolveS
     {
         super.onApplyPower(power, target, source);
 
-        if (power.amount > 0 && (power instanceof AbstractAura || power instanceof AbstractPCLElementalPower))
+        if (power.amount > 0 && (power instanceof AbstractPCLElementalPower))
         {
             power.amount += this.amount;
 

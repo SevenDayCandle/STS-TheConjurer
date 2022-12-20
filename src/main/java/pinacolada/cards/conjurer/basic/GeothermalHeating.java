@@ -6,25 +6,24 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.PCLCardTarget;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PMove;
 import pinacolada.skills.PTrait;
 import pinacolada.skills.skills.base.modifiers.PMod_PerDistinctPower;
 
-public class Preservation extends PCLCard
+public class GeothermalHeating extends PCLCard
 {
-    public static final PCLCardData DATA = register(Preservation.class, ConjurerResources.conjurer)
-            .setSkill(1, CardRarity.COMMON, PCLCardTarget.Team)
-            .setBlock(6, 1)
-            .setAffinities(PCLAffinity.Orange)
+    public static final PCLCardData DATA = register(GeothermalHeating.class, ConjurerResources.conjurer)
+            .setSkill(1, CardRarity.COMMON)
+            .setBlock(5, 1)
+            .setAffinities(PCLAffinity.Red, PCLAffinity.Orange)
             .setCore();
 
-    public Preservation()
+    public GeothermalHeating()
     {
         super(DATA);
     }
 
     public void setup(Object input)
     {
-        addUseMove(PMove.retain(1).setUpgrade(1));
+        addUseMove(new PMod_PerDistinctPower(1).setTarget(PCLCardTarget.Single), PTrait.hasBlock(3).setUpgrade(1));
     }
 }

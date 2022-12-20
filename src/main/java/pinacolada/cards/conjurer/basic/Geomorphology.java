@@ -6,6 +6,7 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.PCLCardTarget;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.CMove;
 import pinacolada.skills.PTrait;
 import pinacolada.skills.skills.base.modifiers.PMod_PerDistinctPower;
 
@@ -13,7 +14,7 @@ public class Geomorphology extends PCLCard
 {
     public static final PCLCardData DATA = register(Geomorphology.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.COMMON)
-            .setBlock(5, 1)
+            .setBlock(7, 2)
             .setAffinities(PCLAffinity.Orange)
             .setCore();
 
@@ -24,6 +25,6 @@ public class Geomorphology extends PCLCard
 
     public void setup(Object input)
     {
-        addUseMove(new PMod_PerDistinctPower(1).setTarget(PCLCardTarget.Single), PTrait.hasBlock(3).setUpgrade(1));
+        addUseMove(CMove.applyElementToSingle(3, PCLAffinity.Orange).setUpgrade(1));
     }
 }

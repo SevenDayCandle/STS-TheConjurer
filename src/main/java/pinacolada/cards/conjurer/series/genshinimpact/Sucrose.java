@@ -2,19 +2,21 @@ package pinacolada.cards.conjurer.series.genshinimpact;
 
 
 import pinacolada.cards.base.PCLAffinity;
+import pinacolada.cards.base.PCLAttackType;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.effects.AttackEffects;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.CMove;
 import pinacolada.skills.PCond;
-import pinacolada.skills.PMove;
 
 public class Sucrose extends PCLCard
 {
     public static final PCLCardData DATA = register(Sucrose.class, ConjurerResources.conjurer)
-            .setSkill(0, CardRarity.COMMON)
-            .setMagicNumber(1, 1)
+            .setSummon(0, CardRarity.COMMON, PCLAttackType.Magical)
+            .setDamage(2, 1)
+            .setHp(6, 2)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
@@ -25,7 +27,7 @@ public class Sucrose extends PCLCard
 
     public void setup(Object input)
     {
-        addUseMove(PMove.applyToSingle(1, PCLPowerHelper.LockOn).setUpgrade(1));
-        addUseMove(PCond.redox(), PMove.applyToSingle(3, PCLPowerHelper.Flowed));
+        addDamageMove(AttackEffects.WIND);
+        addUseMove(PCond.cooldown(0), CMove.applyElementToSingle(2, PCLAffinity.Green));
     }
 }

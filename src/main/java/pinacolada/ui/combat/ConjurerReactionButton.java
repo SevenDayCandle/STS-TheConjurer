@@ -17,6 +17,7 @@ import pinacolada.effects.PCLEffects;
 import pinacolada.effects.affinity.GenericFlashEffect;
 import pinacolada.powers.conjurer.AbstractPCLElementalPower;
 import pinacolada.resources.PGR;
+import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.utilities.PCLRenderHelpers;
 
 public class ConjurerReactionButton extends EUIImage
@@ -116,7 +117,7 @@ public class ConjurerReactionButton extends EUIImage
                     EUIUtils.format(PGR.core.strings.combat.conjurerMeterRedox, source.affinity.getTooltip(), target.elementPower().tooltip, PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(source.affinity))));
             if (source.meter.getMorphCount() > 0)
             {
-                tooltip.setDescription(tooltip.description() + " | " + EUIUtils.format(PGR.core.strings.combat.conjurerMeterSwitch, type == ConjurerElementButton.Type.Combust ? PGR.core.tooltips.redox.title : PGR.core.tooltips.combust.title));
+                tooltip.setDescription(tooltip.description() + " | " + EUIUtils.format(PGR.core.strings.combat.conjurerMeterSwitch, type == ConjurerElementButton.Type.Combust ? ConjurerResources.conjurer.tooltips.redox.title : ConjurerResources.conjurer.tooltips.combust.title));
             }
         }
     }

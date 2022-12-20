@@ -62,7 +62,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
 
     public ConjurerReactionMeter()
     {
-        super(ConjurerResources.conjurer.config.conjurerMeterPosition, ICON_SIZE);
+        super(ConjurerResources.conjurer.config.meterPosition, ICON_SIZE);
 
         fire = new ConjurerElementButton(this, PCLAffinity.Red, PGR.core.images.core.elementFire.texture(), new PercentageRelativeHitbox(hb, 2, 2, 5f, -1 + DISTANCE));
         air = new ConjurerElementButton(this, PCLAffinity.Green,PGR.core.images.core.elementAir.texture(), new PercentageRelativeHitbox(hb, 2, 2, 5f, -1 - DISTANCE));

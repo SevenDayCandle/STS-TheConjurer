@@ -2,22 +2,23 @@ package pinacolada.cards.conjurer.series.genshinimpact;
 
 
 import pinacolada.cards.base.PCLAffinity;
+import pinacolada.cards.base.PCLAttackType;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
-import pinacolada.cards.base.PCLCardTarget;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.effects.AttackEffects;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PMove;
-import pinacolada.skills.skills.PMultiSkill;
-import pinacolada.skills.skills.base.modifiers.PMod_ScryBranch;
+import pinacolada.skills.CMove;
+import pinacolada.skills.PCond;
+import pinacolada.skills.PMod;
 
 public class LisaMinci extends PCLCard
 {
     public static final PCLCardData DATA = register(LisaMinci.class, ConjurerResources.conjurer)
-            .setSkill(2, CardRarity.COMMON, PCLCardTarget.AllEnemy)
-            .setBlock(5, 1)
-            .setAffinities(2, PCLAffinity.Blue)
+            .setSummon(2, CardRarity.COMMON, PCLAttackType.Magical)
+            .setDamage(3, 0)
+            .setHp(12, 3)
+            .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
     public LisaMinci()
@@ -27,10 +28,7 @@ public class LisaMinci extends PCLCard
 
     public void setup(Object input)
     {
-        addUseMove(new PMod_ScryBranch(2).setUpgrade(1).setAffinity(PCLAffinity.Green, PCLAffinity.Blue), PMultiSkill.join(
-                PMove.gain(1, PCLPowerHelper.Energized),
-                PMove.gain(1, PCLPowerHelper.Sorcery),
-                PMove.gain(6, PCLPowerHelper.NextTurnBlock)
-        ));
+        addDamageMove(AttackEffects.ICE);
+        addUseMove(PCond.cooldown(1), PMod.scryPer(2), CMove.gainReaction(5).setUpgrade(1));
     }
 }

@@ -4,7 +4,8 @@ package pinacolada.cards.conjurer.series.genshinimpact;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.cards.base.PCLCardTarget;
+import pinacolada.effects.AttackEffects;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -13,9 +14,10 @@ import pinacolada.skills.PMove;
 public class Noelle extends PCLCard
 {
     public static final PCLCardData DATA = register(Noelle.class, ConjurerResources.conjurer)
-            .setSkill(1, CardRarity.COMMON)
-            .setBlock(8, 3)
-            .setAffinities(2, PCLAffinity.Orange)
+            .setSummon(1, CardRarity.COMMON)
+            .setDamage(2, 1)
+            .setHp(9, 2)
+            .setAffinities(PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
     public Noelle()
@@ -25,7 +27,7 @@ public class Noelle extends PCLCard
 
     public void setup(Object input)
     {
-        addUseMove(PMove.applyToSingle(3, PCLPowerHelper.Stoned));
-        addUseMove(PCond.combust(), PMove.retain(1));
+        addDamageMove(AttackEffects.SLASH_HORIZONTAL);
+        addUseMove(PCond.cooldown(0), PMove.gainBlock(PCLCardTarget.Team, 2));
     }
 }
