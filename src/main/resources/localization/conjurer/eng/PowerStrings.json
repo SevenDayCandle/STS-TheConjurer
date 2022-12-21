@@ -12,7 +12,7 @@
 	},
 	"conjurer:BurningPower":
 	{
-		"DESCRIPTIONS": ["Receive +#b{0}% #yAttack damage.", "Targets with [Burning] take +#b{0}% #yAttack damage."],
+		"DESCRIPTIONS": ["When #yAttacked, you gain Temp. [Vigor] equal to #b{0}% of damage dealt.", "When targets with [Burning] take #yAttack damage, you gain #b{0}% of the damage as temporary [Vigor]."],
 		"NAME": "Burning"
 	},
 	"conjurer:BurningWeaponPower":
@@ -22,7 +22,7 @@
 	},
 	"conjurer:ChilledPower":
 	{
-		"DESCRIPTIONS": ["Deal -#b{0}% #yAttack damage.", "Targets with [Burning] deal -#b{0}% #yAttack damage."],
+		"DESCRIPTIONS": ["Receive +#b{0}% damage from #yAttacks and #yOrbs.", "Targets with [Chilled] take +#b{0}% damage from #yAttacks and #yOrbs."],
 		"NAME": "Chilled"
 	},
 	"conjurer:ChilledWeaponPower":
@@ -55,10 +55,10 @@
 		"DESCRIPTIONS": ["When #yAttacked, #b{0}% additional damage is dealt to itself and its allies.", "When targets with [Flowed] take #yAttack damage, #b{0}% of it is dealt to themself and their allies."],
 		"NAME": "Flowed"
 	},
-	"conjurer:FrozenPower":
+	"conjurer:FrostbitePower":
 	{
-	  "DESCRIPTIONS": ["Treated as a [A-B] #yElemental #yDebuff. Take #b+{0}% damage from [A-R] cards and #yOrbs. The first time this power is applied, #yStun this target."],
-	  "NAME": "Frozen"
+	  "DESCRIPTIONS": ["At the end of turn, lose #b{0} HP, then cut stacks in half."],
+	  "NAME": "Frostbite"
 	},
 	"conjurer:PetrifiedPower":
 	{

@@ -6,8 +6,9 @@ import pinacolada.cards.base.PCLAttackType;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.effects.AttackEffects;
+import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CMove;
+import pinacolada.skills.PMove;
 
 public class Scorch extends PCLCard
 {
@@ -25,6 +26,6 @@ public class Scorch extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.FIRE);
-        addUseMove(CMove.applyElementToSingle(3, PCLAffinity.Red).setUpgrade(1));
+        addUseMove(PMove.applyToSingle(3, PCLElementHelper.Burning).setUpgrade(1));
     }
 }

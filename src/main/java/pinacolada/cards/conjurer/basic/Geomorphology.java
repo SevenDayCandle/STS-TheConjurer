@@ -4,11 +4,9 @@ package pinacolada.cards.conjurer.basic;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
-import pinacolada.cards.base.PCLCardTarget;
+import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CMove;
-import pinacolada.skills.PTrait;
-import pinacolada.skills.skills.base.modifiers.PMod_PerDistinctPower;
+import pinacolada.skills.PMove;
 
 public class Geomorphology extends PCLCard
 {
@@ -25,6 +23,6 @@ public class Geomorphology extends PCLCard
 
     public void setup(Object input)
     {
-        addUseMove(CMove.applyElementToSingle(3, PCLAffinity.Orange).setUpgrade(1));
+        addUseMove(PMove.applyToSingle(3, PCLElementHelper.Stoned).setUpgrade(1));
     }
 }

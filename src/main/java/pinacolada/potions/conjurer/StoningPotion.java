@@ -1,10 +1,10 @@
 package pinacolada.potions.conjurer;
 
 import com.badlogic.gdx.graphics.Color;
-import pinacolada.cards.base.PCLAffinity;
 import pinacolada.potions.PCLPotion;
+import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CMove;
+import pinacolada.skills.PMove;
 
 public class StoningPotion extends PCLPotion
 {
@@ -17,7 +17,7 @@ public class StoningPotion extends PCLPotion
 
     public void setup()
     {
-        addUseMove(CMove.applyElementToEnemies(getPotency(), PCLAffinity.Orange));
+        addUseMove(PMove.applyToEnemies(getPotency(), PCLElementHelper.Stoned));
     }
 
     @Override

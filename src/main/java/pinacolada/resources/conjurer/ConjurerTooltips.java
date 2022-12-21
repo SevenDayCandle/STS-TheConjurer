@@ -17,7 +17,7 @@ public class ConjurerTooltips extends PCLTooltips
     public EUITooltip elementalExposure = EUITooltip.findByID("Elemental Exposure");
     public EUITooltip elementalMastery = EUITooltip.findByID("Elemental Mastery");
     public EUITooltip flowed = EUITooltip.findByID("Flowed");
-    public EUITooltip frozen = EUITooltip.findByID("Frozen");
+    public EUITooltip frostbite = EUITooltip.findByID("Frostbite");
     public EUITooltip morph = EUITooltip.findByID("Morph");
     public EUITooltip reaction = EUITooltip.findByID("Reaction");
     public EUITooltip redox = EUITooltip.findByID("Redox");
@@ -33,7 +33,7 @@ public class ConjurerTooltips extends PCLTooltips
         elementalExposure.setIconFromPath(PGR.getPowerImage(ElementalExposurePower.POWER_ID));
         elementalMastery.setIconFromPath(PGR.getPowerImage(ElementalMasteryPower.POWER_ID));
         flowed.setIconFromPath(PGR.getPowerImage(FlowedPower.POWER_ID));
-        frozen.setIconFromPath(PGR.getPowerImage(FrozenPower.POWER_ID));
+        frostbite.setIconFromPath(PGR.getPowerImage(FrostbitePower.POWER_ID));
         stoned.setIconFromPath(PGR.getPowerImage(StonedPower.POWER_ID));
     }
 

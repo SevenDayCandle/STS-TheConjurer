@@ -3,7 +3,6 @@ package pinacolada.resources.conjurer;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.conjurer.basic.Defend;
 import pinacolada.cards.conjurer.basic.Strike;
-import pinacolada.resources.PCLEnum;
 import pinacolada.resources.pcl.PCLLoadout;
 
 public class ConjurerLoadout extends PCLLoadout

@@ -1,4 +1,4 @@
-package pinacolada.cards.conjurer.series.genshinimpact;
+package pinacolada.cards.conjurer.series.shinmegamitensei;
 
 
 import pinacolada.cards.base.PCLAffinity;
@@ -12,24 +12,24 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
-public class Sucrose extends PCLCard
+public class JackFrost extends PCLCard
 {
-    public static final PCLCardData DATA = register(Sucrose.class, ConjurerResources.conjurer)
+    public static final PCLCardData DATA = register(JackFrost.class, ConjurerResources.conjurer)
             .setSummon(0, CardRarity.COMMON, PCLAttackType.Magical)
             .setDamage(2, 1)
             .setPriority(1)
             .setHp(5, 2)
-            .setAffinities(PCLAffinity.Blue, PCLAffinity.Green)
-            .setLoadout(ConjurerPlayerData.genshinImpact);
+            .setAffinities(2, PCLAffinity.Blue)
+            .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public Sucrose()
+    public JackFrost()
     {
         super(DATA);
     }
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.WIND);
-        addUseMove(PCond.cooldown(0), PMove.applyToSingle(2, PCLElementHelper.Flowed));
+        addDamageMove(AttackEffects.ICE);
+        addUseMove(PCond.cooldown(0), PMove.applyToSingle(2, PCLElementHelper.Chilled));
     }
 }

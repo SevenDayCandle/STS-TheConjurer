@@ -11,7 +11,7 @@ import extendedui.EUIRM;
 import extendedui.EUIUtils;
 import extendedui.ui.controls.EUILabel;
 import extendedui.ui.controls.EUITextBox;
-import extendedui.ui.hitboxes.PercentageRelativeHitbox;
+import extendedui.ui.hitboxes.RelativeHitbox;
 import extendedui.utilities.EUIColors;
 import extendedui.utilities.EUIFontHelper;
 import pinacolada.actions.PCLActions;
@@ -19,7 +19,7 @@ import pinacolada.actions.powers.ElementReaction;
 import pinacolada.cards.base.*;
 import pinacolada.orbs.PCLOrb;
 import pinacolada.powers.conjurer.AbstractPCLElementalPower;
-import pinacolada.powers.conjurer.FrozenPower;
+import pinacolada.powers.conjurer.FrostbitePower;
 import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.utilities.GameUtilities;
@@ -64,12 +64,12 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
     {
         super(ConjurerResources.conjurer.config.meterPosition, ICON_SIZE);
 
-        fire = new ConjurerElementButton(this, PCLAffinity.Red, PGR.core.images.core.elementFire.texture(), new PercentageRelativeHitbox(hb, 2, 2, 5f, -1 + DISTANCE));
-        air = new ConjurerElementButton(this, PCLAffinity.Green,PGR.core.images.core.elementAir.texture(), new PercentageRelativeHitbox(hb, 2, 2, 5f, -1 - DISTANCE));
-        water = new ConjurerElementButton(this, PCLAffinity.Blue, PGR.core.images.core.elementWater.texture(), new PercentageRelativeHitbox(hb, 2, 2, 5f + DISTANCE, -1));
-        earth = new ConjurerElementButton(this, PCLAffinity.Orange, PGR.core.images.core.elementEarth.texture(), new PercentageRelativeHitbox(hb, 2, 2, 5f - DISTANCE, -1));
-        light = new ConjurerElementButton(this, PCLAffinity.Light, PGR.core.images.core.elementLight.texture(), new PercentageRelativeHitbox(hb, 2, 2, 5f, -1));
-        dark = new ConjurerElementButton(this, PCLAffinity.Dark, PGR.core.images.core.elementDark.texture(), new PercentageRelativeHitbox(hb, 2, 2, 5f, -1));
+        fire = new ConjurerElementButton(this, PCLAffinity.Red, ConjurerResources.conjurer.images.core.elementFire.texture(), RelativeHitbox.fromPercentages(hb, 2, 2, 5f, -1 + DISTANCE));
+        air = new ConjurerElementButton(this, PCLAffinity.Green,ConjurerResources.conjurer.images.core.elementAir.texture(), RelativeHitbox.fromPercentages(hb, 2, 2, 5f, -1 - DISTANCE));
+        water = new ConjurerElementButton(this, PCLAffinity.Blue, ConjurerResources.conjurer.images.core.elementWater.texture(), RelativeHitbox.fromPercentages(hb, 2, 2, 5f + DISTANCE, -1));
+        earth = new ConjurerElementButton(this, PCLAffinity.Orange, ConjurerResources.conjurer.images.core.elementEarth.texture(), RelativeHitbox.fromPercentages(hb, 2, 2, 5f - DISTANCE, -1));
+        light = new ConjurerElementButton(this, PCLAffinity.Light, ConjurerResources.conjurer.images.core.elementLight.texture(), RelativeHitbox.fromPercentages(hb, 2, 2, 5f, -1));
+        dark = new ConjurerElementButton(this, PCLAffinity.Dark, ConjurerResources.conjurer.images.core.elementDark.texture(), RelativeHitbox.fromPercentages(hb, 2, 2, 5f, -1));
         elements.add(fire);
         elements.add(air);
         elements.add(water);
@@ -82,21 +82,21 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
         dark.setActive(false);
 
         reactionHeader = (EUILabel) new EUILabel(EUIFontHelper.cardtitlefontSmall,
-                new PercentageRelativeHitbox(hb, 2, 2, 10f, 0.6f)).setLabel(ConjurerResources.conjurer.tooltips.reaction.title)
+                RelativeHitbox.fromPercentages(hb, 2, 2, 10f, 0.6f)).setLabel(ConjurerResources.conjurer.tooltips.reaction.title)
                 .setFontScale(0.85f)
                 .setAlignment(0.85f, 0.5f)
                 .setTooltip(ConjurerResources.conjurer.tooltips.reaction);
-        reactionCountText = new EUITextBox(EUIRM.images.panelEllipticalHalfH.texture(), new PercentageRelativeHitbox(hb, 2, 1.8f, 10f, 0.17f))
+        reactionCountText = new EUITextBox(EUIRM.images.panelEllipticalHalfH.texture(), RelativeHitbox.fromPercentages(hb, 2, 1.8f, 10f, 0.17f))
                 .setColors(EUIColors.black(0.6f), Settings.CREAM_COLOR)
                 .setAlignment(0.5f, 0.5f)
                 .setFont(EUIFontHelper.cardtitlefontNormal, BASE_AMOUNT_SCALE);
 
         morphHeader = (EUILabel) new EUILabel(EUIFontHelper.cardtitlefontSmall,
-                new PercentageRelativeHitbox(hb, 2, 2, 10f, -1.92f)).setLabel(ConjurerResources.conjurer.tooltips.morph.title)
+                RelativeHitbox.fromPercentages(hb, 2, 2, 10f, -1.92f)).setLabel(ConjurerResources.conjurer.tooltips.morph.title)
                 .setFontScale(0.75f)
                 .setAlignment(0.85f, 0.5f)
                 .setTooltip(ConjurerResources.conjurer.tooltips.morph);
-        morphCountText = new EUITextBox(EUIRM.images.panelEllipticalHalfH.texture(), new PercentageRelativeHitbox(hb, 1.6f, 1.3f, 10f, -2.1f))
+        morphCountText = new EUITextBox(EUIRM.images.panelEllipticalHalfH.texture(), RelativeHitbox.fromPercentages(hb, 1.6f, 1.3f, 10f, -2.1f))
                 .setColors(EUIColors.black(0.6f), Settings.CREAM_COLOR)
                 .setAlignment(0.5f, 0.5f)
                 .setFont(EUIFontHelper.cardtitlefontNormal, 0.6f);
@@ -233,7 +233,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
 
         addDefaultReactions();
 
-        water.addAdditionalPower(FrozenPower.POWER_ID);
+        water.addAdditionalPower(FrostbitePower.POWER_ID);
     }
 
     public void addDefaultReactions()
@@ -306,7 +306,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
     }
 
     @Override
-    public void onCardPlayed(AbstractCard card, AbstractCreature m, PCLUseInfo info)
+    public void onCardPlayed(AbstractCard card, AbstractCreature m, PCLUseInfo info, boolean fromSummon)
     {
         if (info != null && !info.reactions.isEmpty())
         {

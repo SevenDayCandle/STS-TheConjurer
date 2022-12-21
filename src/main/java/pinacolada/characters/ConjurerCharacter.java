@@ -9,13 +9,12 @@ import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import pinacolada.effects.SFX;
-import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.ui.PCLEnergyOrb;
 
 public class ConjurerCharacter extends PCLCharacter
 {
-    public static final CharacterStrings characterStrings = PGR.getCharacterStrings("Conjurer");
+    public static final CharacterStrings characterStrings = ConjurerResources.conjurer.getCharacterStrings();
     public static final Color MAIN_COLOR = CardHelper.getColor(106, 210, 177);
     public static final String[] NAMES = characterStrings.NAMES;
     public static final String[] TEXT = characterStrings.TEXT;

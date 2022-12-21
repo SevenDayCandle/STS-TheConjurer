@@ -9,6 +9,7 @@ import extendedui.interfaces.markers.TooltipProvider;
 import extendedui.ui.tooltips.EUITooltip;
 import org.apache.commons.lang3.StringUtils;
 import pinacolada.cards.base.PCLAffinity;
+import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.resources.pcl.PCLCoreStrings;
 import pinacolada.utilities.GameUtilities;
@@ -16,24 +17,25 @@ import pinacolada.utilities.GameUtilities;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class PCLElementHelper implements TooltipProvider
+public class PCLElementHelper extends PCLPowerHelper implements TooltipProvider
 {
     protected static final Map<String, PCLElementHelper> ALL = new HashMap<>();
     protected static final Map<PCLAffinity, PCLElementHelper> ALL_BY_AFFINITY = new HashMap<>();
 
-    public static final PCLElementHelper Burning = new PCLElementHelper(BurningPower.POWER_ID, BurningPower::new, BurningPower.AFFINITY, ConjurerResources.conjurer.tooltips.burning);
-    public static final PCLElementHelper Chilled = new PCLElementHelper(ChilledPower.POWER_ID, ChilledPower::new, ChilledPower.AFFINITY, ConjurerResources.conjurer.tooltips.chilled);
-    public static final PCLElementHelper Electrified = new PCLElementHelper(ElectrifiedPower.POWER_ID, ElectrifiedPower::new, ElectrifiedPower.AFFINITY, ConjurerResources.conjurer.tooltips.electrified);
-    public static final PCLElementHelper Flowed = new PCLElementHelper(FlowedPower.POWER_ID, FlowedPower::new, FlowedPower.AFFINITY, ConjurerResources.conjurer.tooltips.flowed);
-    public static final PCLElementHelper Stoned = new PCLElementHelper(StonedPower.POWER_ID, StonedPower::new, StonedPower.AFFINITY, ConjurerResources.conjurer.tooltips.stoned);
+    public static final PCLElementHelper Burning = new PCLElementHelper(BurningPower.POWER_ID, ConjurerResources.conjurer.tooltips.burning, BurningPower::new, BurningPower.AFFINITY);
+    public static final PCLElementHelper Chilled = new PCLElementHelper(ChilledPower.POWER_ID, ConjurerResources.conjurer.tooltips.chilled, ChilledPower::new, ChilledPower.AFFINITY);
+    public static final PCLElementHelper Electrified = new PCLElementHelper(ElectrifiedPower.POWER_ID, ConjurerResources.conjurer.tooltips.electrified, ElectrifiedPower::new, ElectrifiedPower.AFFINITY);
+    public static final PCLElementHelper Flowed = new PCLElementHelper(FlowedPower.POWER_ID, ConjurerResources.conjurer.tooltips.flowed, FlowedPower::new, FlowedPower.AFFINITY);
+    public static final PCLElementHelper Stoned = new PCLElementHelper(StonedPower.POWER_ID, ConjurerResources.conjurer.tooltips.stoned, StonedPower::new, StonedPower.AFFINITY);
     
     public final String ID;
     public final PCLAffinity affinity;
     public final EUITooltip tooltip;
     protected final FuncT3<AbstractPower, AbstractCreature, AbstractCreature, Integer> constructor;
 
-    public PCLElementHelper(String id, FuncT3<AbstractPower, AbstractCreature, AbstractCreature, Integer> constructor, PCLAffinity affinity, EUITooltip tooltip)
+    public PCLElementHelper(String id, EUITooltip tooltip, FuncT3<AbstractPower, AbstractCreature, AbstractCreature, Integer> constructor, PCLAffinity affinity)
     {
+        super(id, tooltip, constructor, Behavior.SingleTurn, false, true, true);
         ID = id;
         this.affinity = affinity;
         this.tooltip = tooltip;
@@ -95,7 +97,7 @@ public class PCLElementHelper implements TooltipProvider
         return GameUtilities.getRandomElement(new ArrayList<>(ALL.values()));
     }
 
-    public static Collection<PCLElementHelper> sortedValues()
+    public static Collection<PCLPowerHelper> sortedValues()
     {
         return ALL.values().stream().sorted((a, b) -> StringUtils.compare(a.tooltip.title, b.tooltip.title)).collect(Collectors.toList());
     }

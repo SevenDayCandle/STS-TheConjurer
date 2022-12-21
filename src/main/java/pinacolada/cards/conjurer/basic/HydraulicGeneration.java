@@ -4,6 +4,7 @@ package pinacolada.cards.conjurer.basic;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
+import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CMove;
 import pinacolada.skills.PMod;
@@ -24,6 +25,6 @@ public class HydraulicGeneration extends PCLCard
 
     public void setup(Object input)
     {
-        addUseMove(PMod.cyclePer(3), PMultiSkill.join(CMove.gainReaction(3).setUpgrade(1), CMove.applyElementToRandom(3, PCLAffinity.Blue).setUpgrade(1)));
+        addUseMove(PMod.cyclePer(3), PMultiSkill.join(CMove.gainReaction(3).setUpgrade(1), PMove.applyToRandom(3, PCLElementHelper.Chilled).setUpgrade(1)));
     }
 }

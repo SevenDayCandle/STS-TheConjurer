@@ -4,8 +4,8 @@ import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.PCLCardTarget;
+import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CMove;
 import pinacolada.skills.PMove;
 
 public class Ignition extends PCLCard
@@ -24,6 +24,6 @@ public class Ignition extends PCLCard
     public void setup(Object input)
     {
         addUseMove(PMove.triggerAlly(PCLCardTarget.AllAlly, 2));
-        addUseMove(CMove.applyElement(PCLCardTarget.Team, 3, PCLAffinity.Red));
+        addUseMove(PMove.apply(PCLCardTarget.Team, 3, PCLElementHelper.Burning));
     }
 }

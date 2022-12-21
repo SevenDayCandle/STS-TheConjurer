@@ -12,7 +12,7 @@ import pinacolada.effects.vfx.ScreenFreezingEffect;
 import pinacolada.effects.vfx.SnowballEffect;
 import pinacolada.powers.PSpecialCardPower;
 import pinacolada.powers.conjurer.ChilledPower;
-import pinacolada.powers.conjurer.FrozenPower;
+import pinacolada.powers.conjurer.FrostbitePower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;
 import pinacolada.skills.skills.PSpecialSkill;
@@ -58,7 +58,7 @@ public class SheerCold extends PCLCard
             {
                 PCLActions.top.playVFX(new SnowballEffect(owner.hb.cX, owner.hb.cY, target.hb.cX, target.hb.cY)
                         .setColor(Color.NAVY, Color.NAVY).setRealtime(true));
-                PCLActions.bottom.applyPower(source, new FrozenPower(target, move.extra));
+                PCLActions.bottom.applyPower(source, new FrostbitePower(target, move.extra));
             }
         }
     }

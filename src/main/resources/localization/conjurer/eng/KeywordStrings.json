@@ -1,11 +1,11 @@
 {
 				"Burning":	{
-								"DESCRIPTION": "[A-R] #yElemental #yDebuff. When you attack a creature with [Burning], gain [Vigor].",
+								"DESCRIPTION": "[A-R] #yElemental #yDebuff. When you attack a creature with [Burning], gain temporary [Vigor].",
 								"NAMES": ["burning"],
 								"PROPER_NAME": "Burning"
 				},
 				"Chilled":	{
-								"DESCRIPTION": "[A-B] #yElemental #yDebuff. Deal less #yAttack damage and receive additional damage from #yOrbs and [~Magic] #yAttacks.",
+								"DESCRIPTION": "[A-B] #yElemental #yDebuff. Receive additional damage from #yAttacks and #yOrbs.",
 								"NAMES": ["chilled"],
 								"PROPER_NAME": "Chilled"
 				},
@@ -44,10 +44,10 @@
 								"NAMES": ["flowed"],
 								"PROPER_NAME": "Flowed"
 				},
-				"Frozen":	{
-								"DESCRIPTION": "Treated as a [A-B] #yElemental #yDebuff. Receive more #yAttack damage from [A-R] cards. When first applied, the target is #yStunned.",
-								"NAMES": ["frozen"],
-								"PROPER_NAME": "Frozen"
+				"Frostbite":	{
+								"DESCRIPTION": "At the end of turn, lose HP equal to stacks, then cut stacks in half.",
+								"NAMES": ["frostbite"],
+								"PROPER_NAME": "Frostbite"
 				},
 				"Fusion":	{
 								"DESCRIPTION": "Combine #yOrbs to create a new #yOrb dependent on the #yOrbs chosen.",

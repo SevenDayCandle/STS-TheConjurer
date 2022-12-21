@@ -1,6 +1,7 @@
 package pinacolada.powers.conjurer;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.effects.AttackEffects;
@@ -22,7 +23,7 @@ public class ChilledPower extends AbstractPCLElementalPower implements OnOrbAppl
 
     public static float calculateDamage(float damage, float multiplier)
     {
-        return Math.max(0, damage - Math.max(1f, damage * (multiplier / 100f)));
+        return damage + Math.max(1, damage * (multiplier / 100f));
     }
 
     @Override
@@ -53,11 +54,11 @@ public class ChilledPower extends AbstractPCLElementalPower implements OnOrbAppl
         CombatManager.onOrbApplyLockOn.unsubscribe(this);
     }
 
-/*    @Override
-    public float atDamageGive(float damage, DamageInfo.DamageType type)
+    @Override
+    public float atDamageReceive(float damage, DamageInfo.DamageType type)
     {
-        return super.atDamageGive((type == DamageInfo.DamageType.NORMAL) ? calculateDamage(damage, getIntensifyMultiplier()) : damage, type);
-    }*/
+        return super.atDamageReceive(type == DamageInfo.DamageType.NORMAL ? calculateDamage(damage, getIntensifyMultiplier()) : damage, type);
+    }
 
     @Override
     public float onOrbApplyLockOn(AbstractCreature abstractCreature, float damage)

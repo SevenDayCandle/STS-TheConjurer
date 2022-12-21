@@ -16,6 +16,7 @@ public class Amber extends PCLCard
     public static final PCLCardData DATA = register(Amber.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Ranged)
             .setDamage(3, 1)
+            .setPriority(1)
             .setHp(7, 2)
             .setAffinities(PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.genshinImpact);

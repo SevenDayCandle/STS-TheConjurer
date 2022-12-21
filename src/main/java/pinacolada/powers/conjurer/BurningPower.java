@@ -21,9 +21,9 @@ public class BurningPower extends AbstractPCLElementalPower
         super(owner, source, POWER_ID, amount);
     }
 
-    public static float calculateDamage(float damage, float multiplier)
+    public static float calculateValue(int damageAmount, float multiplier)
     {
-        return damage + Math.max(1, damage * (multiplier / 100f));
+        return Math.max(1, damageAmount * (multiplier / 100f));
     }
 
     @Override
@@ -43,7 +43,7 @@ public class BurningPower extends AbstractPCLElementalPower
     {
         if (info.type == DamageInfo.DamageType.NORMAL && damageAmount > 0)
         {
-            PCLActions.bottom.gain(PCLPowerHelper.Vigor, (int) calculateDamage(damageAmount, getIntensifyMultiplier()));
+            PCLActions.bottom.gain(PCLPowerHelper.Vigor, (int) calculateValue(damageAmount, getIntensifyMultiplier()));
         }
 
         return super.onAttacked(info, damageAmount);

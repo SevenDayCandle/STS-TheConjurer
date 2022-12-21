@@ -3,9 +3,8 @@ package pinacolada.cards.conjurer.basic;
 
 import pinacolada.cards.base.*;
 import pinacolada.effects.AttackEffects;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CMove;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
@@ -25,6 +24,6 @@ public class Thermogenesis extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.FIRE);
-        addUseMove(PCond.onDraw(), CMove.applyElementToRandom(2, PCLAffinity.Red));
+        addUseMove(PCond.onDraw(), PMove.applyToRandom(2, PCLElementHelper.Burning));
     }
 }
