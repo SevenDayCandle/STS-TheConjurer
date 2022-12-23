@@ -13,7 +13,7 @@ public class Geomorphology extends PCLCard
     public static final PCLCardData DATA = register(Geomorphology.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.COMMON)
             .setBlock(7, 2)
-            .setAffinities(PCLAffinity.Orange)
+            .setAffinities(2, PCLAffinity.Orange)
             .setCore();
 
     public Geomorphology()

@@ -8,21 +8,22 @@ import pinacolada.cards.base.PCLCardTarget;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PMultiSkill;
+import pinacolada.skills.skills.special.moves.PMove_RestoreCardHP;
 
-public class NaturalGrowth extends PCLCard
+public class NaturalSelection extends PCLCard
 {
-    public static final PCLCardData DATA = register(NaturalGrowth.class, ConjurerResources.conjurer)
+    public static final PCLCardData DATA = register(NaturalSelection.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.SingleAlly)
             .setAffinities(PCLAffinity.Green, PCLAffinity.Orange)
             .setCore();
 
-    public NaturalGrowth()
+    public NaturalSelection()
     {
         super(DATA);
     }
 
     public void setup(Object input)
     {
-        addUseMove(PMove.withdrawAlly(1), PMultiSkill.join(PMove.modifyBlock(2), PMove.modifyDamage(2)).useParent(true));
+        addUseMove(PMove.withdrawAlly(1), PMultiSkill.join(new PMove_RestoreCardHP(1, 12).setUpgradeExtra(5), PMove.modifyDamage(2).setUpgrade(1)).useParent(true));
     }
 }

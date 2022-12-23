@@ -14,7 +14,7 @@ public class StonedPower extends AbstractPCLElementalPower
 {
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, StonedPower.class);
     public static final PCLAffinity AFFINITY = setAffinity(POWER_ID, PCLAffinity.Orange);
-    public static final int MULTIPLIER = setMultiplier(POWER_ID, 25);
+    public static final int MULTIPLIER = setMultiplier(POWER_ID, 20);
 
     public StonedPower(AbstractCreature owner, AbstractCreature source, int amount)
     {

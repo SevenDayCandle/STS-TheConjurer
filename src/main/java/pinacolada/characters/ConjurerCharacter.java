@@ -65,7 +65,7 @@ public class ConjurerCharacter extends PCLCharacter
     @Override
     public String getCustomModeCharacterButtonSoundKey()
     {
-        return SFX.TINGSHA;
+        return SFX.ORB_FROST_EVOKE;
     }
 
     @Override

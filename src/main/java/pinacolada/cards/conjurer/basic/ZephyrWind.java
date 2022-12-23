@@ -4,6 +4,7 @@ package pinacolada.cards.conjurer.basic;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
+import pinacolada.cards.base.PCLCardTarget;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
@@ -11,8 +12,8 @@ import pinacolada.skills.PMove;
 public class ZephyrWind extends PCLCard
 {
     public static final PCLCardData DATA = register(ZephyrWind.class, ConjurerResources.conjurer)
-            .setSkill(1, CardRarity.COMMON)
-            .setAffinities(PCLAffinity.Green)
+            .setSkill(1, CardRarity.COMMON, PCLCardTarget.AllEnemy)
+            .setAffinities(2, PCLAffinity.Green)
             .setCore();
 
     public ZephyrWind()
@@ -23,6 +24,6 @@ public class ZephyrWind extends PCLCard
     public void setup(Object input)
     {
         addUseMove(PMove.draw(2).setUpgrade(1));
-        addUseMove(PMove.applyToSingle(3, PCLElementHelper.Flowed).setUpgrade(1));
+        addUseMove(PMove.applyToEnemies(3, PCLElementHelper.Flowed).setUpgrade(1));
     }
 }

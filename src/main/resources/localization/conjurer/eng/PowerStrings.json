@@ -10,24 +10,24 @@
 	  "DESCRIPTIONS": ["Whenever you play a card, gains stacks equal to the card's cost + 1. Whenever this reaches #b{0} stacks, remove #b{0} stacks, end your turn, and choose 1 out of 3 random effects with positive and negative effects."],
 	  "NAME": "Phase of the Abyssal Moon"
 	},
-	"conjurer:BurningPower":
+	"conjurer:BurnedPower":
 	{
-		"DESCRIPTIONS": ["When #yAttacked, you gain Temp. [Vigor] equal to #b{0}% of damage dealt.", "When targets with [Burning] take #yAttack damage, you gain #b{0}% of the damage as temporary [Vigor]."],
-		"NAME": "Burning"
+		"DESCRIPTIONS": ["When #yAttacked, you gain Temp. [Vigor] equal to #b{0}% of damage dealt.", "When targets with [Burned] take #yAttack damage, you gain #b{0}% of the damage as temporary [Vigor]."],
+		"NAME": "Burned"
 	},
 	"conjurer:BurningWeaponPower":
 	{
-		"DESCRIPTIONS": ["For #b{0} turns: Whenever you deal unblocked damage to an enemy, apply #b{0} [Burning]. Deal #b+{1} damage against targets with [Chilled]."],
+		"DESCRIPTIONS": ["For #b{0} turns: Whenever you deal unblocked damage to an enemy, apply #b{0} [Burned]. Deal #b+{1} damage against targets with [Chilled]."],
 		"NAME": "Burning Weapon"
 	},
 	"conjurer:ChilledPower":
 	{
-		"DESCRIPTIONS": ["Receive +#b{0}% damage from #yAttacks and #yOrbs.", "Targets with [Chilled] take +#b{0}% damage from #yAttacks and #yOrbs."],
+		"DESCRIPTIONS": ["When #yAttacked, the target gains [Frostbite] equal to #b{0}% of damage dealt.", "When targets with [Chilled] take #yAttack damage, they gain #b{0}% of the damage as [Frostbite]."],
 		"NAME": "Chilled"
 	},
 	"conjurer:ChilledWeaponPower":
 	{
-		"DESCRIPTIONS": ["For #b{0} turns: Whenever you deal unblocked damage to an enemy, apply #b{0} [Chilled]. Deal #b+{1} damage against targets with [Burning]."],
+		"DESCRIPTIONS": ["For #b{0} turns: Whenever you deal unblocked damage to an enemy, apply #b{0} [Chilled]. Deal #b+{1} damage against targets with [Burned]."],
 		"NAME": "Chilled Weapon"
 	},
 	"conjurer:CorrosionPower":

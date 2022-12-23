@@ -4,7 +4,7 @@
 	  "conjurer:AerialStreak": {"NAME": "Aerial Streak"},
 	 	"conjurer:ArcticTide": {"NAME": "Arctic Tide"},
 	  	"conjurer:AtmosphericPressure": {"NAME": "Atmospheric Pressure"},
-	  	"conjurer:BlazingHeat": {"EXTENDED_DESCRIPTION": ["At turn end, ALL enemies lose {0} HP per stack of their [Burning]"], "NAME": "Blazing Heat"},
+	  	"conjurer:BlazingHeat": {"EXTENDED_DESCRIPTION": ["At turn end, ALL enemies lose {0} HP per stack of their [Burned]"], "NAME": "Blazing Heat"},
 	  "conjurer:ColossalFormation": {"NAME": "Colossal Formation"},
 	  "conjurer:Condensation": {"NAME": "Condensation"},
 	  "conjurer:Cryotherapy": {"NAME": "Cryotherapy"},
@@ -29,10 +29,11 @@
 	  "conjurer:MagmaFlare": {"NAME": "Magma Flare"},
 	  "conjurer:Melt": {"NAME": "Melt"},
 	  "conjurer:MudFissure": {"NAME": "Mud Fissure"},
-	  "conjurer:NaturalGrowth": {"NAME": "Natural Growth"},
-	  "conjurer:Overheat": {"NAME": "Natural Growth"},
+	  "conjurer:NaturalSelection": {"NAME": "Natural Selection"},
+	  "conjurer:Overheat": {"NAME": "Overheat"},
 	  "conjurer:PowderSnow": {"NAME": "Powder Snow"},
 	  "conjurer:Preservation": {"NAME": "Preservation"},
+	  "conjurer:RagingInferno": {"NAME": "Raging Inferno"},
 	  "conjurer:RazorWind": {"NAME": "Razor Wind"},
 	  "conjurer:Scorch": {"NAME": "Scorch"},
 		"conjurer:SheerCold": {
@@ -55,14 +56,12 @@
 	{
 	  	"conjurer:Alibaba": {"EXTENDED_DESCRIPTION": ["Has +{0} damage per Augment on any card in hand"], "NAME": "Alibaba Saluja"},
 	  	"conjurer:Alibaba_Aladdin": {"EXTENDED_DESCRIPTION": ["Has +{0} damage per Augment on any card in hand", "If {0} different [A-W] "], "NAME": "Aladdin"},
+	  	"conjurer:Aloy": {"NAME": "Aloy"},
 		"conjurer:Clownpiece": {"EXTENDED_DESCRIPTION": ["If any of them was an Attack, ALL enemies gain [Provoked]"], "NAME": "Clownpiece"},
-		"conjurer:Cyno": {"EXTENDED_DESCRIPTION": ["Apply {0} of {1} Debuffs", "If any creature died this turn, increase Debuff stacks applied by this card by {0} this combat"], "NAME": "Cyno"},
-		"conjurer:EirinYagokoro": {"EXTENDED_DESCRIPTION": ["Use your left-most usable Potion twice. If you had none, obtain a copy of this card"], "NAME": "Eirin Yagokoro"},
-		"conjurer:ErodingTerra": {
-		  "EXTENDED_DESCRIPTION": ["[Earth] gives [Block] equal to its Focus when Triggered or Evoked. At turn end, gain {0} [Plated Armor] per {1} [Stoned] on ANY character"],
-		  "NAME": "Eroding Terra"
-		},
-		"conjurer:Fischl": {"EXTENDED_DESCRIPTION": ["Evoke your first Orb, then Channel it back. If you had no Orbs"], "NAME": "Fischl"},
+		"conjurer:Cyno": {"EXTENDED_DESCRIPTION": ["Whenever any creature dies, this gains +{0} damage"], "NAME": "Cyno"},
+	  	"conjurer:DiamondDazzle": {"EXTENDED_DESCRIPTION": ["+{0} damage per Augment on any card in hand"], "NAME": "Diamond Dazzle"},
+		"conjurer:EirinYagokoro": {"EXTENDED_DESCRIPTION": ["Use your left-most usable Potion twice"], "NAME": "Eirin Yagokoro"},
+		"conjurer:Fischl": {"NAME": "Fischl"},
 		"conjurer:Fischl_Oz": {"NAME": "Oz"},
 		"conjurer:Ginko": {"EXTENDED_DESCRIPTION": ["Status cards become more beneficial this combat"], "NAME": "Ginko"},
 		"conjurer:KokomiSangonomiya": {
@@ -71,6 +70,8 @@
 			"NAME": "Kokomi Sangonomiya"
 		},
 		"conjurer:KomachiOnozuka": {"EXTENDED_DESCRIPTION": ["If this kills a boss or Elite"], "FLAVOR": "Kazu Muchuukai", "NAME": "Komachi Onozuka"},
+	  	"conjurer:LastWish": {"EXTENDED_DESCRIPTION": ["Summon a customized Summon"], "NAME": "Last Wish"},
+	  	"conjurer:NuclearTransmutation": {"NAME": "Nuclear Transmutation"},
 	  	"conjurer:PocketPolymerization": {"EXTENDED_DESCRIPTION": ["Combine {0} Attacks or Skills in hand. If the resulting card costs 2+, reduce its cost by {1}"], "NAME": "Pocket Polymerization"},
 	  	"conjurer:Polymerization": {"EXTENDED_DESCRIPTION": ["When added to your deck, combine up to 2 Attacks or Skills from your deck into this card"], "NAME": "Polymerization"},
 		"conjurer:Rorona": {"EXTENDED_DESCRIPTION": ["At the end of combat, Upgrade a random card in your deck","Obtain a random Potion"], "NAME": "Rorona"},
@@ -80,16 +81,14 @@
 	  	"conjurer:Tighnari": {"EXTENDED_DESCRIPTION": ["ALL cards with any of this card's Augments gain a +{0}% bonus to their attributes", "This card's Augments have an increased chance of appearing in rewards"], "NAME": "Tighnari"},
 		"conjurer:Teddie": {"NAME": "Teddie"},
 	  	"conjurer:Wanderer": {"FLAVOR": "Pixiv Id 2924319","NAME": "Wanderer"},
-	  	"conjurer:Wish": {"EXTENDED_DESCRIPTION": ["Decide the effects for ALL [Chaos] this combat"], "NAME": "Wish"},
 		"conjurer:YaeSakura": {"NAME": "Yae Sakura"}
 	},
 	"SERIES:GENSHIN":
 	{
 		"conjurer:Aether": {"NAME": "Aether"},
 		"conjurer:Albedo": {"NAME": "Albedo"},
-		"conjurer:Aloy": {"NAME": "Aloy"},
 		"conjurer:Amber": {"NAME": "Amber"},
-		"conjurer:AyakaKamisato": {"EXTENDED_DESCRIPTION": ["Triple the target's [Chilled]", "At turn end, if any character has {0}+ [Delayed Damage] or [Chilled]"], "FLAVOR": "Pixiv Id 39805233", "NAME": "Ayaka Kamisato"},
+		"conjurer:AyakaKamisato": {"EXTENDED_DESCRIPTION": ["Damages any target that has [Chilled]"], "FLAVOR": "Pixiv Id 39805233", "NAME": "Ayaka Kamisato"},
 		"conjurer:AyatoKamisato": {"NAME": "Ayato Kamisato"},
 		"conjurer:Baizhu": {"NAME": "Baizhu"},
 		"conjurer:BarbaraPegg": {"NAME": "Barbara Pegg"},

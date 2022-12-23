@@ -11,7 +11,7 @@ import pinacolada.cards.base.PCLUseInfo;
 import pinacolada.effects.AttackEffects;
 import pinacolada.effects.vfx.ScreenOnFireEffect3;
 import pinacolada.powers.PSpecialCardPower;
-import pinacolada.powers.conjurer.BurningPower;
+import pinacolada.powers.conjurer.BurnedPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;
 import pinacolada.skills.skills.PSpecialSkill;
@@ -53,7 +53,7 @@ public class BlazingHeat extends PCLCard
             super.atEndOfTurn(isPlayer);
             for (AbstractMonster mo : GameUtilities.getEnemies(true))
             {
-                BurningPower po = GameUtilities.getPower(mo, BurningPower.class);
+                BurnedPower po = GameUtilities.getPower(mo, BurnedPower.class);
                 if (po != null)
                 {
                     PCLActions.bottom.dealDamage(owner, mo, po.amount * move.amount, DamageInfo.DamageType.HP_LOSS, AttackEffects.BURN);

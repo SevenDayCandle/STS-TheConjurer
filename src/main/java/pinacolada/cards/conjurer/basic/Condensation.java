@@ -13,8 +13,7 @@ import pinacolada.skills.PMove;
 public class Condensation extends PCLCard
 {
     public static final PCLCardData DATA = register(Condensation.class, ConjurerResources.conjurer)
-            .setSkill(1, CardRarity.COMMON)
-            .setCostUpgrades(-1)
+            .setSkill(0, CardRarity.COMMON)
             .setAffinities(PCLAffinity.Blue)
             .setCore();
 
@@ -25,7 +24,7 @@ public class Condensation extends PCLCard
 
     public void setup(Object input)
     {
-        addUseMove(PMove.triggerAlly(PCLCardTarget.SingleAlly, 3));
-        addUseMove(PMove.applyToSingle(2, PCLElementHelper.Chilled, PCLPowerHelper.Weak));
+        addUseMove(PMove.triggerAlly(PCLCardTarget.SingleAlly, 2).setUpgrade(1));
+        addUseMove(PMove.applyToSingle(1, PCLElementHelper.Chilled, PCLPowerHelper.Weak));
     }
 }

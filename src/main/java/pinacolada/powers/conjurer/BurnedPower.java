@@ -10,13 +10,13 @@ import pinacolada.effects.SFX;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 
-public class BurningPower extends AbstractPCLElementalPower
+public class BurnedPower extends AbstractPCLElementalPower
 {
-    public static final String POWER_ID = createFullID(ConjurerResources.conjurer, BurningPower.class);
+    public static final String POWER_ID = createFullID(ConjurerResources.conjurer, BurnedPower.class);
     public static final PCLAffinity AFFINITY = setAffinity(POWER_ID, PCLAffinity.Red);
-    public static final int MULTIPLIER = setMultiplier(POWER_ID, 25);
+    public static final int MULTIPLIER = setMultiplier(POWER_ID, 20);
 
-    public BurningPower(AbstractCreature owner, AbstractCreature source, int amount)
+    public BurnedPower(AbstractCreature owner, AbstractCreature source, int amount)
     {
         super(owner, source, POWER_ID, amount);
     }

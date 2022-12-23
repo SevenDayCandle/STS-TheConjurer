@@ -23,6 +23,6 @@ public class MagmaFlare extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.SMALL_EXPLOSION);
-        addUseMove(PMove.applyToEnemies(2, PCLElementHelper.Burning).setUpgrade(1));
+        addUseMove(PMove.applyToEnemies(2, PCLElementHelper.Burned).setUpgrade(1));
     }
 }

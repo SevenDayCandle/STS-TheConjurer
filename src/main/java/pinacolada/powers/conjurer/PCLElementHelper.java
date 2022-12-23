@@ -22,7 +22,7 @@ public class PCLElementHelper extends PCLPowerHelper implements TooltipProvider
     protected static final Map<String, PCLElementHelper> ALL = new HashMap<>();
     protected static final Map<PCLAffinity, PCLElementHelper> ALL_BY_AFFINITY = new HashMap<>();
 
-    public static final PCLElementHelper Burning = new PCLElementHelper(BurningPower.POWER_ID, ConjurerResources.conjurer.tooltips.burning, BurningPower::new, BurningPower.AFFINITY);
+    public static final PCLElementHelper Burned = new PCLElementHelper(BurnedPower.POWER_ID, ConjurerResources.conjurer.tooltips.burned, BurnedPower::new, BurnedPower.AFFINITY);
     public static final PCLElementHelper Chilled = new PCLElementHelper(ChilledPower.POWER_ID, ConjurerResources.conjurer.tooltips.chilled, ChilledPower::new, ChilledPower.AFFINITY);
     public static final PCLElementHelper Electrified = new PCLElementHelper(ElectrifiedPower.POWER_ID, ConjurerResources.conjurer.tooltips.electrified, ElectrifiedPower::new, ElectrifiedPower.AFFINITY);
     public static final PCLElementHelper Flowed = new PCLElementHelper(FlowedPower.POWER_ID, ConjurerResources.conjurer.tooltips.flowed, FlowedPower::new, FlowedPower.AFFINITY);

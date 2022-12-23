@@ -1,16 +1,16 @@
 {
-				"Burning":	{
-								"DESCRIPTION": "[A-R] #yElemental #yDebuff. When you attack a creature with [Burning], gain temporary [Vigor].",
-								"NAMES": ["burning"],
-								"PROPER_NAME": "Burning"
+				"Burned":	{
+								"DESCRIPTION": "[A-R] #yElemental #yDebuff. When you attack a creature with [Burned], gain temporary [Vigor].",
+								"NAMES": ["burned"],
+								"PROPER_NAME": "Burned"
 				},
 				"Chilled":	{
-								"DESCRIPTION": "[A-B] #yElemental #yDebuff. Receive additional damage from #yAttacks and #yOrbs.",
+								"DESCRIPTION": "[A-B] #yElemental #yDebuff. When a creature with [Chilled] takes #yAttack damage, it gains [Frostbite].",
 								"NAMES": ["chilled"],
 								"PROPER_NAME": "Chilled"
 				},
 				"Combust":	{
-								"DESCRIPTION": "#yCombust an #yElemental #yDebuff by playing an #yAffinity card against a target with it. | [A-R] -> [Chilled], [A-G] -> [Stoned], [A-B] -> [Burning], [A-O] -> [Flowed].",
+								"DESCRIPTION": "#yCombust an #yElemental #yDebuff by playing an #yAffinity card against a target with it. | [A-R] -> [Chilled], [A-G] -> [Stoned], [A-B] -> [Burned], [A-O] -> [Flowed].",
 								"NAMES": ["combust", "combusts", "combusting", "combusted"],
 								"PROPER_NAME": "Combust"
 				},
@@ -25,7 +25,7 @@
 								"PROPER_NAME": "Electrified"
 				},
 				"Elemental Debuff":	{
-								"DESCRIPTION": "[Burning], [Flowed], [Chilled], [Stoned]. Remove at the end of the round.",
+								"DESCRIPTION": "[Burned], [Flowed], [Chilled], [Stoned]. Remove at the end of the round.",
 								"NAMES": ["elemental debuff", "elemental debuffs"],
 								"PROPER_NAME": "Elemental Debuff"
 				},
@@ -45,7 +45,7 @@
 								"PROPER_NAME": "Flowed"
 				},
 				"Frostbite":	{
-								"DESCRIPTION": "At the end of turn, lose HP equal to stacks, then cut stacks in half.",
+								"DESCRIPTION": "At the end of turn, lose HP and cut stacks in half.",
 								"NAMES": ["frostbite"],
 								"PROPER_NAME": "Frostbite"
 				},
@@ -65,7 +65,7 @@
 								"PROPER_NAME": "Reaction"
 				},
 				"Redox":	{
-								"DESCRIPTION": "#yRedox an #yElemental #yDebuff by playing an #yAffinity card against a target with it. | [A-R] -> [Stoned], [A-G] -> [Chilled], [A-B] -> [Flowed], [A-O] -> [Burning].",
+								"DESCRIPTION": "#yRedox an #yElemental #yDebuff by playing an #yAffinity card against a target with it. | [A-R] -> [Stoned], [A-G] -> [Chilled], [A-B] -> [Flowed], [A-O] -> [Burned].",
 								"NAMES": ["redox", "redoxes", "redoxing", "redoxed"],
 								"PROPER_NAME": "Redox"
 				},

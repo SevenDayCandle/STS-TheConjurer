@@ -8,7 +8,7 @@ import pinacolada.resources.PGR;
 
 public class ConjurerTooltips extends PCLTooltips
 {
-    public EUITooltip burning = EUITooltip.findByID("Burning");
+    public EUITooltip burned = EUITooltip.findByID("Burned");
     public EUITooltip combust = EUITooltip.findByID("Combust");
     public EUITooltip chilled = EUITooltip.findByID("Chilled");
     public EUITooltip corrosion = EUITooltip.findByID("Corrosion");
@@ -26,7 +26,7 @@ public class ConjurerTooltips extends PCLTooltips
     @Override
     public void initializeIcons()
     {
-        burning.setIconFromPath(PGR.getPowerImage(BurningPower.POWER_ID));
+        burned.setIconFromPath(PGR.getPowerImage(BurnedPower.POWER_ID));
         chilled.setIconFromPath(PGR.getPowerImage(ChilledPower.POWER_ID));
         corrosion.setIconFromPath(PGR.getPowerImage(CorrosionPower.POWER_ID));
         electrified.setIconFromPath(PGR.getPowerImage(ElectrifiedPower.POWER_ID));
@@ -42,7 +42,7 @@ public class ConjurerTooltips extends PCLTooltips
         switch (affinity)
         {
             case Red:
-                return burning;
+                return burned;
             case Green:
                 return flowed;
             case Blue:

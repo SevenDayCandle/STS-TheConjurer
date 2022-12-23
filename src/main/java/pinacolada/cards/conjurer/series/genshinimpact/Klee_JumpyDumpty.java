@@ -4,8 +4,10 @@ package pinacolada.cards.conjurer.series.genshinimpact;
 import pinacolada.cards.base.*;
 import pinacolada.cards.base.fields.PCLCardTag;
 import pinacolada.effects.AttackEffects;
+import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.PMove;
 
 public class Klee_JumpyDumpty extends PCLCard
 {
@@ -24,5 +26,6 @@ public class Klee_JumpyDumpty extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.SMALL_EXPLOSION);
+        addUseMove(PMove.applyToRandom(3, PCLElementHelper.Burned));
     }
 }

@@ -1,15 +1,12 @@
 package pinacolada.skills.conjurer.modifiers;
 
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import extendedui.EUIRM;
 import extendedui.EUIUtils;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCardTarget;
 import pinacolada.cards.base.PCLUseInfo;
-import pinacolada.powers.PCLPowerHelper;
 import pinacolada.powers.conjurer.PCLElementHelper;
-import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMod;
@@ -17,7 +14,6 @@ import pinacolada.skills.PSkill;
 import pinacolada.skills.PSkillData;
 import pinacolada.skills.PSkillSaveData;
 import pinacolada.ui.combat.ConjurerReactionMeter;
-import pinacolada.utilities.GameUtilities;
 
 import java.util.List;
 
@@ -70,7 +66,7 @@ public class PMod_PerElement extends PMod
     @Override
     public String getSubText()
     {
-        String baseString = powers.isEmpty() ? plural(ConjurerResources.conjurer.tooltips.elementalDebuff) : PCLElementHelper.getPowerAndString(affinities);
+        String baseString = affinities.isEmpty() ? plural(ConjurerResources.conjurer.tooltips.elementalDebuff) : PCLElementHelper.getPowerAndString(affinities);
         if (amount > 1)
         {
             baseString = EUIRM.strings.numNoun(getAmountRawString(), baseString);

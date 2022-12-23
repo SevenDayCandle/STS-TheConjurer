@@ -1,6 +1,7 @@
 package pinacolada.powers.conjurer;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.HealthBarRenderPower;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import pinacolada.actions.PCLActions;
@@ -47,6 +48,6 @@ public class FrostbitePower extends PCLPower implements HealthBarRenderPower
 
         PCLActions.bottom.loseHP(source, owner, amount, AttackEffects.ICE)
                 .canKill(owner == null || !owner.isPlayer);
-        reducePower(1);
+        reducePower(MathUtils.ceil(amount / 2f));
     }
 }

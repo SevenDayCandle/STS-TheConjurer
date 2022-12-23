@@ -5,10 +5,8 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import pinacolada.actions.PCLActions;
 import pinacolada.actions.powers.ApplyElementalDebuff;
 import pinacolada.cards.base.*;
-import pinacolada.powers.PCLPowerHelper;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PSpecialSkill;
 import pinacolada.skills.skills.base.moves.PMove_Scry;
 import pinacolada.utilities.GameUtilities;
@@ -20,7 +18,7 @@ public class Entropy extends PCLCard
 {
     public static final PCLCardData DATA = register(Entropy.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.RARE)
-            .setAffinities(PCLAffinity.Blue)
+            .setAffinities(PCLAffinity.Blue, PCLAffinity.Light, PCLAffinity.Dark)
             .setCore();
 
     public Entropy()

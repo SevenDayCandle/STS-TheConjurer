@@ -6,30 +6,30 @@ import pinacolada.cards.base.PCLAttackType;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.effects.AttackEffects;
-import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.CMove;
 import pinacolada.skills.PCond;
-import pinacolada.skills.PMove;
+import pinacolada.skills.PMod;
 
-public class PyroJack extends PCLCard
+public class Mothman extends PCLCard
 {
-    public static final PCLCardData DATA = register(PyroJack.class, ConjurerResources.conjurer)
-            .setSummon(0, CardRarity.COMMON, PCLAttackType.Magical)
+    public static final PCLCardData DATA = register(Mothman.class, ConjurerResources.conjurer)
+            .setSummon(1, CardRarity.COMMON, PCLAttackType.Ranged)
             .setDamage(2, 1)
             .setPriority(1)
-            .setHp(5, 2)
-            .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
+            .setHp(8, 2)
+            .setAffinities(PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public PyroJack()
+    public Mothman()
     {
         super(DATA);
     }
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.FIRE);
-        addUseMove(PCond.cooldown(0), PMove.applyToSingle(2, PCLElementHelper.Burned));
+        addDamageMove(AttackEffects.WIND);
+        addUseMove(PCond.cooldown(1), PMod.bonusPerLevel(4, PCLAffinity.Green), CMove.gainReaction(4));
     }
 }

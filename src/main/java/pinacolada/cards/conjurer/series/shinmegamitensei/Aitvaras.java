@@ -9,27 +9,28 @@ import pinacolada.effects.AttackEffects;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.CMod;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
-public class PyroJack extends PCLCard
+public class Aitvaras extends PCLCard
 {
-    public static final PCLCardData DATA = register(PyroJack.class, ConjurerResources.conjurer)
-            .setSummon(0, CardRarity.COMMON, PCLAttackType.Magical)
-            .setDamage(2, 1)
+    public static final PCLCardData DATA = register(Aitvaras.class, ConjurerResources.conjurer)
+            .setSummon(1, CardRarity.COMMON, PCLAttackType.Piercing)
+            .setDamage(4, 1)
             .setPriority(1)
-            .setHp(5, 2)
-            .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
+            .setHp(7, 2)
+            .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public PyroJack()
+    public Aitvaras()
     {
         super(DATA);
     }
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.FIRE);
-        addUseMove(PCond.cooldown(0), PMove.applyToSingle(2, PCLElementHelper.Burned));
+        addDamageMove(AttackEffects.CLAW);
+        addUseMove(PCond.cooldown(1), CMod.perReaction(3).setExtra(10, 2), PMove.applyToSingle(1, PCLElementHelper.Burned));
     }
 }

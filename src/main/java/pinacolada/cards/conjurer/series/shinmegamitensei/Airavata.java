@@ -2,34 +2,33 @@ package pinacolada.cards.conjurer.series.shinmegamitensei;
 
 
 import pinacolada.cards.base.PCLAffinity;
-import pinacolada.cards.base.PCLAttackType;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.effects.AttackEffects;
-import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
+import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
 
-public class PyroJack extends PCLCard
+public class Airavata extends PCLCard
 {
-    public static final PCLCardData DATA = register(PyroJack.class, ConjurerResources.conjurer)
-            .setSummon(0, CardRarity.COMMON, PCLAttackType.Magical)
-            .setDamage(2, 1)
+    public static final PCLCardData DATA = register(Airavata.class, ConjurerResources.conjurer)
+            .setSummon(3, CardRarity.UNCOMMON)
+            .setDamage(3, 0)
             .setPriority(1)
-            .setHp(5, 2)
-            .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
+            .setHp(18, 2)
+            .setAffinities(PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public PyroJack()
+    public Airavata()
     {
         super(DATA);
     }
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.FIRE);
-        addUseMove(PCond.cooldown(0), PMove.applyToSingle(2, PCLElementHelper.Burned));
+        addDamageMove(AttackEffects.BLUNT_HEAVY);
+        addUseMove(PCond.cooldown(3).setUpgrade(-1), PMod.bonusPerLevel(4, PCLAffinity.Orange), PMove.gainBlock(6));
     }
 }

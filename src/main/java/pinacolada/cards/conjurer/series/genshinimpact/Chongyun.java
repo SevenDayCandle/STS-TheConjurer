@@ -2,27 +2,27 @@ package pinacolada.cards.conjurer.series.genshinimpact;
 
 
 import pinacolada.cards.base.PCLAffinity;
-import pinacolada.cards.base.PCLAttackType;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.effects.AttackEffects;
+import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CMove;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMod;
+import pinacolada.skills.PMove;
 
-public class LisaMinci extends PCLCard
+public class Chongyun extends PCLCard
 {
-    public static final PCLCardData DATA = register(LisaMinci.class, ConjurerResources.conjurer)
-            .setSummon(2, CardRarity.COMMON, PCLAttackType.Magical)
-            .setDamage(3, 0)
+    public static final PCLCardData DATA = register(Chongyun.class, ConjurerResources.conjurer)
+            .setSummon(1, CardRarity.COMMON)
+            .setDamage(3, 1)
             .setPriority(1)
-            .setHp(10, 3)
+            .setHp(9, 2)
             .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public LisaMinci()
+    public Chongyun()
     {
         super(DATA);
     }
@@ -30,6 +30,6 @@ public class LisaMinci extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.ICE);
-        addUseMove(PCond.cooldown(1), PMod.scryPer(2), CMove.gainReaction(5).setUpgrade(1));
+        addUseMove(PCond.cooldown(1), PMod.bonusPerLevel(2, PCLAffinity.Blue), PMove.applyToSingle(3, PCLElementHelper.Chilled));
     }
 }

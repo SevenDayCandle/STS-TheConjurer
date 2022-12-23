@@ -5,7 +5,7 @@ import pinacolada.resources.PCLAbstractPlayerData;
 import pinacolada.resources.PCLResources;
 import pinacolada.resources.pcl.PCLLoadout;
 
-import java.util.Collection;
+import java.util.List;
 
 public class ConjurerPlayerData extends PCLAbstractPlayerData
 {
@@ -20,7 +20,7 @@ public class ConjurerPlayerData extends PCLAbstractPlayerData
     }
 
     @Override
-    public Collection<PCLLoadout> getAvailableLoadouts()
+    public List<PCLLoadout> getAvailableLoadouts()
     {
         return EUIUtils.list(
                 genshinImpact,

@@ -27,7 +27,7 @@ public class ConjurerWaterAllyAnimation extends PCLAllyAnimation
     {
         PCLEffects.Queue.add(new FadingParticleEffect(SnowBurstEffect.getRandomTexture(), x, y)
                 .setBlendingMode(PCLRenderHelpers.BlendingMode.Glowing)
-                .setScale(MathUtils.random(0.38f, 0.62f))
+                .setScale(MathUtils.random(0.2f, 0.5f))
                 .setRotation(0, MathUtils.random(150f, 360f))
                 .setTargetPosition(x + RADIUS * MathUtils.cos(angle), y + RADIUS * MathUtils.sin(angle), 100f)
         ).setDuration(1f, false)

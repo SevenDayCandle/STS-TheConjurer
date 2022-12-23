@@ -13,7 +13,7 @@ public class Overheat extends PCLCard
 {
     public static final PCLCardData DATA = register(Overheat.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.Team)
-            .setAffinities(PCLAffinity.Red)
+            .setAffinities(2, PCLAffinity.Red)
             .setCore();
 
     public Overheat()
@@ -24,6 +24,6 @@ public class Overheat extends PCLCard
     public void setup(Object input)
     {
         addUseMove(PMove.gain(1, PCLPowerHelper.Vulnerable));
-        addUseMove(PMove.apply(PCLCardTarget.Team,5).setUpgrade(2));
+        addUseMove(PMove.apply(PCLCardTarget.Team,5, PCLPowerHelper.Vigor).setUpgrade(2));
     }
 }
