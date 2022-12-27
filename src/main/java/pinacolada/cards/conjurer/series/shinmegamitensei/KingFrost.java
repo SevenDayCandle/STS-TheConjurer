@@ -6,23 +6,23 @@ import pinacolada.cards.base.PCLAttackType;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.effects.AttackEffects;
-import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PCond;
+import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
+import pinacolada.skills.PTrigger;
 
-public class JackFrost extends PCLCard
+public class KingFrost extends PCLCard
 {
-    public static final PCLCardData DATA = register(JackFrost.class, ConjurerResources.conjurer)
-            .setSummon(0, CardRarity.COMMON, PCLAttackType.Magical)
+    public static final PCLCardData DATA = register(KingFrost.class, ConjurerResources.conjurer)
+            .setSummon(3, CardRarity.RARE, PCLAttackType.Magical)
             .setDamage(2, 1)
             .setPriority(1)
-            .setHp(4, 2)
+            .setHp(22, 2)
             .setAffinities(2, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public JackFrost()
+    public KingFrost()
     {
         super(DATA);
     }
@@ -30,6 +30,9 @@ public class JackFrost extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.ICE);
-        addUseMove(PCond.cooldown(0), PMove.applyToSingle(2, PCLElementHelper.Chilled));
+        addGainPower(PTrigger.interactable(
+                CCond.payReaction(20),
+                PMove.obtain(1, JackFrost.DATA))
+        );
     }
 }

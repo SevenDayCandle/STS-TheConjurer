@@ -1,11 +1,11 @@
 {
 				"Burned":	{
-								"DESCRIPTION": "[A-R] #yElemental #yDebuff. When you attack a creature with [Burned], gain temporary [Vigor].",
+								"DESCRIPTION": "[A-R] #yElemental #yDebuff. After attacking a creature with [Burned], your next Attack this turn deals additional damage.",
 								"NAMES": ["burned"],
 								"PROPER_NAME": "Burned"
 				},
 				"Chilled":	{
-								"DESCRIPTION": "[A-B] #yElemental #yDebuff. When a creature with [Chilled] takes #yAttack damage, it gains [Frostbite].",
+								"DESCRIPTION": "[A-B] #yElemental #yDebuff. Attacking creatures with [Chilled] gives them a stacking, decaying debuff that deals damage at the start of its turn.",
 								"NAMES": ["chilled"],
 								"PROPER_NAME": "Chilled"
 				},

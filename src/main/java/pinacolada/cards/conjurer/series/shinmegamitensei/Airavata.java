@@ -7,9 +7,10 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.effects.AttackEffects;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PCond;
+import pinacolada.skills.CCond;
 import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
+import pinacolada.skills.PTrigger;
 
 public class Airavata extends PCLCard
 {
@@ -29,6 +30,9 @@ public class Airavata extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.BLUNT_HEAVY);
-        addUseMove(PCond.cooldown(3).setUpgrade(-1), PMod.bonusPerLevel(4, PCLAffinity.Orange), PMove.gainBlock(6));
+        addGainPower(PTrigger.interactable(
+                CCond.payReaction(18),
+                PMod.bonusPerLevel(4, PCLAffinity.Orange).setUpgrade(1), PMove.gainBlock(6).setUpgrade(1)
+        ));
     }
 }

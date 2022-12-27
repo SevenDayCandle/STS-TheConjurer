@@ -14,7 +14,7 @@ public class Xingqiu extends PCLCard
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Piercing)
             .setDamage(3, 2)
             .setPriority(1)
-            .setHp(8, 1)
+            .setHp(7, 1)
             .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 

@@ -9,17 +9,17 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
-public class Xiangling extends PCLCard
+public class YunJin extends PCLCard
 {
-    public static final PCLCardData DATA = register(Xiangling.class, ConjurerResources.conjurer)
+    public static final PCLCardData DATA = register(YunJin.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Normal, PCLCardTarget.AllEnemy)
-            .setDamage(3, 1)
+            .setDamage(1, 1)
             .setPriority(1)
-            .setHp(7, 2)
-            .setAffinities(PCLAffinity.Red)
+            .setHp(9, 2)
+            .setAffinities(PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public Xiangling()
+    public YunJin()
     {
         super(DATA);
     }
@@ -27,6 +27,6 @@ public class Xiangling extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.SLASH_HORIZONTAL);
-        addUseMove(PCond.cooldown(0), PMove.applyToRandom(3, PCLElementHelper.Burned));
+        addUseMove(PCond.cooldown(1), PMove.applyToEnemies(3, PCLElementHelper.Stoned));
     }
 }

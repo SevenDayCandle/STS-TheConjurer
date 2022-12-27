@@ -37,7 +37,7 @@ public class BlazingHeat extends PCLCard
 
     public void setup(Object input)
     {
-        addSpecialMove(0, this::action, 3).setUpgrade(1);
+        addSpecialMove(0, this::action, 5).setUpgrade(2);
     }
 
     public static class BlazingHeatPower extends PSpecialCardPower

@@ -8,9 +8,10 @@ import pinacolada.effects.AttackEffects;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PCond;
+import pinacolada.skills.CCond;
 import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
+import pinacolada.skills.PTrigger;
 
 public class Cerberus extends PCLCard
 {
@@ -30,6 +31,9 @@ public class Cerberus extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.BITE);
-        addUseMove(PCond.cooldown(3).setUpgrade(-1), PMod.perCreatureWith(1, PCLElementHelper.Burned), PMove.modifyDamage(3));
+        addGainPower(PTrigger.interactable(
+                CCond.payReaction(18).setUpgrade(-4),
+                PMod.perCreatureWith(1, PCLElementHelper.Burned), PMove.modifyDamage(2)
+        ));
     }
 }

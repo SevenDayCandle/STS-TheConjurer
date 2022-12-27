@@ -11,25 +11,26 @@ import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
+import pinacolada.skills.skills.PMultiSkill;
 
-public class Gorou extends PCLCard
+public class Ningguang extends PCLCard
 {
-    public static final PCLCardData DATA = register(Gorou.class, ConjurerResources.conjurer)
-            .setSummon(1, CardRarity.COMMON, PCLAttackType.Ranged)
-            .setDamage(4, 1)
+    public static final PCLCardData DATA = register(Ningguang.class, ConjurerResources.conjurer)
+            .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Ranged)
+            .setDamage(3, 1)
             .setPriority(1)
-            .setHp(7, 2)
-            .setAffinities(PCLAffinity.Orange)
+            .setHp(9, 0)
+            .setAffinities(PCLAffinity.Blue, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public Gorou()
+    public Ningguang()
     {
         super(DATA);
     }
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.BLUNT_LIGHT);
-        addUseMove(PCond.cooldown(0), PMove.applyToSingle(2, PCLElementHelper.Stoned));
+        addDamageMove(AttackEffects.EARTH);
+        addUseMove(PCond.cooldown(2), PMultiSkill.choose(PMove.retain(1).setAffinity(PCLAffinity.Orange).setUpgrade(1), PMove.applyToEnemies(3, PCLElementHelper.Stoned).setUpgrade(2)));
     }
 }

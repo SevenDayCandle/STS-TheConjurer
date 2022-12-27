@@ -10,22 +10,22 @@ import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 
-public class Scorch extends PCLCard
+public class AirCurrent extends PCLCard
 {
-    public static final PCLCardData DATA = register(Scorch.class, ConjurerResources.conjurer)
-            .setAttack(1, CardRarity.COMMON, PCLAttackType.Ranged)
-            .setDamage(7, 2)
-            .setAffinities(PCLAffinity.Red)
+    public static final PCLCardData DATA = register(AirCurrent.class, ConjurerResources.conjurer)
+            .setAttack(0, CardRarity.COMMON, PCLAttackType.Ranged)
+            .setDamage(2, 2)
+            .setAffinities(PCLAffinity.Green)
             .setCore();
 
-    public Scorch()
+    public AirCurrent()
     {
         super(DATA);
     }
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.FIRE);
-        addUseMove(PMove.applyToSingle(3, PCLElementHelper.Burned).setUpgrade(1));
+        addDamageMove(AttackEffects.WIND);
+        addUseMove(PMove.applyToSingle(3, PCLElementHelper.Flowed).setUpgrade(1));
     }
 }

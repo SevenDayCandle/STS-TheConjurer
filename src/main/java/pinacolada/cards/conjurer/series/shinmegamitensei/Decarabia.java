@@ -8,8 +8,9 @@ import pinacolada.cards.base.PCLCardGroupHelper;
 import pinacolada.effects.AttackEffects;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PCond;
+import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
+import pinacolada.skills.PTrigger;
 
 public class Decarabia extends PCLCard
 {
@@ -29,6 +30,9 @@ public class Decarabia extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.FIRE);
-        addUseMove(PCond.cooldown(3).setUpgrade(-1), PMove.modifyAffinity(1, 1, PCLAffinity.Red, PCLAffinity.Blue).setAlt(true).setCardGroup(PCLCardGroupHelper.Hand));
+        addGainPower(PTrigger.interactable(
+                CCond.payReaction(20).setUpgrade(-5),
+                PMove.modifyAffinity(1, 1, PCLAffinity.Red, PCLAffinity.Blue).setAlt(true).setCardGroup(PCLCardGroupHelper.Hand)
+        ));
     }
 }

@@ -18,7 +18,7 @@ public class KazuhaKaedehara extends PCLCard
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Piercing)
             .setDamage(4, 0)
             .setPriority(1)
-            .setHp(8, 2)
+            .setHp(7, 2)
             .setAffinities(PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
@@ -30,6 +30,6 @@ public class KazuhaKaedehara extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.SLASH_HORIZONTAL);
-        addUseMove(PCond.cooldown(1), PMove.applyToEnemies(2, PCLElementHelper.Flowed).setUpgrade(1));
+        addUseMove(PCond.cooldown(1), PMove.applyToEnemies(3, PCLElementHelper.Flowed).setUpgrade(1));
     }
 }

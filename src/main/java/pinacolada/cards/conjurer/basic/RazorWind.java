@@ -5,7 +5,7 @@ import pinacolada.cards.base.*;
 import pinacolada.effects.AttackEffects;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PMod;
+import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 public class RazorWind extends PCLCard
@@ -24,6 +24,6 @@ public class RazorWind extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.WIND);
-        addUseMove(PMod.bonusPerLevel(1, PCLAffinity.Green), PMove.applyToEnemies(2, PCLElementHelper.Flowed).setUpgrade(1));
+        addUseMove(PCond.cycle(1), PMove.applyToEnemies(3, PCLElementHelper.Flowed).setUpgrade(1));
     }
 }

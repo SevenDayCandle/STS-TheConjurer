@@ -18,7 +18,7 @@ public class Bennett extends PCLCard
             .setSummon(1, CardRarity.COMMON)
             .setDamage(4, 0)
             .setPriority(1)
-            .setHp(8, 2)
+            .setHp(7, 2)
             .setAffinities(PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 

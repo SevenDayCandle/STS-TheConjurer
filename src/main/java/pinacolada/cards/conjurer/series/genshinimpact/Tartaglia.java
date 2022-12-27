@@ -7,19 +7,20 @@ import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
-import pinacolada.skills.PMove;
+import pinacolada.skills.PMod;
+import pinacolada.skills.PTrait;
 
-public class Xiangling extends PCLCard
+public class Tartaglia extends PCLCard
 {
-    public static final PCLCardData DATA = register(Xiangling.class, ConjurerResources.conjurer)
-            .setSummon(1, CardRarity.COMMON, PCLAttackType.Normal, PCLCardTarget.AllEnemy)
-            .setDamage(3, 1)
+    public static final PCLCardData DATA = register(Tartaglia.class, ConjurerResources.conjurer)
+            .setSummon(2, CardRarity.COMMON, PCLAttackType.Normal, PCLCardTarget.AllEnemy)
+            .setDamage(1, 1, 2)
             .setPriority(1)
-            .setHp(7, 2)
-            .setAffinities(PCLAffinity.Red)
+            .setHp(8, 2)
+            .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public Xiangling()
+    public Tartaglia()
     {
         super(DATA);
     }
@@ -27,6 +28,6 @@ public class Xiangling extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.SLASH_HORIZONTAL);
-        addUseMove(PCond.cooldown(0), PMove.applyToRandom(3, PCLElementHelper.Burned));
+        addUseMove(PCond.cooldown(3), PMod.perCreatureWith(1, PCLElementHelper.Burned), PTrait.hasDamage(2));
     }
 }

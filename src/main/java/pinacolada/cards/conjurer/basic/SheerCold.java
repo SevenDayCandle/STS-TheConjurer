@@ -1,21 +1,20 @@
 package pinacolada.cards.conjurer.basic;
 
-import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import pinacolada.actions.PCLActions;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.PCLUseInfo;
 import pinacolada.effects.vfx.ScreenFreezingEffect;
-import pinacolada.effects.vfx.SnowballEffect;
 import pinacolada.powers.PSpecialCardPower;
 import pinacolada.powers.conjurer.ChilledPower;
 import pinacolada.powers.conjurer.FrostbitePower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;
 import pinacolada.skills.skills.PSpecialSkill;
+import pinacolada.ui.combat.ConjurerReactionMeter;
 import pinacolada.utilities.GameUtilities;
 
 public class SheerCold extends PCLCard
@@ -38,27 +37,36 @@ public class SheerCold extends PCLCard
 
     public void setup(Object input)
     {
-        addSpecialMove(0, this::action, 1).setUpgrade(1);
+        addSpecialMove(0, this::action, 2).setUpgrade(1);
     }
 
     public static class SheerColdPower extends PSpecialCardPower
     {
-
         public SheerColdPower(AbstractCreature owner, PSkill move)
         {
             super(SheerCold.DATA, owner, move);
         }
 
         @Override
-        public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source)
+        public void onInitialApplication()
         {
-            super.onApplyPower(power, target, source);
+            super.onInitialApplication();
 
-            if (target != owner && power.ID.equals(ChilledPower.POWER_ID) && GameUtilities.getPowerAmount(target, ChilledPower.POWER_ID) >= move.amount)
+            PCLActions.bottom.callback(() -> {
+                ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Blue).addAdditionalPower(FrostbitePower.POWER_ID);
+            });
+        }
+
+        public void atEndOfTurn(boolean isPlayer)
+        {
+            super.atEndOfTurn(isPlayer);
+            for (AbstractMonster mo : GameUtilities.getEnemies(true))
             {
-                PCLActions.top.playVFX(new SnowballEffect(owner.hb.cX, owner.hb.cY, target.hb.cX, target.hb.cY)
-                        .setColor(Color.NAVY, Color.NAVY).setRealtime(true));
-                PCLActions.bottom.applyPower(source, new FrostbitePower(target, move.extra));
+                ChilledPower po = GameUtilities.getPower(mo, ChilledPower.class);
+                if (po != null)
+                {
+                    PCLActions.bottom.applyPower(mo, mo, new FrostbitePower(mo, po.amount * move.amount));
+                }
             }
         }
     }

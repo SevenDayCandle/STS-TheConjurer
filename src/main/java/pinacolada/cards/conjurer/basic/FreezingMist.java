@@ -9,6 +9,7 @@ import pinacolada.cards.base.fields.PCLCardTag;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
 
 public class FreezingMist extends PCLCard
@@ -27,5 +28,6 @@ public class FreezingMist extends PCLCard
     public void setup(Object input)
     {
         addUseMove(PMove.applyToEnemies(3, PCLElementHelper.Chilled, PCLPowerHelper.Weak));
+        addUseMove(CCond.redox(), PMove.apply(PCLCardTarget.Team, 1, PCLPowerHelper.Blur));
     }
 }

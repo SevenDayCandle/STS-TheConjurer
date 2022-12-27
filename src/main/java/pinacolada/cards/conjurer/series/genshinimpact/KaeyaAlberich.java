@@ -17,7 +17,7 @@ public class KaeyaAlberich extends PCLCard
             .setSummon(1, CardRarity.COMMON)
             .setDamage(4, 1)
             .setPriority(1)
-            .setHp(8, 2)
+            .setHp(7, 2)
             .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 

@@ -20,7 +20,7 @@ public class FrostbitePower extends PCLPower implements HealthBarRenderPower
     {
         super(owner, POWER_ID);
 
-        initialize(amount, PowerType.DEBUFF, false);
+        initialize(amount, PowerType.DEBUFF, true);
     }
 
     @Override
@@ -49,5 +49,9 @@ public class FrostbitePower extends PCLPower implements HealthBarRenderPower
         PCLActions.bottom.loseHP(source, owner, amount, AttackEffects.ICE)
                 .canKill(owner == null || !owner.isPlayer);
         reducePower(MathUtils.ceil(amount / 2f));
+        if (amount <= 0)
+        {
+            removePower();
+        }
     }
 }

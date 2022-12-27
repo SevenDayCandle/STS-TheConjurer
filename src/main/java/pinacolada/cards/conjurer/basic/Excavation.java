@@ -6,7 +6,6 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.PCLCardGroupHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CMove;
 import pinacolada.skills.PMove;
 
 public class Excavation extends PCLCard
@@ -24,6 +23,6 @@ public class Excavation extends PCLCard
 
     public void setup(Object input)
     {
-        addUseMove(PMove.fetch(2, PCLCardGroupHelper.DiscardPile).setAffinity(PCLAffinity.Orange), PMove.retain(2).useParent(true));
+        addUseMove(PMove.fetch(2, PCLCardGroupHelper.DiscardPile).setAffinity(PCLAffinity.Green, PCLAffinity.Orange), PMove.retain(2).useParent(true));
     }
 }
