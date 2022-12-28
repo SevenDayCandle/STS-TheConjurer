@@ -15,12 +15,12 @@
 								"PROPER_NAME": "Combust"
 				},
 				"Corrosion":	{
-								"DESCRIPTION": "[A-D] #yElemental #yDebuff. When #yAttacking, deal a portion of damage dealt to yourself and ALL allies.",
+								"DESCRIPTION": "[A-P] #yElemental #yDebuff. When #yAttacking, deal a portion of damage dealt to yourself and ALL allies.",
 								"NAMES": ["corrosion"],
 								"PROPER_NAME": "Corrosion"
 				},
 				"Electrified":	{
-								"DESCRIPTION": "[A-L] #yElemental #yDebuff. Cards played on this target grant additional #yReaction.",
+								"DESCRIPTION": "[A-Y] #yElemental #yDebuff. Cards played on this target grant additional #yReaction.",
 								"NAMES": ["electrified"],
 								"PROPER_NAME": "Electrified"
 				},

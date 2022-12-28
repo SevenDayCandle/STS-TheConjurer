@@ -12,7 +12,7 @@ public class Sublimation extends PCLCard
 {
     public static final PCLCardData DATA = register(Sublimation.class, ConjurerResources.conjurer)
             .setPower(2, CardRarity.UNCOMMON)
-            .setAffinities(1, PCLAffinity.Red, PCLAffinity.Blue, PCLAffinity.Dark)
+            .setAffinities(1, PCLAffinity.Red, PCLAffinity.Blue, PCLAffinity.Purple)
             .setCore();
 
     public Sublimation()

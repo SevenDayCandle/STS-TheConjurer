@@ -22,7 +22,7 @@ public class VerdantGale extends PCLCard
             .setPower(3, CardRarity.SPECIAL)
             .setAffinities(2, PCLAffinity.Green)
             .setUTags(PCLCardTag.Retain)
-            .setColorless();
+            .setCore();
 
     public VerdantGale()
     {

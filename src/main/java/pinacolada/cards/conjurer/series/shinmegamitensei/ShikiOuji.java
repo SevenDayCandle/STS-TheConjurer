@@ -4,7 +4,6 @@ package pinacolada.cards.conjurer.series.shinmegamitensei;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
-import pinacolada.cards.base.PCLCardTarget;
 import pinacolada.effects.AttackEffects;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
@@ -31,6 +30,6 @@ public class ShikiOuji extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.SLASH_HEAVY);
-        addUseMove(PMultiCond.or(PCond.onSummon(), PCond.onWithdraw()), PMove.apply(PCLCardTarget.AllAlly, 2, PCLPowerHelper.Thorns).setUpgrade(1));
+        addUseMove(PMultiCond.or(PCond.onSummon(), PCond.onWithdraw()), PMove.applyToAllies( 2, PCLPowerHelper.Thorns).setUpgrade(1));
     }
 }

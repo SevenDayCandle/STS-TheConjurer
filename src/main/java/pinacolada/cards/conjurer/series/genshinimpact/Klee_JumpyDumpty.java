@@ -14,7 +14,7 @@ public class Klee_JumpyDumpty extends PCLCard
     public static final PCLCardData DATA = register(Klee_JumpyDumpty.class, ConjurerResources.conjurer)
             .setAttack(0, CardRarity.SPECIAL, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy)
             .setDamage(10, 4)
-            .setTags(PCLCardTag.Autoplay, PCLCardTag.Exhaust)
+            .setTags(PCLCardTag.Autoplay)
             .setAffinities(PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
@@ -26,6 +26,6 @@ public class Klee_JumpyDumpty extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.SMALL_EXPLOSION);
-        addUseMove(PMove.applyToRandom(3, PCLElementHelper.Burned));
+        addUseMove(PMove.applyToEveryone(3, PCLElementHelper.Burned));
     }
 }

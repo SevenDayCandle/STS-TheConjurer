@@ -17,7 +17,7 @@ public class Klee extends PCLCard
             .setDamage(1, 0)
             .setPriority(1)
             .setHp(4, 1)
-            .setAffinities(PCLAffinity.Red)
+            .setAffinities(PCLAffinity.Red, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
     public Klee()

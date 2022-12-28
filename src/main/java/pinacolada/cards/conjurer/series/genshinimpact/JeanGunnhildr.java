@@ -18,7 +18,7 @@ public class JeanGunnhildr extends PCLCard
             .setDamage(3, 2)
             .setPriority(1)
             .setHp(9, 1)
-            .setAffinities(PCLAffinity.Green, PCLAffinity.Orange)
+            .setAffinities(PCLAffinity.Green, PCLAffinity.Orange, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
     public JeanGunnhildr()

@@ -12,8 +12,8 @@ public class Vaporize extends PCLCard
 {
     public static final PCLCardData DATA = register(Vaporize.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.COMMON, PCLAttackType.Piercing)
-            .setDamage(5, 1)
-            .setAffinities(PCLAffinity.Blue)
+            .setDamage(4, 1)
+            .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
             .setCore();
 
     public Vaporize()

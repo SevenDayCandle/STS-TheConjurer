@@ -23,7 +23,7 @@ public class ErodingTerra extends PCLCard
             .setPower(3, CardRarity.SPECIAL)
             .setAffinities(2, PCLAffinity.Orange)
             .setUTags(PCLCardTag.Retain)
-            .setColorless();
+            .setCore();
 
     public ErodingTerra()
     {

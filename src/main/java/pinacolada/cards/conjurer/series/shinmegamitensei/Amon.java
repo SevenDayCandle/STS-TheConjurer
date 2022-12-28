@@ -9,30 +9,31 @@ import pinacolada.effects.AttackEffects;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
+import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
 import pinacolada.skills.PTrigger;
 
-public class KingFrost extends PCLCard
+public class Amon extends PCLCard
 {
-    public static final PCLCardData DATA = register(KingFrost.class, ConjurerResources.conjurer)
-            .setSummon(3, CardRarity.RARE, PCLAttackType.Magical)
-            .setDamage(2, 0)
+    public static final PCLCardData DATA = register(Amon.class, ConjurerResources.conjurer)
+            .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Piercing)
+            .setDamage(4, 1)
             .setPriority(1)
-            .setHp(22, 4)
-            .setAffinities(2, PCLAffinity.Blue)
+            .setHp(11, 1)
+            .setAffinities(PCLAffinity.Red, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public KingFrost()
+    public Amon()
     {
         super(DATA);
     }
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.ICE);
+        addDamageMove(AttackEffects.BLUNT_HEAVY);
         addGainPower(PTrigger.interactable(
-                CCond.payReaction(8).setUpgrade(-1),
-                PMove.obtain(1, JackFrost.DATA))
-        );
+                CCond.payReaction(9),
+                PMod.bonusPerLevel(5, PCLAffinity.Red).setUpgrade(1), PMove.dealDamage(5, AttackEffects.CLAW).setUpgrade(1)
+        ));
     }
 }

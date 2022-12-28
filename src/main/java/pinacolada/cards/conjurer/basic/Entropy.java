@@ -18,7 +18,7 @@ public class Entropy extends PCLCard
 {
     public static final PCLCardData DATA = register(Entropy.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.RARE)
-            .setAffinities(PCLAffinity.Blue, PCLAffinity.Light, PCLAffinity.Dark)
+            .setAffinities(PCLAffinity.Blue, PCLAffinity.Yellow, PCLAffinity.Purple)
             .setCore();
 
     public Entropy()

@@ -13,7 +13,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 public class ElectrifiedPower extends AbstractPCLElementalPower implements OnTryElementReactSubscriber
 {
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, ElectrifiedPower.class);
-    public static final PCLAffinity AFFINITY = setAffinity(POWER_ID, PCLAffinity.Light);
+    public static final PCLAffinity AFFINITY = setAffinity(POWER_ID, PCLAffinity.Yellow);
     public static final int MULTIPLIER = setMultiplier(POWER_ID, 40);
 
     public ElectrifiedPower(AbstractCreature owner, AbstractCreature source, int amount)

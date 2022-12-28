@@ -14,7 +14,7 @@ public class Scorch extends PCLCard
 {
     public static final PCLCardData DATA = register(Scorch.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.COMMON, PCLAttackType.Ranged)
-            .setDamage(7, 2)
+            .setDamage(7, 3)
             .setAffinities(PCLAffinity.Red)
             .setCore();
 
@@ -26,6 +26,6 @@ public class Scorch extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.FIRE);
-        addUseMove(PMove.applyToSingle(3, PCLElementHelper.Burned).setUpgrade(1));
+        addUseMove(PMove.applyToSingle(3, PCLElementHelper.Burned));
     }
 }

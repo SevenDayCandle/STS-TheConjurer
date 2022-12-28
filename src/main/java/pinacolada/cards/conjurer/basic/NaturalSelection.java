@@ -24,6 +24,6 @@ public class NaturalSelection extends PCLCard
 
     public void setup(Object input)
     {
-        addUseMove(PMove.withdrawAlly(1), PMultiSkill.join(new PMove_RestoreCardHP(1, 12).setUpgradeExtra(5), PMove.modifyDamage(2).setUpgrade(1)).useParent(true));
+        addUseMove(PMove.withdrawAlly(1), PMultiSkill.join(new PMove_RestoreCardHP(1, 12).setUpgradeExtra(5).useParent(true), PMove.modifyDamage(2).setUpgrade(1).useParent(true)));
     }
 }

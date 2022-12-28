@@ -24,7 +24,7 @@ public class Condensation extends PCLCard
 
     public void setup(Object input)
     {
-        addUseMove(PMove.triggerAlly(PCLCardTarget.SingleAlly, 2).setUpgrade(1));
         addUseMove(PMove.applyToSingle(1, PCLElementHelper.Chilled, PCLPowerHelper.Weak));
+        addUseMove(PMove.triggerAlly(PCLCardTarget.SingleAlly, 2).setUpgrade(1));
     }
 }

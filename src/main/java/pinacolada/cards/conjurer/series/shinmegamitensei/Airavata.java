@@ -4,6 +4,7 @@ package pinacolada.cards.conjurer.series.shinmegamitensei;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
+import pinacolada.cards.base.PCLCardTarget;
 import pinacolada.effects.AttackEffects;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -31,8 +32,8 @@ public class Airavata extends PCLCard
     {
         addDamageMove(AttackEffects.BLUNT_HEAVY);
         addGainPower(PTrigger.interactable(
-                CCond.payReaction(18),
-                PMod.bonusPerLevel(4, PCLAffinity.Orange).setUpgrade(1), PMove.gainBlock(6).setUpgrade(1)
+                CCond.payReaction(10),
+                PMod.bonusPerLevel(4, PCLAffinity.Orange).setUpgrade(1), PMove.gainBlock(PCLCardTarget.None, 6).setUpgrade(1)
         ));
     }
 }

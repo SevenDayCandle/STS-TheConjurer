@@ -68,8 +68,8 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
         air = new ConjurerElementButton(this, PCLAffinity.Green,ConjurerResources.conjurer.images.core.elementAir.texture(), RelativeHitbox.fromPercentages(hb, 2, 2, 5f, -1 - DISTANCE));
         water = new ConjurerElementButton(this, PCLAffinity.Blue, ConjurerResources.conjurer.images.core.elementWater.texture(), RelativeHitbox.fromPercentages(hb, 2, 2, 5f + DISTANCE, -1));
         earth = new ConjurerElementButton(this, PCLAffinity.Orange, ConjurerResources.conjurer.images.core.elementEarth.texture(), RelativeHitbox.fromPercentages(hb, 2, 2, 5f - DISTANCE, -1));
-        light = new ConjurerElementButton(this, PCLAffinity.Light, ConjurerResources.conjurer.images.core.elementLight.texture(), RelativeHitbox.fromPercentages(hb, 2, 2, 5f, -1));
-        dark = new ConjurerElementButton(this, PCLAffinity.Dark, ConjurerResources.conjurer.images.core.elementDark.texture(), RelativeHitbox.fromPercentages(hb, 2, 2, 5f, -1));
+        light = new ConjurerElementButton(this, PCLAffinity.Yellow, ConjurerResources.conjurer.images.core.elementLight.texture(), RelativeHitbox.fromPercentages(hb, 2, 2, 5f, -1));
+        dark = new ConjurerElementButton(this, PCLAffinity.Purple, ConjurerResources.conjurer.images.core.elementDark.texture(), RelativeHitbox.fromPercentages(hb, 2, 2, 5f, -1));
         elements.add(fire);
         elements.add(air);
         elements.add(water);

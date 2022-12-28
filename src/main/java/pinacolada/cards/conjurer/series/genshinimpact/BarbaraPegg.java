@@ -15,7 +15,7 @@ public class BarbaraPegg extends PCLCard
             .setDamage(1, 0)
             .setPriority(1)
             .setHp(4, 2)
-            .setAffinities(PCLAffinity.Blue, PCLAffinity.Light)
+            .setAffinities(PCLAffinity.Blue, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
     public BarbaraPegg()

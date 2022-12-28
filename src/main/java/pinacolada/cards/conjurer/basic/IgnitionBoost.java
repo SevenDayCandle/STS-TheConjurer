@@ -25,6 +25,6 @@ public class IgnitionBoost extends PCLCard
     public void setup(Object input)
     {
         addUseMove(PMove.triggerAlly(PCLCardTarget.AllAlly, 2));
-        addUseMove(PMove.apply(PCLCardTarget.Team, 3, PCLElementHelper.Burned));
+        addUseMove(PMove.apply(PCLCardTarget.Team, 1, PCLElementHelper.Vulnerable));
     }
 }

@@ -9,17 +9,17 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
-public class BlackFrost extends PCLCard
+public class Adramelech extends PCLCard
 {
-    public static final PCLCardData DATA = register(BlackFrost.class, ConjurerResources.conjurer)
-            .setSummon(1, CardRarity.RARE, PCLAttackType.Magical, PCLCardTarget.RandomEnemy)
-            .setDamage(5, 1)
+    public static final PCLCardData DATA = register(Adramelech.class, ConjurerResources.conjurer)
+            .setSummon(2, CardRarity.COMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
+            .setDamage(3, 1)
             .setPriority(1)
-            .setHp(3, 2)
-            .setAffinities(PCLAffinity.Red, PCLAffinity.Blue, PCLAffinity.Purple)
+            .setHp(10, 1)
+            .setAffinities(PCLAffinity.Red, PCLAffinity.Green, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public BlackFrost()
+    public Adramelech()
     {
         super(DATA);
     }
@@ -27,6 +27,6 @@ public class BlackFrost extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.FIRE);
-        addUseMove(PCond.cooldown(0), PMove.applyToRandom(2, PCLElementHelper.Burned, PCLElementHelper.Chilled));
+        addUseMove(PCond.cooldown(0), PMove.applyToRandom(5, PCLElementHelper.Burned, PCLElementHelper.Flowed, PCLElementHelper.Stoned).setUpgrade(2).setAlt(true));
     }
 }

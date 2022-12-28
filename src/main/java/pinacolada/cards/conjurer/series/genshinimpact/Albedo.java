@@ -11,24 +11,24 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
-public class KazuhaKaedehara extends PCLCard
+public class Albedo extends PCLCard
 {
-    public static final PCLCardData DATA = register(KazuhaKaedehara.class, ConjurerResources.conjurer)
-            .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Piercing)
-            .setDamage(3, 0)
+    public static final PCLCardData DATA = register(Albedo.class, ConjurerResources.conjurer)
+            .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Magical)
+            .setDamage(3, 1)
             .setPriority(1)
-            .setHp(7, 2)
-            .setAffinities(PCLAffinity.Green)
+            .setHp(8, 2)
+            .setAffinities(PCLAffinity.Blue, PCLAffinity.Orange, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public KazuhaKaedehara()
+    public Albedo()
     {
         super(DATA);
     }
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.SLASH_HORIZONTAL);
-        addUseMove(PCond.cooldown(1), PMove.draw(1).setAffinity(PCLAffinity.Green));
+        addDamageMove(AttackEffects.EARTH);
+        addUseMove(PCond.cooldown(0), PMove.scout(1));
     }
 }

@@ -49,9 +49,9 @@ public class ConjurerTooltips extends PCLTooltips
                 return chilled;
             case Orange:
                 return stoned;
-            case Light:
+            case Yellow:
                 return electrified;
-            case Dark:
+            case Purple:
                 return corrosion;
             case Silver:
             case Star:
