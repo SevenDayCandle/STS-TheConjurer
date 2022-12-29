@@ -16,7 +16,7 @@ public class Flauros extends PCLCard
             .setDamage(5, 1)
             .setPriority(1)
             .setHp(10, 2)
-            .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
+            .setAffinities(2, PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
     public Flauros()

@@ -59,6 +59,7 @@ public class TheWatcher extends PCLCard
                 .addCallback(cards -> {
                     for (AbstractCard c : cards)
                     {
+                        c.costForTurn = 0;
                         PCLActions.bottom.makeCard(c, player.hand);
                     }
                 });

@@ -22,9 +22,9 @@ public class ConjurerEarthAllyAnimation extends PCLAllyAnimation
 
     public void updateImpl(float deltaTime, float x, float y)
     {
-        PCLEffects.Queue.add(new FadingParticleEffect(RockBurstEffect.getRandomTexture(), x + MathUtils.random(-64, 64), y + MathUtils.random(-32, 4))
+        PCLEffects.Queue.add(new FadingParticleEffect(RockBurstEffect.getRandomTexture(), x + MathUtils.random(-90, 90), y + MathUtils.random(-32, 4))
                 .setFlip(MathUtils.randomBoolean(), false)
-                .setScale(MathUtils.random(0.09f, 0.64f))
+                .setScale(MathUtils.random(0.09f, 0.32f))
                 .setRotation(0, MathUtils.random(400f, 600f))
                 .setTargetPosition(x, y + RADIUS, 50f)).setDuration(0.6f, false);
     }

@@ -1,0 +1,38 @@
+
+{
+	"conjurer:BurningPotion":
+	{
+		"NAME": "Burning Potion",
+		"DESCRIPTIONS":
+		[
+		]
+	},
+	"conjurer:ChillingPotion":
+	{
+		"NAME": "Chilling Potion",
+		"DESCRIPTIONS":
+		[
+		]
+	},
+	"conjurer:LeafPotion":
+	{
+	  "NAME": "Leaf Potion",
+	  "DESCRIPTIONS":
+	  [
+	  ]
+	},
+	"conjurer:FlowingPotion":
+	{
+		"NAME": "Flowing Potion",
+		"DESCRIPTIONS":
+		[
+		]
+	},
+	"conjurer:StoningPotion":
+	{
+		"NAME": "Stoning Potion",
+		"DESCRIPTIONS":
+		[
+		]
+	}
+}

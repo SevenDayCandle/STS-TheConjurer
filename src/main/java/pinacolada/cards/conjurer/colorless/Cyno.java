@@ -23,7 +23,7 @@ public class Cyno extends PCLCard
 {
     public static final PCLCardData DATA = register(Cyno.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON)
-            .setDamage(4, 2)
+            .setDamage(4, 1)
             .setPriority(1)
             .setHp(7, 1)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Orange, PCLAffinity.Purple)
@@ -38,7 +38,7 @@ public class Cyno extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.SLASH_HEAVY);
-        addSpecialPower(0, (s, i) -> new CynoPower(i.source, s), 2);
+        addSpecialPower(0, (s, i) -> new CynoPower(i.source, s), 3).setUpgrade(1);
     }
 
     public static class CynoPower extends PSpecialCardPower implements OnAllyDeathSubscriber, OnMonsterDeathSubscriber

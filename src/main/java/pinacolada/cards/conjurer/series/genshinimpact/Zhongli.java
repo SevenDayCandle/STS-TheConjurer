@@ -16,7 +16,7 @@ public class Zhongli extends PCLCard
             .setDamage(2, 0)
             .setPriority(1)
             .setHp(25, 3)
-            .setAffinities(PCLAffinity.Orange)
+            .setAffinities(2, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
     public Zhongli()

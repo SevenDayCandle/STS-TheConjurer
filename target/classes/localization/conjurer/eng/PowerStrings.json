@@ -1,0 +1,73 @@
+
+{
+	"conjurer:AbstractPCLElementalPower":
+	{
+	  "DESCRIPTIONS": ["Cards deal #b+{0}% damage per {1} and give #b+{0}% [Block] per {2}.", "Removed at the end of round.", "Lasts for {0} turns."],
+	  "NAME": "Elemental Debuff"
+	},
+	"conjurer:AbyssPower":
+	{
+	  "DESCRIPTIONS": ["Whenever you play a card, gains stacks equal to the card's cost + 1. Whenever this reaches #b{0} stacks, remove #b{0} stacks, end your turn, and choose 1 out of 3 random effects with positive and negative effects."],
+	  "NAME": "Phase of the Abyssal Moon"
+	},
+	"conjurer:BurnedPower":
+	{
+		"DESCRIPTIONS": ["When #yAttacked, you gain Temp. [Vigor] equal to #b{0}% of damage dealt.", "When targets with [Burned] take #yAttack damage, you gain #b{0}% of the damage as temporary [Vigor]."],
+		"NAME": "Burned"
+	},
+	"conjurer:BurningWeaponPower":
+	{
+		"DESCRIPTIONS": ["For #b{0} turns: Whenever you deal unblocked damage to an enemy, apply #b{0} [Burned]. Deal #b+{1} damage against targets with [Chilled]."],
+		"NAME": "Burning Weapon"
+	},
+	"conjurer:ChilledPower":
+	{
+		"DESCRIPTIONS": ["When #yAttacked, the target gains [Frostbite] equal to #b{0}% of damage dealt.", "When targets with [Chilled] take #yAttack damage, they gain #b{0}% of the damage as [Frostbite]."],
+		"NAME": "Chilled"
+	},
+	"conjurer:ChilledWeaponPower":
+	{
+		"DESCRIPTIONS": ["For #b{0} turns: Whenever you deal unblocked damage to an enemy, apply #b{0} [Chilled]. Deal #b+{1} damage against targets with [Burned]."],
+		"NAME": "Chilled Weapon"
+	},
+	"conjurer:CorrosionPower":
+	{
+		"DESCRIPTIONS": ["#b{0}% of outgoing damage is dealt to itself and ALL allies.", "When targets with [Corrosion] attack, #b{0}% of damage is dealt to themselves and their allies."],
+		"NAME": "Corrosion"
+	},
+	"conjurer:ElectrifiedPower":
+	{
+		"DESCRIPTIONS": ["Cards targeting this creature give #b+{0}% #yReaction.", "Cards targeting with [Electrified] give #b+{0}% #yReaction."],
+		"NAME": "Electrified"
+	},
+	"conjurer:ElementalExposurePower":
+	{
+		"DESCRIPTIONS": ["The effects of #yElemntal #yDebuffs are multiplied by #b{0}%."],
+		"NAME": "Elemental Exposure"
+	},
+	"conjurer:ElementalMasteryPower":
+	{
+		"DESCRIPTIONS": ["When you apply an #yElemental #yDebuff, gain an #yAura, or gain #yResolve: Increase the amount by #b{0}."],
+		"NAME": "Elemental Mastery"
+	},
+	"conjurer:FlowedPower":
+	{
+		"DESCRIPTIONS": ["When #yAttacked, #b{0}% additional damage is dealt to itself and its allies.", "When targets with [Flowed] take #yAttack damage, #b{0}% of it is dealt to themself and their allies."],
+		"NAME": "Flowed"
+	},
+	"conjurer:FrostbitePower":
+	{
+	  "DESCRIPTIONS": ["At the end of turn, lose #b{0} HP, then cut stacks in half."],
+	  "NAME": "Frostbite"
+	},
+	"conjurer:PetrifiedPower":
+	{
+		"DESCRIPTIONS": ["For #b{0} turns: #yElemental #yDebuffs cannot be reduced."],
+		"NAME": "Petrified"
+	},
+	"conjurer:StonedPower":
+	{
+		"DESCRIPTIONS": ["When #yAttacked, you gain [NTB] equal to #b{0}% of damage dealt.", "When targets with [Stoned] take #yAttack damage, you gain #b{0}% of the damage as [NTB]."],
+		"NAME": "Stoned"
+	}
+}

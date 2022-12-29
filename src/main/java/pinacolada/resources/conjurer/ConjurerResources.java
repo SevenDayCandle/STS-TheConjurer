@@ -16,6 +16,8 @@ import pinacolada.resources.PCLResources;
 import pinacolada.resources.PGR;
 import pinacolada.ui.combat.ConjurerReactionMeter;
 
+import java.util.HashSet;
+
 public class ConjurerResources extends PCLResources<ConjurerConfig, ConjurerImages, ConjurerTooltips>
 {
     public static final String ID = "conjurer";
@@ -63,7 +65,10 @@ public class ConjurerResources extends PCLResources<ConjurerConfig, ConjurerImag
 
     protected PCLAllyAnimation getAnimation(PCLCardAlly ally)
     {
-        PCLCardAffinity highest = ally.hasCard() ? ally.card.affinities.getHighest() : null;
+        HashSet<PCLAffinity> available = new HashSet<>(PCLAffinity.getAvailableAffinitiesAsList());
+        available.add(PCLAffinity.Star);
+
+        PCLCardAffinity highest = ally.hasCard() ? ally.card.affinities.getHighest(cAff -> available.contains(cAff.type)) : null;
         if (highest != null)
         {
             switch (highest.type)

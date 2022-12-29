@@ -19,7 +19,7 @@ public class Venti extends PCLCard
             .setRTags(PCLCardTag.Ethereal)
             .setPriority(1)
             .setHp(6, 2)
-            .setAffinities(2, PCLAffinity.Green)
+            .setAffinities(PCLAffinity.Green.make(2), PCLAffinity.Yellow.make(1))
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
     public Venti()
