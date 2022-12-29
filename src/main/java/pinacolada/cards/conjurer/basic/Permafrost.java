@@ -9,20 +9,20 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 import pinacolada.skills.PTrigger;
 
-public class Geomorphology extends PCLCard
+public class Permafrost extends PCLCard
 {
-    public static final PCLCardData DATA = register(Geomorphology.class, ConjurerResources.conjurer)
-            .setPower(2, CardRarity.UNCOMMON)
-            .setAffinities(2, PCLAffinity.Orange)
+    public static final PCLCardData DATA = register(Permafrost.class, ConjurerResources.conjurer)
+            .setPower(1, CardRarity.UNCOMMON)
+            .setAffinities(2, PCLAffinity.Blue)
             .setCore();
 
-    public Geomorphology()
+    public Permafrost()
     {
         super(DATA);
     }
 
     public void setup(Object input)
     {
-        addGainPower(PTrigger.when(PCond.onSummon(), PMove.applyToRandom(2, PCLElementHelper.Stoned).setUpgrade(1)));
+        addGainPower(PTrigger.when(PCond.onOtherCardPlayed(PCLAffinity.Blue), PMove.applyToRandom(1, PCLElementHelper.Chilled).setUpgrade(1)));
     }
 }

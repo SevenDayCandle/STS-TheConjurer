@@ -1,28 +1,28 @@
 package pinacolada.cards.conjurer.basic;
 
+
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
-import pinacolada.skills.PTrigger;
 
-public class Geomorphology extends PCLCard
+public class Lithosphere extends PCLCard
 {
-    public static final PCLCardData DATA = register(Geomorphology.class, ConjurerResources.conjurer)
-            .setPower(2, CardRarity.UNCOMMON)
+    public static final PCLCardData DATA = register(Lithosphere.class, ConjurerResources.conjurer)
+            .setSkill(1, CardRarity.COMMON)
+            .setBlock(7, 2)
             .setAffinities(2, PCLAffinity.Orange)
             .setCore();
 
-    public Geomorphology()
+    public Lithosphere()
     {
         super(DATA);
     }
 
     public void setup(Object input)
     {
-        addGainPower(PTrigger.when(PCond.onSummon(), PMove.applyToRandom(2, PCLElementHelper.Stoned).setUpgrade(1)));
+        addUseMove(PMove.applyToSingle(3, PCLElementHelper.Stoned).setUpgrade(1));
     }
 }

@@ -12,7 +12,7 @@ public class RazorWind extends PCLCard
 {
     public static final PCLCardData DATA = register(RazorWind.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.UNCOMMON, PCLAttackType.Piercing, PCLCardTarget.AllEnemy)
-            .setDamage(5, 2)
+            .setDamage(6, 2)
             .setAffinities(PCLAffinity.Green)
             .setCore();
 

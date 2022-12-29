@@ -1,15 +1,14 @@
 package pinacolada.cards.conjurer.series.genshinimpact;
 
 
-import pinacolada.cards.base.PCLAffinity;
-import pinacolada.cards.base.PCLAttackType;
-import pinacolada.cards.base.PCLCard;
-import pinacolada.cards.base.PCLCardData;
+import pinacolada.cards.base.*;
 import pinacolada.effects.AttackEffects;
+import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
+import pinacolada.skills.skills.PMultiSkill;
 
 public class Albedo extends PCLCard
 {
@@ -29,6 +28,9 @@ public class Albedo extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.EARTH);
-        addUseMove(PCond.cooldown(0), PMove.scout(1));
+        addUseMove(PCond.cooldown(2), PMultiSkill.choose(
+                PMove.applyToEnemies(6, PCLElementHelper.Stoned),
+                PMove.stabilize(PCLCardTarget.AllEnemy, PCLElementHelper.Chilled)
+        ));
     }
 }

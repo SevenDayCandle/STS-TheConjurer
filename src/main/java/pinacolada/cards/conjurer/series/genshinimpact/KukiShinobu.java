@@ -16,7 +16,7 @@ public class KukiShinobu extends PCLCard
             .setDamage(2, 0, 2)
             .setPriority(1)
             .setHp(6, 1)
-            .setAffinities(PCLAffinity.Green)
+            .setAffinities(PCLAffinity.Green, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
     public KukiShinobu()

@@ -17,31 +17,31 @@ import pinacolada.skills.PTrigger;
 import pinacolada.skills.skills.PSpecialSkill;
 import pinacolada.utilities.RandomizedList;
 
-public class TheIronclad extends PCLCard
+public class TheDefect extends PCLCard
 {
-    public static final PCLCardData DATA = register(TheIronclad.class, ConjurerResources.conjurer)
+    public static final PCLCardData DATA = register(TheDefect.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON)
-            .setDamage(4, 1)
+            .setDamage(4, 2)
             .setPriority(1)
-            .setHp(9, 2)
-            .setAffinities(PCLAffinity.Red)
+            .setHp(7, 1)
+            .setAffinities(PCLAffinity.Blue)
             .setColorless();
 
-    public TheIronclad()
+    public TheDefect()
     {
         super(DATA);
     }
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.SLASH_HEAVY);
+        addDamageMove(AttackEffects.LIGHTNING);
         addGainPower(PTrigger.interactable(PCond.payEnergy(2), getSpecialMove(0, this::specialMove, 1, 3)));
     }
 
     public void specialMove(PSpecialSkill move, PCLUseInfo info)
     {
         final RandomizedList<AbstractCard> choices = new RandomizedList<>(
-          EUIUtils.filter(CardLibrary.getCardList(CardLibrary.LibraryType.RED), c -> c.rarity != CardRarity.SPECIAL && c.type != CardType.STATUS)
+          EUIUtils.filter(CardLibrary.getCardList(CardLibrary.LibraryType.BLUE), c -> c.rarity != CardRarity.SPECIAL && c.type != CardType.STATUS)
         );
         final CardGroup choice = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         final int limit = Math.max(move.extra, move.amount);
