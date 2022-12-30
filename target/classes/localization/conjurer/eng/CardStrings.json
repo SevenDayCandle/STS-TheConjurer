@@ -66,15 +66,15 @@
 	"COLORLESS":
 	{
 	  	"conjurer:Aloy": {"NAME": "Aloy"},
-	  	"conjurer:AtomicDisplacement": {"EXTENDED_DESCRIPTION": ["Exchange your Debuffs with the target. Gain {0} [THP] per new Debuff you gain"], "NAME": "Atomic Displacement"},
+	  	"conjurer:AtomicDisplacement": {"EXTENDED_DESCRIPTION": ["Exchange your Debuffs with the target. Gain {0} [THP] per new Debuff gained"], "NAME": "Atomic Displacement"},
 		"conjurer:Clownpiece": {"EXTENDED_DESCRIPTION": ["If any of them was an Attack, ALL enemies gain [Provoked]"], "NAME": "Clownpiece"},
-		"conjurer:Cyno": {"EXTENDED_DESCRIPTION": ["Whenever any creature dies, this gains +{0} damage"], "NAME": "Cyno"},
-	  	"conjurer:Dampen": {"EXTENDED_DESCRIPTION": ["Lower the target's [Strength] by {0}. Then, if it is positive, cut it in half"], "NAME": "Dampen"},
+		"conjurer:Cyno": {"EXTENDED_DESCRIPTION": ["Whenever any creature dies: You gain {1} [Energized], and this gains +{0} damage"], "NAME": "Cyno"},
 	  	"conjurer:DiamondDazzle": {"EXTENDED_DESCRIPTION": ["+{0} damage per Augment on any card in hand", "While in your deck, you have a higher chance of finding Augments"], "NAME": "Diamond Dazzle"},
-	  	"conjurer:EcologicalConservation": {"EXTENDED_DESCRIPTION": ["Status cards become more beneficial this combat"], "NAME": "Ecological Conservation"},
+	  	"conjurer:Enervate": {"EXTENDED_DESCRIPTION": ["Lower the target's [Strength] by {0}. Then, if it is positive, cut it in half"], "NAME": "Enervate"},
 		"conjurer:EirinYagokoro": {"EXTENDED_DESCRIPTION": ["Use your left-most usable Potion twice"], "NAME": "Eirin Yagokoro"},
 		"conjurer:Fischl": {"NAME": "Fischl"},
 		"conjurer:Fischl_Oz": {"NAME": "Oz"},
+	  	"conjurer:GeneticEngineering": {"EXTENDED_DESCRIPTION": ["Status cards become more beneficial this combat"], "NAME": "GeneticEngineering"},
 		"conjurer:GrandPeco": {"NAME": "Grand Peco"},
 		"conjurer:KokomiSangonomiya": {
 			"EXTENDED_DESCRIPTION": ["ALL cards give 0 [Block]. Orbs reflect incoming damage"],
@@ -251,7 +251,7 @@
 		"conjurer:KonpakuYoumu": {"NAME": "Konpaku Youmu"},
 		"conjurer:MarisaKirisame": {"FLAVOR": "Benitsuki Tsubasa", "NAME": "Marisa Kirisame"},
 		"conjurer:MayumiJoutouguu": {"NAME": "Mayumi Joutouguu"},
-		"conjurer:Patchouli": {"EXTENDED_DESCRIPTION": ["Apply {0} of any Elemental Debuff to ALL enemies"], "NAME": "Patchouli"},
+		"conjurer:Patchouli": {"EXTENDED_DESCRIPTION": ["Apply {0} of {1} Debuffs"], "NAME": "Patchouli"},
 		"conjurer:ReimuHakurei": {"NAME": "Reimu Hakurei"},
 		"conjurer:RinnosukeMorichika": {"FLAVOR": "An²a", "NAME": "Rinnosuke Morichika"},
 		"conjurer:RinKaenbyou": {"FLAVOR": "Pixiv Id 28850, Pkk", "NAME": "Rin Kaenbyou"},

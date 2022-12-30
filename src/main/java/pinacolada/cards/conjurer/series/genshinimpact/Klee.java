@@ -1,9 +1,7 @@
 package pinacolada.cards.conjurer.series.genshinimpact;
 
 
-import pinacolada.cards.base.PCLAffinity;
-import pinacolada.cards.base.PCLCard;
-import pinacolada.cards.base.PCLCardData;
+import pinacolada.cards.base.*;
 import pinacolada.effects.AttackEffects;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -13,7 +11,7 @@ import pinacolada.skills.PMove;
 public class Klee extends PCLCard
 {
     public static final PCLCardData DATA = register(Klee.class, ConjurerResources.conjurer)
-            .setSummon(1, CardRarity.UNCOMMON)
+            .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Magical, PCLCardTarget.RandomEnemy)
             .setDamage(1, 0)
             .setPriority(1)
             .setHp(4, 1)

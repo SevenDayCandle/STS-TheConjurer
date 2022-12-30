@@ -38,7 +38,7 @@ public class Cyno extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.SLASH_HEAVY);
-        addSpecialPower(0, (s, i) -> new CynoPower(i.source, s), 3).setUpgrade(1);
+        addSpecialPower(0, (s, i) -> new CynoPower(i.source, s), 3, 1).setUpgrade(1);
     }
 
     public static class CynoPower extends PSpecialCardPower implements OnAllyDeathSubscriber, OnMonsterDeathSubscriber
@@ -80,18 +80,19 @@ public class Cyno extends PCLCard
 
         protected void act()
         {
+            PCLActions.bottom.gainEnergyNextTurn(move.extra);
             if (owner instanceof PCLCardAlly)
             {
                 PCLCard card = ((PCLCardAlly) owner).card;
                 if (card != null)
                 {
-                    GameUtilities.modifyDamage(card, move.amount, false);
+                    GameUtilities.modifyDamage(card, card.baseDamage + move.amount, false);
                     flash();
                 }
             }
             else
             {
-                PCLActions.bottom.applyPower(new StrengthPower(owner, 2));
+                PCLActions.bottom.applyPower(new StrengthPower(owner, move.amount));
                 flash();
             }
         }
