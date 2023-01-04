@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
+import pinacolada.cards.base.PCLCardTarget;
 import pinacolada.cards.base.fields.PCLCardTag;
 import pinacolada.interfaces.listeners.OnTryApplyPowerListener;
 import pinacolada.powers.PSpecialCardPower;
@@ -17,7 +18,7 @@ import pinacolada.utilities.GameUtilities;
 public class MagicMirror extends PCLCard
 {
     public static final PCLCardData DATA = register(MagicMirror.class, ConjurerResources.conjurer)
-            .setSkill(1, CardRarity.RARE)
+            .setSkill(1, CardRarity.RARE, PCLCardTarget.Self)
             .setTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Blue)
             .setColorless();
@@ -55,8 +56,8 @@ public class MagicMirror extends PCLCard
                     }
 
                     flash();
-                    // Only actually reflect common debuffs because modded debuffs on enemies may have unintended effects
-                    if (GameUtilities.isCommonDebuff(power))
+                    // Only actually reflect common debuffs because modded debuffs on enemies may cause crashes
+                    if (GameUtilities.isCommonPower(power))
                     {
                         action.target = source;
                         power.owner = source;

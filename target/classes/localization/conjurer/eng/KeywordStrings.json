@@ -4,6 +4,11 @@
 								"NAMES": ["burned"],
 								"PROPER_NAME": "Burned"
 				},
+				"Charge":	{
+								"DESCRIPTION": "Apply the last #yElemental #yDebuff you leveled up to an enemy. Gain #yCharges whenever you level up an #yElemental #yDebuff manually.",
+								"NAMES": ["charge"],
+								"PROPER_NAME": "Charge"
+				},
 				"Chilled":	{
 								"DESCRIPTION": "[A-B] #yElemental #yDebuff. Attacking creatures with [Chilled] gives them a stacking, decaying debuff that deals damage at the start of its turn.",
 								"NAMES": ["chilled"],

@@ -5,24 +5,18 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
-import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import extendedui.EUIRenderHelpers;
 import extendedui.EUIUtils;
 import extendedui.ui.controls.EUIImage;
 import extendedui.ui.hitboxes.EUIHitbox;
 import extendedui.utilities.EUIColors;
-import pinacolada.actions.PCLActions;
-import pinacolada.effects.PCLEffects;
-import pinacolada.effects.affinity.GenericFlashEffect;
 import pinacolada.powers.conjurer.AbstractPCLElementalPower;
 import pinacolada.resources.PGR;
-import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.utilities.PCLRenderHelpers;
 
 public class ConjurerReactionButton extends EUIImage
 {
-    public static final float ICON_SIZE = scale(32);
+    public static final float ICON_SIZE = scale(24);
     public static final Color HIGHLIGHT_AMPLIFY_COLOR = new Color(0.4f, 0.7f, 1f, 1f);
     public static final Color HIGHLIGHT_INTENSIFY_COLOR = new Color(0.7f, 1f, 0.4f, 1f);
     public static float PROGRESS_PERCENT = 0.65f;
@@ -76,20 +70,7 @@ public class ConjurerReactionButton extends EUIImage
         super.updateImpl();
         if (hb.hovered)
         {
-            boolean morph = source.meter.getMorphCount() > 0;
-            if (morph)
-            {
-                highlight();
-            }
-            updateDescription(morph);
-            if (InputHelper.justClickedLeft)
-            {
-                PCLActions.bottom.callback(() -> {
-                    if (source.meter.tryUseMorph(this)) {
-                        PCLEffects.Queue.add(new GenericFlashEffect(this.texture, this.hb.x, this.hb.y, true).setScale(Settings.scale * 0.5f));
-                    }
-                });
-            }
+            updateDescription();
         }
 
         overlay.updateImpl();
@@ -107,7 +88,7 @@ public class ConjurerReactionButton extends EUIImage
         overlay.renderCentered(sb);
     }
 
-    public void updateDescription(boolean morph)
+    public void updateDescription()
     {
         if (PGR.isLoaded())
         {
@@ -115,10 +96,6 @@ public class ConjurerReactionButton extends EUIImage
             tooltip.setDescription(type == ConjurerElementButton.Type.Combust ?
                     EUIUtils.format(PGR.core.strings.combat.conjurerMeterCombust, source.affinity.getTooltip(), target.elementPower().tooltip, PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(source.affinity))) :
                     EUIUtils.format(PGR.core.strings.combat.conjurerMeterRedox, source.affinity.getTooltip(), target.elementPower().tooltip, PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(source.affinity))));
-            if (source.meter.getMorphCount() > 0)
-            {
-                tooltip.setDescription(tooltip.description() + " | " + EUIUtils.format(PGR.core.strings.combat.conjurerMeterSwitch, type == ConjurerElementButton.Type.Combust ? ConjurerResources.conjurer.tooltips.redox.title : ConjurerResources.conjurer.tooltips.combust.title));
-            }
         }
     }
 

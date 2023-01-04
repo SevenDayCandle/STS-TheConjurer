@@ -55,7 +55,7 @@ public class ConjurerElementButton extends EUIButton
         reactionStrings = PGR.getPowerStrings(elementID());
         elementImage = new EUIImage(texture, hb).setColor(Color.GRAY).setScale(0.5f, 0.5f);
 
-        setOnClick(this::tryAddLevel);
+        setOnClick(this::manualAddLevel);
         setTooltip(reactionStrings.NAME, "");
     }
 
@@ -185,6 +185,13 @@ public class ConjurerElementButton extends EUIButton
         elementImage.setColor(Color.GRAY);
     }
 
+    public void manualAddLevel()
+    {
+        meter.set(affinity, 0);
+        meter.addSkip(1);
+        tryAddLevel();
+    }
+
     public int reactionGain(AbstractPower po, PCLCardAffinity cAff, Type type)
     {
         return CombatManager.onTryElementReact(po.amount * cAff.level, affinity, cAff.type);
@@ -202,8 +209,7 @@ public class ConjurerElementButton extends EUIButton
 
     public void tryAddLevel()
     {
-        // Prevent accidentally levelling up elements when trying to morph
-        if (!EUIUtils.any(reactions.values(), button -> button.hb.hovered) && meter.trySpendCount(currentCost))
+        if (meter.trySpendCount(currentCost))
         {
             addLevel(1);
             PCLEffects.List.add(new GenericFlashEffect(elementImage.texture, this.hb.x, this.hb.y, true).setScale(Settings.scale * 0.5f));

@@ -1,10 +1,7 @@
 package pinacolada.cards.conjurer.colorless;
 
 
-import pinacolada.cards.base.PCLAffinity;
-import pinacolada.cards.base.PCLCard;
-import pinacolada.cards.base.PCLCardData;
-import pinacolada.cards.base.PCLUseInfo;
+import pinacolada.cards.base.*;
 import pinacolada.effects.AttackEffects;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.powers.conjurer.PCLElementHelper;
@@ -23,7 +20,7 @@ import java.util.ArrayList;
 public class Patchouli extends PCLCard
 {
     public static final PCLCardData DATA = register(Patchouli.class, ConjurerResources.conjurer)
-            .setSummon(2, CardRarity.RARE)
+            .setSummon(2, CardRarity.RARE, PCLAttackType.Magical)
             .setDamage(4, 1)
             .setPriority(1)
             .setHp(11, 1)

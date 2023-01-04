@@ -14,8 +14,8 @@ public class Cryostasis extends PCLCard
 {
     public static final PCLCardData DATA = register(Cryostasis.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.COMMON)
-            .setBlock(12, 0)
-            .setRTags(PCLCardTag.Exhaust)
+            .setBlock(12, 3)
+            .setTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Blue)
             .setCore();
 

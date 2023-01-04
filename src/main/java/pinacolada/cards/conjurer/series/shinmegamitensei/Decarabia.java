@@ -32,7 +32,7 @@ public class Decarabia extends PCLCard
         addDamageMove(AttackEffects.FIRE);
         addGainPower(PTrigger.interactable(
                 CCond.payReaction(11).setUpgrade(-2),
-                PMove.modifyAffinity(1, 1, PCLAffinity.Red, PCLAffinity.Blue).setAlt(true).setCardGroup(PCLCardGroupHelper.Hand)
+                PMove.modifyAffinity(1, 1, PCLAffinity.Blue).setCardGroup(PCLCardGroupHelper.Hand)
         ));
     }
 }

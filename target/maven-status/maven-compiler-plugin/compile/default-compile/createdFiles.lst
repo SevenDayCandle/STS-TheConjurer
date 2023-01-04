@@ -55,8 +55,10 @@ pinacolada\resources\conjurer\ConjurerResources.class
 pinacolada\cards\conjurer\basic\AirCurrent.class
 pinacolada\ui\combat\ConjurerReactionMeter.class
 pinacolada\resources\conjurer\ConjurerEnum.class
+pinacolada\cards\conjurer\colorless\Radioactivity$RadioactivityPower.class
 pinacolada\relics\conjurer\WitchsHeartFlames.class
 pinacolada\skills\conjurer\modifiers\PMod_PerElement.class
+pinacolada\cards\conjurer\colorless\Geralt$GeraltCond.class
 pinacolada\cards\conjurer\basic\NaturalSelection.class
 pinacolada\cards\conjurer\colorless\Radioactivity.class
 pinacolada\cards\conjurer\series\shinmegamitensei\Amon.class
@@ -115,6 +117,7 @@ pinacolada\cards\conjurer\series\shinmegamitensei\BlackFrost.class
 pinacolada\cards\conjurer\series\shinmegamitensei\Flauros.class
 pinacolada\cards\conjurer\basic\IgnitionBoost.class
 pinacolada\resources\conjurer\ConjurerStrings$Tutorial.class
+pinacolada\cards\conjurer\colorless\Geralt.class
 pinacolada\cards\conjurer\series\genshinimpact\KazuhaKaedehara.class
 pinacolada\cards\conjurer\series\genshinimpact\Venti.class
 pinacolada\resources\conjurer\ConjurerEnum$Cards.class
@@ -137,6 +140,7 @@ pinacolada\cards\conjurer\basic\ZephyrWind.class
 pinacolada\cards\conjurer\basic\ErodingTerra.class
 pinacolada\skills\conjurer\moves\PMove_ApplyElement$1.class
 pinacolada\cards\conjurer\series\genshinimpact\KukiShinobu.class
+pinacolada\cards\conjurer\colorless\MarisaKirisame.class
 pinacolada\cards\conjurer\basic\Permafrost.class
 pinacolada\cards\conjurer\colorless\Patchouli$PatchouliCond.class
 pinacolada\skills\conjurer\modifiers\PMod_PerElement$1.class

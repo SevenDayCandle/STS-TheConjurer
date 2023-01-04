@@ -10,6 +10,7 @@ public class ConjurerTooltips extends PCLTooltips
 {
     public EUITooltip burned = EUITooltip.findByID("Burned");
     public EUITooltip combust = EUITooltip.findByID("Combust");
+    public EUITooltip charge = EUITooltip.findByID("Charge");
     public EUITooltip chilled = EUITooltip.findByID("Chilled");
     public EUITooltip corrosion = EUITooltip.findByID("Corrosion");
     public EUITooltip electrified = EUITooltip.findByID("Electrified");
@@ -18,7 +19,6 @@ public class ConjurerTooltips extends PCLTooltips
     public EUITooltip elementalMastery = EUITooltip.findByID("Elemental Mastery");
     public EUITooltip flowed = EUITooltip.findByID("Flowed");
     public EUITooltip frostbite = EUITooltip.findByID("Frostbite");
-    public EUITooltip morph = EUITooltip.findByID("Morph");
     public EUITooltip reaction = EUITooltip.findByID("Reaction");
     public EUITooltip redox = EUITooltip.findByID("Redox");
     public EUITooltip stoned = EUITooltip.findByID("Stoned");
@@ -64,6 +64,6 @@ public class ConjurerTooltips extends PCLTooltips
 
     public EUITooltip getRerollTooltip()
     {
-        return morph;
+        return charge;
     }
 }

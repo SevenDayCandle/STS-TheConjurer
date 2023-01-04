@@ -6,7 +6,6 @@ import pinacolada.effects.AttackEffects;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PCond;
 import pinacolada.skills.PMod;
 import pinacolada.skills.PTrait;
 
@@ -17,7 +16,7 @@ public class Tartaglia extends PCLCard
             .setDamage(1, 1, 2)
             .setPriority(1)
             .setHp(8, 2)
-            .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
+            .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
     public Tartaglia()
@@ -28,6 +27,6 @@ public class Tartaglia extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.SLASH_HORIZONTAL);
-        addUseMove(PCond.cooldown(3), PMod.perCreatureWith(1, PCLElementHelper.Burned), PTrait.hasDamage(2));
+        addUseMove(PMod.perCreatureWith(1, PCLElementHelper.Burned), PTrait.hasDamage(1));
     }
 }
