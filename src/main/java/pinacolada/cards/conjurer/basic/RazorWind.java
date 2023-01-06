@@ -3,6 +3,7 @@ package pinacolada.cards.conjurer.basic;
 
 import pinacolada.cards.base.*;
 import pinacolada.effects.AttackEffects;
+import pinacolada.effects.VFX;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -23,7 +24,7 @@ public class RazorWind extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.WIND);
+        addDamageMove(AttackEffects.WIND).setDamageEffect((s, m) -> VFX.razorWind(s.hb).duration);
         addUseMove(PCond.cycle(1), PMove.applyToEnemies(3, PCLElementHelper.Flowed).setUpgrade(1));
     }
 }
