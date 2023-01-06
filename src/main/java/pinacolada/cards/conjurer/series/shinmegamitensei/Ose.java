@@ -18,7 +18,7 @@ public class Ose extends PCLCard
             .setSummon(2, CardRarity.UNCOMMON)
             .setDamage(5, 1)
             .setPriority(1)
-            .setHp(10, 1)
+            .setHp(9, 1)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 

@@ -23,7 +23,7 @@ public class TheSilent extends PCLCard
             .setSummon(1, CardRarity.UNCOMMON)
             .setDamage(2, 1, 2)
             .setPriority(1)
-            .setHp(6, 2)
+            .setHp(5, 2)
             .setAffinities(PCLAffinity.Green)
             .setColorless();
 

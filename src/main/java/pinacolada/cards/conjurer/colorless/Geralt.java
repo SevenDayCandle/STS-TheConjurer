@@ -25,7 +25,7 @@ public class Geralt extends PCLCard
             .setSummon(2, CardRarity.RARE)
             .setDamage(4, 1)
             .setPriority(1)
-            .setHp(13, 3)
+            .setHp(11, 3)
             .setAffinities(PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.touhouProject)
             .setColorless();

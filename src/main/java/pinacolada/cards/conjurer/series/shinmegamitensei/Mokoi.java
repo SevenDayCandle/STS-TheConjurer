@@ -18,7 +18,7 @@ public class Mokoi extends PCLCard
             .setSummon(1, CardRarity.COMMON)
             .setDamage(2, 1)
             .setPriority(1)
-            .setHp(6, 2)
+            .setHp(5, 2)
             .setAffinities(PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 

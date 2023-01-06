@@ -18,7 +18,7 @@ public class LisaMinci extends PCLCard
             .setSummon(2, CardRarity.COMMON, PCLAttackType.Magical)
             .setDamage(3, 0)
             .setPriority(1)
-            .setHp(10, 3)
+            .setHp(8, 3)
             .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 

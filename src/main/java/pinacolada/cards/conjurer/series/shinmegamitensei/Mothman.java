@@ -18,7 +18,7 @@ public class Mothman extends PCLCard
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Ranged)
             .setDamage(2, 1)
             .setPriority(1)
-            .setHp(8, 2)
+            .setHp(6, 2)
             .setAffinities(PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 

@@ -18,7 +18,7 @@ public class Thoma extends PCLCard
             .setSummon(1, CardRarity.COMMON)
             .setDamage(2, 0)
             .setPriority(1)
-            .setHp(10, 2)
+            .setHp(9, 2)
             .setAffinities(PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 

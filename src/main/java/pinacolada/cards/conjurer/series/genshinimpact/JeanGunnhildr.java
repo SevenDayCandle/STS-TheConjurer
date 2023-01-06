@@ -17,7 +17,7 @@ public class JeanGunnhildr extends PCLCard
             .setSummon(1, CardRarity.RARE)
             .setDamage(3, 2)
             .setPriority(1)
-            .setHp(9, 1)
+            .setHp(8, 1)
             .setAffinities(PCLAffinity.Green, PCLAffinity.Orange, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 

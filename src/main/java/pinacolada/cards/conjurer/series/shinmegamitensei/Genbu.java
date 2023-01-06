@@ -20,7 +20,7 @@ public class Genbu extends PCLCard
             .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Magical)
             .setDamage(1, 1, 2)
             .setPriority(1)
-            .setHp(12, 2)
+            .setHp(8, 2)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 

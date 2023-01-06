@@ -18,7 +18,7 @@ public class MarisaKirisame extends PCLCard
             .setSummon(1, CardRarity.UNCOMMON)
             .setDamage(3, 1)
             .setPriority(1)
-            .setHp(6, 1)
+            .setHp(5, 1)
             .setAffinities(1, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.touhouProject)
             .setColorless();

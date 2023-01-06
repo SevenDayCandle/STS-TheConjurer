@@ -23,7 +23,7 @@ public class TheIronclad extends PCLCard
             .setSummon(1, CardRarity.UNCOMMON)
             .setDamage(4, 1)
             .setPriority(1)
-            .setHp(9, 2)
+            .setHp(8, 2)
             .setAffinities(PCLAffinity.Red)
             .setColorless();
 

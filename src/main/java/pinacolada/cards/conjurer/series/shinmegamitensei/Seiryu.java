@@ -20,7 +20,7 @@ public class Seiryu extends PCLCard
             .setSummon(2, CardRarity.RARE, PCLAttackType.Piercing)
             .setDamage(4, 1)
             .setPriority(1)
-            .setHp(11, 2)
+            .setHp(10, 2)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 

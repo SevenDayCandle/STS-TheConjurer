@@ -15,7 +15,7 @@ public class Flauros extends PCLCard
             .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.AllEnemy)
             .setDamage(5, 1)
             .setPriority(1)
-            .setHp(10, 2)
+            .setHp(8, 2)
             .setAffinities(2, PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 

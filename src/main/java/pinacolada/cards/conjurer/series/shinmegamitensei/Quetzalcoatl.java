@@ -15,7 +15,7 @@ public class Quetzalcoatl extends PCLCard
             .setSummon(2, CardRarity.RARE, PCLAttackType.Magical)
             .setDamage(4, 0)
             .setPriority(1)
-            .setHp(13, 4)
+            .setHp(12, 4)
             .setAffinities(PCLAffinity.Green, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 

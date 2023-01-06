@@ -16,7 +16,7 @@ public class Dadga extends PCLCard
             .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.AllEnemy)
             .setDamage(2, 1)
             .setPriority(1)
-            .setHp(14, 2)
+            .setHp(11, 2)
             .setAffinities(2, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 

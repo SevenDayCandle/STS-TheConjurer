@@ -19,7 +19,7 @@ public class Ningguang extends PCLCard
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Ranged)
             .setDamage(3, 1)
             .setPriority(1)
-            .setHp(9, 0)
+            .setHp(6, 0)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 

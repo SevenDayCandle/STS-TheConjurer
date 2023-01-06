@@ -23,7 +23,7 @@ public class Patchouli extends PCLCard
             .setSummon(2, CardRarity.RARE, PCLAttackType.Magical)
             .setDamage(4, 1)
             .setPriority(1)
-            .setHp(11, 1)
+            .setHp(9, 1)
             .setAffinities(2, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.touhouProject)
             .setColorless();

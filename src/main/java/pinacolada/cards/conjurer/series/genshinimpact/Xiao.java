@@ -19,7 +19,7 @@ public class Xiao extends PCLCard
             .setRTags(PCLCardTag.Ethereal)
             .setDamage(3, 0, 2)
             .setPriority(1)
-            .setHp(7, 1)
+            .setHp(5, 1)
             .setAffinities(PCLAffinity.Green, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 

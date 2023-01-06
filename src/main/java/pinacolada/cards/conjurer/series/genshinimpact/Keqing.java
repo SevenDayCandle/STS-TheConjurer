@@ -16,7 +16,7 @@ public class Keqing extends PCLCard
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Piercing, PCLCardTarget.RandomEnemy)
             .setDamage(2, 1, 2)
             .setPriority(1)
-            .setHp(7, 1)
+            .setHp(6, 1)
             .setAffinities(PCLAffinity.Green, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 

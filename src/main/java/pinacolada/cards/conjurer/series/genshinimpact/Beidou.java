@@ -18,7 +18,7 @@ public class Beidou extends PCLCard
             .setSummon(3, CardRarity.COMMON)
             .setDamage(3, 1)
             .setPriority(1)
-            .setHp(12, 2)
+            .setHp(11, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 

@@ -15,7 +15,7 @@ public class YunJin extends PCLCard
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Normal, PCLCardTarget.AllEnemy)
             .setDamage(1, 1)
             .setPriority(1)
-            .setHp(9, 2)
+            .setHp(7, 2)
             .setAffinities(PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 

@@ -14,7 +14,7 @@ public class BarbaraPegg extends PCLCard
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Magical, PCLCardTarget.AllEnemy)
             .setDamage(1, 0)
             .setPriority(1)
-            .setHp(4, 2)
+            .setHp(3, 2)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 

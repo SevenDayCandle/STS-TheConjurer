@@ -17,7 +17,7 @@ public class Diluc extends PCLCard
             .setSummon(3, CardRarity.UNCOMMON)
             .setDamage(5, 1)
             .setPriority(1)
-            .setHp(11, 2)
+            .setHp(10, 2)
             .setAffinities(2, PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 

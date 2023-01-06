@@ -23,7 +23,7 @@ public class TheDefect extends PCLCard
             .setSummon(1, CardRarity.UNCOMMON)
             .setDamage(4, 2)
             .setPriority(1)
-            .setHp(7, 1)
+            .setHp(6, 1)
             .setAffinities(PCLAffinity.Blue)
             .setColorless();
 

@@ -18,7 +18,7 @@ public class JackFrost extends PCLCard
             .setSummon(0, CardRarity.COMMON, PCLAttackType.Magical)
             .setDamage(2, 1)
             .setPriority(1)
-            .setHp(4, 2)
+            .setHp(3, 2)
             .setAffinities(2, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 

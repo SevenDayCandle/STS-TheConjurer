@@ -15,7 +15,7 @@ public class Tartaglia extends PCLCard
             .setSummon(2, CardRarity.COMMON, PCLAttackType.Normal, PCLCardTarget.AllEnemy)
             .setDamage(1, 1, 2)
             .setPriority(1)
-            .setHp(8, 2)
+            .setHp(7, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 

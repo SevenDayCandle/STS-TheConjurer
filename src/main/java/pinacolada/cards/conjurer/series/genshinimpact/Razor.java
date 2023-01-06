@@ -17,7 +17,7 @@ public class Razor extends PCLCard
             .setSummon(1, CardRarity.COMMON)
             .setDamage(5, 1)
             .setPriority(1)
-            .setHp(8, 0)
+            .setHp(7, 0)
             .setAffinities(PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 

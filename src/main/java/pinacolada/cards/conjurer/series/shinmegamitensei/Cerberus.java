@@ -19,7 +19,7 @@ public class Cerberus extends PCLCard
             .setSummon(3, CardRarity.UNCOMMON)
             .setDamage(6, 1)
             .setPriority(1)
-            .setHp(12, 1)
+            .setHp(10, 1)
             .setAffinities(2, PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 

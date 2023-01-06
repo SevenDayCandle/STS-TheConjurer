@@ -17,7 +17,7 @@ public class Noelle extends PCLCard
             .setSummon(1, CardRarity.COMMON)
             .setDamage(2, 1)
             .setPriority(1)
-            .setHp(9, 2)
+            .setHp(7, 2)
             .setAffinities(PCLAffinity.Orange, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 

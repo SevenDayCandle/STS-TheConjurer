@@ -18,7 +18,7 @@ public class Gorou extends PCLCard
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Ranged)
             .setDamage(4, 1)
             .setPriority(1)
-            .setHp(7, 2)
+            .setHp(6, 2)
             .setAffinities(PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 

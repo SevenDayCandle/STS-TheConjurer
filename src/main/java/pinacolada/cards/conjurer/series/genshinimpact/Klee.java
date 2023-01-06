@@ -14,7 +14,7 @@ public class Klee extends PCLCard
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Magical, PCLCardTarget.RandomEnemy)
             .setDamage(1, 0)
             .setPriority(1)
-            .setHp(4, 1)
+            .setHp(3, 1)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 

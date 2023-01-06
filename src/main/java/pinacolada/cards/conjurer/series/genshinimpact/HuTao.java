@@ -16,7 +16,7 @@ public class HuTao extends PCLCard
             .setRTags(PCLCardTag.Ethereal)
             .setDamage(3, 0)
             .setPriority(1)
-            .setHp(8, 2)
+            .setHp(6, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 

@@ -15,7 +15,7 @@ public class KukiShinobu extends PCLCard
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy)
             .setDamage(2, 0, 2)
             .setPriority(1)
-            .setHp(6, 1)
+            .setHp(5, 1)
             .setAffinities(PCLAffinity.Green, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 

@@ -19,7 +19,7 @@ public class Baphomet extends PCLCard
             .setSummon(3, CardRarity.RARE, PCLAttackType.Piercing)
             .setDamage(5, 0)
             .setPriority(1)
-            .setHp(15, 4)
+            .setHp(13, 4)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 

@@ -17,7 +17,7 @@ public class Amber extends PCLCard
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Ranged)
             .setDamage(3, 1)
             .setPriority(1)
-            .setHp(6, 2)
+            .setHp(5, 2)
             .setAffinities(PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 

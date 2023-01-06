@@ -18,7 +18,7 @@ public class KingFrost extends PCLCard
             .setSummon(3, CardRarity.RARE, PCLAttackType.Magical)
             .setDamage(2, 0)
             .setPriority(1)
-            .setHp(22, 4)
+            .setHp(19, 4)
             .setAffinities(2, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 

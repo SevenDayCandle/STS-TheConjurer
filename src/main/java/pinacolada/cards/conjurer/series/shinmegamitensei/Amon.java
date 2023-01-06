@@ -19,7 +19,7 @@ public class Amon extends PCLCard
             .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Piercing)
             .setDamage(4, 1)
             .setPriority(1)
-            .setHp(11, 1)
+            .setHp(9, 1)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 

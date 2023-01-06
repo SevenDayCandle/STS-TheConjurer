@@ -16,7 +16,7 @@ public class Albedo extends PCLCard
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Magical)
             .setDamage(3, 1)
             .setPriority(1)
-            .setHp(8, 2)
+            .setHp(7, 2)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Orange, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 

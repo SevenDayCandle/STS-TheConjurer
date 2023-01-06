@@ -19,7 +19,7 @@ public class Airavata extends PCLCard
             .setSummon(3, CardRarity.UNCOMMON)
             .setDamage(3, 0)
             .setPriority(1)
-            .setHp(18, 2)
+            .setHp(15, 2)
             .setAffinities(PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
