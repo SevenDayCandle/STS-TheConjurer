@@ -24,6 +24,7 @@ public class CrimsonMapleLeaf extends PCLRelic
             ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Green).addAdditionalPower(PoisonPower.POWER_ID);
             ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Green).addAdditionalPower(MalleablePower.POWER_ID);
             ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Green).addCombustion(ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Red));
+            ConjurerReactionMeter.meter.getReactionButton(PCLAffinity.Red, PCLAffinity.Orange).switchType();
         });
     }
 }

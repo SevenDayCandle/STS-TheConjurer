@@ -8,7 +8,6 @@ import pinacolada.cards.base.*;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.skills.PSpecialSkill;
-import pinacolada.skills.skills.base.moves.PMove_Scry;
 import pinacolada.utilities.GameUtilities;
 
 import java.util.Arrays;

@@ -13,7 +13,7 @@ import static pinacolada.resources.conjurer.ConjurerEnum.Cards.THE_CONJURER;
 
 public class PCond_PayReaction extends PCond
 {
-    public static final PSkillData DATA = register(PCond_PayReaction.class, PCLEffectType.General)
+    public static final PSkillData DATA = register(PCond_PayReaction.class, PField_Empty.class)
             .setColors(THE_CONJURER)
             .selfTarget();
 

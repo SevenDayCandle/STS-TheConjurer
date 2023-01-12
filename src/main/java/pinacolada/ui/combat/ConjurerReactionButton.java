@@ -105,19 +105,14 @@ public class ConjurerReactionButton extends EUIImage
         setColorForType();
     }
 
-    public void morphAction()
+    public void switchType()
     {
-        morph();
-        ConjurerReactionButton button = source.reactions.get(target.affinity);
-        if (button != null)
-        {
-            button.morph();
-        }
+        setType(type == ConjurerElementButton.Type.Combust ? ConjurerElementButton.Type.Redox : ConjurerElementButton.Type.Combust);
     }
 
-    public void morph()
+    public void setType(ConjurerElementButton.Type newType)
     {
-        type = type == ConjurerElementButton.Type.Combust ? ConjurerElementButton.Type.Redox : ConjurerElementButton.Type.Combust;
+        type = newType;
         setColorForType();
     }
 

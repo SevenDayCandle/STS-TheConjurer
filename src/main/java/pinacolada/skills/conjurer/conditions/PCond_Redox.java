@@ -16,7 +16,7 @@ import pinacolada.skills.*;
 public class PCond_Redox extends PCond
 {
 
-    public static final PSkillData DATA = register(PCond_Redox.class, PCLEffectType.General, 1, 1)
+    public static final PSkillData DATA = register(PCond_Redox.class, PField_Empty.class, 1, 1)
             .setColors(ConjurerEnum.Cards.THE_CONJURER)
             .selfTarget();
 

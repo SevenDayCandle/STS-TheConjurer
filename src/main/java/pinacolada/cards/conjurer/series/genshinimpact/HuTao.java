@@ -28,6 +28,6 @@ public class HuTao extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.FIRE);
-        addUseMove(PCond.cooldown(0), PCond.exhaustRandom(1, PCLCardGroupHelper.Hand), PMove.gainEnergy(1));
+        addUseMove(PCond.cooldown(0), PCond.exhaustRandom(1, PCLCardGroupHelper.DiscardPile), PMove.gainEnergy(1));
     }
 }

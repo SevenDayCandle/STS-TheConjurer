@@ -378,6 +378,12 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
         return EUIUtils.mapAsNonnull(c.powers, po -> EUIUtils.safeCast(po, AbstractPCLElementalPower.class));
     }
 
+    public ConjurerReactionButton getReactionButton(PCLAffinity dest, PCLAffinity target)
+    {
+        ConjurerElementButton destButton = getElementButton(dest);
+        return destButton != null ? destButton.reactions.get(target) : null;
+    }
+
     public int getReactionCount()
     {
         return reactionCount;
@@ -513,22 +519,6 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
         {
             PCLElementHelper helper = PCLElementHelper.get(affinity);
             PCLActions.bottom.applyPower(info.target, PCLCardTarget.Single, helper, value);
-            return true;
-        }
-        return false;
-    }
-
-    public boolean tryUseMorph(PCLAffinity dest, PCLAffinity target)
-    {
-        ConjurerElementButton destButton = getElementButton(dest);
-        return destButton != null && tryUseMorph(destButton.reactions.get(target));
-    }
-
-    public boolean tryUseMorph(ConjurerReactionButton button)
-    {
-        if (button != null)
-        {
-            button.morphAction();
             return true;
         }
         return false;

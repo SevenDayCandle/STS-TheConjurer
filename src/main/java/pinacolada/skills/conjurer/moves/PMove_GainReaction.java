@@ -12,7 +12,7 @@ import pinacolada.ui.combat.ConjurerReactionMeter;
 
 public class PMove_GainReaction extends PMove_Gain
 {
-    public static final PSkillData DATA = register(PMove_GainReaction.class, PCLEffectType.General, ConjurerEnum.Cards.THE_CONJURER);
+    public static final PSkillData DATA = register(PMove_GainReaction.class, PField_Empty.class, ConjurerEnum.Cards.THE_CONJURER);
 
     public PMove_GainReaction()
     {
