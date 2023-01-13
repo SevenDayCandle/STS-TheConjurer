@@ -6,7 +6,7 @@ import pinacolada.resources.PCLStrings;
 
 public class ConjurerStrings extends PCLStrings
 {
-    public ConjurerStrings(PCLResources resources)
+    public ConjurerStrings(PCLResources<?,?,?> resources)
     {
         super(resources);
     }

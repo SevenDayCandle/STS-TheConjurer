@@ -14,8 +14,7 @@ public class ConjurerPlayerData extends PCLAbstractPlayerData
     public static ConjurerLoadout shinMegamiTensei = new ConjurerLoadout(1, 0);
     public static ConjurerLoadout touhouProject = new ConjurerLoadout(2, 0);
 
-
-    public ConjurerPlayerData(PCLResources resources)
+    public ConjurerPlayerData(PCLResources<?,?,?> resources)
     {
         super(resources);
     }

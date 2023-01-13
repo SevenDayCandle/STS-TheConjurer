@@ -34,7 +34,7 @@ public class PCond_Combust extends PCond<PField_Affinity>
 
     public PCond_Combust(PSkillSaveData content)
     {
-        super(content);
+        super(DATA, content);
     }
 
     @Override

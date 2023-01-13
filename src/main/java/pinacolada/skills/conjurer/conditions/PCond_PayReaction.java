@@ -3,7 +3,6 @@ package pinacolada.skills.conjurer.conditions;
 import pinacolada.cards.base.PCLCardTarget;
 import pinacolada.cards.base.PCLUseInfo;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CMove;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PSkillData;
 import pinacolada.skills.PSkillSaveData;
@@ -19,7 +18,7 @@ public class PCond_PayReaction extends PCond
 
     public PCond_PayReaction(PSkillSaveData content)
     {
-        super(content);
+        super(DATA, content);
     }
 
     public PCond_PayReaction()

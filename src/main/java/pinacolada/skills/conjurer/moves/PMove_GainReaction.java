@@ -1,8 +1,6 @@
 package pinacolada.skills.conjurer.moves;
 
 import pinacolada.cards.base.PCLUseInfo;
-import pinacolada.resources.PCLEnum;
-import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkillData;
@@ -21,7 +19,7 @@ public class PMove_GainReaction extends PMove_Gain
 
     public PMove_GainReaction(PSkillSaveData content)
     {
-        super(content);
+        super(DATA, content);
     }
 
     public PMove_GainReaction(int amount)

@@ -13,20 +13,19 @@ import pinacolada.skills.PMod;
 import pinacolada.skills.PSkill;
 import pinacolada.skills.PSkillData;
 import pinacolada.skills.PSkillSaveData;
+import pinacolada.skills.fields.PField_Affinity;
 import pinacolada.ui.combat.ConjurerReactionMeter;
 
 import java.util.List;
 
-import static pinacolada.skills.PSkill.PCLEffectType.Power;
-
-public class PMod_PerElement extends PMod
+public class PMod_PerElement extends PMod<PField_Affinity>
 {
 
-    public static final PSkillData DATA = register(PMod_PerElement.class, Power, ConjurerEnum.Cards.THE_CONJURER);
+    public static final PSkillData<PField_Affinity> DATA = register(PMod_PerElement.class, PField_Affinity.class, ConjurerEnum.Cards.THE_CONJURER);
 
     public PMod_PerElement(PSkillSaveData content)
     {
-        super(content);
+        super(DATA, content);
     }
 
     public PMod_PerElement()
@@ -34,19 +33,15 @@ public class PMod_PerElement extends PMod
         super(DATA);
     }
 
-    public PMod_PerElement(int amount, PCLAffinity... powerHelpers)
+    public PMod_PerElement(int amount, PCLAffinity... affinities)
     {
-        super(DATA, PCLCardTarget.AllEnemy, amount, powerHelpers);
+        this(PCLCardTarget.AllEnemy, amount, affinities);
     }
 
-    public PMod_PerElement(PCLCardTarget target, int amount, PCLAffinity... powerHelpers)
+    public PMod_PerElement(PCLCardTarget target, int amount, PCLAffinity... affinities)
     {
-        super(DATA, target, amount, powerHelpers);
-    }
-
-    public PMod_PerElement(int amount, List<PCLAffinity> powerHelpers)
-    {
-        super(DATA, PCLCardTarget.AllEnemy, amount, powerHelpers.toArray(new PCLAffinity[]{}));
+        super(DATA, target, amount);
+        fields.setAffinity(affinities);
     }
 
     @Override
@@ -66,7 +61,7 @@ public class PMod_PerElement extends PMod
     @Override
     public String getSubText()
     {
-        String baseString = affinities.isEmpty() ? plural(ConjurerResources.conjurer.tooltips.elementalDebuff) : PCLElementHelper.getPowerAndString(affinities);
+        String baseString = fields.affinities.isEmpty() ? plural(ConjurerResources.conjurer.tooltips.elementalDebuff) : PCLElementHelper.getPowerAndString(fields.affinities);
         if (amount > 1)
         {
             baseString = EUIRM.strings.numNoun(getAmountRawString(), baseString);
@@ -89,6 +84,6 @@ public class PMod_PerElement extends PMod
 
     protected boolean isPowerElemental(String id)
     {
-        return affinities.isEmpty() ? ConjurerReactionMeter.meter.isPowerElemental(id) : EUIUtils.any(affinities, a -> ConjurerReactionMeter.meter.isPowerElemental(id, a));
+        return fields.affinities.isEmpty() ? ConjurerReactionMeter.meter.isPowerElemental(id) : EUIUtils.any(fields.affinities, a -> ConjurerReactionMeter.meter.isPowerElemental(id, a));
     }
 }

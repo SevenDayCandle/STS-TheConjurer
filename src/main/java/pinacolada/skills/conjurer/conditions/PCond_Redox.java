@@ -7,8 +7,6 @@ import pinacolada.cards.base.AffinityReactions;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCardTarget;
 import pinacolada.cards.base.PCLUseInfo;
-import pinacolada.resources.PCLEnum;
-import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.*;
@@ -32,7 +30,7 @@ public class PCond_Redox extends PCond
 
     public PCond_Redox(PSkillSaveData content)
     {
-        super(content);
+        super(DATA, content);
     }
 
     public PCond_Redox(PSkill effect)

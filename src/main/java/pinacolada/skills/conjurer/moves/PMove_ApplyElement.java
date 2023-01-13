@@ -25,7 +25,7 @@ public class PMove_ApplyElement extends PMove
 
     public PMove_ApplyElement(PSkillSaveData content)
     {
-        super(content);
+        super(DATA, content);
     }
 
     public PMove_ApplyElement(PCLCardTarget target, int amount, PCLAffinity... affinities)

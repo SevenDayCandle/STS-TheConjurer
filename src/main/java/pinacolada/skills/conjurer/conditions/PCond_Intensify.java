@@ -6,7 +6,6 @@ import extendedui.EUIRM;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCardTarget;
 import pinacolada.cards.base.PCLUseInfo;
-import pinacolada.resources.PCLEnum;
 import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerEnum;
 import pinacolada.skills.PCond;
@@ -33,7 +32,7 @@ public class PCond_Intensify extends PCond
 
     public PCond_Intensify(PSkillSaveData content)
     {
-        super(content);
+        super(DATA, content);
     }
 
     public PCond_Intensify(PSkill effect)

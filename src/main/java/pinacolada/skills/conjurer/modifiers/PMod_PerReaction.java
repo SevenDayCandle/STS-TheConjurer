@@ -3,26 +3,23 @@ package pinacolada.skills.conjurer.modifiers;
 import extendedui.EUIRM;
 import pinacolada.cards.base.PCLCardTarget;
 import pinacolada.cards.base.PCLUseInfo;
-import pinacolada.resources.PCLEnum;
-import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMod;
 import pinacolada.skills.PSkill;
 import pinacolada.skills.PSkillData;
 import pinacolada.skills.PSkillSaveData;
+import pinacolada.skills.fields.PField_Not;
 import pinacolada.ui.combat.ConjurerReactionMeter;
 
-import static pinacolada.skills.PSkill.PCLEffectType.General;
-
-public class PMod_PerReaction extends PMod
+public class PMod_PerReaction extends PMod<PField_Not>
 {
 
-    public static final PSkillData DATA = register(PMod_PerReaction.class, General, ConjurerEnum.Cards.THE_CONJURER).selfTarget();
+    public static final PSkillData<PField_Not> DATA = register(PMod_PerReaction.class, PField_Not.class, ConjurerEnum.Cards.THE_CONJURER).selfTarget();
 
     public PMod_PerReaction(PSkillSaveData content)
     {
-        super(content);
+        super(DATA, content);
     }
 
     public PMod_PerReaction()
@@ -50,7 +47,7 @@ public class PMod_PerReaction extends PMod
     @Override
     public String getText(boolean addPeriod)
     {
-        String payString = alt ? (capital(TEXT.actions.pay("X", ConjurerResources.conjurer.tooltips.reaction.title), true) + ": ") : "";
+        String payString = fields.not ? (capital(TEXT.actions.pay("X", ConjurerResources.conjurer.tooltips.reaction.title), true) + ": ") : "";
         return payString + super.getText(addPeriod);
     }
 
@@ -60,7 +57,7 @@ public class PMod_PerReaction extends PMod
         if (this.childEffect != null)
         {
             updateChildAmount(info);
-            if (alt)
+            if (fields.not)
             {
                 ConjurerReactionMeter.meter.trySpendCount(ConjurerReactionMeter.meter.getReactionCount());
             }
