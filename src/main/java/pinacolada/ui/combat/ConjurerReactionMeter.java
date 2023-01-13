@@ -95,7 +95,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
 
         skips = new PCLClickableUse(this, (a, b) -> tryUseCharge(lastUpgrade, b), PCLCardTarget.Single, MAX_CHARGE, false, true);
 
-        reactionHeader = (EUILabel) new EUILabel(EUIFontHelper.cardtitlefontSmall,
+        reactionHeader = new EUILabel(EUIFontHelper.cardtitlefontSmall,
                 RelativeHitbox.fromPercentages(hb, 2, 2, 8f, 0.1f)).setLabel(ConjurerResources.conjurer.tooltips.reaction.title)
                 .setFontScale(0.8f)
                 .setAlignment(0.85f, 0.5f)
@@ -107,7 +107,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
 
         chargeTooltip = new EUITooltip(ConjurerResources.conjurer.tooltips.charge.title, ConjurerResources.conjurer.tooltips.charge.descriptions);
 
-        chargeHeader = (EUILabel) new EUILabel(EUIFontHelper.cardtitlefontSmall,
+        chargeHeader = new EUILabel(EUIFontHelper.cardtitlefontSmall,
                 RelativeHitbox.fromPercentages(hb, 2, 2, 10f, 0.1f)).setLabel(ConjurerResources.conjurer.tooltips.charge.title)
                 .setFontScale(0.75f)
                 .setAlignment(0.85f, 0.5f)
