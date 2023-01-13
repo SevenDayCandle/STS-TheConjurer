@@ -9,14 +9,14 @@ import pinacolada.cards.base.PCLUseInfo;
 import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerEnum;
 import pinacolada.skills.PCond;
-import pinacolada.skills.PSkill;
 import pinacolada.skills.PSkillData;
 import pinacolada.skills.PSkillSaveData;
+import pinacolada.skills.fields.PField_Affinity;
 
-public class PCond_Intensify extends PCond
+public class PCond_Intensify extends PCond<PField_Affinity>
 {
 
-    public static final PSkillData DATA = register(PCond_Intensify.class, PField_Empty.class, 1, 1)
+    public static final PSkillData<PField_Affinity> DATA = register(PCond_Intensify.class, PField_Affinity.class, 1, 1)
             .setColors(ConjurerEnum.Cards.THE_CONJURER)
             .selfTarget();
 
@@ -27,7 +27,8 @@ public class PCond_Intensify extends PCond
 
     public PCond_Intensify(PCLAffinity... affinities)
     {
-        super(DATA, PCLCardTarget.None, 0, affinities);
+        super(DATA, PCLCardTarget.None, 0);
+        fields.setAffinity(affinities);
     }
 
     public PCond_Intensify(PSkillSaveData content)
@@ -35,24 +36,12 @@ public class PCond_Intensify extends PCond
         super(DATA, content);
     }
 
-    public PCond_Intensify(PSkill effect)
-    {
-        this();
-        setChild(effect);
-    }
-
-    public PCond_Intensify(PSkill... effect)
-    {
-        this();
-        setChild(effect);
-    }
-
     // This should not activate the child effect when played normally
 
     @Override
     public String getSubText()
     {
-        return TEXT.conditions.wheneverYou(affinities.isEmpty() ? PGR.core.tooltips.level.title : EUIRM.strings.verbNoun(PGR.core.tooltips.level.title, getAffinityLevelOrString()));
+        return TEXT.conditions.wheneverYou(fields.affinities.isEmpty() ? PGR.core.tooltips.level.title : EUIRM.strings.verbNoun(PGR.core.tooltips.level.title, fields.getAffinityLevelOrString()));
     }
 
     @Override
@@ -74,7 +63,7 @@ public class PCond_Intensify extends PCond
     @Override
     public boolean triggerOnIntensify(PCLAffinity affinity)
     {
-        if (affinities.isEmpty() || affinities.contains(affinity))
+        if (fields.affinities.isEmpty() || fields.affinities.contains(affinity))
         {
             if (this.childEffect != null)
             {

@@ -9,12 +9,16 @@ import pinacolada.cards.base.PCLCardTarget;
 import pinacolada.cards.base.PCLUseInfo;
 import pinacolada.resources.conjurer.ConjurerEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.*;
+import pinacolada.skills.PCond;
+import pinacolada.skills.PSkillData;
+import pinacolada.skills.PSkillSaveData;
+import pinacolada.skills.PTrigger;
+import pinacolada.skills.fields.PField_Affinity;
 
-public class PCond_Redox extends PCond
+public class PCond_Redox extends PCond<PField_Affinity>
 {
 
-    public static final PSkillData DATA = register(PCond_Redox.class, PField_Empty.class, 1, 1)
+    public static final PSkillData<PField_Affinity> DATA = register(PCond_Redox.class, PField_Affinity.class, 1, 1)
             .setColors(ConjurerEnum.Cards.THE_CONJURER)
             .selfTarget();
 
@@ -25,7 +29,8 @@ public class PCond_Redox extends PCond
 
     public PCond_Redox(PCLAffinity... affinities)
     {
-        super(DATA, PCLCardTarget.None, 0, affinities);
+        super(DATA, PCLCardTarget.None, 0);
+        fields.setAffinity(affinities);
     }
 
     public PCond_Redox(PSkillSaveData content)
@@ -33,28 +38,16 @@ public class PCond_Redox extends PCond
         super(DATA, content);
     }
 
-    public PCond_Redox(PSkill effect)
-    {
-        this();
-        setChild(effect);
-    }
-
-    public PCond_Redox(PSkill... effect)
-    {
-        this();
-        setChild(effect);
-    }
-
     @Override
     public boolean checkCondition(PCLUseInfo info, boolean isUsing, boolean fromTrigger)
     {
-        return alt ^ (affinities.isEmpty() ? info.reactions.hasRedox() : EUIUtils.all(affinities, info.reactions::hasRedox));
+        return fields.random ^ (fields.affinities.isEmpty() ? info.reactions.hasRedox() : EUIUtils.all(fields.affinities, info.reactions::hasRedox));
     }
 
     @Override
     public boolean triggerOnElementReact(AffinityReactions reactions, AbstractCreature target)
     {
-        if (affinities.isEmpty() ? reactions.hasRedox() : EUIUtils.all(affinities, reactions::hasRedox))
+        if (fields.affinities.isEmpty() ? reactions.hasRedox() : EUIUtils.all(fields.affinities, reactions::hasRedox))
         {
             if (this.childEffect != null)
             {
@@ -70,9 +63,9 @@ public class PCond_Redox extends PCond
     {
         if (hasParentType(PTrigger.class))
         {
-            return TEXT.conditions.wheneverYou(affinities.isEmpty() ? ConjurerResources.conjurer.tooltips.redox.title : EUIRM.strings.verbNoun(ConjurerResources.conjurer.tooltips.redox.title, getAffinityLevelOrString()));
+            return TEXT.conditions.wheneverYou(fields.affinities.isEmpty() ? ConjurerResources.conjurer.tooltips.redox.title : EUIRM.strings.verbNoun(ConjurerResources.conjurer.tooltips.redox.title, fields.getAffinityLevelOrString()));
         }
-        String base = affinities.isEmpty() ? ConjurerResources.conjurer.tooltips.redox.title : EUIRM.strings.adjNoun(getAffinityLevelOrString(), ConjurerResources.conjurer.tooltips.redox.title);
-        return alt ? TEXT.conditions.not(base) : base;
+        String base = fields.affinities.isEmpty() ? ConjurerResources.conjurer.tooltips.redox.title : EUIRM.strings.adjNoun(fields.getAffinityLevelOrString(), ConjurerResources.conjurer.tooltips.redox.title);
+        return fields.random ? TEXT.conditions.not(base) : base;
     }
 }

@@ -6,13 +6,14 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PSkillData;
 import pinacolada.skills.PSkillSaveData;
+import pinacolada.skills.fields.PField_Empty;
 import pinacolada.ui.combat.ConjurerReactionMeter;
 
 import static pinacolada.resources.conjurer.ConjurerEnum.Cards.THE_CONJURER;
 
-public class PCond_PayReaction extends PCond
+public class PCond_PayReaction extends PCond<PField_Empty>
 {
-    public static final PSkillData DATA = register(PCond_PayReaction.class, PField_Empty.class)
+    public static final PSkillData<PField_Empty> DATA = register(PCond_PayReaction.class, PField_Empty.class)
             .setColors(THE_CONJURER)
             .selfTarget();
 

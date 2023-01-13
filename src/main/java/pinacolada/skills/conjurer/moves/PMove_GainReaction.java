@@ -5,12 +5,13 @@ import pinacolada.resources.conjurer.ConjurerEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkillData;
 import pinacolada.skills.PSkillSaveData;
+import pinacolada.skills.fields.PField_Empty;
 import pinacolada.skills.skills.base.moves.PMove_Gain;
 import pinacolada.ui.combat.ConjurerReactionMeter;
 
 public class PMove_GainReaction extends PMove_Gain
 {
-    public static final PSkillData DATA = register(PMove_GainReaction.class, PField_Empty.class, ConjurerEnum.Cards.THE_CONJURER);
+    public static final PSkillData<PField_Empty> DATA = register(PMove_GainReaction.class, PField_Empty.class, ConjurerEnum.Cards.THE_CONJURER);
 
     public PMove_GainReaction()
     {

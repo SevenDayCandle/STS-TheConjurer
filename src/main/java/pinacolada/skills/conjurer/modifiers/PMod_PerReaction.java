@@ -66,7 +66,7 @@ public class PMod_PerReaction extends PMod<PField_Not>
     }
 
     @Override
-    public int getModifiedAmount(PSkill be, PCLUseInfo info)
+    public int getModifiedAmount(PSkill<?> be, PCLUseInfo info)
     {
         return be.baseAmount * ConjurerReactionMeter.meter.getReactionCount() / Math.max(1, amount);
     }

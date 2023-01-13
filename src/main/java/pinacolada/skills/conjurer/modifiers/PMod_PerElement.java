@@ -45,7 +45,7 @@ public class PMod_PerElement extends PMod<PField_Affinity>
     }
 
     @Override
-    public int getModifiedAmount(PSkill be, PCLUseInfo info)
+    public int getModifiedAmount(PSkill<?> be, PCLUseInfo info)
     {
         List<AbstractCreature> targetList = getTargetList(info);
         return be.baseAmount *
