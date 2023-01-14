@@ -28,6 +28,8 @@ public class Keqing extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.DAGGER);
-        addUseMove(PCond.onWithdraw(), PMod.reshufflePer(2, PCLCardGroupHelper.DiscardPile).setAffinity(PCLAffinity.Green), PMove.applyToRandom(2, PCLElementHelper.Flowed));
+        addUseMove(PCond.onWithdraw(),
+                PMod.reshufflePer(2, PCLCardGroupHelper.DiscardPile).edit(f -> f.setAffinity(PCLAffinity.Green)),
+                PMove.applyToRandom(2, PCLElementHelper.Flowed));
     }
 }

@@ -7,9 +7,11 @@ import pinacolada.actions.powers.ApplyElementalDebuff;
 import pinacolada.cards.base.*;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PSpecialSkill;
 import pinacolada.utilities.GameUtilities;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 
@@ -27,7 +29,7 @@ public class Entropy extends PCLCard
 
     public void setup(Object input)
     {
-        addUseMove(new PMove_Scry(3).setUpgrade(1, 0), getSpecialMove(0, this::specialMove, 2).setUpgrade(0, 1).setTarget(PCLCardTarget.Single));
+        addUseMove(PMove.scry(3).setUpgrade(1, 0), getSpecialMove(0, this::specialMove, 2).setUpgrade(0, 1).setTarget(PCLCardTarget.Single));
     }
 
     public void specialMove(PSpecialSkill move, PCLUseInfo info)
@@ -35,7 +37,8 @@ public class Entropy extends PCLCard
         HashSet<PCLAffinity> available = new HashSet<>(Arrays.asList(PCLAffinity.getAvailableAffinities()));
         available.add(PCLAffinity.Star);
 
-        for (AbstractCard c : move.cards)
+        ArrayList<AbstractCard> cards = info.getData(new ArrayList<>());
+        for (AbstractCard c : cards)
         {
             PCLCardAffinities cardAffinities = GameUtilities.getPCLCardAffinities(c);
             if (cardAffinities != null)

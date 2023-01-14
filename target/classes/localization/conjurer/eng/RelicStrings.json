@@ -14,7 +14,7 @@
 				},
 	"conjurer:CrimsonMapleLeaf":
 	{
-		"DESCRIPTIONS": ["[Poison] and [Malleable] are treated as [A-G] #yElemental #yDebuffs. [A-R] cards #yCombust [A-G] #yElemental #yDebuffs."],
+		"DESCRIPTIONS": ["[Poison] and [Malleable] are treated as [A-G] #yElemental #yDebuffs. [A-R] cards #yCombust [A-G] and [A-O] #yElemental #yDebuffs."],
 		"FLAVOR": "On this mountain path, where the red leaves lifeless lie... My heart calls for a companion, echoing the deer's cry...",
 		"NAME": "Crimson Maple Leaf"
 	},

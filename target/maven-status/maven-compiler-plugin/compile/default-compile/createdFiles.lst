@@ -17,7 +17,6 @@ pinacolada\cards\conjurer\series\genshinimpact\Xingqiu.class
 pinacolada\relics\conjurer\ChiliPepper.class
 pinacolada\potions\conjurer\StoningPotion.class
 pinacolada\resources\conjurer\ConjurerEnum$Characters.class
-pinacolada\skills\conjurer\moves\PMove_ApplyElement.class
 pinacolada\relics\conjurer\CrimsonMapleLeaf.class
 pinacolada\cards\conjurer\basic\ColossalFormation.class
 pinacolada\actions\powers\ApplyElementalDebuff.class
@@ -138,7 +137,6 @@ pinacolada\cards\conjurer\series\shinmegamitensei\ShikiOuji.class
 pinacolada\skills\conjurer\conditions\PCond_Intensify.class
 pinacolada\cards\conjurer\basic\ZephyrWind.class
 pinacolada\cards\conjurer\basic\ErodingTerra.class
-pinacolada\skills\conjurer\moves\PMove_ApplyElement$1.class
 pinacolada\cards\conjurer\series\genshinimpact\KukiShinobu.class
 pinacolada\cards\conjurer\colorless\MarisaKirisame.class
 pinacolada\cards\conjurer\basic\Permafrost.class

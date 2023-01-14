@@ -41,7 +41,7 @@ public class Patchouli extends PCLCard
 
     protected static class PatchouliCond extends PCustomCond
     {
-        public ArrayList<PSkill> debuffs;
+        public ArrayList<PSkill<?>> debuffs;
 
         public PatchouliCond(PCLCardData data, int amount, int choices)
         {
@@ -50,7 +50,7 @@ public class Patchouli extends PCLCard
 
         protected void useImpl(PCLUseInfo info)
         {
-            RandomizedList<PSkill> choices = new RandomizedList<>(getDebuffs());
+            RandomizedList<PSkill<?>> choices = new RandomizedList<>(getDebuffs());
             while (choices.size() > extra)
             {
                 choices.retrieve(rng, true);
@@ -58,7 +58,7 @@ public class Patchouli extends PCLCard
             getActions().tryChooseSkill(getPCLSource().cardData, amount, info.source, info.target, choices);
         }
 
-        protected ArrayList<PSkill> getDebuffs()
+        protected ArrayList<PSkill<?>> getDebuffs()
         {
             if (debuffs == null)
             {

@@ -52,6 +52,7 @@ public class PCLElementHelper extends PCLPowerHelper implements TooltipProvider
 
     protected void registerHelper(String powerID, PCLAffinity affinity)
     {
+        super.registerHelper(powerID);
         ALL.putIfAbsent(powerID, this);
         ALL_BY_AFFINITY.putIfAbsent(affinity, this);
     }

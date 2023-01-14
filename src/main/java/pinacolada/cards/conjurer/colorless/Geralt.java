@@ -43,7 +43,7 @@ public class Geralt extends PCLCard
 
     protected static class GeraltCond extends PCustomCond
     {
-        public ArrayList<PSkill> requests;
+        public ArrayList<PSkill<?>> requests;
 
         public GeraltCond(PCLCardData data, int amount, int choices)
         {
@@ -60,7 +60,7 @@ public class Geralt extends PCLCard
             PCLActions.bottom.tryChooseSkill(cardData, amount, info.source, info.target, requests)
                     .addConditionalCallback(choiceCards ->
                     {
-                        for (ChoiceCard<PSkill> c : choiceCards)
+                        for (ChoiceCard<PSkill<?>> c : choiceCards)
                         {
                             requests.remove(c.value);
                         }
@@ -69,16 +69,16 @@ public class Geralt extends PCLCard
 
         protected void populateRequests()
         {
-            WeightedList<PSkill> choices = new WeightedList<>();
+            WeightedList<PSkill<?>> choices = new WeightedList<>();
             choices.add(PCond.payEnergy(2), 2);
-            choices.add(PCond.exhaust(2, PCLCardGroupHelper.Hand).setAffinity(PCLAffinity.getRandomAvailableAffinity()), 2);
-            choices.add(PCond.exhaust(4, PCLCardGroupHelper.DiscardPile).setAffinity(PCLAffinity.getRandomAvailableAffinity()), 2);
-            choices.add(PCond.discard(2).setAffinity(PCLAffinity.getRandomAvailableAffinity()), 2);
+            choices.add(PCond.exhaust(2, PCLCardGroupHelper.Hand).edit(f -> f.setAffinity(PCLAffinity.getRandomAvailableAffinity())), 2);
+            choices.add(PCond.exhaust(4, PCLCardGroupHelper.DiscardPile).edit(f -> f.setAffinity(PCLAffinity.getRandomAvailableAffinity())), 2);
+            choices.add(PCond.discard(2).edit(f -> f.setAffinity(PCLAffinity.getRandomAvailableAffinity())), 2);
             choices.add(PCond.payEnergy(1), 1);
-            choices.add(PCond.exhaust(1, PCLCardGroupHelper.Hand).setAffinity(PCLAffinity.getRandomAvailableAffinity()), 1);
-            choices.add(PCond.discard(1).setAffinity(PCLAffinity.getRandomAvailableAffinity()), 1);
+            choices.add(PCond.exhaust(1, PCLCardGroupHelper.Hand).edit(f -> f.setAffinity(PCLAffinity.getRandomAvailableAffinity())), 1);
+            choices.add(PCond.discard(1).edit(f -> f.setAffinity(PCLAffinity.getRandomAvailableAffinity())), 1);
 
-            RandomizedList<PSkill>[] rewards = EUIUtils.array(new RandomizedList<>(), new RandomizedList<>());
+            RandomizedList<PSkill<?>>[] rewards = EUIUtils.array(new RandomizedList<>(), new RandomizedList<>());
             rewards[1].add(PMove.draw(4));
             rewards[1].add(PMove.apply(PCLCardTarget.None, 3, PCLPowerHelper.Energized));
             rewards[1].add(PMove.apply(PCLCardTarget.None, 3, PCLPowerHelper.Strength));
@@ -91,14 +91,14 @@ public class Geralt extends PCLCard
 
             while (requests.size() < extra && !choices.isEmpty())
             {
-                WeightedList<PSkill>.Item option = choices.retrieveWithWeight(rng, true);
+                WeightedList<PSkill<?>>.Item option = choices.retrieveWithWeight(rng, true);
                 if (option != null)
                 {
-                    PSkill request = option.object;
+                    PSkill<?> request = option.object;
                     int index = option.weight;
                     if (index < rewards.length)
                     {
-                        PSkill reward = rewards[index].retrieve(rng, true);
+                        PSkill<?> reward = rewards[index].retrieve(rng, true);
                         request.setChild(reward);
                         requests.add(reward);
                     }

@@ -23,6 +23,6 @@ public class Excavation extends PCLCard
 
     public void setup(Object input)
     {
-        addUseMove(PMove.fetch(2, PCLCardGroupHelper.DiscardPile).setAffinity(PCLAffinity.Green, PCLAffinity.Orange), PMove.retain(2).setAlt(true).useParent(true));
+        addUseMove(PMove.fetch(2, PCLCardGroupHelper.DiscardPile).edit(f -> f.setAffinity(PCLAffinity.Green, PCLAffinity.Orange)), PMove.retain(2).edit(f -> f.setForced(true)).useParent(true));
     }
 }

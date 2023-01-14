@@ -29,6 +29,6 @@ public class KazuhaKaedehara extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.SLASH_HORIZONTAL);
-        addUseMove(PCond.cooldown(1), PMove.draw(1).setAffinity(PCLAffinity.Green));
+        addUseMove(PCond.cooldown(1), PMove.draw(1, PCLAffinity.Green));
     }
 }

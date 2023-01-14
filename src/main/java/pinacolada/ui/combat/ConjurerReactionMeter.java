@@ -120,6 +120,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
                 .setColors(EUIColors.black(0.6f), Settings.CREAM_COLOR)
                 .setAlignment(0.5f, 0.5f)
                 .setFont(EUIFontHelper.cardtitlefontNormal, 0.6f);
+        enableCharges(false);
     }
 
     public void addCount(int amount)
@@ -150,6 +151,11 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
         skips.addUses(amount);
     }
 
+    public boolean canGlow(AbstractCard c)
+    {
+        return chargeImage.isActive;
+    }
+
     public void disableAffinity(PCLAffinity affinity)
     {
         ConjurerElementButton button = getElementButton(affinity);
@@ -157,6 +163,14 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
         {
             button.setEnabled(false);
         }
+    }
+
+    // TODO use this in a relic
+    public void enableCharges(boolean value)
+    {
+        chargeHeader.setActive(value);
+        chargeImage.setActive(value);
+        chargeText.setActive(value);
     }
 
     public void flash(PCLAffinity affinity)
@@ -254,6 +268,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
         }
         lastCardAffinities = new ArrayList<>();
         lastTargetPowers = new ArrayList<>();
+        enableCharges(false);
 
         addDefaultReactions();
 
