@@ -10,9 +10,9 @@ import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
 import pinacolada.skills.PTrigger;
 
-public class Dadga extends PCLCard
+public class Dagda extends PCLCard
 {
-    public static final PCLCardData DATA = register(Dadga.class, ConjurerResources.conjurer)
+    public static final PCLCardData DATA = register(Dagda.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.AllEnemy)
             .setDamage(2, 1)
             .setPriority(1)
@@ -20,7 +20,7 @@ public class Dadga extends PCLCard
             .setAffinities(2, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public Dadga()
+    public Dagda()
     {
         super(DATA);
     }
