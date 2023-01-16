@@ -27,6 +27,6 @@ public class BlackFrost extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.FIRE);
-        addUseMove(PCond.cooldown(0), PMove.applyToRandom(2, PCLElementHelper.Burned, PCLElementHelper.Chilled));
+        addUseMove(PCond.cooldown(0), PMove.applyToRandom(2, PCLElementHelper.Ignis, PCLElementHelper.Gelus));
     }
 }

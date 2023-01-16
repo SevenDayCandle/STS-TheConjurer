@@ -29,8 +29,8 @@ public class Albedo extends PCLCard
     {
         addDamageMove(AttackEffects.EARTH);
         addUseMove(PCond.cooldown(2), PMultiSkill.choose(
-                PMove.applyToEnemies(6, PCLElementHelper.Stoned),
-                PMove.stabilize(PCLCardTarget.AllEnemy, PCLElementHelper.Chilled)
+                PMove.applyToEnemies(6, PCLElementHelper.Petra),
+                PMove.stabilize(PCLCardTarget.AllEnemy, PCLElementHelper.Gelus)
         ));
     }
 }

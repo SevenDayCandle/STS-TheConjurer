@@ -30,6 +30,6 @@ public class JackFrost extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.ICE);
-        addUseMove(PCond.cooldown(0), PMove.applyToSingle(2, PCLElementHelper.Chilled));
+        addUseMove(PCond.cooldown(0), PMove.applyToSingle(2, PCLElementHelper.Gelus));
     }
 }

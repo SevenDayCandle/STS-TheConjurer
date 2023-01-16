@@ -25,6 +25,6 @@ public class HydraulicGeneration extends PCLCard
 
     public void setup(Object input)
     {
-        addUseMove(PMod.cyclePer(3), PMultiSkill.join(CMove.gainReaction(3).setUpgrade(1), PMove.applyToRandom(3, PCLElementHelper.Chilled).setUpgrade(1)));
+        addUseMove(PMod.cyclePer(3), PMultiSkill.join(CMove.gainReaction(3).setUpgrade(1), PMove.applyToRandom(3, PCLElementHelper.Gelus).setUpgrade(1)));
     }
 }

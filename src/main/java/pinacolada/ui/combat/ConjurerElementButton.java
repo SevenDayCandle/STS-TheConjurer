@@ -23,6 +23,7 @@ import pinacolada.misc.CombatManager;
 import pinacolada.powers.conjurer.AbstractPCLElementalPower;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.PGR;
+import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.resources.pcl.PCLCoreStrings;
 import pinacolada.utilities.GameUtilities;
 import pinacolada.utilities.PCLRenderHelpers;
@@ -31,6 +32,7 @@ import java.util.*;
 
 public class ConjurerElementButton extends EUIButton
 {
+    public static final String INCREASE_ID = ConjurerResources.conjurer.createID(ConjurerElementButton.class.getSimpleName());
     public static final Color ACTIVE_COLOR = new Color(0.5f, 1f, 0.5f, 1f);
     public static final int BASE_COST = 10;
     public static final int BASE_COST_RATE = 5;
@@ -131,7 +133,7 @@ public class ConjurerElementButton extends EUIButton
     {
         intensifyFontScale = 8.0f;
         //ElementImage.SetColor(Color.WHITE);
-        PCLEffects.List.add(new GenericFlashEffect(elementImage.texture, this.hb.x, this.hb.y, true).setScale(Settings.scale * 0.5f));
+        PCLEffects.List.add(new GenericFlashEffect(elementImage.texture, this.hb.cX, this.hb.cY, true).setScale(Settings.scale * 0.5f));
     }
 
     public Set<PCLAffinity> getCombustAffinities()
@@ -188,7 +190,10 @@ public class ConjurerElementButton extends EUIButton
     public void manualAddLevel()
     {
         meter.set(affinity, 0);
-        meter.addSkip(1);
+        if (CombatManager.tryActivateSemiLimited(INCREASE_ID))
+        {
+            meter.addSkip(1);
+        }
         tryAddLevel();
     }
 

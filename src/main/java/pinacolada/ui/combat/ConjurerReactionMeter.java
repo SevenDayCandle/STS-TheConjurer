@@ -19,6 +19,7 @@ import extendedui.utilities.EUIFontHelper;
 import pinacolada.actions.PCLActions;
 import pinacolada.actions.powers.ElementReaction;
 import pinacolada.cards.base.*;
+import pinacolada.misc.CombatManager;
 import pinacolada.orbs.PCLOrb;
 import pinacolada.powers.PCLClickableUse;
 import pinacolada.powers.conjurer.AbstractPCLElementalPower;
@@ -44,6 +45,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
     public static final Color ACTIVE_COLOR = new Color(0.5f, 1f, 0.5f, 1f);
     public static final float ICON_SIZE = scale(48);
     public static final float BASE_AMOUNT_SCALE = 1f;
+    public static final float BASE_CHARGE_SCALE = 0.6f;
     public static final float BUTTON_SCALE = 1.5f;
     public static final float OFFSET_SCALE_X = 2.5f * BUTTON_SCALE;
     public static final float OFFSET_SCALE_Y = -0.5f * BUTTON_SCALE;
@@ -149,6 +151,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
     public void addSkip(int amount)
     {
         skips.addUses(amount);
+        chargeText.label.setFontScale(4.8f);
     }
 
     public boolean canGlow(AbstractCard c)
@@ -341,11 +344,17 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
         }
         reactionHeader.tryUpdate();
         reactionCountText.label.setFontScale(PCLRenderHelpers.lerpScale(reactionCountText.label.fontScale, BASE_AMOUNT_SCALE));
-        reactionCountText.setLabel(reactionPreview).setFontColor(reactionPreview != reactionCount ? ACTIVE_COLOR : EUIColors.blue(1f)).tryUpdate();
+        reactionCountText.setLabel(reactionPreview).setFontColor(isHighlighted() ? ACTIVE_COLOR : EUIColors.blue(1f)).tryUpdate();
 
-        chargeHeader.tryUpdate();
-        chargeImage.setInteractable(interactable).tryUpdate();
-        chargeText.setLabel(skips.getCurrentUses()).setFontColor(interactable ? Settings.GREEN_TEXT_COLOR : EUIColors.cream(0.6f)).tryUpdate();
+        if (chargeHeader.isActive)
+        {
+            chargeHeader.update();
+            chargeImage.setInteractable(interactable).tryUpdate();
+            chargeText.setLabel(skips.getCurrentUses())
+                    .setFontColor(interactable ? (CombatManager.canActivateSemiLimited(ConjurerElementButton.INCREASE_ID) ? Settings.GREEN_TEXT_COLOR : Settings.BLUE_TEXT_COLOR) : EUIColors.cream(0.6f))
+                    .tryUpdate();
+            chargeText.label.setFontScale(PCLRenderHelpers.lerpScale(chargeText.label.fontScale, BASE_CHARGE_SCALE));
+        }
 
         boolean updateCharge = chargeImage.hb.justHovered || chargeHeader.hb.justHovered;
         skips.refresh(false, updateCharge);
@@ -361,11 +370,11 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
     }
 
     @Override
-    public void onCardPlayed(AbstractCard card, AbstractCreature m, PCLUseInfo info, boolean fromSummon)
+    public void onCardPlayed(PCLCard card, PCLUseInfo info, boolean fromSummon)
     {
         if (info != null && !info.reactions.isEmpty())
         {
-            PCLActions.last.add(new ElementReaction(info.reactions, card, m));
+            PCLActions.last.add(new ElementReaction(info.reactions, card, info.source, info.target));
         }
     }
 
@@ -549,6 +558,16 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
         }
         ConjurerElementButton button = getElementButton(affinity);
         return button != null && button.matchesPower(id);
+    }
+
+    public boolean isHighlighted()
+    {
+        return reactionPreview != reactionCount;
+    }
+
+    public int getPreviewGain()
+    {
+        return reactionPreview - reactionCount;
     }
 
     public EUITooltip getTooltip()

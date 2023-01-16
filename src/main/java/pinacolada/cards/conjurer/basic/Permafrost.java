@@ -23,6 +23,6 @@ public class Permafrost extends PCLCard
 
     public void setup(Object input)
     {
-        addGainPower(PTrigger.when(PCond.onOtherCardPlayed(PCLAffinity.Blue), PMove.applyToRandom(1, PCLElementHelper.Chilled).setUpgrade(1)));
+        addGainPower(PTrigger.when(PCond.onOtherCardPlayed(PCLAffinity.Blue), PMove.applyToRandom(1, PCLElementHelper.Gelus).setUpgrade(1)));
     }
 }

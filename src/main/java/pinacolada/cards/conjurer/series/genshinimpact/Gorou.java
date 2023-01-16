@@ -30,6 +30,6 @@ public class Gorou extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.BLUNT_LIGHT);
-        addUseMove(PCond.cooldown(0), PMove.applyToSingle(2, PCLElementHelper.Stoned));
+        addUseMove(PCond.cooldown(0), PMove.applyToSingle(2, PCLElementHelper.Petra));
     }
 }

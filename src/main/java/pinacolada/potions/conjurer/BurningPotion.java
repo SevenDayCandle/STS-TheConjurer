@@ -17,7 +17,7 @@ public class BurningPotion extends PCLPotion
 
     public void setup()
     {
-        addUseMove(PMove.applyToEnemies(getPotency(), PCLElementHelper.Burned));
+        addUseMove(PMove.applyToEnemies(getPotency(), PCLElementHelper.Ignis));
     }
 
     @Override

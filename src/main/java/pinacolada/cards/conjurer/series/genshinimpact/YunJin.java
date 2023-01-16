@@ -27,6 +27,6 @@ public class YunJin extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.SLASH_HORIZONTAL);
-        addUseMove(PCond.cooldown(1), PMove.applyToEnemies(3, PCLElementHelper.Stoned));
+        addUseMove(PCond.cooldown(1), PMove.applyToEnemies(3, PCLElementHelper.Petra));
     }
 }

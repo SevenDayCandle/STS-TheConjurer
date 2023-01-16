@@ -17,7 +17,7 @@ public class ChillingPotion extends PCLPotion
 
     public void setup()
     {
-        addUseMove(PMove.applyToEnemies(getPotency(), PCLElementHelper.Chilled));
+        addUseMove(PMove.applyToEnemies(getPotency(), PCLElementHelper.Gelus));
     }
 
     @Override

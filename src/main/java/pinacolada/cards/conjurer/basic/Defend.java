@@ -8,7 +8,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 public class Defend extends PCLCard
 {
     public static final PCLCardData DATA = register(Defend.class, ConjurerResources.conjurer)
-            .setSkill(1, CardRarity.BASIC, PCLCardTarget.None)
+            .setSkill(1, CardRarity.BASIC, PCLCardTarget.Self)
             .setBlock(5, 3);
 
     public Defend()

@@ -4,15 +4,16 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import pinacolada.actions.PCLActionWithCallback;
 import pinacolada.cards.base.AffinityReactions;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.misc.CombatManager;
+import pinacolada.powers.conjurer.AbstractPCLElementalPower;
 import pinacolada.ui.combat.ConjurerReactionMeter;
 import pinacolada.utilities.GameUtilities;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 
 public class ElementReaction extends PCLActionWithCallback<AffinityReactions>
@@ -21,11 +22,12 @@ public class ElementReaction extends PCLActionWithCallback<AffinityReactions>
     public PCLAffinity reactor;
     public boolean showEffect = true;
 
-    public ElementReaction(AffinityReactions reactions, AbstractCard card, AbstractCreature target)
+    public ElementReaction(AffinityReactions reactions, AbstractCard card, AbstractCreature source, AbstractCreature target)
     {
         super(ActionType.POWER, Settings.ACTION_DUR_XFAST);
         this.reactions = reactions;
         this.card = card;
+        this.source = source;
         this.target = target;
     }
 
@@ -38,20 +40,8 @@ public class ElementReaction extends PCLActionWithCallback<AffinityReactions>
             return;
         }
 
-        for (PCLAffinity affinity : reactions.combustions.keySet())
-        {
-            for (Map.Entry<PCLAffinity, Integer> item : reactions.combustions.get(affinity).entrySet())
-            {
-                ConjurerReactionMeter.meter.addCount(item.getValue(), showEffect);
-            }
-        }
-        for (PCLAffinity affinity : reactions.redoxes.keySet())
-        {
-            for (Map.Entry<PCLAffinity, Integer> item : reactions.redoxes.get(affinity).entrySet())
-            {
-                ConjurerReactionMeter.meter.addCount(item.getValue(), showEffect);
-            }
-        }
+        int sum = reactions.sum();
+        ConjurerReactionMeter.meter.addCount(sum, showEffect);
 
         ArrayList<AbstractCreature> cr = new ArrayList<>();
         if (target != null)
@@ -69,9 +59,17 @@ public class ElementReaction extends PCLActionWithCallback<AffinityReactions>
                 cr.add(AbstractDungeon.player);
             }
         }
+
         for (AbstractCreature mo : cr)
         {
             CombatManager.onElementReact(reactions, mo);
+            for (AbstractPower po : mo.powers)
+            {
+                if (po instanceof AbstractPCLElementalPower)
+                {
+                    ((AbstractPCLElementalPower) po).onReact(source, reactions, sum);
+                }
+            }
         }
     }
 

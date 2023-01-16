@@ -23,6 +23,6 @@ public class Geomorphology extends PCLCard
 
     public void setup(Object input)
     {
-        addGainPower(PTrigger.when(PCond.onSummon(), PMove.applyToRandom(2, PCLElementHelper.Stoned).setUpgrade(1)));
+        addGainPower(PTrigger.when(PCond.onSummon(), PMove.applyToRandom(2, PCLElementHelper.Petra).setUpgrade(1)));
     }
 }

@@ -31,6 +31,6 @@ public class Ningguang extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.EARTH);
-        addUseMove(PCond.cooldown(2), PMultiSkill.choose(PMove.retain(1, PCLAffinity.Orange).setUpgrade(1), PMove.applyToEnemies(3, PCLElementHelper.Stoned).setUpgrade(2)));
+        addUseMove(PCond.cooldown(2), PMultiSkill.choose(PMove.retain(1, PCLAffinity.Orange).setUpgrade(1), PMove.applyToEnemies(3, PCLElementHelper.Petra).setUpgrade(2)));
     }
 }

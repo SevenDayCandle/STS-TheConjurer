@@ -27,6 +27,6 @@ public class Wildfire extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.FIRE);
-        addGainPower(3, PTrigger.when(PCond.onTurnStart(), PMove.applyToEnemies(1, PCLElementHelper.Burned)));
+        addGainPower(3, PTrigger.when(PCond.onTurnStart(), PMove.applyToEnemies(1, PCLElementHelper.Ignis)));
     }
 }

@@ -24,6 +24,6 @@ public class Thermogenesis extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.FIRE);
-        addUseMove(PCond.onDraw(), PMove.applyToRandom(2, PCLElementHelper.Burned));
+        addUseMove(PCond.onDraw(), PMove.applyToRandom(2, PCLElementHelper.Ignis));
     }
 }

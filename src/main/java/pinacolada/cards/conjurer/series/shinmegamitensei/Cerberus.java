@@ -33,7 +33,7 @@ public class Cerberus extends PCLCard
         addDamageMove(AttackEffects.BITE);
         addGainPower(PTrigger.interactable(
                 CCond.payReaction(10),
-                PMod.perCreatureWith(1, PCLElementHelper.Burned), PMove.modifyDamage(2).setUpgrade(1)
+                PMod.perCreatureWith(1, PCLElementHelper.Ignis), PMove.modifyDamage(2).setUpgrade(1)
         ));
     }
 }

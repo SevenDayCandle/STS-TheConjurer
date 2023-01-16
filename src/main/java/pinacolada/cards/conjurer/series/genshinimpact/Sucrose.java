@@ -30,6 +30,6 @@ public class Sucrose extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.WIND);
-        addUseMove(PCond.cooldown(0), PMove.applyToSingle(2, PCLElementHelper.Flowed));
+        addUseMove(PCond.cooldown(0), PMove.applyToSingle(2, PCLElementHelper.Aer));
     }
 }

@@ -70,9 +70,9 @@ public class Patchouli extends PCLCard
 
                 if (GameUtilities.getPlayerClass() == ConjurerEnum.Characters.THE_CONJURER)
                 {
-                    debuffs.add(PMove.applyToSingle(3, PCLElementHelper.Burned));
-                    debuffs.add(PMove.applyToSingle(3, PCLElementHelper.Chilled));
-                    debuffs.add(PMove.applyToSingle(3, PCLElementHelper.Flowed));
+                    debuffs.add(PMove.applyToSingle(3, PCLElementHelper.Ignis));
+                    debuffs.add(PMove.applyToSingle(3, PCLElementHelper.Gelus));
+                    debuffs.add(PMove.applyToSingle(3, PCLElementHelper.Aer));
                 }
                 else
                 {

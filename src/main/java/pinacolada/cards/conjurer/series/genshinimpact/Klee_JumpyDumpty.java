@@ -26,6 +26,6 @@ public class Klee_JumpyDumpty extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.SMALL_EXPLOSION);
-        addUseMove(PMove.applyToEveryone(3, PCLElementHelper.Burned));
+        addUseMove(PMove.applyToEveryone(3, PCLElementHelper.Ignis));
     }
 }

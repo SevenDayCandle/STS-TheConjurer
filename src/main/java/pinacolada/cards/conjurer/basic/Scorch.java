@@ -26,6 +26,6 @@ public class Scorch extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.FIRE);
-        addUseMove(PMove.applyToSingle(3, PCLElementHelper.Burned));
+        addUseMove(PMove.applyToSingle(3, PCLElementHelper.Ignis));
     }
 }

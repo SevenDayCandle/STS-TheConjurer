@@ -16,7 +16,6 @@ public class NuclearTransmutation extends PCLCard
     public static final PCLCardData DATA = register(NuclearTransmutation.class, ConjurerResources.conjurer)
             .setSkill(-1, CardRarity.RARE)
             .setTags(PCLCardTag.Exhaust)
-            .setUTags(PCLCardTag.Haste, PCLCardTag.Retain)
             .setAffinities(PCLAffinity.Blue)
             .setColorless();
 
@@ -27,6 +26,6 @@ public class NuclearTransmutation extends PCLCard
 
     public void setup(Object input)
     {
-        addUseMove(PMod.payXEnergy(), PMove.obtainRandom(1, 1, PCLCardGroupHelper.Hand).edit(f -> f.setType(PCLEnum.CardType.SUMMON)), PMove.modifyCost(-3));
+        addUseMove(PMod.xEnergy(0).setUpgrade(1), PMove.obtainRandom(1, 1, PCLCardGroupHelper.Hand).edit(f -> f.setType(PCLEnum.CardType.SUMMON)), PMove.modifyCost(99,-3).useParent(true));
     }
 }

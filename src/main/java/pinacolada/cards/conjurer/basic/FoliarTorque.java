@@ -27,6 +27,6 @@ public class FoliarTorque extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.WIND);
-        addUseMove(PMod.drawPer(2).setUpgrade(1).edit(f -> f.setAffinity(PCLAffinity.Green)), PMove.applyToRandom(2, PCLElementHelper.Flowed));
+        addUseMove(PMod.drawPer(2).setUpgrade(1).edit(f -> f.setAffinity(PCLAffinity.Green)), PMove.applyToRandom(2, PCLElementHelper.Aer));
     }
 }

@@ -30,6 +30,6 @@ public class Venti extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.WIND);
-        addUseMove(PCond.cooldown(1), PMod.cyclePer(2), PMove.applyToEnemies(2, PCLElementHelper.Flowed));
+        addUseMove(PCond.cooldown(1), PMod.cyclePer(2), PMove.applyToEnemies(2, PCLElementHelper.Aer));
     }
 }

@@ -27,6 +27,6 @@ public class Xiangling extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.SLASH_HORIZONTAL);
-        addUseMove(PCond.cooldown(0), PMove.applyToRandom(3, PCLElementHelper.Burned));
+        addUseMove(PCond.cooldown(0), PMove.applyToRandom(3, PCLElementHelper.Ignis));
     }
 }

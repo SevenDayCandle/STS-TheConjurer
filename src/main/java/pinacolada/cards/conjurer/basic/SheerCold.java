@@ -9,8 +9,8 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.PCLUseInfo;
 import pinacolada.effects.vfx.ScreenFreezingEffect;
 import pinacolada.powers.PSpecialCardPower;
-import pinacolada.powers.conjurer.ChilledPower;
 import pinacolada.powers.conjurer.FrostbitePower;
+import pinacolada.powers.conjurer.GelusPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;
 import pinacolada.skills.skills.PSpecialSkill;
@@ -62,7 +62,7 @@ public class SheerCold extends PCLCard
             super.atEndOfTurn(isPlayer);
             for (AbstractMonster mo : GameUtilities.getEnemies(true))
             {
-                ChilledPower po = GameUtilities.getPower(mo, ChilledPower.class);
+                GelusPower po = GameUtilities.getPower(mo, GelusPower.class);
                 if (po != null)
                 {
                     PCLActions.bottom.applyPower(mo, mo, new FrostbitePower(mo, po.amount * move.amount));

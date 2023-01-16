@@ -17,7 +17,7 @@ public class FlowingPotion extends PCLPotion
 
     public void setup()
     {
-        addUseMove(PMove.applyToEnemies(getPotency(), PCLElementHelper.Flowed));
+        addUseMove(PMove.applyToEnemies(getPotency(), PCLElementHelper.Aer));
     }
 
     @Override

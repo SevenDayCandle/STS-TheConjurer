@@ -24,6 +24,6 @@ public class AtmosphericPressure extends PCLCard
 
     public void setup(Object input)
     {
-        addUseMove(PMove.stabilize(PCLCardTarget.AllEnemy, PCLElementHelper.Chilled, PCLElementHelper.Flowed, PCLElementHelper.Stoned));
+        addUseMove(PMove.stabilize(PCLCardTarget.AllEnemy, PCLElementHelper.Gelus, PCLElementHelper.Aer, PCLElementHelper.Petra));
     }
 }

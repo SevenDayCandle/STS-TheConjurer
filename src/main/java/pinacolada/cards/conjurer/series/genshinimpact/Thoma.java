@@ -30,6 +30,6 @@ public class Thoma extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.SLASH_VERTICAL);
-        addUseMove(PCond.onWithdraw(), PMove.applyToEnemies(2, PCLElementHelper.Burned, PCLPowerHelper.Weak).setUpgrade(1));
+        addUseMove(PCond.onWithdraw(), PMove.applyToEnemies(2, PCLElementHelper.Ignis, PCLPowerHelper.Weak).setUpgrade(1));
     }
 }

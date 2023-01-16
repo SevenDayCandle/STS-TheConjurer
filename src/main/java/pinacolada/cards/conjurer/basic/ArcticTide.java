@@ -24,6 +24,6 @@ public class ArcticTide extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.WATER);
-        addUseMove(PMove.applyToEnemies(2, PCLElementHelper.Chilled, PCLPowerHelper.Vulnerable));
+        addUseMove(PMove.applyToEnemies(2, PCLElementHelper.Gelus, PCLPowerHelper.Vulnerable));
     }
 }

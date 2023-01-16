@@ -18,7 +18,7 @@ public class LeafPotion extends PCLPotion
 
     public void setup()
     {
-        addUseMove(PMove.applyToSingle(getPotency(), PCLElementHelper.Flowed, PCLPowerHelper.Poison));
+        addUseMove(PMove.applyToSingle(getPotency(), PCLElementHelper.Aer, PCLPowerHelper.Poison));
     }
 
     @Override

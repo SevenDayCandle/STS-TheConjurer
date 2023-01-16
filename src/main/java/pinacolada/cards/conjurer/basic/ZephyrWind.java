@@ -24,6 +24,6 @@ public class ZephyrWind extends PCLCard
     public void setup(Object input)
     {
         addUseMove(PMove.draw(2).setUpgrade(1));
-        addUseMove(PMove.applyToEnemies(3, PCLElementHelper.Flowed).setUpgrade(1));
+        addUseMove(PMove.applyToEnemies(3, PCLElementHelper.Aer).setUpgrade(1));
     }
 }

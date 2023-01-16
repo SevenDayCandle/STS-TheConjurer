@@ -10,20 +10,20 @@ import pinacolada.interfaces.subscribers.OnTryElementReactSubscriber;
 import pinacolada.misc.CombatManager;
 import pinacolada.resources.conjurer.ConjurerResources;
 
-public class ElectrifiedPower extends AbstractPCLElementalPower implements OnTryElementReactSubscriber
+public class LuxPower extends AbstractPCLElementalPower implements OnTryElementReactSubscriber
 {
-    public static final String POWER_ID = createFullID(ConjurerResources.conjurer, ElectrifiedPower.class);
+    public static final String POWER_ID = createFullID(ConjurerResources.conjurer, LuxPower.class);
     public static final PCLAffinity AFFINITY = setAffinity(POWER_ID, PCLAffinity.Yellow);
     public static final int MULTIPLIER = setMultiplier(POWER_ID, 40);
 
-    public ElectrifiedPower(AbstractCreature owner, AbstractCreature source, int amount)
+    public LuxPower(AbstractCreature owner, AbstractCreature source, int amount)
     {
         super(owner, source, POWER_ID, amount);
     }
 
-    public static int calculateBonus(int bonus, float multiplier)
+    public float calculateValue(int amount, float multiplier)
     {
-        return bonus + MathUtils.ceil(bonus * (multiplier / 100f));
+        return amount + MathUtils.ceil(amount * (multiplier / 100f));
     }
 
     @Override
@@ -57,6 +57,6 @@ public class ElectrifiedPower extends AbstractPCLElementalPower implements OnTry
     @Override
     public int onTryElementReact(int amount, PCLAffinity button, PCLAffinity trigger)
     {
-        return calculateBonus(amount, getIntensifyMultiplier());
+        return (int) calculateValue(amount, getIntensifyMultiplier());
     }
 }

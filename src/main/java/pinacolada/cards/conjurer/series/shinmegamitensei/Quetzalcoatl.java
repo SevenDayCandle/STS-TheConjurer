@@ -29,7 +29,7 @@ public class Quetzalcoatl extends PCLCard
         addDamageMove(AttackEffects.BITE);
         addGainPower(PTrigger.interactable(
                 CCond.payReaction(10).setUpgrade(-1),
-                PMove.fetch(1, PCLCardGroupHelper.DiscardPile).edit(f -> f.setAffinity(PCLAffinity.Red, PCLAffinity.Green).setRandom(true)))
+                PMove.fetch(1, PCLCardGroupHelper.DiscardPile).edit(f -> f.setAffinity(PCLAffinity.Red, PCLAffinity.Green).setRandom()))
         );
     }
 }

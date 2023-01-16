@@ -8,33 +8,33 @@ import pinacolada.resources.PGR;
 
 public class ConjurerTooltips extends PCLTooltips
 {
-    public EUITooltip burned = EUITooltip.findByID("Burned");
+    public EUITooltip burned = EUITooltip.findByID("Ignis");
     public EUITooltip combust = EUITooltip.findByID("Combust");
     public EUITooltip charge = EUITooltip.findByID("Charge");
-    public EUITooltip chilled = EUITooltip.findByID("Chilled");
+    public EUITooltip chilled = EUITooltip.findByID("Gelus");
     public EUITooltip corrosion = EUITooltip.findByID("Corrosion");
-    public EUITooltip electrified = EUITooltip.findByID("Electrified");
+    public EUITooltip electrified = EUITooltip.findByID("Lux");
     public EUITooltip elementalDebuff = EUITooltip.findByID("Elemental Debuff");
     public EUITooltip elementalExposure = EUITooltip.findByID("Elemental Exposure");
     public EUITooltip elementalMastery = EUITooltip.findByID("Elemental Mastery");
-    public EUITooltip flowed = EUITooltip.findByID("Flowed");
+    public EUITooltip flowed = EUITooltip.findByID("Aer");
     public EUITooltip frostbite = EUITooltip.findByID("Frostbite");
     public EUITooltip reaction = EUITooltip.findByID("Reaction");
     public EUITooltip redox = EUITooltip.findByID("Redox");
-    public EUITooltip stoned = EUITooltip.findByID("Stoned");
+    public EUITooltip stoned = EUITooltip.findByID("Petra");
 
     @Override
     public void initializeIcons()
     {
-        burned.setIconFromPath(PGR.getPowerImage(BurnedPower.POWER_ID));
-        chilled.setIconFromPath(PGR.getPowerImage(ChilledPower.POWER_ID));
+        burned.setIconFromPath(PGR.getPowerImage(IgnisPower.POWER_ID));
+        chilled.setIconFromPath(PGR.getPowerImage(GelusPower.POWER_ID));
         corrosion.setIconFromPath(PGR.getPowerImage(CorrosionPower.POWER_ID));
-        electrified.setIconFromPath(PGR.getPowerImage(ElectrifiedPower.POWER_ID));
+        electrified.setIconFromPath(PGR.getPowerImage(LuxPower.POWER_ID));
         elementalExposure.setIconFromPath(PGR.getPowerImage(ElementalExposurePower.POWER_ID));
         elementalMastery.setIconFromPath(PGR.getPowerImage(ElementalMasteryPower.POWER_ID));
-        flowed.setIconFromPath(PGR.getPowerImage(FlowedPower.POWER_ID));
+        flowed.setIconFromPath(PGR.getPowerImage(AerPower.POWER_ID));
         frostbite.setIconFromPath(PGR.getPowerImage(FrostbitePower.POWER_ID));
-        stoned.setIconFromPath(PGR.getPowerImage(StonedPower.POWER_ID));
+        stoned.setIconFromPath(PGR.getPowerImage(PetraPower.POWER_ID));
     }
 
     public EUITooltip getLevelTooltip(PCLAffinity affinity)

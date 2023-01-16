@@ -7,7 +7,8 @@ import pinacolada.resources.conjurer.ConjurerResources;
 
 public class Strike extends PCLCard
 {
-    public static final PCLCardData DATA = register(Strike.class, ConjurerResources.conjurer).setAttack(1, CardRarity.BASIC)
+    public static final PCLCardData DATA = register(Strike.class, ConjurerResources.conjurer)
+            .setAttack(1, CardRarity.BASIC)
             .setDamage(6, 3);
 
     public Strike()

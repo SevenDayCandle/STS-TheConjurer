@@ -32,7 +32,7 @@ public class Melt extends PCLCard
         addDamageMove(AttackEffects.NONE).setDamageEffect(PCLEffekseerEFX.FIRE07);
         addUseMove(PCond.ifElse(
                 getSpecialMove(0, this::specialMove, 25).setUpgrade(8),
-                PMove.applyToSingle(1, PCLElementHelper.Burned),
+                PMove.applyToSingle(1, PCLElementHelper.Ignis),
                 CCond.combust()));
     }
 

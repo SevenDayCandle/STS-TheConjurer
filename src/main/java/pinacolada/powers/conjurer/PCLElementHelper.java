@@ -22,11 +22,11 @@ public class PCLElementHelper extends PCLPowerHelper implements TooltipProvider
     protected static final Map<String, PCLElementHelper> ALL = new HashMap<>();
     protected static final Map<PCLAffinity, PCLElementHelper> ALL_BY_AFFINITY = new HashMap<>();
 
-    public static final PCLElementHelper Burned = new PCLElementHelper(BurnedPower.POWER_ID, ConjurerResources.conjurer.tooltips.burned, BurnedPower::new, BurnedPower.AFFINITY);
-    public static final PCLElementHelper Chilled = new PCLElementHelper(ChilledPower.POWER_ID, ConjurerResources.conjurer.tooltips.chilled, ChilledPower::new, ChilledPower.AFFINITY);
-    public static final PCLElementHelper Electrified = new PCLElementHelper(ElectrifiedPower.POWER_ID, ConjurerResources.conjurer.tooltips.electrified, ElectrifiedPower::new, ElectrifiedPower.AFFINITY);
-    public static final PCLElementHelper Flowed = new PCLElementHelper(FlowedPower.POWER_ID, ConjurerResources.conjurer.tooltips.flowed, FlowedPower::new, FlowedPower.AFFINITY);
-    public static final PCLElementHelper Stoned = new PCLElementHelper(StonedPower.POWER_ID, ConjurerResources.conjurer.tooltips.stoned, StonedPower::new, StonedPower.AFFINITY);
+    public static final PCLElementHelper Aer = new PCLElementHelper(AerPower.POWER_ID, ConjurerResources.conjurer.tooltips.flowed, AerPower::new, AerPower.AFFINITY);
+    public static final PCLElementHelper Gelus = new PCLElementHelper(GelusPower.POWER_ID, ConjurerResources.conjurer.tooltips.chilled, GelusPower::new, GelusPower.AFFINITY);
+    public static final PCLElementHelper Ignis = new PCLElementHelper(IgnisPower.POWER_ID, ConjurerResources.conjurer.tooltips.burned, IgnisPower::new, IgnisPower.AFFINITY);
+    public static final PCLElementHelper Lux = new PCLElementHelper(LuxPower.POWER_ID, ConjurerResources.conjurer.tooltips.electrified, LuxPower::new, LuxPower.AFFINITY);
+    public static final PCLElementHelper Petra = new PCLElementHelper(PetraPower.POWER_ID, ConjurerResources.conjurer.tooltips.stoned, PetraPower::new, PetraPower.AFFINITY);
     
     public final String ID;
     public final PCLAffinity affinity;
@@ -64,7 +64,7 @@ public class PCLElementHelper extends PCLPowerHelper implements TooltipProvider
 
     public static PCLElementHelper get(PCLAffinity affinity)
     {
-        return ALL_BY_AFFINITY.getOrDefault(affinity, Electrified);
+        return ALL_BY_AFFINITY.getOrDefault(affinity, Lux);
     }
 
     public static String getPowerAndString(Collection<PCLAffinity> affinities) {

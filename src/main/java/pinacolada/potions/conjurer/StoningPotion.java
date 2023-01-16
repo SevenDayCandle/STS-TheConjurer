@@ -17,7 +17,7 @@ public class StoningPotion extends PCLPotion
 
     public void setup()
     {
-        addUseMove(PMove.applyToEnemies(getPotency(), PCLElementHelper.Stoned));
+        addUseMove(PMove.applyToEnemies(getPotency(), PCLElementHelper.Petra));
     }
 
     @Override

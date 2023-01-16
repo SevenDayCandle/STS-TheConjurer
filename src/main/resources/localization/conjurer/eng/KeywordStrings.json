@@ -1,82 +1,116 @@
 {
-				"Burned":	{
-								"DESCRIPTION": "[A-R] #yElemental #yDebuff. After attacking a creature with [Burned], your next Attack this turn deals additional damage.",
-								"NAMES": ["burned"],
-								"PROPER_NAME": "Burned"
-				},
-				"Charge":	{
-								"DESCRIPTION": "Apply the last #yElemental #yDebuff you leveled up to an enemy. Gain #yCharges whenever you level up an #yElemental #yDebuff manually.",
-								"NAMES": ["charge"],
-								"PROPER_NAME": "Charge"
-				},
-				"Chilled":	{
-								"DESCRIPTION": "[A-B] #yElemental #yDebuff. Attacking creatures with [Chilled] gives them a stacking, decaying debuff that deals damage at the start of its turn.",
-								"NAMES": ["chilled"],
-								"PROPER_NAME": "Chilled"
-				},
-				"Combust":	{
-								"DESCRIPTION": "#yCombust an #yElemental #yDebuff by playing an #yAffinity card against a target with it. | [A-R] -> [Chilled], [A-G] -> [Stoned], [A-B] -> [Burned], [A-O] -> [Flowed].",
-								"NAMES": ["combust", "combusts", "combusting", "combusted"],
-								"PROPER_NAME": "Combust"
-				},
-				"Corrosion":	{
-								"DESCRIPTION": "[A-P] #yElemental #yDebuff. When #yAttacking, deal a portion of damage dealt to yourself and ALL allies.",
-								"NAMES": ["corrosion"],
-								"PROPER_NAME": "Corrosion"
-				},
-				"Electrified":	{
-								"DESCRIPTION": "[A-Y] #yElemental #yDebuff. Cards played on this target grant additional #yReaction.",
-								"NAMES": ["electrified"],
-								"PROPER_NAME": "Electrified"
-				},
-				"Elemental Debuff":	{
-								"DESCRIPTION": "[Burned], [Flowed], [Chilled], [Stoned]. Remove at the end of the round.",
-								"NAMES": ["elemental debuff", "elemental debuffs"],
-								"PROPER_NAME": "Elemental Debuff"
-				},
-				"Elemental Exposure":	{
-								"DESCRIPTION": "Increases the effectiveness of #yAuras and #yElemental #yDebuffs.",
-								"NAMES": ["elemental exposure"],
-								"PROPER_NAME": "Elemental Exposure"
-				},
-				"Elemental Mastery":	{
-								"DESCRIPTION": "Whenever you would gain #yAura stacks or apply #yElemental #yDebuffs, increase their stacks.",
-								"NAMES": ["elemental mastery"],
-								"PROPER_NAME": "Elemental Mastery"
-				},
-				"Flowed":	{
-								"DESCRIPTION": "[A-G] #yElemental #yDebuff. When attacked, deal a portion of damage received to ALL allies.",
-								"NAMES": ["flowed"],
-								"PROPER_NAME": "Flowed"
-				},
-				"Frostbite":	{
-								"DESCRIPTION": "At the end of turn, lose HP and cut stacks in half.",
-								"NAMES": ["frostbite"],
-								"PROPER_NAME": "Frostbite"
-				},
-				"Fusion":	{
-								"DESCRIPTION": "Combine #yOrbs to create a new #yOrb dependent on the #yOrbs chosen.",
-								"NAMES": ["fuse", "fusion"],
-								"PROPER_NAME": "Fusion"
-				},
-				"Morph":	{
-								"DESCRIPTION": "Change both directions of a #yCombust reaction into a #yRedox or vice versa.",
-								"NAMES": ["morph", "morphed"],
-								"PROPER_NAME": "Morph"
-				},
-				"Reaction":	{
-								"DESCRIPTION": "Obtained from #yCombusting and #yRedoxing. Can be spent to level #yElemental #yDebuffs.",
-								"NAMES": ["reaction", "reactions"],
-								"PROPER_NAME": "Reaction"
-				},
-				"Redox":	{
-								"DESCRIPTION": "#yRedox an #yElemental #yDebuff by playing an #yAffinity card against a target with it. | [A-R] -> [Stoned], [A-G] -> [Chilled], [A-B] -> [Flowed], [A-O] -> [Burned].",
-								"NAMES": ["redox", "redoxes", "redoxing", "redoxed"],
-								"PROPER_NAME": "Redox"
-				},
-				"Stoned":	{
-								"DESCRIPTION": "[A-O] #yElemental #yDebuff. When you target a creature with [Stoned], gain [Block] next turn.",
-								"NAMES": ["stoned"],
-								"PROPER_NAME": "Stoned"
-				}
+	"Aer": {
+		"DESCRIPTION": "[A-G] #yElemental #yDebuff. Reactions on the target deal damage to it and its allies.",
+		"NAMES": [
+			"aer"
+		],
+		"PROPER_NAME": "Aer"
+	},
+	"Charge": {
+		"DESCRIPTION": "Apply the last #yElemental #yDebuff you manually leveled up to an enemy. The first time each turn you level up an #yElemental #yDebuff manually, gain #b1 #yCharge.",
+		"NAMES": [
+			"charge"
+		],
+		"PROPER_NAME": "Charge"
+	},
+	"Combust": {
+		"DESCRIPTION": "#yCombust an #yElemental #yDebuff by playing an #yAffinity card against a target with it. | [A-R] -> [Gelus], [A-G] -> [Petra], [A-B] -> [Ignis], [A-O] -> [Aer].",
+		"NAMES": [
+			"combust",
+			"combusts",
+			"combusting",
+			"combusted"
+		],
+		"PROPER_NAME": "Combust"
+	},
+	"Corrosion": {
+		"DESCRIPTION": "[A-P] #yElemental #yDebuff. When #yAttacking, deal a portion of damage dealt to yourself and ALL allies.",
+		"NAMES": [
+			"corrosion"
+		],
+		"PROPER_NAME": "Corrosion"
+	},
+	"Elemental Debuff": {
+		"DESCRIPTION": "[Ignis], [Gelus], [Aer], [Petra]. Remove at the end of the round.",
+		"NAMES": [
+			"elemental debuff",
+			"elemental debuffs"
+		],
+		"PROPER_NAME": "Elemental Debuff"
+	},
+	"Elemental Exposure": {
+		"DESCRIPTION": "Increases the effectiveness of #yAuras and #yElemental #yDebuffs.",
+		"NAMES": [
+			"elemental exposure"
+		],
+		"PROPER_NAME": "Elemental Exposure"
+	},
+	"Elemental Mastery": {
+		"DESCRIPTION": "Whenever you would gain #yAura stacks or apply #yElemental #yDebuffs, increase their stacks.",
+		"NAMES": [
+			"elemental mastery"
+		],
+		"PROPER_NAME": "Elemental Mastery"
+	},
+	"Frostbite": {
+		"DESCRIPTION": "At the end of turn, lose HP and cut stacks in half.",
+		"NAMES": [
+			"frostbite"
+		],
+		"PROPER_NAME": "Frostbite"
+	},
+	"Gelus": {
+		"DESCRIPTION": "[A-B] #yElemental #yDebuff. Reactions on the target applies a debuff that deals damage at the start of its turn.",
+		"NAMES": [
+			"gelus"
+		],
+		"PROPER_NAME": "Gelus"
+	},
+	"Ignis": {
+		"DESCRIPTION": "[A-R] #yElemental #yDebuff. Reactions on the target increase the damage of your next Attack.",
+		"NAMES": [
+			"ignis"
+		],
+		"PROPER_NAME": "Ignis"
+	},
+	"Lux": {
+		"DESCRIPTION": "[A-Y] #yElemental #yDebuff. Reactions on the target are multiplied.",
+		"NAMES": [
+			"lux"
+		],
+		"PROPER_NAME": "Lux"
+	},
+	"Morph": {
+		"DESCRIPTION": "Change both directions of a #yCombust reaction into a #yRedox or vice versa.",
+		"NAMES": [
+			"morph",
+			"morphed"
+		],
+		"PROPER_NAME": "Morph"
+	},
+	"Petra": {
+		"DESCRIPTION": "[A-O] #yElemental #yDebuff. Reactions on the target grant [Block] next turn.",
+		"NAMES": [
+			"petra"
+		],
+		"PROPER_NAME": "Petra"
+	},
+	"Reaction": {
+		"DESCRIPTION": "Obtained from #yCombusting and #yRedoxing. Can be spent to level #yElemental #yDebuffs.",
+		"NAMES": [
+			"reaction",
+			"reactions"
+		],
+		"PROPER_NAME": "Reaction"
+	},
+	"Redox": {
+		"DESCRIPTION": "#yRedox an #yElemental #yDebuff by playing an #yAffinity card against a target with it. | [A-R] -> [Petra], [A-G] -> [Gelus], [A-B] -> [Aer], [A-O] -> [Ignis].",
+		"NAMES": [
+			"redox",
+			"redoxes",
+			"redoxing",
+			"redoxed"
+		],
+		"PROPER_NAME": "Redox"
+	}
 }

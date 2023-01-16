@@ -30,6 +30,6 @@ public class Keqing extends PCLCard
         addDamageMove(AttackEffects.DAGGER);
         addUseMove(PCond.onWithdraw(),
                 PMod.reshufflePer(2, PCLCardGroupHelper.DiscardPile).edit(f -> f.setAffinity(PCLAffinity.Green)),
-                PMove.applyToRandom(2, PCLElementHelper.Flowed));
+                PMove.applyToRandom(2, PCLElementHelper.Aer));
     }
 }

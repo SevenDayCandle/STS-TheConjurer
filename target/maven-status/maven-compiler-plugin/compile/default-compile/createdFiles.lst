@@ -1,7 +1,5 @@
 pinacolada\cards\conjurer\basic\Sublimation.class
 pinacolada\ui\combat\ConjurerReactionButton.class
-pinacolada\powers\conjurer\ElectrifiedPower.class
-pinacolada\powers\conjurer\BurnedPower.class
 pinacolada\skills\CMod.class
 pinacolada\cards\conjurer\series\shinmegamitensei\Mokoi.class
 pinacolada\ui\combat\ConjurerElementButton$Type.class
@@ -34,7 +32,6 @@ pinacolada\monsters\animations\conjurer\ConjurerFireAllyAnimation.class
 pinacolada\cards\conjurer\colorless\TheSilent.class
 pinacolada\cards\conjurer\basic\PowderSnow.class
 pinacolada\relics\conjurer\MagicBaton.class
-pinacolada\powers\conjurer\FlowedPower.class
 pinacolada\skills\conjurer\conditions\PCond_Redox.class
 pinacolada\monsters\animations\conjurer\ConjurerStarAllyAnimation.class
 pinacolada\cards\conjurer\series\shinmegamitensei\Mothman.class
@@ -72,6 +69,7 @@ pinacolada\resources\conjurer\ConjurerImages.class
 pinacolada\cards\conjurer\series\shinmegamitensei\RyujiSakamoto_CaptainKidd.class
 pinacolada\cards\conjurer\series\genshinimpact\Diluc.class
 pinacolada\resources\conjurer\ConjurerImages$Monsters.class
+pinacolada\powers\conjurer\GelusPower.class
 pinacolada\resources\conjurer\ConjurerStrings$Combat.class
 pinacolada\cards\conjurer\basic\ArcticTide.class
 pinacolada\skills\CCond.class
@@ -86,13 +84,11 @@ pinacolada\cards\conjurer\series\genshinimpact\Keqing.class
 pinacolada\potions\conjurer\BurningPotion.class
 pinacolada\cards\conjurer\basic\HeatAcceleration.class
 pinacolada\cards\conjurer\series\genshinimpact\Ganyu.class
-pinacolada\powers\conjurer\BatonPassPower.class
 pinacolada\cards\conjurer\series\genshinimpact\Amber.class
 pinacolada\skills\conjurer\modifiers\PMod_PerReaction.class
 pinacolada\cards\conjurer\colorless\NuclearTransmutation.class
 pinacolada\cards\conjurer\basic\OceanSubmersion.class
 pinacolada\cards\conjurer\basic\Lithosphere.class
-pinacolada\powers\conjurer\StonedPower.class
 pinacolada\cards\conjurer\series\shinmegamitensei\Ose.class
 pinacolada\ui\combat\ConjurerElementButton.class
 pinacolada\cards\conjurer\basic\Geomorphology.class
@@ -108,11 +104,12 @@ pinacolada\cards\conjurer\series\shinmegamitensei\JackFrost.class
 pinacolada\cards\conjurer\basic\Entropy.class
 pinacolada\cards\conjurer\basic\Cryostasis.class
 pinacolada\monsters\animations\conjurer\ConjurerWaterAllyAnimation.class
+pinacolada\powers\conjurer\PetraPower.class
 pinacolada\cards\conjurer\colorless\TheWatcher.class
-pinacolada\powers\conjurer\ChilledPower.class
 pinacolada\cards\conjurer\series\shinmegamitensei\KingFrost.class
 pinacolada\cards\conjurer\colorless\MagicMirror$MagicMirrorPower.class
 pinacolada\cards\conjurer\series\shinmegamitensei\BlackFrost.class
+pinacolada\cards\conjurer\basic\DefendG.class
 pinacolada\cards\conjurer\series\shinmegamitensei\Flauros.class
 pinacolada\cards\conjurer\basic\IgnitionBoost.class
 pinacolada\resources\conjurer\ConjurerStrings$Tutorial.class
@@ -125,6 +122,7 @@ pinacolada\cards\conjurer\basic\TectonicQuake.class
 pinacolada\powers\conjurer\CorrosionPower.class
 pinacolada\cards\conjurer\colorless\MagicMirror.class
 pinacolada\cards\conjurer\basic\ExothermicCannon.class
+pinacolada\cards\conjurer\basic\StrikeB.class
 pinacolada\cards\conjurer\series\shinmegamitensei\Dadga.class
 pinacolada\cards\conjurer\basic\Defend.class
 pinacolada\powers\conjurer\ElementalMasteryPower.class
@@ -138,6 +136,7 @@ pinacolada\skills\conjurer\conditions\PCond_Intensify.class
 pinacolada\cards\conjurer\basic\ZephyrWind.class
 pinacolada\cards\conjurer\basic\ErodingTerra.class
 pinacolada\cards\conjurer\series\genshinimpact\KukiShinobu.class
+pinacolada\powers\conjurer\AerPower.class
 pinacolada\cards\conjurer\colorless\MarisaKirisame.class
 pinacolada\cards\conjurer\basic\Permafrost.class
 pinacolada\cards\conjurer\colorless\Patchouli$PatchouliCond.class
@@ -154,6 +153,7 @@ pinacolada\cards\conjurer\basic\Strike.class
 pinacolada\cards\conjurer\series\genshinimpact\Klee.class
 pinacolada\cards\conjurer\series\genshinimpact\Gorou.class
 pinacolada\relics\conjurer\SpiritPoop3.class
+pinacolada\powers\conjurer\LuxPower.class
 pinacolada\cards\conjurer\series\shinmegamitensei\Adramelech.class
 pinacolada\cards\conjurer\basic\MagmaFlare.class
 pinacolada\cards\conjurer\series\genshinimpact\LisaMinci.class
@@ -164,9 +164,12 @@ pinacolada\cards\conjurer\colorless\TreasureChest_TreasureKey.class
 pinacolada\cards\conjurer\colorless\Cyno.class
 pinacolada\interfaces\listeners\OnElementalDebuffListener.class
 pinacolada\cards\conjurer\basic\Condensation.class
+pinacolada\cards\conjurer\basic\DefendO.class
 pinacolada\cards\conjurer\basic\Preservation.class
+pinacolada\cards\conjurer\basic\StrikeR.class
 pinacolada\cards\conjurer\basic\RazorWind.class
 pinacolada\cards\conjurer\basic\Overheat.class
+pinacolada\powers\conjurer\IgnisPower.class
 pinacolada\cards\conjurer\basic\AtmosphericPressure.class
 pinacolada\cards\conjurer\basic\ErodingTerra$ErodingTerraPower.class
 pinacolada\TheConjurer.class

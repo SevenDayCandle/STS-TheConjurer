@@ -31,6 +31,6 @@ public class Aitvaras extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.CLAW);
-        addUseMove(PCond.cooldown(1), CMod.perReaction(3).setExtra(10, 2), PMove.applyToSingle(1, PCLElementHelper.Burned));
+        addUseMove(PCond.cooldown(1), CMod.perReaction(3).setExtra(10, 2), PMove.applyToSingle(1, PCLElementHelper.Ignis));
     }
 }

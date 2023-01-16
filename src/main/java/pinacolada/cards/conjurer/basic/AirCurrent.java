@@ -26,6 +26,6 @@ public class AirCurrent extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.WIND);
-        addUseMove(PMove.applyToSingle(3, PCLElementHelper.Flowed).setUpgrade(1));
+        addUseMove(PMove.applyToSingle(3, PCLElementHelper.Aer).setUpgrade(1));
     }
 }

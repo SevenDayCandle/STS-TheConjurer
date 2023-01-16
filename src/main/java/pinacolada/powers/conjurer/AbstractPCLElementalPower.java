@@ -1,6 +1,7 @@
 package pinacolada.powers.conjurer;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
@@ -8,6 +9,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import extendedui.EUIUtils;
 import extendedui.utilities.ColoredString;
+import pinacolada.cards.base.AffinityReactions;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.interfaces.listeners.OnElementalDebuffListener;
 import pinacolada.interfaces.markers.MultiplicativePower;
@@ -26,8 +28,8 @@ import java.util.Set;
 
 public abstract class AbstractPCLElementalPower extends PCLPower implements MultiplicativePower, StablizingPower
 {
-    public static final int BASE_DAMAGE_MULTIPLIER = 30;
-    public static final int DEFAULT_COMBUST_INCREASE = 15;
+    public static final int BASE_DAMAGE_MULTIPLIER = 40;
+    public static final int DEFAULT_COMBUST_INCREASE = BASE_DAMAGE_MULTIPLIER / 2;
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, AbstractPCLElementalPower.class);
     public static final HashMap<String, PCLAffinity> AFFINITIES = new HashMap<>();
     public static final HashMap<String, Integer> MULTIPLIERS = new HashMap<>();
@@ -120,8 +122,6 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Mult
         return AFFINITIES.get(ID);
     }
 
-    public abstract AbstractGameAction.AttackEffect getAttackEffect();
-
     protected float getElementalMultiplier()
     {
         float mult = 1;
@@ -147,6 +147,11 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Mult
         return getIntensifyMultiplier(ID, getElementalMultiplier());
     }
 
+    public float calculateValue(int amount, float multiplier)
+    {
+        return amount + MathUtils.ceil(amount * (multiplier / 100f));
+    }
+
     @Override
     protected ColoredString getPrimaryAmount(Color c)
     {
@@ -160,7 +165,7 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Mult
     @Override
     protected ColoredString getSecondaryAmount(Color c)
     {
-        return new ColoredString((int) getIntensifyMultiplier(), Color.RED, c.a);
+        return ConjurerReactionMeter.meter.isHighlighted() ? new ColoredString((int) calculateValue(ConjurerReactionMeter.meter.getPreviewGain(), getIntensifyMultiplier()), Color.GREEN, c.a) : new ColoredString((int) getIntensifyMultiplier(), Color.RED, c.a);
     }
 
     @Override
@@ -193,6 +198,7 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Mult
     public void stabilize(int turns)
     {
         stabilizeTurns += turns;
+        flash();
     }
 
     protected String getUpdatedDescriptionImpl()
@@ -211,4 +217,11 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Mult
             removePower();
         }
     }
+
+    public void onReact(AbstractCreature source, AffinityReactions reactions, int amount)
+    {
+        flash();
+    }
+
+    public abstract AbstractGameAction.AttackEffect getAttackEffect();
 }

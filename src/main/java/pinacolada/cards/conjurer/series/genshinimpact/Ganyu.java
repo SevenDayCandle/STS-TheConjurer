@@ -40,7 +40,7 @@ public class Ganyu extends PCLCard
         if (info.target != null)
         {
             int amount = EUIUtils.sumInt(info.target.powers, po -> ConjurerReactionMeter.meter.isPowerElemental(po.ID, PCLAffinity.Blue) ? po.amount : 0) + move.amount;
-            PCLActions.bottom.applyPower(info.target, PCLCardTarget.Single, PCLElementHelper.Chilled, amount);
+            PCLActions.bottom.applyPower(info.target, PCLCardTarget.Single, PCLElementHelper.Gelus, amount);
         }
     }
 }

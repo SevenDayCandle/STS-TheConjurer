@@ -5,7 +5,7 @@
 	  "conjurer:AirCurrent": {"NAME": "Air Current"},
 	 	"conjurer:ArcticTide": {"NAME": "Arctic Tide"},
 	  	"conjurer:AtmosphericPressure": {"NAME": "Atmospheric Pressure"},
-	  	"conjurer:BlazingHeat": {"EXTENDED_DESCRIPTION": ["At turn end, ALL enemies lose {0} HP per stack of their [Burned]"], "NAME": "Blazing Heat"},
+	  	"conjurer:BlazingHeat": {"EXTENDED_DESCRIPTION": ["At turn end, ALL enemies lose {0} HP per stack of their [Ignis]"], "NAME": "Blazing Heat"},
 	  "conjurer:ColossalFormation": {"NAME": "Colossal Formation"},
 	  "conjurer:Condensation": {"NAME": "Condensation"},
 	  "conjurer:Cryostasis": {"NAME": "Cryostasis"},
@@ -16,7 +16,7 @@
 	  "conjurer:DustTornado": {"NAME": "Dust Tornado"},
 	  "conjurer:Entropy": {"EXTENDED_DESCRIPTION": ["Apply {0} of the Elemental Debuffs of each discarded card"], "NAME": "Entropy"},
 		"conjurer:ErodingTerra": {
-		  "EXTENDED_DESCRIPTION": ["Whenever you play a card, gain [Block] equal to its cost times stacks of [Stoned] on ANY character"],
+		  "EXTENDED_DESCRIPTION": ["Whenever you play a card, gain [Block] equal to its cost times stacks of [Petra] on ANY character"],
 		  "NAME": "Eroding Terra"
 		},
 	  "conjurer:Eruption": {"NAME": "Eruption"},
@@ -45,7 +45,7 @@
 	  "conjurer:Scorch": {"NAME": "Scorch"},
 	  "conjurer:SeismicTremor": {"NAME": "Seismic Tremor"},
 		"conjurer:SheerCold": {
-		  "EXTENDED_DESCRIPTION": ["[Frostbite] is treated as a [A-B] Elemental Debuff. At turn end, ALL enemies gain {0} [Frostbite] per stack of their [Chilled]"],
+		  "EXTENDED_DESCRIPTION": ["[Frostbite] is treated as a [A-B] Elemental Debuff. At turn end, ALL enemies gain {0} [Frostbite] per stack of their [Gelus]"],
 		  "NAME": "Sheer Cold"
 		},
 	  "conjurer:Strike": {"NAME": "Strike"},
@@ -55,7 +55,7 @@
 	  "conjurer:TectonicQuake": {"NAME": "Tectonic Quake"},
 	  "conjurer:Thermogenesis": {"NAME": "Thermogenesis"},
 		"conjurer:VerdantGale": {
-		  "EXTENDED_DESCRIPTION": ["Whenever you apply {0} [Flowed], draw a card"],
+		  "EXTENDED_DESCRIPTION": ["Whenever you apply {0} [Aer], draw a card"],
 		  "NAME": "Verdant Gale"
 		},
 	  "conjurer:Torque": {"NAME": "Torque"},
@@ -103,7 +103,7 @@
 		"conjurer:Aether": {"NAME": "Aether"},
 		"conjurer:Albedo": {"NAME": "Albedo"},
 		"conjurer:Amber": {"NAME": "Amber"},
-		"conjurer:AyakaKamisato": {"EXTENDED_DESCRIPTION": ["Damages any target that has [Chilled]"], "FLAVOR": "Pixiv Id 39805233", "NAME": "Ayaka Kamisato"},
+		"conjurer:AyakaKamisato": {"EXTENDED_DESCRIPTION": ["Damages any target that has [Gelus]"], "FLAVOR": "Pixiv Id 39805233", "NAME": "Ayaka Kamisato"},
 		"conjurer:AyatoKamisato": {"NAME": "Ayato Kamisato"},
 		"conjurer:Baizhu": {"NAME": "Baizhu"},
 		"conjurer:BarbaraPegg": {"NAME": "Barbara Pegg"},
@@ -117,7 +117,7 @@
 		"conjurer:EulaLawrence": {"NAME": "Eula Lawrence"},
 		"conjurer:Fischl": {"NAME": "Fischl"},
 		"conjurer:Fischl_Oz": {"NAME": "Oz"},
-		"conjurer:Ganyu": {"EXTENDED_DESCRIPTION": ["Double the target's [Chilled], then increase it by {0}"], "NAME": "Ganyu"},
+		"conjurer:Ganyu": {"EXTENDED_DESCRIPTION": ["Double the target's [Gelus], then increase it by {0}"], "NAME": "Ganyu"},
 		"conjurer:Gorou": {"NAME": "Gorou"},
 		"conjurer:HeizouShikanoin": {"NAME": "Heizou Shikanoin"},
 		"conjurer:HuTao": {"NAME": "Hu Tao"},

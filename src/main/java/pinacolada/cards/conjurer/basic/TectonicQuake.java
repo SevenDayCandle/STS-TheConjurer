@@ -26,6 +26,6 @@ public class TectonicQuake extends PCLCard
     public void setup(Object input)
     {
         addDamageMove().setDamageEffect(PCLEffekseerEFX.MGC_EarthSpell_LV3);
-        addUseMove(PMove.applyToEnemies(3, PCLElementHelper.Stoned, PCLPowerHelper.Weak));
+        addUseMove(PMove.applyToEnemies(3, PCLElementHelper.Petra, PCLPowerHelper.Weak));
     }
 }

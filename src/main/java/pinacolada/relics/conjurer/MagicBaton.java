@@ -5,7 +5,7 @@ import pinacolada.actions.PCLActions;
 import pinacolada.cards.base.AffinityReactions;
 import pinacolada.interfaces.subscribers.OnElementReactSubscriber;
 import pinacolada.misc.CombatManager;
-import pinacolada.powers.conjurer.BatonPassPower;
+import pinacolada.powers.special.BatonPassPower;
 import pinacolada.relics.PCLRelic;
 import pinacolada.resources.conjurer.ConjurerResources;
 
