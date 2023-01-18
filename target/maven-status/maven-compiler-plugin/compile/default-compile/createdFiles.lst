@@ -123,7 +123,6 @@ pinacolada\powers\conjurer\CorrosionPower.class
 pinacolada\cards\conjurer\colorless\MagicMirror.class
 pinacolada\cards\conjurer\basic\ExothermicCannon.class
 pinacolada\cards\conjurer\basic\StrikeB.class
-pinacolada\cards\conjurer\series\shinmegamitensei\Dadga.class
 pinacolada\cards\conjurer\basic\Defend.class
 pinacolada\powers\conjurer\ElementalMasteryPower.class
 pinacolada\cards\conjurer\basic\BlazingHeat$BlazingHeatPower.class
@@ -160,6 +159,7 @@ pinacolada\cards\conjurer\series\genshinimpact\LisaMinci.class
 pinacolada\cards\conjurer\series\genshinimpact\Xiangling.class
 pinacolada\skills\conjurer\conditions\PCond_PayReaction.class
 pinacolada\cards\conjurer\series\genshinimpact\Ningguang.class
+pinacolada\cards\conjurer\series\shinmegamitensei\Dagda.class
 pinacolada\cards\conjurer\colorless\TreasureChest_TreasureKey.class
 pinacolada\cards\conjurer\colorless\Cyno.class
 pinacolada\interfaces\listeners\OnElementalDebuffListener.class

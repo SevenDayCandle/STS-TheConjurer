@@ -6,10 +6,7 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import extendedui.EUIUtils;
 import pinacolada.actions.PCLActions;
-import pinacolada.cards.base.PCLAffinity;
-import pinacolada.cards.base.PCLCard;
-import pinacolada.cards.base.PCLCardData;
-import pinacolada.cards.base.PCLUseInfo;
+import pinacolada.cards.base.*;
 import pinacolada.effects.AttackEffects;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -55,7 +52,7 @@ public class TheDefect extends PCLCard
         }
         boolean automatic = move.extra <= move.amount;
         PCLActions.bottom.selectFromPile(getName(), move.amount, choice)
-                .setOptions(automatic, automatic)
+                .setOptions((automatic ? PCLCardSelection.Random : PCLCardSelection.Manual).toSelection(), automatic)
                 .addCallback(cards -> {
                     for (AbstractCard c : cards)
                     {

@@ -33,7 +33,6 @@ public class TreasureChest_TreasureKey extends PCLCard
     public void action(PSpecialSkill move, PCLUseInfo info)
     {
         PCLActions.bottom.selectFromPile(move.getName(), 1, player.hand)
-                .setOptions(true, true)
                 .setFilter(c -> TreasureChest.DATA.ID.equals(c.cardID))
                 .addCallback(cards -> {
                    for (AbstractCard c : cards) {
