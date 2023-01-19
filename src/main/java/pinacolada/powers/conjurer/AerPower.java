@@ -1,6 +1,7 @@
 package pinacolada.powers.conjurer;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import pinacolada.actions.PCLActions;
@@ -44,13 +45,13 @@ public class AerPower extends AbstractPCLElementalPower
     {
         if (GameUtilities.isPlayer(owner))
         {
-            PCLActions.bottom.dealDamageAtEndOfTurn(owner, owner, (int) calculateValue(amount, getIntensifyMultiplier()), AttackEffects.WIND);
+            PCLActions.bottom.dealDamage(owner, owner, (int) calculateValue(amount, getIntensifyMultiplier()), DamageInfo.DamageType.THORNS, AttackEffects.WIND);
         }
         else
         {
             for (AbstractMonster enemy : GameUtilities.getEnemies(true))
             {
-                PCLActions.bottom.dealDamageAtEndOfTurn(owner, enemy, (int) calculateValue(amount, getIntensifyMultiplier()), AttackEffects.WIND);
+                PCLActions.bottom.dealDamage(owner, enemy, (int) calculateValue(amount, getIntensifyMultiplier()), DamageInfo.DamageType.THORNS, AttackEffects.WIND);
             }
         }
         super.onReact(source, reactions, amount);

@@ -218,7 +218,7 @@ public class ConjurerElementButton extends EUIButton
         {
             addLevel(1);
             PCLEffects.List.add(new GenericFlashEffect(elementImage.texture, this.hb.x, this.hb.y, true).setScale(Settings.scale * 0.5f));
-            CombatManager.onIntensify(affinity);
+            CombatManager.onIncreaseAffinityLevel(affinity);
         }
     }
 
