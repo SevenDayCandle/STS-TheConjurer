@@ -1,11 +1,13 @@
 package pinacolada.relics.conjurer;
 
+import pinacolada.annotations.VisibleRelic;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.relics.PCLPointerRelic;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PMultiSkill;
 
+@VisibleRelic
 public class ChiliPepper extends PCLPointerRelic
 {
     public static final String ID = createFullID(ChiliPepper.class);

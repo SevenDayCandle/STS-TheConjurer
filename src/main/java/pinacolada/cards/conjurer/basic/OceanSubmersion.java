@@ -8,9 +8,9 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.PCLCardTarget;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.PDelay;
 import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
-import pinacolada.skills.skills.PDelay;
 
 @VisibleCard
 public class OceanSubmersion extends PCLCard

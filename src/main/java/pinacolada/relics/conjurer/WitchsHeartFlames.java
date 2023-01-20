@@ -3,6 +3,7 @@ package pinacolada.relics.conjurer;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import pinacolada.actions.PCLActions;
+import pinacolada.annotations.VisibleRelic;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.pcl.curse.Curse_SearingBurn;
 import pinacolada.effects.PCLEffects;
@@ -13,6 +14,7 @@ import pinacolada.relics.PCLRelic;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.ui.combat.ConjurerReactionMeter;
 
+@VisibleRelic
 public class WitchsHeartFlames extends PCLRelic implements OnCardCreatedSubscriber
 {
     public static final String ID = createFullID(ConjurerResources.conjurer, WitchsHeartFlames.class);
@@ -38,7 +40,7 @@ public class WitchsHeartFlames extends PCLRelic implements OnCardCreatedSubscrib
     {
         super.atBattleStart();
 
-        CombatManager.onCardCreated.subscribe(this);
+        CombatManager.subscribe(this);
         PCLActions.bottom.callback(() -> {
             ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Red).addAdditionalPower(BlastedPower.POWER_ID);
         });

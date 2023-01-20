@@ -4,6 +4,7 @@ package pinacolada.cards.conjurer.colorless;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.*;
 import pinacolada.effects.AttackEffects;
+import pinacolada.misc.PCLUseInfo;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerEnum;

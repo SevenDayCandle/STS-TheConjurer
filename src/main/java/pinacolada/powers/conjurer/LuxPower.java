@@ -43,7 +43,7 @@ public class LuxPower extends AbstractPCLElementalPower implements OnTryElementR
     {
         super.onInitialApplication();
 
-        CombatManager.onTryElementReact.subscribe(this);
+        CombatManager.subscribe(this);
     }
 
     @Override
@@ -51,7 +51,7 @@ public class LuxPower extends AbstractPCLElementalPower implements OnTryElementR
     {
         super.onRemove();
 
-        CombatManager.onTryElementReact.unsubscribe(this);
+        CombatManager.unsubscribe(this);
     }
 
     @Override

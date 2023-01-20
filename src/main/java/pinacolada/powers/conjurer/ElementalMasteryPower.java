@@ -12,11 +12,10 @@ import pinacolada.actions.PCLActions;
 import pinacolada.actions.powers.ApplyPower;
 import pinacolada.effects.SFX;
 import pinacolada.interfaces.subscribers.OnTryGainResolveSubscriber;
-import pinacolada.misc.CombatManager;
-import pinacolada.powers.PCLPower;
+import pinacolada.powers.PCLSubscribingPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 
-public class ElementalMasteryPower extends PCLPower implements OnTryGainResolveSubscriber
+public class ElementalMasteryPower extends PCLSubscribingPower implements OnTryGainResolveSubscriber
 {
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, ElementalMasteryPower.class);
 
@@ -24,22 +23,6 @@ public class ElementalMasteryPower extends PCLPower implements OnTryGainResolveS
     {
         super(owner, POWER_ID);
         initialize(amount);
-    }
-
-    @Override
-    public void onInitialApplication()
-    {
-        super.onInitialApplication();
-
-        CombatManager.onTryGainResolve.subscribe(this);
-    }
-
-    @Override
-    public void onRemove()
-    {
-        super.onRemove();
-
-        CombatManager.onTryGainResolve.unsubscribe(this);
     }
 
     @Override

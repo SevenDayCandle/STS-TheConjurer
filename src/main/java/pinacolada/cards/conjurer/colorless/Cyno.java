@@ -12,7 +12,6 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.effects.AttackEffects;
 import pinacolada.interfaces.subscribers.OnAllyDeathSubscriber;
 import pinacolada.interfaces.subscribers.OnMonsterDeathSubscriber;
-import pinacolada.misc.CombatManager;
 import pinacolada.monsters.PCLCardAlly;
 import pinacolada.powers.PSpecialCardPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
@@ -48,24 +47,6 @@ public class Cyno extends PCLCard
         public CynoPower(AbstractCreature owner, PSkill move)
         {
             super(DATA, owner, move);
-        }
-
-        @Override
-        public void onInitialApplication()
-        {
-            super.onInitialApplication();
-
-            CombatManager.onAllyDeath.subscribe(this);
-            CombatManager.onMonsterDeath.subscribe(this);
-        }
-
-        @Override
-        public void onRemove()
-        {
-            super.onRemove();
-
-            CombatManager.onAllyDeath.unsubscribe(this);
-            CombatManager.onMonsterDeath.unsubscribe(this);
         }
 
         @Override

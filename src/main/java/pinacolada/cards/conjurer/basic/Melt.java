@@ -8,6 +8,7 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.*;
 import pinacolada.effects.AttackEffects;
 import pinacolada.effects.PCLEffekseerEFX;
+import pinacolada.misc.PCLUseInfo;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;

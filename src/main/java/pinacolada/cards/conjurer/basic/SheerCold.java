@@ -7,7 +7,7 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
-import pinacolada.cards.base.PCLUseInfo;
+import pinacolada.misc.PCLUseInfo;
 import pinacolada.effects.vfx.ScreenFreezingEffect;
 import pinacolada.powers.PSpecialCardPower;
 import pinacolada.powers.conjurer.FrostbitePower;

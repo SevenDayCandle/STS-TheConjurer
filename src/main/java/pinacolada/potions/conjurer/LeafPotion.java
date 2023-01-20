@@ -1,12 +1,14 @@
 package pinacolada.potions.conjurer;
 
 import com.badlogic.gdx.graphics.Color;
+import pinacolada.annotations.VisiblePotion;
 import pinacolada.potions.PCLPotion;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 
+@VisiblePotion
 public class LeafPotion extends PCLPotion
 {
     public static final String POTION_ID = createFullID(ConjurerResources.conjurer, LeafPotion.class);

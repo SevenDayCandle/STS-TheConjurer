@@ -5,7 +5,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import extendedui.EUIRM;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCardTarget;
-import pinacolada.cards.base.PCLUseInfo;
+import pinacolada.misc.PCLUseInfo;
+import pinacolada.interfaces.subscribers.OnIntensifySubscriber;
 import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerEnum;
 import pinacolada.skills.PCond;
@@ -13,9 +14,8 @@ import pinacolada.skills.PSkillData;
 import pinacolada.skills.PSkillSaveData;
 import pinacolada.skills.fields.PField_Affinity;
 
-public class PCond_Intensify extends PCond<PField_Affinity>
+public class PCond_Intensify extends PCond<PField_Affinity> implements OnIntensifySubscriber
 {
-
     public static final PSkillData<PField_Affinity> DATA = register(PCond_Intensify.class, PField_Affinity.class, 1, 1)
             .setColors(ConjurerEnum.Cards.THE_CONJURER)
             .selfTarget();
@@ -45,6 +45,15 @@ public class PCond_Intensify extends PCond<PField_Affinity>
     }
 
     @Override
+    public void onIntensify(PCLAffinity pclAffinity)
+    {
+        if (fields.affinities.isEmpty() || fields.affinities.contains(pclAffinity))
+        {
+            useFromTrigger(makeInfo(null).setData(pclAffinity));
+        }
+    }
+
+    @Override
     public void use(PCLUseInfo info)
     {
     }
@@ -58,20 +67,6 @@ public class PCond_Intensify extends PCond<PField_Affinity>
     public boolean canPlay(AbstractCard card, AbstractMonster m)
     {
         return true;
-    }
-
-    @Override
-    public boolean triggerOnIntensify(PCLAffinity affinity)
-    {
-        if (fields.affinities.isEmpty() || fields.affinities.contains(affinity))
-        {
-            if (this.childEffect != null)
-            {
-                this.childEffect.use(makeInfo(null).setData(affinity));
-            }
-            return true;
-        }
-        return false;
     }
 
     @Override

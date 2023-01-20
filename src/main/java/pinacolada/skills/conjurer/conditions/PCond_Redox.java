@@ -6,7 +6,8 @@ import extendedui.EUIUtils;
 import pinacolada.cards.base.AffinityReactions;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCardTarget;
-import pinacolada.cards.base.PCLUseInfo;
+import pinacolada.misc.PCLUseInfo;
+import pinacolada.interfaces.subscribers.OnElementReactSubscriber;
 import pinacolada.resources.conjurer.ConjurerEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -15,7 +16,7 @@ import pinacolada.skills.PSkillSaveData;
 import pinacolada.skills.PTrigger;
 import pinacolada.skills.fields.PField_Affinity;
 
-public class PCond_Redox extends PCond<PField_Affinity>
+public class PCond_Redox extends PCond<PField_Affinity> implements OnElementReactSubscriber
 {
 
     public static final PSkillData<PField_Affinity> DATA = register(PCond_Redox.class, PField_Affinity.class, 1, 1)
@@ -45,17 +46,12 @@ public class PCond_Redox extends PCond<PField_Affinity>
     }
 
     @Override
-    public boolean triggerOnElementReact(AffinityReactions reactions, AbstractCreature target)
+    public void onElementReact(AffinityReactions reactions, AbstractCreature abstractCreature)
     {
         if (fields.affinities.isEmpty() ? reactions.hasRedox() : EUIUtils.all(fields.affinities, reactions::hasRedox))
         {
-            if (this.childEffect != null)
-            {
-                this.childEffect.use(makeInfo(target));
-            }
-            return true;
+            useFromTrigger(makeInfo(abstractCreature));
         }
-        return false;
     }
 
     @Override

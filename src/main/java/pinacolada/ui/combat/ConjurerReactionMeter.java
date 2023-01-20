@@ -20,6 +20,7 @@ import pinacolada.actions.PCLActions;
 import pinacolada.actions.powers.ElementReaction;
 import pinacolada.cards.base.*;
 import pinacolada.misc.CombatManager;
+import pinacolada.misc.PCLUseInfo;
 import pinacolada.orbs.PCLOrb;
 import pinacolada.powers.PCLClickableUse;
 import pinacolada.powers.conjurer.AbstractPCLElementalPower;

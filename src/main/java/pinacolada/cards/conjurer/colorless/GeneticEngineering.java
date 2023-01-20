@@ -11,7 +11,6 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.PCLCardTarget;
 import pinacolada.cards.base.fields.PCLCardTag;
 import pinacolada.interfaces.subscribers.OnCardCreatedSubscriber;
-import pinacolada.misc.CombatManager;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.powers.PSpecialCardPower;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -59,20 +58,10 @@ public class GeneticEngineering extends PCLCard
         {
             super.onInitialApplication();
 
-            CombatManager.onCardCreated.subscribe(this);
-
             for (AbstractCard c : GameUtilities.getCardsInAnyPile())
             {
                 applyToCard(c);
             }
-        }
-
-        @Override
-        public void onRemove()
-        {
-            super.onRemove();
-
-            CombatManager.onCardCreated.unsubscribe(this);
         }
 
         protected void applyToCard(AbstractCard c)
@@ -86,10 +75,10 @@ public class GeneticEngineering extends PCLCard
                     PCLCardTag.Exhaust.set(pc, 1);
                     pc.setTarget(PCLCardTarget.RandomEnemy);
 
-                    ArrayList<PSkill> newSkills = new ArrayList<>();
-                    for (PSkill skill : pc.getEffects())
+                    ArrayList<PSkill<?>> newSkills = new ArrayList<>();
+                    for (PSkill<?> skill : pc.getEffects())
                     {
-                        PSkill bottom = skill.getLowestChild();
+                        PSkill<?> bottom = skill.getLowestChild();
                         if (bottom != null && bottom.isDetrimental())
                         {
                             bottom.setTarget(PCLCardTarget.RandomEnemy);
@@ -103,7 +92,7 @@ public class GeneticEngineering extends PCLCard
                     }
 
                     pc.getEffects().clear();
-                    for (PSkill skill : newSkills)
+                    for (PSkill<?> skill : newSkills)
                     {
                         pc.addUseMove(skill);
                     }

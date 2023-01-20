@@ -3,11 +3,13 @@ package pinacolada.relics.conjurer;
 import com.megacrit.cardcrawl.powers.MalleablePower;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 import pinacolada.actions.PCLActions;
+import pinacolada.annotations.VisibleRelic;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.relics.PCLRelic;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.ui.combat.ConjurerReactionMeter;
 
+@VisibleRelic
 public class CrimsonMapleLeaf extends PCLRelic
 {
     public static final String ID = createFullID(ConjurerResources.conjurer, CrimsonMapleLeaf.class);

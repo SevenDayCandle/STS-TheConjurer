@@ -31,7 +31,6 @@ pinacolada\resources\conjurer\ConjurerEnum$Library.class
 pinacolada\monsters\animations\conjurer\ConjurerFireAllyAnimation.class
 pinacolada\cards\conjurer\colorless\TheSilent.class
 pinacolada\cards\conjurer\basic\PowderSnow.class
-pinacolada\relics\conjurer\MagicBaton.class
 pinacolada\skills\conjurer\conditions\PCond_Redox.class
 pinacolada\monsters\animations\conjurer\ConjurerStarAllyAnimation.class
 pinacolada\cards\conjurer\series\shinmegamitensei\Mothman.class
