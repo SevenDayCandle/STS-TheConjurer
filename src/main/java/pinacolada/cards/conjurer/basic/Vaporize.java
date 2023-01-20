@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.basic;
 
 
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.*;
 import pinacolada.effects.AttackEffects;
 import pinacolada.effects.PCLEffekseerEFX;
@@ -8,6 +9,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.conjurer.modifiers.PMod_PerElement;
 import pinacolada.skills.skills.base.traits.PTrait_Damage;
 
+@VisibleCard
 public class Vaporize extends PCLCard
 {
     public static final PCLCardData DATA = register(Vaporize.class, ConjurerResources.conjurer)

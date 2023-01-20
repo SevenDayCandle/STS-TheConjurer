@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import extendedui.EUIUtils;
 import pinacolada.actions.PCLActions;
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.*;
 import pinacolada.effects.AttackEffects;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -14,6 +15,7 @@ import pinacolada.skills.PTrigger;
 import pinacolada.skills.skills.PSpecialSkill;
 import pinacolada.utilities.RandomizedList;
 
+@VisibleCard
 public class TheDefect extends PCLCard
 {
     public static final PCLCardData DATA = register(TheDefect.class, ConjurerResources.conjurer)

@@ -3,6 +3,7 @@ package pinacolada.cards.conjurer.series.genshinimpact;
 
 import extendedui.EUIUtils;
 import pinacolada.actions.PCLActions;
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.*;
 import pinacolada.cards.base.fields.PCLCardTag;
 import pinacolada.effects.AttackEffects;
@@ -13,6 +14,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.skills.PSpecialSkill;
 import pinacolada.ui.combat.ConjurerReactionMeter;
 
+@VisibleCard
 public class Ganyu extends PCLCard
 {
     public static final PCLCardData DATA = register(Ganyu.class, ConjurerResources.conjurer)

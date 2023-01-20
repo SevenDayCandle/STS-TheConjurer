@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.series.genshinimpact;
 
 
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.*;
 import pinacolada.effects.AttackEffects;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
@@ -8,6 +9,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
+@VisibleCard
 public class BarbaraPegg extends PCLCard
 {
     public static final PCLCardData DATA = register(BarbaraPegg.class, ConjurerResources.conjurer)

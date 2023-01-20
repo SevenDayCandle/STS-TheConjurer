@@ -1,12 +1,14 @@
 package pinacolada.cards.conjurer.basic;
 
 
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.*;
 import pinacolada.effects.AttackEffects;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 
+@VisibleCard
 public class MagmaFlare extends PCLCard
 {
     public static final PCLCardData DATA = register(MagmaFlare.class, ConjurerResources.conjurer)

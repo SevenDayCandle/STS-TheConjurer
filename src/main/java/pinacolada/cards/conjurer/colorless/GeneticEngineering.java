@@ -4,6 +4,7 @@ package pinacolada.cards.conjurer.colorless;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import extendedui.EUIUtils;
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
@@ -20,6 +21,7 @@ import pinacolada.utilities.GameUtilities;
 
 import java.util.ArrayList;
 
+@VisibleCard
 public class GeneticEngineering extends PCLCard
 {
     public static final PCLCardData DATA = register(GeneticEngineering.class, ConjurerResources.conjurer)

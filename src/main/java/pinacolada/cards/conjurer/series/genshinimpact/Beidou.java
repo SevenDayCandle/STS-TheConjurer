@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.series.genshinimpact;
 
 
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
@@ -12,6 +13,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PMultiSkill;
 
+@VisibleCard
 public class Beidou extends PCLCard
 {
     public static final PCLCardData DATA = register(Beidou.class, ConjurerResources.conjurer)

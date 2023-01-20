@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.series.genshinimpact;
 
 
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.*;
 import pinacolada.cards.base.fields.PCLCardTag;
 import pinacolada.cards.pcl.curse.Curse_Decay;
@@ -12,6 +13,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PMultiSkill;
 
+@VisibleCard
 public class Xiao extends PCLCard
 {
     public static final PCLCardData DATA = register(Xiao.class, ConjurerResources.conjurer)

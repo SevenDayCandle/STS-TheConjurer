@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.series.shinmegamitensei;
 
 
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.*;
 import pinacolada.effects.AttackEffects;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
@@ -9,6 +10,7 @@ import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
 import pinacolada.skills.PTrigger;
 
+@VisibleCard
 public class Quetzalcoatl extends PCLCard
 {
     public static final PCLCardData DATA = register(Quetzalcoatl.class, ConjurerResources.conjurer)

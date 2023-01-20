@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.basic;
 
 
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.*;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.PCLEnum;
@@ -8,6 +9,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
+@VisibleCard
 public class DustTornado extends PCLCard
 {
     public static final PCLCardData DATA = register(DustTornado.class, ConjurerResources.conjurer)

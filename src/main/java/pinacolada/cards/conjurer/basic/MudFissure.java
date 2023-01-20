@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.basic;
 
 
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
@@ -10,6 +11,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PTrait;
 
+@VisibleCard
 public class MudFissure extends PCLCard
 {
     public static final PCLCardData DATA = register(MudFissure.class, ConjurerResources.conjurer)

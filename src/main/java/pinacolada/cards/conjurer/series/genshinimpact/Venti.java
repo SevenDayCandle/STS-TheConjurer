@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.series.genshinimpact;
 
 
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.*;
 import pinacolada.cards.base.fields.PCLCardTag;
 import pinacolada.effects.AttackEffects;
@@ -11,6 +12,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
 
+@VisibleCard
 public class Venti extends PCLCard
 {
     public static final PCLCardData DATA = register(Venti.class, ConjurerResources.conjurer)

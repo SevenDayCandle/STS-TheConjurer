@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.basic;
 
 
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
@@ -9,6 +10,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PTrait;
 import pinacolada.skills.skills.base.modifiers.PMod_PerDistinctPower;
 
+@VisibleCard
 public class GeothermalHeating extends PCLCard
 {
     public static final PCLCardData DATA = register(GeothermalHeating.class, ConjurerResources.conjurer)

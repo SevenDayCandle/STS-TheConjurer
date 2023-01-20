@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.basic;
 
 
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.*;
 import pinacolada.cards.base.fields.PCLCardTag;
 import pinacolada.effects.AttackEffects;
@@ -10,6 +11,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 import pinacolada.skills.PTrigger;
 
+@VisibleCard
 public class Wildfire extends PCLCard
 {
     public static final PCLCardData DATA = register(Wildfire.class, ConjurerResources.conjurer)

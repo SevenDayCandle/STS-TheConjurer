@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.basic;
 
 
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
@@ -10,6 +11,7 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PMultiSkill;
 import pinacolada.skills.skills.special.moves.PMove_RestoreCardHP;
 
+@VisibleCard
 public class NaturalSelection extends PCLCard
 {
     public static final PCLCardData DATA = register(NaturalSelection.class, ConjurerResources.conjurer)

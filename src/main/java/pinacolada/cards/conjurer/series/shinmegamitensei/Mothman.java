@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.series.shinmegamitensei;
 
 
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLAttackType;
 import pinacolada.cards.base.PCLCard;
@@ -12,6 +13,7 @@ import pinacolada.skills.CMove;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMod;
 
+@VisibleCard
 public class Mothman extends PCLCard
 {
     public static final PCLCardData DATA = register(Mothman.class, ConjurerResources.conjurer)

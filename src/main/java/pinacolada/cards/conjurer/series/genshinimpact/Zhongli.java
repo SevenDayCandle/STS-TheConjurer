@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.series.genshinimpact;
 
 
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.*;
 import pinacolada.cards.conjurer.basic.ErodingTerra;
 import pinacolada.effects.AttackEffects;
@@ -9,6 +10,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
+@VisibleCard
 public class Zhongli extends PCLCard
 {
     public static final PCLCardData DATA = register(Zhongli.class, ConjurerResources.conjurer)

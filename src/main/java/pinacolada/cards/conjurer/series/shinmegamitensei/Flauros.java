@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.series.shinmegamitensei;
 
 
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.*;
 import pinacolada.effects.AttackEffects;
 import pinacolada.powers.PCLPowerHelper;
@@ -9,6 +10,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
+@VisibleCard
 public class Flauros extends PCLCard
 {
     public static final PCLCardData DATA = register(Flauros.class, ConjurerResources.conjurer)

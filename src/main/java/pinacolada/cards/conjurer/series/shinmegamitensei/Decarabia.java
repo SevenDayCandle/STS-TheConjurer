@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.series.shinmegamitensei;
 
 
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
@@ -12,6 +13,7 @@ import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
 import pinacolada.skills.PTrigger;
 
+@VisibleCard
 public class Decarabia extends PCLCard
 {
     public static final PCLCardData DATA = register(Decarabia.class, ConjurerResources.conjurer)

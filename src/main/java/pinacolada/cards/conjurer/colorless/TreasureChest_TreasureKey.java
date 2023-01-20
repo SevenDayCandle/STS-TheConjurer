@@ -2,6 +2,7 @@ package pinacolada.cards.conjurer.colorless;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import pinacolada.actions.PCLActions;
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.PCLUseInfo;
@@ -12,6 +13,7 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PSpecialSkill;
 import pinacolada.utilities.GameUtilities;
 
+@VisibleCard
 public class TreasureChest_TreasureKey extends PCLCard
 {
     public static final PCLCardData DATA = register(TreasureChest_TreasureKey.class, ConjurerResources.conjurer)

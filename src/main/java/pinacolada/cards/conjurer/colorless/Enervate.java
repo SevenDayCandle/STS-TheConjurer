@@ -3,6 +3,7 @@ package pinacolada.cards.conjurer.colorless;
 
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import pinacolada.actions.PCLActions;
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
@@ -12,6 +13,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.skills.PSpecialSkill;
 import pinacolada.utilities.GameUtilities;
 
+@VisibleCard
 public class Enervate extends PCLCard
 {
     public static final PCLCardData DATA = register(Enervate.class, ConjurerResources.conjurer)

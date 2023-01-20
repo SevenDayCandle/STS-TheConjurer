@@ -4,6 +4,7 @@ package pinacolada.cards.conjurer.colorless;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
@@ -15,6 +16,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;
 import pinacolada.utilities.GameUtilities;
 
+@VisibleCard
 public class MagicMirror extends PCLCard
 {
     public static final PCLCardData DATA = register(MagicMirror.class, ConjurerResources.conjurer)

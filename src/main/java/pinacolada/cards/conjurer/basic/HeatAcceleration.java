@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.basic;
 
 
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
@@ -10,6 +11,7 @@ import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 
+@VisibleCard
 public class HeatAcceleration extends PCLCard
 {
     public static final PCLCardData DATA = register(HeatAcceleration.class, ConjurerResources.conjurer)

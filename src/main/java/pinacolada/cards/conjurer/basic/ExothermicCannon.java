@@ -1,5 +1,6 @@
 package pinacolada.cards.conjurer.basic;
 
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLAttackType;
 import pinacolada.cards.base.PCLCard;
@@ -10,6 +11,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 import pinacolada.skills.conjurer.modifiers.PMod_PerReaction;
 
+@VisibleCard
 public class ExothermicCannon extends PCLCard
 {
     public static final PCLCardData DATA = register(ExothermicCannon.class, ConjurerResources.conjurer)

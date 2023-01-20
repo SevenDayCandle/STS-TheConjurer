@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.basic;
 
 
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.*;
 import pinacolada.cards.base.fields.PCLCardTag;
 import pinacolada.effects.PCLEffekseerEFX;
@@ -9,6 +10,7 @@ import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 
+@VisibleCard
 public class TectonicQuake extends PCLCard
 {
     public static final PCLCardData DATA = register(TectonicQuake.class, ConjurerResources.conjurer)

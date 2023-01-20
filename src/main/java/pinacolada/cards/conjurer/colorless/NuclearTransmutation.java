@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.colorless;
 
 
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
@@ -11,6 +12,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
 
+@VisibleCard
 public class NuclearTransmutation extends PCLCard
 {
     public static final PCLCardData DATA = register(NuclearTransmutation.class, ConjurerResources.conjurer)

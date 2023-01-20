@@ -4,6 +4,7 @@ package pinacolada.cards.conjurer.basic;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import pinacolada.actions.PCLActions;
 import pinacolada.actions.powers.ApplyElementalDebuff;
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.*;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 
+@VisibleCard
 public class Entropy extends PCLCard
 {
     public static final PCLCardData DATA = register(Entropy.class, ConjurerResources.conjurer)

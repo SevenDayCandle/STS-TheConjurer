@@ -3,6 +3,7 @@ package pinacolada.cards.conjurer.colorless;
 
 import extendedui.EUIUtils;
 import pinacolada.actions.PCLActions;
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.*;
 import pinacolada.effects.AttackEffects;
 import pinacolada.misc.CombatManager;
@@ -19,6 +20,7 @@ import pinacolada.utilities.WeightedList;
 
 import java.util.ArrayList;
 
+@VisibleCard
 public class Geralt extends PCLCard
 {
     public static final PCLCardData DATA = register(Geralt.class, ConjurerResources.conjurer)

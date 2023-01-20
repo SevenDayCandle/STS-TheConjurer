@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import extendedui.EUIUtils;
 import pinacolada.actions.PCLActions;
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
@@ -17,6 +18,7 @@ import pinacolada.skills.skills.PSpecialSkill;
 import pinacolada.ui.combat.ConjurerReactionMeter;
 import pinacolada.utilities.GameUtilities;
 
+@VisibleCard
 public class ErodingTerra extends PCLCard
 {
     public static final PCLCardData DATA = register(ErodingTerra.class, ConjurerResources.conjurer)

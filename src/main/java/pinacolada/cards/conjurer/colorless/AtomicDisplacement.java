@@ -3,6 +3,7 @@ package pinacolada.cards.conjurer.colorless;
 
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import pinacolada.actions.PCLActions;
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
@@ -14,6 +15,7 @@ import pinacolada.utilities.GameUtilities;
 
 import java.util.ArrayList;
 
+@VisibleCard
 public class AtomicDisplacement extends PCLCard
 {
     public static final PCLCardData DATA = register(AtomicDisplacement.class, ConjurerResources.conjurer)

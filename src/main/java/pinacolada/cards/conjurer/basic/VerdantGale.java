@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import extendedui.utilities.ColoredString;
 import pinacolada.actions.PCLActions;
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
@@ -16,6 +17,7 @@ import pinacolada.skills.PSkill;
 import pinacolada.skills.skills.PSpecialSkill;
 import pinacolada.ui.combat.ConjurerReactionMeter;
 
+@VisibleCard
 public class VerdantGale extends PCLCard
 {
     public static final PCLCardData DATA = register(VerdantGale.class, ConjurerResources.conjurer)

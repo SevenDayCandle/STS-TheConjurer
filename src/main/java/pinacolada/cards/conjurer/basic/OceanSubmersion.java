@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.basic;
 
 
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
@@ -11,6 +12,7 @@ import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PDelay;
 
+@VisibleCard
 public class OceanSubmersion extends PCLCard
 {
     public static final PCLCardData DATA = register(OceanSubmersion.class, ConjurerResources.conjurer)

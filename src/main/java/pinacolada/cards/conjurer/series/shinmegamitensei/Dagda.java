@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.series.shinmegamitensei;
 
 
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.*;
 import pinacolada.effects.AttackEffects;
 import pinacolada.powers.conjurer.PCLElementHelper;
@@ -10,6 +11,7 @@ import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
 import pinacolada.skills.PTrigger;
 
+@VisibleCard
 public class Dagda extends PCLCard
 {
     public static final PCLCardData DATA = register(Dagda.class, ConjurerResources.conjurer)

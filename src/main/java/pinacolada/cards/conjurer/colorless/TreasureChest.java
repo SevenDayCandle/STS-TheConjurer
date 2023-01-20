@@ -1,5 +1,6 @@
 package pinacolada.cards.conjurer.colorless;
 
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLCardTag;
@@ -8,6 +9,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.base.moves.PMove_GainGold;
 
+@VisibleCard
 public class TreasureChest extends PCLCard
 {
     public static final PCLCardData DATA = register(TreasureChest.class, ConjurerResources.conjurer)

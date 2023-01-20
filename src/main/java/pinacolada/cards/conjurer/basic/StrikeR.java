@@ -1,11 +1,13 @@
 package pinacolada.cards.conjurer.basic;
 
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.effects.AttackEffects;
 import pinacolada.resources.conjurer.ConjurerResources;
 
+@VisibleCard
 public class StrikeR extends PCLCard
 {
     public static final PCLCardData DATA = register(StrikeR.class, ConjurerResources.conjurer)

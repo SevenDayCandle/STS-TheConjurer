@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.colorless;
 
 
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.*;
 import pinacolada.effects.AttackEffects;
 import pinacolada.powers.PCLPowerHelper;
@@ -17,6 +18,7 @@ import pinacolada.utilities.RandomizedList;
 
 import java.util.ArrayList;
 
+@VisibleCard
 public class Patchouli extends PCLCard
 {
     public static final PCLCardData DATA = register(Patchouli.class, ConjurerResources.conjurer)

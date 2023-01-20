@@ -4,6 +4,7 @@ package pinacolada.cards.conjurer.basic;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import pinacolada.actions.PCLActions;
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.*;
 import pinacolada.effects.AttackEffects;
 import pinacolada.effects.PCLEffekseerEFX;
@@ -14,6 +15,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PSpecialSkill;
 
+@VisibleCard
 public class Melt extends PCLCard
 {
     public static final PCLCardData DATA = register(Melt.class, ConjurerResources.conjurer)

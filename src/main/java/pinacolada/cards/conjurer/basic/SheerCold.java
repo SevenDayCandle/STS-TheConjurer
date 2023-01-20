@@ -3,6 +3,7 @@ package pinacolada.cards.conjurer.basic;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import pinacolada.actions.PCLActions;
+import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
@@ -17,6 +18,7 @@ import pinacolada.skills.skills.PSpecialSkill;
 import pinacolada.ui.combat.ConjurerReactionMeter;
 import pinacolada.utilities.GameUtilities;
 
+@VisibleCard
 public class SheerCold extends PCLCard
 {
     public static final PCLCardData DATA = register(SheerCold.class, ConjurerResources.conjurer)
