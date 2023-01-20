@@ -29,6 +29,7 @@ public class ConjurerResources extends PCLResources<ConjurerConfig, ConjurerImag
         super(ID, ConjurerEnum.Cards.THE_CONJURER, ConjurerEnum.Characters.THE_CONJURER, new ConjurerConfig(), new ConjurerImages(ID), ConjurerPlayerData::new);
     }
 
+    @Override
     public void initializeColor()
     {
         Color color = CardHelper.getColor(106, 210, 177);
@@ -38,15 +39,9 @@ public class ConjurerResources extends PCLResources<ConjurerConfig, ConjurerImag
                 images.powerL, images.orbB, images.orbC);
     }
 
-    protected void initializePotions()
-    {
-        loadCustomPotions();
-    }
-
-    public void receiveEditCards()
+    public void setupTooltips()
     {
         tooltips = new ConjurerTooltips();
-        loadCustomCards();
     }
 
     public void receiveEditCharacters()
