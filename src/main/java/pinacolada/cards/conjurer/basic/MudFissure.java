@@ -28,6 +28,6 @@ public class MudFissure extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.CLAW);
-        addUseMove(PCond.checkPower(PCLCardTarget.Single, 1), PTrait.hasDamageMultiplier(100).setUpgrade(50));
+        addUseMove(PCond.checkPower(PCLCardTarget.Single, 1).edit(f -> f.setDebuff(true)), PTrait.hasDamageMultiplier(100).setUpgrade(50));
     }
 }
