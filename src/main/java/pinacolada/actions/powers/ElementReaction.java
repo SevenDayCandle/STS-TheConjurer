@@ -6,8 +6,9 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import pinacolada.actions.PCLActionWithCallback;
-import pinacolada.cards.base.AffinityReactions;
 import pinacolada.cards.base.PCLAffinity;
+import pinacolada.interfaces.subscribers.OnElementReactSubscriber;
+import pinacolada.misc.AffinityReactions;
 import pinacolada.misc.CombatManager;
 import pinacolada.powers.conjurer.AbstractPCLElementalPower;
 import pinacolada.ui.combat.ConjurerReactionMeter;
@@ -62,7 +63,7 @@ public class ElementReaction extends PCLActionWithCallback<AffinityReactions>
 
         for (AbstractCreature mo : cr)
         {
-            CombatManager.onElementReact(reactions, mo);
+            CombatManager.subscriberDo(OnElementReactSubscriber.class, s -> s.onElementReact(reactions, mo));
             for (AbstractPower po : mo.powers)
             {
                 if (po instanceof AbstractPCLElementalPower)

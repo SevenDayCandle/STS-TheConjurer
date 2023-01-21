@@ -1,6 +1,7 @@
 package pinacolada.skills.conjurer.modifiers;
 
 import extendedui.EUIUtils;
+import pinacolada.misc.ConjurerUseInfo;
 import pinacolada.misc.PCLUseInfo;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkillData;
@@ -39,6 +40,11 @@ public class PMod_BonusOnRedox extends PMod_BonusOn<PField_Affinity>
     @Override
     public boolean meetsCondition(PCLUseInfo info)
     {
-        return fields.affinities.isEmpty() ? info.reactions.hasRedox() : EUIUtils.all(fields.affinities, info.reactions::hasRedox);
+        ConjurerUseInfo cInfo = EUIUtils.safeCast(info, ConjurerUseInfo.class);
+        if (cInfo == null)
+        {
+            return false;
+        }
+        return fields.affinities.isEmpty() ? cInfo.reactions.hasRedox() : EUIUtils.all(fields.affinities, cInfo.reactions::hasRedox);
     }
 }

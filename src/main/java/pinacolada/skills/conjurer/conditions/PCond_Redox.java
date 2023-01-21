@@ -3,11 +3,12 @@ package pinacolada.skills.conjurer.conditions;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import extendedui.EUIRM;
 import extendedui.EUIUtils;
-import pinacolada.cards.base.AffinityReactions;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCardTarget;
-import pinacolada.misc.PCLUseInfo;
 import pinacolada.interfaces.subscribers.OnElementReactSubscriber;
+import pinacolada.misc.AffinityReactions;
+import pinacolada.misc.ConjurerUseInfo;
+import pinacolada.misc.PCLUseInfo;
 import pinacolada.resources.conjurer.ConjurerEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -42,7 +43,12 @@ public class PCond_Redox extends PCond<PField_Affinity> implements OnElementReac
     @Override
     public boolean checkCondition(PCLUseInfo info, boolean isUsing, boolean fromTrigger)
     {
-        return fields.random ^ (fields.affinities.isEmpty() ? info.reactions.hasRedox() : EUIUtils.all(fields.affinities, info.reactions::hasRedox));
+        ConjurerUseInfo cInfo = EUIUtils.safeCast(info, ConjurerUseInfo.class);
+        if (cInfo == null)
+        {
+            return false;
+        }
+        return fields.random ^ (fields.affinities.isEmpty() ? cInfo.reactions.hasRedox() : EUIUtils.all(fields.affinities, cInfo.reactions::hasRedox));
     }
 
     @Override

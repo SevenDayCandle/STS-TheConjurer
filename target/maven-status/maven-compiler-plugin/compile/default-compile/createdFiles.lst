@@ -18,6 +18,7 @@ pinacolada\resources\conjurer\ConjurerEnum$Characters.class
 pinacolada\relics\conjurer\CrimsonMapleLeaf.class
 pinacolada\cards\conjurer\basic\ColossalFormation.class
 pinacolada\actions\powers\ApplyElementalDebuff.class
+pinacolada\interfaces\subscribers\OnElementReactSubscriber.class
 pinacolada\cards\conjurer\basic\BlazingHeat.class
 pinacolada\cards\conjurer\series\genshinimpact\Razor.class
 pinacolada\relics\conjurer\SpiritPoop2.class
@@ -102,6 +103,7 @@ pinacolada\cards\conjurer\basic\HydraulicGeneration.class
 pinacolada\cards\conjurer\series\shinmegamitensei\JackFrost.class
 pinacolada\cards\conjurer\basic\Entropy.class
 pinacolada\cards\conjurer\basic\Cryostasis.class
+pinacolada\misc\ConjurerUseInfo.class
 pinacolada\monsters\animations\conjurer\ConjurerWaterAllyAnimation.class
 pinacolada\powers\conjurer\PetraPower.class
 pinacolada\cards\conjurer\colorless\TheWatcher.class
@@ -135,6 +137,7 @@ pinacolada\cards\conjurer\basic\ZephyrWind.class
 pinacolada\cards\conjurer\basic\ErodingTerra.class
 pinacolada\cards\conjurer\series\genshinimpact\KukiShinobu.class
 pinacolada\powers\conjurer\AerPower.class
+pinacolada\misc\AffinityReactions.class
 pinacolada\cards\conjurer\colorless\MarisaKirisame.class
 pinacolada\cards\conjurer\basic\Permafrost.class
 pinacolada\cards\conjurer\colorless\Patchouli$PatchouliCond.class
@@ -180,6 +183,7 @@ pinacolada\cards\conjurer\basic\Wildfire.class
 pinacolada\cards\conjurer\series\shinmegamitensei\Quetzalcoatl.class
 pinacolada\cards\conjurer\colorless\TheIronclad.class
 pinacolada\cards\conjurer\series\shinmegamitensei\RyujiSakamoto.class
+pinacolada\interfaces\subscribers\OnTryElementReactSubscriber.class
 pinacolada\cards\conjurer\series\genshinimpact\Klee_JumpyDumpty.class
 pinacolada\monsters\animations\conjurer\ConjurerAirAllyAnimation.class
 pinacolada\cards\conjurer\basic\MudFissure.class

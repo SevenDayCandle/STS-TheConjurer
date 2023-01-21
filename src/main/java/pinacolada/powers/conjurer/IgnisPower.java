@@ -4,11 +4,11 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import pinacolada.actions.PCLActions;
-import pinacolada.cards.base.AffinityReactions;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCardTarget;
 import pinacolada.effects.AttackEffects;
 import pinacolada.effects.SFX;
+import pinacolada.misc.AffinityReactions;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 

@@ -19,6 +19,7 @@ import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCardAffinity;
 import pinacolada.effects.PCLEffects;
 import pinacolada.effects.affinity.GenericFlashEffect;
+import pinacolada.interfaces.subscribers.OnTryElementReactSubscriber;
 import pinacolada.misc.CombatManager;
 import pinacolada.powers.conjurer.AbstractPCLElementalPower;
 import pinacolada.powers.conjurer.PCLElementHelper;
@@ -199,7 +200,7 @@ public class ConjurerElementButton extends EUIButton
 
     public int reactionGain(AbstractPower po, PCLCardAffinity cAff, Type type)
     {
-        return CombatManager.onTryElementReact(po.amount * cAff.level, affinity, cAff.type);
+        return CombatManager.subscriberInout(OnTryElementReactSubscriber.class, po.amount * cAff.level, (s, d) -> s.onTryElementReact(d, affinity, cAff.type));
     }
 
     public void setEnabled(boolean value)

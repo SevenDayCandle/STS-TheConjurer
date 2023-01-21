@@ -2,8 +2,6 @@ package pinacolada.powers.conjurer;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -11,11 +9,10 @@ import extendedui.EUIUtils;
 import pinacolada.actions.PCLActions;
 import pinacolada.actions.powers.ApplyPower;
 import pinacolada.effects.SFX;
-import pinacolada.interfaces.subscribers.OnTryGainResolveSubscriber;
 import pinacolada.powers.PCLSubscribingPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 
-public class ElementalMasteryPower extends PCLSubscribingPower implements OnTryGainResolveSubscriber
+public class ElementalMasteryPower extends PCLSubscribingPower
 {
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, ElementalMasteryPower.class);
 
@@ -65,15 +62,4 @@ public class ElementalMasteryPower extends PCLSubscribingPower implements OnTryG
             }
         }
     }
-
-    @Override
-    public int onTryGainResolve(AbstractCard card, AbstractPlayer p, int originalCost, boolean isActuallyGaining, boolean isFromMatch)
-    {
-        if (originalCost > 0)
-        {
-            return originalCost + amount;
-        }
-        return originalCost;
-    }
-
 }

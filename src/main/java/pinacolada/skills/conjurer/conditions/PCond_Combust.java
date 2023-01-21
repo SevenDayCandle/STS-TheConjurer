@@ -3,10 +3,11 @@ package pinacolada.skills.conjurer.conditions;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import extendedui.EUIRM;
 import extendedui.EUIUtils;
-import pinacolada.cards.base.AffinityReactions;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCardTarget;
 import pinacolada.interfaces.subscribers.OnElementReactSubscriber;
+import pinacolada.misc.AffinityReactions;
+import pinacolada.misc.ConjurerUseInfo;
 import pinacolada.misc.PCLUseInfo;
 import pinacolada.resources.conjurer.ConjurerEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -41,7 +42,12 @@ public class PCond_Combust extends PCond<PField_Affinity> implements OnElementRe
     @Override
     public boolean checkCondition(PCLUseInfo info, boolean isUsing, boolean fromTrigger)
     {
-        return fields.random ^ (fields.affinities.isEmpty() ? info.reactions.hasCombust() : EUIUtils.all(fields.affinities, info.reactions::hasCombust));
+        ConjurerUseInfo cInfo = EUIUtils.safeCast(info, ConjurerUseInfo.class);
+        if (cInfo == null)
+        {
+            return false;
+        }
+        return fields.random ^ (fields.affinities.isEmpty() ? cInfo.reactions.hasCombust() : EUIUtils.all(fields.affinities, cInfo.reactions::hasCombust));
     }
 
     @Override

@@ -5,10 +5,10 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import pinacolada.actions.PCLActions;
-import pinacolada.cards.base.AffinityReactions;
 import pinacolada.cards.base.PCLAffinity;
 import pinacolada.effects.AttackEffects;
 import pinacolada.effects.SFX;
+import pinacolada.misc.AffinityReactions;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.utilities.GameUtilities;
 

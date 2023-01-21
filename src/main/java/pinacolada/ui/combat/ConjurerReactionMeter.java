@@ -19,7 +19,9 @@ import extendedui.utilities.EUIFontHelper;
 import pinacolada.actions.PCLActions;
 import pinacolada.actions.powers.ElementReaction;
 import pinacolada.cards.base.*;
+import pinacolada.misc.AffinityReactions;
 import pinacolada.misc.CombatManager;
+import pinacolada.misc.ConjurerUseInfo;
 import pinacolada.misc.PCLUseInfo;
 import pinacolada.orbs.PCLOrb;
 import pinacolada.powers.PCLClickableUse;
@@ -373,9 +375,10 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
     @Override
     public void onCardPlayed(PCLCard card, PCLUseInfo info, boolean fromSummon)
     {
-        if (info != null && !info.reactions.isEmpty())
+        ConjurerUseInfo cInfo = EUIUtils.safeCast(info, ConjurerUseInfo.class);
+        if (cInfo != null && !cInfo.reactions.isEmpty())
         {
-            PCLActions.last.add(new ElementReaction(info.reactions, card, info.source, info.target));
+            PCLActions.last.add(new ElementReaction(cInfo.reactions, card, info.source, info.target));
         }
     }
 
