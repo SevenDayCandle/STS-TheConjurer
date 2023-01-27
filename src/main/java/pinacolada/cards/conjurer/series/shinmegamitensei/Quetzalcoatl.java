@@ -2,7 +2,11 @@ package pinacolada.cards.conjurer.series.shinmegamitensei;
 
 
 import pinacolada.annotations.VisibleCard;
-import pinacolada.cards.base.*;
+import pinacolada.cards.base.PCLCard;
+import pinacolada.cards.base.PCLCardData;
+import pinacolada.cards.base.PCLCardGroupHelper;
+import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.AttackEffects;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;

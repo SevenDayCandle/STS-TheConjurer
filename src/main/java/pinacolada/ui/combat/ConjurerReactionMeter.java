@@ -18,7 +18,11 @@ import extendedui.utilities.EUIColors;
 import extendedui.utilities.EUIFontHelper;
 import pinacolada.actions.PCLActions;
 import pinacolada.actions.powers.ElementReaction;
-import pinacolada.cards.base.*;
+import pinacolada.cards.base.PCLCard;
+import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.cards.base.fields.PCLCardAffinities;
+import pinacolada.cards.base.fields.PCLCardAffinity;
+import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.misc.AffinityReactions;
 import pinacolada.misc.CombatManager;
 import pinacolada.misc.ConjurerUseInfo;
@@ -389,6 +393,12 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
         EUITooltip helper = PCLElementHelper.get(lastUpgrade).getTooltip();
         chargeImage.setBackground(helper.icon.getTexture()).setTooltip(helper);
         return getCurrentAffinity();
+    }
+
+    @Override
+    public PCLUseInfo generateInfo(AbstractCard card, AbstractCreature source, AbstractCreature target)
+    {
+        return new ConjurerUseInfo(card, source, target);
     }
 
     public ConjurerElementButton getElementButton(PCLAffinity affinity)

@@ -1,6 +1,6 @@
 package pinacolada.skills;
 
-import pinacolada.cards.base.PCLAffinity;
+import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.skills.conjurer.conditions.PCond_Combust;
 import pinacolada.skills.conjurer.conditions.PCond_PayReaction;
 import pinacolada.skills.conjurer.conditions.PCond_Redox;

@@ -1,6 +1,6 @@
 package pinacolada.misc;
 
-import pinacolada.cards.base.PCLAffinity;
+import pinacolada.cards.base.fields.PCLAffinity;
 
 import java.util.HashMap;
 

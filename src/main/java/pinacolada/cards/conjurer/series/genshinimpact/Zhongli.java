@@ -2,7 +2,11 @@ package pinacolada.cards.conjurer.series.genshinimpact;
 
 
 import pinacolada.annotations.VisibleCard;
-import pinacolada.cards.base.*;
+import pinacolada.cards.base.PCLCard;
+import pinacolada.cards.base.PCLCardData;
+import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.cards.base.fields.PCLAttackType;
+import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.conjurer.basic.ErodingTerra;
 import pinacolada.effects.AttackEffects;
 import pinacolada.resources.conjurer.ConjurerPlayerData;

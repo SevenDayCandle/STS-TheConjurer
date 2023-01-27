@@ -2,10 +2,10 @@ package pinacolada.cards.conjurer.basic;
 
 
 import pinacolada.annotations.VisibleCard;
-import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
-import pinacolada.cards.base.PCLCardTarget;
+import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -26,7 +26,7 @@ public class Condensation extends PCLCard
 
     public void setup(Object input)
     {
-        addUseMove(PMove.applyToSingle(1, PCLElementHelper.Gelus, PCLPowerHelper.Weak));
-        addUseMove(PMove.triggerAlly(PCLCardTarget.SingleAlly, 2).setUpgrade(1));
+        addUseMove(PMove.applyToSingle(1, PCLElementHelper.Gelus, PCLPowerHelper.Weak).setUpgrade(1));
+        addUseMove(PMove.triggerAlly(PCLCardTarget.SingleAlly, 2));
     }
 }

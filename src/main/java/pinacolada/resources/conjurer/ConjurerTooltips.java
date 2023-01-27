@@ -1,7 +1,7 @@
 package pinacolada.resources.conjurer;
 
 import extendedui.ui.tooltips.EUITooltip;
-import pinacolada.cards.base.PCLAffinity;
+import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.powers.conjurer.*;
 import pinacolada.resources.PCLTooltips;
 import pinacolada.resources.PGR;

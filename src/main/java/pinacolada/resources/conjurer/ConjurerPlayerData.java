@@ -3,7 +3,7 @@ package pinacolada.resources.conjurer;
 import extendedui.EUIUtils;
 import pinacolada.resources.PCLAbstractPlayerData;
 import pinacolada.resources.PCLResources;
-import pinacolada.resources.pcl.PCLLoadout;
+import pinacolada.resources.loadout.PCLLoadout;
 
 import java.util.List;
 

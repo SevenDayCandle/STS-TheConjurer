@@ -2,8 +2,13 @@ package pinacolada.cards.conjurer.series.genshinimpact;
 
 
 import pinacolada.annotations.VisibleCard;
-import pinacolada.cards.base.*;
-import pinacolada.cards.base.fields.PCLCardTag;
+import pinacolada.cards.base.PCLCard;
+import pinacolada.cards.base.PCLCardData;
+import pinacolada.cards.base.PCLCardGroupHelper;
+import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.cards.base.fields.PCLAttackType;
+import pinacolada.cards.base.fields.PCLCardTarget;
+import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.effects.AttackEffects;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;

@@ -4,7 +4,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleRelic;
-import pinacolada.cards.base.PCLAffinity;
+import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.pcl.curse.Curse_SearingBurn;
 import pinacolada.effects.PCLEffects;
 import pinacolada.interfaces.subscribers.OnCardCreatedSubscriber;

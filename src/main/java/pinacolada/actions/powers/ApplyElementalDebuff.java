@@ -8,8 +8,8 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import extendedui.interfaces.delegates.ActionT1;
 import pinacolada.actions.PCLActionAutoTarget;
 import pinacolada.actions.PCLActions;
-import pinacolada.cards.base.PCLAffinity;
-import pinacolada.cards.base.PCLCardTarget;
+import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.powers.conjurer.PCLElementHelper;
 
 public class ApplyElementalDebuff extends PCLActionAutoTarget<AbstractPower>

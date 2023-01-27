@@ -5,17 +5,17 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import extendedui.EUIUtils;
 import pinacolada.annotations.VisibleCard;
-import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
-import pinacolada.cards.base.PCLCardTarget;
-import pinacolada.cards.base.fields.PCLCardTag;
+import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.cards.base.fields.PCLCardTarget;
+import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.interfaces.subscribers.OnCardCreatedSubscriber;
-import pinacolada.powers.PCLPowerHelper;
 import pinacolada.powers.PSpecialCardPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 import pinacolada.skills.PSkill;
+import pinacolada.skills.skills.base.moves.PMove_Gain;
 import pinacolada.utilities.GameUtilities;
 
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ public class GeneticEngineering extends PCLCard
 {
     public static final PCLCardData DATA = register(GeneticEngineering.class, ConjurerResources.conjurer)
             .setPower(0, CardRarity.UNCOMMON)
-            .setTags(PCLCardTag.Haste.make(0, 1))
+            .setUTags(PCLCardTag.Haste, PCLCardTag.Retain)
             .setAffinities(PCLAffinity.Blue)
             .setColorless();
 
@@ -36,12 +36,11 @@ public class GeneticEngineering extends PCLCard
 
     public void setup(Object input)
     {
-        addSpecialPower(0, (s, i) -> new GeneticEngineeringPower(i.source, s), 1);
+        addSpecialPower(0, (s, i) -> new GeneticEngineeringPower(i.source, s), 2);
     }
 
     public static class GeneticEngineeringPower extends PSpecialCardPower implements OnCardCreatedSubscriber
     {
-
         public GeneticEngineeringPower(AbstractCreature owner, PSkill move)
         {
             super(DATA, owner, move);
@@ -81,14 +80,36 @@ public class GeneticEngineering extends PCLCard
                         PSkill<?> bottom = skill.getLowestChild();
                         if (bottom != null && bottom.isDetrimental())
                         {
-                            bottom.setTarget(PCLCardTarget.RandomEnemy);
+                            // PMove_Gain effects such as Void are negative and should be inverted
+                            if (bottom instanceof PMove_Gain && bottom.amount < 0)
+                            {
+                                bottom.setAmount(-bottom.amount);
+                            }
+                            else
+                            {
+                                bottom.setAmount(bottom.amount * move.amount);
+                                if (bottom.target.targetsSelf())
+                                {
+                                    bottom.setTarget(PCLCardTarget.RandomEnemy);
+                                }
+                                else
+                                {
+                                    bottom.setTarget(PCLCardTarget.Self);
+                                }
+                            }
+
                         }
                         newSkills.add(bottom);
                     }
 
+                    if (pc.cost < 0)
+                    {
+                        GameUtilities.modifyCostForCombat(pc, 0, false);
+                    }
+
                     if (newSkills.size() == 0)
                     {
-                        newSkills.add(PMove.gain(1, PCLPowerHelper.NextTurnBlock));
+                        newSkills.add(PMove.gainBlock(move.amount * (pc.cost + 1)));
                     }
 
                     pc.getEffects().clear();

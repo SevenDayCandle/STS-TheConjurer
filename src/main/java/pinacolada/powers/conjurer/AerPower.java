@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import pinacolada.actions.PCLActions;
-import pinacolada.cards.base.PCLAffinity;
+import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.effects.AttackEffects;
 import pinacolada.effects.SFX;
 import pinacolada.misc.AffinityReactions;
@@ -16,7 +16,7 @@ public class AerPower extends AbstractPCLElementalPower
 {
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, AerPower.class);
     public static final PCLAffinity AFFINITY = setAffinity(POWER_ID, PCLAffinity.Green);
-    public static final int MULTIPLIER = setMultiplier(POWER_ID, 25);
+    public static final int MULTIPLIER = setMultiplier(POWER_ID, 20);
 
     public AerPower(AbstractCreature owner, AbstractCreature source, int amount)
     {

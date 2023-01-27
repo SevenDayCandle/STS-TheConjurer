@@ -2,10 +2,10 @@ package pinacolada.cards.conjurer.basic;
 
 
 import pinacolada.annotations.VisibleCard;
-import pinacolada.cards.base.PCLAffinity;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
-import pinacolada.cards.base.PCLCardTarget;
+import pinacolada.cards.base.fields.PCLCardTarget;
+import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
@@ -15,7 +15,7 @@ public class ZephyrWind extends PCLCard
 {
     public static final PCLCardData DATA = register(ZephyrWind.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.COMMON, PCLCardTarget.AllEnemy)
-            .setAffinities(2, PCLAffinity.Green)
+            .setAffinities(1, PCLAffinity.Green)
             .setCore();
 
     public ZephyrWind()

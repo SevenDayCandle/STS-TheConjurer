@@ -2,8 +2,8 @@ package pinacolada.resources.conjurer;
 
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.conjurer.basic.*;
-import pinacolada.resources.pcl.PCLCardSlot;
-import pinacolada.resources.pcl.PCLLoadout;
+import pinacolada.resources.loadout.PCLCardSlot;
+import pinacolada.resources.loadout.PCLLoadout;
 
 public class ConjurerLoadout extends PCLLoadout
 {

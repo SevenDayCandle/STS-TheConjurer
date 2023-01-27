@@ -4,7 +4,7 @@ import com.megacrit.cardcrawl.powers.MalleablePower;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleRelic;
-import pinacolada.cards.base.PCLAffinity;
+import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.relics.PCLRelic;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.ui.combat.ConjurerReactionMeter;
