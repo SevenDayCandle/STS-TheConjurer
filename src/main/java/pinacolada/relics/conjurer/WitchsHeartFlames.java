@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleRelic;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.cards.pcl.curse.Curse_SearingBurn;
+import pinacolada.cards.conjurer.status.Status_SearingBurn;
 import pinacolada.effects.PCLEffects;
 import pinacolada.interfaces.subscribers.OnCardCreatedSubscriber;
 import pinacolada.misc.CombatManager;
@@ -30,7 +30,7 @@ public class WitchsHeartFlames extends PCLRelic implements OnCardCreatedSubscrib
     {
         if (card.type == AbstractCard.CardType.CURSE || card.type == AbstractCard.CardType.STATUS)
         {
-            PCLActions.last.replaceCard(card.uuid, new Curse_SearingBurn());
+            PCLActions.last.replaceCard(card.uuid, new Status_SearingBurn());
             flash();
         }
     }
@@ -56,7 +56,7 @@ public class WitchsHeartFlames extends PCLRelic implements OnCardCreatedSubscrib
             if (c.type == AbstractCard.CardType.CURSE || c.type == AbstractCard.CardType.STATUS)
             {
                 player.masterDeck.group.remove(c);
-                PCLEffects.TopLevelQueue.showAndObtain(new Curse_SearingBurn(), Settings.WIDTH / 2f, Settings.HEIGHT / 2f, false);
+                PCLEffects.TopLevelQueue.showAndObtain(new Status_SearingBurn(), Settings.WIDTH / 2f, Settings.HEIGHT / 2f, false);
             }
         }
     }

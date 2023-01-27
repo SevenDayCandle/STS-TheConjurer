@@ -6,14 +6,13 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.effects.AttackEffects;
-import pinacolada.interfaces.markers.Hidden;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class RyujiSakamoto extends PCLCard implements Hidden
+public class RyujiSakamoto extends PCLCard
 {
     public static final PCLCardData DATA = register(RyujiSakamoto.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON)
