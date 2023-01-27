@@ -2,16 +2,15 @@ package pinacolada.cards.conjurer.series.shinmegamitensei;
 
 
 import pinacolada.annotations.VisibleCard;
-import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.AttackEffects;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CMove;
 import pinacolada.skills.PCond;
-import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PMultiSkill;
 
@@ -35,7 +34,7 @@ public class Genbu extends PCLCard
     {
         addDamageMove(AttackEffects.CLAW);
         addUseMove(PCond.cooldown(1),
-                PMod.highestAffinityBranch(PCLAffinity.Blue, PCLAffinity.Green),
+                PCond.highestAffinityBranch(PCLAffinity.Blue, PCLAffinity.Green),
                 PMultiSkill.join(
                         CMove.gainReaction(12).setUpgrade(3),
                         PMove.draw(1)

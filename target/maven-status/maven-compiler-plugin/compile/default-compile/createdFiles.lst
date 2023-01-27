@@ -183,6 +183,7 @@ pinacolada\cards\conjurer\basic\Preservation.class
 pinacolada\cards\conjurer\basic\StrikeR.class
 pinacolada\cards\conjurer\basic\RazorWind.class
 pinacolada\cards\conjurer\basic\Overheat.class
+pinacolada\cards\conjurer\status\Status_SearingBurn.class
 pinacolada\powers\conjurer\IgnisPower.class
 pinacolada\cards\conjurer\basic\AtmosphericPressure.class
 pinacolada\cards\conjurer\basic\ErodingTerra$ErodingTerraPower.class
