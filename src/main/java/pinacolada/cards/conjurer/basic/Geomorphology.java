@@ -8,7 +8,7 @@ import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
-import pinacolada.skills.PTrigger;
+import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
 public class Geomorphology extends PCLCard

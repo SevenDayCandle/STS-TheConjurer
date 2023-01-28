@@ -25,6 +25,7 @@ public class Lithosphere extends PCLCard
 
     public void setup(Object input)
     {
+        addBlockMove();
         addUseMove(PMove.applyToSingle(3, PCLElementHelper.Petra).setUpgrade(1));
     }
 }

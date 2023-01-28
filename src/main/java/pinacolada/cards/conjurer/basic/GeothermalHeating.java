@@ -4,8 +4,8 @@ package pinacolada.cards.conjurer.basic;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
-import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PTrait;
 import pinacolada.skills.skills.base.modifiers.PMod_PerDistinctPower;
@@ -26,6 +26,7 @@ public class GeothermalHeating extends PCLCard
 
     public void setup(Object input)
     {
+        addBlockMove();
         addUseMove(new PMod_PerDistinctPower(1).setTarget(PCLCardTarget.Single), PTrait.hasBlock(3).setUpgrade(1));
     }
 }

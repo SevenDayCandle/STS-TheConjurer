@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import extendedui.EUIRM;
@@ -322,10 +323,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
 
         if ((shouldUpdateForTarget || shouldUpdateForCard) && card != null)
         {
-            lastTargetPowers = card.pclTarget == PCLCardTarget.All || card.pclTarget == PCLCardTarget.AllEnemy ?
-                    EUIUtils.flattenList(EUIUtils.map(GameUtilities.getEnemies(true), this::getElementalPowers))
-                    : target != null && target.powers != null ? getElementalPowers(target)
-                            : new ArrayList<>();
+            lastTargetPowers = EUIUtils.flattenList(EUIUtils.map(card.pclTarget.getTargets(target, AbstractDungeon.player), this::getElementalPowers));
             if (shouldUpdateForCard)
             {
                 lastCardAffinities = GameUtilities.getPCLCardAffinities(card).getCardAffinities(true);
@@ -413,7 +411,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
 
     private ArrayList<AbstractPCLElementalPower> getElementalPowers(AbstractCreature c)
     {
-        return EUIUtils.mapAsNonnull(c.powers, po -> EUIUtils.safeCast(po, AbstractPCLElementalPower.class));
+        return c != null && c.powers != null ? EUIUtils.mapAsNonnull(c.powers, po -> EUIUtils.safeCast(po, AbstractPCLElementalPower.class)) : new ArrayList<>();
     }
 
     public ConjurerReactionButton getReactionButton(PCLAffinity dest, PCLAffinity target)

@@ -31,7 +31,7 @@ public class PMod_BonusOnCombust extends PMod_BonusOn<PField_Affinity>
     }
 
     @Override
-    public String getConditionSampleText()
+    public String getSubText()
     {
         return ConjurerResources.conjurer.tooltips.combust.title;
     }

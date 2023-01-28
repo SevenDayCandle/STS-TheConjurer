@@ -6,8 +6,8 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.CMod;
 import pinacolada.skills.PTrait;
-import pinacolada.skills.conjurer.modifiers.PMod_PerReaction;
 
 @VisibleCard
 public class ColossalFormation extends PCLCard
@@ -25,6 +25,6 @@ public class ColossalFormation extends PCLCard
 
     public void setup(Object input)
     {
-        addUseMove(new PMod_PerReaction(4).setUpgrade(-1), PTrait.hasBlock(1));
+        addBlockMove().setChain(CMod.perReaction(4).setUpgrade(-1), PTrait.hasBlock(1));
     }
 }

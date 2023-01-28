@@ -2,17 +2,17 @@ package pinacolada.cards.conjurer.series.shinmegamitensei;
 
 
 import pinacolada.annotations.VisibleCard;
-import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.conjurer.basic.Overheat;
 import pinacolada.effects.AttackEffects;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
-import pinacolada.skills.PTrigger;
+import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
 public class Baphomet extends PCLCard

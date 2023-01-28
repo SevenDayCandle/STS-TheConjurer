@@ -19,8 +19,8 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 import pinacolada.skills.PSkill;
-import pinacolada.skills.PTrigger;
 import pinacolada.skills.skills.PCustomCond;
+import pinacolada.skills.skills.PTrigger;
 import pinacolada.utilities.RandomizedList;
 import pinacolada.utilities.WeightedList;
 

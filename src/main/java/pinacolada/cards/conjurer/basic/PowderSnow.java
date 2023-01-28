@@ -25,6 +25,7 @@ public class PowderSnow extends PCLCard
 
     public void setup(Object input)
     {
+        addBlockMove();
         addUseMove(PMove.applyToSingle(3, PCLElementHelper.Gelus).setUpgrade(1));
     }
 }

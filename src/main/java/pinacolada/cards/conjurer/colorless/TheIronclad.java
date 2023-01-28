@@ -15,8 +15,8 @@ import pinacolada.effects.AttackEffects;
 import pinacolada.misc.PCLUseInfo;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
-import pinacolada.skills.PTrigger;
 import pinacolada.skills.skills.PSpecialSkill;
+import pinacolada.skills.skills.PTrigger;
 import pinacolada.utilities.RandomizedList;
 
 @VisibleCard

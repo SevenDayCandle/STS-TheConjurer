@@ -1,6 +1,5 @@
 package pinacolada.skills.conjurer.modifiers;
 
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import extendedui.EUIRM;
 import extendedui.EUIUtils;
 import pinacolada.cards.base.fields.PCLAffinity;
@@ -9,16 +8,13 @@ import pinacolada.misc.PCLUseInfo;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PMod;
-import pinacolada.skills.PSkill;
 import pinacolada.skills.PSkillData;
 import pinacolada.skills.PSkillSaveData;
 import pinacolada.skills.fields.PField_Affinity;
+import pinacolada.skills.skills.base.modifiers.PMod_Per;
 import pinacolada.ui.combat.ConjurerReactionMeter;
 
-import java.util.List;
-
-public class PMod_PerElement extends PMod<PField_Affinity>
+public class PMod_PerElement extends PMod_Per<PField_Affinity>
 {
 
     public static final PSkillData<PField_Affinity> DATA = register(PMod_PerElement.class, PField_Affinity.class, ConjurerEnum.Cards.THE_CONJURER);
@@ -45,21 +41,19 @@ public class PMod_PerElement extends PMod<PField_Affinity>
     }
 
     @Override
-    public int getModifiedAmount(PSkill<?> be, PCLUseInfo info)
+    public int getMultiplier(PCLUseInfo info)
     {
-        List<AbstractCreature> targetList = getTargetList(info);
-        return be.baseAmount *
-                EUIUtils.sumInt(targetList, t -> t.powers != null ? EUIUtils.sumInt(t.powers, po -> isPowerElemental(po.ID) ? po.amount : 0) : 0) / Math.max(1, this.amount);
-    }
-
-    @Override
-    public String getSampleText()
-    {
-        return TEXT.conditions.per("X", ConjurerResources.conjurer.tooltips.elementalDebuff);
+        return EUIUtils.sumInt(getTargetList(info), t -> t.powers != null ? EUIUtils.sumInt(t.powers, po -> isPowerElemental(po.ID) ? po.amount : 0) : 0) / Math.max(1, this.amount);
     }
 
     @Override
     public String getSubText()
+    {
+        return ConjurerResources.conjurer.tooltips.elementalDebuff.title;
+    }
+
+    @Override
+    public String getConditionText()
     {
         String baseString = fields.affinities.isEmpty() ? plural(ConjurerResources.conjurer.tooltips.elementalDebuff) : PCLElementHelper.getPowerAndString(fields.affinities);
         if (amount > 1)

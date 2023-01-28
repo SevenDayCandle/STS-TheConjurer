@@ -11,13 +11,13 @@ import pinacolada.misc.ConjurerUseInfo;
 import pinacolada.misc.PCLUseInfo;
 import pinacolada.resources.conjurer.ConjurerEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PCond;
 import pinacolada.skills.PSkillData;
 import pinacolada.skills.PSkillSaveData;
-import pinacolada.skills.PTrigger;
 import pinacolada.skills.fields.PField_Affinity;
+import pinacolada.skills.skills.PPassiveCond;
+import pinacolada.skills.skills.PTrigger;
 
-public class PCond_Combust extends PCond<PField_Affinity> implements OnElementReactSubscriber
+public class PCond_Combust extends PPassiveCond<PField_Affinity> implements OnElementReactSubscriber
 {
     public static final PSkillData<PField_Affinity> DATA = register(PCond_Combust.class, PField_Affinity.class, 1, 1)
             .setColors(ConjurerEnum.Cards.THE_CONJURER)

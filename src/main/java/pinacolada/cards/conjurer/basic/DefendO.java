@@ -21,4 +21,9 @@ public class DefendO extends PCLCard
 
         this.tags.add(CardTags.STARTER_DEFEND);
     }
+
+    public void setup(Object input)
+    {
+        addBlockMove();
+    }
 }

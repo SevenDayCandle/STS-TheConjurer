@@ -3,15 +3,15 @@ package pinacolada.skills.conjurer.conditions;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.misc.PCLUseInfo;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PCond;
 import pinacolada.skills.PSkillData;
 import pinacolada.skills.PSkillSaveData;
 import pinacolada.skills.fields.PField_Empty;
+import pinacolada.skills.skills.PPassiveCond;
 import pinacolada.ui.combat.ConjurerReactionMeter;
 
 import static pinacolada.resources.conjurer.ConjurerEnum.Cards.THE_CONJURER;
 
-public class PCond_PayReaction extends PCond<PField_Empty>
+public class PCond_PayReaction extends PPassiveCond<PField_Empty>
 {
     public static final PSkillData<PField_Empty> DATA = register(PCond_PayReaction.class, PField_Empty.class)
             .setColors(THE_CONJURER)

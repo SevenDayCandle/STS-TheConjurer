@@ -12,7 +12,7 @@ import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
-import pinacolada.skills.PTrigger;
+import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
 public class Quetzalcoatl extends PCLCard

@@ -4,6 +4,7 @@ package pinacolada.cards.conjurer.basic;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
+import pinacolada.cards.base.PCLCardGroupHelper;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
@@ -14,9 +15,8 @@ import pinacolada.skills.PMove;
 public class Deluge extends PCLCard
 {
     public static final PCLCardData DATA = register(Deluge.class, ConjurerResources.conjurer)
-            .setSkill(2, CardRarity.UNCOMMON, PCLCardTarget.Team)
-            .setCostUpgrades(-1)
-            .setBlock(9, 0)
+            .setSkill(1, CardRarity.RARE, PCLCardTarget.Team)
+            .setBlock(3, 1)
             .setTags(PCLCardTag.Exhaust)
             .setAffinities(2, PCLAffinity.Blue)
             .setCore();
@@ -28,6 +28,7 @@ public class Deluge extends PCLCard
 
     public void setup(Object input)
     {
-        addUseMove(PMove.obtainDiscardPile(2, Condensation.DATA));
+        addBlockMove();
+        addUseMove(PMove.modifyAffinity(2, 1, PCLAffinity.Blue).setUpgrade(1).edit(f -> f.setCardGroup(PCLCardGroupHelper.Hand)));
     }
 }

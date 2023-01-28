@@ -32,7 +32,7 @@ public class PMod_BonusOnRedox extends PMod_BonusOn<PField_Affinity>
     }
 
     @Override
-    public String getConditionSampleText()
+    public String getSubText()
     {
         return ConjurerResources.conjurer.tooltips.redox.title;
     }

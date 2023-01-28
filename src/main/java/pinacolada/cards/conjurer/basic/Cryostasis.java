@@ -28,6 +28,7 @@ public class Cryostasis extends PCLCard
 
     public void setup(Object input)
     {
+        addBlockMove();
         addUseMove(PMove.stabilize(PCLCardTarget.Single, PCLElementHelper.Ignis, PCLElementHelper.Gelus));
     }
 }

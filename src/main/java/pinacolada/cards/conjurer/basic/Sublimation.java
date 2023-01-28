@@ -7,7 +7,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
-import pinacolada.skills.PTrigger;
+import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
 public class Sublimation extends PCLCard
