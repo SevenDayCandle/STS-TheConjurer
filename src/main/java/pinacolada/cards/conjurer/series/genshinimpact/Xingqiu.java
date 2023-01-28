@@ -31,7 +31,6 @@ public class Xingqiu extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.SLASH_HORIZONTAL);
-        addUseMove(CMod.perElement(PCLCardTarget.Single, 1, PCLAffinity.Red), PTrait.hasDamage(1));
+        addDamageMove(AttackEffects.SLASH_HORIZONTAL).setChain(CMod.perElement(PCLCardTarget.Single, 1, PCLAffinity.Red), PTrait.hasDamage(1));
     }
 }

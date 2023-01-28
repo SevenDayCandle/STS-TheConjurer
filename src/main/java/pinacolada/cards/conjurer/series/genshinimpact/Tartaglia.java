@@ -32,7 +32,6 @@ public class Tartaglia extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.SLASH_HORIZONTAL);
-        addUseMove(PMod.perCreatureWith(1, PCLElementHelper.Ignis), PTrait.hasDamage(1));
+        addDamageMove(AttackEffects.SLASH_HORIZONTAL).setChain(PMod.perCreatureWith(1, PCLElementHelper.Ignis), PTrait.hasDamage(1));
     }
 }
