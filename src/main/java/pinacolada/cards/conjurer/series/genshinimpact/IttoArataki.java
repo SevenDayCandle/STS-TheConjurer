@@ -31,6 +31,6 @@ public class IttoArataki extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.BLUNT_HEAVY).setChain(PCond.block(PCLCardTarget.Single, 1), PMod.perLevel(1, PCLAffinity.Orange), PTrait.hasDamage(2));
+        addDamageMove(AttackEffects.BLUNT_HEAVY).setChain(PCond.block(PCLCardTarget.Single, 1), PMod.perLevel(1, PCLAffinity.Orange), PTrait.damage(2));
     }
 }

@@ -13,7 +13,7 @@ import pinacolada.skills.skills.PTrigger;
 public class Sublimation extends PCLCard
 {
     public static final PCLCardData DATA = register(Sublimation.class, ConjurerResources.conjurer)
-            .setPower(2, CardRarity.UNCOMMON)
+            .setPower(1, CardRarity.UNCOMMON)
             .setAffinities(1, PCLAffinity.Red, PCLAffinity.Blue, PCLAffinity.Purple)
             .setCore();
 
@@ -24,6 +24,6 @@ public class Sublimation extends PCLCard
 
     public void setup(Object input)
     {
-        addGainPower(PTrigger.when(CCond.redox(), PMove.dealDamage(5).setUpgrade(2)));
+        addGainPower(PTrigger.when(CCond.redox(), PMove.dealDamageToRandom(4).setUpgrade(2)));
     }
 }

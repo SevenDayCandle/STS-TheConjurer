@@ -31,7 +31,6 @@ import pinacolada.misc.PCLUseInfo;
 import pinacolada.orbs.PCLOrb;
 import pinacolada.powers.PCLClickableUse;
 import pinacolada.powers.conjurer.AbstractPCLElementalPower;
-import pinacolada.powers.conjurer.FrostbitePower;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -282,8 +281,6 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
         enableCharges(false);
 
         addDefaultReactions();
-
-        water.addAdditionalPower(FrostbitePower.POWER_ID);
     }
 
     public void addDefaultReactions()
@@ -323,7 +320,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
 
         if ((shouldUpdateForTarget || shouldUpdateForCard) && card != null)
         {
-            lastTargetPowers = EUIUtils.flattenList(EUIUtils.map(card.pclTarget.getTargets(target, AbstractDungeon.player), this::getElementalPowers));
+            lastTargetPowers = EUIUtils.flattenList(EUIUtils.map(card.pclTarget.getTargets(AbstractDungeon.player, target), this::getElementalPowers));
             if (shouldUpdateForCard)
             {
                 lastCardAffinities = GameUtilities.getPCLCardAffinities(card).getCardAffinities(true);

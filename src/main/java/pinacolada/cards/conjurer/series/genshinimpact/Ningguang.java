@@ -2,10 +2,11 @@ package pinacolada.cards.conjurer.series.genshinimpact;
 
 
 import pinacolada.annotations.VisibleCard;
-import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
+import pinacolada.cards.base.PCLCardGroupHelper;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.AttackEffects;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
@@ -33,6 +34,6 @@ public class Ningguang extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.EARTH);
-        addUseMove(PCond.cooldown(2), PMultiSkill.choose(PMove.retain(1, PCLAffinity.Orange).setUpgrade(1), PMove.applyToEnemies(3, PCLElementHelper.Petra).setUpgrade(2)));
+        addUseMove(PCond.cooldown(2), PMultiSkill.choose(PMove.retain(1, PCLAffinity.Orange).edit(f -> f.setCardGroup(PCLCardGroupHelper.Hand)).setUpgrade(1), PMove.applyToEnemies(3, PCLElementHelper.Petra).setUpgrade(2)));
     }
 }

@@ -31,6 +31,6 @@ public class RyujiSakamoto extends PCLCard
     {
         addDamageMove(AttackEffects.BLUNT_LIGHT);
         addUseMove(PCond.cooldown(3),
-                PMove.selfTransform(RyujiSakamoto_CaptainKidd.DATA));
+                PMove.obtain(RyujiSakamoto_CaptainKidd.DATA));
     }
 }

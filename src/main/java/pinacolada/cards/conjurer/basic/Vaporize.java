@@ -10,8 +10,8 @@ import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.AttackEffects;
 import pinacolada.effects.PCLEffekseerEFX;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.conjurer.modifiers.PMod_PerElement;
-import pinacolada.skills.skills.base.traits.PTrait_Damage;
+import pinacolada.skills.CMod;
+import pinacolada.skills.PTrait;
 
 @VisibleCard
 public class Vaporize extends PCLCard
@@ -29,7 +29,8 @@ public class Vaporize extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.NONE).setDamageEffect(PCLEffekseerEFX.SWORD18);
-        addUseMove(new PMod_PerElement(PCLCardTarget.Single, 1, PCLAffinity.Red), new PTrait_Damage(4).setUpgrade(0, 2));
+        addDamageMove(AttackEffects.NONE)
+                .setDamageEffect(PCLEffekseerEFX.SWORD18)
+                .setChain(CMod.perElement(PCLCardTarget.Single, 1, PCLAffinity.Red), PTrait.damage(4).setUpgrade(0, 2));
     }
 }

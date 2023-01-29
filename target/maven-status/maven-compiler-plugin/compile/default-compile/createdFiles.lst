@@ -9,13 +9,16 @@ pinacolada\resources\conjurer\ConjurerResources$1.class
 pinacolada\cards\conjurer\series\genshinimpact\Beidou.class
 pinacolada\potions\conjurer\LeafPotion.class
 pinacolada\cards\conjurer\basic\FreezingMist.class
+pinacolada\cards\conjurer\colorless\OracleSphere.class
 pinacolada\cards\conjurer\basic\SheerCold$SheerColdPower.class
 pinacolada\cards\conjurer\colorless\Cyno$CynoPower.class
 pinacolada\cards\conjurer\series\genshinimpact\Xingqiu.class
 pinacolada\relics\conjurer\ChiliPepper.class
 pinacolada\cards\conjurer\basic\Aerosol.class
 pinacolada\potions\conjurer\StoningPotion.class
+pinacolada\cards\conjurer\series\shinmegamitensei\MakotoNijima.class
 pinacolada\resources\conjurer\ConjurerEnum$Characters.class
+pinacolada\cards\conjurer\series\shinmegamitensei\YusukeKitagawa_Goemon.class
 pinacolada\relics\conjurer\CrimsonMapleLeaf.class
 pinacolada\cards\conjurer\basic\ColossalFormation.class
 pinacolada\actions\powers\ApplyElementalDebuff.class
@@ -33,6 +36,7 @@ pinacolada\resources\conjurer\ConjurerEnum$Library.class
 pinacolada\monsters\animations\conjurer\ConjurerFireAllyAnimation.class
 pinacolada\cards\conjurer\colorless\TheSilent.class
 pinacolada\cards\conjurer\basic\PowderSnow.class
+pinacolada\cards\conjurer\series\shinmegamitensei\Morgana.class
 pinacolada\skills\conjurer\conditions\PCond_Redox.class
 pinacolada\monsters\animations\conjurer\ConjurerStarAllyAnimation.class
 pinacolada\cards\conjurer\series\shinmegamitensei\Mothman.class
@@ -57,6 +61,7 @@ pinacolada\resources\conjurer\ConjurerEnum.class
 pinacolada\cards\conjurer\colorless\Radioactivity$RadioactivityPower.class
 pinacolada\relics\conjurer\WitchsHeartFlames.class
 pinacolada\skills\conjurer\modifiers\PMod_PerElement.class
+pinacolada\cards\conjurer\series\shinmegamitensei\AnnTakamaki.class
 pinacolada\cards\conjurer\colorless\Geralt$GeraltCond.class
 pinacolada\cards\conjurer\basic\NaturalSelection.class
 pinacolada\cards\conjurer\colorless\Radioactivity.class
@@ -72,6 +77,7 @@ pinacolada\resources\conjurer\ConjurerImages.class
 pinacolada\cards\conjurer\series\shinmegamitensei\RyujiSakamoto_CaptainKidd.class
 pinacolada\cards\conjurer\series\genshinimpact\Diluc.class
 pinacolada\resources\conjurer\ConjurerImages$Monsters.class
+pinacolada\cards\conjurer\series\shinmegamitensei\YusukeKitagawa.class
 pinacolada\powers\conjurer\GelusPower.class
 pinacolada\resources\conjurer\ConjurerStrings$Combat.class
 pinacolada\cards\conjurer\basic\ArcticTide.class
@@ -94,6 +100,7 @@ pinacolada\cards\conjurer\colorless\NuclearTransmutation.class
 pinacolada\cards\conjurer\basic\OceanSubmersion.class
 pinacolada\cards\conjurer\basic\Lithosphere.class
 pinacolada\cards\conjurer\series\shinmegamitensei\Ose.class
+pinacolada\cards\conjurer\colorless\Fischl.class
 pinacolada\ui\combat\ConjurerElementButton.class
 pinacolada\cards\conjurer\basic\Geomorphology.class
 pinacolada\resources\conjurer\ConjurerStrings.class
@@ -122,6 +129,7 @@ pinacolada\resources\conjurer\ConjurerStrings$Tutorial.class
 pinacolada\cards\conjurer\colorless\Geralt.class
 pinacolada\cards\conjurer\series\genshinimpact\KazuhaKaedehara.class
 pinacolada\cards\conjurer\series\genshinimpact\Venti.class
+pinacolada\cards\conjurer\series\shinmegamitensei\MakotoNijima_Johanna.class
 pinacolada\resources\conjurer\ConjurerEnum$Cards.class
 pinacolada\skills\conjurer\modifiers\PMod_BonusOnRedox.class
 pinacolada\cards\conjurer\basic\TectonicQuake.class
@@ -186,6 +194,7 @@ pinacolada\cards\conjurer\basic\Overheat.class
 pinacolada\cards\conjurer\status\Status_SearingBurn.class
 pinacolada\powers\conjurer\IgnisPower.class
 pinacolada\cards\conjurer\basic\AtmosphericPressure.class
+pinacolada\cards\conjurer\series\shinmegamitensei\Odin.class
 pinacolada\cards\conjurer\basic\ErodingTerra$ErodingTerraPower.class
 pinacolada\TheConjurer.class
 pinacolada\cards\conjurer\colorless\GeneticEngineering.class
@@ -193,6 +202,7 @@ pinacolada\cards\conjurer\series\shinmegamitensei\Decarabia.class
 pinacolada\relics\conjurer\StraightShooter.class
 pinacolada\relics\conjurer\AbstractBountyMap.class
 pinacolada\cards\conjurer\basic\Wildfire.class
+pinacolada\cards\conjurer\series\shinmegamitensei\AnnTakamaki_Carmen.class
 pinacolada\cards\conjurer\series\shinmegamitensei\Quetzalcoatl.class
 pinacolada\cards\conjurer\colorless\TheIronclad.class
 pinacolada\cards\conjurer\series\shinmegamitensei\RyujiSakamoto.class

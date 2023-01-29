@@ -25,6 +25,6 @@ public class ColossalFormation extends PCLCard
 
     public void setup(Object input)
     {
-        addBlockMove().setChain(CMod.perReaction(4).setUpgrade(-1), PTrait.hasBlock(1));
+        addBlockMove().setChain(CMod.perReaction(4).setUpgrade(-1), PTrait.block(1));
     }
 }
