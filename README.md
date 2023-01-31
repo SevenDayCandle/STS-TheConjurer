@@ -12,5 +12,9 @@ Installation Instructions:
 # Credits
 
 - EatYourBeets for the initial framework used for the card editor
-- A number of the images used for cards were made with AI art (Stable Diffusion)
+- A number of the images used for cards were made with AI (Stable Diffusion)
 - See ModTheSpire.json for additional credits for the various SFX and VFX used by this mod
+
+# Licensing
+
+- SFX and VFX listed in ModTheSpire.json are owned by their respective copyright holders and fall under their licensing terms.
