@@ -8,3 +8,9 @@ Installation Instructions:
 - Download the latest version of the Card Editor from https://github.com/SevenDayCandle/STS-CardEditor and place it in your mods folder (usually {folder containing STS}\SlayTheSpire\mods)
 - Download the latest version of this mod
 - Run ModTheSpire. Ensure that StsLib and BaseMod are checked and appear above Card Editor in the mod load order. Ensure that the Card Editor appears this mod
+
+# Credits
+
+- EatYourBeets for the initial framework used for the card editor
+- A number of the images used for cards were made with AI art (Stable Diffusion)
+- See ModTheSpire.json for additional credits for the various SFX and VFX used by this mod
