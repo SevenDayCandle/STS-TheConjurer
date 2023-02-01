@@ -153,7 +153,7 @@
 												"FLAVOR": "meidajiong",
 												"NAME": "Kokomi Sangonomiya"
 								},
-								"conjurer:KujouSara": {"FLAVOR": "Rayleigh Scale", "NAME": "Kujou Sara"},
+								"conjurer:KujouSara": {"NAME": "Kujou Sara"},
 								"conjurer:KukiShinobu": {"NAME": "Kuki Shinobu"},
 								"conjurer:LisaMinci": {"NAME": "Lisa Minci"},
 								"conjurer:Lumine": {"NAME": "Lumine"},
@@ -161,7 +161,7 @@
 								"conjurer:Nahida": {"NAME": "Nahida"},
 								"conjurer:Ningguang": {"NAME": "Ningguang"},
 								"conjurer:Nilou": {"FLAVOR": "torino", "EXTENDED_DESCRIPTION": ["If you have {0} [Blue] and {0} [Green] cards in hand and no cards of other [A-W]"], "NAME": "Nilou"},
-								"conjurer:Noelle": {"FLAVOR": "Lumo_1121", "NAME": "Noelle"},
+								"conjurer:Noelle": {"NAME": "Noelle"},
 								"conjurer:Qiqi": {"NAME": "Qiqi"},
 								"conjurer:Razor": {"NAME": "Razor"},
 								"conjurer:Rosaria": {"NAME": "Rosaria"},
@@ -177,8 +177,7 @@
 								"conjurer:Xingqiu": {"NAME": "Xingqiu"},
 								"conjurer:Xinyan": {"NAME": "Xinyan"},
 								"conjurer:Yanfei": {"NAME": "Yanfei"},
-								"conjurer:YaeMiko": {"NAME": "Yae Miko"},
-								"conjurer:Yelan": {"NAME": "Yelan"},
+								"conjurer:Yelan": {"EXTENDED_DESCRIPTION": ["per charge on {0}"], "NAME": "Yelan"},
 								"conjurer:Yoimiya": {"EXTENDED_DESCRIPTION": ["unblocked hit"], "NAME": "Yoimiya Naganohara"},
 								"conjurer:YunJin": {"NAME": "Yunjin"},
 								"conjurer:Zhongli": {"NAME": "Zhongli"}

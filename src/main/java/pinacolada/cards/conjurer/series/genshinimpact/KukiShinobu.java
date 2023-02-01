@@ -33,6 +33,6 @@ public class KukiShinobu extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AttackEffects.DAGGER);
-        addUseMove(PCond.cooldown(0), PCond.discardRandom(1), PMove.applyToRandom(5, PCLPowerHelper.Poison).setUpgrade(2));
+        addUseMove(PCond.cooldown(0), PMove.discardRandom(1), PMove.applyToRandom(5, PCLPowerHelper.Poison).setUpgrade(2));
     }
 }

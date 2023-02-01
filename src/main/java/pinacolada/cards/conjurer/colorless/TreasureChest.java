@@ -25,7 +25,7 @@ public class TreasureChest extends PCLCard
 
     public void setup(Object input)
     {
-        addUseMove(new PMove_GainGold(500).setUpgrade(200));
+        addUseMove(new PMove_GainGold(550).setUpgrade(200));
         addUseMove(PCond.onDraw(), PMove.obtainDiscardPile(1, TreasureChest_TreasureKey.DATA));
     }
 }

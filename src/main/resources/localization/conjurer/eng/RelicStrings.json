@@ -6,6 +6,12 @@
 		"FLAVOR": "Pass the power.",
 		"NAME": "Magic Baton"
 	},
+	"conjurer:CleansingBell":
+	{
+		"DESCRIPTIONS": ["#oRight-Click: Spend #b{0} charges to remove #b{1} of your leftmost debuff. Gain #b1 charge at the start of battle. Store up to #b{2} charges."],
+		"FLAVOR": "Pass the power.",
+		"NAME": "Cleansing Bell"
+	},
 				"conjurer:CloudAtlas":
 				{
 								"DESCRIPTIONS": ["You can no longer obtain #ySummon cards (existing ones will be transformed into random cards of the same rarity)."],

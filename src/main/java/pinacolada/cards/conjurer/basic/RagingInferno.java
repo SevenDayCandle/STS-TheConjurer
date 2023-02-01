@@ -2,10 +2,10 @@ package pinacolada.cards.conjurer.basic;
 
 
 import pinacolada.annotations.VisibleCard;
-import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.effects.PCLEffekseerEFX;
 import pinacolada.powers.conjurer.PCLElementHelper;
@@ -18,7 +18,7 @@ public class RagingInferno extends PCLCard
     public static final PCLCardData DATA = register(RagingInferno.class, ConjurerResources.conjurer)
             .setAttack(3, CardRarity.RARE, PCLAttackType.Normal)
             .setTags(PCLCardTag.Exhaust)
-            .setDamage(35, 4)
+            .setDamage(34, 4)
             .setAffinities(2, PCLAffinity.Red)
             .setCore();
 
@@ -29,7 +29,7 @@ public class RagingInferno extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(PCLEffekseerEFX.FIRE04);
+        addDamageMove(PCLEffekseerEFX.FIRE06);
         addUseMove(PMove.applyToSingle(8, PCLElementHelper.Ignis).setUpgrade(1));
     }
 }

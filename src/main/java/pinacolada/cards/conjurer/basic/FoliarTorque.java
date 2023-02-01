@@ -4,8 +4,8 @@ package pinacolada.cards.conjurer.basic;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
-import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMod;
@@ -26,6 +26,6 @@ public class FoliarTorque extends PCLCard
 
     public void setup(Object input)
     {
-        addUseMove(PMod.cyclePer(2).setUpgrade(1).edit(f -> f.setType(CardType.ATTACK)), PMove.applyToRandom(3, PCLElementHelper.Aer).setUpgrade(1));
+        addUseMove(PMod.cyclePer(2).setUpgrade(1).edit(f -> f.setType(CardType.ATTACK)), PMove.applyToRandom(3, PCLElementHelper.Aer));
     }
 }

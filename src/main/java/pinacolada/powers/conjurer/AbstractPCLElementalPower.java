@@ -28,7 +28,7 @@ import java.util.Set;
 
 public abstract class AbstractPCLElementalPower extends PCLPower implements MultiplicativePower, StablizingPower
 {
-    public static final int BASE_DAMAGE_MULTIPLIER = 40;
+    public static final int BASE_DAMAGE_MULTIPLIER = 30;
     public static final int DEFAULT_COMBUST_INCREASE = BASE_DAMAGE_MULTIPLIER / 2;
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, AbstractPCLElementalPower.class);
     public static final HashMap<String, PCLAffinity> AFFINITIES = new HashMap<>();
