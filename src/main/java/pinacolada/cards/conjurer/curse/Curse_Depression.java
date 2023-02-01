@@ -1,4 +1,4 @@
-package pinacolada.cards.conjurer.status;
+package pinacolada.cards.conjurer.curse;
 
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
@@ -6,21 +6,19 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
-import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Status_SearingBurn extends PCLCard
+public class Curse_Depression extends PCLCard
 {
-    public static final PCLCardData DATA = register(Status_SearingBurn.class, ConjurerResources.conjurer)
-            .setStatus(-2, CardRarity.SPECIAL, PCLCardTarget.AllEnemy)
+    public static final PCLCardData DATA = register(Curse_Depression.class, ConjurerResources.conjurer)
+            .setCurse(-2, PCLCardTarget.None, false)
             .setTags(PCLCardTag.Ethereal, PCLCardTag.Unplayable)
-            .setAffinities(PCLAffinity.Red)
-            .setCore(true);
+            .setAffinities(PCLAffinity.Purple);
 
-    public Status_SearingBurn()
+    public Curse_Depression()
     {
         super(DATA);
     }
@@ -28,6 +26,7 @@ public class Status_SearingBurn extends PCLCard
     @Override
     public void setup(Object input)
     {
-        addUseMove(PCond.onDraw(),PMove.apply(PCLCardTarget.All, 2, PCLElementHelper.Ignis));
+        addUseMove(PCond.onDraw(), PMove.discardRandom(1));
+        addUseMove(PCond.onPurge(), PMove.draw(1));
     }
 }

@@ -16,7 +16,7 @@ public class TreasureChest extends PCLCard
             .setSkill(3, CardRarity.RARE)
             .setTags(PCLCardTag.Unplayable, PCLCardTag.Fleeting)
             .setObtainableInCombat(false)
-            .setColorless();
+            .setCore(true);
 
     public TreasureChest()
     {

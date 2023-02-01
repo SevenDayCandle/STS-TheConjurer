@@ -23,7 +23,7 @@ public class MagicMirror extends PCLCard
             .setSkill(1, CardRarity.RARE, PCLCardTarget.Self)
             .setTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Blue)
-            .setColorless();
+            .setCore(true);
 
     public MagicMirror()
     {

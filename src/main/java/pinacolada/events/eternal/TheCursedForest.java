@@ -9,7 +9,7 @@ import eatyourbeets.events.base.EYBEventPhase;
 import eatyourbeets.events.base.EYBEventStrings;
 import pinacolada.cards.conjurer.colorless.HinaKagiyama;
 import pinacolada.cards.eternal.basic.Strike;
-import pinacolada.cards.pcl.curse.Curse_Torment;
+import pinacolada.cards.conjurer.curse.Curse_Torment;
 import pinacolada.events.base.PCLEvent;
 import pinacolada.effects.GameEffects;
 import pinacolada.utilities.GameUtilities;

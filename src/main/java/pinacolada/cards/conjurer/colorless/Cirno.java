@@ -25,8 +25,7 @@ public class Cirno extends PCLCard
             .setHp(3, 1)
             .setAffinities(1, PCLAffinity.Blue)
             .setRTags(PCLCardTag.Ethereal)
-            .setLoadout(ConjurerPlayerData.touhouProject)
-            .setColorless();
+            .setLoadout(ConjurerPlayerData.touhouProject, true);
 
     public Cirno()
     {

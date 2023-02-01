@@ -20,7 +20,7 @@ public class Enervate extends PCLCard
             .setSkill(1, CardRarity.UNCOMMON)
             .setTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Purple)
-            .setColorless();
+            .setCore(true);
 
     public Enervate()
     {

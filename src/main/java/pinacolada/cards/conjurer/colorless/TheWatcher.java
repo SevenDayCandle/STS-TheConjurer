@@ -28,7 +28,7 @@ public class TheWatcher extends PCLCard
             .setPriority(1)
             .setHp(6, 1)
             .setAffinities(PCLAffinity.Orange, PCLAffinity.Yellow)
-            .setColorless();
+            .setCore(true);
 
     public TheWatcher()
     {

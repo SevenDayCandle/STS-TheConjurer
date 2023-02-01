@@ -27,7 +27,7 @@ public class GeneticEngineering extends PCLCard
             .setPower(0, CardRarity.UNCOMMON)
             .setUTags(PCLCardTag.Haste, PCLCardTag.Retain)
             .setAffinities(PCLAffinity.Blue)
-            .setColorless();
+            .setCore(true);
 
     public GeneticEngineering()
     {

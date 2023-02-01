@@ -2,10 +2,20 @@ package pinacolada.resources.conjurer;
 
 import basemod.BaseMod;
 import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.colorless.*;
+import com.megacrit.cardcrawl.cards.curses.*;
+import com.megacrit.cardcrawl.cards.status.*;
+import com.megacrit.cardcrawl.cards.tempCards.Insight;
+import com.megacrit.cardcrawl.cards.tempCards.Miracle;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import extendedui.EUIUtils;
+import pinacolada.cards.base.PCLCard;
+import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardAffinity;
+import pinacolada.cards.conjurer.curse.*;
+import pinacolada.cards.conjurer.status.*;
 import pinacolada.characters.ConjurerCharacter;
 import pinacolada.misc.CombatManager;
 import pinacolada.monsters.PCLCardAlly;
@@ -81,6 +91,80 @@ public class ConjurerResources extends PCLResources<ConjurerConfig, ConjurerImag
             }
         }
         return new PCLGeneralAllyAnimation(ally);
+    }
+
+    @Override
+    public boolean containsColorless(AbstractCard card)
+    {
+        return card instanceof PCLCard;
+    }
+
+    @Override
+    public boolean filterColorless(AbstractCard card)
+    {
+        return card instanceof PCLCard && ((PCLCard) card).cardData.resources == this;
+    }
+
+    @Override
+    public PCLCardData getReplacement(String cardID)
+    {
+        switch (cardID)
+        {
+            case Apparition.ID:
+                return pinacolada.cards.conjurer.special.Apparition.DATA;
+            case AscendersBane.ID:
+                return Curse_AscendersBane.DATA;
+            case Bite.ID:
+                return pinacolada.cards.conjurer.special.Bite.DATA;
+            case Burn.ID:
+                return Status_Burn.DATA;
+            case Clumsy.ID:
+                return Curse_Clumsy.DATA;
+            case Dazed.ID:
+                return Status_Dazed.DATA;
+            case Decay.ID:
+                return Curse_Decay.DATA;
+            case Doubt.ID:
+                return Curse_Doubt.DATA;
+            case Injury.ID:
+                return Curse_Injury.DATA;
+            case Insight.ID:
+                return pinacolada.cards.conjurer.special.Insight.DATA;
+            case JAX.ID:
+                return pinacolada.cards.conjurer.special.JAX.DATA;
+            case Madness.ID:
+                return pinacolada.cards.conjurer.colorless.Madness.DATA;
+            case Miracle.ID:
+                return pinacolada.cards.conjurer.special.Miracle.DATA;
+            case Normality.ID:
+                return Curse_Normality.DATA;
+            case Pain.ID:
+                return Curse_Pain.DATA;
+            case Parasite.ID:
+                return Curse_Parasite.DATA;
+            case Regret.ID:
+                return Curse_Regret.DATA;
+            case RitualDagger.ID:
+                return pinacolada.cards.conjurer.special.RitualDagger.DATA;
+            case Shame.ID:
+                return Curse_Shame.DATA;
+            case Slimed.ID:
+                return Status_Slimed.DATA;
+            case VoidCard.ID:
+                return Status_Void.DATA;
+            case Wound.ID:
+                return Status_Wound.DATA;
+            case Writhe.ID:
+                return Curse_Writhe.DATA;
+            default:
+                return null;
+        }
+    }
+
+    @Override
+    public PCLCardData getAscendersBane()
+    {
+        return Curse_AscendersBane.DATA;
     }
 
 }

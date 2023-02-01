@@ -28,7 +28,7 @@ public class TheDefect extends PCLCard
             .setPriority(1)
             .setHp(6, 1)
             .setAffinities(PCLAffinity.Blue)
-            .setColorless();
+            .setCore(true);
 
     public TheDefect()
     {

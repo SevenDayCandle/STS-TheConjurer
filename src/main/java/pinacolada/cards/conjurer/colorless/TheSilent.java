@@ -28,7 +28,7 @@ public class TheSilent extends PCLCard
             .setPriority(1)
             .setHp(5, 2)
             .setAffinities(PCLAffinity.Green)
-            .setColorless();
+            .setCore(true);
 
     public TheSilent()
     {

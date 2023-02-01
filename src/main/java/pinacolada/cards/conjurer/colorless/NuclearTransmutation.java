@@ -19,7 +19,7 @@ public class NuclearTransmutation extends PCLCard
             .setSkill(-1, CardRarity.RARE)
             .setTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Blue)
-            .setColorless();
+            .setCore(true);
 
     public NuclearTransmutation()
     {

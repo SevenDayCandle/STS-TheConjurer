@@ -14,7 +14,6 @@ import pinacolada.effects.AttackEffects;
 import pinacolada.misc.CombatManager;
 import pinacolada.misc.PCLUseInfo;
 import pinacolada.powers.PCLPowerHelper;
-import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
@@ -35,8 +34,7 @@ public class Geralt extends PCLCard
             .setPriority(1)
             .setHp(11, 3)
             .setAffinities(PCLAffinity.Red)
-            .setLoadout(ConjurerPlayerData.touhouProject)
-            .setColorless();
+            .setCore(true);
 
     public Geralt()
     {

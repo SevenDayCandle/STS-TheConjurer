@@ -19,7 +19,7 @@ public class OracleSphere extends PCLCard
             .setSkill(0, CardRarity.RARE)
             .setTags(PCLCardTag.Exhaust)
             .setAffinities(2, PCLAffinity.Blue)
-            .setColorless();
+            .setCore(true);
 
     public OracleSphere()
     {

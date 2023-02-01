@@ -6,21 +6,19 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
-import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
-import pinacolada.skills.PMove;
+import pinacolada.skills.skills.base.moves.PMove_GainEnergy;
 
 @VisibleCard
-public class Status_SearingBurn extends PCLCard
+public class Status_Void extends PCLCard
 {
-    public static final PCLCardData DATA = register(Status_SearingBurn.class, ConjurerResources.conjurer)
-            .setStatus(-2, CardRarity.SPECIAL, PCLCardTarget.AllEnemy)
+    public static final PCLCardData DATA = register(Status_Void.class, ConjurerResources.conjurer)
+            .setStatus(-2, CardRarity.COMMON, PCLCardTarget.None)
             .setTags(PCLCardTag.Ethereal, PCLCardTag.Unplayable)
-            .setAffinities(PCLAffinity.Red)
-            .setCore(true);
+            .setAffinities(PCLAffinity.Purple);
 
-    public Status_SearingBurn()
+    public Status_Void()
     {
         super(DATA);
     }
@@ -28,6 +26,6 @@ public class Status_SearingBurn extends PCLCard
     @Override
     public void setup(Object input)
     {
-        addUseMove(PCond.onDraw(),PMove.apply(PCLCardTarget.All, 2, PCLElementHelper.Ignis));
+        addUseMove(PCond.onDraw(), new PMove_GainEnergy(-1));
     }
 }

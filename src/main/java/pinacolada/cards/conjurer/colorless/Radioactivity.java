@@ -24,7 +24,7 @@ public class Radioactivity extends PCLCard
             .setPower(1, CardRarity.UNCOMMON)
             .setCostUpgrades(-1)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Green)
-            .setColorless();
+            .setCore(true);
 
     public Radioactivity()
     {

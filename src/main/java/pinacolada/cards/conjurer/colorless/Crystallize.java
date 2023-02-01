@@ -14,7 +14,7 @@ public class Crystallize extends PCLCard
     public static final PCLCardData DATA = register(Crystallize.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON)
             .setAffinities(PCLAffinity.Blue)
-            .setColorless();
+            .setCore(true);
 
     public Crystallize()
     {

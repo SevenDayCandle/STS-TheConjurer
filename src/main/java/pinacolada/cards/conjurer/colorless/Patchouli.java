@@ -31,8 +31,7 @@ public class Patchouli extends PCLCard
             .setPriority(1)
             .setHp(9, 1)
             .setAffinities(2, PCLAffinity.Blue)
-            .setLoadout(ConjurerPlayerData.touhouProject)
-            .setColorless();
+            .setLoadout(ConjurerPlayerData.touhouProject, true);
 
     public Patchouli()
     {

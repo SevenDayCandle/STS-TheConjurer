@@ -19,7 +19,7 @@ public class TreasureChest_TreasureKey extends PCLCard
     public static final PCLCardData DATA = register(TreasureChest_TreasureKey.class, ConjurerResources.conjurer)
             .setSkill(0, CardRarity.SPECIAL)
             .setTags(PCLCardTag.Haste.make(1, 2), PCLCardTag.Purge.make(1))
-            .setColorless();
+            .setCore(true);
 
     public TreasureChest_TreasureKey()
     {
