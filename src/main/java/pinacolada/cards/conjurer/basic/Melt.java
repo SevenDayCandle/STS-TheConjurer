@@ -10,7 +10,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.AttackEffects;
-import pinacolada.effects.PCLEffekseerEFX;
+import pinacolada.effects.EffekseerEFK;
 import pinacolada.misc.PCLUseInfo;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
@@ -33,7 +33,7 @@ public class Melt extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.NONE).setDamageEffect(PCLEffekseerEFX.FIRE07);
+        addDamageMove(AttackEffects.NONE).setDamageEffect(EffekseerEFK.FIRE07);
         addUseMove(CCond.combust(),
                 getSpecialMove(0, this::specialMove, 25).setUpgrade(8),
                 PMove.selfExhaust());

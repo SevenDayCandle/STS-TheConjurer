@@ -7,7 +7,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.tags.PCLCardTag;
-import pinacolada.effects.PCLEffekseerEFX;
+import pinacolada.effects.EffekseerEFK;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
@@ -29,7 +29,7 @@ public class RagingInferno extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(PCLEffekseerEFX.FIRE06);
+        addDamageMove(EffekseerEFK.FIRE06);
         addUseMove(PMove.applyToSingle(8, PCLElementHelper.Ignis).setUpgrade(1));
     }
 }

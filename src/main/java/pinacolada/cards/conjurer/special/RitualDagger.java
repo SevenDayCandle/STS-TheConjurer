@@ -8,7 +8,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
-import pinacolada.effects.PCLEffekseerEFX;
+import pinacolada.effects.EffekseerEFK;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.skills.PLimit;
@@ -34,7 +34,7 @@ public class RitualDagger extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AbstractGameAction.AttackEffect.NONE).setDamageEffect(PCLEffekseerEFX.SWORD16);
+        addDamageMove(AbstractGameAction.AttackEffect.NONE).setDamageEffect(EffekseerEFK.SWORD16);
         addUseMove(
                 new PMove_RemovePower(PCLCardTarget.Single, PCLPowerHelper.Intangible, PCLPowerHelper.Artifact));
         addUseMove(

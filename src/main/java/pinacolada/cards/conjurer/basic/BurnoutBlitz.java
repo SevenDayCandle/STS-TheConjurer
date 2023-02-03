@@ -8,7 +8,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.conjurer.status.Status_SearingBurn;
-import pinacolada.effects.PCLEffekseerEFX;
+import pinacolada.effects.EffekseerEFK;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 
@@ -28,7 +28,7 @@ public class BurnoutBlitz extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(PCLEffekseerEFX.FIRE07);
+        addDamageMove(EffekseerEFK.FIRE07);
         addUseMove(PMove.obtainDiscardPile(2, Status_SearingBurn.DATA));
     }
 }

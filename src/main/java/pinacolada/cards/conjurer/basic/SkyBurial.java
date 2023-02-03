@@ -2,11 +2,11 @@ package pinacolada.cards.conjurer.basic;
 
 
 import pinacolada.annotations.VisibleCard;
-import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.effects.PCLEffekseerEFX;
+import pinacolada.cards.base.fields.PCLAttackType;
+import pinacolada.effects.EffekseerEFK;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -28,7 +28,7 @@ public class SkyBurial extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(PCLEffekseerEFX.WIND01);
+        addDamageMove(EffekseerEFK.WIND01);
         addUseMove(PCond.ifElse(PMove.applyToSingle(1, PCLPowerHelper.Vulnerable), PMove.selfExhaust(), PCond.discardRandom(2)));
     }
 }
