@@ -14,8 +14,9 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardAffinity;
-import pinacolada.cards.conjurer.curse.*;
-import pinacolada.cards.conjurer.status.*;
+import pinacolada.cards.conjurer.curse.Curse_Normality;
+import pinacolada.cards.pcl.curse.*;
+import pinacolada.cards.pcl.status.*;
 import pinacolada.characters.ConjurerCharacter;
 import pinacolada.misc.CombatManager;
 import pinacolada.monsters.PCLCardAlly;
@@ -129,13 +130,13 @@ public class ConjurerResources extends PCLResources<ConjurerConfig, ConjurerImag
             case Injury.ID:
                 return Curse_Injury.DATA;
             case Insight.ID:
-                return pinacolada.cards.conjurer.special.Insight.DATA;
+                return pinacolada.cards.pcl.colorless.Insight.DATA;
             case JAX.ID:
                 return pinacolada.cards.conjurer.special.JAX.DATA;
             case Madness.ID:
                 return pinacolada.cards.conjurer.colorless.Madness.DATA;
             case Miracle.ID:
-                return pinacolada.cards.conjurer.special.Miracle.DATA;
+                return pinacolada.cards.pcl.colorless.Miracle.DATA;
             case Normality.ID:
                 return Curse_Normality.DATA;
             case Pain.ID:

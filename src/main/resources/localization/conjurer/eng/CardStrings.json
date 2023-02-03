@@ -135,28 +135,16 @@
 				},
 				"CURSE":
 				{
-								"conjurer:Curse_AscendersBane": {
-												"NAME": "Ascender's Bane"
-								},
 								"conjurer:Curse_Avarice": {"NAME": "Avarice"},
-								"conjurer:Curse_Clumsy": {"NAME": "Clumsy"},
-								"conjurer:Curse_Decay": {"NAME": "Decay"},
 								"conjurer:Curse_Depression": {"NAME": "Depression"},
 								"conjurer:Curse_Despair": {"NAME": "Despair"},
 								"conjurer:Curse_Devastation": {"NAME": "Devastation"},
-								"conjurer:Curse_Doubt": {"NAME": "Doubt"},
-								"conjurer:Curse_Injury": {"NAME": "Injury"},
 								"conjurer:Curse_Normality": {
 												"EXTENDED_DESCRIPTION": ["While in hand, Negate the {Buffs} and {Debuffs} of ALL characters (excluding those specific to cards or encounters)"],
 												"NAME": "Normality"
 								},
-								"conjurer:Curse_Pain": {"NAME": "Pain"},
-								"conjurer:Curse_Parasite": {"NAME": "Parasite"},
-								"conjurer:Curse_Regret": {"NAME": "Regret"},
-								"conjurer:Curse_Shame": {"NAME": "Shame"},
 								"conjurer:Curse_Torment": {"NAME": "Torment"},
-								"conjurer:Curse_Wither": {"NAME": "Wither"},
-								"conjurer:Curse_Writhe": {"NAME": "Writhe"}
+								"conjurer:Curse_Wither": {"NAME": "Wither"}
 				},
 				"SERIES:GENSHIN":
 				{
@@ -334,15 +322,9 @@
 								"conjurer:Electrocution": {"NAME": "Electrocution"},
 								"conjurer:ElectromagneticWave": {"NAME": "Electromagnetic Wave"},
 								"conjurer:LexAeterna": {"NAME": "Lex Aeterna"},
-								"conjurer:Insight": {
-												"NAME": "Insight"
-								},
 								"conjurer:IonizingSurge": {"NAME": "Ionizing Surge"},
 								"conjurer:JAX": {
 												"NAME": "J.A.X."
-								},
-								"conjurer:Miracle": {
-												"NAME": "Miracle"
 								},
 								"conjurer:NobleSky": {"NAME": "Noble Sky"},
 								"conjurer:RitualDagger": {
@@ -352,11 +334,6 @@
 								"conjurer:VoltageAmplification": {"NAME": "Voltage Amplification"}
 				},
 				"STATUS":	{
-								"conjurer:Status_Burn": {"NAME": "Burn"},
-								"conjurer:Status_Dazed": {"NAME": "Dazed"},
-								"conjurer:Status_SearingBurn": {"NAME": "Searing Burn"},
-								"conjurer:Status_Slimed": {"NAME": "Slimed"},
-								"conjurer:Status_Wound": {"NAME": "Wound"},
-								"conjurer:Status_Void": {"NAME": "Void"}
+								"conjurer:Status_SearingBurn": {"NAME": "Searing Burn"}
 				}
 }

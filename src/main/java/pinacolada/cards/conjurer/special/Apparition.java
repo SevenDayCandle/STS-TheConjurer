@@ -22,7 +22,7 @@ public class Apparition extends PCLCard
             .setAffinities(PCLAffinity.Purple)
             .setTags(PCLCardTag.Exhaust, PCLCardTag.Ethereal)
             .setCostUpgrades(-1)
-            .setColorless();
+            .setCore(true);
 
     public Apparition()
     {
