@@ -13,14 +13,12 @@ public class StrikeB extends PCLCard
     public static final PCLCardData DATA = register(StrikeB.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.BASIC)
             .setAffinities(PCLAffinity.Blue)
-            .setDamage(6, 3);
+            .setDamage(6, 3)
+            .setStrike();
 
     public StrikeB()
     {
         super(DATA);
-
-        this.tags.add(CardTags.STARTER_STRIKE);
-        this.tags.add(CardTags.STRIKE);
     }
 
     public void setup(Object input)

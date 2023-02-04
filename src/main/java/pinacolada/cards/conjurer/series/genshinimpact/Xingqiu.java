@@ -18,7 +18,7 @@ public class Xingqiu extends PCLCard
 {
     public static final PCLCardData DATA = register(Xingqiu.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Piercing)
-            .setDamage(3, 2)
+            .setDamage(2, 2)
             .setPriority(1)
             .setHp(5, 1)
             .setAffinities(PCLAffinity.Blue)
@@ -31,6 +31,6 @@ public class Xingqiu extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL).setChain(CMod.perElement(PCLCardTarget.Single, 1, PCLAffinity.Red), PTrait.damage(1));
+        addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL).setChain(CMod.perElement(PCLCardTarget.Single, 1, PCLAffinity.Red, PCLAffinity.Blue).setExtra(10), PTrait.damage(1));
     }
 }

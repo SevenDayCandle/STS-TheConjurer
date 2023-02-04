@@ -13,13 +13,12 @@ public class DefendG extends PCLCard
     public static final PCLCardData DATA = register(DefendG.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.BASIC, PCLCardTarget.Self)
             .setAffinities(PCLAffinity.Green)
-            .setBlock(5, 3);
+            .setBlock(5, 3)
+            .setDefend();
 
     public DefendG()
     {
         super(DATA);
-
-        this.tags.add(CardTags.STARTER_DEFEND);
     }
 
     public void setup(Object input)
