@@ -52,7 +52,7 @@ public class ConjurerElementButton extends EUIButton
 
     public ConjurerElementButton(ConjurerReactionMeter meter, PCLAffinity affinity, Texture texture, EUIHitbox hb)
     {
-        super(PGR.core.images.core.squareBG2.texture(), hb);
+        super(PGR.core.images.squareBG2.texture(), hb);
         this.meter = meter;
         this.affinity = affinity;
         reactionStrings = PGR.getPowerStrings(elementID());

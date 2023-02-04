@@ -30,7 +30,7 @@ public class ConjurerReactionButton extends EUIImage
 
     public ConjurerReactionButton(ConjurerElementButton target, ConjurerElementButton source, ConjurerElementButton.Type type)
     {
-        super(PGR.core.images.core.rightArrow.texture(), new EUIHitbox(0, 0, ICON_SIZE, ICON_SIZE));
+        super(PGR.core.images.rightArrow.texture(), new EUIHitbox(0, 0, ICON_SIZE, ICON_SIZE));
         this.target = target;
         this.source = source;
         this.baseType = this.type = type;
