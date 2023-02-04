@@ -6,7 +6,7 @@ import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.effects.AttackEffects;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CMove;
@@ -31,7 +31,7 @@ public class LisaMinci extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.ICE);
+        addDamageMove(PCLAttackVFX.ICE);
         addUseMove(PCond.cooldown(1), PMod.scryPer(2), CMove.gainReaction(5).setUpgrade(1));
     }
 }

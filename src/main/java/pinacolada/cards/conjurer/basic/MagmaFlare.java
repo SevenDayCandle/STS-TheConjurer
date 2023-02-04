@@ -7,7 +7,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.effects.AttackEffects;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
@@ -28,7 +28,7 @@ public class MagmaFlare extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.SMALL_EXPLOSION);
+        addDamageMove(PCLAttackVFX.SMALL_EXPLOSION);
         addUseMove(PMove.applyToEnemies(2, PCLElementHelper.Ignis).setUpgrade(1));
     }
 }

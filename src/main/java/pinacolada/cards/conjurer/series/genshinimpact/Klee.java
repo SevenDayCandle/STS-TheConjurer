@@ -7,7 +7,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.effects.AttackEffects;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -31,7 +31,7 @@ public class Klee extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.SMALL_EXPLOSION);
+        addDamageMove(PCLAttackVFX.SMALL_EXPLOSION);
         addUseMove(PCond.cooldown(2).setUpgrade(-1), PMove.obtainDrawPile(1, Klee_JumpyDumpty.DATA));
     }
 }

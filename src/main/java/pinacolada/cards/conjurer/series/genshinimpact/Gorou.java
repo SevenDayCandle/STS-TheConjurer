@@ -2,11 +2,11 @@ package pinacolada.cards.conjurer.series.genshinimpact;
 
 
 import pinacolada.annotations.VisibleCard;
-import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.effects.AttackEffects;
+import pinacolada.cards.base.fields.PCLAttackType;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -31,7 +31,7 @@ public class Gorou extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.BLUNT_LIGHT);
+        addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
         addUseMove(PCond.cooldown(0), PMove.applyToSingle(2, PCLElementHelper.Petra));
     }
 }

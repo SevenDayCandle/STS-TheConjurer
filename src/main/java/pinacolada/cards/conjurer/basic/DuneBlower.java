@@ -2,11 +2,11 @@ package pinacolada.cards.conjurer.basic;
 
 
 import pinacolada.annotations.VisibleCard;
-import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.effects.AttackEffects;
+import pinacolada.cards.base.fields.PCLAttackType;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMod;
@@ -28,7 +28,7 @@ public class DuneBlower extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.SLASH_HORIZONTAL);
+        addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL);
         addUseMove(PMod.discardPer(2), PMove.applyToSingle(2, PCLElementHelper.Aer, PCLElementHelper.Petra));
     }
 }

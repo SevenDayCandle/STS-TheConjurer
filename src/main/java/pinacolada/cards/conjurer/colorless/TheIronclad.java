@@ -11,7 +11,7 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardSelection;
-import pinacolada.effects.AttackEffects;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.misc.PCLUseInfo;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -37,7 +37,7 @@ public class TheIronclad extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.SLASH_HEAVY);
+        addDamageMove(PCLAttackVFX.SLASH_HEAVY);
         addGainPower(PTrigger.interactable(PCond.payEnergy(2), getSpecialMove(0, this::specialMove, 1, 3)));
     }
 

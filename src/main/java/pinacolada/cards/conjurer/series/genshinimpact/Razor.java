@@ -5,7 +5,7 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.effects.AttackEffects;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -30,7 +30,7 @@ public class Razor extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.BLUNT_LIGHT);
+        addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
         addUseMove(PCond.cooldown(1), PMove.applyToSingle(1, PCLPowerHelper.Vulnerable).setUpgrade(1));
     }
 }

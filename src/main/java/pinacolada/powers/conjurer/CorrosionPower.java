@@ -5,8 +5,8 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import pinacolada.actions.PCLActions;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.effects.AttackEffects;
 import pinacolada.effects.SFX;
+import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.utilities.GameUtilities;
 
@@ -30,7 +30,7 @@ public class CorrosionPower extends AbstractPCLElementalPower
     @Override
     public AbstractGameAction.AttackEffect getAttackEffect()
     {
-        return AttackEffects.DARK;
+        return PCLEnum.AttackEffect.GHOST;
     }
 
     @Override
@@ -43,7 +43,7 @@ public class CorrosionPower extends AbstractPCLElementalPower
     {
         if (info.output > 0 && target != this.owner && info.type == DamageInfo.DamageType.NORMAL)
         {
-            PCLActions.bottom.dealDamage(owner, owner, (int) calculateDamage(info, getIntensifyMultiplier()), DamageInfo.DamageType.THORNS, AttackEffects.DARK);
+            PCLActions.bottom.dealDamage(owner, owner, (int) calculateDamage(info, getIntensifyMultiplier()), DamageInfo.DamageType.THORNS, getAttackEffect());
             this.flash();
         }
     }

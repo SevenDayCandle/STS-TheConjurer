@@ -1,13 +1,13 @@
 package pinacolada.cards.conjurer.series.shinmegamitensei;
 
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.effects.AttackEffects;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -32,7 +32,7 @@ public class Adramelech extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.FIRE);
+        addDamageMove(AbstractGameAction.AttackEffect.FIRE);
         addUseMove(PCond.cooldown(0), PMove.applyToRandom(3, PCLElementHelper.Ignis, PCLElementHelper.Aer, PCLElementHelper.Petra).edit(f -> f.setRandom(true)));
     }
 }

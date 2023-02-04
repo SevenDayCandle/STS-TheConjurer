@@ -1,13 +1,13 @@
 package pinacolada.cards.conjurer.series.shinmegamitensei;
 
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.conjurer.basic.Overheat;
-import pinacolada.effects.AttackEffects;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
@@ -32,7 +32,7 @@ public class Baphomet extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.FIRE);
+        addDamageMove(AbstractGameAction.AttackEffect.FIRE);
         addGainPower(PTrigger.interactable(
                 CCond.payReaction(11).setUpgrade(-1),
                 PMove.obtain(1, Overheat.DATA), PMove.modifyCost(1, -1).useParent(true))

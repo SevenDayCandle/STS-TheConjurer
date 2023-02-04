@@ -4,9 +4,9 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import pinacolada.actions.PCLActions;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.effects.AttackEffects;
 import pinacolada.effects.SFX;
 import pinacolada.misc.AffinityReactions;
+import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 
 public class GelusPower extends AbstractPCLElementalPower
@@ -28,7 +28,7 @@ public class GelusPower extends AbstractPCLElementalPower
     @Override
     public AbstractGameAction.AttackEffect getAttackEffect()
     {
-        return AttackEffects.ICE;
+        return PCLEnum.AttackEffect.ICE;
     }
 
     @Override

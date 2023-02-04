@@ -10,7 +10,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.PCLCardGroupHelper;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.effects.AttackEffects;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.misc.CombatManager;
 import pinacolada.misc.PCLUseInfo;
 import pinacolada.powers.PCLPowerHelper;
@@ -43,7 +43,7 @@ public class Geralt extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.SLASH_HEAVY);
+        addDamageMove(PCLAttackVFX.SLASH_HEAVY);
         addGainPower(PTrigger.interactable(-1, new GeraltCond(DATA, 1, 4)));
     }
 

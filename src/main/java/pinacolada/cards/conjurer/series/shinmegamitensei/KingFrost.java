@@ -6,7 +6,7 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
-import pinacolada.effects.AttackEffects;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
@@ -31,7 +31,7 @@ public class KingFrost extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.ICE);
+        addDamageMove(PCLAttackVFX.ICE);
         addGainPower(PTrigger.interactable(
                 CCond.payReaction(8).setUpgrade(-1),
                 PMove.obtain(1, JackFrost.DATA))

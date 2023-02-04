@@ -7,7 +7,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.effects.AttackEffects;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CMod;
@@ -31,6 +31,6 @@ public class Xingqiu extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.SLASH_HORIZONTAL).setChain(CMod.perElement(PCLCardTarget.Single, 1, PCLAffinity.Red), PTrait.damage(1));
+        addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL).setChain(CMod.perElement(PCLCardTarget.Single, 1, PCLAffinity.Red), PTrait.damage(1));
     }
 }

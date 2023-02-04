@@ -8,7 +8,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
-import pinacolada.effects.AttackEffects;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -31,7 +31,7 @@ public class Klee_JumpyDumpty extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.SMALL_EXPLOSION);
+        addDamageMove(PCLAttackVFX.SMALL_EXPLOSION);
         addUseMove(PMove.applyToEveryone(3, PCLElementHelper.Ignis));
     }
 }

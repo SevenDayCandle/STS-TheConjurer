@@ -1,13 +1,13 @@
 package pinacolada.cards.conjurer.series.shinmegamitensei;
 
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.effects.AttackEffects;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -33,7 +33,7 @@ public class Dagda extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.BLUNT_HEAVY);
+        addDamageMove(AbstractGameAction.AttackEffect.BLUNT_HEAVY);
         addGainPower(PTrigger.interactable(
                 CCond.payReaction(6),
                 PMove.stabilize(PCLCardTarget.AllEnemy, PCLElementHelper.Petra))

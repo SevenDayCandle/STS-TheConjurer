@@ -7,13 +7,12 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.effects.AttackEffects;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMod;
 import pinacolada.skills.PTrait;
-
 @VisibleCard
 public class Tartaglia extends PCLCard
 {
@@ -32,6 +31,6 @@ public class Tartaglia extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.SLASH_HORIZONTAL).setChain(PMod.perCreatureWith(1, PCLElementHelper.Ignis), PTrait.damage(1));
+        addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL).setChain(PMod.perCreatureWith(1, PCLElementHelper.Ignis), PTrait.damage(1));
     }
 }

@@ -6,7 +6,7 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.effects.AttackEffects;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -32,7 +32,7 @@ public class RyujiSakamoto_CaptainKidd extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.BLUNT_LIGHT);
+        addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
         addUseMove(PCond.cooldown(0), PMove.applyToEnemies(2, PCLPowerHelper.Vulnerable, PCLPowerHelper.Weak), new PMove_ExhaustAlly(PCLCardTarget.Self, 1));
     }
 }

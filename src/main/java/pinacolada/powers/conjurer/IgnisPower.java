@@ -6,10 +6,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import pinacolada.actions.PCLActions;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.effects.AttackEffects;
 import pinacolada.effects.SFX;
 import pinacolada.misc.AffinityReactions;
 import pinacolada.powers.PCLPowerHelper;
+import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 
 public class IgnisPower extends AbstractPCLElementalPower
@@ -31,7 +31,7 @@ public class IgnisPower extends AbstractPCLElementalPower
     @Override
     public AbstractGameAction.AttackEffect getAttackEffect()
     {
-        return AttackEffects.BURN;
+        return PCLEnum.AttackEffect.BURN;
     }
 
     @Override

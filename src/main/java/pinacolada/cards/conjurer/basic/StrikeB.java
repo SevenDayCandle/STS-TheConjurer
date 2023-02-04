@@ -4,7 +4,7 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.effects.AttackEffects;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerResources;
 
 @VisibleCard
@@ -25,6 +25,6 @@ public class StrikeB extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.SLASH_DIAGONAL);
+        addDamageMove(PCLAttackVFX.SLASH_DIAGONAL);
     }
 }

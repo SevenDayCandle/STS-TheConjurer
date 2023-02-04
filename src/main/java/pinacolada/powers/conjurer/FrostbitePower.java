@@ -5,7 +5,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.HealthBarRenderPower;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import pinacolada.actions.PCLActions;
-import pinacolada.effects.AttackEffects;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.effects.SFX;
 import pinacolada.powers.PCLPower;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -46,7 +46,7 @@ public class FrostbitePower extends PCLPower implements HealthBarRenderPower
     {
         this.flashWithoutSound();
 
-        PCLActions.bottom.loseHP(source, owner, amount, AttackEffects.ICE)
+        PCLActions.bottom.loseHP(source, owner, amount, PCLAttackVFX.ICE)
                 .canKill(owner == null || !owner.isPlayer);
         reducePower(MathUtils.ceil(amount / 2f));
         if (amount <= 0)

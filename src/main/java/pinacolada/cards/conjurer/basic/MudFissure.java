@@ -6,7 +6,7 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.effects.AttackEffects;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PTrait;
@@ -27,6 +27,6 @@ public class MudFissure extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.CLAW).setChain(PCond.checkPower(PCLCardTarget.Single, 1).edit(f -> f.setDebuff(true)), PTrait.damageMultiplier(100).setUpgrade(50));
+        addDamageMove(PCLAttackVFX.EARTH).setChain(PCond.checkPower(PCLCardTarget.Single, 1).edit(f -> f.setDebuff(true)), PTrait.damageMultiplier(100).setUpgrade(50));
     }
 }

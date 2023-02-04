@@ -7,7 +7,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.effects.AttackEffects;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -33,7 +33,7 @@ public class YusukeKitagawa_Goemon extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.BLUNT_LIGHT);
+        addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
         addUseMove(PCond.cooldown(0), PMove.applyToEnemies(6, PCLElementHelper.Gelus), new PMove_ExhaustAlly(PCLCardTarget.Self, 1));
     }
 }

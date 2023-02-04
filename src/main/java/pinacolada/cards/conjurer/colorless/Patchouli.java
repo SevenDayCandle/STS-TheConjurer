@@ -6,7 +6,7 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
-import pinacolada.effects.AttackEffects;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.misc.PCLUseInfo;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.powers.conjurer.PCLElementHelper;
@@ -40,7 +40,7 @@ public class Patchouli extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.ELECTRIC);
+        addDamageMove(PCLAttackVFX.ELECTRIC);
         addUseMove(PCond.cooldown(2), new PatchouliCond(DATA, 2, 4).setUpgrade(1).setUpgradeExtra(1));
     }
 

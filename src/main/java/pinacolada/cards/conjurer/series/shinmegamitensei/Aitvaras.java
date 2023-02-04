@@ -6,7 +6,7 @@ import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.effects.AttackEffects;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -32,7 +32,7 @@ public class Aitvaras extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.CLAW);
+        addDamageMove(PCLAttackVFX.CLAW);
         addUseMove(PCond.cooldown(1), CMod.perReaction(3).setExtra(10, 2), PMove.applyToSingle(1, PCLElementHelper.Ignis));
     }
 }

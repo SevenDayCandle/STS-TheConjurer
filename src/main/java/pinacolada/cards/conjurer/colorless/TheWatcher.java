@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.colorless;
 
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
@@ -11,7 +12,6 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardSelection;
-import pinacolada.effects.AttackEffects;
 import pinacolada.misc.PCLUseInfo;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -37,7 +37,7 @@ public class TheWatcher extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.BLUNT_HEAVY);
+        addDamageMove(AbstractGameAction.AttackEffect.BLUNT_HEAVY);
         addGainPower(PTrigger.interactable(PCond.payEnergy(2), getSpecialMove(0, this::specialMove, 1, 3)));
     }
 

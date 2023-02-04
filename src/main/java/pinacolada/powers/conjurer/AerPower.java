@@ -6,9 +6,9 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import pinacolada.actions.PCLActions;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.effects.AttackEffects;
 import pinacolada.effects.SFX;
 import pinacolada.misc.AffinityReactions;
+import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.utilities.GameUtilities;
 
@@ -31,7 +31,7 @@ public class AerPower extends AbstractPCLElementalPower
     @Override
     public AbstractGameAction.AttackEffect getAttackEffect()
     {
-        return AttackEffects.WIND;
+        return PCLEnum.AttackEffect.WIND;
     }
 
     @Override
@@ -45,13 +45,13 @@ public class AerPower extends AbstractPCLElementalPower
     {
         if (GameUtilities.isPlayer(owner))
         {
-            PCLActions.bottom.dealDamage(owner, owner, (int) calculateValue(amount, getIntensifyMultiplier()), DamageInfo.DamageType.THORNS, AttackEffects.WIND);
+            PCLActions.bottom.dealDamage(owner, owner, (int) calculateValue(amount, getIntensifyMultiplier()), DamageInfo.DamageType.THORNS, getAttackEffect());
         }
         else
         {
             for (AbstractMonster enemy : GameUtilities.getEnemies(true))
             {
-                PCLActions.bottom.dealDamage(owner, enemy, (int) calculateValue(amount, getIntensifyMultiplier()), DamageInfo.DamageType.THORNS, AttackEffects.WIND);
+                PCLActions.bottom.dealDamage(owner, enemy, (int) calculateValue(amount, getIntensifyMultiplier()), DamageInfo.DamageType.THORNS, getAttackEffect());
             }
         }
         super.onReact(source, reactions, amount);

@@ -6,7 +6,7 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
-import pinacolada.effects.AttackEffects;
+import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
@@ -32,10 +32,10 @@ public class Amon extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.BLUNT_HEAVY);
+        addDamageMove(PCLEnum.AttackEffect.CLAW);
         addGainPower(PTrigger.interactable(
                 CCond.payReaction(9),
-                PMod.bonusPerLevel(5, PCLAffinity.Red).setUpgrade(1), PMove.dealDamage(5, AttackEffects.CLAW).setUpgrade(1)
+                PMod.bonusPerLevel(5, PCLAffinity.Red).setUpgrade(1), PMove.dealDamage(5, PCLEnum.AttackEffect.CLAW).setUpgrade(1)
         ));
     }
 }

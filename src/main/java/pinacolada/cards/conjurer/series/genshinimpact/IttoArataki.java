@@ -1,12 +1,12 @@
 package pinacolada.cards.conjurer.series.genshinimpact;
 
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.effects.AttackEffects;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -31,6 +31,6 @@ public class IttoArataki extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.BLUNT_HEAVY).setChain(PCond.block(PCLCardTarget.Single, 1), PMod.perLevel(1, PCLAffinity.Orange), PTrait.damage(2));
+        addDamageMove(AbstractGameAction.AttackEffect.BLUNT_HEAVY).setChain(PCond.block(PCLCardTarget.Single, 1), PMod.perLevel(1, PCLAffinity.Orange), PTrait.damage(2));
     }
 }

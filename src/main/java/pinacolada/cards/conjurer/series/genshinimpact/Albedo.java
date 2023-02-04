@@ -7,7 +7,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.effects.AttackEffects;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -33,7 +33,7 @@ public class Albedo extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.EARTH);
+        addDamageMove(PCLAttackVFX.EARTH);
         addUseMove(PCond.cooldown(2), PMultiSkill.choose(
                 PMove.applyToEnemies(6, PCLElementHelper.Petra),
                 PMove.stabilize(PCLCardTarget.AllEnemy, PCLElementHelper.Gelus)

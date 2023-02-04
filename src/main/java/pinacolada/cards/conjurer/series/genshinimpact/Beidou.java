@@ -6,7 +6,7 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.effects.AttackEffects;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -31,7 +31,7 @@ public class Beidou extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.SLASH_HEAVY);
+        addDamageMove(PCLAttackVFX.SLASH_HEAVY);
         addUseMove(PCond.cooldown(2), PMultiSkill.join(PMove.dealDamageToAll(3), PMove.gainBlock(PCLCardTarget.Team, 5)));
     }
 }

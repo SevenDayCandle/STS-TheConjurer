@@ -5,7 +5,7 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.effects.AttackEffects;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -31,7 +31,7 @@ public class ShikiOuji extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.SLASH_HEAVY);
+        addDamageMove(PCLAttackVFX.SLASH_HEAVY);
         addUseMove(PMultiCond.or(PCond.onSummon(), PCond.onWithdraw()), PMove.applyToAllies( 2, PCLPowerHelper.Thorns).setUpgrade(1));
     }
 }

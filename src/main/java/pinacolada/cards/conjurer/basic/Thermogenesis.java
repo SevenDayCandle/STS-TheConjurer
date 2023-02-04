@@ -1,13 +1,13 @@
 package pinacolada.cards.conjurer.basic;
 
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.effects.AttackEffects;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -29,7 +29,7 @@ public class Thermogenesis extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.FIRE);
+        addDamageMove(AbstractGameAction.AttackEffect.FIRE);
         addUseMove(PCond.onDraw(), PMove.applyToRandom(2, PCLElementHelper.Ignis));
     }
 }

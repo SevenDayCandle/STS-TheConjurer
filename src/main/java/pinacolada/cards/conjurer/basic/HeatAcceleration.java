@@ -1,12 +1,12 @@
 package pinacolada.cards.conjurer.basic;
 
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.effects.AttackEffects;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
@@ -27,7 +27,7 @@ public class HeatAcceleration extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.FIRE);
+        addDamageMove(AbstractGameAction.AttackEffect.FIRE);
         addUseMove(PMove.gain(2, PCLPowerHelper.NextTurnDraw).setUpgrade(1));
         addUseMove(PMove.triggerAlly(PCLCardTarget.RandomAlly, 1));
     }

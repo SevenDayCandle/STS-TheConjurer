@@ -1,11 +1,12 @@
 package pinacolada.cards.conjurer.series.genshinimpact;
 
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.effects.AttackEffects;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -30,7 +31,7 @@ public class Diluc extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.SLASH_HEAVY);
-        addUseMove(PCond.cooldown(2), PMod.bonusPerLevel(3, PCLAffinity.Red), PMove.dealDamageToAll(5, AttackEffects.FIRE));
+        addDamageMove(PCLAttackVFX.SLASH_HEAVY);
+        addUseMove(PCond.cooldown(2), PMod.bonusPerLevel(3, PCLAffinity.Red), PMove.dealDamageToAll(5, AbstractGameAction.AttackEffect.FIRE));
     }
 }

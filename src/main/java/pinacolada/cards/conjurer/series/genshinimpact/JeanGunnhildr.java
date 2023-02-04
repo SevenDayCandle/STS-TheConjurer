@@ -5,7 +5,7 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.effects.AttackEffects;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -30,7 +30,7 @@ public class JeanGunnhildr extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.SLASH_HORIZONTAL);
+        addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL);
         addUseMove(PCond.cooldown(1), PMove.applyToTeam(-1, PCLPowerHelper.Vulnerable, PCLPowerHelper.Frail));
     }
 }

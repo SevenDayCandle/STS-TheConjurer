@@ -5,7 +5,7 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.effects.AttackEffects;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
@@ -31,7 +31,7 @@ public class Thoma extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.SLASH_VERTICAL);
+        addDamageMove(PCLAttackVFX.SLASH_VERTICAL);
         addUseMove(PCond.onWithdraw(), PMove.applyToEnemies(2, PCLElementHelper.Ignis, PCLPowerHelper.Weak).setUpgrade(1));
     }
 }

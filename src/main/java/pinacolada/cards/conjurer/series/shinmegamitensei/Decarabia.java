@@ -1,12 +1,12 @@
 package pinacolada.cards.conjurer.series.shinmegamitensei;
 
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.PCLCardGroupHelper;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.effects.AttackEffects;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
@@ -31,7 +31,7 @@ public class Decarabia extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.FIRE);
+        addDamageMove(AbstractGameAction.AttackEffect.FIRE);
         addGainPower(PTrigger.interactable(
                 CCond.payReaction(11).setUpgrade(-2),
                 PMove.modifyAffinity(1, 1, PCLAffinity.Blue).edit(f -> f.setCardGroup(PCLCardGroupHelper.Hand))

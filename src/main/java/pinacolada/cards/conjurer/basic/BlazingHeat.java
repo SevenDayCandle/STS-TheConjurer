@@ -8,7 +8,7 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.effects.AttackEffects;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.effects.vfx.ScreenOnFireEffect3;
 import pinacolada.misc.PCLUseInfo;
 import pinacolada.powers.PSpecialCardPower;
@@ -58,7 +58,7 @@ public class BlazingHeat extends PCLCard
                 IgnisPower po = GameUtilities.getPower(mo, IgnisPower.class);
                 if (po != null)
                 {
-                    PCLActions.bottom.dealDamage(owner, mo, po.amount * move.amount, DamageInfo.DamageType.HP_LOSS, AttackEffects.BURN);
+                    PCLActions.bottom.dealDamage(owner, mo, po.amount * move.amount, DamageInfo.DamageType.HP_LOSS, PCLAttackVFX.BURN);
                 }
             }
         }

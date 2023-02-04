@@ -7,7 +7,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.effects.AttackEffects;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -29,7 +29,7 @@ public class ArcticTide extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.WATER);
+        addDamageMove(PCLAttackVFX.WATER);
         addUseMove(PMove.applyToEnemies(2, PCLElementHelper.Gelus, PCLPowerHelper.Vulnerable));
     }
 }

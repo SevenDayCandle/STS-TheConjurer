@@ -5,7 +5,7 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.effects.AttackEffects;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CMod;
 import pinacolada.skills.PMove;
@@ -26,7 +26,7 @@ public class TurbineBlade extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.SLASH_HORIZONTAL);
+        addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL);
         addUseMove(CMod.bonusOnRedox(1), PMove.draw(2).edit(f -> f.setAffinity(PCLAffinity.Green)));
     }
 }

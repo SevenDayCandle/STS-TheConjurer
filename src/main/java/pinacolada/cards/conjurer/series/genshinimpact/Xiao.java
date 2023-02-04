@@ -9,7 +9,7 @@ import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.cards.pcl.curse.Curse_Decay;
-import pinacolada.effects.AttackEffects;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -36,7 +36,7 @@ public class Xiao extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.POISON);
+        addDamageMove(PCLAttackVFX.POISON);
         addUseMove(PCond.cooldown(1), PMultiSkill.join(PMove.obtainDrawPile(1, Curse_Decay.DATA), PMove.applyToEnemies(6, PCLPowerHelper.Poison)));
     }
 }

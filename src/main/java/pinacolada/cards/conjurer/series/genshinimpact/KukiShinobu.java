@@ -7,7 +7,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.effects.AttackEffects;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -32,7 +32,7 @@ public class KukiShinobu extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.DAGGER);
+        addDamageMove(PCLAttackVFX.DAGGER);
         addUseMove(PCond.cooldown(0), PMove.discardRandom(1), PMove.applyToRandom(5, PCLPowerHelper.Poison).setUpgrade(2));
     }
 }

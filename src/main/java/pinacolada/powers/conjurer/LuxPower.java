@@ -4,10 +4,10 @@ import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.effects.AttackEffects;
 import pinacolada.effects.SFX;
 import pinacolada.interfaces.subscribers.OnTryElementReactSubscriber;
 import pinacolada.misc.CombatManager;
+import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 
 public class LuxPower extends AbstractPCLElementalPower implements OnTryElementReactSubscriber
@@ -29,7 +29,7 @@ public class LuxPower extends AbstractPCLElementalPower implements OnTryElementR
     @Override
     public AbstractGameAction.AttackEffect getAttackEffect()
     {
-        return AttackEffects.ELECTRIC;
+        return PCLEnum.AttackEffect.ELECTRIC;
     }
 
     @Override

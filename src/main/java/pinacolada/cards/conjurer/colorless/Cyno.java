@@ -9,7 +9,7 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.effects.AttackEffects;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.interfaces.subscribers.OnAllyDeathSubscriber;
 import pinacolada.interfaces.subscribers.OnMonsterDeathSubscriber;
 import pinacolada.monsters.PCLCardAlly;
@@ -37,7 +37,7 @@ public class Cyno extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.SLASH_HEAVY);
+        addDamageMove(PCLAttackVFX.SLASH_HEAVY);
         addSpecialPower(0, (s, i) -> new CynoPower(i.source, s), 3, 1).setUpgrade(1);
     }
 

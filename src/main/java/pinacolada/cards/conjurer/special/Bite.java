@@ -6,7 +6,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.effects.AttackEffects;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 
@@ -26,7 +26,7 @@ public class Bite extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.BITE);
+        addDamageMove(PCLAttackVFX.BITE);
         addUseMove(PMove.gainTempHP(4));
     }
 }

@@ -5,7 +5,7 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.effects.AttackEffects;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -31,7 +31,7 @@ public class Chongyun extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.ICE);
+        addDamageMove(PCLAttackVFX.ICE);
         addUseMove(PCond.cooldown(1), PMod.bonusPerLevel(2, PCLAffinity.Blue), PMove.applyToSingle(3, PCLElementHelper.Gelus));
     }
 }

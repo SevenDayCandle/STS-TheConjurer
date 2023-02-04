@@ -9,7 +9,6 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
-import pinacolada.effects.AttackEffects;
 import pinacolada.effects.EffekseerEFK;
 import pinacolada.misc.PCLUseInfo;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -24,6 +23,7 @@ public class Melt extends PCLCard
             .setAttack(1, CardRarity.RARE, PCLAttackType.Magical)
             .setDamage(8, 1)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
+            .setMaxCopies(2)
             .setCore();
 
     public Melt()
@@ -33,7 +33,7 @@ public class Melt extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AttackEffects.NONE).setDamageEffect(EffekseerEFK.FIRE07);
+        addDamageMove().setDamageEffect(EffekseerEFK.FIRE07);
         addUseMove(CCond.combust(),
                 getSpecialMove(0, this::specialMove, 25).setUpgrade(8),
                 PMove.selfExhaust());
