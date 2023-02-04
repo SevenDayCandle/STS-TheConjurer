@@ -88,6 +88,7 @@
 								"conjurer:Aloy": {"NAME": "Aloy"},
 								"conjurer:AtomicDisplacement": {"EXTENDED_DESCRIPTION": ["Exchange your Debuffs with the target. Gain {0} [THP] per new Debuff gained"], "NAME": "Atomic Displacement"},
 								"conjurer:Clownpiece": {"EXTENDED_DESCRIPTION": ["If any of them was an Attack, ALL enemies gain [Provoked]"], "NAME": "Clownpiece"},
+								"conjurer:Crystallize": {"NAME": "Crystallize"},
 								"conjurer:DiamondDazzle": {"EXTENDED_DESCRIPTION": ["+{0} damage per Augment on any card in hand", "While in your deck, you have a higher chance of finding Augments"], "NAME": "Diamond Dazzle"},
 								"conjurer:Discovery": {"EXTENDED_DESCRIPTION": ["Obtain {0} of {1} cards that you haven't unlocked yet. It costs 0 this turn"], "NAME": "Discovery"},
 								"conjurer:Enervate": {"EXTENDED_DESCRIPTION": ["Lower the target's [Strength] by {0}. Then, if it is positive, cut it in half"], "NAME": "Enervate"},
