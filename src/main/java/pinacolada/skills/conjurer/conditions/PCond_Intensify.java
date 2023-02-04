@@ -41,7 +41,7 @@ public class PCond_Intensify extends PPassiveCond<PField_Affinity> implements On
     @Override
     public String getSubText()
     {
-        return TEXT.conditions.wheneverYou(fields.affinities.isEmpty() ? PGR.core.tooltips.level.title : EUIRM.strings.verbNoun(PGR.core.tooltips.level.title, fields.getAffinityLevelOrString()));
+        return TEXT.cond_wheneverYou(fields.affinities.isEmpty() ? PGR.core.tooltips.level.title : EUIRM.strings.verbNoun(PGR.core.tooltips.level.title, fields.getAffinityLevelOrString()));
     }
 
     @Override

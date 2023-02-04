@@ -65,9 +65,9 @@ public class PCond_Redox extends PPassiveCond<PField_Affinity> implements OnElem
     {
         if (hasParentType(PTrigger.class))
         {
-            return TEXT.conditions.wheneverYou(fields.affinities.isEmpty() ? ConjurerResources.conjurer.tooltips.redox.title : EUIRM.strings.verbNoun(ConjurerResources.conjurer.tooltips.redox.title, fields.getAffinityLevelOrString()));
+            return TEXT.cond_wheneverYou(fields.affinities.isEmpty() ? ConjurerResources.conjurer.tooltips.redox.title : EUIRM.strings.verbNoun(ConjurerResources.conjurer.tooltips.redox.title, fields.getAffinityLevelOrString()));
         }
         String base = fields.affinities.isEmpty() ? ConjurerResources.conjurer.tooltips.redox.title : EUIRM.strings.adjNoun(fields.getAffinityLevelOrString(), ConjurerResources.conjurer.tooltips.redox.title);
-        return fields.random ? TEXT.conditions.not(base) : base;
+        return fields.random ? TEXT.cond_not(base) : base;
     }
 }

@@ -94,8 +94,8 @@ public class ConjurerReactionButton extends EUIImage
         {
             tooltip.setIcon(target.elementPower().tooltip.icon);
             tooltip.setDescription(type == ConjurerElementButton.Type.Combust ?
-                    EUIUtils.format(PGR.core.strings.combat.conjurerMeterCombust, source.affinity.getTooltip(), target.elementPower().tooltip, PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(source.affinity))) :
-                    EUIUtils.format(PGR.core.strings.combat.conjurerMeterRedox, source.affinity.getTooltip(), target.elementPower().tooltip, PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(source.affinity))));
+                    EUIUtils.format(PGR.core.strings.combat_conjurerMeterCombust, source.affinity.getTooltip(), target.elementPower().tooltip, PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(source.affinity))) :
+                    EUIUtils.format(PGR.core.strings.combat_conjurerMeterRedox, source.affinity.getTooltip(), target.elementPower().tooltip, PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(source.affinity))));
         }
     }
 

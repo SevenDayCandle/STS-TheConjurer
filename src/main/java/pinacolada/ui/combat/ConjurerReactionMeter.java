@@ -207,13 +207,13 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
     @Override
     public String[] getInfoDescription()
     {
-        return array(PGR.core.strings.tutorial.affinityTutorial, PGR.core.strings.tutorial.conjurerTutorial1, PGR.core.strings.tutorial.conjurerTutorial2, PGR.core.strings.tutorial.conjurerTutorial3);
+        return array(PGR.core.strings.tutorial_affinityTutorial, PGR.core.strings.tutorial_conjurerTutorial1, PGR.core.strings.tutorial_conjurerTutorial2, PGR.core.strings.tutorial_conjurerTutorial3);
     }
 
     @Override
     public String getInfoMainDescrption()
     {
-        return PGR.core.strings.tutorial.conjurerSimple;
+        return PGR.core.strings.tutorial_conjurerSimple;
     }
 
     @Override
@@ -366,8 +366,8 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
             chargeTooltip.setDescription(
                     EUIUtils.joinStrings(EUIUtils.SPLIT_LINE,
                             ConjurerResources.conjurer.tooltips.charge.descriptions.get(0),
-                            PCLCoreStrings.leftClick(PSkill.capital(PGR.core.strings.actions.applyAmount(1, helper.getTitleOrIcon()), true)),
-                            PCLCoreStrings.rightClick(PSkill.capital(PGR.core.strings.actions.applyAmount(skips.getCurrentUses(), helper.getTitleOrIcon()), true))));
+                            PCLCoreStrings.leftClick(PSkill.capital(PGR.core.strings.act_applyAmount(1, helper.getTitleOrIcon()), true)),
+                            PCLCoreStrings.rightClick(PSkill.capital(PGR.core.strings.act_applyAmount(skips.getCurrentUses(), helper.getTitleOrIcon()), true))));
         }
     }
 

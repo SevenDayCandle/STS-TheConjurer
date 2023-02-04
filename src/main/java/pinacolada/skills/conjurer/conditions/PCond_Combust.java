@@ -64,9 +64,9 @@ public class PCond_Combust extends PPassiveCond<PField_Affinity> implements OnEl
     {
         if (hasParentType(PTrigger.class))
         {
-            return TEXT.conditions.wheneverYou(fields.affinities.isEmpty() ? ConjurerResources.conjurer.tooltips.combust.title : EUIRM.strings.verbNoun(ConjurerResources.conjurer.tooltips.combust.title, fields.getAffinityLevelOrString()));
+            return TEXT.cond_wheneverYou(fields.affinities.isEmpty() ? ConjurerResources.conjurer.tooltips.combust.title : EUIRM.strings.verbNoun(ConjurerResources.conjurer.tooltips.combust.title, fields.getAffinityLevelOrString()));
         }
         String base = fields.affinities.isEmpty() ? ConjurerResources.conjurer.tooltips.combust.title : EUIRM.strings.adjNoun(fields.getAffinityLevelOrString(), ConjurerResources.conjurer.tooltips.combust.title);
-        return fields.random ? TEXT.conditions.not(base) : base;
+        return fields.random ? TEXT.cond_not(base) : base;
     }
 }
