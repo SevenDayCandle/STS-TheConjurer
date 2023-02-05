@@ -19,7 +19,7 @@ public class Enervate extends PCLCard
     public static final PCLCardData DATA = register(Enervate.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON)
             .setTags(PCLCardTag.Exhaust)
-            .setAffinities(PCLAffinity.Purple)
+            .setAffinities(PCLAffinity.Blue)
             .setCore(true);
 
     public Enervate()
