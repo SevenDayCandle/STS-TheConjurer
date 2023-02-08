@@ -5,7 +5,6 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -16,7 +15,6 @@ public class PoisonSpore extends PCLCard
 {
     public static final PCLCardData DATA = register(PoisonSpore.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.COMMON)
-            .setTags(PCLCardTag.Exhaust)
             .setAffinities(1, PCLAffinity.Green, PCLAffinity.Orange)
             .setCore();
 
