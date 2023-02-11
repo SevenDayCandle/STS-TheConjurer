@@ -20,9 +20,9 @@ public class Cirno extends PCLCard
 {
     public static final PCLCardData DATA = register(Cirno.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Magical, PCLCardTarget.AllEnemy)
-            .setDamage(2, 0)
+            .setDamage(3, 0)
             .setPriority(1)
-            .setHp(3, 1)
+            .setHp(4, 1)
             .setAffinities(1, PCLAffinity.Blue)
             .setRTags(PCLCardTag.Ethereal)
             .setLoadout(ConjurerPlayerData.touhouProject, true);
@@ -35,6 +35,6 @@ public class Cirno extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.ICE);
-        addUseMove(PCond.cooldown(0), PMove.applyToEnemies(1, PCLPowerHelper.Weak, PCLPowerHelper.Shackles));
+        addUseMove(PCond.cooldown(1), PMove.applyToEnemies(1, PCLPowerHelper.Weak, PCLPowerHelper.Shackles));
     }
 }

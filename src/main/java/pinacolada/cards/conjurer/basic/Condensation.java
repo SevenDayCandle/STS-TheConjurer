@@ -16,7 +16,7 @@ public class Condensation extends PCLCard
 {
     public static final PCLCardData DATA = register(Condensation.class, ConjurerResources.conjurer)
             .setSkill(0, CardRarity.COMMON)
-            .setAffinities(PCLAffinity.Blue)
+            .setAffinities(PCLAffinity.Blue.make(1, 1))
             .setCore();
 
     public Condensation()
@@ -27,6 +27,6 @@ public class Condensation extends PCLCard
     public void setup(Object input)
     {
         addUseMove(PMove.applyToSingle(1, PCLElementHelper.Gelus, PCLPowerHelper.Weak));
-        addUseMove(PMove.triggerAlly(PCLCardTarget.SingleAlly, 2).setUpgrade(1));
+        addUseMove(PMove.triggerAlly(PCLCardTarget.SingleAlly, 2));
     }
 }

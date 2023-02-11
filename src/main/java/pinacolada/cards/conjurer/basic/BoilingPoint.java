@@ -5,18 +5,16 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.powers.PCLPowerHelper;
-import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
+import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
 public class BoilingPoint extends PCLCard
 {
     public static final PCLCardData DATA = register(BoilingPoint.class, ConjurerResources.conjurer)
-            .setSkill(1, CardRarity.COMMON)
-            .setBlock(6, 3)
+            .setPower(1, CardRarity.UNCOMMON)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
             .setCore();
 
@@ -27,7 +25,6 @@ public class BoilingPoint extends PCLCard
 
     public void setup(Object input)
     {
-        addBlockMove();
-        addUseMove(CCond.combust(), PMove.applyToSingle(2, PCLPowerHelper.Vulnerable, PCLElementHelper.Gelus));
+        addGainPower(PTrigger.when(CCond.combust(), PMove.gainBlock(2).setUpgrade(1)));
     }
 }

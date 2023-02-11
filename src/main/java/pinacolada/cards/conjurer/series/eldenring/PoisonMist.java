@@ -1,4 +1,4 @@
-package pinacolada.cards.conjurer.basic;
+package pinacolada.cards.conjurer.series.eldenring;
 
 
 import pinacolada.annotations.VisibleCard;
@@ -9,27 +9,28 @@ import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class FreezingMist extends PCLCard
+public class PoisonMist extends PCLCard
 {
-    public static final PCLCardData DATA = register(FreezingMist.class, ConjurerResources.conjurer)
+    public static final PCLCardData DATA = register(PoisonMist.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.AllEnemy)
             .setRTags(PCLCardTag.Ethereal)
-            .setAffinities(PCLAffinity.Blue, PCLAffinity.Green)
-            .setCore();
+            .setAffinities(PCLAffinity.Green)
+            .setLoadout(ConjurerPlayerData.eldenRing);
 
-    public FreezingMist()
+    public PoisonMist()
     {
         super(DATA);
     }
 
     public void setup(Object input)
     {
-        addUseMove(PMove.applyToEnemies(3, PCLElementHelper.Gelus, PCLPowerHelper.Weak));
+        addUseMove(PMove.applyToEnemies(4, PCLElementHelper.Aer, PCLPowerHelper.Poison));
         addUseMove(CCond.redox(), PMove.gain(1, PCLPowerHelper.Blur));
     }
 }

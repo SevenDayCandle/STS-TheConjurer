@@ -27,6 +27,8 @@ public class PCLElementHelper extends PCLPowerHelper implements TooltipProvider
     public static final PCLElementHelper Ignis = new PCLElementHelper(IgnisPower.POWER_ID, ConjurerResources.conjurer.tooltips.burned, IgnisPower::new, IgnisPower.AFFINITY);
     public static final PCLElementHelper Lux = new PCLElementHelper(LuxPower.POWER_ID, ConjurerResources.conjurer.tooltips.electrified, LuxPower::new, LuxPower.AFFINITY);
     public static final PCLElementHelper Petra = new PCLElementHelper(PetraPower.POWER_ID, ConjurerResources.conjurer.tooltips.stoned, PetraPower::new, PetraPower.AFFINITY);
+
+    public static final PCLPowerHelper Frostbite = new PCLPowerHelper(FrostbitePower.POWER_ID, ConjurerResources.conjurer.tooltips.frostbite, (o, s, a) -> new FrostbitePower(o, a), Behavior.TurnBased, false, true, false);
     
     public final String ID;
     public final PCLAffinity affinity;

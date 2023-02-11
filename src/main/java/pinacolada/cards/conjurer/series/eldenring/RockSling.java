@@ -1,0 +1,35 @@
+package pinacolada.cards.conjurer.series.eldenring;
+
+
+import pinacolada.annotations.VisibleCard;
+import pinacolada.cards.base.PCLCard;
+import pinacolada.cards.base.PCLCardData;
+import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.cards.base.fields.PCLAttackType;
+import pinacolada.cards.base.fields.PCLCardTarget;
+import pinacolada.effects.PCLAttackVFX;
+import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.resources.conjurer.ConjurerPlayerData;
+import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.PMove;
+
+@VisibleCard
+public class RockSling extends PCLCard
+{
+    public static final PCLCardData DATA = register(RockSling.class, ConjurerResources.conjurer)
+            .setAttack(2, CardRarity.COMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
+            .setDamage(5, 1, 3)
+            .setAffinities(PCLAffinity.Orange)
+            .setLoadout(ConjurerPlayerData.eldenRing);
+
+    public RockSling()
+    {
+        super(DATA);
+    }
+
+    public void setup(Object input)
+    {
+        addDamageMove(PCLAttackVFX.EARTH);
+        addUseMove(PMove.applyToRandom(2, PCLElementHelper.Petra));
+    }
+}

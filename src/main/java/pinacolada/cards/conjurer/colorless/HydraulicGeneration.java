@@ -1,16 +1,14 @@
-package pinacolada.cards.conjurer.basic;
+package pinacolada.cards.conjurer.colorless;
 
 
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CMove;
-import pinacolada.skills.PMod;
+import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
-import pinacolada.skills.skills.PMultiSkill;
+import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
 public class HydraulicGeneration extends PCLCard
@@ -18,7 +16,7 @@ public class HydraulicGeneration extends PCLCard
     public static final PCLCardData DATA = register(HydraulicGeneration.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Green)
-            .setCore();
+            .setCore(true);
 
     public HydraulicGeneration()
     {
@@ -27,6 +25,7 @@ public class HydraulicGeneration extends PCLCard
 
     public void setup(Object input)
     {
-        addUseMove(PMod.cyclePer(3), PMultiSkill.join(CMove.gainReaction(3).setUpgrade(1), PMove.applyToRandom(3, PCLElementHelper.Gelus).setUpgrade(1)));
+        addUseMove(PMove.draw(1).setUpgrade(1));
+        addGainPower(2, PTrigger.when(PCond.onTurnStart(), PMove.draw(1, PCLAffinity.Blue)));
     }
 }

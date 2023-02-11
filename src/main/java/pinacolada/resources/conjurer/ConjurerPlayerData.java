@@ -15,6 +15,7 @@ public class ConjurerPlayerData extends PCLAbstractPlayerData
     public static ConjurerLoadout genshinImpact = new ConjurerLoadout(0, 0);
     public static ConjurerLoadout shinMegamiTensei = new ConjurerLoadout(1, 0);
     public static ConjurerLoadout touhouProject = new ConjurerLoadout(2, 0);
+    public static ConjurerLoadout eldenRing = new ConjurerLoadout(3, 0);
 
     public ConjurerPlayerData(PCLResources<?,?,?> resources)
     {
@@ -26,7 +27,8 @@ public class ConjurerPlayerData extends PCLAbstractPlayerData
     {
         return EUIUtils.list(
                 genshinImpact,
-                shinMegamiTensei
+                shinMegamiTensei,
+                eldenRing
         );
     }
 
