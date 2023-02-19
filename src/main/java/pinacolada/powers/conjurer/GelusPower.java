@@ -4,8 +4,10 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import pinacolada.actions.PCLActions;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.SFX;
 import pinacolada.misc.AffinityReactions;
+import pinacolada.monsters.PCLCardAlly;
 import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 
@@ -40,7 +42,10 @@ public class GelusPower extends AbstractPCLElementalPower
     @Override
     public void onReact(AbstractCreature source, AffinityReactions reactions, int amount)
     {
-        PCLActions.bottom.applyPower(source, owner, new FrostbitePower(owner, (int) calculateValue(amount, getIntensifyMultiplier())));
+        if (!(owner instanceof PCLCardAlly))
+        {
+            PCLActions.bottom.applyPower(source, owner, PCLCardTarget.Single, PCLElementHelper.Frostbite, (int) calculateValue(amount, getIntensifyMultiplier()), false);
+        }
         super.onReact(source, reactions, amount);
     }
 }

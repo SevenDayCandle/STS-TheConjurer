@@ -2,6 +2,7 @@ package pinacolada.resources.conjurer;
 
 import com.megacrit.cardcrawl.relics.*;
 import extendedui.EUIUtils;
+import pinacolada.relics.conjurer.PeriodicTable;
 import pinacolada.resources.PCLAbstractPlayerData;
 import pinacolada.resources.PCLResources;
 import pinacolada.resources.PGR;
@@ -60,5 +61,11 @@ public class ConjurerPlayerData extends PCLAbstractPlayerData
     public PCLLoadout getCoreLoadout()
     {
         return core;
+    }
+
+    @Override
+    public List<String> getStartingRelics()
+    {
+        return EUIUtils.list(PeriodicTable.ID);
     }
 }

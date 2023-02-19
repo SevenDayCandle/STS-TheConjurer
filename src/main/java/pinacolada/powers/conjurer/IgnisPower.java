@@ -2,12 +2,12 @@ package pinacolada.powers.conjurer;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import pinacolada.actions.PCLActions;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.SFX;
 import pinacolada.misc.AffinityReactions;
+import pinacolada.monsters.PCLCardAlly;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -43,11 +43,10 @@ public class IgnisPower extends AbstractPCLElementalPower
     @Override
     public void onReact(AbstractCreature source, AffinityReactions reactions, int amount)
     {
-        if (source == null)
+        if (!(owner instanceof PCLCardAlly))
         {
-            source = AbstractDungeon.player;
+            PCLActions.bottom.applyPower(source, owner, PCLCardTarget.Single, PCLPowerHelper.Blasted, (int) calculateValue(amount, getIntensifyMultiplier()), true);
         }
-        PCLActions.bottom.applyPower(source, source, PCLCardTarget.Any, PCLPowerHelper.Vigor, (int) calculateValue(amount, getIntensifyMultiplier()), true);
         super.onReact(source, reactions, amount);
     }
 }

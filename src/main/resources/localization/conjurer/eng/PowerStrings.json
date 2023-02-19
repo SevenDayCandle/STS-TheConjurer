@@ -7,7 +7,7 @@
 	},
 	"conjurer:AerPower":
 	{
-		"DESCRIPTIONS": ["Reactions on this target deal damage to its team equal to #b{0}% of Reaction gained.", "Reactions on targets with [Aer] deal damage to their team equal to #b{0}% of Reaction gained."],
+		"DESCRIPTIONS": ["Reactions on this target deal damage to its team equal to #b{0}% of Reaction gained.", "Reactions on non-#ySummon targets with [Aer] deal damage to their team equal to #b{0}% of Reaction gained."],
 		"NAME": "Aer"
 	},
 	"conjurer:CorrosionPower":
@@ -32,12 +32,12 @@
 	},
 	"conjurer:GelusPower":
 	{
-		"DESCRIPTIONS": ["Reactions on this target apply [Frostbite] to it equal to #b{0}% of Reaction gained.", "Reactions on targets with [Gelus] apply [Frostbite] to it equal to #b{0}% of Reaction gained."],
+		"DESCRIPTIONS": ["Reactions on this target apply [Frostbite] to it equal to #b{0}% of Reaction gained.", "Reactions on non-#ySummon targets with [Gelus] apply [Frostbite] to it equal to #b{0}% of Reaction gained."],
 		"NAME": "Gelus"
 	},
 	"conjurer:IgnisPower":
 	{
-		"DESCRIPTIONS": ["Reactions on this target give you [Vigor] equal to #b{0}% of Reaction gained.", "Reactions on targets with [Ignis] give you [Vigor] equal to #b{0}% of Reaction gained."],
+		"DESCRIPTIONS": ["Reactions on this target apply #yTemp. [Blasted] equal to #b{0}% of Reaction gained.", "Reactions on non-#ySummon targets with [Ignis] apply #yTemp. [Blasted] to it equal to #b{0}% of Reaction gained."],
 		"NAME": "Ignis"
 	},
 	"conjurer:LuxPower":

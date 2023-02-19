@@ -26,6 +26,6 @@ public class HydraulicGeneration extends PCLCard
     public void setup(Object input)
     {
         addUseMove(PMove.draw(1).setUpgrade(1));
-        addGainPower(2, PTrigger.when(PCond.onTurnStart(), PMove.draw(1, PCLAffinity.Blue)));
+        addGainPower(2, PTrigger.when(PCond.onTurnStart(), PMove.draw(1).edit(f -> f.setType(CardType.ATTACK, CardType.SKILL))));
     }
 }

@@ -22,7 +22,7 @@ import pinacolada.utilities.GameUtilities;
 public class ErodingTerra extends PCLCard
 {
     public static final PCLCardData DATA = register(ErodingTerra.class, ConjurerResources.conjurer)
-            .setPower(3, CardRarity.SPECIAL)
+            .setPower(3, CardRarity.RARE)
             .setAffinities(2, PCLAffinity.Orange)
             .setUTags(PCLCardTag.Retain)
             .setCore();

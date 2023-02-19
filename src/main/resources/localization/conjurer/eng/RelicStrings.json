@@ -32,7 +32,7 @@
 	},
 	"conjurer:PeriodicTable":
 	{
-		"DESCRIPTIONS": ["At the start of combat, #yChannel #b1 random #yElemental #yOrb. | If you would #yChannel [Frost], #yChannel [Water] instead.", "At the start of combat, #yChannel #b1 {0}. | If you would #yChannel [Frost], #yChannel [Water] instead."],
+		"DESCRIPTIONS": ["Whenever you #ySummon or #yWithdraw a #ySummon, apply #b{0} of its corresponding #yElemental #yDebuffs to it and a random enemy."],
 		"FLAVOR": "A table that repeats itself every so often.",
 		"NAME": "Periodic Table"
 	},

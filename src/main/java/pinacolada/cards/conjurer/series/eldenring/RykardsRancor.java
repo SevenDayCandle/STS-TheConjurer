@@ -1,4 +1,4 @@
-package pinacolada.cards.conjurer.series.genshinimpact;
+package pinacolada.cards.conjurer.series.eldenring;
 
 
 import pinacolada.annotations.VisibleCard;
@@ -12,19 +12,20 @@ import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Klee_JumpyDumpty extends PCLCard
+public class RykardsRancor extends PCLCard
 {
-    public static final PCLCardData DATA = register(Klee_JumpyDumpty.class, ConjurerResources.conjurer)
-            .setAttack(0, CardRarity.SPECIAL, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy)
-            .setDamage(9, 4)
-            .setTags(PCLCardTag.Autoplay)
-            .setAffinities(PCLAffinity.Red)
-            .setLoadout(ConjurerPlayerData.genshinImpact);
+    public static final PCLCardData DATA = register(RykardsRancor.class, ConjurerResources.conjurer)
+            .setAttack(2, CardRarity.UNCOMMON, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
+            .setRTags(PCLCardTag.Ethereal)
+            .setDamage(9, 0, 3)
+            .setAffinities(PCLAffinity.Red, PCLAffinity.Purple)
+            .setLoadout(ConjurerPlayerData.eldenRing);
 
-    public Klee_JumpyDumpty()
+    public RykardsRancor()
     {
         super(DATA);
     }
@@ -32,6 +33,6 @@ public class Klee_JumpyDumpty extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.SMALL_EXPLOSION);
-        addUseMove(PMove.applyToEveryone(2, PCLElementHelper.Ignis));
+        addUseMove(PCond.onDraw(), PCond.exhaustRandom(1).edit(f -> f.setAffinity(PCLAffinity.Blue, PCLAffinity.Green)), PMove.applyToRandom(6, PCLElementHelper.Ignis));
     }
 }

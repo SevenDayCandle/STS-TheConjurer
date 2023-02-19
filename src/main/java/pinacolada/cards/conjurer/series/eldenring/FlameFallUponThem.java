@@ -1,4 +1,4 @@
-package pinacolada.cards.conjurer.series.genshinimpact;
+package pinacolada.cards.conjurer.series.eldenring;
 
 
 import pinacolada.annotations.VisibleCard;
@@ -7,7 +7,6 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
@@ -15,16 +14,15 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Klee_JumpyDumpty extends PCLCard
+public class FlameFallUponThem extends PCLCard
 {
-    public static final PCLCardData DATA = register(Klee_JumpyDumpty.class, ConjurerResources.conjurer)
-            .setAttack(0, CardRarity.SPECIAL, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy)
-            .setDamage(9, 4)
-            .setTags(PCLCardTag.Autoplay)
+    public static final PCLCardData DATA = register(FlameFallUponThem.class, ConjurerResources.conjurer)
+            .setAttack(2, CardRarity.COMMON, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
+            .setDamage(13, 2)
             .setAffinities(PCLAffinity.Red)
-            .setLoadout(ConjurerPlayerData.genshinImpact);
+            .setLoadout(ConjurerPlayerData.eldenRing);
 
-    public Klee_JumpyDumpty()
+    public FlameFallUponThem()
     {
         super(DATA);
     }
@@ -32,6 +30,6 @@ public class Klee_JumpyDumpty extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.SMALL_EXPLOSION);
-        addUseMove(PMove.applyToEveryone(2, PCLElementHelper.Ignis));
+        addUseMove(PMove.applyToEnemies(2, PCLElementHelper.Ignis).setUpgrade(1));
     }
 }

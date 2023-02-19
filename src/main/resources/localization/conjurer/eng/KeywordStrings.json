@@ -1,6 +1,6 @@
 {
 	"Aer": {
-		"DESCRIPTION": "[A-G] #yElemental #yDebuff. Reactions on the target deal damage to it and its allies.",
+		"DESCRIPTION": "[A-G] #yElemental #yDebuff. Reactions on a non-#ySummon target deal damage to it and its allies.",
 		"NAMES": [
 			"aer"
 		],
@@ -60,14 +60,14 @@
 		"PROPER_NAME": "Frostbite"
 	},
 	"Gelus": {
-		"DESCRIPTION": "[A-B] #yElemental #yDebuff. Reactions on the target applies a debuff that deals damage at the start of its turn.",
+		"DESCRIPTION": "[A-B] #yElemental #yDebuff. Reactions on a non-#ySummon target applies a debuff that deals damage at the start of its turn.",
 		"NAMES": [
 			"gelus"
 		],
 		"PROPER_NAME": "Gelus"
 	},
 	"Ignis": {
-		"DESCRIPTION": "[A-R] #yElemental #yDebuff. Reactions on the target increase the damage of your next Attack.",
+		"DESCRIPTION": "[A-R] #yElemental #yDebuff. Reactions on a non-#ySummon target increase the damage it takes from #yAttacks this turn.",
 		"NAMES": [
 			"ignis"
 		],

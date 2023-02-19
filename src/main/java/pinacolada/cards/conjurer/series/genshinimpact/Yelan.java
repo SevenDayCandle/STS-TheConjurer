@@ -7,31 +7,33 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.PCond;
+import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
+import pinacolada.skills.PTrait;
 
 @VisibleCard
-public class Klee_JumpyDumpty extends PCLCard
+public class Yelan extends PCLCard
 {
-    public static final PCLCardData DATA = register(Klee_JumpyDumpty.class, ConjurerResources.conjurer)
-            .setAttack(0, CardRarity.SPECIAL, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy)
-            .setDamage(9, 4)
-            .setTags(PCLCardTag.Autoplay)
-            .setAffinities(PCLAffinity.Red)
+    public static final PCLCardData DATA = register(Yelan.class, ConjurerResources.conjurer)
+            .setSummon(1, CardRarity.COMMON, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy)
+            .setDamage(2, 0, 2)
+            .setPriority(1)
+            .setHp(5, 1)
+            .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public Klee_JumpyDumpty()
+    public Yelan()
     {
         super(DATA);
     }
 
     public void setup(Object input)
     {
-        addDamageMove(PCLAttackVFX.SMALL_EXPLOSION);
-        addUseMove(PMove.applyToEveryone(2, PCLElementHelper.Ignis));
+        addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL).setChain(PMod.perLevel(1, PCLAffinity.Blue).setUpgrade(1), PTrait.damage(1));
+        addUseMove(PCond.onSummon(), PMove.draw(1));
     }
 }

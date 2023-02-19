@@ -8,6 +8,7 @@ import pinacolada.actions.PCLActions;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.effects.SFX;
 import pinacolada.misc.AffinityReactions;
+import pinacolada.monsters.PCLCardAlly;
 import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.utilities.GameUtilities;
@@ -47,7 +48,7 @@ public class AerPower extends AbstractPCLElementalPower
         {
             PCLActions.bottom.dealDamage(owner, owner, (int) calculateValue(amount, getIntensifyMultiplier()), DamageInfo.DamageType.THORNS, getAttackEffect());
         }
-        else
+        else if (!(owner instanceof PCLCardAlly))
         {
             for (AbstractMonster enemy : GameUtilities.getEnemies(true))
             {

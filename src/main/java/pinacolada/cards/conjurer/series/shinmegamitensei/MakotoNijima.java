@@ -33,6 +33,6 @@ public class MakotoNijima extends PCLCard
     {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
         addUseMove(PCond.cooldown(3),
-                PMove.obtain(AnnTakamaki_Carmen.DATA));
+                PMove.obtain(MakotoNijima_Johanna.DATA));
     }
 }

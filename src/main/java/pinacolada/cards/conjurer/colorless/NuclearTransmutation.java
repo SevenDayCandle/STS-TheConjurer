@@ -28,6 +28,6 @@ public class NuclearTransmutation extends PCLCard
 
     public void setup(Object input)
     {
-        addUseMove(PMod.xEnergy(0).setUpgrade(1), PMove.obtainRandom(1, 1, PCLCardGroupHelper.Hand).edit(f -> f.setType(PCLEnum.CardType.SUMMON).setForced(true)), PMove.modifyCost(99,-3).useParent(true).edit(f -> f.setForced(true)));
+        addUseMove(PMod.xEnergy(0).setUpgrade(1), PMove.obtainRandom(1, 1, PCLCardGroupHelper.Hand).edit(f -> f.setType(PCLEnum.CardType.SUMMON)), PMove.modifyCost(99,-3).useParent(true));
     }
 }

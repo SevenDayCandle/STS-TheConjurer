@@ -21,7 +21,7 @@ import pinacolada.ui.combat.ConjurerReactionMeter;
 public class VerdantGale extends PCLCard
 {
     public static final PCLCardData DATA = register(VerdantGale.class, ConjurerResources.conjurer)
-            .setPower(3, CardRarity.SPECIAL)
+            .setPower(3, CardRarity.RARE)
             .setAffinities(2, PCLAffinity.Green)
             .setUTags(PCLCardTag.Retain)
             .setCore();
