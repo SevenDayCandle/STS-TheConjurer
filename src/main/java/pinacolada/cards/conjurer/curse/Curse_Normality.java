@@ -15,6 +15,7 @@ import pinacolada.interfaces.markers.PointerProvider;
 import pinacolada.interfaces.subscribers.OnApplyPowerSubscriber;
 import pinacolada.interfaces.subscribers.OnPhaseChangedSubscriber;
 import pinacolada.misc.CombatManager;
+import pinacolada.misc.PCLUseInfo;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.skills.PCustomCond;
@@ -93,9 +94,9 @@ public class Curse_Normality extends PCLCard
         }
 
         @Override
-        public void refresh(AbstractCreature m, AbstractCard c, boolean conditionMet)
+        public void refresh(PCLUseInfo info, boolean conditionMet)
         {
-            super.refresh(m, c, conditionMet);
+            super.refresh(info, conditionMet);
             if (GameUtilities.inBattle())
             {
                 tryActivate();

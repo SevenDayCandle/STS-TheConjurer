@@ -212,7 +212,7 @@
 								"conjurer:Klee": {"NAME": "Klee"},
 								"conjurer:Klee_JumpyDumpty": {"NAME": "Jumpy Dumpty"},
 								"conjurer:KokomiSangonomiya": {
-												"EXTENDED_DESCRIPTION": ["ALL cards give 0 [Block]. Orbs reflect incoming damage"],
+												"EXTENDED_DESCRIPTION": ["While this card is Summoned, you cannot gain [Block], but debuffs you receive are reflected"],
 												"FLAVOR": "meidajiong",
 												"NAME": "Kokomi Sangonomiya"
 								},

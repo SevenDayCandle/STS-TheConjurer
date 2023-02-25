@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import extendedui.EUIUtils;
 import extendedui.utilities.ColoredString;
+import pinacolada.actions.PCLActions;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.interfaces.listeners.OnElementalDebuffListener;
 import pinacolada.interfaces.markers.MultiplicativePower;
@@ -214,7 +215,7 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Mult
             stabilizeTurns -= 1;
         }
         else {
-            removePower();
+            removePower(PCLActions.instant);
         }
     }
 

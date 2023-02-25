@@ -1,7 +1,5 @@
 package pinacolada.skills.conjurer.conditions;
 
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import extendedui.EUIRM;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
@@ -61,12 +59,6 @@ public class PCond_Intensify extends PPassiveCond<PField_Affinity> implements On
     @Override
     public void use(PCLUseInfo info, int index)
     {
-    }
-
-    @Override
-    public boolean canPlay(AbstractCard card, AbstractMonster m)
-    {
-        return true;
     }
 
     @Override

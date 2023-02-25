@@ -510,11 +510,6 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
         return damage;
     }
 
-    public float modifyMagicNumber(float magicNumber, PCLCard source, PCLCard card)
-    {
-        return magicNumber;
-    }
-
     public float modifyOrbOutput(float initial, AbstractCreature target, AbstractOrb orb)
     {
         if (orb instanceof PCLOrb)

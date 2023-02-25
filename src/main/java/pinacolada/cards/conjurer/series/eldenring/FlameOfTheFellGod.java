@@ -12,7 +12,7 @@ import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
-import pinacolada.skills.PDelay;
+import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PMultiCond;
 
@@ -22,7 +22,7 @@ public class FlameOfTheFellGod extends PCLCard
     public static final PCLCardData DATA = register(FlameOfTheFellGod.class, ConjurerResources.conjurer)
             .setAttack(4, CardRarity.RARE, PCLAttackType.Ranged)
             .setTags(PCLCardTag.Exhaust)
-            .setDamage(50, 4)
+            .setDamage(56, 6)
             .setAffinities(2, PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
@@ -34,7 +34,6 @@ public class FlameOfTheFellGod extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.SMALL_EXPLOSION);
-        addUseMove(PDelay.turnStart(1), PMove.applyToEnemies(9, PCLElementHelper.Ignis));
-        addUseMove(PMultiCond.or(PCond.onDiscard(), PCond.onReshuffle()), PMove.applyToEnemies(4, PCLElementHelper.Ignis).setUpgrade(1));
+        addUseMove(PMultiCond.or(PCond.onDiscard(), PCond.onReshuffle()), PMod.increaseOnUse(1).setUpgrade(1), PMove.applyToEveryone(3, PCLElementHelper.Ignis));
     }
 }
