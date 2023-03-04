@@ -23,8 +23,6 @@ public class ConjurerEFK extends EffekseerEFK
     public static final ConjurerEFK EVFXForge02_11_BloomforgeStrike = new ConjurerEFK("effects/EVFXForge02_11_BloomforgeStrike.efk");
     public static final ConjurerEFK EVFXForge03_01_SparkInvocation = new ConjurerEFK("effects/EVFXForge03_01_SparkInvocation.efk");
     public static final ConjurerEFK EVFXForge03_14_SparkforgeBlast = new ConjurerEFK("effects/EVFXForge03_14_SparkforgeBlast.efk");
-    public static final ConjurerEFK EVFXForge04_07_SpikeCrush = new ConjurerEFK("effects/EVFXForge04_07_SpikeCrush.efk");
-    public static final ConjurerEFK EVFXForge04_11_BloodforgeStrike = new ConjurerEFK("effects/EVFXForge04_11_BloodforgeStrike.efk");
     public static final ConjurerEFK EVFXForge05_06_LiftingGust = new ConjurerEFK("effects/EVFXForge05_06_LiftingGust.efk");
     public static final ConjurerEFK EVFXForge05_09_StormforgeAura = new ConjurerEFK("effects/EVFXForge05_09_StormforgeAura.efk");
     public static final ConjurerEFK EVFXForge09_08_FloodforgeWard = new ConjurerEFK("effects/EVFXForge09_08_FloodforgeWard.efk");

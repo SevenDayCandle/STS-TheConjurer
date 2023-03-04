@@ -35,6 +35,5 @@ public class OracleSphere extends PCLCard
     {
         PCLActions.bottom.reshuffleDiscardPile(false);
         PCLActions.bottom.reshuffleFromPile(name, move.amount, player.discardPile).setDestination(PCLCardSelection.Top);
-
     }
 }

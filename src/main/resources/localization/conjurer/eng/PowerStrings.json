@@ -10,6 +10,11 @@
 		"DESCRIPTIONS": ["Reactions on this target deal damage to its team equal to #b{0}% of Reaction gained.", "Reactions on non-#ySummon targets with [Aer] deal damage to their team equal to #b{0}% of Reaction gained."],
 		"NAME": "Aer"
 	},
+	"conjurer:BlastedPower":
+	{
+		"DESCRIPTIONS": ["Take #b{0} more #yAttack damage from the next #yAttack received."],
+		"NAME": "Blasted"
+	},
 	"conjurer:CorrosionPower":
 	{
 		"DESCRIPTIONS": ["#b{0}% of outgoing damage is dealt to itself and ALL allies.", "When targets with [Corrosion] attack, #b{0}% of damage is dealt to themselves and their allies."],
@@ -37,7 +42,7 @@
 	},
 	"conjurer:IgnisPower":
 	{
-		"DESCRIPTIONS": ["Reactions on this target apply #yTemp. [Blasted] equal to #b{0}% of Reaction gained.", "Reactions on non-#ySummon targets with [Ignis] apply #yTemp. [Blasted] to it equal to #b{0}% of Reaction gained."],
+		"DESCRIPTIONS": ["Reactions on this target apply [Blasted] equal to #b{0}% of Reaction gained.", "Reactions on non-#ySummon targets with [Ignis] apply [Blasted] to it equal to #b{0}% of Reaction gained."],
 		"NAME": "Ignis"
 	},
 	"conjurer:LuxPower":

@@ -9,11 +9,9 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
-import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
 
 @VisibleCard
@@ -36,7 +34,6 @@ public class Keqing extends PCLCard
     {
         addDamageMove(PCLAttackVFX.DAGGER);
         addUseMove(PCond.onWithdraw(),
-                PMod.reshufflePer(2, PCLCardGroupHelper.DiscardPile).edit(f -> f.setAffinity(PCLAffinity.Green)),
-                PMove.applyToRandom(2, PCLElementHelper.Aer));
+                PMove.fetch(1, PCLCardGroupHelper.DrawPile).edit(f -> f.setType(CardType.ATTACK)));
     }
 }

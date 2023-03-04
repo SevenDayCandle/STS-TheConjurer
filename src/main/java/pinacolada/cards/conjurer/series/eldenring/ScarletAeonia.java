@@ -8,10 +8,8 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
-import pinacolada.effects.PCLAttackVFX;
 import pinacolada.misc.PCLUseInfo;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.powers.conjurer.PCLElementHelper;
@@ -27,9 +25,8 @@ import pinacolada.ui.combat.ConjurerReactionMeter;
 public class ScarletAeonia extends PCLCard
 {
     public static final PCLCardData DATA = register(ScarletAeonia.class, ConjurerResources.conjurer)
-            .setAttack(1, CardRarity.RARE, PCLAttackType.Piercing)
+            .setSkill(1, CardRarity.RARE)
             .setTags(PCLCardTag.Exhaust)
-            .setDamage(5, 1, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
@@ -40,8 +37,7 @@ public class ScarletAeonia extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(PCLAttackVFX.SMALL_EXPLOSION);
-        addUseMove(PMove.applyToEveryone(3, PCLElementHelper.Aer));
+        addUseMove(PMove.applyToEveryone(7, PCLElementHelper.Aer));
         addApplyPower(PCLCardTarget.Single, 1, PTrigger.when(PCond.onTurnEnd(), getSpecialMove(0, this::specialMove, 1, 3)));
     }
 

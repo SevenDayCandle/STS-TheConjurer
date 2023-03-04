@@ -5,7 +5,7 @@
 								"conjurer:AirCurrent": {"NAME": "Air Current"},
 								"conjurer:ArcticTide": {"NAME": "Arctic Tide"},
 								"conjurer:AtmosphericPressure": {"NAME": "Atmospheric Pressure"},
-								"conjurer:BlazingHeat": {"EXTENDED_DESCRIPTION": ["At turn end, ALL enemies lose {0} HP per stack of their [Ignis]"], "NAME": "Blazing Heat"},
+								"conjurer:BlazingHeat": {"EXTENDED_DESCRIPTION": ["At turn end, each enemy loses {0} HP per stack of its [Ignis]"], "NAME": "Blazing Heat"},
 								"conjurer:BoilingPoint": {"NAME": "Boiling Point"},
 								"conjurer:BotanicTherapy": {"NAME": "Botanic Therapy"},
 								"conjurer:BurnHeal": {"NAME": "Burn Heal"},
@@ -26,7 +26,7 @@
 								"conjurer:Ecosystem": {"EXTENDED_DESCRIPTION": ["Whenever you manually level: | {0}: {1} | {2}: {3} | {4} : {5}"], "NAME": "Ecosystem"},
 								"conjurer:Entropy": {"EXTENDED_DESCRIPTION": ["Apply {0} of the Elemental Debuffs of each discarded card"], "NAME": "Entropy"},
 								"conjurer:ErodingTerra": {
-												"EXTENDED_DESCRIPTION": ["Whenever you play a card, gain [Block] equal to its cost times stacks of [Petra] on ANY character"],
+												"EXTENDED_DESCRIPTION": ["At round end, restore half the stacks of [Petra] on every character. If they were already Stabilized, gain it as [Block] instead"],
 												"NAME": "Eroding Terra"
 								},
 								"conjurer:Erosion": {"NAME": "Erosion"},
@@ -74,7 +74,7 @@
 								"conjurer:TropicalMonsoon": {"NAME": "Tropical Monsoon"},
 								"conjurer:Vaporize": {"NAME": "Vaporize"},
 								"conjurer:VerdantGale": {
-												"EXTENDED_DESCRIPTION": ["Whenever you apply {0} [Aer], draw a card"],
+												"EXTENDED_DESCRIPTION": ["For every {0} [Aer] you apply, gain [Draw Plus] and apply {1} [Poison] to the enemy with the lowest HP"],
 												"NAME": "Verdant Gale"
 								},
 								"conjurer:Wildfire": {"NAME": "Wildfire"},

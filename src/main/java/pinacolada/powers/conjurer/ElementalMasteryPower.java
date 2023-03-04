@@ -7,7 +7,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import extendedui.EUIUtils;
 import pinacolada.actions.PCLActions;
-import pinacolada.actions.powers.ApplyPower;
 import pinacolada.effects.SFX;
 import pinacolada.powers.PCLSubscribingPower;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -52,7 +51,7 @@ public class ElementalMasteryPower extends PCLSubscribingPower
             power.amount += this.amount;
 
             final AbstractGameAction action = AbstractDungeon.actionManager.currentAction;
-            if (action instanceof ApplyPower || action instanceof ApplyPowerAction)
+            if (action instanceof ApplyPowerAction)
             {
                 action.amount += this.amount;
             }

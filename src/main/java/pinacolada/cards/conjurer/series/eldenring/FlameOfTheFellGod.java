@@ -7,7 +7,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.tags.PCLCardTag;
-import pinacolada.effects.PCLAttackVFX;
+import pinacolada.effects.EffekseerEFK;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -33,7 +33,7 @@ public class FlameOfTheFellGod extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(PCLAttackVFX.SMALL_EXPLOSION);
+        addDamageMove(EffekseerEFK.FIRE03);
         addUseMove(PMultiCond.or(PCond.onDiscard(), PCond.onReshuffle()), PMod.increaseOnUse(1).setUpgrade(1), PMove.applyToEveryone(3, PCLElementHelper.Ignis));
     }
 }

@@ -1,22 +1,24 @@
 package pinacolada.cards.conjurer.basic;
 
-import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import extendedui.EUIUtils;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.misc.PCLUseInfo;
 import pinacolada.powers.PSpecialCardPower;
+import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.PetraPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;
 import pinacolada.skills.skills.PSpecialSkill;
-import pinacolada.ui.combat.ConjurerReactionMeter;
 import pinacolada.utilities.GameUtilities;
+
+import java.util.ArrayList;
 
 @VisibleCard
 public class ErodingTerra extends PCLCard
@@ -50,15 +52,22 @@ public class ErodingTerra extends PCLCard
         }
 
         @Override
-        public void onPlayCard(AbstractCard card, AbstractMonster m)
+        public void atEndOfRound()
         {
-            super.onPlayCard(card, m);
-            if (card.costForTurn > 0)
+            super.atEndOfRound();
+            ArrayList<PetraPower> powers = GameUtilities.getPowers(PetraPower.POWER_ID);
+            for (PetraPower po : powers)
             {
-                PCLActions.bottom.gainBlock(card.costForTurn * move.amount *
-                        EUIUtils.sumInt(GameUtilities.getAllCharacters(true),
-                                c -> EUIUtils.sumInt(EUIUtils.filter(c.powers, po -> ConjurerReactionMeter.meter.isPowerElemental(po.ID, PCLAffinity.Orange)), po -> po.amount)));
-                this.flash();
+                int stacks = MathUtils.ceil(po.amount / 2f);
+                if (po.stabilizeTurns > 0)
+                {
+                    PCLActions.bottom.gainBlock(stacks);
+                }
+                else
+                {
+                    PCLActions.last.applyPower(po.owner, PCLCardTarget.Single, PCLElementHelper.Petra, stacks);
+                }
+                flash();
             }
         }
     }

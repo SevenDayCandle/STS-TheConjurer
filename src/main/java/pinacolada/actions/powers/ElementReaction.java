@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import pinacolada.actions.PCLActionWithCallback;
+import pinacolada.actions.PCLAction;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.interfaces.subscribers.OnElementReactSubscriber;
 import pinacolada.misc.AffinityReactions;
@@ -17,7 +17,7 @@ import pinacolada.utilities.GameUtilities;
 import java.util.ArrayList;
 
 
-public class ElementReaction extends PCLActionWithCallback<AffinityReactions>
+public class ElementReaction extends PCLAction<AffinityReactions>
 {
     public AffinityReactions reactions;
     public PCLAffinity reactor;

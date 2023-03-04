@@ -24,7 +24,7 @@ import pinacolada.monsters.animations.PCLAllyAnimation;
 import pinacolada.monsters.animations.conjurer.*;
 import pinacolada.monsters.animations.pcl.PCLGeneralAllyAnimation;
 import pinacolada.resources.PCLResources;
-import pinacolada.resources.PGR;
+import pinacolada.resources.pcl.PCLCoreImages;
 import pinacolada.ui.combat.ConjurerReactionMeter;
 
 import java.util.HashSet;
@@ -65,7 +65,7 @@ public class ConjurerResources extends PCLResources<ConjurerConfig, ConjurerImag
         super.postInitialize();
         CombatManager.playerSystem.registerMeter(playerClass, ConjurerReactionMeter.meter);
         PCLAffinity.registerAvailableAffinities(cardColor, affinities);
-        PCLAffinity.registerAffinityBorder(cardColor, PGR.core.images.borderSpecial2);
+        PCLAffinity.registerAffinityBorder(cardColor, PCLCoreImages.borderSpecial2);
         PCLCardAlly.registerAnimation(cardColor, this::getAnimation);
     }
 

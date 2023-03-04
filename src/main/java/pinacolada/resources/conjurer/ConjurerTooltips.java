@@ -8,33 +8,35 @@ import pinacolada.resources.PGR;
 
 public class ConjurerTooltips extends PCLTooltips
 {
-    public EUITooltip burned = EUITooltip.findByID("Ignis");
-    public EUITooltip combust = EUITooltip.findByID("Combust");
+    public EUITooltip aer = EUITooltip.findByID("Aer");
+    public EUITooltip blasted = EUITooltip.findByID("Blasted");
     public EUITooltip charge = EUITooltip.findByID("Charge");
-    public EUITooltip chilled = EUITooltip.findByID("Gelus");
+    public EUITooltip combust = EUITooltip.findByID("Combust");
     public EUITooltip corrosion = EUITooltip.findByID("Corrosion");
-    public EUITooltip electrified = EUITooltip.findByID("Lux");
     public EUITooltip elementalDebuff = EUITooltip.findByID("Elemental Debuff");
     public EUITooltip elementalExposure = EUITooltip.findByID("Elemental Exposure");
     public EUITooltip elementalMastery = EUITooltip.findByID("Elemental Mastery");
-    public EUITooltip flowed = EUITooltip.findByID("Aer");
     public EUITooltip frostbite = EUITooltip.findByID("Frostbite");
+    public EUITooltip gelus = EUITooltip.findByID("Gelus");
+    public EUITooltip ignis = EUITooltip.findByID("Ignis");
+    public EUITooltip lux = EUITooltip.findByID("Lux");
+    public EUITooltip petra = EUITooltip.findByID("Petra");
     public EUITooltip reaction = EUITooltip.findByID("Reaction");
     public EUITooltip redox = EUITooltip.findByID("Redox");
-    public EUITooltip stoned = EUITooltip.findByID("Petra");
 
     @Override
     public void initializeIcons()
     {
-        burned.setIconFromPath(PGR.getPowerImage(IgnisPower.POWER_ID));
-        chilled.setIconFromPath(PGR.getPowerImage(GelusPower.POWER_ID));
+        aer.setIconFromPath(PGR.getPowerImage(AerPower.POWER_ID));
+        blasted.setIconFromPath(PGR.getPowerImage(BlastedPower.POWER_ID));
         corrosion.setIconFromPath(PGR.getPowerImage(CorrosionPower.POWER_ID));
-        electrified.setIconFromPath(PGR.getPowerImage(LuxPower.POWER_ID));
         elementalExposure.setIconFromPath(PGR.getPowerImage(ElementalExposurePower.POWER_ID));
         elementalMastery.setIconFromPath(PGR.getPowerImage(ElementalMasteryPower.POWER_ID));
-        flowed.setIconFromPath(PGR.getPowerImage(AerPower.POWER_ID));
         frostbite.setIconFromPath(PGR.getPowerImage(FrostbitePower.POWER_ID));
-        stoned.setIconFromPath(PGR.getPowerImage(PetraPower.POWER_ID));
+        gelus.setIconFromPath(PGR.getPowerImage(GelusPower.POWER_ID));
+        ignis.setIconFromPath(PGR.getPowerImage(IgnisPower.POWER_ID));
+        lux.setIconFromPath(PGR.getPowerImage(LuxPower.POWER_ID));
+        petra.setIconFromPath(PGR.getPowerImage(PetraPower.POWER_ID));
     }
 
     public EUITooltip getLevelTooltip(PCLAffinity affinity)
@@ -42,15 +44,15 @@ public class ConjurerTooltips extends PCLTooltips
         switch (affinity)
         {
             case Red:
-                return burned;
+                return ignis;
             case Green:
-                return flowed;
+                return aer;
             case Blue:
-                return chilled;
+                return gelus;
             case Orange:
-                return stoned;
+                return petra;
             case Yellow:
-                return electrified;
+                return lux;
             case Purple:
                 return corrosion;
             case Silver:

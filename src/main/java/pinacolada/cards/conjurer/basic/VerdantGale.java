@@ -3,19 +3,23 @@ package pinacolada.cards.conjurer.basic;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import extendedui.EUIUtils;
 import extendedui.utilities.ColoredString;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.misc.PCLUseInfo;
+import pinacolada.powers.PCLPowerHelper;
 import pinacolada.powers.PSpecialCardPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;
 import pinacolada.skills.skills.PSpecialSkill;
 import pinacolada.ui.combat.ConjurerReactionMeter;
+import pinacolada.utilities.GameUtilities;
 
 @VisibleCard
 public class VerdantGale extends PCLCard
@@ -38,7 +42,7 @@ public class VerdantGale extends PCLCard
 
     public void setup(Object input)
     {
-        addSpecialMove(0, this::action, 8, 1).setUpgrade(-2);
+        addSpecialMove(0, this::action, 9, 4).setUpgradeExtra(2);
     }
 
     public static class VerdantGalePower extends PSpecialCardPower
@@ -63,8 +67,18 @@ public class VerdantGale extends PCLCard
             while (count >= move.amount)
             {
                 count -= move.amount;
-                PCLActions.bottom.draw(move.extra);
+                doAction();
                 flash();
+            }
+        }
+
+        public void doAction()
+        {
+            PCLActions.bottom.gain(PCLPowerHelper.NextTurnDraw, 1);
+            AbstractCreature target = EUIUtils.findMin(GameUtilities.getEnemies(true), mo -> mo.currentHealth);
+            if (target != null)
+            {
+                PCLActions.bottom.applyPower(target, PCLCardTarget.Single, PCLPowerHelper.Poison, move.extra);
             }
         }
 

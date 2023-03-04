@@ -30,7 +30,7 @@ public class CometAzur extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(EffekseerEFK.SWORD25);
+        addDamageMove(EffekseerEFK.BLOW05);
         addUseMove(PMove.gain(2, PCLPowerHelper.Energized, PCLPowerHelper.DrawLess));
     }
 }

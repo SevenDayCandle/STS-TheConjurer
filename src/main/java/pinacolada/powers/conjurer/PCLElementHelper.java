@@ -22,12 +22,13 @@ public class PCLElementHelper extends PCLPowerHelper implements TooltipProvider
     protected static final Map<String, PCLElementHelper> ALL = new HashMap<>();
     protected static final Map<PCLAffinity, PCLElementHelper> ALL_BY_AFFINITY = new HashMap<>();
 
-    public static final PCLElementHelper Aer = new PCLElementHelper(AerPower.POWER_ID, ConjurerResources.conjurer.tooltips.flowed, AerPower::new, AerPower.AFFINITY);
-    public static final PCLElementHelper Gelus = new PCLElementHelper(GelusPower.POWER_ID, ConjurerResources.conjurer.tooltips.chilled, GelusPower::new, GelusPower.AFFINITY);
-    public static final PCLElementHelper Ignis = new PCLElementHelper(IgnisPower.POWER_ID, ConjurerResources.conjurer.tooltips.burned, IgnisPower::new, IgnisPower.AFFINITY);
-    public static final PCLElementHelper Lux = new PCLElementHelper(LuxPower.POWER_ID, ConjurerResources.conjurer.tooltips.electrified, LuxPower::new, LuxPower.AFFINITY);
-    public static final PCLElementHelper Petra = new PCLElementHelper(PetraPower.POWER_ID, ConjurerResources.conjurer.tooltips.stoned, PetraPower::new, PetraPower.AFFINITY);
+    public static final PCLElementHelper Aer = new PCLElementHelper(AerPower.POWER_ID, ConjurerResources.conjurer.tooltips.aer, AerPower::new, AerPower.AFFINITY);
+    public static final PCLElementHelper Gelus = new PCLElementHelper(GelusPower.POWER_ID, ConjurerResources.conjurer.tooltips.gelus, GelusPower::new, GelusPower.AFFINITY);
+    public static final PCLElementHelper Ignis = new PCLElementHelper(IgnisPower.POWER_ID, ConjurerResources.conjurer.tooltips.ignis, IgnisPower::new, IgnisPower.AFFINITY);
+    public static final PCLElementHelper Lux = new PCLElementHelper(LuxPower.POWER_ID, ConjurerResources.conjurer.tooltips.lux, LuxPower::new, LuxPower.AFFINITY);
+    public static final PCLElementHelper Petra = new PCLElementHelper(PetraPower.POWER_ID, ConjurerResources.conjurer.tooltips.petra, PetraPower::new, PetraPower.AFFINITY);
 
+    public static final PCLPowerHelper Blasted = new PCLPowerHelper(BlastedPower.POWER_ID, ConjurerResources.conjurer.tooltips.blasted, BlastedPower::new, Behavior.TurnBased, false, true, false);
     public static final PCLPowerHelper Frostbite = new PCLPowerHelper(FrostbitePower.POWER_ID, ConjurerResources.conjurer.tooltips.frostbite, (o, s, a) -> new FrostbitePower(o, a), Behavior.TurnBased, false, true, false);
     
     public final String ID;

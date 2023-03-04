@@ -6,6 +6,13 @@
 		],
 		"PROPER_NAME": "Aer"
 	},
+	"Blasted": {
+		"DESCRIPTION": "Take #b1 more damage per stack from the next #yAttack damage received.",
+		"NAMES": [
+			"blasted"
+		],
+		"PROPER_NAME": "Blasted"
+	},
 	"Charge": {
 		"DESCRIPTION": "Apply the last #yElemental #yDebuff you manually leveled up to an enemy. The first time each turn you level up an #yElemental #yDebuff manually, gain #b1 #yCharge.",
 		"NAMES": [
@@ -67,7 +74,7 @@
 		"PROPER_NAME": "Gelus"
 	},
 	"Ignis": {
-		"DESCRIPTION": "[A-R] #yElemental #yDebuff. Reactions on a non-#ySummon target increase the damage it takes from #yAttacks this turn.",
+		"DESCRIPTION": "[A-R] #yElemental #yDebuff. Reactions on a non-#ySummon target increase the damage of the next #yAttack it receives.",
 		"NAMES": [
 			"ignis"
 		],
