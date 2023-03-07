@@ -7,7 +7,7 @@
 	},
 	"conjurer:AerPower":
 	{
-		"DESCRIPTIONS": ["Reactions on this target deal damage to its team equal to #b{0}% of Reaction gained.", "Reactions on non-#ySummon targets with [Aer] deal damage to their team equal to #b{0}% of Reaction gained."],
+		"DESCRIPTIONS": ["Reactions on this target give you [Flow] equal to #b{0}% of Reaction gained.", "Reactions on targets with [Aer] give you [Flow] equal to #b{0}% of Reaction gained."],
 		"NAME": "Aer"
 	},
 	"conjurer:BlastedPower":
