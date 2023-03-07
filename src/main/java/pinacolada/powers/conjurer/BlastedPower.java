@@ -1,13 +1,24 @@
 package pinacolada.powers.conjurer;
 
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.MathUtils;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.HealthBarRenderPower;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import pinacolada.actions.PCLActions;
+import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.PCLPower;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.ui.combat.CombatHelper;
+import pinacolada.ui.combat.ConjurerElementButton;
+import pinacolada.ui.combat.ConjurerReactionMeter;
 
-public class BlastedPower extends PCLPower
+public class BlastedPower extends PCLPower implements HealthBarRenderPower
 {
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, BlastedPower.class);
+    public static final Color healthBarColor = Color.FIREBRICK.cpy();
 
     public BlastedPower(AbstractCreature owner, AbstractCreature source, int amount)
     {
@@ -16,17 +27,42 @@ public class BlastedPower extends PCLPower
     }
 
     @Override
-    public float atDamageReceive(float damage, DamageInfo.DamageType type)
+    public int getHealthBarAmount()
     {
-        return super.atDamageReceive(type == DamageInfo.DamageType.NORMAL ? damage + amount : damage, type);
+        DamageInfo info = getEstimated();
+        return CombatHelper.getHealthBarAmount(owner, info.output, false, true);
     }
 
-    public int onAttacked(DamageInfo info, int damageAmount)
+    @Override
+    public Color getColor()
     {
-        if (damageAmount > 0 && info.type == DamageInfo.DamageType.NORMAL)
-        {
-            removePower();
+        return healthBarColor;
+    }
+
+    @Override
+    public void atStartOfTurn()
+    {
+        this.flashWithoutSound();
+
+        PCLActions.bottom.dealDamage(owner, getEstimated(), PCLAttackVFX.BURN).setPiercing(true, true);
+        removePower();
+    }
+
+    public DamageInfo getEstimated()
+    {
+        float multiplier = 100;
+        for (AbstractPower p : owner.powers) {
+            for (ConjurerElementButton element : ConjurerReactionMeter.meter.getElementButtons())
+            {
+                if (element.canCombust(PCLAffinity.Red, p.ID))
+                {
+                    multiplier += AbstractPCLElementalPower.getAmplifyMultiplier(PCLAffinity.Red);
+                }
+            }
         }
-        return damageAmount;
+        int secondAmount = MathUtils.ceil(amount * multiplier / 100);
+        DamageInfo estimated = new DamageInfo(owner, secondAmount, DamageInfo.DamageType.NORMAL);
+        estimated.applyEnemyPowersOnly(owner);
+        return estimated;
     }
 }

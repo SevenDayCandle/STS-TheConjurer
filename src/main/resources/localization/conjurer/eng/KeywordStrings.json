@@ -1,13 +1,13 @@
 {
 	"Aer": {
-		"DESCRIPTION": "[A-G] #yElemental #yDebuff. Reactions on a non-#ySummon target deal damage to it and its allies.",
+		"DESCRIPTION": "[A-G] #yElemental #yDebuff. Reactions grant you [Flow], which can be used during your turn to draw cards.",
 		"NAMES": [
 			"aer"
 		],
 		"PROPER_NAME": "Aer"
 	},
 	"Blasted": {
-		"DESCRIPTION": "Take #b1 more damage per stack from the next #yAttack damage received.",
+		"DESCRIPTION": "Take damage at the end of turn. Affected by damage modifiers.",
 		"NAMES": [
 			"blasted"
 		],
@@ -59,6 +59,13 @@
 		],
 		"PROPER_NAME": "Elemental Mastery"
 	},
+	"Flow": {
+		"DESCRIPTION": "During your turn, spend #b10 [Flow] to draw a card.",
+		"NAMES": [
+			"flow"
+		],
+		"PROPER_NAME": "Flow"
+	},
 	"Frostbite": {
 		"DESCRIPTION": "At the end of turn, lose HP and cut stacks in half.",
 		"NAMES": [
@@ -74,7 +81,7 @@
 		"PROPER_NAME": "Gelus"
 	},
 	"Ignis": {
-		"DESCRIPTION": "[A-R] #yElemental #yDebuff. Reactions on a non-#ySummon target increase the damage of the next #yAttack it receives.",
+		"DESCRIPTION": "[A-R] #yElemental #yDebuff. Reactions on a non-#ySummon target deal #yAttack damage to it at the start of its turn.",
 		"NAMES": [
 			"ignis"
 		],

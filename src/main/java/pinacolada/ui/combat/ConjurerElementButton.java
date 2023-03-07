@@ -85,12 +85,12 @@ public class ConjurerElementButton extends EUIButton
         return this;
     }
 
-    protected boolean canCombust(PCLAffinity affinity, AbstractCreature m)
+    public boolean canCombust(PCLAffinity affinity, AbstractCreature m)
     {
         return hasCombust(affinity) && m != null && willReact(m);
     }
 
-    protected boolean canCombust(PCLAffinity affinity, String powerID)
+    public boolean canCombust(PCLAffinity affinity, String powerID)
     {
         return hasCombust(affinity) && matchesPower(powerID);
     }
@@ -110,12 +110,12 @@ public class ConjurerElementButton extends EUIButton
         return reactionEnabled && type == Type.Combust ? canCombust(affinity, powerID) : canRedox(affinity, powerID);
     }
 
-    protected boolean canRedox(PCLAffinity affinity, AbstractCreature m)
+    public boolean canRedox(PCLAffinity affinity, AbstractCreature m)
     {
         return hasRedox(affinity) && m != null && willReact(m);
     }
 
-    protected boolean canRedox(PCLAffinity affinity, String powerID)
+    public boolean canRedox(PCLAffinity affinity, String powerID)
     {
         return hasRedox(affinity) && matchesPower(powerID);
     }

@@ -1,17 +1,14 @@
 package pinacolada.powers.conjurer;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import pinacolada.actions.PCLActions;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.effects.SFX;
 import pinacolada.misc.AffinityReactions;
-import pinacolada.monsters.PCLCardAlly;
 import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.utilities.GameUtilities;
 
 public class AerPower extends AbstractPCLElementalPower
 {
@@ -44,17 +41,7 @@ public class AerPower extends AbstractPCLElementalPower
     @Override
     public void onReact(AbstractCreature source, AffinityReactions reactions, int amount)
     {
-        if (GameUtilities.isPlayer(owner))
-        {
-            PCLActions.bottom.dealDamage(owner, owner, (int) calculateValue(amount, getIntensifyMultiplier()), DamageInfo.DamageType.THORNS, getAttackEffect());
-        }
-        else if (!(owner instanceof PCLCardAlly))
-        {
-            for (AbstractMonster enemy : GameUtilities.getEnemies(true))
-            {
-                PCLActions.bottom.dealDamage(owner, enemy, (int) calculateValue(amount, getIntensifyMultiplier()), DamageInfo.DamageType.THORNS, getAttackEffect());
-            }
-        }
+        PCLActions.bottom.gain(PCLElementHelper.Flow, MathUtils.ceil(calculateValue(amount, getIntensifyMultiplier())));
         super.onReact(source, reactions, amount);
     }
 }

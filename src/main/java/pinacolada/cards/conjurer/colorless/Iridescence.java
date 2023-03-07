@@ -16,15 +16,15 @@ import pinacolada.skills.skills.PSpecialSkill;
 import pinacolada.utilities.GameUtilities;
 
 @VisibleCard
-public class Madness extends PCLCard
+public class Iridescence extends PCLCard
 {
-    public static final PCLCardData DATA = register(Madness.class, ConjurerResources.conjurer)
+    public static final PCLCardData DATA = register(Iridescence.class, ConjurerResources.conjurer)
             .setSkill(0, CardRarity.UNCOMMON, PCLCardTarget.None)
             .setAffinities(PCLAffinity.Star)
             .setTags(PCLCardTag.Haste.make(0, -1))
             .setColorless();
 
-    public Madness()
+    public Iridescence()
     {
         super(DATA);
     }

@@ -16,6 +16,7 @@ public class ConjurerTooltips extends PCLTooltips
     public EUITooltip elementalDebuff = EUITooltip.findByID("Elemental Debuff");
     public EUITooltip elementalExposure = EUITooltip.findByID("Elemental Exposure");
     public EUITooltip elementalMastery = EUITooltip.findByID("Elemental Mastery");
+    public EUITooltip flow = EUITooltip.findByID("Flow");
     public EUITooltip frostbite = EUITooltip.findByID("Frostbite");
     public EUITooltip gelus = EUITooltip.findByID("Gelus");
     public EUITooltip ignis = EUITooltip.findByID("Ignis");

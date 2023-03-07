@@ -134,7 +134,7 @@ public class ConjurerResources extends PCLResources<ConjurerConfig, ConjurerImag
             case JAX.ID:
                 return pinacolada.cards.conjurer.special.JAX.DATA;
             case Madness.ID:
-                return pinacolada.cards.conjurer.colorless.Madness.DATA;
+                return pinacolada.cards.pcl.colorless.Madness.DATA;
             case Miracle.ID:
                 return pinacolada.cards.pcl.colorless.Miracle.DATA;
             case Normality.ID:

@@ -12,7 +12,7 @@
 	},
 	"conjurer:BlastedPower":
 	{
-		"DESCRIPTIONS": ["Take #b{0} more #yAttack damage from the next #yAttack received."],
+		"DESCRIPTIONS": ["At the start of its turn, takes #b{0} damage, then loses [Blasted]."],
 		"NAME": "Blasted"
 	},
 	"conjurer:CorrosionPower":
@@ -30,9 +30,14 @@
 		"DESCRIPTIONS": ["When you apply an #yElemental #yDebuff, gain an #yAura, or gain #yResolve: Increase the amount by #b{0}."],
 		"NAME": "Elemental Mastery"
 	},
+	"conjurer:FlowPower":
+	{
+		"DESCRIPTIONS": ["#b{0} stacks can be used to draw a card.", "#o{Click the draw pile preview to draw it.}"],
+		"NAME": "Flow"
+	},
 	"conjurer:FrostbitePower":
 	{
-		"DESCRIPTIONS": ["At the end of turn, lose #b{0} HP, then cut stacks in half."],
+		"DESCRIPTIONS": ["At the start of its turn, loses #b{0} HP, then cut stacks in half."],
 		"NAME": "Frostbite"
 	},
 	"conjurer:GelusPower":

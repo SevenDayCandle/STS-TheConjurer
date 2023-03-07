@@ -32,13 +32,13 @@
 	},
 	"conjurer:PeriodicTable":
 	{
-		"DESCRIPTIONS": ["Whenever you #ySummon or #yWithdraw a #ySummon, apply #b{0} of its corresponding #yElemental #yDebuffs to it and a random enemy."],
+		"DESCRIPTIONS": ["At the start of combat, draw a #ySummon. It costs #b{0} less this turn. | #oRight-Click: Target a creature to take on its form."],
 		"FLAVOR": "A table that repeats itself every so often.",
 		"NAME": "Periodic Table"
 	},
 	"conjurer:QuadraticGlobe":
 	{
-		"DESCRIPTIONS": ["Whenever you #yCombust, reduce the #yCooldown of the next card played by #b1."],
+		"DESCRIPTIONS": ["Whenever you #ySummon or #yWithdraw a #ySummon, apply #b{0} of its corresponding #yElemental #yDebuffs to it and a random enemy."],
 		"FLAVOR": "Pass the power.",
 		"NAME": "Magic Baton"
 	},

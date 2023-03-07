@@ -156,11 +156,7 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Mult
     @Override
     protected ColoredString getPrimaryAmount(Color c)
     {
-        if (stabilizeTurns > 0 && this.amount > 0)
-        {
-            return new ColoredString(amount, Settings.BLUE_TEXT_COLOR, c.a);
-        }
-        return super.getPrimaryAmount(c);
+        return new ColoredString(amount, stabilizeTurns > 0 ? Settings.BLUE_TEXT_COLOR : Color.WHITE, c.a);
     }
 
     @Override

@@ -10,17 +10,17 @@ import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
+import pinacolada.skills.skills.special.conditions.PCond_OnAllyDeath;
 
 @VisibleCard
 public class BarbaraPegg extends PCLCard
 {
     public static final PCLCardData DATA = register(BarbaraPegg.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Magical, PCLCardTarget.AllEnemy)
-            .setDamage(1, 0)
+            .setDamage(1, 2)
             .setPriority(1)
-            .setHp(3, 2)
+            .setHp(3, 0)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
@@ -32,6 +32,6 @@ public class BarbaraPegg extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.WATER);
-        addUseMove(PCond.cooldown(0), PMove.heal(PCLCardTarget.AllAlly, 2).setUpgrade(1));
+        addUseMove(new PCond_OnAllyDeath(), PMove.heal(PCLCardTarget.Team, 6).setUpgrade(2));
     }
 }

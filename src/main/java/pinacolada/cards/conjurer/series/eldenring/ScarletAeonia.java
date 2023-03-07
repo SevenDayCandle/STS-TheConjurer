@@ -38,7 +38,7 @@ public class ScarletAeonia extends PCLCard
     public void setup(Object input)
     {
         addUseMove(PMove.applyToEveryone(7, PCLElementHelper.Aer));
-        addApplyPower(PCLCardTarget.Single, 1, PTrigger.when(PCond.onTurnEnd(), getSpecialMove(0, this::specialMove, 1, 3)));
+        addApplyPower(PCLCardTarget.Single, -1, PTrigger.when(PCond.onTurnEnd(), getSpecialMove(0, this::specialMove, 1, 3)));
     }
 
     public void specialMove(PSpecialSkill move, PCLUseInfo info)

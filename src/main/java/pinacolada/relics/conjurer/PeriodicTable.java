@@ -1,25 +1,14 @@
 package pinacolada.relics.conjurer;
 
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleRelic;
-import pinacolada.cards.base.PCLCard;
-import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.cards.base.fields.PCLCardAffinities;
-import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.interfaces.subscribers.OnAllySummonSubscriber;
-import pinacolada.interfaces.subscribers.OnAllyWithdrawSubscriber;
-import pinacolada.misc.CombatManager;
-import pinacolada.monsters.PCLCardAlly;
-import pinacolada.powers.conjurer.PCLElementHelper;
-import pinacolada.relics.PCLRelic;
+import pinacolada.relics.pcl.DisguiseRelic;
+import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.utilities.GameUtilities;
-
-import java.util.Arrays;
-import java.util.HashSet;
 
 @VisibleRelic
-public class PeriodicTable extends PCLRelic implements OnAllySummonSubscriber, OnAllyWithdrawSubscriber
+public class PeriodicTable extends DisguiseRelic
 {
     public static final String ID = createFullID(ConjurerResources.conjurer, PeriodicTable.class);
 
@@ -31,42 +20,12 @@ public class PeriodicTable extends PCLRelic implements OnAllySummonSubscriber, O
     @Override
     public void atBattleStart()
     {
-        CombatManager.subscribe(OnAllySummonSubscriber.class, this);
-        CombatManager.subscribe(OnAllyWithdrawSubscriber.class, this);
-    }
-
-    @Override
-    public void onAllySummon(PCLCard card, PCLCardAlly ally)
-    {
-        doAction(card, ally);
-    }
-
-    @Override
-    public void onAllyWithdraw(PCLCard card, PCLCardAlly ally)
-    {
-        doAction(card, ally);
-    }
-
-    public void doAction(PCLCard card, PCLCardAlly ally)
-    {
-        HashSet<PCLAffinity> available = new HashSet<>(Arrays.asList(PCLAffinity.getAvailableAffinities()));
-        PCLCardAffinities cardAffinities = GameUtilities.getPCLCardAffinities(card);
-        if (cardAffinities != null)
-        {
-            for (PCLAffinity aff : cardAffinities.getAffinities(false))
+        PCLActions.bottom.draw(1).setFilter(f -> f.type == PCLEnum.CardType.SUMMON).addCallback(cards -> {
+            for (AbstractCard c : cards)
             {
-                if (available.contains(aff))
-                {
-                    PCLElementHelper debuff = PCLElementHelper.get(aff);
-                    if (debuff != null)
-                    {
-                        PCLActions.delayed.applyPower(ally, PCLCardTarget.Single, debuff, getValue());
-                        PCLActions.delayed.applyPower(PCLCardTarget.RandomEnemy, debuff, getValue());
-                    }
-                }
+                PCLActions.bottom.modifyCost(c, -getValue(), false, true);
             }
-            flash();
-        }
+        });
     }
 
     public int getValue() {

@@ -19,7 +19,7 @@ import pinacolada.skills.PTrait;
 public class Yelan extends PCLCard
 {
     public static final PCLCardData DATA = register(Yelan.class, ConjurerResources.conjurer)
-            .setSummon(1, CardRarity.COMMON, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy)
+            .setSummon(1, CardRarity.RARE, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy)
             .setDamage(2, 0, 2)
             .setPriority(1)
             .setHp(5, 1)

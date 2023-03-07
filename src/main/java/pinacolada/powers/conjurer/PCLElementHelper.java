@@ -30,7 +30,8 @@ public class PCLElementHelper extends PCLPowerHelper implements TooltipProvider
 
     public static final PCLPowerHelper Blasted = new PCLPowerHelper(BlastedPower.POWER_ID, ConjurerResources.conjurer.tooltips.blasted, BlastedPower::new, Behavior.TurnBased, false, true, false);
     public static final PCLPowerHelper Frostbite = new PCLPowerHelper(FrostbitePower.POWER_ID, ConjurerResources.conjurer.tooltips.frostbite, (o, s, a) -> new FrostbitePower(o, a), Behavior.TurnBased, false, true, false);
-    
+    public static final PCLPowerHelper Flow = new PCLPowerHelper(FlowPower.POWER_ID, ConjurerResources.conjurer.tooltips.flow, FlowPower::new, Behavior.Permanent, false, false, false);
+
     public final String ID;
     public final PCLAffinity affinity;
     public final EUITooltip tooltip;
