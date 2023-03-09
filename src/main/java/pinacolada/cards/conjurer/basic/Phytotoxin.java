@@ -12,14 +12,14 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
-public class DendriticBiotoxin extends PCLCard
+public class Phytotoxin extends PCLCard
 {
-    public static final PCLCardData DATA = register(DendriticBiotoxin.class, ConjurerResources.conjurer)
+    public static final PCLCardData DATA = register(Phytotoxin.class, ConjurerResources.conjurer)
             .setPower(1, CardRarity.UNCOMMON)
             .setAffinities(1, PCLAffinity.Green, PCLAffinity.Orange)
             .setCore();
 
-    public DendriticBiotoxin()
+    public Phytotoxin()
     {
         super(DATA);
     }

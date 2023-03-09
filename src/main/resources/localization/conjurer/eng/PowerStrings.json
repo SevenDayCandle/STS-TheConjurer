@@ -32,7 +32,7 @@
 	},
 	"conjurer:FlowPower":
 	{
-		"DESCRIPTIONS": ["#b{0} stacks can be used to draw a card.", "#o{Click the draw pile preview to draw it.}"],
+		"DESCRIPTIONS": ["When this power has at least #b{0} stacks, click its draw pile preview to spend #b{0} stacks and draw that card."],
 		"NAME": "Flow"
 	},
 	"conjurer:FrostbitePower":
@@ -52,7 +52,7 @@
 	},
 	"conjurer:LuxPower":
 	{
-		"DESCRIPTIONS": ["Cards targeting this creature give #b+{0}% #yReaction.", "Cards targeting with [Lux] give #b+{0}% #yReaction."],
+		"DESCRIPTIONS": ["Cards targeting this creature give #b+{0}% #yReaction.", "Cards targeting creatures with [Lux] give #b+{0}% #yReaction."],
 		"NAME": "Lux"
 	},
 	"conjurer:PetraPower":

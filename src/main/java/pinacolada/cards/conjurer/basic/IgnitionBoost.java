@@ -3,8 +3,8 @@ package pinacolada.cards.conjurer.basic;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
-import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -16,7 +16,7 @@ public class IgnitionBoost extends PCLCard
     public static final PCLCardData DATA = register(IgnitionBoost.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.Team)
             .setRTags(PCLCardTag.Exhaust)
-            .setAffinities(PCLAffinity.Red)
+            .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
             .setCore();
 
     public IgnitionBoost()

@@ -1,6 +1,7 @@
 package pinacolada.powers.conjurer;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import extendedui.utilities.ColoredString;
@@ -10,6 +11,7 @@ import pinacolada.interfaces.listeners.DrawPileCardPreviewProvider;
 import pinacolada.powers.PCLPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.ui.combat.DrawPileCardPreview;
+import pinacolada.utilities.PCLRenderHelpers;
 
 public class FlowPower extends PCLPower implements DrawPileCardPreviewProvider
 {
@@ -55,11 +57,6 @@ public class FlowPower extends PCLPower implements DrawPileCardPreviewProvider
     }
 
     @Override
-    public void highlight(DrawPileCardPreview preview)
-    {
-    }
-
-    @Override
     public void onClick(AbstractCard highlighted)
     {
         if (amount >= PER_STACK)
@@ -93,5 +90,15 @@ public class FlowPower extends PCLPower implements DrawPileCardPreviewProvider
     protected ColoredString getPrimaryAmount(Color c)
     {
         return new ColoredString(amount, amount >= PER_STACK ? Color.GREEN : Color.WHITE, c.a);
+    }
+
+    @Override
+    protected void renderIconsImpl(SpriteBatch sb, float x, float y, Color borderColor, Color imageColor) {
+        super.renderIconsImpl(sb, x, y, borderColor, imageColor);
+        if (preview != null && preview.isHighlighted())
+        {
+            PCLRenderHelpers.drawGlowing(sb, s -> PCLRenderHelpers.drawCentered(s, imageColor, this.img, x, y, 32.0F, 32.0F, 1f, 0.0F));
+        }
+
     }
 }

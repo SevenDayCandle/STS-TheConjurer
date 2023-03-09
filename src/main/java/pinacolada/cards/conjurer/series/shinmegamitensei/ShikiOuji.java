@@ -5,6 +5,8 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.cards.base.fields.PCLAttackType;
+import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
@@ -17,7 +19,7 @@ import pinacolada.skills.skills.PMultiCond;
 public class ShikiOuji extends PCLCard
 {
     public static final PCLCardData DATA = register(ShikiOuji.class, ConjurerResources.conjurer)
-            .setSummon(1, CardRarity.RARE)
+            .setSummon(1, CardRarity.RARE, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
             .setDamage(1, 1, 2)
             .setPriority(1)
             .setHp(10, 2)
@@ -32,6 +34,6 @@ public class ShikiOuji extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.SLASH_HEAVY);
-        addUseMove(PMultiCond.or(PCond.onSummon(), PCond.onWithdraw()), PMove.applyToAllies( 2, PCLPowerHelper.Thorns).setUpgrade(1));
+        addUseMove(PMultiCond.or(PCond.onSummon(), PCond.onWithdraw()), PMove.apply( PCLCardTarget.None, 1, PCLPowerHelper.Thorns).setUpgrade(1));
     }
 }

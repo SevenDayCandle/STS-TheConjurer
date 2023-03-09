@@ -33,6 +33,7 @@ public class ConjurerTooltips extends PCLTooltips
         corrosion.setIconFromPath(PGR.getPowerImage(CorrosionPower.POWER_ID));
         elementalExposure.setIconFromPath(PGR.getPowerImage(ElementalExposurePower.POWER_ID));
         elementalMastery.setIconFromPath(PGR.getPowerImage(ElementalMasteryPower.POWER_ID));
+        flow.setIconFromPath(PGR.getPowerImage(FlowPower.POWER_ID));
         frostbite.setIconFromPath(PGR.getPowerImage(FrostbitePower.POWER_ID));
         gelus.setIconFromPath(PGR.getPowerImage(GelusPower.POWER_ID));
         ignis.setIconFromPath(PGR.getPowerImage(IgnisPower.POWER_ID));
