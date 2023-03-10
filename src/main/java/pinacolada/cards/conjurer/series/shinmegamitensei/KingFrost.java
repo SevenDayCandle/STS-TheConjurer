@@ -17,7 +17,7 @@ import pinacolada.skills.skills.PTrigger;
 public class KingFrost extends PCLCard
 {
     public static final PCLCardData DATA = register(KingFrost.class, ConjurerResources.conjurer)
-            .setSummon(3, CardRarity.RARE, PCLAttackType.Magical)
+            .setSummon(3, CardRarity.RARE, PCLAttackType.Immaterial)
             .setDamage(2, 0)
             .setPriority(1)
             .setHp(19, 4)

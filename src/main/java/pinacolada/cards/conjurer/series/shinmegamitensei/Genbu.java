@@ -18,7 +18,7 @@ import pinacolada.skills.skills.PMultiSkill;
 public class Genbu extends PCLCard
 {
     public static final PCLCardData DATA = register(Genbu.class, ConjurerResources.conjurer)
-            .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Magical)
+            .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Immaterial)
             .setDamage(1, 1, 2)
             .setPriority(1)
             .setHp(8, 2)

@@ -17,7 +17,7 @@ import pinacolada.skills.PMove;
 public class Melt extends PCLCard
 {
     public static final PCLCardData DATA = register(Melt.class, ConjurerResources.conjurer)
-            .setAttack(1, CardRarity.RARE, PCLAttackType.Magical)
+            .setAttack(1, CardRarity.RARE, PCLAttackType.Immaterial)
             .setDamage(10, 1)
             .setTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)

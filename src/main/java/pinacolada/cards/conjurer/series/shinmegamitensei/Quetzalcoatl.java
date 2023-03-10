@@ -18,7 +18,7 @@ import pinacolada.skills.skills.PTrigger;
 public class Quetzalcoatl extends PCLCard
 {
     public static final PCLCardData DATA = register(Quetzalcoatl.class, ConjurerResources.conjurer)
-            .setSummon(2, CardRarity.RARE, PCLAttackType.Magical)
+            .setSummon(2, CardRarity.RARE, PCLAttackType.Immaterial)
             .setDamage(4, 0)
             .setPriority(1)
             .setHp(12, 4)

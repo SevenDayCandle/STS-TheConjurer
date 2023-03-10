@@ -17,7 +17,7 @@ import pinacolada.skills.PMove;
 public class Fischl extends PCLCard
 {
     public static final PCLCardData DATA = register(Fischl.class, ConjurerResources.conjurer)
-            .setSummon(0, CardRarity.UNCOMMON, PCLAttackType.Magical)
+            .setSummon(0, CardRarity.UNCOMMON, PCLAttackType.Immaterial)
             .setDamage(2, 1)
             .setPriority(1)
             .setHp(3, 2)

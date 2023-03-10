@@ -26,7 +26,7 @@ import java.util.ArrayList;
 public class Patchouli extends PCLCard
 {
     public static final PCLCardData DATA = register(Patchouli.class, ConjurerResources.conjurer)
-            .setSummon(2, CardRarity.RARE, PCLAttackType.Magical)
+            .setSummon(2, CardRarity.RARE, PCLAttackType.Immaterial)
             .setDamage(4, 1)
             .setPriority(1)
             .setHp(9, 1)

@@ -18,7 +18,7 @@ import pinacolada.skills.PMove;
 public class BlackFrost extends PCLCard
 {
     public static final PCLCardData DATA = register(BlackFrost.class, ConjurerResources.conjurer)
-            .setSummon(1, CardRarity.RARE, PCLAttackType.Magical, PCLCardTarget.RandomEnemy)
+            .setSummon(1, CardRarity.RARE, PCLAttackType.Immaterial, PCLCardTarget.RandomEnemy)
             .setDamage(5, 1)
             .setPriority(1)
             .setHp(3, 2)

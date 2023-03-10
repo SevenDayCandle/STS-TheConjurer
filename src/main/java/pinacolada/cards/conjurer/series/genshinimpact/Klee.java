@@ -17,7 +17,7 @@ import pinacolada.skills.PMove;
 public class Klee extends PCLCard
 {
     public static final PCLCardData DATA = register(Klee.class, ConjurerResources.conjurer)
-            .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Magical, PCLCardTarget.RandomEnemy)
+            .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Immaterial, PCLCardTarget.RandomEnemy)
             .setDamage(1, 0)
             .setPriority(1)
             .setHp(3, 1)

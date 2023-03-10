@@ -19,7 +19,7 @@ import pinacolada.skills.skills.PMultiSkill;
 public class Albedo extends PCLCard
 {
     public static final PCLCardData DATA = register(Albedo.class, ConjurerResources.conjurer)
-            .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Magical)
+            .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Immaterial)
             .setDamage(3, 1)
             .setPriority(1)
             .setHp(7, 2)
