@@ -34,6 +34,7 @@ import pinacolada.powers.conjurer.AbstractPCLElementalPower;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.resources.pcl.PCLCoreImages;
 import pinacolada.resources.pcl.PCLCoreStrings;
 import pinacolada.skills.PSkill;
 import pinacolada.utilities.GameUtilities;
@@ -121,7 +122,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
                 .setFontScale(0.75f)
                 .setAlignment(0.85f, 0.5f)
                 .setTooltip(chargeTooltip);
-        chargeImage = new EUIButton(PGR.core.images.unknown.texture(), new RelativeHitbox(chargeHeader.hb, ICON_SIZE * 0.75f, ICON_SIZE * 0.75f, chargeHeader.hb.width * 0.5f, chargeHeader.hb.height * 0.25f))
+        chargeImage = new EUIButton(PCLCoreImages.unknown.texture(), new RelativeHitbox(chargeHeader.hb, ICON_SIZE * 0.75f, ICON_SIZE * 0.75f, chargeHeader.hb.width * 0.5f, chargeHeader.hb.height * 0.25f))
                 .setTooltip(chargeTooltip)
                 .setOnClick(() -> skips.targetToUse(1))
                 .setOnRightClick(() -> skips.targetToUse(skips.getCurrentUses()));

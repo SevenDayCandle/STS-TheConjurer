@@ -5,7 +5,6 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -17,7 +16,6 @@ public class PestThreads extends PCLCard
 {
     public static final PCLCardData DATA = register(PestThreads.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON)
-            .setDamage(6, 1)
             .setAffinities(PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
@@ -28,7 +26,6 @@ public class PestThreads extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(PCLAttackVFX.WIND);
-        addUseMove(PMod.drawPer(2).setUpgrade(1).edit(f -> f.setAffinity(PCLAffinity.Green)), PMove.applyToRandom(5, PCLElementHelper.Poison));
+        addUseMove(PMod.drawPer(3).setUpgrade(1).edit(f -> f.setAffinity(PCLAffinity.Green)), PMove.applyToRandom(5, PCLElementHelper.Poison));
     }
 }

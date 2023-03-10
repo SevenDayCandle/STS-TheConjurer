@@ -46,26 +46,26 @@ public class ConjurerPlayerData extends PCLAbstractPlayerData
 
     public void updateRelicsForDungeon()
     {
-        PGR.core.dungeon.removeRelic(PenNib.ID);
-        PGR.core.dungeon.removeRelic(Kunai.ID);
-        PGR.core.dungeon.removeRelic(Shuriken.ID);
-        PGR.core.dungeon.removeRelic(SneckoEye.ID);
-        PGR.core.dungeon.removeRelic(TinyHouse.ID);
-        PGR.core.dungeon.removeRelic(RunicPyramid.ID);
-        PGR.core.dungeon.removeRelic(CeramicFish.ID);
-        PGR.core.dungeon.removeRelic(IncenseBurner.ID);
-        PGR.core.dungeon.removeRelic(PrismaticShard.ID);
-        PGR.core.dungeon.addRelic(MarkOfPain.ID, AbstractRelic.RelicTier.BOSS);
-        PGR.core.dungeon.addRelic(Melange.ID, AbstractRelic.RelicTier.SHOP);
-        PGR.core.dungeon.addRelic(TwistedFunnel.ID, AbstractRelic.RelicTier.SHOP);
-        PGR.core.dungeon.addRelic(Brimstone.ID, AbstractRelic.RelicTier.SHOP);
-        PGR.core.dungeon.addRelic(CloakClasp.ID, AbstractRelic.RelicTier.RARE);
-        PGR.core.dungeon.addRelic(CharonsAshes.ID, AbstractRelic.RelicTier.RARE);
-        PGR.core.dungeon.addRelic(ChampionsBelt.ID, AbstractRelic.RelicTier.RARE);
-        PGR.core.dungeon.addRelic(PaperCrane.ID, AbstractRelic.RelicTier.UNCOMMON);
-        PGR.core.dungeon.addRelic(PaperFrog.ID, AbstractRelic.RelicTier.UNCOMMON);
-        PGR.core.dungeon.addRelic(SneckoSkull.ID, AbstractRelic.RelicTier.COMMON);
-        PGR.core.dungeon.addRelic(RedSkull.ID, AbstractRelic.RelicTier.COMMON);
+        PGR.dungeon.removeRelic(PenNib.ID);
+        PGR.dungeon.removeRelic(Kunai.ID);
+        PGR.dungeon.removeRelic(Shuriken.ID);
+        PGR.dungeon.removeRelic(SneckoEye.ID);
+        PGR.dungeon.removeRelic(TinyHouse.ID);
+        PGR.dungeon.removeRelic(RunicPyramid.ID);
+        PGR.dungeon.removeRelic(CeramicFish.ID);
+        PGR.dungeon.removeRelic(IncenseBurner.ID);
+        PGR.dungeon.removeRelic(PrismaticShard.ID);
+        PGR.dungeon.addRelic(MarkOfPain.ID, AbstractRelic.RelicTier.BOSS);
+        PGR.dungeon.addRelic(Melange.ID, AbstractRelic.RelicTier.SHOP);
+        PGR.dungeon.addRelic(TwistedFunnel.ID, AbstractRelic.RelicTier.SHOP);
+        PGR.dungeon.addRelic(Brimstone.ID, AbstractRelic.RelicTier.SHOP);
+        PGR.dungeon.addRelic(CloakClasp.ID, AbstractRelic.RelicTier.RARE);
+        PGR.dungeon.addRelic(CharonsAshes.ID, AbstractRelic.RelicTier.RARE);
+        PGR.dungeon.addRelic(ChampionsBelt.ID, AbstractRelic.RelicTier.RARE);
+        PGR.dungeon.addRelic(PaperCrane.ID, AbstractRelic.RelicTier.UNCOMMON);
+        PGR.dungeon.addRelic(PaperFrog.ID, AbstractRelic.RelicTier.UNCOMMON);
+        PGR.dungeon.addRelic(SneckoSkull.ID, AbstractRelic.RelicTier.COMMON);
+        PGR.dungeon.addRelic(RedSkull.ID, AbstractRelic.RelicTier.COMMON);
     }
 
     @Override

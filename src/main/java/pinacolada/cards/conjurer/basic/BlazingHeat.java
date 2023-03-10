@@ -44,7 +44,6 @@ public class BlazingHeat extends PCLCard
 
     public static class BlazingHeatPower extends PSpecialCardPower
     {
-
         public BlazingHeatPower(AbstractCreature owner, PSkill move)
         {
             super(BlazingHeat.DATA, owner, move);

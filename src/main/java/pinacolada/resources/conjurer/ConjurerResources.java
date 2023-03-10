@@ -50,15 +50,16 @@ public class ConjurerResources extends PCLResources<ConjurerPlayerData, Conjurer
                 images.powerL, images.orbB, images.orbC);
     }
 
-    public void setupTooltips()
-    {
-        tooltips = new ConjurerTooltips();
-    }
-
     @Override
     public ConjurerPlayerData getData()
     {
         return new ConjurerPlayerData(this);
+    }
+
+    @Override
+    public ConjurerTooltips getTooltips()
+    {
+        return new ConjurerTooltips();
     }
 
     public void receiveEditCharacters()

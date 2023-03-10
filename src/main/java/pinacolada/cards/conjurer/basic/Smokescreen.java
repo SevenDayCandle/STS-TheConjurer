@@ -8,7 +8,6 @@ import pinacolada.cards.base.PCLCardGroupHelper;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
-import pinacolada.powers.PCLPowerHelper;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -33,6 +32,6 @@ public class Smokescreen extends PCLCard
     public void setup(Object input)
     {
         addBlockMove();
-        addUseMove(PMultiCond.ifElse(PMove.gain(1, PCLPowerHelper.Blur, PCLElementHelper.Aer), PMove.selfExhaust(), PCond.exhaust(1, PCLCardGroupHelper.Hand)));
+        addUseMove(PMultiCond.ifElse(PMove.gain(4, PCLElementHelper.Aer), PMove.selfExhaust(), PCond.exhaust(1, PCLCardGroupHelper.Hand)));
     }
 }
