@@ -19,7 +19,7 @@ public class Thermogenesis extends PCLCard
     public static final PCLCardData DATA = register(Thermogenesis.class, ConjurerResources.conjurer)
             .setAttack(1,CardRarity.UNCOMMON, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
             .setDamage(6, 3)
-            .setAffinities(PCLAffinity.Red)
+            .setAffinities(PCLAffinity.Red, PCLAffinity.Orange)
             .setCore();
 
     public Thermogenesis()

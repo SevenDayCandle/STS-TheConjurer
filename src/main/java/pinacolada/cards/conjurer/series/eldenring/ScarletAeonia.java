@@ -27,7 +27,7 @@ public class ScarletAeonia extends PCLCard
     public static final PCLCardData DATA = register(ScarletAeonia.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.RARE)
             .setTags(PCLCardTag.Exhaust)
-            .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
+            .setAffinities(PCLAffinity.Green, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
     public ScarletAeonia()

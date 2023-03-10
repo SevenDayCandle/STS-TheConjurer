@@ -11,7 +11,8 @@ import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PMove;
+import pinacolada.skills.PCond;
+import pinacolada.skills.PTrait;
 
 @VisibleCard
 public class RockSling extends PCLCard
@@ -29,7 +30,6 @@ public class RockSling extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(PCLAttackVFX.EARTH);
-        addUseMove(PMove.applyToRandom(4, PCLElementHelper.Petra));
+        addDamageMove(PCLAttackVFX.EARTH).setChain(PCond.checkPower(PCLCardTarget.Any, 1, PCLElementHelper.Petra), PTrait.damage(3));
     }
 }

@@ -20,7 +20,7 @@ public class TectonicQuake extends PCLCard
     public static final PCLCardData DATA = register(TectonicQuake.class, ConjurerResources.conjurer)
             .setAttack(3, CardRarity.RARE, PCLAttackType.Normal, PCLCardTarget.AllEnemy)
             .setTags(PCLCardTag.Exhaust)
-            .setDamage(25, 4)
+            .setDamage(24, 4)
             .setAffinities(2, PCLAffinity.Orange)
             .setCore();
 
