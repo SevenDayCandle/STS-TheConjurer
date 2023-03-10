@@ -34,6 +34,6 @@ public class Keqing extends PCLCard
     {
         addDamageMove(PCLAttackVFX.DAGGER);
         addUseMove(PCond.onWithdraw(),
-                PMove.fetch(1, PCLCardGroupHelper.DrawPile).edit(f -> f.setType(CardType.ATTACK)));
+                PMove.fetch(1, PCLCardGroupHelper.DrawPile).edit(f -> f.setAffinity(PCLAffinity.Green)));
     }
 }

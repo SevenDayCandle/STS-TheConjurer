@@ -5,7 +5,6 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
@@ -17,7 +16,7 @@ import pinacolada.skills.PMove;
 public class PestThreads extends PCLCard
 {
     public static final PCLCardData DATA = register(PestThreads.class, ConjurerResources.conjurer)
-            .setAttack(1, CardRarity.UNCOMMON, PCLAttackType.Piercing)
+            .setSkill(1, CardRarity.UNCOMMON)
             .setDamage(6, 1)
             .setAffinities(PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.eldenRing);

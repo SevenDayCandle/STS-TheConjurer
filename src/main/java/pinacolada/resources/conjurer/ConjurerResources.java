@@ -23,13 +23,14 @@ import pinacolada.monsters.PCLCardAlly;
 import pinacolada.monsters.animations.PCLAllyAnimation;
 import pinacolada.monsters.animations.conjurer.*;
 import pinacolada.monsters.animations.pcl.PCLGeneralAllyAnimation;
+import pinacolada.resources.PCLCharacterConfig;
 import pinacolada.resources.PCLResources;
 import pinacolada.resources.pcl.PCLCoreImages;
 import pinacolada.ui.combat.ConjurerReactionMeter;
 
 import java.util.HashSet;
 
-public class ConjurerResources extends PCLResources<ConjurerConfig, ConjurerImages, ConjurerTooltips>
+public class ConjurerResources extends PCLResources<PCLCharacterConfig, ConjurerImages, ConjurerTooltips>
 {
     public static final String ID = "conjurer";
     public static final ConjurerResources conjurer = new ConjurerResources();

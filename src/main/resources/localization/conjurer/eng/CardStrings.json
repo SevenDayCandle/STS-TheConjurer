@@ -164,6 +164,7 @@
 					"conjurer:GravityWell": {"NAME": "Gravity Well"},
 					"conjurer:GreatbladePhalanx": {"NAME": "Greatblade Phalanx"},
 					"conjurer:LorettasGreatbow": {"NAME": "Loretta's Greatbow"},
+					"conjurer:Lucidity": {"NAME": "Lucidity"},
 					"conjurer:MagicDownpour": {"NAME": "Magic Downpour"},
 					"conjurer:MeteoriteOfAstel": {"NAME": "Meteorite Of Astel"},
 					"conjurer:PestThreads": {"NAME": "Pest Threads"},
@@ -174,6 +175,7 @@
 					"conjurer:RykardsRancor": {"NAME": "Rykard's Rancor"},
 					"conjurer:ScarletAeonia": {"EXTENDED_DESCRIPTION": ["[Aer] on the target is converted into [Poison]"], "NAME": "Scarlet Aeonia"},
 					"conjurer:ScholarsShield": {"NAME": "Scholar's Shield"},
+					"conjurer:ShardSpiral": {"NAME": "Shard Spiral"},
 					"conjurer:ShatterEarth": {"NAME": "Shatter Earth"},
 					"conjurer:ZamorIceStorm": {"NAME": "Zamor Ice Storm"}
 				},

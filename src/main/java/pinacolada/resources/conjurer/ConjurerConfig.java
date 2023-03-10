@@ -4,21 +4,21 @@ import com.badlogic.gdx.math.Vector2;
 import extendedui.configuration.STSConfigItem;
 import extendedui.configuration.STSSerializedConfigItem;
 import extendedui.configuration.STSStringConfigItem;
-import pinacolada.resources.AbstractConfig;
-import pinacolada.resources.pcl.PCLCoreConfig;
+import pinacolada.resources.PCLCharacterConfig;
+import pinacolada.resources.PCLMainConfig;
 
 import java.util.HashSet;
 
 import static pinacolada.ui.characterSelection.PCLLoadoutsContainer.MINIMUM_CARDS;
 
-public class ConjurerConfig extends AbstractConfig
+public class ConjurerConfig extends PCLCharacterConfig
 {
     private static final String MOD_ID = "Conjurer";
-    private static final String BANNED_CARDS_CONJURER = PCLCoreConfig.createFullID("BannedCardsConjurer");
-    private static final String BANNED_RELICS_CONJURER = PCLCoreConfig.createFullID("BannedRelicsConjurer");
-    private static final String CARDS_COUNT_CONJURER = PCLCoreConfig.createFullID("CardsCountConjurer");
-    private static final String CONJURER_METER_POSITION = PCLCoreConfig.createFullID("ConjurerMeterPosition");
-    private static final String TROPHIES_CONJURER = PCLCoreConfig.createFullID("TrophiesConjurer");
+    private static final String BANNED_CARDS_CONJURER = PCLMainConfig.createFullID("BannedCardsConjurer");
+    private static final String BANNED_RELICS_CONJURER = PCLMainConfig.createFullID("BannedRelicsConjurer");
+    private static final String CARDS_COUNT_CONJURER = PCLMainConfig.createFullID("CardsCountConjurer");
+    private static final String CONJURER_METER_POSITION = PCLMainConfig.createFullID("ConjurerMeterPosition");
+    private static final String TROPHIES_CONJURER = PCLMainConfig.createFullID("TrophiesConjurer");
 
     public ConjurerConfig()
     {
