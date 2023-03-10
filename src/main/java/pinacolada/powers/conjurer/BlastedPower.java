@@ -11,9 +11,9 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.PCLPower;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.ui.combat.CombatHelper;
 import pinacolada.ui.combat.ConjurerElementButton;
 import pinacolada.ui.combat.ConjurerReactionMeter;
+import pinacolada.utilities.GameUtilities;
 
 public class BlastedPower extends PCLPower implements HealthBarRenderPower
 {
@@ -30,7 +30,7 @@ public class BlastedPower extends PCLPower implements HealthBarRenderPower
     public int getHealthBarAmount()
     {
         DamageInfo info = getEstimated();
-        return CombatHelper.getHealthBarAmount(owner, info.output, false, true);
+        return GameUtilities.getHealthBarAmount(owner, info.output, false, true);
     }
 
     @Override

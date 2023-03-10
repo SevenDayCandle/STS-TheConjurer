@@ -9,7 +9,7 @@ import pinacolada.effects.PCLAttackVFX;
 import pinacolada.effects.SFX;
 import pinacolada.powers.PCLPower;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.ui.combat.CombatHelper;
+import pinacolada.utilities.GameUtilities;
 
 public class FrostbitePower extends PCLPower implements HealthBarRenderPower
 {
@@ -26,7 +26,7 @@ public class FrostbitePower extends PCLPower implements HealthBarRenderPower
     @Override
     public int getHealthBarAmount()
     {
-        return CombatHelper.getHealthBarAmount(owner, amount, false, true);
+        return GameUtilities.getHealthBarAmount(owner, amount, false, true);
     }
 
     @Override
