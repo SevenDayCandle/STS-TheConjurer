@@ -3,22 +3,27 @@ package pinacolada.resources.conjurer;
 import com.megacrit.cardcrawl.relics.*;
 import extendedui.EUIUtils;
 import pinacolada.relics.conjurer.PeriodicTable;
-import pinacolada.resources.PCLAbstractPlayerData;
-import pinacolada.resources.PCLResources;
-import pinacolada.resources.PGR;
+import pinacolada.resources.*;
 import pinacolada.resources.loadout.PCLLoadout;
 
 import java.util.List;
 
 public class ConjurerPlayerData extends PCLAbstractPlayerData
 {
+    private static final String MOD_ID = "Conjurer";
+    private static final String BANNED_CARDS_CONJURER = PCLMainConfig.createFullID("BannedCardsConjurer");
+    private static final String BANNED_RELICS_CONJURER = PCLMainConfig.createFullID("BannedRelicsConjurer");
+    private static final String CARDS_COUNT_CONJURER = PCLMainConfig.createFullID("CardsCountConjurer");
+    private static final String CONJURER_METER_POSITION = PCLMainConfig.createFullID("ConjurerMeterPosition");
+    private static final String TROPHIES_CONJURER = PCLMainConfig.createFullID("TrophiesConjurer");
+
     public static ConjurerLoadout core = new ConjurerLoadout(-1, 0);
     public static ConjurerLoadout genshinImpact = new ConjurerLoadout(0, 0);
     public static ConjurerLoadout shinMegamiTensei = new ConjurerLoadout(1, 0);
     public static ConjurerLoadout touhouProject = new ConjurerLoadout(2, 0);
     public static ConjurerLoadout eldenRing = new ConjurerLoadout(3, 0);
 
-    public ConjurerPlayerData(PCLResources<?,?,?> resources)
+    public ConjurerPlayerData(PCLResources<?, ?, ?> resources)
     {
         super(resources);
     }
@@ -31,6 +36,12 @@ public class ConjurerPlayerData extends PCLAbstractPlayerData
                 shinMegamiTensei,
                 eldenRing
         );
+    }
+
+    @Override
+    public PCLCharacterConfig getConfig()
+    {
+        return new PCLCharacterConfig(MOD_ID, BANNED_CARDS_CONJURER, BANNED_RELICS_CONJURER, CARDS_COUNT_CONJURER, CONJURER_METER_POSITION, TROPHIES_CONJURER);
     }
 
     public void updateRelicsForDungeon()

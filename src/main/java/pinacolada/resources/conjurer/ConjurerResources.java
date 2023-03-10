@@ -23,14 +23,13 @@ import pinacolada.monsters.PCLCardAlly;
 import pinacolada.monsters.animations.PCLAllyAnimation;
 import pinacolada.monsters.animations.conjurer.*;
 import pinacolada.monsters.animations.pcl.PCLGeneralAllyAnimation;
-import pinacolada.resources.PCLCharacterConfig;
 import pinacolada.resources.PCLResources;
 import pinacolada.resources.pcl.PCLCoreImages;
 import pinacolada.ui.combat.ConjurerReactionMeter;
 
 import java.util.HashSet;
 
-public class ConjurerResources extends PCLResources<PCLCharacterConfig, ConjurerImages, ConjurerTooltips>
+public class ConjurerResources extends PCLResources<ConjurerPlayerData, ConjurerImages, ConjurerTooltips>
 {
     public static final String ID = "conjurer";
     public static final ConjurerResources conjurer = new ConjurerResources();
@@ -38,7 +37,7 @@ public class ConjurerResources extends PCLResources<PCLCharacterConfig, Conjurer
 
     public ConjurerResources()
     {
-        super(ID, ConjurerEnum.Cards.THE_CONJURER, ConjurerEnum.Characters.THE_CONJURER, new ConjurerConfig(), new ConjurerImages(ID), ConjurerPlayerData::new);
+        super(ID, ConjurerEnum.Cards.THE_CONJURER, ConjurerEnum.Characters.THE_CONJURER, new ConjurerImages(ID));
     }
 
     @Override
@@ -54,6 +53,12 @@ public class ConjurerResources extends PCLResources<PCLCharacterConfig, Conjurer
     public void setupTooltips()
     {
         tooltips = new ConjurerTooltips();
+    }
+
+    @Override
+    public ConjurerPlayerData getData()
+    {
+        return new ConjurerPlayerData(this);
     }
 
     public void receiveEditCharacters()
