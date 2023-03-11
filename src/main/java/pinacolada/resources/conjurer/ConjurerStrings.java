@@ -8,7 +8,7 @@ public class ConjurerStrings extends PCLStrings
 {
     private final UIStrings strings = getUIStrings("Tutorial");
 
-    public ConjurerStrings(PCLResources<?,?,?> resources)
+    public ConjurerStrings(PCLResources<?,?,?,?> resources)
     {
         super(resources);
     }

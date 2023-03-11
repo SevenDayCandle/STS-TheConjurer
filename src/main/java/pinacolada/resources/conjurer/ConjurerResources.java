@@ -29,12 +29,11 @@ import pinacolada.ui.combat.ConjurerReactionMeter;
 
 import java.util.HashSet;
 
-public class ConjurerResources extends PCLResources<ConjurerPlayerData, ConjurerImages, ConjurerTooltips>
+public class ConjurerResources extends PCLResources<ConjurerPlayerData, ConjurerImages, ConjurerTooltips, ConjurerStrings>
 {
     public static final String ID = "conjurer";
     public static final ConjurerResources conjurer = new ConjurerResources();
     public static final PCLAffinity[] affinities = EUIUtils.array(PCLAffinity.Red, PCLAffinity.Green, PCLAffinity.Blue, PCLAffinity.Orange);
-    public ConjurerStrings strings;
 
     public ConjurerResources()
     {
@@ -64,10 +63,9 @@ public class ConjurerResources extends PCLResources<ConjurerPlayerData, Conjurer
     }
 
     @Override
-    public void setupTooltips()
+    public ConjurerStrings getStrings()
     {
-        super.setupTooltips();
-        strings = new ConjurerStrings(this);
+        return new ConjurerStrings(this);
     }
 
     @Override

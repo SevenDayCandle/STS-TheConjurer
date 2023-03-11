@@ -23,7 +23,7 @@ public class ConjurerPlayerData extends PCLAbstractPlayerData
     public static ConjurerLoadout touhouProject = new ConjurerLoadout(2, 0);
     public static ConjurerLoadout eldenRing = new ConjurerLoadout(3, 0);
 
-    public ConjurerPlayerData(PCLResources<?, ?, ?> resources)
+    public ConjurerPlayerData(PCLResources<?, ?, ?, ?> resources)
     {
         super(resources);
     }
