@@ -34,6 +34,7 @@ public class ConjurerResources extends PCLResources<ConjurerPlayerData, Conjurer
     public static final String ID = "conjurer";
     public static final ConjurerResources conjurer = new ConjurerResources();
     public static final PCLAffinity[] affinities = EUIUtils.array(PCLAffinity.Red, PCLAffinity.Green, PCLAffinity.Blue, PCLAffinity.Orange);
+    public ConjurerStrings strings;
 
     public ConjurerResources()
     {
@@ -62,6 +63,14 @@ public class ConjurerResources extends PCLResources<ConjurerPlayerData, Conjurer
         return new ConjurerTooltips();
     }
 
+    @Override
+    public void setupTooltips()
+    {
+        super.setupTooltips();
+        strings = new ConjurerStrings(this);
+    }
+
+    @Override
     public void receiveEditCharacters()
     {
         BaseMod.addCharacter(new ConjurerCharacter(), images.charButton, images.charBackground, playerClass);

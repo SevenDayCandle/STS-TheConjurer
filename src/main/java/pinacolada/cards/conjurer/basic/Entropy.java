@@ -2,7 +2,6 @@ package pinacolada.cards.conjurer.basic;
 
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
@@ -56,7 +55,7 @@ public class Entropy extends PCLCard
                         PCLElementHelper debuff = PCLElementHelper.get(aff);
                         if (debuff != null)
                         {
-                            PCLActions.bottom.applyPower(info.source, info.target, move.target, debuff, move.amount);
+                            move.getActions().applyPower(info.source, info.target, move.target, debuff, move.amount);
                         }
                     }
                 }

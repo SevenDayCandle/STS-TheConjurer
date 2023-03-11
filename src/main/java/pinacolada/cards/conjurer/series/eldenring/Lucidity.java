@@ -16,7 +16,7 @@ public class Lucidity extends PCLCard
 {
     public static final PCLCardData DATA = register(Lucidity.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.COMMON, PCLCardTarget.Self)
-            .setAffinities(PCLAffinity.Blue)
+            .setAffinities(PCLAffinity.Blue, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
     public Lucidity()

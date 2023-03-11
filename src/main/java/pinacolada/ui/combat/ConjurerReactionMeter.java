@@ -208,13 +208,21 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
     @Override
     public String[] getInfoDescription()
     {
-        return array(PGR.core.strings.tutorial_affinityTutorial, PGR.core.strings.tutorial_conjurerTutorial1, PGR.core.strings.tutorial_conjurerTutorial2, PGR.core.strings.tutorial_conjurerTutorial3);
+        return array(PGR.core.strings.tutorial_tagTutorial,
+                PGR.core.strings.tutorial_affinityTutorial,
+                PGR.core.strings.tutorial_summonTutorial1,
+                PGR.core.strings.tutorial_summonTutorial2,
+                PGR.core.strings.tutorial_summonTutorial3,
+                PGR.core.strings.tutorial_summonTutorial4,
+                ConjurerResources.conjurer.strings.conjurerTutorial1,
+                ConjurerResources.conjurer.strings.conjurerTutorial2,
+                ConjurerResources.conjurer.strings.conjurerTutorial3);
     }
 
     @Override
     public String getInfoMainDescrption()
     {
-        return PGR.core.strings.tutorial_conjurerSimple;
+        return ConjurerResources.conjurer.strings.conjurerSimple;
     }
 
     @Override

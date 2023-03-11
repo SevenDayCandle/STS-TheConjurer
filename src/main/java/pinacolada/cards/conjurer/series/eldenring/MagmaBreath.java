@@ -5,29 +5,31 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.cards.base.fields.PCLAttackType;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PCond;
 import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
-import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
-public class FoundingRainOfStars extends PCLCard
+public class MagmaBreath extends PCLCard
 {
-    public static final PCLCardData DATA = register(FoundingRainOfStars.class, ConjurerResources.conjurer)
-            .setPower(1, CardRarity.RARE)
-            .setAffinities(PCLAffinity.Blue.make(2), PCLAffinity.Yellow.make())
+    public static final PCLCardData DATA = register(MagmaBreath.class, ConjurerResources.conjurer)
+            .setAttack(1, CardRarity.UNCOMMON, PCLAttackType.Ranged)
+            .setDamage(9, 2)
+            .setAffinities(PCLAffinity.Red, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
-    public FoundingRainOfStars()
+    public MagmaBreath()
     {
         super(DATA);
     }
 
     public void setup(Object input)
     {
-        addGainPower(PTrigger.when(PCond.onTurnStart(), PMod.bonusPerLevel(1, PCLAffinity.Blue), PMove.applyToEveryone(2, PCLElementHelper.Gelus).setUpgrade(1)));
+        addDamageMove(PCLAttackVFX.SMALL_EXPLOSION);
+        addUseMove(PMod.bonusOnExhausted(3), PMove.applyToSingle(2, PCLElementHelper.Ignis));
     }
 }

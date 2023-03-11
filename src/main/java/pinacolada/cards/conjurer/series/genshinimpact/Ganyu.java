@@ -25,7 +25,7 @@ public class Ganyu extends PCLCard
     public static final PCLCardData DATA = register(Ganyu.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE, PCLAttackType.Ranged)
             .setRTags(PCLCardTag.Ethereal)
-            .setDamage(8, 0)
+            .setDamage(7, 0)
             .setPriority(1)
             .setHp(2, 1)
             .setAffinities(PCLAffinity.Blue)
