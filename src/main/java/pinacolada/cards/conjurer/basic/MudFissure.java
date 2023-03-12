@@ -16,7 +16,7 @@ public class MudFissure extends PCLCard
 {
     public static final PCLCardData DATA = register(MudFissure.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.COMMON)
-            .setDamage(5, 1)
+            .setDamage(5, 2)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Orange)
             .setCore();
 
@@ -27,6 +27,6 @@ public class MudFissure extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(PCLAttackVFX.EARTH).setChain(PCond.checkPower(PCLCardTarget.Single, 1).edit(f -> f.setDebuff(true)), PTrait.damage(5).setUpgrade(3));
+        addDamageMove(PCLAttackVFX.EARTH).setChain(PCond.checkPower(PCLCardTarget.Single, 1).edit(f -> f.setDebuff(true)), PTrait.damage(6).setUpgrade(2));
     }
 }

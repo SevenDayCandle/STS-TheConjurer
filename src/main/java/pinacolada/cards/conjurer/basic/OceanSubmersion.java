@@ -25,6 +25,6 @@ public class OceanSubmersion extends PCLCard
 
     public void setup(Object input)
     {
-        addUseMove(PMove.applyToEveryone(9, PCLElementHelper.Gelus).setUpgrade(3));
+        addUseMove(PMove.applyToEveryone(8, PCLElementHelper.Gelus).setUpgrade(3));
     }
 }

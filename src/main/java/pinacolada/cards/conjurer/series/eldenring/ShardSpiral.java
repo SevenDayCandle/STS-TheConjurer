@@ -18,7 +18,7 @@ public class ShardSpiral extends PCLCard
 {
     public static final PCLCardData DATA = register(ShardSpiral.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.COMMON, PCLAttackType.Ranged)
-            .setDamage(1, 0, 2)
+            .setDamage(2, 1, 2)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
@@ -29,6 +29,6 @@ public class ShardSpiral extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(PCLAttackVFX.ICE).setChain(PMod.perPowerSelf(1, PCLElementHelper.Flow), PTrait.damage(2).setUpgrade(1));
+        addDamageMove(PCLAttackVFX.ICE).setChain(PMod.perPowerSelf(1, PCLElementHelper.Flow).setExtra(12).setUpgrade(3), PTrait.damage(1));
     }
 }

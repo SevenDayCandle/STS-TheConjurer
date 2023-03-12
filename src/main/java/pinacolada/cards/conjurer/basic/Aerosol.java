@@ -15,7 +15,7 @@ public class Aerosol extends PCLCard
 {
     public static final PCLCardData DATA = register(Aerosol.class, ConjurerResources.conjurer)
             .setSkill(0, CardRarity.COMMON)
-            .setTags(PCLCardTag.Exhaust.make(), PCLCardTag.Retain.make(0, -1))
+            .setTags(PCLCardTag.Exhaust.make())
             .setAffinities(2, PCLAffinity.Green)
             .setCore();
 
@@ -26,7 +26,7 @@ public class Aerosol extends PCLCard
 
     public void setup(Object input)
     {
-        addUseMove(PMove.draw(1));
-        addUseMove(PMove.applyToEnemies(3, PCLElementHelper.Aer));
+        addUseMove(PMove.draw(1).setUpgrade(1));
+        addUseMove(PMove.applyToEnemies(2, PCLElementHelper.Aer));
     }
 }

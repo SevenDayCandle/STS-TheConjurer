@@ -12,6 +12,7 @@ import extendedui.ui.hitboxes.EUIHitbox;
 import extendedui.utilities.EUIColors;
 import pinacolada.powers.conjurer.AbstractPCLElementalPower;
 import pinacolada.resources.PGR;
+import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.utilities.PCLRenderHelpers;
 
 public class ConjurerReactionButton extends EUIImage
@@ -94,8 +95,8 @@ public class ConjurerReactionButton extends EUIImage
         {
             tooltip.setIcon(target.elementPower().tooltip.icon);
             tooltip.setDescription(type == ConjurerElementButton.Type.Combust ?
-                    EUIUtils.format(PGR.core.strings.combat_conjurerMeterCombust, source.affinity.getTooltip(), target.elementPower().tooltip, PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(source.affinity))) :
-                    EUIUtils.format(PGR.core.strings.combat_conjurerMeterRedox, source.affinity.getTooltip(), target.elementPower().tooltip, PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(source.affinity))));
+                    EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterCombust, source.affinity.getTooltip(), target.elementPower().tooltip, PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(source.affinity))) :
+                    EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterRedox, source.affinity.getTooltip(), target.elementPower().tooltip, PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(source.affinity))));
         }
     }
 

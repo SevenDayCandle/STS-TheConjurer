@@ -15,6 +15,7 @@ import extendedui.ui.controls.EUIImage;
 import extendedui.ui.hitboxes.EUIHitbox;
 import extendedui.ui.tooltips.EUITooltip;
 import extendedui.utilities.EUIColors;
+import pinacolada.actions.PCLActions;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardAffinity;
 import pinacolada.effects.PCLEffects;
@@ -49,6 +50,7 @@ public class ConjurerElementButton extends EUIButton
     protected int level;
     protected float intensifyFontScale = BASE_AMOUNT_SCALE;
     protected boolean reactionEnabled;
+    private boolean busy;
 
     public ConjurerElementButton(ConjurerReactionMeter meter, PCLAffinity affinity, Texture texture, EUIHitbox hb)
     {
@@ -186,16 +188,24 @@ public class ConjurerElementButton extends EUIButton
         level = 0;
         currentCost = BASE_COST;
         elementImage.setColor(Color.GRAY);
+        busy = false;
     }
 
     public void manualAddLevel()
     {
-        meter.set(affinity, 0);
-        if (CombatManager.tryActivateSemiLimited(INCREASE_ID))
+        if (!busy)
         {
-            meter.addSkip(1);
+            busy = true;
+            PCLActions.bottom.callback(() -> {
+                meter.set(affinity, 0);
+                if (CombatManager.tryActivateSemiLimited(INCREASE_ID))
+                {
+                    meter.addSkip(1);
+                }
+                tryAddLevel();
+                busy = false;
+            });
         }
-        tryAddLevel();
     }
 
     public int reactionGain(AbstractPower po, PCLCardAffinity cAff, Type type)
@@ -273,13 +283,13 @@ public class ConjurerElementButton extends EUIButton
 
             ArrayList<String> strings = new ArrayList<>();
             strings.add(PCLCoreStrings.headerString(PGR.core.tooltips.level.title, level));
-            strings.add(PCLCoreStrings.headerString(PGR.core.strings.combat_conjurerMeterCost, currentCost));
+            strings.add(PCLCoreStrings.headerString(ConjurerResources.conjurer.strings.combat_conjurerMeterCost, currentCost));
             strings.add(PGR.core.strings.combat_effect(EUIUtils.format(reactionStrings.DESCRIPTIONS[1], PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getIntensifyMultiplier(elementID())))
-                    + " " + EUIUtils.format(PGR.core.strings.combat_conjurerMeterDamage, affinity.getTooltip(), PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(affinity)))));
+                    + " " + EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterDamage, affinity.getTooltip(), PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(affinity)))));
 
             if (canIntensify())
             {
-                strings.add(EUIUtils.SPLIT_LINE + EUIUtils.format(PGR.core.strings.combat_conjurerMeterNextIntensity, currentCost, power));
+                strings.add(EUIUtils.SPLIT_LINE + EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterNextIntensity, currentCost, power));
             }
 
             tooltip.setIcon(power.getTooltip().icon);
@@ -291,7 +301,7 @@ public class ConjurerElementButton extends EUIButton
             tooltip.child.setDescription(EUIUtils.joinStrings(EUIUtils.SPLIT_LINE,
                     PCLCoreStrings.headerString(PGR.core.tooltips.level.title, level + 1),
                     PGR.core.strings.combat_effect(EUIUtils.format(reactionStrings.DESCRIPTIONS[1], PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getIntensifyMultiplier(elementID(), level + 1)))
-                    + " " + EUIUtils.format(PGR.core.strings.combat_conjurerMeterDamage, affinity.getTooltip(), PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(affinity, level + 1))))
+                    + " " + EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterDamage, affinity.getTooltip(), PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(affinity, level + 1))))
             ));
         }
     }

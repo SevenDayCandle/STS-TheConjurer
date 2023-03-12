@@ -17,9 +17,9 @@ public class Noelle extends PCLCard
 {
     public static final PCLCardData DATA = register(Noelle.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON)
-            .setDamage(2, 1)
+            .setDamage(2, 0)
             .setPriority(1)
-            .setHp(7, 2)
+            .setHp(7, 3)
             .setAffinities(PCLAffinity.Orange, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
@@ -31,6 +31,6 @@ public class Noelle extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL);
-        addUseMove(PCond.cooldown(0), PMove.gainBlock(PCLCardTarget.Team, 2));
+        addUseMove(PCond.cooldown(0), PMove.gainBlock(PCLCardTarget.Team, 2).setUpgrade(1));
     }
 }

@@ -1,130 +1,80 @@
 {
 	"Aer": {
 		"DESCRIPTION": "[A-G] #yElemental #yDebuff. Reactions grant you [Flow], which can be used during your turn to draw cards.",
-		"NAMES": [
-			"aer"
-		],
-		"PROPER_NAME": "Aer"
+		"NAME": "Aer"
 	},
 	"Blasted": {
 		"DESCRIPTION": "Take damage at the end of turn. Affected by damage modifiers.",
-		"NAMES": [
-			"blasted"
-		],
-		"PROPER_NAME": "Blasted"
+		"NAME": "Blasted"
 	},
 	"Charge": {
 		"DESCRIPTION": "Apply the last #yElemental #yDebuff you manually leveled up to an enemy. The first time each turn you level up an #yElemental #yDebuff manually, gain #b1 #yCharge.",
-		"NAMES": [
-			"charge"
-		],
-		"PROPER_NAME": "Charge"
+		"NAME": "Charge"
 	},
 	"Combust": {
 		"DESCRIPTION": "#yCombust an #yElemental #yDebuff by playing an #yAffinity card against a target with it. | [A-R] -> [Gelus], [A-G] -> [Petra], [A-B] -> [Ignis], [A-O] -> [Aer].",
-		"NAMES": [
-			"combust",
-			"combusts",
-			"combusting",
-			"combusted"
-		],
-		"PROPER_NAME": "Combust"
+		"NAME": "Combust",
+		"PAST": "combusted",
+		"PRESENT": "combusts",
+		"PROGRESSIVE": "combusting"
 	},
 	"Corrosion": {
 		"DESCRIPTION": "[A-P] #yElemental #yDebuff. When #yAttacking, deal a portion of damage dealt to yourself and ALL allies.",
-		"NAMES": [
-			"corrosion"
-		],
-		"PROPER_NAME": "Corrosion"
+		"NAME": "Corrosion"
 	},
 	"Elemental Debuff": {
 		"DESCRIPTION": "[Ignis], [Gelus], [Aer], [Petra]. Remove at the end of the round.",
-		"NAMES": [
-			"elemental debuff",
-			"elemental debuffs"
-		],
-		"PROPER_NAME": "Elemental Debuff"
+		"NAME": "Elemental Debuff",
+		"PLURAL": "elemental debuffs"
 	},
 	"Elemental Exposure": {
 		"DESCRIPTION": "Increases the effectiveness of #yAuras and #yElemental #yDebuffs.",
-		"NAMES": [
-			"elemental exposure"
-		],
-		"PROPER_NAME": "Elemental Exposure"
+		"NAME": "Elemental Exposure"
 	},
 	"Elemental Mastery": {
 		"DESCRIPTION": "Whenever you would gain #yAura stacks or apply #yElemental #yDebuffs, increase their stacks.",
-		"NAMES": [
-			"elemental mastery"
-		],
-		"PROPER_NAME": "Elemental Mastery"
+		"NAME": "Elemental Mastery"
 	},
 	"Flow": {
 		"DESCRIPTION": "During your turn, spend #b10 [Flow] to draw a card.",
-		"NAMES": [
-			"flow"
-		],
-		"PROPER_NAME": "Flow"
+		"NAME": "Flow"
 	},
 	"Frostbite": {
 		"DESCRIPTION": "At the end of turn, lose HP and cut stacks in half.",
-		"NAMES": [
-			"frostbite"
-		],
-		"PROPER_NAME": "Frostbite"
+		"NAME": "Frostbite"
 	},
 	"Gelus": {
 		"DESCRIPTION": "[A-B] #yElemental #yDebuff. Reactions on a non-#ySummon target applies a debuff that deals damage at the start of its turn.",
-		"NAMES": [
-			"gelus"
-		],
-		"PROPER_NAME": "Gelus"
+		"NAME": "Gelus"
 	},
 	"Ignis": {
 		"DESCRIPTION": "[A-R] #yElemental #yDebuff. Reactions on a non-#ySummon target deal #yAttack damage to it at the start of its turn.",
-		"NAMES": [
-			"ignis"
-		],
-		"PROPER_NAME": "Ignis"
+		"NAME": "Ignis"
 	},
 	"Lux": {
 		"DESCRIPTION": "[A-Y] #yElemental #yDebuff. Reactions on the target are multiplied.",
-		"NAMES": [
-			"lux"
-		],
-		"PROPER_NAME": "Lux"
+		"NAME": "Lux"
 	},
 	"Morph": {
 		"DESCRIPTION": "Change both directions of a #yCombust reaction into a #yRedox or vice versa.",
-		"NAMES": [
-			"morph",
-			"morphed"
-		],
-		"PROPER_NAME": "Morph"
+		"NAME": "Morph",
+		"PAST": "morphed",
+		"PRESENT": "morphs",
+		"PROGRESSIVE": "morphing"
 	},
 	"Petra": {
 		"DESCRIPTION": "[A-O] #yElemental #yDebuff. Reactions on the target grant [Block] next turn.",
-		"NAMES": [
-			"petra"
-		],
-		"PROPER_NAME": "Petra"
+		"NAME": "Petra"
 	},
 	"Reaction": {
 		"DESCRIPTION": "Obtained from #yCombusting and #yRedoxing. Can be spent to level #yElemental #yDebuffs.",
-		"NAMES": [
-			"reaction",
-			"reactions"
-		],
-		"PROPER_NAME": "Reaction"
+		"NAME": "Reaction"
 	},
 	"Redox": {
 		"DESCRIPTION": "#yRedox an #yElemental #yDebuff by playing an #yAffinity card against a target with it. | [A-R] -> [Petra], [A-G] -> [Gelus], [A-B] -> [Aer], [A-O] -> [Ignis].",
-		"NAMES": [
-			"redox",
-			"redoxes",
-			"redoxing",
-			"redoxed"
-		],
-		"PROPER_NAME": "Redox"
+		"NAME": "Redox",
+		"PAST": "redoxed",
+		"PRESENT": "redoxes",
+		"PROGRESSIVE": "redoxing"
 	}
 }

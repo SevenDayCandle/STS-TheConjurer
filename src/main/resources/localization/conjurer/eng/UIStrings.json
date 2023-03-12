@@ -1,4 +1,15 @@
 {
+	"conjurer:Combat": {
+		"TEXT": [
+			"Debuff Effect",
+			"Level Price",
+			"{0} cards deal #b+{1}% damage on #yCombust and give #b+{1}% [Block] on #yRedox.",
+			"{#o:Click this to Morph this pair into {0}.}",
+			"{0} cards #yCombust {1} to deal #b+{2}% damage.",
+			"{0} cards #yRedox {1} to give #b+{2}% [Block].",
+			"#gNext #gLevel #gAvailable"
+		]
+	},
 	"conjurer:Tutorial": {
 		"TEXT": [
 			"Play cards on enemies with #yElemental #yDebuffs to make #yReactions. Click the buttons to spend #yReactions to improve #yElemental #yDebuffs.",
