@@ -55,7 +55,7 @@
             <artifactId>pinacolada</artifactId>
             <version>v1.0.0</version>
             <scope>system</scope>
-            <systemPath>${Steam.path}/common/SlayTheSpire/mods/PCLCore.jar</systemPath>
+            <systemPath>${Steam.path}/common/SlayTheSpire/mods/Fabricate.jar</systemPath>
         </dependency>
     </dependencies>
 

@@ -7,6 +7,6 @@
   "version": "0.5.0",
   "sts_version": "10-04-2022",
   "mts_version": "3.30.0",
-  "dependencies": ["basemod", "stslib", "extendedui", "pinacolada-pclcore"],
+  "dependencies": ["basemod", "stslib", "extendedui", "pinacolada-fabricate"],
   "update_json": ""
 }

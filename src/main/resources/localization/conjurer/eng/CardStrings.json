@@ -28,7 +28,7 @@
 			"NAME": "Eroding Terra"
 		},
 		"conjurer:Erosion": {"NAME": "Erosion"},
-		"conjurer:Eruption": {"NAME": "Eruption"},
+		"conjurer:Eruption": {"EXTENDED_DESCRIPTION": ["per Redox made this combat"], "NAME": "Eruption"},
 		"conjurer:Excavation": {"NAME": "Excavation"},
 		"conjurer:ExothermicCannon": {"NAME": "Exothermic Cannon"},
 		"conjurer:FoliarTorque": {"NAME": "Foliar Torque"},
