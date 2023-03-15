@@ -36,7 +36,7 @@
 		"NAME": "Elemental Mastery"
 	},
 	"Flow": {
-		"DESCRIPTION": "During your turn, spend #b10 [Flow] to draw a card.",
+		"DESCRIPTION": "During your turn, spend #b{0} [Flow] to draw a card.",
 		"NAME": "Flow"
 	},
 	"Frostbite": {

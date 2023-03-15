@@ -39,6 +39,8 @@ public class ConjurerTooltips extends PCLTooltips
         ignis.setIconFromPath(PGR.getPowerImage(IgnisPower.POWER_ID));
         lux.setIconFromPath(PGR.getPowerImage(LuxPower.POWER_ID));
         petra.setIconFromPath(PGR.getPowerImage(PetraPower.POWER_ID));
+
+        flow.formatDescription(FlowPower.PER_STACK);
     }
 
     public EUITooltip getLevelTooltip(PCLAffinity affinity)
