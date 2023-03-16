@@ -20,8 +20,7 @@ public class ShardSpiral extends PCLCard
             .setAttack(1, CardRarity.COMMON, PCLAttackType.Ranged)
             .setDamage(2, 1, 2)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Green)
-            .setLoadout(ConjurerPlayerData.eldenRing)
-            .setMultiformData(5);
+            .setLoadout(ConjurerPlayerData.eldenRing);
 
     public ShardSpiral()
     {
