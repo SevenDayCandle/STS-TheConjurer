@@ -13,6 +13,7 @@ import extendedui.utilities.EUIColors;
 import pinacolada.powers.conjurer.AbstractPCLElementalPower;
 import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.resources.pcl.PCLCoreImages;
 import pinacolada.utilities.PCLRenderHelpers;
 
 public class ConjurerReactionButton extends EUIImage
@@ -31,7 +32,7 @@ public class ConjurerReactionButton extends EUIImage
 
     public ConjurerReactionButton(ConjurerElementButton target, ConjurerElementButton source, ConjurerElementButton.Type type)
     {
-        super(PGR.core.images.rightArrow.texture(), new EUIHitbox(0, 0, ICON_SIZE, ICON_SIZE));
+        super(PCLCoreImages.Core.rightArrow.texture(), new EUIHitbox(0, 0, ICON_SIZE, ICON_SIZE));
         this.target = target;
         this.source = source;
         this.baseType = this.type = type;

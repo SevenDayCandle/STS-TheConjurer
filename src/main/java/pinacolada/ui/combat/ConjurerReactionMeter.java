@@ -122,7 +122,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
                 .setFontScale(0.75f)
                 .setAlignment(0.85f, 0.5f)
                 .setTooltip(chargeTooltip);
-        chargeImage = new EUIButton(PCLCoreImages.unknown.texture(), new RelativeHitbox(chargeHeader.hb, ICON_SIZE * 0.75f, ICON_SIZE * 0.75f, chargeHeader.hb.width * 0.5f, chargeHeader.hb.height * 0.25f))
+        chargeImage = new EUIButton(PCLCoreImages.CardAffinity.unknown.texture(), new RelativeHitbox(chargeHeader.hb, ICON_SIZE * 0.75f, ICON_SIZE * 0.75f, chargeHeader.hb.width * 0.5f, chargeHeader.hb.height * 0.25f))
                 .setTooltip(chargeTooltip)
                 .setOnClick(() -> skips.targetToUse(1))
                 .setOnRightClick(() -> skips.targetToUse(skips.getCurrentUses()));

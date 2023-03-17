@@ -5,22 +5,21 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
-import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.CMod;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class HeatAcceleration extends PCLCard
+public class SolarFlare extends PCLCard
 {
-    public static final PCLCardData DATA = register(HeatAcceleration.class, ConjurerResources.conjurer)
+    public static final PCLCardData DATA = register(SolarFlare.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.RARE)
-            .setDamage(4, 1, 2)
-            .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
+            .setDamage(8, 1)
+            .setAffinities(PCLAffinity.Red)
             .setCore();
 
-    public HeatAcceleration()
+    public SolarFlare()
     {
         super(DATA);
     }
@@ -28,7 +27,6 @@ public class HeatAcceleration extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(AbstractGameAction.AttackEffect.FIRE);
-        addUseMove(PMove.gain(2, PCLPowerHelper.NextTurnDraw).setUpgrade(1));
-        addUseMove(PMove.triggerAlly(PCLCardTarget.RandomAlly, 1));
+        addUseMove(CMod.perReaction(7).setUpgrade(-1), PMove.modifyDamage(1));
     }
 }

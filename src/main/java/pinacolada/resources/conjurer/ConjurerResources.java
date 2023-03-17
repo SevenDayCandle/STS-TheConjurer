@@ -79,7 +79,7 @@ public class ConjurerResources extends PCLResources<ConjurerPlayerData, Conjurer
         super.postInitialize();
         CombatManager.playerSystem.registerMeter(playerClass, ConjurerReactionMeter.meter);
         PCLAffinity.registerAvailableAffinities(cardColor, affinities);
-        PCLAffinity.registerAffinityBorder(cardColor, PCLCoreImages.borderSpecial2);
+        PCLAffinity.registerAffinityBorder(cardColor, PCLCoreImages.Core.borderSpecial2);
         PCLCardAlly.registerAnimation(cardColor, this::getAnimation);
     }
 

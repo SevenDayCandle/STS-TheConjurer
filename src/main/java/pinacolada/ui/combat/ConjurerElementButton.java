@@ -26,6 +26,7 @@ import pinacolada.powers.conjurer.AbstractPCLElementalPower;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.resources.pcl.PCLCoreImages;
 import pinacolada.resources.pcl.PCLCoreStrings;
 import pinacolada.utilities.GameUtilities;
 import pinacolada.utilities.PCLRenderHelpers;
@@ -54,7 +55,7 @@ public class ConjurerElementButton extends EUIButton
 
     public ConjurerElementButton(ConjurerReactionMeter meter, PCLAffinity affinity, Texture texture, EUIHitbox hb)
     {
-        super(PGR.core.images.squareBG2.texture(), hb);
+        super(PCLCoreImages.Core.squareBG2.texture(), hb);
         this.meter = meter;
         this.affinity = affinity;
         reactionStrings = PGR.getPowerStrings(elementID());
