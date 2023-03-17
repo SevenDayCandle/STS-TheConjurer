@@ -48,7 +48,7 @@ public class Entropy extends PCLCard
             PCLCardAffinities cardAffinities = GameUtilities.getPCLCardAffinities(c);
             if (cardAffinities != null)
             {
-                for (PCLAffinity aff : cardAffinities.getAffinities(false))
+                for (PCLAffinity aff : cardAffinities.getAffinities(false, false))
                 {
                     if (available.contains(aff))
                     {

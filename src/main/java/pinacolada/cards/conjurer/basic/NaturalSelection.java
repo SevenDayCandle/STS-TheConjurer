@@ -46,7 +46,7 @@ public class NaturalSelection extends PCLCard
             PCLCardAffinities cardAffinities = GameUtilities.getPCLCardAffinities(c);
             if (cardAffinities != null)
             {
-                for (PCLAffinity aff : cardAffinities.getAffinities(false))
+                for (PCLAffinity aff : cardAffinities.getAffinities(false, false))
                 {
                     PCLElementHelper debuff = PCLElementHelper.get(aff);
                     if (debuff != null)
