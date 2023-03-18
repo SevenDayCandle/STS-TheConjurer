@@ -16,7 +16,7 @@ public class SolarFlare extends PCLCard
     public static final PCLCardData DATA = register(SolarFlare.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.RARE)
             .setDamage(8, 1)
-            .setAffinities(PCLAffinity.Red)
+            .setAffinities(PCLAffinity.Red, PCLAffinity.Yellow)
             .setCore();
 
     public SolarFlare()
