@@ -29,6 +29,6 @@ public class ShardSpiral extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(PCLAttackVFX.ICE).setChain(PMod.perPowerSelf(1, PCLElementHelper.Flow).setExtra(12).setUpgrade(3), PTrait.damage(1));
+        addDamageMove(PCLAttackVFX.ICE).setChain(PMod.perPowerSelf(1, PCLElementHelper.Flow).setExtra(12).setUpgradeExtra(4), PTrait.damage(1));
     }
 }

@@ -42,6 +42,7 @@ import pinacolada.utilities.PCLRenderHelpers;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 
 import static extendedui.EUIUtils.array;
@@ -79,6 +80,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
     protected PCLAffinity lastUpgrade = PCLAffinity.General;
     private List<PCLCardAffinity> lastCardAffinities = new ArrayList<>();
     private List<AbstractPCLElementalPower> lastTargetPowers = new ArrayList<>();
+    private final HashMap<ConjurerElementButton.Type, Integer> totalReactions = new HashMap<>();
     private int reactionPreview;
 
 
@@ -287,6 +289,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
         }
         lastCardAffinities = new ArrayList<>();
         lastTargetPowers = new ArrayList<>();
+        totalReactions.clear();
         enableCharges(false);
 
         addDefaultReactions();
@@ -314,6 +317,23 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
         earth.addRedox(light);
         light.addCombustion(dark);
         dark.addCombustion(light);
+    }
+
+    public void onReaction(AffinityReactions reactions)
+    {
+        if (reactions.hasCombust())
+        {
+            totalReactions.merge(ConjurerElementButton.Type.Combust, 1, Integer::sum);
+        }
+        if (reactions.hasRedox())
+        {
+            totalReactions.merge(ConjurerElementButton.Type.Redox, 1, Integer::sum);
+        }
+    }
+
+    public int getTotalReactionsMade(ConjurerElementButton.Type type)
+    {
+        return totalReactions.getOrDefault(type, 0);
     }
 
     @Override
@@ -482,9 +502,9 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
             {
                 for (AbstractPower p : target.powers) {
                     for (ConjurerElementButton element : getElementButtons())
-                    {
                         if (element.canRedox(aff.type, p.ID))
                         {
+                    {
                             multiplier += AbstractPCLElementalPower.getAmplifyMultiplier(aff.type) * aff.level;
                         }
                     }

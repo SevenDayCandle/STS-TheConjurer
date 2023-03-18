@@ -28,7 +28,6 @@
 			"NAME": "Eroding Terra"
 		},
 		"conjurer:Erosion": {"NAME": "Erosion"},
-		"conjurer:Eruption": {"EXTENDED_DESCRIPTION": ["per Redox made this combat"], "NAME": "Eruption"},
 		"conjurer:Excavation": {"NAME": "Excavation"},
 		"conjurer:ExothermicCannon": {"NAME": "Exothermic Cannon"},
 		"conjurer:FoliarTorque": {"NAME": "Foliar Torque"},
@@ -37,6 +36,7 @@
 		"conjurer:Hail": {"NAME": "Hail"},
 		"conjurer:HeatAcceleration": {"NAME": "Heat Acceleration"},
 		"conjurer:Ignite": {"NAME": "Ignite"},
+		"conjurer:LavaEruption": {"EXTENDED_DESCRIPTION": ["Redox made this combat"], "NAME": "Lava Eruption"},
 		"conjurer:Liquefaction": {"NAME": "Liquefaction"},
 		"conjurer:Lithosphere": {"NAME": "Lithosphere"},
 		"conjurer:MagmaFlare": {"NAME": "Magma Flare"},
