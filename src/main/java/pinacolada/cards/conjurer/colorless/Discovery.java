@@ -33,24 +33,24 @@ public class Discovery extends PCLCard
     @Override
     public void setup(Object input)
     {
-        addSpecialMove(0, this::action, 1);
+        addSpecialMove(0, this::action, 1, 3);
     }
 
     public void action(PSpecialSkill move, PCLUseInfo info)
     {
         CardGroup choices = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         RandomizedList<AbstractCard> unseenCards = new RandomizedList<>(GameUtilities.getAvailableCards(GenericCondition.fromT1(c -> !c.isSeen && GameUtilities.isObtainableInCombat(c))));
-        if (unseenCards.size() < move.amount)
+        if (unseenCards.size() < move.extra)
         {
             unseenCards.addAll(GameUtilities.getAvailableCards(GenericCondition.fromT1(c -> c.isSeen)));
         }
 
-        while (choices.size() < move.amount && !unseenCards.isEmpty())
+        while (choices.size() < move.extra && !unseenCards.isEmpty())
         {
             choices.addToBottom(unseenCards.retrieve(rng, true));
         }
 
-        PCLActions.bottom.selectFromPile(getName(), 1, choices)
+        PCLActions.bottom.selectFromPile(getName(), move.amount, choices)
                 .addCallback((cards) -> {
                     for (AbstractCard c : cards)
                     {

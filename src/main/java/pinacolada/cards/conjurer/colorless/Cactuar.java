@@ -1,4 +1,4 @@
-package pinacolada.cards.conjurer.series.shinmegamitensei;
+package pinacolada.cards.conjurer.colorless;
 
 
 import pinacolada.annotations.VisibleCard;
@@ -16,24 +16,24 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PMultiCond;
 
 @VisibleCard
-public class ShikiOuji extends PCLCard
+public class Cactuar extends PCLCard
 {
-    public static final PCLCardData DATA = register(ShikiOuji.class, ConjurerResources.conjurer)
-            .setSummon(1, CardRarity.RARE, PCLAttackType.Normal)
-            .setDamage(1, 1, 3)
+    public static final PCLCardData DATA = register(Cactuar.class, ConjurerResources.conjurer)
+            .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
+            .setDamage(1, 1, 2)
             .setPriority(1)
-            .setHp(8, 2)
-            .setAffinities(PCLAffinity.Red, PCLAffinity.Orange)
+            .setHp(4, 0)
+            .setAffinities(PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public ShikiOuji()
+    public Cactuar()
     {
         super(DATA);
     }
 
     public void setup(Object input)
     {
-        addDamageMove(PCLAttackVFX.SLASH_HEAVY);
-        addUseMove(PMultiCond.or(PCond.onSummon(), PCond.onWithdraw()), PMove.apply( PCLCardTarget.None, 1, PCLPowerHelper.Deflection));
+        addDamageMove(PCLAttackVFX.DAGGER);
+        addUseMove(PMultiCond.or(PCond.onSummon(), PCond.onWithdraw()), PMove.apply( PCLCardTarget.None, 1, PCLPowerHelper.Thorns).setUpgrade(1));
     }
 }

@@ -5,6 +5,7 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.PCLPowerHelper;
@@ -17,7 +18,7 @@ import pinacolada.skills.PMove;
 public class MarisaKirisame extends PCLCard
 {
     public static final PCLCardData DATA = register(MarisaKirisame.class, ConjurerResources.conjurer)
-            .setSummon(1, CardRarity.UNCOMMON)
+            .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Immaterial)
             .setDamage(3, 1)
             .setPriority(1)
             .setHp(5, 1)

@@ -79,7 +79,9 @@
 	{
 		"conjurer:Aloy": {"NAME": "Aloy"},
 		"conjurer:AtomicDisplacement": {"EXTENDED_DESCRIPTION": ["Exchange your Debuffs with the target. Gain {0} [THP] per new Debuff gained"], "NAME": "Atomic Displacement"},
+		"conjurer:Cactuar": {"DESCRIPTION": "Final Fantasy", "NAME": "Cactuar"},
 		"conjurer:ChemicalSynthesis": {"EXTENDED_DESCRIPTION": ["Use your leftmost potion {0} times. If you had no potions, heal {1} HP instead"], "NAME": "Chemical Synthesis"},
+		"conjurer:CloudStrife": {"DESCRIPTION": "Final Fantasy", "NAME": "Cloud Strife"},
 		"conjurer:Clownpiece": {"EXTENDED_DESCRIPTION": ["If any of them was an Attack, ALL enemies gain [Provoked]"], "NAME": "Clownpiece"},
 		"conjurer:Crystallize": {"NAME": "Crystallize"},
 		"conjurer:DiamondDazzle": {"EXTENDED_DESCRIPTION": ["+{0} damage per Augment on any card in hand", "While in your deck, you have a higher chance of finding Augments"], "NAME": "Diamond Dazzle"},
@@ -95,9 +97,9 @@
 			"NAME": "Iridescence"
 		},
 		"conjurer:KomachiOnozuka": {"EXTENDED_DESCRIPTION": ["If this kills a boss or Elite"], "FLAVOR": "Kazu Muchuukai", "NAME": "Komachi Onozuka"},
-		"conjurer:LastWish": {"EXTENDED_DESCRIPTION": ["Summon a customized Summon"], "NAME": "Last Wish"},
 		"conjurer:MagicMirror": {"EXTENDED_DESCRIPTION": ["Reflect the next {0} Debuffs received"], "NAME": "Magic Mirror"},
 		"conjurer:Marin": {"NAME": "Marin"},
+		"conjurer:MonsterReborn": {"NAME": "Monster Reborn"},
 		"conjurer:NuclearTransmutation": {"NAME": "Nuclear Transmutation"},
 		"conjurer:OracleSphere": {"EXTENDED_DESCRIPTION": ["Reshuffle your deck. Move {0} cards to the top"], "NAME": "Oracle Sphere"},
 		"conjurer:PocketPolymerization": {"EXTENDED_DESCRIPTION": ["Combine {0} Attacks or Skills in hand. If the resulting card costs 2+, reduce its cost by {1}"], "NAME": "Pocket Polymerization"},
@@ -125,7 +127,6 @@
 		"conjurer:TheWatcher": {"DESCRIPTION": "Slay the Spire", "EXTENDED_DESCRIPTION": ["Obtain {0} of {1} Watcher cards. It costs 0 this turn"], "NAME": "The Watcher"},
 		"conjurer:TreasureChest": {"NAME": "Treasure Chest"},
 		"conjurer:TreasureChest_TreasureKey": {"EXTENDED_DESCRIPTION": ["Unlock a Treasure Chest in hand"], "NAME": "Treasure Key"},
-		"conjurer:Wanderer": {"EXTENDED_DESCRIPTION": ["Triggers whenever you play a Skill or Curse"], "NAME": "Wanderer"},
 		"conjurer:YaeSakura": {"NAME": "Yae Sakura"}
 	},
 	"CURSE":
@@ -163,6 +164,7 @@
 		"conjurer:GlintstoneIcecrag": {"NAME": "Glintstone Icecrag"},
 		"conjurer:GravityWell": {"NAME": "Gravity Well"},
 		"conjurer:GreatbladePhalanx": {"NAME": "Greatblade Phalanx"},
+		"conjurer:HowlOfShabriri": {"NAME": "Howl Of Shabriri"},
 		"conjurer:LorettasGreatbow": {"NAME": "Loretta's Greatbow"},
 		"conjurer:Lucidity": {"NAME": "Lucidity"},
 		"conjurer:MagicDownpour": {"NAME": "Magic Downpour"},
@@ -233,6 +235,7 @@
 		"conjurer:Tartaglia": {"NAME": "Tartaglia"},
 		"conjurer:Thoma": {"NAME": "Thoma"},
 		"conjurer:Venti": {"NAME": "Venti"},
+		"conjurer:Wanderer": {"EXTENDED_DESCRIPTION": ["Triggers whenever you play a Skill or Curse"], "NAME": "Wanderer"},
 		"conjurer:Xiangling": {"NAME": "Xiangling"},
 		"conjurer:Xiangling_Guoba": {"NAME": "Guoba"},
 		"conjurer:Xiao": {"NAME": "Xiao"},
