@@ -12,7 +12,7 @@ import pinacolada.misc.PCLUseInfo;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;
 import pinacolada.skills.PTrait;
-import pinacolada.skills.skills.special.PCustomMod;
+import pinacolada.skills.skills.PCustomMod;
 import pinacolada.ui.combat.ConjurerElementButton;
 import pinacolada.ui.combat.ConjurerReactionMeter;
 
