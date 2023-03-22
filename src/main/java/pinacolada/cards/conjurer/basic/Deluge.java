@@ -29,6 +29,6 @@ public class Deluge extends PCLCard
     public void setup(Object input)
     {
         addBlockMove();
-        addUseMove(PMove.modifyAffinity(2, 1, PCLAffinity.Blue).setUpgrade(1).edit(f -> f.setCardGroup(PCLCardGroupHelper.Hand)));
+        addUseMove(PMove.modifyAffinity(1, 2, PCLAffinity.Blue).setUpgrade(1).edit(f -> f.setCardGroup(PCLCardGroupHelper.Hand)));
     }
 }

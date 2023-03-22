@@ -35,7 +35,7 @@ public class Baphomet extends PCLCard
         addDamageMove(AbstractGameAction.AttackEffect.FIRE);
         addGainPower(PTrigger.interactable(
                 CCond.payReaction(11).setUpgrade(-1),
-                PMove.obtain(1, Overheat.DATA), PMove.modifyCost(1, -1).useParent(true))
+                PMove.obtain(1, Overheat.DATA), PMove.modifyCost(-1, 1).useParent(true))
         );
     }
 }
