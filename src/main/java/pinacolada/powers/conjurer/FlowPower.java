@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import extendedui.utilities.ColoredString;
 import pinacolada.actions.PCLActions;
 import pinacolada.effects.SFX;
-import pinacolada.interfaces.listeners.DrawPileCardPreviewProvider;
+import pinacolada.interfaces.providers.DrawPileCardPreviewProvider;
 import pinacolada.powers.PCLPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.ui.combat.DrawPileCardPreview;
