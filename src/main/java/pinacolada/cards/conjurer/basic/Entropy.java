@@ -42,7 +42,7 @@ public class Entropy extends PCLCard
         HashSet<PCLAffinity> available = new HashSet<>(Arrays.asList(PCLAffinity.getAvailableAffinities()));
         available.add(PCLAffinity.Star);
 
-        ArrayList<AbstractCard> cards = info.getData(new ArrayList<>());
+        ArrayList<AbstractCard> cards = info.getData(new ArrayList<AbstractCard>());
         for (AbstractCard c : cards)
         {
             PCLCardAffinities cardAffinities = GameUtilities.getPCLCardAffinities(c);

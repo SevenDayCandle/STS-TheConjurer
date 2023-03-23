@@ -40,7 +40,7 @@ public class NaturalSelection extends PCLCard
 
     public void specialMove(PSpecialSkill move, PCLUseInfo info)
     {
-        ArrayList<AbstractCard> cards = info.getData(new ArrayList<>());
+        ArrayList<AbstractCard> cards = info.getData(new ArrayList<AbstractCard>());
         for (AbstractCard c : cards)
         {
             PCLCardAffinities cardAffinities = GameUtilities.getPCLCardAffinities(c);
