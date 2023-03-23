@@ -51,6 +51,6 @@ public class PCond_PayReaction extends PPassiveCond<PField_Empty>
     @Override
     public String getSubText()
     {
-        return capital(TEXT.act_pay(amount, ConjurerResources.conjurer.tooltips.reaction.title), true);
+        return capital(TEXT.act_pay(getAmountRawString(), ConjurerResources.conjurer.tooltips.reaction.title), true);
     }
 }
