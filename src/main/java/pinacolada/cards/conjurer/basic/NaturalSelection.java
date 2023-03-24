@@ -40,20 +40,23 @@ public class NaturalSelection extends PCLCard
 
     public void specialMove(PSpecialSkill move, PCLUseInfo info)
     {
-        ArrayList<AbstractCard> cards = info.getData(new ArrayList<AbstractCard>());
-        for (AbstractCard c : cards)
+        ArrayList<AbstractCard> cards = info.getData();
+        if (cards != null)
         {
-            PCLCardAffinities cardAffinities = GameUtilities.getPCLCardAffinities(c);
-            if (cardAffinities != null)
+            for (AbstractCard c : cards)
             {
-                for (PCLAffinity aff : cardAffinities.getAffinities(false, false))
+                PCLCardAffinities cardAffinities = GameUtilities.getPCLCardAffinities(c);
+                if (cardAffinities != null)
                 {
-                    PCLElementHelper debuff = PCLElementHelper.get(aff);
-                    if (debuff != null)
+                    for (PCLAffinity aff : cardAffinities.getAffinities(false, false))
                     {
-                        for (AbstractCreature target : move.target.getTargets(info.source, info.target))
+                        PCLElementHelper debuff = PCLElementHelper.get(aff);
+                        if (debuff != null)
                         {
-                            PCLActions.bottom.stabilizePower(info.source, target, debuff, move.amount);
+                            for (AbstractCreature target : move.target.getTargets(info.source, info.target))
+                            {
+                                PCLActions.bottom.stabilizePower(info.source, target, debuff, move.amount);
+                            }
                         }
                     }
                 }

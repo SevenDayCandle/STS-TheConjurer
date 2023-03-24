@@ -571,7 +571,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
 
     public boolean tryUseCharge(PCLAffinity affinity, PCLUseInfo info)
     {
-        int value = info.getData(1);
+        Integer value = info.getDataOrDefault(1);
         if (affinity != null && info.target != null)
         {
             PCLElementHelper helper = PCLElementHelper.get(affinity);

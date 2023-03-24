@@ -64,7 +64,7 @@ public class Geralt extends PCLCard
                 populateRequests();
             }
             PCLActions.bottom.tryChooseSkill(cardData, amount, info.source, info.target, requests)
-                    .addConditionalCallback(choiceCards ->
+                    .addCallback(choiceCards ->
                     {
                         for (ChoiceCard<PSkill<?>> c : choiceCards)
                         {

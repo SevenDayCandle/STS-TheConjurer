@@ -42,20 +42,23 @@ public class Entropy extends PCLCard
         HashSet<PCLAffinity> available = new HashSet<>(Arrays.asList(PCLAffinity.getAvailableAffinities()));
         available.add(PCLAffinity.Star);
 
-        ArrayList<AbstractCard> cards = info.getData(new ArrayList<AbstractCard>());
-        for (AbstractCard c : cards)
+        ArrayList<AbstractCard> cards = info.getData();
+        if (cards != null)
         {
-            PCLCardAffinities cardAffinities = GameUtilities.getPCLCardAffinities(c);
-            if (cardAffinities != null)
+            for (AbstractCard c : cards)
             {
-                for (PCLAffinity aff : cardAffinities.getAffinities(false, false))
+                PCLCardAffinities cardAffinities = GameUtilities.getPCLCardAffinities(c);
+                if (cardAffinities != null)
                 {
-                    if (available.contains(aff))
+                    for (PCLAffinity aff : cardAffinities.getAffinities(false, false))
                     {
-                        PCLElementHelper debuff = PCLElementHelper.get(aff);
-                        if (debuff != null)
+                        if (available.contains(aff))
                         {
-                            move.getActions().applyPower(info.source, info.target, move.target, debuff, move.amount);
+                            PCLElementHelper debuff = PCLElementHelper.get(aff);
+                            if (debuff != null)
+                            {
+                                move.getActions().applyPower(info.source, info.target, move.target, debuff, move.amount);
+                            }
                         }
                     }
                 }

@@ -32,18 +32,12 @@ public class PCLElementHelper extends PCLPowerHelper implements TooltipProvider
     public static final PCLPowerHelper Frostbite = new PCLPowerHelper(FrostbitePower.POWER_ID, ConjurerResources.conjurer.tooltips.frostbite, (o, s, a) -> new FrostbitePower(o, a), Behavior.TurnBased, false, true, false);
     public static final PCLPowerHelper Flow = new PCLPowerHelper(FlowPower.POWER_ID, ConjurerResources.conjurer.tooltips.flow, FlowPower::new, Behavior.Permanent, false, false, false);
 
-    public final String ID;
     public final PCLAffinity affinity;
-    public final EUITooltip tooltip;
-    protected final FuncT3<AbstractPower, AbstractCreature, AbstractCreature, Integer> constructor;
 
     public PCLElementHelper(String id, EUITooltip tooltip, FuncT3<AbstractPower, AbstractCreature, AbstractCreature, Integer> constructor, PCLAffinity affinity)
     {
-        super(id, tooltip, constructor, Behavior.SingleTurn, false, true, true);
-        ID = id;
+        super(id, tooltip, constructor, Behavior.SingleTurn, false, true, true);;
         this.affinity = affinity;
-        this.tooltip = tooltip;
-        this.constructor = constructor;
 
         registerHelper(id, affinity);
     }
@@ -109,6 +103,6 @@ public class PCLElementHelper extends PCLPowerHelper implements TooltipProvider
 
     public AbstractPower create(AbstractCreature owner, AbstractCreature source, int amount)
     {
-        return constructor.invoke(owner, source, amount);
+        return constructorT3.invoke(owner, source, amount);
     }
 }
