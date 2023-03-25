@@ -8,6 +8,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
 
 @VisibleCard
@@ -25,6 +26,7 @@ public class OceanSubmersion extends PCLCard
 
     public void setup(Object input)
     {
-        addUseMove(PMove.applyToEveryone(8, PCLElementHelper.Gelus).setUpgrade(3));
+        addUseMove(PMove.applyToEveryone(6, PCLElementHelper.Gelus));
+        addUseMove(PMod.bonusPerLevel(4, PCLAffinity.Blue).setUpgrade(1), PMove.gainBlock(PCLCardTarget.AllAlly, 6).setUpgrade(1));
     }
 }

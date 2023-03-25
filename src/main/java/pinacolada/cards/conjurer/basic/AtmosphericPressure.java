@@ -15,6 +15,7 @@ public class AtmosphericPressure extends PCLCard
 {
     public static final PCLCardData DATA = register(AtmosphericPressure.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.AllEnemy)
+            .setBlock(2, 0)
             .setCostUpgrades(-1)
             .setAffinities(PCLAffinity.Green)
             .setCore();
@@ -26,6 +27,7 @@ public class AtmosphericPressure extends PCLCard
 
     public void setup(Object input)
     {
+        addBlockMove();
         addUseMove(PMove.stabilize(PCLCardTarget.AllEnemy, PCLElementHelper.Gelus, PCLElementHelper.Aer));
     }
 }

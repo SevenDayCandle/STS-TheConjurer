@@ -12,15 +12,15 @@
 		"FLAVOR": "Pass the power.",
 		"NAME": "Cleansing Bell"
 	},
-				"conjurer:CloudAtlas":
-				{
-								"DESCRIPTIONS": ["You can no longer obtain #ySummon cards (existing ones will be transformed into random cards of the same rarity)."],
-								"FLAVOR": "Pass the power.",
-								"NAME": "Cloud Atlas"
-				},
+	"conjurer:CloudAtlas":
+	{
+		"DESCRIPTIONS": ["You can no longer obtain #ySummon cards (existing ones will be transformed into random cards of the same rarity)."],
+		"FLAVOR": "Pass the power.",
+		"NAME": "Cloud Atlas"
+	},
 	"conjurer:CrimsonMapleLeaf":
 	{
-		"DESCRIPTIONS": ["[Poison] and [Malleable] are treated as [A-G] #yElemental #yDebuffs. [A-R] cards #yCombust [A-G] and [A-O] #yElemental #yDebuffs."],
+		"DESCRIPTIONS": ["Upon pickup, lose #b{0} Max. HP. | Poison] and [Malleable] are treated as [A-G] #yElemental #yDebuffs. [A-R] cards #yCombust [A-G] and [A-O] #yElemental #yDebuffs."],
 		"FLAVOR": "On this mountain path, where the red leaves lifeless lie... My heart calls for a companion, echoing the deer's cry...",
 		"NAME": "Crimson Maple Leaf"
 	},

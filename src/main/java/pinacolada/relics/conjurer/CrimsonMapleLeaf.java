@@ -1,5 +1,6 @@
 package pinacolada.relics.conjurer;
 
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.MalleablePower;
 import com.megacrit.cardcrawl.powers.PoisonPower;
 import pinacolada.actions.PCLActions;
@@ -19,6 +20,10 @@ public class CrimsonMapleLeaf extends PCLRelic
         super(ID, RelicTier.BOSS, LandingSound.MAGICAL, ConjurerResources.conjurer.playerClass);
     }
 
+    public void onEquip() {
+        AbstractDungeon.player.decreaseMaxHealth(getValue());
+    }
+
     @Override
     protected void activateBattleEffect()
     {
@@ -28,5 +33,10 @@ public class CrimsonMapleLeaf extends PCLRelic
             ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Green).addCombustion(ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Red));
             ConjurerReactionMeter.meter.getReactionButton(PCLAffinity.Red, PCLAffinity.Orange).switchType();
         });
+    }
+
+    public int getValue()
+    {
+        return 12;
     }
 }

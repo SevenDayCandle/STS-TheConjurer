@@ -21,7 +21,7 @@ public class LavaEruption extends PCLCard
 {
     public static final PCLCardData DATA = register(LavaEruption.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.RARE, PCLAttackType.Normal, PCLCardTarget.AllEnemy)
-            .setDamage(7, 1)
+            .setDamage(5, 1)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Orange)
             .setCore();
 
@@ -32,7 +32,7 @@ public class LavaEruption extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(PCLAttackVFX.BURN).setChain(new LavaEruptionMod(DATA, 1), PTrait.damage(4).setUpgrade(1));
+        addDamageMove(PCLAttackVFX.BURN).setChain(new LavaEruptionMod(DATA, 1), PTrait.damage(3).setUpgrade(1));
     }
 
     protected static class LavaEruptionMod extends PCustomMod

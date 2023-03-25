@@ -17,7 +17,7 @@ public class GreatbladePhalanx extends PCLCard
 {
     public static final PCLCardData DATA = register(GreatbladePhalanx.class, ConjurerResources.conjurer)
             .setSkill(2, CardRarity.UNCOMMON)
-            .setBlock(12, 3)
+            .setBlock(13, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
@@ -29,6 +29,6 @@ public class GreatbladePhalanx extends PCLCard
     public void setup(Object input)
     {
         addBlockMove();
-        addUseMove(CCond.combust(), PMultiSkill.join(PMove.gainTemporary(4, PCLPowerHelper.Thorns), PMove.applyToSingle(2, PCLPowerHelper.Vulnerable)));
+        addUseMove(CCond.combust(), PMultiSkill.join(PMove.gainTemporary(4, PCLPowerHelper.Thorns).setUpgrade(1), PMove.applyToSingle(1, PCLPowerHelper.Vulnerable)));
     }
 }

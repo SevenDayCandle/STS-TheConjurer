@@ -38,7 +38,7 @@ public class ConjurerElementButton extends EUIButton
     public static final String INCREASE_ID = ConjurerResources.conjurer.createID(ConjurerElementButton.class.getSimpleName());
     public static final Color ACTIVE_COLOR = new Color(0.5f, 1f, 0.5f, 1f);
     public static final int BASE_COST = 10;
-    public static final int BASE_COST_RATE = 5;
+    public static final int BASE_COST_RATE = 10;
     public static final float BASE_AMOUNT_SCALE = 1f;
 
     public final PCLAffinity affinity;

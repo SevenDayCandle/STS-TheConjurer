@@ -26,6 +26,6 @@ public class Preservation extends PCLCard
     public void setup(Object input)
     {
         addUseMove(PMove.retain(2).setUpgrade(1));
-        addUseMove(PMod.bonusPerLevel(2, PCLAffinity.Orange).setUpgrade(1), PMove.gainBlock(PCLCardTarget.Team, 5));
+        addUseMove(PMod.bonusPerLevel(2, PCLAffinity.Orange).setUpgrade(1), PMove.gainBlock(PCLCardTarget.Team, 4));
     }
 }
