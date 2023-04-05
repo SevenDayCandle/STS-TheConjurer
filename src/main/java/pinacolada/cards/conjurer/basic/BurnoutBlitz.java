@@ -29,6 +29,6 @@ public class BurnoutBlitz extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(EffekseerEFK.FIRE07);
-        addUseMove(PMove.obtainDiscardPile(2, Status_SearingBurn.DATA));
+        addUseMove(PMove.createDiscardPile(2, Status_SearingBurn.DATA));
     }
 }

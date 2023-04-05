@@ -31,7 +31,7 @@ public class DustTornado extends PCLCard
     public void setup(Object input)
     {
         addUseMove(PCond.exhaust(1),
-                PMove.play(2, PCLCardTarget.SingleAlly, PCLCardGroupHelper.DiscardPile, PCLCardGroupHelper.Hand).setUpgrade(1).edit(f -> f.setType(PCLEnum.CardType.SUMMON).setRandom()));
+                PMove.play(2, PCLCardTarget.SingleAlly, PCLCardGroupHelper.DiscardPile).setUpgrade(1).edit(f -> f.setType(PCLEnum.CardType.SUMMON).setRandom()));
         addUseMove(PCond.onDiscard(), PMove.applyToEnemies(4, PCLElementHelper.Petra));
     }
 }

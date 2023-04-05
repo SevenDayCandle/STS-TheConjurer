@@ -12,27 +12,26 @@ import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
-import pinacolada.skills.skills.PMultiCond;
 
 @VisibleCard
-public class Cactuar extends PCLCard
+public class Rathalos extends PCLCard
 {
-    public static final PCLCardData DATA = register(Cactuar.class, ConjurerResources.conjurer)
-            .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
-            .setDamage(1, 1, 2)
+    public static final PCLCardData DATA = register(Rathalos.class, ConjurerResources.conjurer)
+            .setSummon(3, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
+            .setDamage(3, 1, 0)
             .setPriority(1)
-            .setHp(4, 0)
-            .setAffinities(PCLAffinity.Green)
+            .setHp(11, 0)
+            .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
             .setColorless();
 
-    public Cactuar()
+    public Rathalos()
     {
         super(DATA);
     }
 
     public void setup(Object input)
     {
-        addDamageMove(PCLAttackVFX.DAGGER);
-        addUseMove(PMultiCond.or(PCond.onSummon(), PCond.onWithdraw()), PMove.apply( PCLCardTarget.None, 1, PCLPowerHelper.Thorns).setUpgrade(1));
+        addDamageMove(PCLAttackVFX.BITE);
+        addUseMove(PCond.cooldown(3), PMove.applyToRandom(4, PCLPowerHelper.Poison, PCLPowerHelper.Bruised));
     }
 }

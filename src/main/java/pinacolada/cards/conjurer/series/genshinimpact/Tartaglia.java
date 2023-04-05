@@ -21,7 +21,7 @@ public class Tartaglia extends PCLCard
             .setDamage(1, 1, 2)
             .setPriority(1)
             .setHp(7, 2)
-            .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
+            .setAffinities(PCLAffinity.Red, PCLAffinity.Blue, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
     public Tartaglia()

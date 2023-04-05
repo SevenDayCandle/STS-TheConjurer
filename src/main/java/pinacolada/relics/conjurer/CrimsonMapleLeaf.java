@@ -2,7 +2,7 @@ package pinacolada.relics.conjurer;
 
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.MalleablePower;
-import com.megacrit.cardcrawl.powers.PoisonPower;
+import extendedui.interfaces.delegates.ActionT0;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleRelic;
 import pinacolada.cards.base.fields.PCLAffinity;
@@ -27,8 +27,7 @@ public class CrimsonMapleLeaf extends PCLRelic
     @Override
     protected void activateBattleEffect()
     {
-        PCLActions.bottom.callback(() -> {
-            ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Green).addAdditionalPower(PoisonPower.POWER_ID);
+        PCLActions.bottom.callback((ActionT0) () -> {
             ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Green).addAdditionalPower(MalleablePower.POWER_ID);
             ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Green).addCombustion(ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Red));
             ConjurerReactionMeter.meter.getReactionButton(PCLAffinity.Red, PCLAffinity.Orange).switchType();
@@ -37,6 +36,6 @@ public class CrimsonMapleLeaf extends PCLRelic
 
     public int getValue()
     {
-        return 12;
+        return 7;
     }
 }

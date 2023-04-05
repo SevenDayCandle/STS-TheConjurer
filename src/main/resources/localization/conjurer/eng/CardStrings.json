@@ -86,20 +86,22 @@
 		"conjurer:Crystallize": {"NAME": "Crystallize"},
 		"conjurer:DiamondDazzle": {"EXTENDED_DESCRIPTION": ["+{0} damage per Augment on any card in hand", "While in your deck, you have a higher chance of finding Augments"], "NAME": "Diamond Dazzle"},
 		"conjurer:Discovery": {"EXTENDED_DESCRIPTION": ["Obtain {0} of {1} cards that you haven't unlocked yet. It costs 0 this turn"], "NAME": "Discovery"},
+		"conjurer:Egg": {"EXTENDED_DESCRIPTION": ["If this kills a boss or Elite"], "NAME": "Egg"},
 		"conjurer:Enervate": {"EXTENDED_DESCRIPTION": ["Lower the target's [Strength] by {0}. Then, if it is positive, cut it in half"], "NAME": "Enervate"},
-		"conjurer:EirinYagokoro": {"EXTENDED_DESCRIPTION": ["Use your left-most usable Potion twice"], "NAME": "Eirin Yagokoro"},
+		"conjurer:EirinYagokoro": {"EXTENDED_DESCRIPTION": ["usable Potion you have"], "NAME": "Eirin Yagokoro"},
 		"conjurer:GeneticEngineering": {"EXTENDED_DESCRIPTION": ["Status cards become more beneficial this combat"], "NAME": "Genetic Engineering"},
 		"conjurer:Geralt": {"DESCRIPTION": "The Witcher", "EXTENDED_DESCRIPTION": ["Take on {0} of {1} requests"], "NAME": "Geralt of Rivia"},
-		"conjurer:GrandPeco": {"NAME": "Grand Peco"},
 		"conjurer:HydraulicGeneration": {"NAME": "Hydraulic Generation"},
 		"conjurer:Iridescence": {
 			"EXTENDED_DESCRIPTION": ["Redistribute the costs of the cards in hand"],
 			"NAME": "Iridescence"
 		},
+		"conjurer:Lagiacrus": {"DESCRIPTION": "Monster Hunter", "NAME": "Lagiacrus"},
 		"conjurer:KomachiOnozuka": {"EXTENDED_DESCRIPTION": ["If this kills a boss or Elite"], "FLAVOR": "Kazu Muchuukai", "NAME": "Komachi Onozuka"},
 		"conjurer:MagicMirror": {"EXTENDED_DESCRIPTION": ["Reflect the next {0} Debuffs received"], "NAME": "Magic Mirror"},
+		"conjurer:Magilou": {"NAME": "Magilou"},
 		"conjurer:Marin": {"NAME": "Marin"},
-		"conjurer:MonsterReborn": {"NAME": "Monster Reborn"},
+		"conjurer:MonsterReborn": {"DESCRIPTION": "Yugioh", "EXTENDED_DESCRIPTION": ["Summon {0} Purged Summon. It has +{1}% HP"], "NAME": "Monster Reborn"},
 		"conjurer:NuclearTransmutation": {"NAME": "Nuclear Transmutation"},
 		"conjurer:OracleSphere": {"EXTENDED_DESCRIPTION": ["Reshuffle your deck. Move {0} cards to the top"], "NAME": "Oracle Sphere"},
 		"conjurer:PocketPolymerization": {"EXTENDED_DESCRIPTION": ["Combine {0} Attacks or Skills in hand. If the resulting card costs 2+, reduce its cost by {1}"], "NAME": "Pocket Polymerization"},
@@ -108,12 +110,14 @@
 			"EXTENDED_DESCRIPTION": ["Purge any number of cards in hand or discard pile. Remove {0} of them from your deck."],
 			"NAME": "Portable Trash Can"
 		},
+		"conjurer:PotOfGreed": {"DESCRIPTION": "Yugioh", "NAME": "Pot of Greed"},
 		"conjurer:Present": {
 			"EXTENDED_DESCRIPTION": ["Play a random card. Add a copy of it to your discard pile"],
 			"NAME": "Present"
 		},
 		"conjurer:PyramidFleet": {"EXTENDED_DESCRIPTION": ["All characters die in {0} turns. Progress enemy stacks whenever you gain a buff. Progress your stacks whenever you gain a debuff"], "NAME": "Pyramid Fleet"},
 		"conjurer:Radioactivity": {"EXTENDED_DESCRIPTION": ["Whenever you or your Summons apply a power, all enemies lose HP equal to stacks applied"], "NAME": "Radioactivity"},
+		"conjurer:Rathalos": {"DESCRIPTION": "Monster Hunter", "NAME": "Rathalos"},
 		"conjurer:Rorona": {"EXTENDED_DESCRIPTION": ["At the end of combat, Upgrade a random card in your deck","Obtain a random Potion"], "NAME": "Rorona"},
 		"conjurer:SatoriKomeiji": {"EXTENDED_DESCRIPTION": ["Move {0} cards in your draw pile to the top", "Your draw pile is shown in order. If you already had this effect: Gain {0} [Artifact]"], "NAME": "Satori Komeiji"},
 		"conjurer:SonarAnalysis": {
@@ -125,6 +129,7 @@
 		"conjurer:TheIronclad": {"DESCRIPTION": "Slay the Spire", "EXTENDED_DESCRIPTION": ["Obtain {0} of {1} Ironclad cards. It costs 0 this turn"], "NAME": "The Ironclad"},
 		"conjurer:TheSilent": {"DESCRIPTION": "Slay the Spire", "EXTENDED_DESCRIPTION": ["Obtain {0} of {1} Silent cards. It costs 0 this turn"], "NAME": "The Silent"},
 		"conjurer:TheWatcher": {"DESCRIPTION": "Slay the Spire", "EXTENDED_DESCRIPTION": ["Obtain {0} of {1} Watcher cards. It costs 0 this turn"], "NAME": "The Watcher"},
+		"conjurer:Tigrex": {"DESCRIPTION": "Monster Hunter", "NAME": "Tigrex"},
 		"conjurer:TreasureChest": {"NAME": "Treasure Chest"},
 		"conjurer:TreasureChest_TreasureKey": {"EXTENDED_DESCRIPTION": ["Unlock a Treasure Chest in hand"], "NAME": "Treasure Key"},
 		"conjurer:YaeSakura": {"NAME": "Yae Sakura"}
@@ -145,10 +150,13 @@
 	"SERIES:ELDENRING":
 	{
 		"conjurer:BeastClaw": {"NAME": "Beast Claw"},
+		"conjurer:BestialSling": {"NAME": "Bestial Sling"},
 		"conjurer:BestialVitality": {"NAME": "Bestial Vitality"},
 		"conjurer:BurnOFlame": {"NAME": "Burn O Flame"},
+		"conjurer:CarianRetaliation": {"NAME": "Carian Retaliation"},
 		"conjurer:CometAzur": {"NAME": "Comet Azur"},
 		"conjurer:CrystalBarrage": {"NAME": "Crystal Barrage"},
+		"conjurer:FiresDeadlySin": {"NAME": "Fire's Deadly Sin"},
 		"conjurer:FlameCleanseMe": {"NAME": "Flame Cleanse Me"},
 		"conjurer:FlameFallUponThem": {"NAME": "Flame Fall Upon Them"},
 		"conjurer:FlameGrantMeStrength": {"NAME": "Flame Grant Me Strength"},
@@ -187,7 +195,7 @@
 		"conjurer:Aether": {"NAME": "Aether"},
 		"conjurer:Albedo": {"NAME": "Albedo"},
 		"conjurer:Amber": {"NAME": "Amber"},
-		"conjurer:AyakaKamisato": {"EXTENDED_DESCRIPTION": ["Remove [Frostbite] from everyone. You lose HP and gain Temp. [Strength] equal to [Frostbite] removed"], "NAME": "Ayaka Kamisato"},
+		"conjurer:AyakaKamisato": {"EXTENDED_DESCRIPTION": ["Whenever any creature gains [Block], they also gain that much [Frostbite]"], "NAME": "Ayaka Kamisato"},
 		"conjurer:AyatoKamisato": {"NAME": "Ayato Kamisato"},
 		"conjurer:Baizhu": {"NAME": "Baizhu"},
 		"conjurer:BarbaraPegg": {"NAME": "Barbara Pegg"},

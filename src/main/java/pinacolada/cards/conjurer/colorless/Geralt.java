@@ -33,7 +33,7 @@ public class Geralt extends PCLCard
             .setDamage(4, 1)
             .setPriority(1)
             .setHp(11, 3)
-            .setAffinities(PCLAffinity.Red)
+            .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
             .setCore(true);
 
     public Geralt()

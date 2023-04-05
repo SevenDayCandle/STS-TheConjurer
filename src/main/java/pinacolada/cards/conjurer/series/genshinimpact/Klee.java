@@ -32,6 +32,6 @@ public class Klee extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.SMALL_EXPLOSION);
-        addUseMove(PCond.cooldown(2).setUpgrade(-1), PMove.obtainDrawPile(1, Klee_JumpyDumpty.DATA));
+        addUseMove(PCond.cooldown(2).setUpgrade(-1), PMove.createDrawPile(1, Klee_JumpyDumpty.DATA));
     }
 }

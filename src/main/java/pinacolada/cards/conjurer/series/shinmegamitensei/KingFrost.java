@@ -34,7 +34,7 @@ public class KingFrost extends PCLCard
         addDamageMove(PCLAttackVFX.ICE);
         addGainPower(PTrigger.interactable(
                 CCond.payReaction(8).setUpgrade(-1),
-                PMove.obtain(1, JackFrost.DATA))
+                PMove.create(1, JackFrost.DATA))
         );
     }
 }

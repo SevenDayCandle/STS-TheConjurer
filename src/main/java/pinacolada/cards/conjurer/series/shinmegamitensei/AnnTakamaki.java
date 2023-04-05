@@ -31,6 +31,6 @@ public class AnnTakamaki extends PCLCard
     {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
         addUseMove(PCond.cooldown(3),
-                PMove.obtain(AnnTakamaki_Carmen.DATA));
+                PMove.create(AnnTakamaki_Carmen.DATA));
     }
 }

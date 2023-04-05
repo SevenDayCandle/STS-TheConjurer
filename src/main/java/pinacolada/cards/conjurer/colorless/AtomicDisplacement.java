@@ -21,7 +21,7 @@ public class AtomicDisplacement extends PCLCard
     public static final PCLCardData DATA = register(AtomicDisplacement.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.RARE)
             .setTags(PCLCardTag.Exhaust)
-            .setAffinities(PCLAffinity.Blue)
+            .setAffinities(PCLAffinity.Blue, PCLAffinity.Yellow)
             .setCore(true);
 
     public AtomicDisplacement()

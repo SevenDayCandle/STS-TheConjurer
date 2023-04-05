@@ -10,7 +10,7 @@ import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.conjurer.basic.Overheat;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CCond;
+import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PTrigger;
 
@@ -34,8 +34,8 @@ public class Baphomet extends PCLCard
     {
         addDamageMove(AbstractGameAction.AttackEffect.FIRE);
         addGainPower(PTrigger.interactable(
-                CCond.payReaction(11).setUpgrade(-1),
-                PMove.obtain(1, Overheat.DATA), PMove.modifyCost(-1, 1).useParent(true))
+                PCond.takeDamage(6).setUpgrade(-1),
+                PMove.create(2, Overheat.DATA), PMove.modifyCost(-1, 1).useParent(true))
         );
     }
 }

@@ -32,6 +32,6 @@ public class YusukeKitagawa extends PCLCard
     {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
         addUseMove(PCond.cooldown(3),
-                PMove.obtain(YusukeKitagawa_Goemon.DATA));
+                PMove.create(YusukeKitagawa_Goemon.DATA));
     }
 }

@@ -7,24 +7,23 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.orbs.PCLOrbHelper;
-import pinacolada.resources.conjurer.ConjurerPlayerData;
+import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Fischl extends PCLCard
+public class Magilou extends PCLCard
 {
-    public static final PCLCardData DATA = register(Fischl.class, ConjurerResources.conjurer)
-            .setSummon(0, CardRarity.UNCOMMON, PCLAttackType.Immaterial)
-            .setDamage(2, 1)
+    public static final PCLCardData DATA = register(Magilou.class, ConjurerResources.conjurer)
+            .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Immaterial)
+            .setDamage(3, 1)
             .setPriority(1)
-            .setHp(3, 2)
-            .setAffinities(PCLAffinity.Purple)
-            .setLoadout(ConjurerPlayerData.genshinImpact, true);
+            .setHp(4, 2)
+            .setAffinities(PCLAffinity.Blue)
+            .setColorless();
 
-    public Fischl()
+    public Magilou()
     {
         super(DATA);
     }
@@ -32,6 +31,6 @@ public class Fischl extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.GHOST);
-        addUseMove(PCond.cooldown(1), PMove.channelOrb(1, PCLOrbHelper.Dark));
+        addUseMove(PCond.cooldown(1), PMove.applyToTeam(1, PCLPowerHelper.Sorcery));
     }
 }

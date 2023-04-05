@@ -1,11 +1,12 @@
 package pinacolada.resources.conjurer;
 
 import com.megacrit.cardcrawl.relics.*;
-import extendedui.EUIUtils;
 import pinacolada.relics.conjurer.PeriodicTable;
 import pinacolada.resources.*;
 import pinacolada.resources.loadout.PCLLoadout;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class ConjurerPlayerData extends PCLAbstractPlayerData
@@ -31,7 +32,7 @@ public class ConjurerPlayerData extends PCLAbstractPlayerData
     @Override
     public List<PCLLoadout> getAvailableLoadouts()
     {
-        return EUIUtils.list(
+        return Arrays.asList(
                 genshinImpact,
                 shinMegamiTensei,
                 eldenRing
@@ -77,6 +78,6 @@ public class ConjurerPlayerData extends PCLAbstractPlayerData
     @Override
     public List<String> getStartingRelics()
     {
-        return EUIUtils.list(PeriodicTable.ID);
+        return Collections.singletonList(PeriodicTable.ID);
     }
 }
