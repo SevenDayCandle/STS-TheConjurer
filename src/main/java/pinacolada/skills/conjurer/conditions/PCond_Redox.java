@@ -11,6 +11,7 @@ import pinacolada.misc.ConjurerUseInfo;
 import pinacolada.misc.PCLUseInfo;
 import pinacolada.resources.conjurer.ConjurerEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.PSkill;
 import pinacolada.skills.PSkillData;
 import pinacolada.skills.PSkillSaveData;
 import pinacolada.skills.fields.PField_Affinity;
@@ -41,7 +42,7 @@ public class PCond_Redox extends PPassiveCond<PField_Affinity> implements OnElem
     }
 
     @Override
-    public boolean checkCondition(PCLUseInfo info, boolean isUsing, boolean fromTrigger)
+    public boolean checkCondition(PCLUseInfo info, boolean isUsing, PSkill<?> triggerSource)
     {
         ConjurerUseInfo cInfo = EUIUtils.safeCast(info, ConjurerUseInfo.class);
         if (cInfo == null)

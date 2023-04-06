@@ -7,6 +7,7 @@ import pinacolada.interfaces.subscribers.OnIntensifySubscriber;
 import pinacolada.misc.PCLUseInfo;
 import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerEnum;
+import pinacolada.skills.PSkill;
 import pinacolada.skills.PSkillData;
 import pinacolada.skills.PSkillSaveData;
 import pinacolada.skills.fields.PField_Affinity;
@@ -62,7 +63,7 @@ public class PCond_Intensify extends PPassiveCond<PField_Affinity> implements On
     }
 
     @Override
-    public boolean checkCondition(PCLUseInfo info, boolean isUsing, boolean fromTrigger)
+    public boolean checkCondition(PCLUseInfo info, boolean isUsing, PSkill<?> triggerSource)
     {
         return false;
     }
