@@ -17,7 +17,7 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PSpecialSkill;
 import pinacolada.utilities.GameUtilities;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @VisibleCard
 public class NaturalSelection extends PCLCard
@@ -40,7 +40,7 @@ public class NaturalSelection extends PCLCard
 
     public void specialMove(PSpecialSkill move, PCLUseInfo info)
     {
-        ArrayList<AbstractCard> cards = info.getData();
+        List<? extends AbstractCard> cards = info.getDataAsList(AbstractCard.class);
         if (cards != null)
         {
             for (AbstractCard c : cards)
