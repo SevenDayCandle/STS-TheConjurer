@@ -68,7 +68,7 @@
 	},
 	"conjurer:WitchsHeartFlames":
 	{
-		"DESCRIPTIONS": ["[Blasted] is treated as a [A-R] #yElemental #yDebuff. | All #yCurses and #yStatuses are replaced with #ySearing #yBurn."],
+		"DESCRIPTIONS": ["All #yCurses and #yStatuses are replaced with #ySearing #yBurn."],
 		"FLAVOR": "A clear bottle containing liquid fire.",
 		"NAME": "Witch's Heart Flames"
 	}
