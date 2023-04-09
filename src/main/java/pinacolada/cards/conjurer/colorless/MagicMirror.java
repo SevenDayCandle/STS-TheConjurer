@@ -37,7 +37,7 @@ public class MagicMirror extends PCLCard
 
     public static class MagicMirrorPower extends PSpecialCardPower implements OnTryApplyPowerListener
     {
-        public MagicMirrorPower(AbstractCreature owner, PSkill move)
+        public MagicMirrorPower(AbstractCreature owner, PSkill<?> move)
         {
             super(DATA, owner, move);
             initialize(move.amount);

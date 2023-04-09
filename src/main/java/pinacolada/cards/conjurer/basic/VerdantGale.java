@@ -12,12 +12,10 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
-import pinacolada.misc.PCLUseInfo;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.powers.PSpecialCardPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;
-import pinacolada.skills.skills.PSpecialSkill;
 import pinacolada.ui.combat.ConjurerReactionMeter;
 import pinacolada.utilities.GameUtilities;
 
@@ -35,21 +33,16 @@ public class VerdantGale extends PCLCard
         super(DATA);
     }
 
-    public void action(PSpecialSkill move, PCLUseInfo info)
-    {
-        PCLActions.bottom.applyPower(new VerdantGalePower(info.source, move));
-    }
-
     public void setup(Object input)
     {
-        addSpecialMove(0, this::action, 9, 4).setUpgradeExtra(2);
+        addSpecialPower(0, (s, i) -> new VerdantGalePower(i.source, s), 9, 4).setUpgradeExtra(2);
     }
 
     public static class VerdantGalePower extends PSpecialCardPower
     {
         protected int count;
 
-        public VerdantGalePower(AbstractCreature owner, PSkill move)
+        public VerdantGalePower(AbstractCreature owner, PSkill<?> move)
         {
             super(VerdantGale.DATA, owner, move);
         }

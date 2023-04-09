@@ -15,11 +15,10 @@ import pinacolada.resources.conjurer.ConjurerResources;
 public class WitchsHeartFlames extends PCLRelic implements OnCardCreatedSubscriber
 {
     public static final String ID = createFullID(ConjurerResources.conjurer, WitchsHeartFlames.class);
-    public static final int BURNING_ATTACK_BONUS = 15;
 
     public WitchsHeartFlames()
     {
-        super(ID, RelicTier.RARE, LandingSound.MAGICAL, ConjurerResources.conjurer.playerClass);
+        super(ID, RelicTier.UNCOMMON, LandingSound.MAGICAL, ConjurerResources.conjurer.playerClass);
     }
 
     @Override

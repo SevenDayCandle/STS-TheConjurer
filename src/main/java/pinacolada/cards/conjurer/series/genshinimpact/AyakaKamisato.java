@@ -21,9 +21,9 @@ import pinacolada.skills.PSkill;
 public class AyakaKamisato extends PCLCard
 {
     public static final PCLCardData DATA = register(AyakaKamisato.class, ConjurerResources.conjurer)
-            .setSummon(1, CardRarity.RARE, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
+            .setSummon(1, CardRarity.RARE, PCLAttackType.Normal)
             .setRTags(PCLCardTag.Ethereal)
-            .setDamage(14, 0, 0)
+            .setDamage(7, 0, 2)
             .setPriority(1)
             .setHp(4, 1)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Purple)
@@ -42,7 +42,7 @@ public class AyakaKamisato extends PCLCard
 
     public static class AyakaKamisatoPower extends PSpecialCardPower implements OnBlockGainedSubscriber
     {
-        public AyakaKamisatoPower(AbstractCreature owner, PSkill move)
+        public AyakaKamisatoPower(AbstractCreature owner, PSkill<?> move)
         {
             super(DATA, owner, move);
         }

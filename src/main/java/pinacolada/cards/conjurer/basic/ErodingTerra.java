@@ -9,13 +9,11 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
-import pinacolada.misc.PCLUseInfo;
 import pinacolada.powers.PSpecialCardPower;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.powers.conjurer.PetraPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;
-import pinacolada.skills.skills.PSpecialSkill;
 import pinacolada.utilities.GameUtilities;
 
 import java.util.ArrayList;
@@ -34,19 +32,14 @@ public class ErodingTerra extends PCLCard
         super(DATA);
     }
 
-    public void action(PSpecialSkill move, PCLUseInfo info)
-    {
-        PCLActions.bottom.applyPower(new ErodingTerraPower(info.source, move));
-    }
-
     public void setup(Object input)
     {
-        addSpecialMove(0, this::action, 1);
+        addSpecialPower(0, (s, i) -> new ErodingTerraPower(i.source, s), 1);
     }
 
     public static class ErodingTerraPower extends PSpecialCardPower
     {
-        public ErodingTerraPower(AbstractCreature owner, PSkill move)
+        public ErodingTerraPower(AbstractCreature owner, PSkill<?> move)
         {
             super(ErodingTerra.DATA, owner, move);
         }

@@ -64,7 +64,7 @@ public class ConjurerTooltips extends PCLTooltips
             case General:
             case Unknown:
             default:
-                return reaction;
+                return PGR.core.tooltips.affinityGeneral;
         }
     }
 

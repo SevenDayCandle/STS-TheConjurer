@@ -22,6 +22,10 @@
 		"DESCRIPTION": "[A-P] #yElemental #yDebuff. When #yAttacking, deal a portion of damage dealt to yourself and ALL allies.",
 		"NAME": "Corrosion"
 	},
+				"Death": {
+								"DESCRIPTION": "Your #yAttacks deal a portion of its damage to yourself. At the end of turn, you have a chance of instantly dying.",
+								"NAME": "Death"
+				},
 	"Elemental Debuff": {
 		"DESCRIPTION": "[Ignis], [Gelus], [Aer], [Petra]. Remove at the end of the round.",
 		"NAME": "Elemental Debuff",
@@ -76,5 +80,9 @@
 		"PAST": "redoxed",
 		"PRESENT": "redoxes",
 		"PROGRESSIVE": "redoxing"
-	}
+	},
+				"Umbra": {
+								"DESCRIPTION": "[A-P] #yElemental #yDebuff. Reactions on a non-#ySummon target applies a debuff that causes its #yAttacks to damage itself.",
+								"NAME": "Umbra"
+				}
 }

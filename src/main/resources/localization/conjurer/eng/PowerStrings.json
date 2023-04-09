@@ -20,6 +20,11 @@
 		"DESCRIPTIONS": ["#b{0}% of outgoing damage is dealt to itself and ALL allies.", "When targets with [Corrosion] attack, #b{0}% of damage is dealt to themselves and their allies."],
 		"NAME": "Corrosion"
 	},
+				"conjurer:DeathPower":
+				{
+								"DESCRIPTIONS": ["#b{0}% of outgoing damage is dealt to itself. At the end of turn, has a #b{1}% chance to die."],
+								"NAME": "Death"
+				},
 	"conjurer:ElementalExposurePower":
 	{
 		"DESCRIPTIONS": ["The effects of #yElemntal #yDebuffs are multiplied by #b{0}%."],
@@ -64,5 +69,10 @@
 	{
 		"DESCRIPTIONS": ["For #b{0} turns: #yElemental #yDebuffs cannot be reduced."],
 		"NAME": "Petrified"
-	}
+	},
+				"conjurer:UmbraPower":
+				{
+								"DESCRIPTIONS": ["Reactions on this target apply Death to it equal to #b{0}% of Reaction gained.", "Reactions on non-#ySummon targets with Umbra apply Death to it equal to #b{0}% of Reaction gained."],
+								"NAME": "Umbra"
+				}
 }

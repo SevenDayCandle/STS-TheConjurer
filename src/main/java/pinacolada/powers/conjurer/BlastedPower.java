@@ -18,7 +18,7 @@ import pinacolada.utilities.GameUtilities;
 public class BlastedPower extends PCLPower implements HealthBarRenderPower
 {
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, BlastedPower.class);
-    public static final Color healthBarColor = Color.FIREBRICK.cpy();
+    public static final Color healthBarColor = Color.ORANGE.cpy();
 
     public BlastedPower(AbstractCreature owner, AbstractCreature source, int amount)
     {

@@ -3,6 +3,10 @@ package pinacolada.resources.conjurer;
 import com.megacrit.cardcrawl.relics.*;
 import pinacolada.relics.conjurer.PeriodicTable;
 import pinacolada.resources.*;
+import pinacolada.resources.conjurer.loadout.EldenRing;
+import pinacolada.resources.conjurer.loadout.GenshinImpact;
+import pinacolada.resources.conjurer.loadout.ShinMegamiTensei;
+import pinacolada.resources.conjurer.loadout.TouhouProject;
 import pinacolada.resources.loadout.PCLLoadout;
 
 import java.util.Arrays;
@@ -18,11 +22,11 @@ public class ConjurerPlayerData extends PCLAbstractPlayerData
     private static final String CONJURER_METER_POSITION = PCLMainConfig.createFullID("ConjurerMeterPosition");
     private static final String TROPHIES_CONJURER = PCLMainConfig.createFullID("TrophiesConjurer");
 
-    public static ConjurerLoadout core = new ConjurerLoadout(-1, 0);
-    public static ConjurerLoadout genshinImpact = new ConjurerLoadout(0, 0);
-    public static ConjurerLoadout shinMegamiTensei = new ConjurerLoadout(1, 0);
-    public static ConjurerLoadout touhouProject = new ConjurerLoadout(2, 0);
-    public static ConjurerLoadout eldenRing = new ConjurerLoadout(3, 0);
+    public static ConjurerLoadout core = new ConjurerLoadout();
+    public static ConjurerLoadout genshinImpact = new GenshinImpact();
+    public static ConjurerLoadout shinMegamiTensei = new ShinMegamiTensei();
+    public static ConjurerLoadout touhouProject = new TouhouProject();
+    public static ConjurerLoadout eldenRing = new EldenRing();
 
     public ConjurerPlayerData(PCLResources<?, ?, ?, ?> resources)
     {
