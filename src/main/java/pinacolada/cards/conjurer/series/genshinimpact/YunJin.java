@@ -21,7 +21,7 @@ public class YunJin extends PCLCard
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Normal, PCLCardTarget.AllEnemy)
             .setDamage(1, 1)
             .setPriority(1)
-            .setHp(7, 2)
+            .setHp(6, 2)
             .setAffinities(PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
@@ -33,6 +33,6 @@ public class YunJin extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL);
-        addUseMove(PCond.cooldown(1), PMove.applyToEnemies(3, PCLElementHelper.Petra));
+        addUseMove(PCond.cooldown(0), PMove.reshuffle(1), PMove.apply(PCLCardTarget.None,2, PCLElementHelper.Petra));
     }
 }

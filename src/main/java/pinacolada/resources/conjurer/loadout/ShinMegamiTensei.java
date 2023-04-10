@@ -4,7 +4,7 @@ import pinacolada.resources.conjurer.ConjurerLoadout;
 
 public class ShinMegamiTensei extends ConjurerLoadout
 {
-    public static final String ID = createFullID(ShinMegamiTensei.class);
+    public static final String ID = createID(ShinMegamiTensei.class);
 
     public ShinMegamiTensei()
     {

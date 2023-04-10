@@ -4,7 +4,7 @@ import pinacolada.resources.conjurer.ConjurerLoadout;
 
 public class GenshinImpact extends ConjurerLoadout
 {
-    public static final String ID = createFullID(GenshinImpact.class);
+    public static final String ID = createID(GenshinImpact.class);
 
     public GenshinImpact()
     {

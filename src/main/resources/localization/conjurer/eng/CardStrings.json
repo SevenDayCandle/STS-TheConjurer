@@ -21,7 +21,7 @@
 		"conjurer:Desiccation": {"NAME": "Dessication"},
 		"conjurer:DuneBlower": {"NAME": "Dune Blower"},
 		"conjurer:DustTornado": {"NAME": "Dust Tornado"},
-		"conjurer:Ecosystem": {"EXTENDED_DESCRIPTION": ["Whenever you manually level: | {0}: {1} | {2}: {3} | {4} : {5}"], "NAME": "Ecosystem"},
+		"conjurer:Ecosystem": {"NAME": "Ecosystem"},
 		"conjurer:Entropy": {"EXTENDED_DESCRIPTION": ["Apply {0} of the corresponding Elemental Debuffs of each discarded card"], "NAME": "Entropy"},
 		"conjurer:ErodingTerra": {
 			"EXTENDED_DESCRIPTION": ["At round end, [Petra] is halved instead of wearing off. If it was Stabilized, you gain half of it as [Block]"],

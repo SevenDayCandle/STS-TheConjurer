@@ -4,6 +4,7 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -26,6 +27,6 @@ public class Geomorphology extends PCLCard
 
     public void setup(Object input)
     {
-        addGainPower(PTrigger.when(PCond.onSummon(), PMultiSkill.join(PMove.gainBlock(2).setUpgrade(1), PMove.applyToEnemies(2, PCLElementHelper.Petra))));
+        addGainPower(PTrigger.when(PCond.onSummon(), PMultiSkill.join(PMove.gainBlock(PCLCardTarget.Team,1).setUpgrade(1), PMove.applyToEnemies(1, PCLElementHelper.Petra))));
     }
 }

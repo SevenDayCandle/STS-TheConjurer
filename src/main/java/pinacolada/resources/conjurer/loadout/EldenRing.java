@@ -4,7 +4,7 @@ import pinacolada.resources.conjurer.ConjurerLoadout;
 
 public class EldenRing extends ConjurerLoadout
 {
-    public static final String ID = createFullID(EldenRing.class);
+    public static final String ID = createID(EldenRing.class);
 
     public EldenRing()
     {
