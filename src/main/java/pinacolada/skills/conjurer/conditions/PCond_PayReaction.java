@@ -44,7 +44,7 @@ public class PCond_PayReaction extends PPassiveCond<PField_Empty>
     }
 
     @Override
-    public String getSampleText()
+    public String getSampleText(PSkill<?> callingSkill)
     {
         return TEXT.act_pay("X", ConjurerResources.conjurer.tooltips.reaction.title);
     }
