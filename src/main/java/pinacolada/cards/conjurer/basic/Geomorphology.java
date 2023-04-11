@@ -17,6 +17,7 @@ public class Geomorphology extends PCLCard
 {
     public static final PCLCardData DATA = register(Geomorphology.class, ConjurerResources.conjurer)
             .setPower(2, CardRarity.UNCOMMON)
+            .setCostUpgrades(-1)
             .setAffinities(2, PCLAffinity.Orange)
             .setCore();
 
@@ -27,6 +28,6 @@ public class Geomorphology extends PCLCard
 
     public void setup(Object input)
     {
-        addGainPower(PTrigger.when(PCond.onSummon(), PMultiSkill.join(PMove.gainBlock(PCLCardTarget.Team,1).setUpgrade(1), PMove.applyToEnemies(1, PCLElementHelper.Petra))));
+        addGainPower(PTrigger.when(PCond.onSummon(), PMultiSkill.join(PMove.gainBlock(PCLCardTarget.Team,1), PMove.applyToEnemies(1, PCLElementHelper.Petra))));
     }
 }

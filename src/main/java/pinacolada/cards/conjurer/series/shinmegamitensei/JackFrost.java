@@ -18,7 +18,7 @@ public class JackFrost extends PCLCard
 {
     public static final PCLCardData DATA = register(JackFrost.class, ConjurerResources.conjurer)
             .setSummon(0, CardRarity.COMMON, PCLAttackType.Immaterial)
-            .setDamage(2, 1)
+            .setDamage(1, 1)
             .setPriority(1)
             .setHp(3, 2)
             .setAffinities(2, PCLAffinity.Blue)

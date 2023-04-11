@@ -33,6 +33,6 @@ public class Xingqiu extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL);
-        addUseMove(PCond.cooldown(1), PMove.apply(PCLCardTarget.None, 3, PCLPowerHelper.Warding).setUpgrade(1));
+        addUseMove(PCond.cooldown(1), PMove.apply(PCLCardTarget.None, 2, PCLPowerHelper.Warding).setUpgrade(1));
     }
 }

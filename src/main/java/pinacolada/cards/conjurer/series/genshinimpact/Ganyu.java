@@ -1,23 +1,19 @@
 package pinacolada.cards.conjurer.series.genshinimpact;
 
 
-import extendedui.EUIUtils;
-import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
-import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.misc.PCLUseInfo;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
-import pinacolada.skills.skills.PSpecialSkill;
-import pinacolada.ui.combat.ConjurerReactionMeter;
+import pinacolada.skills.PMod;
+import pinacolada.skills.PMove;
 
 @VisibleCard
 public class Ganyu extends PCLCard
@@ -39,15 +35,6 @@ public class Ganyu extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.ICE);
-        addUseMove(PCond.cooldown(1), getSpecialMove(0, this::specialMove, 1));
-    }
-
-    public void specialMove(PSpecialSkill move, PCLUseInfo info)
-    {
-        if (info.target != null)
-        {
-            int amount = EUIUtils.sumInt(info.target.powers, po -> ConjurerReactionMeter.meter.isPowerElemental(po.ID, PCLAffinity.Blue) ? po.amount : 0) + move.amount;
-            PCLActions.bottom.applyPower(info.target, PCLCardTarget.Single, PCLElementHelper.Gelus, amount);
-        }
+        addUseMove(PCond.cooldown(1), PMod.bonusPerPowerSingle(1, PCLElementHelper.Gelus), PMove.applyToSingle(2, PCLElementHelper.Gelus));
     }
 }

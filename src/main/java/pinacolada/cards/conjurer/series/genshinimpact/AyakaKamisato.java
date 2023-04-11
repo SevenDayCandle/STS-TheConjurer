@@ -1,7 +1,6 @@
 package pinacolada.cards.conjurer.series.genshinimpact;
 
 
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
@@ -10,12 +9,12 @@ import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.interfaces.subscribers.OnBlockGainedSubscriber;
-import pinacolada.powers.PSpecialCardPower;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PSkill;
+import pinacolada.skills.PCond;
+import pinacolada.skills.PMove;
+import pinacolada.skills.skills.PMultiSkill;
 
 @VisibleCard
 public class AyakaKamisato extends PCLCard
@@ -24,7 +23,7 @@ public class AyakaKamisato extends PCLCard
             .setSummon(1, CardRarity.RARE, PCLAttackType.Normal)
             .setRTags(PCLCardTag.Ethereal)
             .setDamage(7, 0, 2)
-            .setPriority(1)
+            .setPriority(0)
             .setHp(4, 1)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.genshinImpact);
@@ -37,23 +36,6 @@ public class AyakaKamisato extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.ICE);
-        addSpecialPower(0, (s, i) -> new AyakaKamisatoPower(i.source, s), 1, 1);
-    }
-
-    public static class AyakaKamisatoPower extends PSpecialCardPower implements OnBlockGainedSubscriber
-    {
-        public AyakaKamisatoPower(AbstractCreature owner, PSkill<?> move)
-        {
-            super(DATA, owner, move);
-        }
-
-        @Override
-        public void onBlockGained(AbstractCreature target, int i)
-        {
-            if (i > 0)
-            {
-                move.getActions().applyPower(target, PCLCardTarget.Single, PCLElementHelper.Frostbite, i);
-            }
-        }
+        addUseMove(PCond.onSummon(), PMultiSkill.join(PMove.apply(PCLCardTarget.None, 4, PCLElementHelper.Frostbite), PMove.applyToEnemies(6, PCLElementHelper.Frostbite)));
     }
 }

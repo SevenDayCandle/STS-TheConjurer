@@ -7,7 +7,6 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.PCLCardGroupHelper;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
-import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -18,7 +17,7 @@ import pinacolada.skills.PMove;
 public class Keqing extends PCLCard
 {
     public static final PCLCardData DATA = register(Keqing.class, ConjurerResources.conjurer)
-            .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Piercing, PCLCardTarget.RandomEnemy)
+            .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Piercing)
             .setDamage(2, 1, 2)
             .setPriority(1)
             .setHp(6, 1)
