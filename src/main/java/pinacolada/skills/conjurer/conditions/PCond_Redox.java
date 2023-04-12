@@ -8,7 +8,7 @@ import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.interfaces.subscribers.OnElementReactSubscriber;
 import pinacolada.misc.AffinityReactions;
 import pinacolada.misc.ConjurerUseInfo;
-import pinacolada.misc.PCLUseInfo;
+import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.resources.conjurer.ConjurerEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;

@@ -6,7 +6,7 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.tags.PCLCardTag;
-import pinacolada.misc.PCLUseInfo;
+import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;

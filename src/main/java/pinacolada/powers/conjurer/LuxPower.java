@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.effects.SFX;
 import pinacolada.interfaces.subscribers.OnTryElementReactSubscriber;
-import pinacolada.misc.CombatManager;
+import pinacolada.dungeon.CombatManager;
 import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 

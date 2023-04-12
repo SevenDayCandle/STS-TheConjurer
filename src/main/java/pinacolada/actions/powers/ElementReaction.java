@@ -9,7 +9,7 @@ import pinacolada.actions.PCLAction;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.interfaces.subscribers.OnElementReactSubscriber;
 import pinacolada.misc.AffinityReactions;
-import pinacolada.misc.CombatManager;
+import pinacolada.dungeon.CombatManager;
 import pinacolada.powers.conjurer.AbstractPCLElementalPower;
 import pinacolada.ui.combat.ConjurerReactionMeter;
 import pinacolada.utilities.GameUtilities;

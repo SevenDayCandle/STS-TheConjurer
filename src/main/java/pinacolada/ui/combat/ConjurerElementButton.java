@@ -21,7 +21,7 @@ import pinacolada.cards.base.fields.PCLCardAffinity;
 import pinacolada.effects.PCLEffects;
 import pinacolada.effects.affinity.GenericFlashEffect;
 import pinacolada.interfaces.subscribers.OnTryElementReactSubscriber;
-import pinacolada.misc.CombatManager;
+import pinacolada.dungeon.CombatManager;
 import pinacolada.powers.conjurer.AbstractPCLElementalPower;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.PGR;

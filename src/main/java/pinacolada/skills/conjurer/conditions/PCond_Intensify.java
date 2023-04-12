@@ -4,7 +4,7 @@ import extendedui.EUIRM;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.interfaces.subscribers.OnIntensifySubscriber;
-import pinacolada.misc.PCLUseInfo;
+import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerEnum;
 import pinacolada.skills.PSkill;

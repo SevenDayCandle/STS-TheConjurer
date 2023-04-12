@@ -3,6 +3,7 @@ package pinacolada.misc;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.ui.combat.ConjurerReactionMeter;
 
 import java.util.ArrayList;

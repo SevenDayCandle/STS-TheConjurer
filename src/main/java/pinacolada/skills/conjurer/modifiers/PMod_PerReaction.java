@@ -1,7 +1,7 @@
 package pinacolada.skills.conjurer.modifiers;
 
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.misc.PCLUseInfo;
+import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.resources.conjurer.ConjurerEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkillData;

@@ -18,7 +18,7 @@ import pinacolada.cards.conjurer.curse.Curse_Normality;
 import pinacolada.cards.pcl.curse.*;
 import pinacolada.cards.pcl.status.*;
 import pinacolada.characters.ConjurerCharacter;
-import pinacolada.misc.CombatManager;
+import pinacolada.dungeon.CombatManager;
 import pinacolada.monsters.PCLCardAlly;
 import pinacolada.monsters.animations.PCLAllyAnimation;
 import pinacolada.monsters.animations.conjurer.*;

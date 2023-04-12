@@ -15,7 +15,7 @@ import pinacolada.interfaces.listeners.OnElementalDebuffListener;
 import pinacolada.interfaces.markers.MultiplicativePower;
 import pinacolada.interfaces.markers.StablizingPower;
 import pinacolada.misc.AffinityReactions;
-import pinacolada.misc.CombatManager;
+import pinacolada.dungeon.CombatManager;
 import pinacolada.powers.PCLPower;
 import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerResources;

@@ -2,7 +2,7 @@ package pinacolada.skills.conjurer.modifiers;
 
 import extendedui.EUIUtils;
 import pinacolada.misc.ConjurerUseInfo;
-import pinacolada.misc.PCLUseInfo;
+import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkillData;
 import pinacolada.skills.PSkillSaveData;

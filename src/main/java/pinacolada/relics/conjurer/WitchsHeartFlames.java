@@ -7,7 +7,7 @@ import pinacolada.annotations.VisibleRelic;
 import pinacolada.cards.conjurer.status.Status_SearingBurn;
 import pinacolada.effects.PCLEffects;
 import pinacolada.interfaces.subscribers.OnCardCreatedSubscriber;
-import pinacolada.misc.CombatManager;
+import pinacolada.dungeon.CombatManager;
 import pinacolada.relics.PCLRelic;
 import pinacolada.resources.conjurer.ConjurerResources;
 
