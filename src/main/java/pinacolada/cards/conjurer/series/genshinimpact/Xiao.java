@@ -37,6 +37,6 @@ public class Xiao extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.POISON);
-        addUseMove(PCond.cooldown(1), PMultiSkill.join(PMove.createDrawPile(1, Curse_Decay.DATA), PMove.applyToEnemies(6, PCLPowerHelper.Poison)));
+        addUseMove(PCond.cooldown(1), PMultiSkill.join(PMove.createDrawPile(1, Curse_Decay.DATA.ID), PMove.applyToEnemies(6, PCLPowerHelper.Poison)));
     }
 }
