@@ -6,6 +6,7 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
+import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
@@ -14,9 +15,8 @@ import pinacolada.skills.PMove;
 public class AtmosphericPressure extends PCLCard
 {
     public static final PCLCardData DATA = register(AtmosphericPressure.class, ConjurerResources.conjurer)
-            .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.AllEnemy)
-            .setBlock(2, 0)
-            .setCostUpgrades(-1)
+            .setSkill(0, CardRarity.COMMON, PCLCardTarget.AllEnemy)
+            .setTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Green)
             .setCore();
 
@@ -27,7 +27,7 @@ public class AtmosphericPressure extends PCLCard
 
     public void setup(Object input)
     {
-        addBlockMove();
+        addUseMove(PMove.draw(1).setUpgrade(1));
         addUseMove(PMove.stabilize(PCLCardTarget.AllEnemy, PCLElementHelper.Gelus, PCLElementHelper.Aer));
     }
 }

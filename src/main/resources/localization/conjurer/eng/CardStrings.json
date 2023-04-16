@@ -1,11 +1,11 @@
 {
 	"BASIC":
 	{
-		"conjurer:Aerosol": {"NAME": "Aerosol"},
+		"conjurer:AerosolCoolant": {"NAME": "AerosolCoolant"},
 		"conjurer:AirCurrent": {"NAME": "Air Current"},
 		"conjurer:ArcticTide": {"NAME": "Arctic Tide"},
 		"conjurer:AtmosphericPressure": {"NAME": "Atmospheric Pressure"},
-		"conjurer:BlazingHeat": {"EXTENDED_DESCRIPTION": ["At turn end, each enemy loses {0} HP per stack of its [Ignis]"], "NAME": "Blazing Heat"},
+		"conjurer:BlazingHeat": {"EXTENDED_DESCRIPTION": ["[Blasted] damages everyone on the target's side. At turn end, [Ignis] is converted into {0} [Blasted]"], "NAME": "Blazing Heat"},
 		"conjurer:Bloom": {"NAME": "Bloom"},
 		"conjurer:BoilingPoint": {"NAME": "Boiling Point"},
 		"conjurer:BotanicTherapy": {"NAME": "Botanic Therapy"},
@@ -19,7 +19,6 @@
 		"conjurer:Deluge": {"NAME": "Deluge"},
 		"conjurer:DeltaStream": {"NAME": "Delta Stream"},
 		"conjurer:Desiccation": {"NAME": "Dessication"},
-		"conjurer:DuneBlower": {"NAME": "Dune Blower"},
 		"conjurer:DustTornado": {"NAME": "Dust Tornado"},
 		"conjurer:Ecosystem": {"NAME": "Ecosystem"},
 		"conjurer:Entropy": {"EXTENDED_DESCRIPTION": ["Apply {0} of the corresponding Elemental Debuffs of each discarded card"], "NAME": "Entropy"},
@@ -54,7 +53,7 @@
 		"conjurer:RazorTurbine": {"NAME": "Razor Turbine"},
 		"conjurer:SeismicShift": {"NAME": "Seismic Shift"},
 		"conjurer:SheerCold": {
-			"EXTENDED_DESCRIPTION": ["[Frostbite] is treated as a [A-B] Elemental Debuff and activates twice"],
+			"EXTENDED_DESCRIPTION": ["[Frostbite] is treated as a [A-B] Elemental Debuff and increases [Immaterial Damage] and non-Attack damage received."],
 			"NAME": "Sheer Cold"
 		},
 		"conjurer:SkyBurial": {"NAME": "Sky Burial"},
@@ -276,7 +275,7 @@
 		"conjurer:Decarabia": {"NAME": "Decarabia"},
 		"conjurer:FengHuang": {"NAME": "Feng Huang"},
 		"conjurer:Flauros": {"NAME": "Flauros"},
-		"conjurer:FutabaSakura": {"EXTENDED_DESCRIPTION": ["apply {0} of its Elemental Debuffs to ALL enemies"], "NAME": "Futaba Sakura"},
+		"conjurer:FutabaSakura": {"EXTENDED_DESCRIPTION": ["gain a random amount of Reaction"], "NAME": "Futaba Sakura"},
 		"conjurer:FuukaYamagishi": {"NAME": "Fuuka Yamagishi"},
 		"conjurer:Genbu": {"NAME": "Genbu"},
 		"conjurer:Girimekhala": {"NAME": "Girimekhala"},
@@ -376,9 +375,11 @@
 			"NAME": "Ritual Dagger"
 		},
 		"conjurer:Thundershock": {"NAME": "Thundershock"},
+		"conjurer:TriAttack": {"NAME": "Tri-Attack"},
 		"conjurer:VoltageAmplification": {"NAME": "Voltage Amplification"}
 	},
 	"STATUS":	{
+		"conjurer:Status_Growth": {"NAME": "Growth"},
 		"conjurer:Status_SearingBurn": {"NAME": "Searing Burn"}
 	}
 }

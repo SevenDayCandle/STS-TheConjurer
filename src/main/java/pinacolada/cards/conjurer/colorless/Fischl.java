@@ -7,7 +7,6 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.orbs.PCLOrbHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -32,6 +31,6 @@ public class Fischl extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.GHOST);
-        addUseMove(PCond.cooldown(1), PMove.channelOrb(1, PCLOrbHelper.Dark));
+        addUseMove(PCond.cooldown(2), PMove.createDrawPile(1, Fischl_Oz.DATA.ID));
     }
 }

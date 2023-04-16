@@ -37,7 +37,7 @@ public class PMove_GainReaction extends PMove_Gain
     @Override
     public void use(PCLUseInfo info)
     {
-        ConjurerReactionMeter.meter.addCount(amount, true);
+        getActions().callback(() -> ConjurerReactionMeter.meter.addCount(amount, true));
         super.use(info);
     }
 }

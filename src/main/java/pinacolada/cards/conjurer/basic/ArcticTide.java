@@ -29,7 +29,7 @@ public class ArcticTide extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(ConjurerEFK.MGC_W2_ExploDome);
+        addDamageMove(ConjurerEFK.MGC_W2_BlueBall);
         addUseMove(PMove.applyToEnemies(2, PCLElementHelper.Gelus, PCLPowerHelper.Vulnerable));
     }
 }

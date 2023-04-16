@@ -14,7 +14,7 @@ public class CorrosionPower extends AbstractPCLElementalPower
 {
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, CorrosionPower.class);
     public static final PCLAffinity AFFINITY = setAffinity(POWER_ID, PCLAffinity.Purple);
-    public static final int MULTIPLIER = setMultiplier(POWER_ID, 35);
+    public static final int MULTIPLIER = setMultiplier(POWER_ID, 30);
 
     public CorrosionPower(AbstractCreature owner, AbstractCreature source, int amount)
     {

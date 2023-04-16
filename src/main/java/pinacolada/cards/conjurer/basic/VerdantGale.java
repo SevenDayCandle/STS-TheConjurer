@@ -12,6 +12,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
+import pinacolada.effects.VFX;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.powers.PSpecialCardPower;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -79,6 +80,12 @@ public class VerdantGale extends PCLCard
         protected ColoredString getSecondaryAmount(Color c)
         {
             return new ColoredString(count, Color.GREEN, c.a);
+        }
+
+        public void onInitialApplication()
+        {
+            super.onInitialApplication();
+            PCLActions.bottom.playVFX(VFX.razorWind(owner.hb));
         }
     }
 }

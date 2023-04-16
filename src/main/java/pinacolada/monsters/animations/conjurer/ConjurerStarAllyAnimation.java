@@ -51,7 +51,7 @@ public class ConjurerStarAllyAnimation extends PCLAllyAnimation
         int hSize = size / 2;
         sb.setColor(this.renderColor);
         float by = owner.getBobEffect().y;
-        sb.setBlendFunction(770, 1);
+        PCLRenderHelpers.BlendingMode.Glowing.apply(sb);
         float scale1 = Interpolation.sine.apply(0.8f, 1f, angle / 105);
         sb.draw(FRAMES[0].texture(), x - hSize, y - hSize, 48f, 48f, 96f, 96f, scale1, scale1, angle, 0, 0, 96, 96, hFlip, vFlip);
         this.shineColor.a = Interpolation.sine.apply(0.4f, 0.7f, -angle / 65);

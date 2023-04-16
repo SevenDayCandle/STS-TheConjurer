@@ -1,20 +1,22 @@
 package pinacolada.skills.conjurer.conditions;
 
+import extendedui.interfaces.delegates.ActionT0;
+import pinacolada.actions.PCLAction;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;
 import pinacolada.skills.PSkillData;
 import pinacolada.skills.PSkillSaveData;
-import pinacolada.skills.fields.PField_Empty;
-import pinacolada.skills.skills.PPassiveCond;
+import pinacolada.skills.fields.PField_Not;
+import pinacolada.skills.skills.PActiveCond;
 import pinacolada.ui.combat.ConjurerReactionMeter;
 
 import static pinacolada.resources.conjurer.ConjurerEnum.Cards.THE_CONJURER;
 
-public class PCond_PayReaction extends PPassiveCond<PField_Empty>
+public class PCond_PayReaction extends PActiveCond<PField_Not>
 {
-    public static final PSkillData<PField_Empty> DATA = register(PCond_PayReaction.class, PField_Empty.class)
+    public static final PSkillData<PField_Not> DATA = register(PCond_PayReaction.class, PField_Not.class)
             .setColors(THE_CONJURER)
             .selfTarget();
 
@@ -36,10 +38,6 @@ public class PCond_PayReaction extends PPassiveCond<PField_Empty>
     @Override
     public boolean checkCondition(PCLUseInfo info, boolean isUsing, PSkill<?> triggerSource)
     {
-        if (isUsing)
-        {
-            return ConjurerReactionMeter.meter.trySpendCount(amount);
-        }
         return ConjurerReactionMeter.meter.getReactionCount() >= amount;
     }
 
@@ -53,5 +51,11 @@ public class PCond_PayReaction extends PPassiveCond<PField_Empty>
     public String getSubText()
     {
         return capital(TEXT.act_pay(getAmountRawString(), ConjurerResources.conjurer.tooltips.reaction.title), true);
+    }
+
+    @Override
+    protected PCLAction<?> useImpl(PCLUseInfo pclUseInfo, ActionT0 actionT0, ActionT0 actionT01)
+    {
+        return getActions().callback(() -> ConjurerReactionMeter.meter.trySpendCount(amount));
     }
 }

@@ -27,7 +27,7 @@ public class Cyno extends PCLCard
             .setDamage(4, 1)
             .setPriority(1)
             .setHp(7, 1)
-            .setAffinities(PCLAffinity.Red, PCLAffinity.Orange, PCLAffinity.Purple)
+            .setAffinities(PCLAffinity.Orange, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.genshinImpact, true);
 
     public Cyno()

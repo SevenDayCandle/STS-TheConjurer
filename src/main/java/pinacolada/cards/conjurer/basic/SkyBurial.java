@@ -6,8 +6,9 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
-import pinacolada.effects.EffekseerEFK;
+import pinacolada.effects.VFX;
 import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
@@ -28,7 +29,7 @@ public class SkyBurial extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(EffekseerEFK.WIND01);
-        addUseMove(PCond.ifElse(PMove.applyToSingle(1, PCLPowerHelper.Vulnerable), PMove.selfExhaust(), PCond.discardRandom(2)));
+        addDamageMove().setDamageEffect((s, m) -> VFX.razorWind(s.hb).duration);
+        addUseMove(PCond.ifElse(PMove.applyToSingle(1, PCLPowerHelper.Vulnerable, PCLElementHelper.Aer), PMove.selfExhaust(), PCond.discardRandom(2)));
     }
 }

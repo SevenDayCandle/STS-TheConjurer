@@ -13,7 +13,6 @@ import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
-import pinacolada.skills.skills.PMultiSkill;
 
 @VisibleCard
 public class Albedo extends PCLCard
@@ -34,9 +33,6 @@ public class Albedo extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.EARTH);
-        addUseMove(PCond.cooldown(2), PMultiSkill.choose(
-                PMove.applyToEnemies(6, PCLElementHelper.Petra),
-                PMove.stabilize(PCLCardTarget.AllEnemy, PCLElementHelper.Gelus)
-        ));
+        addUseMove(PCond.cooldown(2), PMove.stabilize(PCLCardTarget.Single, PCLElementHelper.Gelus, PCLElementHelper.Petra));
     }
 }

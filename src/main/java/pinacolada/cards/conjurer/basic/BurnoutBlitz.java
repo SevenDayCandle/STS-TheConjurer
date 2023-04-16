@@ -17,7 +17,7 @@ public class BurnoutBlitz extends PCLCard
 {
     public static final PCLCardData DATA = register(BurnoutBlitz.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.RARE, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
-            .setDamage(14, 2, 2)
+            .setDamage(13, 2, 2)
             .setAffinities(2, PCLAffinity.Red)
             .setCore();
 
@@ -28,7 +28,7 @@ public class BurnoutBlitz extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(EffekseerEFK.FIRE07);
-        addUseMove(PMove.createDiscardPile(2, Status_SearingBurn.DATA));
+        addDamageMove(EffekseerEFK.FIRE08);
+        addUseMove(PMove.createDiscardPile(2, Status_SearingBurn.DATA.ID));
     }
 }

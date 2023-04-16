@@ -16,7 +16,7 @@ public class RyujiSakamoto extends PCLCard
 {
     public static final PCLCardData DATA = register(RyujiSakamoto.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON)
-            .setDamage(4, 0)
+            .setDamage(4, 1)
             .setPriority(1)
             .setHp(6, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
@@ -31,6 +31,6 @@ public class RyujiSakamoto extends PCLCard
     {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
         addUseMove(PCond.cooldown(3),
-                PMove.create(RyujiSakamoto_CaptainKidd.DATA));
+                PMove.create(RyujiSakamoto_CaptainKidd.DATA.ID));
     }
 }

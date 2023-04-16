@@ -32,6 +32,6 @@ public class BarbaraPegg extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.WATER);
-        addUseMove(new PCond_OnAllyDeath(), PMove.heal(PCLCardTarget.Team, 6).setUpgrade(2));
+        addUseMove(new PCond_OnAllyDeath(), PMove.heal(PCLCardTarget.Team, 8));
     }
 }

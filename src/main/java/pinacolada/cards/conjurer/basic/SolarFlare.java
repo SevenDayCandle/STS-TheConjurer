@@ -1,11 +1,11 @@
 package pinacolada.cards.conjurer.basic;
 
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.effects.EffekseerEFK;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CMod;
 import pinacolada.skills.PMove;
@@ -26,7 +26,7 @@ public class SolarFlare extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(AbstractGameAction.AttackEffect.FIRE);
+        addDamageMove(EffekseerEFK.FIRE16);
         addUseMove(CMod.perReaction(7).setUpgrade(-1), PMove.modifyDamage(1));
     }
 }

@@ -12,7 +12,7 @@
 	},
 	"conjurer:BlastedPower":
 	{
-		"DESCRIPTIONS": ["At the start of its turn, takes #b{0} damage, then loses [Blasted]."],
+		"DESCRIPTIONS": ["At the start of its turn, takes #b{0} damage, then loses #b{1} stacks."],
 		"NAME": "Blasted"
 	},
 	"conjurer:CorrosionPower":
@@ -20,11 +20,11 @@
 		"DESCRIPTIONS": ["#b{0}% of outgoing damage is dealt to itself and ALL allies.", "When targets with [Corrosion] attack, #b{0}% of damage is dealt to themselves and their allies."],
 		"NAME": "Corrosion"
 	},
-				"conjurer:DeathPower":
-				{
-								"DESCRIPTIONS": ["#b{0}% of outgoing damage is dealt to itself. At the end of turn, has a #b{1}% chance to die."],
-								"NAME": "Death"
-				},
+	"conjurer:DeathPower":
+	{
+		"DESCRIPTIONS": ["#b{0}% of outgoing damage is dealt to itself. At the end of turn, has a #b{1}% chance to die."],
+		"NAME": "Death"
+	},
 	"conjurer:ElementalExposurePower":
 	{
 		"DESCRIPTIONS": ["The effects of #yElemntal #yDebuffs are multiplied by #b{0}%."],
@@ -42,7 +42,7 @@
 	},
 	"conjurer:FrostbitePower":
 	{
-		"DESCRIPTIONS": ["At the start of its turn, loses #b{0} HP, then cut stacks in half."],
+		"DESCRIPTIONS": ["Takes #b+{0} damage from #yAttacks and deals #b-{0} damage. At the start of its turn, loses #b{1} stacks."],
 		"NAME": "Frostbite"
 	},
 	"conjurer:GelusPower":

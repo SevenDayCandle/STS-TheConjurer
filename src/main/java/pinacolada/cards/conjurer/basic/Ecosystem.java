@@ -29,9 +29,9 @@ public class Ecosystem extends PCLCard
     {
         addGainPower(PTrigger.when(PCond.highestAffinityBranch(PCLAffinity.Blue, PCLAffinity.Green, PCLAffinity.Orange),
                 PMultiSkill.join(
-                        PMove.applyToEnemies(1, PCLPowerHelper.Weak),
-                        PMove.applyToEnemies(1, PCLPowerHelper.Vulnerable),
-                        PMove.retain(2)
+                        PMove.gainPlayer(2, PCLPowerHelper.Energized),
+                        PMove.gainPlayer(3, PCLPowerHelper.NextTurnDraw),
+                        PMove.applyToEnemies(2, PCLPowerHelper.Weak, PCLPowerHelper.Vulnerable)
                 )));
     }
 }

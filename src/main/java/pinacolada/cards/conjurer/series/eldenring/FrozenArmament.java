@@ -6,7 +6,6 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -15,22 +14,20 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
-public class ZamorIceStorm extends PCLCard
+public class FrozenArmament extends PCLCard
 {
-    public static final PCLCardData DATA = register(ZamorIceStorm.class, ConjurerResources.conjurer)
-            .setSkill(2, CardRarity.UNCOMMON, PCLCardTarget.AllEnemy)
-            .setAffinities(2, PCLAffinity.Blue)
-            .setTags(PCLCardTag.Exhaust)
+    public static final PCLCardData DATA = register(FrozenArmament.class, ConjurerResources.conjurer)
+            .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.Self)
+            .setAffinities(1, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
-    public ZamorIceStorm()
+    public FrozenArmament()
     {
         super(DATA);
     }
 
     public void setup(Object input)
     {
-        addUseMove(PMove.applyToEnemies(4, PCLElementHelper.Gelus, PCLElementHelper.Frostbite).setUpgrade(1));
-        addGainPower(3, PTrigger.when(PCond.onTurnStart(), PMove.applyToEnemies(2, PCLElementHelper.Gelus, PCLElementHelper.Frostbite).setUpgrade(1)));
+        addGainPower(1, PTrigger.when(PCond.isAttacking(PCLCardTarget.Self), PMove.applyToSingle(2, PCLElementHelper.Gelus, PCLElementHelper.Frostbite).setUpgrade(1)));
     }
 }

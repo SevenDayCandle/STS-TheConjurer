@@ -4,7 +4,7 @@
 		"NAME": "Aer"
 	},
 	"Blasted": {
-		"DESCRIPTION": "Take damage at the end of turn. Affected by damage modifiers.",
+		"DESCRIPTION": "Take damage at the start of turn, then reduce stacks in half.",
 		"NAME": "Blasted"
 	},
 	"Charge": {
@@ -44,15 +44,15 @@
 		"NAME": "Flow"
 	},
 	"Frostbite": {
-		"DESCRIPTION": "At the end of turn, lose HP and cut stacks in half.",
+		"DESCRIPTION": "Take more damage and deal less damage. At round end, reduce stacks by #b75%.",
 		"NAME": "Frostbite"
 	},
 	"Gelus": {
-		"DESCRIPTION": "[A-B] #yElemental #yDebuff. Reactions on a non-#ySummon target applies a debuff that deals damage at the start of its turn.",
+		"DESCRIPTION": "[A-B] #yElemental #yDebuff. Reactions on a non-#ySummon target apply a debuff that decreases damage dealt and increases damage taken this turn.",
 		"NAME": "Gelus"
 	},
 	"Ignis": {
-		"DESCRIPTION": "[A-R] #yElemental #yDebuff. Reactions on a non-#ySummon target deal #yAttack damage to it at the start of its turn.",
+		"DESCRIPTION": "[A-R] #yElemental #yDebuff. Reactions on a non-#ySummon target apply a debuff that deals damage at the start of its turn.",
 		"NAME": "Ignis"
 	},
 	"Lux": {

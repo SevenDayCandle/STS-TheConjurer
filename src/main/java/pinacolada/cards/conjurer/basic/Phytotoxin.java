@@ -5,7 +5,6 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.powers.PCLPowerHelper;
-import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
@@ -26,6 +25,6 @@ public class Phytotoxin extends PCLCard
 
     public void setup(Object input)
     {
-        addGainPower(PTrigger.when(PCond.takeDamage(), PMove.applyToEnemies(2, PCLElementHelper.Aer, PCLPowerHelper.Poison).setUpgrade(1)));
+        addGainPower(PTrigger.when(PCond.haveTakenDamage(), PMove.applyToEnemies(2, PCLPowerHelper.Poison).setUpgrade(1)));
     }
 }

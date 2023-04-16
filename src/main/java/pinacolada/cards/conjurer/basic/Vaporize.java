@@ -17,7 +17,7 @@ public class Vaporize extends PCLCard
 {
     public static final PCLCardData DATA = register(Vaporize.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.COMMON, PCLAttackType.Piercing)
-            .setDamage(7, 2)
+            .setDamage(7, 3)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
             .setCore();
 
@@ -30,6 +30,6 @@ public class Vaporize extends PCLCard
     {
         addDamageMove()
                 .setDamageEffect(EffekseerEFK.SWORD18)
-                .setChain(CMod.perElement(PCLCardTarget.Single, 1, PCLAffinity.Red), PTrait.damage(2).setUpgrade(0, 1));
+                .setChain(CMod.perElement(PCLCardTarget.Single, 1, PCLAffinity.Red), PTrait.damage(1));
     }
 }

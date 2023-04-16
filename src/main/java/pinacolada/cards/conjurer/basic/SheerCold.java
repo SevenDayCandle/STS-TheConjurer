@@ -1,7 +1,7 @@
 package pinacolada.cards.conjurer.basic;
 
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
@@ -21,6 +21,7 @@ public class SheerCold extends PCLCard
     public static final PCLCardData DATA = register(SheerCold.class, ConjurerResources.conjurer)
             .setPower(3, CardRarity.RARE)
             .setAffinities(2, PCLAffinity.Blue)
+            .setCostUpgrades(-1)
             .setCore();
 
     public SheerCold()
@@ -30,7 +31,7 @@ public class SheerCold extends PCLCard
 
     public void setup(Object input)
     {
-        addSpecialPower(0, (s, i) -> new SheerColdPower(i.source, s), 2).setUpgrade(1);
+        addSpecialPower(0, (s, i) -> new SheerColdPower(i.source, s), 1).setUpgrade(1);
     }
 
     public static class SheerColdPower extends PSpecialCardPower
@@ -48,19 +49,23 @@ public class SheerCold extends PCLCard
             PCLActions.bottom.playVFX(new ScreenFreezingEffect());
             PCLActions.bottom.callback(() -> {
                 ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Blue).addAdditionalPower(FrostbitePower.POWER_ID);
+                for (AbstractPower po : GameUtilities.getPowers(FrostbitePower.POWER_ID))
+                {
+                    if (po instanceof FrostbitePower)
+                    {
+                        ((FrostbitePower) po).expanded = true;
+                    }
+                }
             });
         }
 
-        public void atEndOfTurn(boolean isPlayer)
+        @Override
+        public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source)
         {
-            super.atEndOfTurn(isPlayer);
-            for (AbstractMonster mo : GameUtilities.getEnemies(true))
+            super.onApplyPower(power, target, source);
+            if (power instanceof FrostbitePower)
             {
-                FrostbitePower po = GameUtilities.getPower(mo, FrostbitePower.class);
-                if (po != null)
-                {
-                    po.atStartOfTurn();
-                }
+                ((FrostbitePower) power).expanded = true;
             }
         }
     }

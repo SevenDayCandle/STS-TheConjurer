@@ -15,7 +15,7 @@ public class PetraPower extends AbstractPCLElementalPower
 {
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, PetraPower.class);
     public static final PCLAffinity AFFINITY = setAffinity(POWER_ID, PCLAffinity.Orange);
-    public static final int MULTIPLIER = setMultiplier(POWER_ID, 25);
+    public static final int MULTIPLIER = setMultiplier(POWER_ID, 20);
 
     public PetraPower(AbstractCreature owner, AbstractCreature source, int amount)
     {

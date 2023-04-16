@@ -47,13 +47,13 @@ public class PMod_PerElement extends PMod_Per<PField_Affinity>
     }
 
     @Override
-    public String getSubText()
+    public String getSubSampleText()
     {
         return ConjurerResources.conjurer.tooltips.elementalDebuff.title;
     }
 
     @Override
-    public String getConditionText()
+    public String getSubText()
     {
         String baseString = fields.affinities.isEmpty() ? plural(ConjurerResources.conjurer.tooltips.elementalDebuff) : PCLElementHelper.getPowerAndString(fields.affinities);
         if (amount > 1)

@@ -106,6 +106,11 @@ public class ConjurerCharacter extends PCLCharacter
         return new ArrayList<>();
     }
 
+    public void reloadDefaultAnimation()
+    {
+        reloadAnimation(0.5f);
+    }
+
     @Override
     public void updateVictoryVfx(ArrayList<AbstractGameEffect> effects) {
         if (effectCount == 0) {

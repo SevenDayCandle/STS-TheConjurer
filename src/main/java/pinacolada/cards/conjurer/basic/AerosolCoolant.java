@@ -8,24 +8,25 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class ZephyrWind extends PCLCard
+public class AerosolCoolant extends PCLCard
 {
-    public static final PCLCardData DATA = register(ZephyrWind.class, ConjurerResources.conjurer)
-            .setSkill(1, CardRarity.COMMON, PCLCardTarget.AllEnemy)
-            .setAffinities(1, PCLAffinity.Green)
+    public static final PCLCardData DATA = register(AerosolCoolant.class, ConjurerResources.conjurer)
+            .setSkill(0, CardRarity.UNCOMMON)
+            .setAffinities(1, PCLAffinity.Blue, PCLAffinity.Green)
             .setCore();
 
-    public ZephyrWind()
+    public AerosolCoolant()
     {
         super(DATA);
     }
 
     public void setup(Object input)
     {
-        addUseMove(PMove.draw(2).setUpgrade(1));
-        addUseMove(PMove.applyToEnemies(3, PCLElementHelper.Aer).setUpgrade(1));
+        addUseMove(PCond.checkPower(PCLCardTarget.All, 0, PCLElementHelper.Aer), PMove.draw(2));
+        addUseMove(PMove.applyToSingle(1,  PCLElementHelper.Gelus, PCLElementHelper.Aer).setUpgrade(1));
     }
 }

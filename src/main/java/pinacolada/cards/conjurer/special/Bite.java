@@ -8,14 +8,15 @@ import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
 public class Bite extends PCLCard
 {
     public static final PCLCardData DATA = register(Bite.class, ConjurerResources.conjurer)
-            .setAttack(1, CardRarity.SPECIAL, PCLAttackType.Normal, PCLCardTarget.Single)
-            .setDamage(6, 3)
+            .setAttack(0, CardRarity.SPECIAL, PCLAttackType.Normal, PCLCardTarget.Single)
+            .setDamage(5, 3)
             .setAffinities(PCLAffinity.Purple)
             .setColorless();
 
@@ -27,6 +28,6 @@ public class Bite extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.BITE);
-        addUseMove(PMove.gainTempHP(4));
+        addUseMove(PCond.fatal(), PMove.gainTempHP(6));
     }
 }

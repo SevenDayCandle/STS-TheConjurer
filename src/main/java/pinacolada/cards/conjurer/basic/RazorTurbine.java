@@ -7,8 +7,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.effects.PCLAttackVFX;
-import pinacolada.effects.VFX;
+import pinacolada.effects.ConjurerEFK;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CMod;
 import pinacolada.skills.PMove;
@@ -29,7 +28,7 @@ public class RazorTurbine extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(PCLAttackVFX.WIND).setDamageEffect((s, m) -> VFX.razorWind(s.hb).duration);
+        addDamageMove(ConjurerEFK.WIND02);
         addUseMove(CMod.bonusOnRedox(1), PMove.draw(2).edit(f -> f.setAffinity(PCLAffinity.Green)));
     }
 }

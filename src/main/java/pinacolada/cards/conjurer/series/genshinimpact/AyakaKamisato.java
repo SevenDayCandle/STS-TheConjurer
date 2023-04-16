@@ -6,7 +6,6 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
-import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.conjurer.PCLElementHelper;
@@ -36,6 +35,6 @@ public class AyakaKamisato extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.ICE);
-        addUseMove(PCond.onSummon(), PMultiSkill.join(PMove.apply(PCLCardTarget.None, 4, PCLElementHelper.Frostbite), PMove.applyToEnemies(6, PCLElementHelper.Frostbite)));
+        addUseMove(PCond.onSummon(), PMultiSkill.join(PMove.gainPlayer( 4, PCLElementHelper.Frostbite), PMove.applyToEnemies(6, PCLElementHelper.Frostbite)));
     }
 }

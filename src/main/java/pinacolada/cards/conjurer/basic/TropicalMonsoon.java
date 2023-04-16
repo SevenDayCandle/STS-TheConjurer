@@ -7,7 +7,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.effects.PCLAttackVFX;
+import pinacolada.effects.ConjurerEFK;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
@@ -28,7 +28,7 @@ public class TropicalMonsoon extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(PCLAttackVFX.WIND);
+        addDamageMove(ConjurerEFK.MGC_Nature01);
         addUseMove(PMove.applyToEnemies(2, PCLElementHelper.Gelus, PCLElementHelper.Aer).setUpgrade(1));
     }
 }

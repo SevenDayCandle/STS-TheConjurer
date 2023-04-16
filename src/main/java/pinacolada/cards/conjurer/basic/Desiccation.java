@@ -5,28 +5,26 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Aerosol extends PCLCard
+public class Desiccation extends PCLCard
 {
-    public static final PCLCardData DATA = register(Aerosol.class, ConjurerResources.conjurer)
+    public static final PCLCardData DATA = register(Desiccation.class, ConjurerResources.conjurer)
             .setSkill(0, CardRarity.COMMON)
-            .setTags(PCLCardTag.Exhaust.make())
-            .setAffinities(2, PCLAffinity.Green)
+            .setAffinities(PCLAffinity.Green, PCLAffinity.Orange)
             .setCore();
 
-    public Aerosol()
+    public Desiccation()
     {
         super(DATA);
     }
 
     public void setup(Object input)
     {
-        addUseMove(PMove.draw(1).setUpgrade(1));
-        addUseMove(PMove.applyToEnemies(2, PCLElementHelper.Aer));
+        addUseMove(PMod.discardPer(2), PMove.applyToSingle(2, PCLElementHelper.Aer, PCLElementHelper.Petra).setUpgrade(1));
     }
 }

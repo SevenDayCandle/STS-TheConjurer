@@ -46,7 +46,6 @@ public class ConjurerWaterAllyAnimation extends PCLAllyAnimation
         int size = ConjurerResources.conjurer.images.monsters.water1.texture().getHeight();
         int hSize = size / 2;
 
-        PCLRenderHelpers.setBlending(sb, EUIRenderHelpers.BlendingMode.Glowing);
         this.shineColor.a = Interpolation.sine.apply(0.05f, 0.55f, angleExt / 135);
         sb.setColor(this.shineColor);
         sb.draw(ConjurerResources.conjurer.images.monsters.water3.texture(), x - hSize, y - hSize / 2f, hSize, hSize, size, size, this.scale + scaleExt2, this.scale + scaleExt2, angleExt * 1.2f, 0, 0, size, size, hFlip, vFlip);
@@ -55,7 +54,6 @@ public class ConjurerWaterAllyAnimation extends PCLAllyAnimation
         sb.setColor(this.shineColor);
         sb.draw(ConjurerResources.conjurer.images.monsters.water4.texture(), x - hSize, y - hSize / 2f, hSize, hSize, size, size, this.scale + scaleExt2, this.scale + scaleExt2, -angleExt2 * 0.7f, 0, 0, size, size, !hFlip, vFlip);
 
-        PCLRenderHelpers.setBlending(sb, EUIRenderHelpers.BlendingMode.Normal);
         sb.setColor(this.renderColor);
         sb.draw(ConjurerResources.conjurer.images.monsters.water1.texture(), x - hSize, y - hSize / 2f, hSize, hSize, size, size, this.scale + scaleInt, this.scale + scaleInt, angleInt * 1.3f, 0, 0, size, size, hFlip, vFlip);
 

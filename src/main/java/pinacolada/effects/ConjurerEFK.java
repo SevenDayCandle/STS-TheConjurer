@@ -31,6 +31,11 @@ public class ConjurerEFK extends EffekseerEFK
     public static final ConjurerEFK MGC_EarthSpell_LV2 = new ConjurerEFK("effects/MGC_EarthSpell_LV2.efk");
     public static final ConjurerEFK MGC_EarthSpell_LV3 = new ConjurerEFK("effects/MGC_EarthSpell_LV3.efk");
     public static final ConjurerEFK MGC_EarthSpell_Projectile = new ConjurerEFK("effects/MGC_EarthSpell_Projectile.efk");
+    public static final ConjurerEFK MGC_Nature01 = new ConjurerEFK("effects/MGC_Nature01.efk");
+    public static final ConjurerEFK MGC_Nature02 = new ConjurerEFK("effects/MGC_Nature02.efk");
+    public static final ConjurerEFK MGC_Nature03 = new ConjurerEFK("effects/MGC_Nature03.efk");
+    public static final ConjurerEFK MGC_PowerRelease = new ConjurerEFK("effects/MGC_PowerRelease.efk");
+    public static final ConjurerEFK MGC_PowerUp = new ConjurerEFK("effects/MGC_PowerUp.efk");
     public static final ConjurerEFK MGC_W2_BlueBall = new ConjurerEFK("effects/MGC_W2_BlueBall.efk");
     public static final ConjurerEFK MGC_W2_BlueBall_Projectile = new ConjurerEFK("effects/MGC_W2_BlueBall_Projectile.efk");
     public static final ConjurerEFK MGC_W2_BlueBeam = new ConjurerEFK("effects/MGC_W2_BlueBeam.efk");

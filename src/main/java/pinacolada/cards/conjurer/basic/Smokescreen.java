@@ -18,7 +18,7 @@ public class Smokescreen extends PCLCard
 {
     public static final PCLCardData DATA = register(Smokescreen.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.Self)
-            .setBlock(9, 3)
+            .setBlock(8, 3)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
             .setCore();
 
@@ -30,6 +30,6 @@ public class Smokescreen extends PCLCard
     public void setup(Object input)
     {
         addBlockMove();
-        addUseMove(PCond.discard(1), PMultiSkill.join(PMove.gain(1, PCLElementHelper.Aer, PCLPowerHelper.Blur), PMove.selfExhaust()));
+        addUseMove(PCond.cycle(1), PMultiSkill.join(PMove.gain(1, PCLElementHelper.Aer, PCLPowerHelper.Blur), PMove.selfExhaust()));
     }
 }

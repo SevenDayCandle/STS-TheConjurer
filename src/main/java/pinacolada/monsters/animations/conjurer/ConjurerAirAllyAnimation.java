@@ -60,7 +60,6 @@ public class ConjurerAirAllyAnimation extends PCLAllyAnimation
         sb.draw(ConjurerResources.conjurer.images.monsters.air1.texture(), x - hSize, y - hSize / 2f, hSize, hSize, size, size, this.scale + scaleExt1, this.scale + scaleExt1, angleExt1, 0, 0, size, size, hFlip, vFlip);
         sb.draw(ConjurerResources.conjurer.images.monsters.air2.texture(), x - hSize, y - hSize / 2f, hSize, hSize, size, size, this.scale + scaleExt2, this.scale + scaleExt2, angleExt2, 0, 0, size, size, !hFlip, vFlip);
 
-        sb.setBlendFunction(770, 1);
         this.shineColor.a = Interpolation.sine.apply(0.1f, 0.33f, angleExt2 / 185);
         sb.setColor(this.shineColor);
         sb.draw(ConjurerResources.conjurer.images.monsters.air1.texture(), x - hSize, y - hSize / 2f, hSize, hSize, size, size, this.scale + scaleExt1, this.scale + scaleExt1, this.angle * 1.8f, 0, 0, size, size, hFlip, vFlip);
@@ -68,7 +67,6 @@ public class ConjurerAirAllyAnimation extends PCLAllyAnimation
         this.shineColor.a = Interpolation.sine.apply(0.1f, 0.33f, angleExt1 / 135);
         sb.setColor(this.shineColor);
         sb.draw(ConjurerResources.conjurer.images.monsters.air3.texture(), x - hSize, y - hSize / 2f, hSize, hSize, size, size, this.scale + scaleExt2, this.scale + scaleExt2, this.angle * 1.2f, 0, 0, size, size, hFlip, vFlip);
-        sb.setBlendFunction(770, 771);
 
         sb.setColor(Color.WHITE);
     }

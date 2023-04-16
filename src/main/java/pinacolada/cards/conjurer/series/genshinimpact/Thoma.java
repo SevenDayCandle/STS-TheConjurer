@@ -18,9 +18,9 @@ public class Thoma extends PCLCard
 {
     public static final PCLCardData DATA = register(Thoma.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON)
-            .setDamage(2, 0)
+            .setDamage(2, 1)
             .setPriority(1)
-            .setHp(9, 2)
+            .setHp(7, 2)
             .setAffinities(PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
@@ -32,6 +32,6 @@ public class Thoma extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.SLASH_VERTICAL);
-        addUseMove(PCond.onWithdraw(), PMove.applyToEnemies(2, PCLElementHelper.Ignis, PCLPowerHelper.Weak).setUpgrade(1));
+        addUseMove(PCond.onWithdraw(), PMove.applyToEnemies(2, PCLElementHelper.Ignis, PCLPowerHelper.Weak));
     }
 }

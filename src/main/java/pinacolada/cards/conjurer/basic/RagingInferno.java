@@ -29,7 +29,7 @@ public class RagingInferno extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(EffekseerEFK.FIRE06);
+        addDamageMove(EffekseerEFK.FIRE15);
         addUseMove(PMove.applyToSingle(8, PCLElementHelper.Ignis).setUpgrade(1));
     }
 }

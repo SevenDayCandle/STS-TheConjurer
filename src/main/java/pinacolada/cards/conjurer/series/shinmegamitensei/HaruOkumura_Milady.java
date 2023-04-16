@@ -8,31 +8,33 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
+import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
+import pinacolada.skills.skills.PMultiSkill;
+import pinacolada.skills.skills.special.moves.PMove_ExhaustAlly;
 
 @VisibleCard
-public class Flauros extends PCLCard
+public class HaruOkumura_Milady extends PCLCard
 {
-    public static final PCLCardData DATA = register(Flauros.class, ConjurerResources.conjurer)
-            .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.AllEnemy)
-            .setDamage(5, 1)
+    public static final PCLCardData DATA = register(HaruOkumura_Milady.class, ConjurerResources.conjurer)
+            .setSummon(1, CardRarity.SPECIAL, PCLAttackType.Immaterial)
+            .setDamage(3, 1)
             .setPriority(1)
-            .setHp(8, 2)
-            .setAffinities(2, PCLAffinity.Red)
+            .setHp(13, 1)
+            .setAffinities(PCLAffinity.Orange, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public Flauros()
+    public HaruOkumura_Milady()
     {
         super(DATA);
     }
 
     public void setup(Object input)
     {
-        addDamageMove(PCLAttackVFX.CLAW);
-        addUseMove(PCond.onWithdraw(), PMove.applyToEnemies(2, PCLPowerHelper.Vulnerable, PCLPowerHelper.Weak));
+        addDamageMove(PCLAttackVFX.PSYCHOKINESIS);
+        addUseMove(PCond.cooldown(0), PMultiSkill.join(new PMove_ExhaustAlly(PCLCardTarget.Self, 1), PMod.scryPer(5).setChild(PMove.gainTempHP(2).setUpgrade(1))));
     }
 }
