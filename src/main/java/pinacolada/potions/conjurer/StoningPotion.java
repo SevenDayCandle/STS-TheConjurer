@@ -2,10 +2,12 @@ package pinacolada.potions.conjurer;
 
 import com.badlogic.gdx.graphics.Color;
 import pinacolada.annotations.VisiblePotion;
+import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.potions.PCLPotion;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
+import pinacolada.skills.skills.PMultiSkill;
 
 @VisiblePotion
 public class StoningPotion extends PCLPotion
@@ -19,7 +21,7 @@ public class StoningPotion extends PCLPotion
 
     public void setup()
     {
-        addUseMove(PMove.applyToEnemies(getPotency(), PCLElementHelper.Petra));
+        addUseMove(PMultiSkill.join(PMove.applyToEnemies(getPotency(), PCLElementHelper.Petra), PMove.stabilize(PCLCardTarget.AllEnemy, PCLElementHelper.Petra)));
     }
 
     @Override

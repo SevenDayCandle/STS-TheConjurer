@@ -1,4 +1,4 @@
-package pinacolada.cards.conjurer.colorless;
+package pinacolada.cards.conjurer.series.genshinimpact;
 
 
 import pinacolada.annotations.VisibleCard;
@@ -6,27 +6,24 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
-import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
-import pinacolada.skills.skills.special.moves.PMove_ExhaustAlly;
 
 @VisibleCard
-public class Fischl_Oz extends PCLCard
+public class Fischl extends PCLCard
 {
-    public static final PCLCardData DATA = register(Fischl_Oz.class, ConjurerResources.conjurer)
-            .setSummon(0, CardRarity.SPECIAL, PCLAttackType.Immaterial)
+    public static final PCLCardData DATA = register(Fischl.class, ConjurerResources.conjurer)
+            .setSummon(0, CardRarity.UNCOMMON, PCLAttackType.Immaterial)
             .setDamage(2, 1)
             .setPriority(1)
             .setHp(3, 2)
             .setAffinities(PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.genshinImpact, true);
 
-    public Fischl_Oz()
+    public Fischl()
     {
         super(DATA);
     }
@@ -34,6 +31,6 @@ public class Fischl_Oz extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.GHOST);
-        addUseMove(PCond.cooldown(0), PMove.applyToEnemies(2, PCLPowerHelper.Blinded), new PMove_ExhaustAlly(PCLCardTarget.Self, 1));
+        addUseMove(PCond.cooldown(2), PMove.createDrawPile(1, Fischl_Oz.DATA.ID));
     }
 }

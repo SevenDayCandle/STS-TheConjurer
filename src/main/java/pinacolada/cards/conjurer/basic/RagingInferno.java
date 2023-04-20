@@ -18,7 +18,7 @@ public class RagingInferno extends PCLCard
     public static final PCLCardData DATA = register(RagingInferno.class, ConjurerResources.conjurer)
             .setAttack(3, CardRarity.RARE, PCLAttackType.Normal)
             .setTags(PCLCardTag.Exhaust)
-            .setDamage(34, 4)
+            .setDamage(33, 4)
             .setAffinities(2, PCLAffinity.Red)
             .setCore();
 

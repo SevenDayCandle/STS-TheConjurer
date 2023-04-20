@@ -18,7 +18,7 @@ public class HowlOfShabriri extends PCLCard
 {
     public static final PCLCardData DATA = register(HowlOfShabriri.class, ConjurerResources.conjurer)
             .setSkill(0, CardRarity.UNCOMMON, PCLCardTarget.None)
-            .setAffinities(PCLAffinity.Star)
+            .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
             .setUTags(PCLCardTag.Haste, PCLCardTag.Bounce)
             .setLoadout(ConjurerPlayerData.eldenRing, true);
 

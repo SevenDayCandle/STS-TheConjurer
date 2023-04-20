@@ -37,7 +37,7 @@ public class ElementReaction extends PCLAction<AffinityReactions>
     {
         if (reactions == null || reactions.isEmpty())
         {
-            complete();
+            completeImpl();
             return;
         }
 

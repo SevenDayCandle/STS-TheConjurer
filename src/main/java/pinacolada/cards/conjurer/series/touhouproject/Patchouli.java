@@ -1,4 +1,4 @@
-package pinacolada.cards.conjurer.colorless;
+package pinacolada.cards.conjurer.series.touhouproject;
 
 
 import pinacolada.annotations.VisibleCard;
@@ -6,8 +6,8 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
-import pinacolada.effects.PCLAttackVFX;
 import pinacolada.dungeon.PCLUseInfo;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerEnum;
@@ -31,7 +31,7 @@ public class Patchouli extends PCLCard
             .setPriority(1)
             .setHp(9, 1)
             .setAffinities(2, PCLAffinity.Blue)
-            .setLoadout(ConjurerPlayerData.touhouProject, true);
+            .setLoadout(ConjurerPlayerData.touhouProject);
 
     public Patchouli()
     {

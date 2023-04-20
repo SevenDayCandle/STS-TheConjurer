@@ -1,4 +1,4 @@
-package pinacolada.cards.conjurer.series.genshinimpact;
+package pinacolada.cards.conjurer.series.touhouproject;
 
 
 import pinacolada.annotations.VisibleCard;
@@ -6,28 +6,29 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
+import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.effects.PCLAttackVFX;
+import pinacolada.powers.PCLPowerHelper;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
-import pinacolada.skills.skills.PMultiSkill;
 
 @VisibleCard
-public class AyakaKamisato extends PCLCard
+public class Cirno extends PCLCard
 {
-    public static final PCLCardData DATA = register(AyakaKamisato.class, ConjurerResources.conjurer)
-            .setSummon(1, CardRarity.RARE, PCLAttackType.Normal)
-            .setRTags(PCLCardTag.Ethereal)
-            .setDamage(7, 0, 2)
+    public static final PCLCardData DATA = register(Cirno.class, ConjurerResources.conjurer)
+            .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Immaterial, PCLCardTarget.AllEnemy)
+            .setDamage(2, 0)
             .setPriority(1)
             .setHp(4, 1)
-            .setAffinities(PCLAffinity.Blue, PCLAffinity.Purple)
-            .setLoadout(ConjurerPlayerData.genshinImpact);
+            .setAffinities(1, PCLAffinity.Blue)
+            .setRTags(PCLCardTag.Ethereal)
+            .setLoadout(ConjurerPlayerData.touhouProject);
 
-    public AyakaKamisato()
+    public Cirno()
     {
         super(DATA);
     }
@@ -35,6 +36,6 @@ public class AyakaKamisato extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.ICE);
-        addUseMove(PCond.onSummon(), PMultiSkill.join(PMove.takeDamage( 4), PMove.applyToEnemies(6, PCLElementHelper.Frostbite)));
+        addUseMove(PCond.cooldown(1), PMove.applyToEnemies(2, PCLElementHelper.Frostbite, PCLPowerHelper.Shackles));
     }
 }

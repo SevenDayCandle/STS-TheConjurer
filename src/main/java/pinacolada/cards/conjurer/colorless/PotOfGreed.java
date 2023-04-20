@@ -30,6 +30,6 @@ public class PotOfGreed extends PCLCard
 
     public void setup(Object input)
     {
-        addUseMove(PCond.exhaustRandom(2, PCLCardGroupHelper.DrawPile), PMultiSkill.join(PMove.draw(2).setUpgrade(1), PMove.gain(2, PCLPowerHelper.NextTurnDraw)));
+        addUseMove(PCond.exhaustRandom(2, PCLCardGroupHelper.DrawPile).setUpgrade(-1), PMultiSkill.join(PMove.draw(2).setUpgrade(1), PMove.gain(2, PCLPowerHelper.NextTurnDraw)));
     }
 }

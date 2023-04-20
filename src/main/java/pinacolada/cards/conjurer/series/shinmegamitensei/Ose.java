@@ -32,6 +32,6 @@ public class Ose extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.SLASH_HEAVY);
-        addUseMove(PCond.onWithdraw(), PMove.apply(PCLCardTarget.RandomAlly, 2, PCLPowerHelper.Strength).setUpgrade(1));
+        addUseMove(PCond.onWithdraw(), PMove.apply(PCLCardTarget.AllAlly, 1, PCLPowerHelper.Strength).setUpgrade(1));
     }
 }

@@ -15,7 +15,7 @@ import pinacolada.skills.PMove;
 public class AtmosphericPressure extends PCLCard
 {
     public static final PCLCardData DATA = register(AtmosphericPressure.class, ConjurerResources.conjurer)
-            .setSkill(0, CardRarity.COMMON, PCLCardTarget.AllEnemy)
+            .setSkill(0, CardRarity.UNCOMMON, PCLCardTarget.AllEnemy)
             .setTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Green)
             .setCore();

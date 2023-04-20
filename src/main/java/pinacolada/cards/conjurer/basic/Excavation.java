@@ -6,6 +6,7 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.PCLCardGroupHelper;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 
@@ -13,7 +14,7 @@ import pinacolada.skills.PMove;
 public class Excavation extends PCLCard
 {
     public static final PCLCardData DATA = register(Excavation.class, ConjurerResources.conjurer)
-            .setSkill(2, CardRarity.UNCOMMON)
+            .setSkill(2, CardRarity.UNCOMMON, PCLCardTarget.Self)
             .setBlock(9, 3)
             .setAffinities(PCLAffinity.Orange)
             .setCore();

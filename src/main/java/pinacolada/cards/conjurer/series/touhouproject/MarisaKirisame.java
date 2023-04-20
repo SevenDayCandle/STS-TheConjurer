@@ -1,4 +1,4 @@
-package pinacolada.cards.conjurer.colorless;
+package pinacolada.cards.conjurer.series.touhouproject;
 
 
 import pinacolada.annotations.VisibleCard;
@@ -22,7 +22,7 @@ public class MarisaKirisame extends PCLCard
             .setPriority(1)
             .setHp(5, 1)
             .setAffinities(1, PCLAffinity.Blue)
-            .setLoadout(ConjurerPlayerData.touhouProject, true);
+            .setLoadout(ConjurerPlayerData.touhouProject);
 
     public MarisaKirisame()
     {

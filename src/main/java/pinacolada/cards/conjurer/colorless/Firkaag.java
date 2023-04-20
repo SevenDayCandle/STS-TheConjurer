@@ -7,34 +7,32 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
-import pinacolada.skills.PMove;
+import pinacolada.skills.PMod;
+import pinacolada.skills.PTrait;
 
 @VisibleCard
-public class Cirno extends PCLCard
+public class Firkaag extends PCLCard
 {
-    public static final PCLCardData DATA = register(Cirno.class, ConjurerResources.conjurer)
-            .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Immaterial, PCLCardTarget.AllEnemy)
-            .setDamage(3, 0)
+    public static final PCLCardData DATA = register(Firkaag.class, ConjurerResources.conjurer)
+            .setSummon(3, CardRarity.RARE, PCLAttackType.Piercing, PCLCardTarget.AllEnemy)
+            .setDamage(13, 0)
             .setPriority(1)
-            .setHp(4, 1)
-            .setAffinities(1, PCLAffinity.Blue)
-            .setRTags(PCLCardTag.Ethereal)
+            .setHp(21, 5)
+            .setAffinities(1, PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.touhouProject, true);
 
-    public Cirno()
+    public Firkaag()
     {
         super(DATA);
     }
 
     public void setup(Object input)
     {
-        addDamageMove(PCLAttackVFX.ICE);
-        addUseMove(PCond.cooldown(1), PMove.applyToEnemies(1, PCLPowerHelper.Weak, PCLPowerHelper.Shackles));
+        addDamageMove(PCLAttackVFX.FIRE).setBonus(PMod.perCardPlayed(1), 3, 1);
+        addUseMove(PCond.havePlayed(35).edit(f -> f.setNot(true)), PTrait.unplayable());
     }
 }

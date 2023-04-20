@@ -18,7 +18,7 @@ public class BeastClaw extends PCLCard
 {
     public static final PCLCardData DATA = register(BeastClaw.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.COMMON, PCLAttackType.Normal)
-            .setDamage(4, 1)
+            .setDamage(5, 2)
             .setAffinities(PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.eldenRing);
 

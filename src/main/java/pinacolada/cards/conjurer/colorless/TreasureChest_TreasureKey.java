@@ -38,7 +38,7 @@ public class TreasureChest_TreasureKey extends PCLCard
                 .setFilter(c -> TreasureChest.DATA.ID.equals(c.cardID))
                 .addCallback(cards -> {
                    for (AbstractCard c : cards) {
-                       GameUtilities.modifyTag(c, PCLCardTag.Unplayable, 1);
+                       GameUtilities.modifyTag(c, PCLCardTag.Unplayable, 0);
                    }
                 });
     }
