@@ -6,11 +6,9 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
-import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PTrigger;
 
@@ -21,7 +19,7 @@ public class Airavata extends PCLCard
             .setSummon(3, CardRarity.UNCOMMON)
             .setDamage(3, 0)
             .setPriority(1)
-            .setHp(15, 2)
+            .setHp(16, 3)
             .setAffinities(PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
@@ -34,8 +32,8 @@ public class Airavata extends PCLCard
     {
         addDamageMove(AbstractGameAction.AttackEffect.BLUNT_HEAVY);
         addGainPower(PTrigger.interactable(
-                CCond.payReaction(10),
-                PMod.bonusPerLevel(4, PCLAffinity.Orange).setUpgrade(1), PMove.gainBlock(PCLCardTarget.None, 6).setUpgrade(1)
+                CCond.payReaction(9).setUpgrade(-1),
+                PMove.retain(2)
         ));
     }
 }

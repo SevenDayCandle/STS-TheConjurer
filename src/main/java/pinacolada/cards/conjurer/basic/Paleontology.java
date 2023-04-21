@@ -16,7 +16,7 @@ import pinacolada.skills.skills.PTrigger;
 public class Paleontology extends PCLCard
 {
     public static final PCLCardData DATA = register(Paleontology.class, ConjurerResources.conjurer)
-            .setPower(1, CardRarity.UNCOMMON)
+            .setPower(2, CardRarity.UNCOMMON)
             .setAffinities(1, PCLAffinity.Orange)
             .setCore();
 
@@ -27,6 +27,6 @@ public class Paleontology extends PCLCard
 
     public void setup(Object input)
     {
-        addGainPower(PTrigger.when(PCond.onTurnStart(), PCond.discard(1), PMultiSkill.join(PMove.fetchRandom(1, PCLCardGroupHelper.DiscardPile), CMove.gainReaction(5).setUpgrade(2))));
+        addGainPower(PTrigger.when(PCond.onTurnStart(), PMultiSkill.join(CMove.gainReaction(4).setUpgrade(2), PMove.fetch(2, 1, PCLCardGroupHelper.DiscardPile))));
     }
 }

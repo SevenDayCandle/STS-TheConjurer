@@ -35,7 +35,7 @@ public class Amon extends PCLCard
         addDamageMove(PCLEnum.AttackEffect.CLAW);
         addGainPower(PTrigger.interactable(
                 CCond.payReaction(9),
-                PMod.bonusPerLevel(5, PCLAffinity.Red).setUpgrade(1), PMove.dealDamage(5, PCLEnum.AttackEffect.CLAW).setUpgrade(1)
+                PMod.bonusPerLevel(4, PCLAffinity.Red).setUpgrade(1), PMove.dealDamage(6, PCLEnum.AttackEffect.CLAW).setUpgrade(1)
         ));
     }
 }

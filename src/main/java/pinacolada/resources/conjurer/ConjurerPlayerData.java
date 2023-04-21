@@ -37,9 +37,10 @@ public class ConjurerPlayerData extends PCLAbstractPlayerData
     public List<PCLLoadout> getAvailableLoadouts()
     {
         return Arrays.asList(
+                eldenRing,
                 genshinImpact,
                 shinMegamiTensei,
-                eldenRing
+                touhouProject
         );
     }
 

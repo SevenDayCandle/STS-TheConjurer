@@ -38,7 +38,7 @@
 	},
 	"conjurer:PeriodicTable":
 	{
-		"DESCRIPTIONS": ["At the start of combat, draw a #ySummon. It costs #b{0} less this turn. | #oRight-Click: Target a creature to take on its form."],
+		"DESCRIPTIONS": ["At the start of combat, gain #b{0} #yReaction."],
 		"FLAVOR": "A table that repeats itself every so often.",
 		"NAME": "Periodic Table"
 	},

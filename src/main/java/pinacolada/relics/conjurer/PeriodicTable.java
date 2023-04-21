@@ -1,14 +1,13 @@
 package pinacolada.relics.conjurer;
 
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleRelic;
-import pinacolada.relics.pcl.DisguiseRelic;
-import pinacolada.resources.PCLEnum;
+import pinacolada.relics.PCLRelic;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.ui.combat.ConjurerReactionMeter;
 
 @VisibleRelic
-public class PeriodicTable extends DisguiseRelic
+public class PeriodicTable extends PCLRelic
 {
     public static final String ID = createFullID(ConjurerResources.conjurer, PeriodicTable.class);
 
@@ -20,15 +19,10 @@ public class PeriodicTable extends DisguiseRelic
     @Override
     public void atBattleStart()
     {
-        PCLActions.bottom.draw(1).setFilter(f -> f.type == PCLEnum.CardType.SUMMON).addCallback(cards -> {
-            for (AbstractCard c : cards)
-            {
-                PCLActions.bottom.modifyCost(c, -getValue(), false, true);
-            }
-        });
+        PCLActions.bottom.callback(() -> ConjurerReactionMeter.meter.addCount(getValue(), true));
     }
 
     public int getValue() {
-        return 1;
+        return 10;
     }
 }

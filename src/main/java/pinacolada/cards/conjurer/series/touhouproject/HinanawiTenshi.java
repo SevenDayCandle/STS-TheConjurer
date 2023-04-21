@@ -1,4 +1,4 @@
-package pinacolada.cards.conjurer.series.shinmegamitensei;
+package pinacolada.cards.conjurer.series.touhouproject;
 
 
 import pinacolada.annotations.VisibleCard;
@@ -9,21 +9,21 @@ import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PCond;
+import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class HaruOkumura extends PCLCard
+public class HinanawiTenshi extends PCLCard
 {
-    public static final PCLCardData DATA = register(HaruOkumura.class, ConjurerResources.conjurer)
-            .setSummon(1, CardRarity.RARE, PCLAttackType.Normal)
-            .setDamage(2, 1)
+    public static final PCLCardData DATA = register(HinanawiTenshi.class, ConjurerResources.conjurer)
+            .setSummon(1, CardRarity.COMMON, PCLAttackType.Normal)
+            .setDamage(1, 1)
             .setPriority(1)
             .setHp(5, 2)
-            .setAffinities(PCLAffinity.Orange, PCLAffinity.Yellow)
-            .setLoadout(ConjurerPlayerData.shinMegamiTensei);
+            .setAffinities(PCLAffinity.Orange)
+            .setLoadout(ConjurerPlayerData.touhouProject);
 
-    public HaruOkumura()
+    public HinanawiTenshi()
     {
         super(DATA);
     }
@@ -31,7 +31,6 @@ public class HaruOkumura extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
-        addUseMove(PCond.cooldown(2),
-                PMove.create(HaruOkumura_Milady.DATA.ID));
+        addUseMove(CCond.redox(), PMove.modifyDamage(1));
     }
 }

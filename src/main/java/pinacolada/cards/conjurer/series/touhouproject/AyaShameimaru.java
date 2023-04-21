@@ -1,4 +1,4 @@
-package pinacolada.cards.conjurer.series.genshinimpact;
+package pinacolada.cards.conjurer.series.touhouproject;
 
 
 import pinacolada.annotations.VisibleCard;
@@ -10,21 +10,21 @@ import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PCond;
+import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class KazuhaKaedehara extends PCLCard
+public class AyaShameimaru extends PCLCard
 {
-    public static final PCLCardData DATA = register(KazuhaKaedehara.class, ConjurerResources.conjurer)
-            .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Piercing)
-            .setDamage(3, 1)
+    public static final PCLCardData DATA = register(AyaShameimaru.class, ConjurerResources.conjurer)
+            .setSummon(1, CardRarity.RARE, PCLAttackType.Piercing)
+            .setDamage(2, 1, 2)
             .setPriority(1)
-            .setHp(5, 2)
-            .setAffinities(PCLAffinity.Green)
-            .setLoadout(ConjurerPlayerData.genshinImpact);
+            .setHp(4, 0)
+            .setAffinities(2, PCLAffinity.Green)
+            .setLoadout(ConjurerPlayerData.touhouProject);
 
-    public KazuhaKaedehara()
+    public AyaShameimaru()
     {
         super(DATA);
     }
@@ -32,6 +32,6 @@ public class KazuhaKaedehara extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL);
-        addUseMove(PCond.cooldown(1), PMove.fetchRandom(1, PCLCardGroupHelper.DrawPile).edit(f -> f.setAffinity(PCLAffinity.Green)));
+        addUseMove(CCond.redox(), PMove.fetchRandom(1, PCLCardGroupHelper.DrawPile).edit(f -> f.setType(CardType.SKILL)));
     }
 }
