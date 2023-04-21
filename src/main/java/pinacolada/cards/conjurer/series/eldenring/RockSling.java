@@ -30,6 +30,6 @@ public class RockSling extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(PCLAttackVFX.EARTH).setChain(PCond.checkPower(PCLCardTarget.Any, 1, PCLElementHelper.Petra), PTrait.damage(3));
+        addDamageMove(PCLAttackVFX.EARTH).setChain(PCond.checkPower(PCLCardTarget.Any, 1, PCLElementHelper.Petra), PTrait.hitCount(1));
     }
 }

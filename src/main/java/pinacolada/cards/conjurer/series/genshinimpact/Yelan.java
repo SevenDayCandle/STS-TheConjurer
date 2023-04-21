@@ -6,7 +6,6 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
-import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -19,10 +18,10 @@ import pinacolada.skills.PTrait;
 public class Yelan extends PCLCard
 {
     public static final PCLCardData DATA = register(Yelan.class, ConjurerResources.conjurer)
-            .setSummon(1, CardRarity.RARE, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy)
-            .setDamage(2, 0, 2)
+            .setSummon(1, CardRarity.RARE, PCLAttackType.Ranged)
+            .setDamage(3, 0)
             .setPriority(1)
-            .setHp(5, 1)
+            .setHp(7, 2)
             .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
@@ -33,7 +32,7 @@ public class Yelan extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL).setChain(PMod.perLevel(1, PCLAffinity.Blue).setUpgrade(1), PTrait.damage(1));
+        addDamageMove(PCLAttackVFX.WATER).setChain(PMod.perLevel(1, PCLAffinity.Blue).setUpgrade(1), PTrait.damage(1));
         addUseMove(PCond.onSummon(), PMove.draw(1));
     }
 }

@@ -11,14 +11,13 @@ import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMod;
-import pinacolada.skills.PTrait;
 
 @VisibleCard
 public class ShardSpiral extends PCLCard
 {
     public static final PCLCardData DATA = register(ShardSpiral.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.COMMON, PCLAttackType.Ranged)
-            .setDamage(2, 1, 2)
+            .setDamage(4, 2)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
@@ -29,6 +28,6 @@ public class ShardSpiral extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(PCLAttackVFX.ICE).setChain(PMod.perPowerSelf(1, PCLElementHelper.Flow).setExtra(12).setUpgradeExtra(4), PTrait.damage(1));
+        addDamageMove(PCLAttackVFX.ICE).setBonus(PMod.perPowerSelf(1, PCLElementHelper.Flow).setExtra(14).setUpgradeExtra(6), 2);
     }
 }

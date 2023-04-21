@@ -28,7 +28,7 @@ public class Erosion extends PCLCard
 
     public void setup(Object input)
     {
-        addUseMove(PCond.discardRandom(3, PCLCardGroupHelper.DrawPile), PMove.applyToEnemies(4, PCLElementHelper.Gelus, PCLElementHelper.Petra).setUpgrade(1));
+        addUseMove(PCond.discardRandom(2, PCLCardGroupHelper.DrawPile), PMove.applyToEnemies(4, PCLElementHelper.Gelus, PCLElementHelper.Petra).setUpgrade(2));
         addUseMove(PCond.onDiscard(), CMove.gainReaction(6).setUpgrade(2));
     }
 }

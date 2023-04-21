@@ -18,7 +18,7 @@ public class Tartaglia extends PCLCard
 {
     public static final PCLCardData DATA = register(Tartaglia.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.AllEnemy)
-            .setDamage(1, 1, 2)
+            .setDamage(2, 0)
             .setPriority(1)
             .setHp(7, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue, PCLAffinity.Purple)
@@ -31,6 +31,6 @@ public class Tartaglia extends PCLCard
 
     public void setup(Object input)
     {
-        addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL).setChain(PMod.perCreatureWith(1, PCLElementHelper.Ignis, PCLElementHelper.Gelus), PTrait.damage(1));
+        addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL).setChain(PMod.perCreatureWith(1, PCLElementHelper.Ignis, PCLElementHelper.Gelus), PTrait.damage(1).setUpgrade(1));
     }
 }
