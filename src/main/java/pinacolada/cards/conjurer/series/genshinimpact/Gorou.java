@@ -18,9 +18,9 @@ public class Gorou extends PCLCard
 {
     public static final PCLCardData DATA = register(Gorou.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Ranged)
-            .setDamage(4, 1)
+            .setDamage(3, 1)
             .setPriority(1)
-            .setHp(6, 2)
+            .setHp(6, 0)
             .setAffinities(PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
@@ -32,6 +32,6 @@ public class Gorou extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
-        addUseMove(PCond.cooldown(0), PMove.applyToSingle(2, PCLElementHelper.Petra));
+        addUseMove(PCond.cooldown(0), PMove.applyToSingle(2, PCLElementHelper.Petra).setUpgrade(1));
     }
 }

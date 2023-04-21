@@ -16,7 +16,7 @@ public class AerosolCoolant extends PCLCard
 {
     public static final PCLCardData DATA = register(AerosolCoolant.class, ConjurerResources.conjurer)
             .setSkill(0, CardRarity.UNCOMMON)
-            .setAffinities(1, PCLAffinity.Blue, PCLAffinity.Green)
+            .setAffinities(PCLAffinity.Blue, PCLAffinity.Green)
             .setCore();
 
     public AerosolCoolant()
