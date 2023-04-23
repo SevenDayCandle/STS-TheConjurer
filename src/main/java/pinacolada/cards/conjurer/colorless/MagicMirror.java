@@ -10,7 +10,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
-import pinacolada.interfaces.listeners.OnTryApplyPowerListener;
+import pinacolada.interfaces.subscribers.OnTryApplyPowerSubscriber;
 import pinacolada.powers.PSpecialCardPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;
@@ -35,7 +35,7 @@ public class MagicMirror extends PCLCard
         addSpecialPower(0, (s, i) -> new MagicMirrorPower(i.source, s), 2).setUpgrade(1);
     }
 
-    public static class MagicMirrorPower extends PSpecialCardPower implements OnTryApplyPowerListener
+    public static class MagicMirrorPower extends PSpecialCardPower implements OnTryApplyPowerSubscriber
     {
         public MagicMirrorPower(AbstractCreature owner, PSkill<?> move)
         {
