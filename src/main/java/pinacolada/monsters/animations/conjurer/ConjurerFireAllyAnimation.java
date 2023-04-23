@@ -28,9 +28,9 @@ public class ConjurerFireAllyAnimation extends PCLAllyAnimation
         PCLEffects.Queue.add(new FadingParticleEffect(FireIgniteEffect.getRandomTexture(), x + MathUtils.random(-64, 64), y + MathUtils.random(-32, 4))
                 .setBlendingMode(PCLRenderHelpers.BlendingMode.Glowing)
                 .setFlip(MathUtils.randomBoolean(), false)
-                .setScale(MathUtils.random(0.2f, 0.5f))
+                .setScale(MathUtils.random(0.25f, 0.63f))
                 .setRotation(0, MathUtils.random(400f, 600f))
-                .setTargetPosition(x, y + RADIUS, 100f)).setDuration(0.6f, false);
+                .setTargetPosition(x, y + RADIUS, 100f)).setDuration(0.7f, false);
     }
 
     public void renderSprite(SpriteBatch sb, float x, float y)

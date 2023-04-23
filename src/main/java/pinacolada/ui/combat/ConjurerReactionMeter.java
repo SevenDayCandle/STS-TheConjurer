@@ -80,6 +80,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter
     protected PCLClickableUse charges;
     protected int reactionCount;
     protected PCLAffinity lastUpgrade = PCLAffinity.General;
+    protected PCLClickableUse skips;
     private List<PCLCardAffinity> lastCardAffinities = new ArrayList<>();
     private List<AbstractPCLElementalPower> lastTargetPowers = new ArrayList<>();
     private final HashMap<ConjurerElementButton.Type, Integer> totalReactions = new HashMap<>();

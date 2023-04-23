@@ -68,7 +68,7 @@
 		"conjurer:TropicalMonsoon": {"NAME": "Tropical Monsoon"},
 		"conjurer:Vaporize": {"NAME": "Vaporize"},
 		"conjurer:VerdantGale": {
-			"EXTENDED_DESCRIPTION": ["For every {0} [Aer] you apply, gain [Draw Plus] and apply {1} [Poison] to the enemy with the lowest HP"],
+			"EXTENDED_DESCRIPTION": ["Using [Flow] applies {0} [Poison] to all enemies and triggers it"],
 			"NAME": "Verdant Gale"
 		},
 		"conjurer:Wildfire": {"NAME": "Wildfire"},
@@ -189,6 +189,8 @@
 		"conjurer:ScholarsShield": {"NAME": "Scholar's Shield"},
 		"conjurer:ShardSpiral": {"NAME": "Shard Spiral"},
 		"conjurer:ShatterEarth": {"NAME": "Shatter Earth"},
+		"conjurer:StoneOfGurranq": {"NAME": "Stone Of Gurranq"},
+		"conjurer:SwarmOfFlies": {"NAME": "Swarm Of Flies"},
 		"conjurer:ZamorIceStorm": {"NAME": "Zamor Ice Storm"}
 	},
 	"SERIES:GENSHIN":
