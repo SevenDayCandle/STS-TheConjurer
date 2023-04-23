@@ -18,7 +18,6 @@ public class Airavata extends PCLCard
     public static final PCLCardData DATA = register(Airavata.class, ConjurerResources.conjurer)
             .setSummon(3, CardRarity.UNCOMMON)
             .setDamage(3, 0)
-            .setPriority(1)
             .setHp(16, 3)
             .setAffinities(PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);

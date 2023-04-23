@@ -20,7 +20,6 @@ public class Cactuar extends PCLCard
     public static final PCLCardData DATA = register(Cactuar.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
             .setDamage(1, 1, 2)
-            .setPriority(1)
             .setHp(4, 0)
             .setAffinities(PCLAffinity.Green)
             .setColorless();

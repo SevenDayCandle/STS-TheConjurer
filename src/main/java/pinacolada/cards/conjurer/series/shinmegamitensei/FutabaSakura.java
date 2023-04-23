@@ -23,7 +23,6 @@ public class FutabaSakura extends PCLCard
     public static final PCLCardData DATA = register(FutabaSakura.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE, PCLAttackType.Immaterial, PCLCardTarget.RandomEnemy)
             .setDamage(2, 1)
-            .setPriority(1)
             .setHp(4, 2)
             .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);

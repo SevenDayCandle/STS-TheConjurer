@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.core.Settings;
 import extendedui.ui.TextureCache;
 import pinacolada.effects.PCLEffects;
 import pinacolada.effects.VFX;
@@ -50,8 +51,8 @@ public class ConjurerAirAllyAnimation extends PCLAllyAnimation
     public void renderSprite(SpriteBatch sb, float x, float y)
     {
         sb.setColor(this.renderColor);
-        float scaleExt1 = owner.getBobEffect().y / 557f;
-        float scaleExt2 = owner.getBobEffect().y / 300f;
+        float scaleExt1 = owner.getBobEffect().y / (Settings.scale * 557f);
+        float scaleExt2 = owner.getBobEffect().y / (Settings.scale * 300f);
         float angleExt1 = this.angle * 6.3f;
         float angleExt2 = this.angle * 8.1f;
         int size = ConjurerResources.conjurer.images.monsters.air1.texture().getHeight();

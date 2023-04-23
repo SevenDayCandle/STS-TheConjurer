@@ -38,7 +38,7 @@
 	},
 	"conjurer:PeriodicTable":
 	{
-		"DESCRIPTIONS": ["At the start of combat, gain #b{0} #yReaction."],
+		"DESCRIPTIONS": ["At the start of combat, draw #b{0} card (prioritizing #ySummons). It costs #b{0} less this turn."],
 		"FLAVOR": "A table that repeats itself every so often.",
 		"NAME": "Periodic Table"
 	},

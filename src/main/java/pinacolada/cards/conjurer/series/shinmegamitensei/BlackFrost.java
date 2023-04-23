@@ -21,7 +21,6 @@ public class BlackFrost extends PCLCard
     public static final PCLCardData DATA = register(BlackFrost.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE, PCLAttackType.Immaterial, PCLCardTarget.AllEnemy)
             .setDamage(7, 1)
-            .setPriority(1)
             .setHp(4, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);

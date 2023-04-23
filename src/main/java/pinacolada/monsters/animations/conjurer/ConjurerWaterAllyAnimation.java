@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.core.Settings;
 import extendedui.EUIRenderHelpers;
 import pinacolada.effects.PCLEffects;
 import pinacolada.effects.VFX;
@@ -37,9 +38,9 @@ public class ConjurerWaterAllyAnimation extends PCLAllyAnimation
     public void renderSprite(SpriteBatch sb, float x, float y)
     {
         sb.setColor(this.renderColor);
-        float scaleExt = owner.getBobEffect().y / 575f;
-        float scaleExt2 = owner.getBobEffect().y / 400f;
-        float scaleInt = -(owner.getBobEffect().y / 500f);
+        float scaleExt = owner.getBobEffect().y / (Settings.scale * 575f);
+        float scaleExt2 = owner.getBobEffect().y / (Settings.scale * 400f);
+        float scaleInt = -(owner.getBobEffect().y / (Settings.scale * 500f));
         float angleExt = this.angle * 4f;
         float angleExt2 = this.angle * 5f;
         float angleInt = -(this.angle);

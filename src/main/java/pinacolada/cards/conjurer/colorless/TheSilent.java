@@ -11,8 +11,8 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardSelection;
-import pinacolada.effects.PCLAttackVFX;
 import pinacolada.dungeon.PCLUseInfo;
+import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.skills.PSpecialSkill;
@@ -25,7 +25,6 @@ public class TheSilent extends PCLCard
     public static final PCLCardData DATA = register(TheSilent.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON)
             .setDamage(2, 1, 2)
-            .setPriority(1)
             .setHp(5, 2)
             .setAffinities(PCLAffinity.Green)
             .setCore(true);

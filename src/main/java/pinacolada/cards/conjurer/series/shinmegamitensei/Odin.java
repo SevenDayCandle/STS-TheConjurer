@@ -20,7 +20,6 @@ public class Odin extends PCLCard
     public static final PCLCardData DATA = register(Odin.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.RARE, PCLAttackType.Piercing)
             .setDamage(5, 1)
-            .setPriority(1)
             .setHp(11, 2)
             .setAffinities(1, PCLAffinity.Red, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);

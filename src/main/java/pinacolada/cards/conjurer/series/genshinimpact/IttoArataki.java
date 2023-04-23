@@ -19,7 +19,6 @@ public class IttoArataki extends PCLCard
     public static final PCLCardData DATA = register(IttoArataki.class, ConjurerResources.conjurer)
             .setSummon(3, CardRarity.UNCOMMON)
             .setDamage(4, 1)
-            .setPriority(1)
             .setHp(13, 2)
             .setAffinities(1, PCLAffinity.Red, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.genshinImpact);

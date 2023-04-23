@@ -19,7 +19,6 @@ public class Decarabia extends PCLCard
     public static final PCLCardData DATA = register(Decarabia.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON)
             .setDamage(2, 0)
-            .setPriority(1)
             .setHp(5, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);

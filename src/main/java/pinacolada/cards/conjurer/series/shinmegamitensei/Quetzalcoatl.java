@@ -20,7 +20,6 @@ public class Quetzalcoatl extends PCLCard
     public static final PCLCardData DATA = register(Quetzalcoatl.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.RARE, PCLAttackType.Immaterial)
             .setDamage(4, 0)
-            .setPriority(1)
             .setHp(12, 4)
             .setAffinities(PCLAffinity.Green, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);

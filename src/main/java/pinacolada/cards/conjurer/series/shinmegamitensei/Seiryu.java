@@ -2,10 +2,10 @@ package pinacolada.cards.conjurer.series.shinmegamitensei;
 
 
 import pinacolada.annotations.VisibleCard;
-import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
@@ -21,7 +21,6 @@ public class Seiryu extends PCLCard
     public static final PCLCardData DATA = register(Seiryu.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.RARE, PCLAttackType.Piercing)
             .setDamage(4, 1)
-            .setPriority(1)
             .setHp(10, 2)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);

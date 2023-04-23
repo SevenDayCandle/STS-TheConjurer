@@ -19,7 +19,6 @@ public class Xingqiu extends PCLCard
     public static final PCLCardData DATA = register(Xingqiu.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Piercing)
             .setDamage(1, 1, 2)
-            .setPriority(1)
             .setHp(5, 1)
             .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.genshinImpact);

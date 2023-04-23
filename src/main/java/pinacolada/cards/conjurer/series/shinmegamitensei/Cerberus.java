@@ -20,7 +20,6 @@ public class Cerberus extends PCLCard
     public static final PCLCardData DATA = register(Cerberus.class, ConjurerResources.conjurer)
             .setSummon(3, CardRarity.UNCOMMON)
             .setDamage(6, 1)
-            .setPriority(1)
             .setHp(10, 1)
             .setAffinities(2, PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);

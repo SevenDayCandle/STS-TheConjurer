@@ -20,7 +20,6 @@ public class MonaMegistus extends PCLCard
     public static final PCLCardData DATA = register(MonaMegistus.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Immaterial)
             .setDamage(3, 1)
-            .setPriority(1)
             .setHp(5, 1)
             .setAffinities(2, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.genshinImpact);

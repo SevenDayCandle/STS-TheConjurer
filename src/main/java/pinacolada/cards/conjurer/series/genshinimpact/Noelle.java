@@ -18,7 +18,6 @@ public class Noelle extends PCLCard
     public static final PCLCardData DATA = register(Noelle.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON)
             .setDamage(2, 0)
-            .setPriority(1)
             .setHp(7, 3)
             .setAffinities(PCLAffinity.Orange, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.genshinImpact);

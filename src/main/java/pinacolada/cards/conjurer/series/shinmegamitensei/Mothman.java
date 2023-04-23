@@ -19,7 +19,6 @@ public class Mothman extends PCLCard
     public static final PCLCardData DATA = register(Mothman.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Ranged)
             .setDamage(2, 1)
-            .setPriority(1)
             .setHp(6, 2)
             .setAffinities(PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);

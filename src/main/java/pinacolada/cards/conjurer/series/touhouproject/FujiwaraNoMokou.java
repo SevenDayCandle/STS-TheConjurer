@@ -20,7 +20,6 @@ public class FujiwaraNoMokou extends PCLCard
     public static final PCLCardData DATA = register(FujiwaraNoMokou.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON)
             .setDamage(3, 1)
-            .setPriority(1)
             .setHp(5, 1)
             .setAffinities(1, PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.touhouProject);

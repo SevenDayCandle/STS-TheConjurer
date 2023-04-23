@@ -10,7 +10,6 @@ import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.special.moves.PMove_ExhaustAlly;
 
@@ -20,7 +19,6 @@ public class MakotoNijima_Johanna extends PCLCard
     public static final PCLCardData DATA = register(MakotoNijima_Johanna.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.SPECIAL, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
             .setDamage(7, 1)
-            .setPriority(1)
             .setHp(8, 1)
             .setAffinities(PCLAffinity.Green, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
@@ -33,6 +31,6 @@ public class MakotoNijima_Johanna extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
-        addUseMove(PCond.cooldown(0), PMove.draw(3).setUpgrade(1).edit(f -> f.setAffinity(PCLAffinity.Orange)), new PMove_ExhaustAlly(PCLCardTarget.Self, 1));
+        addUseMove(PMove.draw(3).setUpgrade(1).edit(f -> f.setAffinity(PCLAffinity.Orange)), new PMove_ExhaustAlly(PCLCardTarget.Self, 1));
     }
 }

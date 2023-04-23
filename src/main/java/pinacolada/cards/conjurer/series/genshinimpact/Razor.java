@@ -18,7 +18,6 @@ public class Razor extends PCLCard
     public static final PCLCardData DATA = register(Razor.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON)
             .setDamage(4, 1)
-            .setPriority(1)
             .setHp(7, 0)
             .setAffinities(PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.genshinImpact);

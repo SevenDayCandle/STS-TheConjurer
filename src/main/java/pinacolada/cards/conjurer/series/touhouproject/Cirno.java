@@ -22,7 +22,6 @@ public class Cirno extends PCLCard
     public static final PCLCardData DATA = register(Cirno.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Immaterial, PCLCardTarget.AllEnemy)
             .setDamage(2, 0)
-            .setPriority(1)
             .setHp(4, 1)
             .setAffinities(1, PCLAffinity.Blue)
             .setRTags(PCLCardTag.Ethereal)

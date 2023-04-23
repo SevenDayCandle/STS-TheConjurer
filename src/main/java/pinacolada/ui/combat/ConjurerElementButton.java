@@ -276,6 +276,21 @@ public class ConjurerElementButton extends EUIButton
         FontHelper.renderFontCentered(sb, FontHelper.powerAmountFont, "L" + level, hb.cX + scale(15), hb.cY - scale(15), EUIColors.blue(1f), intensifyFontScale);
     }
 
+    public void renderForTutorial(SpriteBatch sb, float x, float y)
+    {
+        super.renderImpl(sb);
+        elementImage.renderCentered(sb, x, y, hb.width, hb.height);
+    }
+
+    public void renderForTutorialWithArrows(SpriteBatch sb, float x, float y)
+    {
+        renderForTutorial(sb, x, y);
+        for (ConjurerReactionButton button : reactions.values())
+        {
+            button.renderCentered(sb, x + button.hb.getOffsetX(), y + button.hb.getOffsetY(), button.hb.width, button.hb.height);
+        }
+    }
+
     public void updateDescription()
     {
         if (PGR.isLoaded())

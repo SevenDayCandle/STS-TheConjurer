@@ -20,7 +20,6 @@ public class Amon extends PCLCard
     public static final PCLCardData DATA = register(Amon.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Piercing)
             .setDamage(4, 1)
-            .setPriority(1)
             .setHp(9, 1)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);

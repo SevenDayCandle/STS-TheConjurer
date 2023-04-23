@@ -21,7 +21,6 @@ public class KawashiroNitori extends PCLCard
     public static final PCLCardData DATA = register(KawashiroNitori.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Ranged)
             .setDamage(2, 1)
-            .setPriority(1)
             .setHp(5, 1)
             .setAffinities(PCLAffinity.Green, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.genshinImpact);

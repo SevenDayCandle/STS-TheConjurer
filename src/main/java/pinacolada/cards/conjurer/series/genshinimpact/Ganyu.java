@@ -22,7 +22,6 @@ public class Ganyu extends PCLCard
             .setSummon(1, CardRarity.RARE, PCLAttackType.Ranged)
             .setRTags(PCLCardTag.Ethereal)
             .setDamage(6, 0)
-            .setPriority(1)
             .setHp(2, 1)
             .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.genshinImpact);

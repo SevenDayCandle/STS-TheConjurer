@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.core.Settings;
 import extendedui.ui.TextureCache;
 import pinacolada.effects.PCLEffects;
 import pinacolada.effects.VFX;
@@ -50,7 +51,7 @@ public class ConjurerStarAllyAnimation extends PCLAllyAnimation
         int size = FRAMES[0].texture().getHeight();
         int hSize = size / 2;
         sb.setColor(this.renderColor);
-        float by = owner.getBobEffect().y;
+        float by = owner.getBobEffect().y / Settings.scale;
         PCLRenderHelpers.BlendingMode.Glowing.apply(sb);
         float scale1 = Interpolation.sine.apply(0.8f, 1f, angle / 105);
         sb.draw(FRAMES[0].texture(), x - hSize, y - hSize, 48f, 48f, 96f, 96f, scale1, scale1, angle, 0, 0, 96, 96, hFlip, vFlip);

@@ -20,7 +20,6 @@ public class Yelan extends PCLCard
     public static final PCLCardData DATA = register(Yelan.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE, PCLAttackType.Ranged)
             .setDamage(3, 0)
-            .setPriority(1)
             .setHp(7, 2)
             .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.genshinImpact);

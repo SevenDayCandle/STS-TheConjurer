@@ -17,8 +17,7 @@ public class HinanawiTenshi extends PCLCard
 {
     public static final PCLCardData DATA = register(HinanawiTenshi.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Normal)
-            .setDamage(1, 1)
-            .setPriority(1)
+            .setDamage(2, 1)
             .setHp(5, 2)
             .setAffinities(PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.touhouProject);

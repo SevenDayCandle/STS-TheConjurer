@@ -17,7 +17,6 @@ public class AnnTakamaki extends PCLCard
     public static final PCLCardData DATA = register(AnnTakamaki.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON)
             .setDamage(4, 0)
-            .setPriority(1)
             .setHp(6, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);

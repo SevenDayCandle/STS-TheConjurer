@@ -19,7 +19,6 @@ public class Thoma extends PCLCard
     public static final PCLCardData DATA = register(Thoma.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON)
             .setDamage(2, 1)
-            .setPriority(1)
             .setHp(7, 2)
             .setAffinities(PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.genshinImpact);

@@ -20,7 +20,6 @@ public class Xiangling extends PCLCard
     public static final PCLCardData DATA = register(Xiangling.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Normal, PCLCardTarget.AllEnemy)
             .setDamage(3, 1)
-            .setPriority(1)
             .setHp(6, 2)
             .setAffinities(PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.genshinImpact);

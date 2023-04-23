@@ -19,7 +19,6 @@ public class Keqing extends PCLCard
     public static final PCLCardData DATA = register(Keqing.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Piercing)
             .setDamage(2, 1, 2)
-            .setPriority(1)
             .setHp(6, 1)
             .setAffinities(PCLAffinity.Green, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.genshinImpact);

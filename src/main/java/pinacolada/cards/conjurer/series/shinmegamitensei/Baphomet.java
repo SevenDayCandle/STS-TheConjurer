@@ -20,7 +20,6 @@ public class Baphomet extends PCLCard
     public static final PCLCardData DATA = register(Baphomet.class, ConjurerResources.conjurer)
             .setSummon(3, CardRarity.RARE, PCLAttackType.Piercing)
             .setDamage(5, 0)
-            .setPriority(1)
             .setHp(13, 4)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);

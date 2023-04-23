@@ -17,7 +17,6 @@ public class RyujiSakamoto extends PCLCard
     public static final PCLCardData DATA = register(RyujiSakamoto.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON)
             .setDamage(4, 1)
-            .setPriority(1)
             .setHp(6, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);

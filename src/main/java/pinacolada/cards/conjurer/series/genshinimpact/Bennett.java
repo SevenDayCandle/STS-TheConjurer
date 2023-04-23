@@ -19,7 +19,6 @@ public class Bennett extends PCLCard
     public static final PCLCardData DATA = register(Bennett.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON)
             .setDamage(3, 0)
-            .setPriority(1)
             .setHp(5, 1)
             .setAffinities(PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.genshinImpact);

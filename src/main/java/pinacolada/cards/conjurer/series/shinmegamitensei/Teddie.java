@@ -20,7 +20,6 @@ public class Teddie extends PCLCard
     public static final PCLCardData DATA = register(Teddie.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy)
             .setDamage(2, 1)
-            .setPriority(1)
             .setHp(7, 2)
             .setAffinities(1, PCLAffinity.Star)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei, true);

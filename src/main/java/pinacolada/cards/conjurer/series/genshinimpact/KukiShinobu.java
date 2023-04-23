@@ -20,7 +20,6 @@ public class KukiShinobu extends PCLCard
     public static final PCLCardData DATA = register(KukiShinobu.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy)
             .setDamage(2, 0, 2)
-            .setPriority(1)
             .setHp(5, 1)
             .setAffinities(PCLAffinity.Green, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.genshinImpact);

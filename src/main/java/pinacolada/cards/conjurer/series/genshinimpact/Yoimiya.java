@@ -22,7 +22,6 @@ public class Yoimiya extends PCLCard
     public static final PCLCardData DATA = register(Yoimiya.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy)
             .setDamage(1, 0, 4, 1)
-            .setPriority(1)
             .setHp(4, 1)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.genshinImpact);

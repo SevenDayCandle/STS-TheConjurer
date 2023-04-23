@@ -18,7 +18,6 @@ public class HaruOkumura extends PCLCard
     public static final PCLCardData DATA = register(HaruOkumura.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE, PCLAttackType.Normal)
             .setDamage(2, 1)
-            .setPriority(1)
             .setHp(5, 2)
             .setAffinities(PCLAffinity.Orange, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);

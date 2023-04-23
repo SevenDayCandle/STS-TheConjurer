@@ -19,7 +19,6 @@ public class SuwakoMoriya extends PCLCard
     public static final PCLCardData DATA = register(SuwakoMoriya.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Normal)
             .setDamage(2, 0)
-            .setPriority(1)
             .setHp(4, 2)
             .setAffinities(PCLAffinity.Orange, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.touhouProject);

@@ -19,7 +19,6 @@ public class BarbaraPegg extends PCLCard
     public static final PCLCardData DATA = register(BarbaraPegg.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Immaterial, PCLCardTarget.AllEnemy)
             .setDamage(1, 2)
-            .setPriority(1)
             .setHp(3, 0)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.genshinImpact);

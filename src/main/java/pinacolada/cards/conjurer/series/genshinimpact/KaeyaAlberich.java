@@ -18,7 +18,6 @@ public class KaeyaAlberich extends PCLCard
     public static final PCLCardData DATA = register(KaeyaAlberich.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON)
             .setDamage(3, 0)
-            .setPriority(1)
             .setHp(6, 2)
             .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.genshinImpact);

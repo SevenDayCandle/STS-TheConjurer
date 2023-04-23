@@ -25,7 +25,6 @@ public class Cyno extends PCLCard
     public static final PCLCardData DATA = register(Cyno.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON)
             .setDamage(4, 1)
-            .setPriority(1)
             .setHp(7, 1)
             .setAffinities(PCLAffinity.Orange, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.genshinImpact, true);

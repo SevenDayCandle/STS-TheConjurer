@@ -11,11 +11,11 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
+import pinacolada.dungeon.CombatManager;
+import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.interfaces.providers.PointerProvider;
 import pinacolada.interfaces.subscribers.OnApplyPowerSubscriber;
 import pinacolada.interfaces.subscribers.OnPhaseChangedSubscriber;
-import pinacolada.dungeon.CombatManager;
-import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.skills.PCustomCond;
@@ -28,7 +28,7 @@ import java.util.UUID;
 public class Curse_Normality extends PCLCard
 {
     public static final PCLCardData DATA = register(Curse_Normality.class, ConjurerResources.conjurer)
-            .setCurse(-2, PCLCardTarget.None, true, false)
+            .setCurse(-2, PCLCardTarget.None, true)
             .setTags(PCLCardTag.Unplayable);
 
     public Curse_Normality()

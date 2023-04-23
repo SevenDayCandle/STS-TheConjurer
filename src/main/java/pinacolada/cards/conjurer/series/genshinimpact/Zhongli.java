@@ -20,7 +20,6 @@ public class Zhongli extends PCLCard
     public static final PCLCardData DATA = register(Zhongli.class, ConjurerResources.conjurer)
             .setSummon(3, CardRarity.RARE, PCLAttackType.Piercing)
             .setDamage(2, 0)
-            .setPriority(1)
             .setHp(25, 3)
             .setAffinities(2, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.genshinImpact);

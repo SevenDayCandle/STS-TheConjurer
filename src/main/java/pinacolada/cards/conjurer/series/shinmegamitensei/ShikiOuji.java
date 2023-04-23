@@ -21,7 +21,6 @@ public class ShikiOuji extends PCLCard
     public static final PCLCardData DATA = register(ShikiOuji.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE, PCLAttackType.Normal)
             .setDamage(1, 1, 3)
-            .setPriority(1)
             .setHp(8, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);

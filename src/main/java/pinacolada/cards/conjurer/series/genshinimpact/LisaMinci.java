@@ -19,7 +19,6 @@ public class LisaMinci extends PCLCard
     public static final PCLCardData DATA = register(LisaMinci.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.COMMON, PCLAttackType.Immaterial)
             .setDamage(3, 0)
-            .setPriority(1)
             .setHp(8, 3)
             .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.genshinImpact);

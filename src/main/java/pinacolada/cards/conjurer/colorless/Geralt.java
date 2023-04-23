@@ -30,7 +30,6 @@ public class Geralt extends PCLCard
     public static final PCLCardData DATA = register(Geralt.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.RARE)
             .setDamage(4, 1)
-            .setPriority(1)
             .setHp(11, 3)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
             .setCore(true);

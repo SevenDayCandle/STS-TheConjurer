@@ -24,7 +24,6 @@ public class Wanderer extends PCLCard
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
             .setDamage(1, 0, 2)
             .setRTags(PCLCardTag.Ethereal)
-            .setPriority(1)
             .setHp(5, 1)
             .setAffinities(PCLAffinity.Green, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.genshinImpact, true);

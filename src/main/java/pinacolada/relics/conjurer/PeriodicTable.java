@@ -1,10 +1,11 @@
 package pinacolada.relics.conjurer;
 
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleRelic;
 import pinacolada.relics.PCLRelic;
+import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.ui.combat.ConjurerReactionMeter;
 
 @VisibleRelic
 public class PeriodicTable extends PCLRelic
@@ -19,10 +20,17 @@ public class PeriodicTable extends PCLRelic
     @Override
     public void atBattleStart()
     {
-        PCLActions.bottom.callback(() -> ConjurerReactionMeter.meter.addCount(getValue(), true));
+        PCLActions.bottom.draw(getValue())
+                .setFilter(f -> f.type == PCLEnum.CardType.SUMMON, true)
+                .addCallback(cards -> {
+            for (AbstractCard c : cards)
+            {
+                PCLActions.bottom.modifyCost(c, -getValue(), false, true);
+            }
+        });
     }
 
     public int getValue() {
-        return 10;
+        return 1;
     }
 }

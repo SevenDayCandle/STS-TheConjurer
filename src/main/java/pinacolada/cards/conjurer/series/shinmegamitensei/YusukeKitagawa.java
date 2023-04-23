@@ -18,7 +18,6 @@ public class YusukeKitagawa extends PCLCard
     public static final PCLCardData DATA = register(YusukeKitagawa.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Piercing)
             .setDamage(3, 0)
-            .setPriority(1)
             .setHp(7, 2)
             .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);

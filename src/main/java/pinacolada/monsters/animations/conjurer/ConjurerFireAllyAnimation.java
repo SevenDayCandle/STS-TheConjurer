@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.core.Settings;
 import pinacolada.effects.PCLEffects;
 import pinacolada.effects.VFX;
 import pinacolada.effects.vfx.FadingParticleEffect;
@@ -35,8 +36,8 @@ public class ConjurerFireAllyAnimation extends PCLAllyAnimation
     public void renderSprite(SpriteBatch sb, float x, float y)
     {
         sb.setColor(this.renderColor);
-        float scaleExt = owner.getBobEffect().y / 455f;
-        float scaleInt = -(owner.getBobEffect().y / 550f);
+        float scaleExt = owner.getBobEffect().y / (Settings.scale * 455f);
+        float scaleInt = -(owner.getBobEffect().y / (Settings.scale * 550f));
         float angleExt = this.angle;
         float angleInt = -(this.angle);
         int size = ConjurerResources.conjurer.images.monsters.fireInternal.texture().getHeight();

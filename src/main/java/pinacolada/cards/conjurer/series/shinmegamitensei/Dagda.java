@@ -21,7 +21,6 @@ public class Dagda extends PCLCard
     public static final PCLCardData DATA = register(Dagda.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.AllEnemy)
             .setDamage(2, 1)
-            .setPriority(1)
             .setHp(11, 2)
             .setAffinities(2, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);

@@ -23,7 +23,6 @@ public class HuTao extends PCLCard
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Piercing, PCLCardTarget.RandomEnemy)
             .setRTags(PCLCardTag.Ethereal)
             .setDamage(2, 1, 2)
-            .setPriority(1)
             .setHp(5, 0)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.genshinImpact);

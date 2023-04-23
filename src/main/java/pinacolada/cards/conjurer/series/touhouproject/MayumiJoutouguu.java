@@ -18,7 +18,6 @@ public class MayumiJoutouguu extends PCLCard
     public static final PCLCardData DATA = register(MayumiJoutouguu.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Normal)
             .setDamage(2, 0)
-            .setPriority(1)
             .setHp(6, 2)
             .setAffinities(PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.touhouProject);

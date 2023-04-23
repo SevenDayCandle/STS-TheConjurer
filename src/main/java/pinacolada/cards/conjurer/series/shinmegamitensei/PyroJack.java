@@ -19,7 +19,6 @@ public class PyroJack extends PCLCard
     public static final PCLCardData DATA = register(PyroJack.class, ConjurerResources.conjurer)
             .setSummon(0, CardRarity.COMMON, PCLAttackType.Immaterial)
             .setDamage(1, 1)
-            .setPriority(1)
             .setHp(3, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);

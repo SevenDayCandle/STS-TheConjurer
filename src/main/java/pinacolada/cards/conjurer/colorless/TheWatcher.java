@@ -25,7 +25,6 @@ public class TheWatcher extends PCLCard
     public static final PCLCardData DATA = register(TheWatcher.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON)
             .setDamage(3, 2)
-            .setPriority(1)
             .setHp(6, 1)
             .setAffinities(PCLAffinity.Orange, PCLAffinity.Yellow)
             .setCore(true);

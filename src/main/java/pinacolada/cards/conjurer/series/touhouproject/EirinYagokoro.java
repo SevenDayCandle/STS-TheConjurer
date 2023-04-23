@@ -25,7 +25,6 @@ public class EirinYagokoro extends PCLCard
     public static final PCLCardData DATA = register(EirinYagokoro.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Immaterial)
             .setDamage(2, 0)
-            .setPriority(1)
             .setHp(5, 1)
             .setAffinities(1, PCLAffinity.Blue, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.touhouProject, true);

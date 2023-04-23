@@ -19,7 +19,6 @@ public class AyaShameimaru extends PCLCard
     public static final PCLCardData DATA = register(AyaShameimaru.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE, PCLAttackType.Piercing)
             .setDamage(2, 1, 2)
-            .setPriority(1)
             .setHp(4, 0)
             .setAffinities(2, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.touhouProject);

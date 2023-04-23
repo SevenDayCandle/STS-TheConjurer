@@ -19,7 +19,6 @@ public class Lagiacrus extends PCLCard
     public static final PCLCardData DATA = register(Lagiacrus.class, ConjurerResources.conjurer)
             .setSummon(3, CardRarity.UNCOMMON, PCLAttackType.Normal)
             .setDamage(3, 1, 0)
-            .setPriority(1)
             .setHp(14, 0)
             .setAffinities(2, PCLAffinity.Blue)
             .setColorless();

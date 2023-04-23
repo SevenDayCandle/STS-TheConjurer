@@ -10,7 +10,6 @@ import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PCond;
 import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.special.moves.PMove_ExhaustAlly;
@@ -21,7 +20,6 @@ public class HaruOkumura_Milady extends PCLCard
     public static final PCLCardData DATA = register(HaruOkumura_Milady.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.SPECIAL, PCLAttackType.Immaterial)
             .setDamage(3, 1)
-            .setPriority(1)
             .setHp(13, 1)
             .setAffinities(PCLAffinity.Orange, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
@@ -34,6 +32,6 @@ public class HaruOkumura_Milady extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.PSYCHOKINESIS);
-        addUseMove(PCond.cooldown(0), new PMove_ExhaustAlly(PCLCardTarget.Self, 1), PMod.scryPer(5).setChild(PMove.gainTempHP(2).setUpgrade(1)));
+        addUseMove(new PMove_ExhaustAlly(PCLCardTarget.Self, 1), PMod.scryPer(5).setChild(PMove.gainTempHP(2).setUpgrade(1)));
     }
 }

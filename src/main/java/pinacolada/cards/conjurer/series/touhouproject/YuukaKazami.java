@@ -20,8 +20,7 @@ public class YuukaKazami extends PCLCard
     public static final PCLCardData DATA = register(YuukaKazami.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.COMMON, PCLAttackType.Immaterial, PCLCardTarget.AllEnemy)
             .setDamage(1, 1, 2)
-            .setPriority(1)
-            .setHp(6, 1)
+            .setHp(7, 1)
             .setAffinities(1, PCLAffinity.Blue, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.touhouProject);
 
@@ -33,6 +32,6 @@ public class YuukaKazami extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.WATER);
-        addUseMove(PCond.cooldown(2), PMove.applyToEnemies(4, PCLElementHelper.Gelus,  PCLElementHelper.Aer));
+        addUseMove(PCond.cooldown(2), PMove.applyToEnemies(5, PCLElementHelper.Gelus,  PCLElementHelper.Aer));
     }
 }

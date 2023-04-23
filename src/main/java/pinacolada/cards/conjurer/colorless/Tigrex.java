@@ -21,7 +21,6 @@ public class Tigrex extends PCLCard
     public static final PCLCardData DATA = register(Tigrex.class, ConjurerResources.conjurer)
             .setSummon(3, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
             .setDamage(4, 1, 0)
-            .setPriority(1)
             .setHp(15, 0)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Orange)
             .setColorless();

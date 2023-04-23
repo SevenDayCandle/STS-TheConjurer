@@ -20,7 +20,6 @@ public class Firkaag extends PCLCard
     public static final PCLCardData DATA = register(Firkaag.class, ConjurerResources.conjurer)
             .setSummon(3, CardRarity.RARE, PCLAttackType.Piercing, PCLCardTarget.AllEnemy)
             .setDamage(13, 0)
-            .setPriority(1)
             .setHp(21, 5)
             .setAffinities(1, PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.touhouProject, true);
@@ -33,6 +32,6 @@ public class Firkaag extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.FIRE).setBonus(PMod.perCardPlayed(1), 3, 1);
-        addUseMove(PCond.havePlayed(35).edit(f -> f.setNot(true)), PTrait.unplayable());
+        addUseMove(PCond.havePlayed(35).edit(f -> f.setNot(true).setForced(true)), PTrait.unplayable());
     }
 }

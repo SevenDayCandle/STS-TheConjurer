@@ -19,7 +19,6 @@ public class Chongyun extends PCLCard
     public static final PCLCardData DATA = register(Chongyun.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON)
             .setDamage(3, 1)
-            .setPriority(1)
             .setHp(7, 2)
             .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.genshinImpact);

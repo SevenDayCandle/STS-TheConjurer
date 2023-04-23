@@ -18,7 +18,6 @@ public class Magilou extends PCLCard
     public static final PCLCardData DATA = register(Magilou.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Immaterial)
             .setDamage(3, 1)
-            .setPriority(1)
             .setHp(4, 2)
             .setAffinities(PCLAffinity.Blue)
             .setColorless();

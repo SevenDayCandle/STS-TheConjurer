@@ -19,7 +19,6 @@ public class MarisaKirisame extends PCLCard
     public static final PCLCardData DATA = register(MarisaKirisame.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Immaterial)
             .setDamage(3, 1)
-            .setPriority(1)
             .setHp(5, 1)
             .setAffinities(1, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.touhouProject);

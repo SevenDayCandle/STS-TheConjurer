@@ -18,7 +18,6 @@ public class Fischl extends PCLCard
     public static final PCLCardData DATA = register(Fischl.class, ConjurerResources.conjurer)
             .setSummon(0, CardRarity.UNCOMMON, PCLAttackType.Immaterial)
             .setDamage(2, 1)
-            .setPriority(1)
             .setHp(3, 2)
             .setAffinities(PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.genshinImpact, true);

@@ -19,7 +19,6 @@ public class Sucrose extends PCLCard
     public static final PCLCardData DATA = register(Sucrose.class, ConjurerResources.conjurer)
             .setSummon(0, CardRarity.COMMON, PCLAttackType.Immaterial)
             .setDamage(1, 1)
-            .setPriority(1)
             .setHp(3, 2)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.genshinImpact);

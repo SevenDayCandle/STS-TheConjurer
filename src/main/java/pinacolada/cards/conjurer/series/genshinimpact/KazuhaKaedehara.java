@@ -19,7 +19,6 @@ public class KazuhaKaedehara extends PCLCard
     public static final PCLCardData DATA = register(KazuhaKaedehara.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Piercing)
             .setDamage(3, 1)
-            .setPriority(1)
             .setHp(5, 2)
             .setAffinities(PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.genshinImpact);

@@ -17,7 +17,7 @@ public class RazorTurbine extends PCLCard
 {
     public static final PCLCardData DATA = register(RazorTurbine.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.UNCOMMON, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
-            .setDamage(4, 3)
+            .setDamage(4, 2)
             .setAffinities(PCLAffinity.Green)
             .setCore();
 
@@ -29,6 +29,6 @@ public class RazorTurbine extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(ConjurerEFK.WIND02);
-        addUseMove(CMod.bonusOnRedox(1), PMove.draw(2).edit(f -> f.setAffinity(PCLAffinity.Green)));
+        addUseMove(CMod.bonusOnRedox(1), PMove.draw(2).setUpgrade(1));
     }
 }

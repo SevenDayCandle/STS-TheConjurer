@@ -22,7 +22,6 @@ public class AyakaKamisato extends PCLCard
             .setSummon(1, CardRarity.RARE, PCLAttackType.Normal)
             .setRTags(PCLCardTag.Ethereal)
             .setDamage(7, 0, 2)
-            .setPriority(1)
             .setHp(4, 1)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.genshinImpact);

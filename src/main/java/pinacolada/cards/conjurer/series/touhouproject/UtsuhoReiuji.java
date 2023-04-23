@@ -29,7 +29,6 @@ public class UtsuhoReiuji extends PCLCard
     public static final PCLCardData DATA = register(UtsuhoReiuji.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy)
             .setDamage(5, 0)
-            .setPriority(1)
             .setHp(7, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.touhouProject);

@@ -18,7 +18,6 @@ public class Morgana extends PCLCard
     public static final PCLCardData DATA = register(Morgana.class, ConjurerResources.conjurer)
             .setSummon(0, CardRarity.COMMON)
             .setDamage(2, 1)
-            .setPriority(1)
             .setHp(4, 1)
             .setAffinities(PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);

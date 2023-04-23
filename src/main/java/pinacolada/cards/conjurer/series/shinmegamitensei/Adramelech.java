@@ -20,7 +20,6 @@ public class Adramelech extends PCLCard
     public static final PCLCardData DATA = register(Adramelech.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
             .setDamage(3, 1)
-            .setPriority(1)
             .setHp(8, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Green, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
