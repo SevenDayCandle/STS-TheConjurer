@@ -6,7 +6,6 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
-import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
@@ -18,9 +17,9 @@ import pinacolada.skills.PMove;
 public class Flauros extends PCLCard
 {
     public static final PCLCardData DATA = register(Flauros.class, ConjurerResources.conjurer)
-            .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.AllEnemy)
-            .setDamage(5, 1)
-            .setHp(8, 2)
+            .setSummon(2, CardRarity.COMMON, PCLAttackType.Normal)
+            .setDamage(6, 1)
+            .setHp(9, 2)
             .setAffinities(2, PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 

@@ -19,8 +19,8 @@ public class Cerberus extends PCLCard
 {
     public static final PCLCardData DATA = register(Cerberus.class, ConjurerResources.conjurer)
             .setSummon(3, CardRarity.UNCOMMON)
-            .setDamage(6, 1)
-            .setHp(10, 1)
+            .setDamage(7, 1)
+            .setHp(13, 1)
             .setAffinities(2, PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
@@ -33,7 +33,7 @@ public class Cerberus extends PCLCard
     {
         addDamageMove(PCLAttackVFX.BITE);
         addGainPower(PTrigger.interactable(
-                CCond.payReaction(11),
+                CCond.payReaction(9),
                 PMod.perCreatureWith(1, PCLElementHelper.Ignis), PMove.modifyDamage(2).setUpgrade(1)
         ));
     }

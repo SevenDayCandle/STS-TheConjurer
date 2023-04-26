@@ -16,7 +16,7 @@ public class ScholarsShield extends PCLCard
 {
     public static final PCLCardData DATA = register(ScholarsShield.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.COMMON)
-            .setBlock(7, 2)
+            .setBlock(8, 2)
             .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
@@ -28,6 +28,6 @@ public class ScholarsShield extends PCLCard
     public void setup(Object input)
     {
         addBlockMove();
-        addUseMove(CCond.redox(), PMove.gain(6, PCLPowerHelper.NextTurnBlock).setUpgrade(3));
+        addUseMove(CCond.redox(), PMove.gain(3, PCLPowerHelper.Warding).setUpgrade(1));
     }
 }

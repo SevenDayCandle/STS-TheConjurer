@@ -40,7 +40,7 @@ public class AtomicDisplacement extends PCLCard
         ArrayList<AbstractPower> enemyPowers = new ArrayList<>();
         for (AbstractPower po : info.source.powers)
         {
-            if (GameUtilities.isDebuff(po) && GameUtilities.isCommonPower(po))
+            if (GameUtilities.isPCLDebuff(po))
             {
                 playerPowers.add(po);
                 PCLActions.bottom.removePower(info.source, po);
@@ -48,7 +48,7 @@ public class AtomicDisplacement extends PCLCard
         }
         for (AbstractPower po : info.target.powers)
         {
-            if (GameUtilities.isDebuff(po) && GameUtilities.isCommonPower(po))
+            if (GameUtilities.isPCLDebuff(po))
             {
                 enemyPowers.add(po);
                 PCLActions.bottom.removePower(info.target, po);

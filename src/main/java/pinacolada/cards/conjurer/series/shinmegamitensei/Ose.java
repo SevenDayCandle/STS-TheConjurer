@@ -5,7 +5,6 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
@@ -31,6 +30,6 @@ public class Ose extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.SLASH_HEAVY);
-        addUseMove(PCond.onWithdraw(), PMove.apply(PCLCardTarget.AllAlly, 1, PCLPowerHelper.Strength).setUpgrade(1));
+        addUseMove(PCond.onWithdraw(), PMove.applyToAllies(2, PCLPowerHelper.Strength).setUpgrade(1));
     }
 }

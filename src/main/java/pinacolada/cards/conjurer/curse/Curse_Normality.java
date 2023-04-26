@@ -80,7 +80,7 @@ public class Curse_Normality extends PCLCard
         public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source)
         {
             PCLActions.last.callback(() -> {
-                if (hasNormality() && (GameUtilities.isCommonBuff(power) || GameUtilities.isCommonDebuff(power)))
+                if (hasNormality() && (GameUtilities.isPCLPower(power)))
                 {
                     negatePower(power, target);
                 }
@@ -133,7 +133,7 @@ public class Curse_Normality extends PCLCard
                         {
                             for (AbstractPower po : c.powers)
                             {
-                                if ((GameUtilities.isCommonBuff(po) || GameUtilities.isCommonDebuff(po)))
+                                if ((GameUtilities.isPCLPower(po)))
                                 {
                                     negatePower(po, c);
                                 }

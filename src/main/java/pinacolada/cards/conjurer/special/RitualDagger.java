@@ -14,7 +14,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.skills.PLimit;
 import pinacolada.skills.skills.base.conditions.PCond_Fatal;
 import pinacolada.skills.skills.base.moves.PMove_RemovePower;
-import pinacolada.skills.skills.special.moves.PMove_PermanentUpgrade;
+import pinacolada.skills.skills.base.moves.PMove_PermanentUpgrade;
 
 @VisibleCard
 public class RitualDagger extends PCLCard

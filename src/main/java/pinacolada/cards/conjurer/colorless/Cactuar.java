@@ -32,6 +32,6 @@ public class Cactuar extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.DAGGER);
-        addUseMove(PMultiCond.or(PCond.onSummon(), PCond.onWithdraw()), PMove.apply( PCLCardTarget.None, 1, PCLPowerHelper.Thorns).setUpgrade(1));
+        addUseMove(PMultiCond.or(PCond.onSummon(), PCond.onWithdraw()), PMove.gainPlayer(1, PCLPowerHelper.Thorns).setUpgrade(1));
     }
 }

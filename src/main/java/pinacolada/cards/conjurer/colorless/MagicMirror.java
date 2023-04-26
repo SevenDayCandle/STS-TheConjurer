@@ -58,8 +58,8 @@ public class MagicMirror extends PCLCard
                     }
 
                     flash();
-                    // Only actually reflect common debuffs because modded debuffs on enemies may cause crashes
-                    if (GameUtilities.isCommonPower(power))
+                    // Only actually reflect basic debuffs because modded debuffs on enemies may cause crashes
+                    if (GameUtilities.isPCLPower(power))
                     {
                         action.target = source;
                         power.owner = source;

@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import extendedui.utilities.ColoredString;
 import pinacolada.actions.PCLActions;
+import pinacolada.dungeon.CombatManager;
 import pinacolada.effects.SFX;
 import pinacolada.interfaces.providers.DrawPileCardPreviewProvider;
 import pinacolada.powers.PCLPower;
@@ -64,6 +65,7 @@ public class FlowPower extends PCLPower implements DrawPileCardPreviewProvider
             amount -= PER_STACK;
             flash();
             PCLActions.bottom.draw(highlighted).addCallback(this::refreshCard);
+            CombatManager.onSpecificPowerActivated(this, owner, false);
         }
     }
 

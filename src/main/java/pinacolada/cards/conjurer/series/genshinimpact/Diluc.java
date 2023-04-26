@@ -17,7 +17,7 @@ import pinacolada.skills.PMove;
 public class Diluc extends PCLCard
 {
     public static final PCLCardData DATA = register(Diluc.class, ConjurerResources.conjurer)
-            .setSummon(3, CardRarity.UNCOMMON)
+            .setSummon(2, CardRarity.UNCOMMON)
             .setDamage(5, 1)
             .setHp(10, 2)
             .setAffinities(2, PCLAffinity.Red)
@@ -31,6 +31,6 @@ public class Diluc extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.SLASH_HEAVY);
-        addUseMove(PCond.cooldown(2), PMod.bonusPerLevel(3, PCLAffinity.Red), PMove.dealDamageToAll(5, AbstractGameAction.AttackEffect.FIRE));
+        addUseMove(PCond.cooldown(2), PMod.bonusPerLevel(3, PCLAffinity.Red), PMove.dealDamageToAll(8, AbstractGameAction.AttackEffect.FIRE));
     }
 }

@@ -31,6 +31,6 @@ public class Mothman extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(PCLAttackVFX.WIND);
-        addUseMove(PCond.cooldown(1), PMod.bonusPerLevel(4, PCLAffinity.Green), CMove.gainReaction(8));
+        addUseMove(PCond.cooldown(1), PMod.bonusPerLevel(4, PCLAffinity.Green), CMove.gainReaction(9));
     }
 }

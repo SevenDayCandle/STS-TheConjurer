@@ -18,7 +18,7 @@ public class Melt extends PCLCard
 {
     public static final PCLCardData DATA = register(Melt.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.RARE, PCLAttackType.Immaterial)
-            .setDamage(10, 1)
+            .setDamage(10, 3)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
             .setMaxCopies(2)
             .setCore();
@@ -31,6 +31,6 @@ public class Melt extends PCLCard
     public void setup(Object input)
     {
         addDamageMove(ConjurerEFK.MGC_PowerRelease);
-        addUseMove(CCond.combust(), PMultiSkill.join(PMove.loseHpPercent(PCLCardTarget.Single, 20).setUpgrade(5), PMove.selfExhaust()));
+        addUseMove(CCond.combust(), PMultiSkill.join(PMove.loseHpPercent(PCLCardTarget.Single, 15), PMove.selfExhaust()));
     }
 }
