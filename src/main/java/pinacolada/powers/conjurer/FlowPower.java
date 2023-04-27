@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import extendedui.utilities.ColoredString;
 import pinacolada.actions.PCLActions;
 import pinacolada.dungeon.CombatManager;
-import pinacolada.effects.SFX;
+import pinacolada.effects.PCLSFX;
 import pinacolada.interfaces.providers.DrawPileCardPreviewProvider;
 import pinacolada.powers.PCLPower;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -79,7 +79,7 @@ public class FlowPower extends PCLPower implements DrawPileCardPreviewProvider
     @Override
     public void playApplyPowerSfx()
     {
-        SFX.play(SFX.WIND, 0.95f, 1.05f);
+        PCLSFX.play(PCLSFX.WIND, 0.95f, 1.05f);
     }
 
     @Override

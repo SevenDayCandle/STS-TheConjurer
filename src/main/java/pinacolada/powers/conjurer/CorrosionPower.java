@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import pinacolada.actions.PCLActions;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.effects.SFX;
+import pinacolada.effects.PCLSFX;
 import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.utilities.GameUtilities;
@@ -36,7 +36,7 @@ public class CorrosionPower extends AbstractPCLElementalPower
     @Override
     public void playApplyPowerSfx()
     {
-        SFX.play(SFX.DARKLING_REGROW_2, 0.95f, 1.05f);
+        PCLSFX.play(PCLSFX.DARKLING_REGROW_2, 0.95f, 1.05f);
     }
 
     public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target)

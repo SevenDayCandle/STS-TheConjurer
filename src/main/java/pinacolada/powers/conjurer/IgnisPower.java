@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import pinacolada.actions.PCLActions;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.effects.SFX;
+import pinacolada.effects.PCLSFX;
 import pinacolada.misc.AffinityReactions;
 import pinacolada.monsters.PCLCardAlly;
 import pinacolada.resources.PCLEnum;
@@ -36,7 +36,7 @@ public class IgnisPower extends AbstractPCLElementalPower
     @Override
     public void playApplyPowerSfx()
     {
-        SFX.play(SFX.ATTACK_FIRE, 0.95f, 1.05f);
+        PCLSFX.play(PCLSFX.ATTACK_FIRE, 0.95f, 1.05f);
     }
 
     @Override

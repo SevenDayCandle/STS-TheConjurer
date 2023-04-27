@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import pinacolada.actions.PCLActions;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.effects.SFX;
+import pinacolada.effects.PCLSFX;
 import pinacolada.misc.AffinityReactions;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.PCLEnum;
@@ -36,7 +36,7 @@ public class PetraPower extends AbstractPCLElementalPower
     @Override
     public void playApplyPowerSfx()
     {
-        SFX.play(SFX.PCL_ORB_EARTH_CHANNEL, 0.95f, 1.05f);
+        PCLSFX.play(PCLSFX.PCL_ORB_EARTH_CHANNEL, 0.95f, 1.05f);
     }
 
     @Override

@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import extendedui.ui.EUIBase;
-import pinacolada.effects.SFX;
+import pinacolada.effects.PCLSFX;
 import pinacolada.effects.vfx.FadingParticleEffect;
 import pinacolada.effects.vfx.ScreenGradientEffect;
 import pinacolada.effects.vfx.SnowBurstEffect;
@@ -79,7 +79,7 @@ public class ConjurerCharacter extends PCLCharacter
     @Override
     public String getCustomModeCharacterButtonSoundKey()
     {
-        return SFX.ORB_FROST_EVOKE;
+        return PCLSFX.ORB_FROST_EVOKE;
     }
 
     @Override

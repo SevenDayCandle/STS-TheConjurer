@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import extendedui.utilities.ColoredString;
 import pinacolada.actions.PCLActions;
-import pinacolada.effects.SFX;
+import pinacolada.effects.PCLSFX;
 import pinacolada.interfaces.listeners.OnElementalDebuffListener;
 import pinacolada.interfaces.markers.MultiplicativePower;
 import pinacolada.powers.PCLPower;
@@ -69,8 +69,8 @@ public class ElementalExposurePower extends PCLPower implements OnElementalDebuf
     @Override
     public void playApplyPowerSfx()
     {
-        SFX.play(SFX.ATTACK_FIRE, 0.3f, 1.3f, 0.93f);
-        SFX.play(SFX.ORB_FROST_CHANNEL, 0.3f, 1.3f, 0.93f);
+        PCLSFX.play(PCLSFX.ATTACK_FIRE, 0.3f, 1.3f, 0.93f);
+        PCLSFX.play(PCLSFX.ORB_FROST_CHANNEL, 0.3f, 1.3f, 0.93f);
     }
 
     @Override

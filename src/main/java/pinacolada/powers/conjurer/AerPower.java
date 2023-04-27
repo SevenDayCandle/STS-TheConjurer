@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import pinacolada.actions.PCLActions;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.effects.SFX;
+import pinacolada.effects.PCLSFX;
 import pinacolada.misc.AffinityReactions;
 import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -35,7 +35,7 @@ public class AerPower extends AbstractPCLElementalPower
     @Override
     public void playApplyPowerSfx()
     {
-        SFX.play(SFX.WIND, 0.75f, 0.85f);
+        PCLSFX.play(PCLSFX.WIND, 0.75f, 0.85f);
     }
 
     @Override

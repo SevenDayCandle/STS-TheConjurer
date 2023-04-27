@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import extendedui.EUIUtils;
 import pinacolada.actions.PCLActions;
-import pinacolada.effects.SFX;
+import pinacolada.effects.PCLSFX;
 import pinacolada.powers.PCLSubscribingPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 
@@ -38,7 +38,7 @@ public class ElementalMasteryPower extends PCLSubscribingPower
     @Override
     public void playApplyPowerSfx()
     {
-        PCLActions.top.playSFX(SFX.HEAL_3);
+        PCLActions.top.playSFX(PCLSFX.HEAL_3);
     }
 
     @Override
