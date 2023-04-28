@@ -32,7 +32,7 @@ public class Present extends PCLCard {
     }
 
     public void action(PSpecialSkill move, PCLUseInfo info) {
-        AbstractCard random = GameUtilities.getRandomCard();
+        AbstractCard random = GameUtilities.getRandomCombatCard();
         if (random != null) {
             PCLActions.bottom.playCard(random, info.target)
                     .addCallback(() -> PCLActions.bottom.makeCardInDiscardPile(random.makeStatEquivalentCopy()));

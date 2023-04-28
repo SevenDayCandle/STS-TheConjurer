@@ -19,7 +19,7 @@ public class Yelan extends PCLCard {
     public static final PCLCardData DATA = register(Yelan.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE, PCLAttackType.Ranged)
             .setDamage(3, 0)
-            .setHp(7, 2)
+            .setHp(7, 1)
             .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
@@ -28,7 +28,7 @@ public class Yelan extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.WATER).setChain(PMod.perLevel(1, PCLAffinity.Blue).setUpgrade(1), PTrait.damage(1));
+        addDamageMove(PCLAttackVFX.WATER).setChain(PMod.perLevel(1, PCLAffinity.Blue), PTrait.damage(1).setUpgrade(1));
         addUseMove(PCond.onSummon(), PMove.draw(1));
     }
 }

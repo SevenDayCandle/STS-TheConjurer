@@ -2,7 +2,6 @@ package pinacolada.cards.conjurer.colorless;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import extendedui.utilities.GenericCondition;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
@@ -35,9 +34,9 @@ public class Discovery extends PCLCard {
 
     public void action(PSpecialSkill move, PCLUseInfo info) {
         CardGroup choices = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-        RandomizedList<AbstractCard> unseenCards = new RandomizedList<>(GameUtilities.getAvailableCards(GenericCondition.fromT1(c -> !c.isSeen && GameUtilities.isObtainableInCombat(c))));
+        RandomizedList<AbstractCard> unseenCards = new RandomizedList<>(GameUtilities.getAvailableCards((c -> !c.isSeen && GameUtilities.isObtainableInCombat(c))));
         if (unseenCards.size() < move.extra) {
-            unseenCards.addAll(GameUtilities.getAvailableCards(GenericCondition.fromT1(c -> c.isSeen)));
+            unseenCards.addAll(GameUtilities.getAvailableCards((c -> c.isSeen)));
         }
 
         while (choices.size() < move.extra && !unseenCards.isEmpty()) {
