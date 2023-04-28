@@ -16,57 +16,47 @@ import pinacolada.ui.combat.ConjurerReactionMeter;
 import pinacolada.utilities.GameUtilities;
 
 @VisibleCard
-public class SheerCold extends PCLCard
-{
+public class SheerCold extends PCLCard {
     public static final PCLCardData DATA = register(SheerCold.class, ConjurerResources.conjurer)
             .setPower(3, CardRarity.RARE)
             .setAffinities(2, PCLAffinity.Blue)
             .setCostUpgrades(-1)
             .setCore();
 
-    public SheerCold()
-    {
+    public SheerCold() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addSpecialPower(0, (s, i) -> new SheerColdPower(i.source, s), 1).setUpgrade(1);
     }
 
-    public static class SheerColdPower extends PSpecialCardPower
-    {
-        public SheerColdPower(AbstractCreature owner, PSkill<?> move)
-        {
+    public static class SheerColdPower extends PSpecialCardPower {
+        public SheerColdPower(AbstractCreature owner, PSkill<?> move) {
             super(SheerCold.DATA, owner, move);
         }
 
         @Override
-        public void onInitialApplication()
-        {
+        public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
+            super.onApplyPower(power, target, source);
+            if (power instanceof FrostbitePower) {
+                ((FrostbitePower) power).expanded = true;
+            }
+        }
+
+        @Override
+        public void onInitialApplication() {
             super.onInitialApplication();
 
             PCLActions.bottom.playVFX(new ScreenFreezingEffect());
             PCLActions.bottom.callback(() -> {
                 ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Blue).addAdditionalPower(FrostbitePower.POWER_ID);
-                for (AbstractPower po : GameUtilities.getPowers(FrostbitePower.POWER_ID))
-                {
-                    if (po instanceof FrostbitePower)
-                    {
+                for (AbstractPower po : GameUtilities.getPowers(FrostbitePower.POWER_ID)) {
+                    if (po instanceof FrostbitePower) {
                         ((FrostbitePower) po).expanded = true;
                     }
                 }
             });
-        }
-
-        @Override
-        public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source)
-        {
-            super.onApplyPower(power, target, source);
-            if (power instanceof FrostbitePower)
-            {
-                ((FrostbitePower) power).expanded = true;
-            }
         }
     }
 }

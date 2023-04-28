@@ -13,8 +13,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Amber extends PCLCard
-{
+public class Amber extends PCLCard {
     public static final PCLCardData DATA = register(Amber.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Ranged)
             .setDamage(2, 0)
@@ -22,13 +21,11 @@ public class Amber extends PCLCard
             .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public Amber()
-    {
+    public Amber() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
         addUseMove(PCond.cooldown(0), PMove.scout(1).setUpgrade(1));
     }

@@ -1,7 +1,6 @@
 package pinacolada.effects;
 
-public class ConjurerEFK extends EffekseerEFK
-{
+public class ConjurerEFK extends EffekseerEFK {
     public static final ConjurerEFK EVFX02_02_TwinEdge = new ConjurerEFK("effects/EVFX02_02_TwinEdge.efk");
     public static final ConjurerEFK EVFX02_09_EruptionClaw = new ConjurerEFK("effects/EVFX02_09_EruptionClaw.efk");
     public static final ConjurerEFK EVFX02_11_QuickBlade = new ConjurerEFK("effects/EVFX02_11_QuickBlade.efk");
@@ -55,13 +54,11 @@ public class ConjurerEFK extends EffekseerEFK
     public static final ConjurerEFK MGC_HealingSpell_LV2 = new ConjurerEFK("effects/MGC_HealingSpell_LV2.efk");
     public static final ConjurerEFK MGC_HealingSpell_LV3 = new ConjurerEFK("effects/MGC_HealingSpell_LV3.efk");
 
-    public ConjurerEFK(String path)
-    {
+    public ConjurerEFK(String path) {
         super(path);
     }
 
-    public ConjurerEFK(String id, String path)
-    {
+    public ConjurerEFK(String id, String path) {
         super(id, path);
     }
 }

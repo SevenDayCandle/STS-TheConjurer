@@ -14,8 +14,7 @@ import pinacolada.skills.skills.PSpecialSkill;
 import pinacolada.utilities.GameUtilities;
 
 @VisibleCard
-public class Present extends PCLCard
-{
+public class Present extends PCLCard {
     public static final PCLCardData DATA = register(Present.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.RARE, PCLCardTarget.Single)
             .setTags(PCLCardTag.Exhaust)
@@ -23,22 +22,18 @@ public class Present extends PCLCard
             .setCostUpgrades(-1)
             .setColorless();
 
-    public Present()
-    {
+    public Present() {
         super(DATA);
     }
 
     @Override
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addSpecialMove(0, this::action, 1);
     }
 
-    public void action(PSpecialSkill move, PCLUseInfo info)
-    {
+    public void action(PSpecialSkill move, PCLUseInfo info) {
         AbstractCard random = GameUtilities.getRandomCard();
-        if (random != null)
-        {
+        if (random != null) {
             PCLActions.bottom.playCard(random, info.target)
                     .addCallback(() -> PCLActions.bottom.makeCardInDiscardPile(random.makeStatEquivalentCopy()));
         }

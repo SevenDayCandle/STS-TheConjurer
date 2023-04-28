@@ -14,21 +14,18 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class FlameFallUponThem extends PCLCard
-{
+public class FlameFallUponThem extends PCLCard {
     public static final PCLCardData DATA = register(FlameFallUponThem.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.COMMON, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
             .setDamage(13, 2)
             .setAffinities(PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
-    public FlameFallUponThem()
-    {
+    public FlameFallUponThem() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SMALL_EXPLOSION);
         addUseMove(PMove.applyToEnemies(2, PCLElementHelper.Ignis).setUpgrade(1));
     }

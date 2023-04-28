@@ -14,8 +14,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Keqing extends PCLCard
-{
+public class Keqing extends PCLCard {
     public static final PCLCardData DATA = register(Keqing.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Piercing)
             .setDamage(2, 1, 2)
@@ -23,13 +22,11 @@ public class Keqing extends PCLCard
             .setAffinities(PCLAffinity.Green, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public Keqing()
-    {
+    public Keqing() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.DAGGER);
         addUseMove(PCond.onWithdraw(),
                 PMove.fetch(1, PCLCardGroupHelper.DrawPile).edit(f -> f.setAffinity(PCLAffinity.Green)));

@@ -9,34 +9,28 @@ import pinacolada.skills.fields.PField_Empty;
 import pinacolada.skills.skills.base.moves.PMove_Gain;
 import pinacolada.ui.combat.ConjurerReactionMeter;
 
-public class PMove_GainReaction extends PMove_Gain
-{
+public class PMove_GainReaction extends PMove_Gain {
     public static final PSkillData<PField_Empty> DATA = register(PMove_GainReaction.class, PField_Empty.class, ConjurerEnum.Cards.THE_CONJURER);
 
-    public PMove_GainReaction()
-    {
+    public PMove_GainReaction() {
         this(1);
     }
 
-    public PMove_GainReaction(PSkillSaveData content)
-    {
-        super(DATA, content);
-    }
-
-    public PMove_GainReaction(int amount)
-    {
+    public PMove_GainReaction(int amount) {
         super(DATA, amount);
     }
 
+    public PMove_GainReaction(PSkillSaveData content) {
+        super(DATA, content);
+    }
+
     @Override
-    public String gainText()
-    {
+    public String gainText() {
         return ConjurerResources.conjurer.tooltips.reaction.title;
     }
 
     @Override
-    public void use(PCLUseInfo info)
-    {
+    public void use(PCLUseInfo info) {
         getActions().callback(() -> ConjurerReactionMeter.meter.addCount(amount, true));
         super.use(info);
     }

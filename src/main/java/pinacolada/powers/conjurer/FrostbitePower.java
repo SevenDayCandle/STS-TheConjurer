@@ -9,22 +9,33 @@ import pinacolada.powers.PCLPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.utilities.PCLRenderHelpers;
 
-public class FrostbitePower extends PCLPower
-{
+public class FrostbitePower extends PCLPower {
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, FrostbitePower.class);
     public static final Color healthBarColor = Color.SKY.cpy();
     public boolean expanded;
 
-    public FrostbitePower(AbstractCreature owner, int amount)
-    {
+    public FrostbitePower(AbstractCreature owner, int amount) {
         super(owner, POWER_ID);
 
         initialize(amount, PowerType.DEBUFF, true);
     }
 
     @Override
-    public void playApplyPowerSfx()
-    {
+    public String getUpdatedDescription() {
+        return formatDescription(0, PCLRenderHelpers.decimalFormat(getPotency()), getDecrease());
+    }
+
+    @Override
+    public float modifyOrbIncoming(float inital) {
+        return expanded ? super.modifyOrbIncoming(inital) + getPotency() : super.modifyOrbIncoming(inital);
+    }
+
+    public int getDecrease() {
+        return MathUtils.ceil(amount * 0.75f);
+    }
+
+    @Override
+    public void playApplyPowerSfx() {
         PCLSFX.play(PCLSFX.ORB_FROST_DEFEND_1, 0.95f, 1.05f);
     }
 
@@ -35,39 +46,19 @@ public class FrostbitePower extends PCLPower
 
     @Override
     public float atDamageReceive(float damage, DamageInfo.DamageType type) {
-        return super.atDamageReceive((expanded || type == DamageInfo.DamageType.NORMAL) ? damage + getPotency(): damage, type);
+        return super.atDamageReceive((expanded || type == DamageInfo.DamageType.NORMAL) ? damage + getPotency() : damage, type);
     }
 
     @Override
-    public float modifyOrbIncoming(float inital)
-    {
-        return expanded ? super.modifyOrbIncoming(inital) + getPotency() : super.modifyOrbIncoming(inital);
-    }
-
-    @Override
-    public String getUpdatedDescription()
-    {
-        return formatDescription(0, PCLRenderHelpers.decimalFormat(getPotency()), getDecrease());
-    }
-
-    public float getPotency()
-    {
-        return this.amount / 10f;
-    }
-
-    @Override
-    public void atEndOfRound()
-    {
+    public void atEndOfRound() {
         super.atEndOfRound();
         reducePower(getDecrease());
-        if (amount <= 0)
-        {
+        if (amount <= 0) {
             removePower();
         }
     }
 
-    public int getDecrease()
-    {
-        return MathUtils.ceil(amount * 0.75f);
+    public float getPotency() {
+        return this.amount / 10f;
     }
 }

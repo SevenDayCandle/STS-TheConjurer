@@ -14,8 +14,7 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.base.conditions.PCond_OnAllyDeath;
 
 @VisibleCard
-public class BarbaraPegg extends PCLCard
-{
+public class BarbaraPegg extends PCLCard {
     public static final PCLCardData DATA = register(BarbaraPegg.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Immaterial, PCLCardTarget.AllEnemy)
             .setDamage(1, 2)
@@ -23,13 +22,11 @@ public class BarbaraPegg extends PCLCard
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public BarbaraPegg()
-    {
+    public BarbaraPegg() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.WATER);
         addUseMove(new PCond_OnAllyDeath(), PMove.heal(PCLCardTarget.Team, 8));
     }

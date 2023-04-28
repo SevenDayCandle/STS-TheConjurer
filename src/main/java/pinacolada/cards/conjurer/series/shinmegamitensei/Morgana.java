@@ -13,8 +13,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Morgana extends PCLCard
-{
+public class Morgana extends PCLCard {
     public static final PCLCardData DATA = register(Morgana.class, ConjurerResources.conjurer)
             .setSummon(0, CardRarity.COMMON)
             .setDamage(2, 1)
@@ -22,13 +21,11 @@ public class Morgana extends PCLCard
             .setAffinities(PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public Morgana()
-    {
+    public Morgana() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
         addUseMove(PCond.cooldown(1),
                 PMove.scout(1).edit(f -> f.setType(PCLEnum.CardType.SUMMON)));

@@ -15,8 +15,7 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
-public class Teddie extends PCLCard
-{
+public class Teddie extends PCLCard {
     public static final PCLCardData DATA = register(Teddie.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy)
             .setDamage(2, 1)
@@ -24,13 +23,11 @@ public class Teddie extends PCLCard
             .setAffinities(1, PCLAffinity.Star)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei, true);
 
-    public Teddie()
-    {
+    public Teddie() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SPARK);
         addGainPower(PTrigger.interactable(
                 PCond.payEnergy(1),

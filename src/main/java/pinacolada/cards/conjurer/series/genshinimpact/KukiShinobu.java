@@ -15,8 +15,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class KukiShinobu extends PCLCard
-{
+public class KukiShinobu extends PCLCard {
     public static final PCLCardData DATA = register(KukiShinobu.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy)
             .setDamage(2, 0, 2)
@@ -24,13 +23,11 @@ public class KukiShinobu extends PCLCard
             .setAffinities(PCLAffinity.Green, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public KukiShinobu()
-    {
+    public KukiShinobu() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.DAGGER);
         addUseMove(PCond.cooldown(0), PMove.discardRandom(1), PMove.applyToRandom(5, PCLPowerHelper.Poison).setUpgrade(2));
     }

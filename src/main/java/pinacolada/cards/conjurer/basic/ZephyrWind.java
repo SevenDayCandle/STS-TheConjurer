@@ -11,20 +11,17 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class ZephyrWind extends PCLCard
-{
+public class ZephyrWind extends PCLCard {
     public static final PCLCardData DATA = register(ZephyrWind.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.COMMON, PCLCardTarget.AllEnemy)
             .setAffinities(1, PCLAffinity.Green)
             .setCore();
 
-    public ZephyrWind()
-    {
+    public ZephyrWind() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addUseMove(PMove.draw(2).setUpgrade(1));
         addUseMove(PMove.applyToEnemies(3, PCLElementHelper.Aer).setUpgrade(1));
     }

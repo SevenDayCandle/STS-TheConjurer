@@ -16,8 +16,7 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.PTrait;
 
 @VisibleCard
-public class Tigrex extends PCLCard
-{
+public class Tigrex extends PCLCard {
     public static final PCLCardData DATA = register(Tigrex.class, ConjurerResources.conjurer)
             .setSummon(3, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
             .setDamage(4, 1, 0)
@@ -25,13 +24,11 @@ public class Tigrex extends PCLCard
             .setAffinities(PCLAffinity.Red, PCLAffinity.Orange)
             .setColorless();
 
-    public Tigrex()
-    {
+    public Tigrex() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BITE).setChain(PMod.perCard(1, PCLCardGroupHelper.ExhaustPile), PTrait.damage(1));
         addUseMove(PCond.cooldown(0), PCond.exhaustRandom(1), PMove.gainTempHP(PCLCardTarget.Team, 2));
     }

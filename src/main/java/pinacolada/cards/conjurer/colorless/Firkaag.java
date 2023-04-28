@@ -15,8 +15,7 @@ import pinacolada.skills.PMod;
 import pinacolada.skills.PTrait;
 
 @VisibleCard
-public class Firkaag extends PCLCard
-{
+public class Firkaag extends PCLCard {
     public static final PCLCardData DATA = register(Firkaag.class, ConjurerResources.conjurer)
             .setSummon(3, CardRarity.RARE, PCLAttackType.Piercing, PCLCardTarget.AllEnemy)
             .setDamage(13, 0)
@@ -24,13 +23,11 @@ public class Firkaag extends PCLCard
             .setAffinities(1, PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.touhouProject, true);
 
-    public Firkaag()
-    {
+    public Firkaag() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.FIRE).setBonus(PMod.perCardPlayed(1), 3, 1);
         addUseMove(PCond.havePlayed(35).edit(f -> f.setNot(true).setForced(true)), PTrait.unplayable());
     }

@@ -13,8 +13,7 @@ import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class MayumiJoutouguu extends PCLCard
-{
+public class MayumiJoutouguu extends PCLCard {
     public static final PCLCardData DATA = register(MayumiJoutouguu.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Normal)
             .setDamage(2, 0)
@@ -22,13 +21,11 @@ public class MayumiJoutouguu extends PCLCard
             .setAffinities(PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.touhouProject);
 
-    public MayumiJoutouguu()
-    {
+    public MayumiJoutouguu() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
         addUseMove(CCond.redox(), PMove.gainBlockPlayer(3).setUpgrade(1));
     }

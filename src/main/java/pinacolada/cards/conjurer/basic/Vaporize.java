@@ -13,21 +13,18 @@ import pinacolada.skills.CMod;
 import pinacolada.skills.PTrait;
 
 @VisibleCard
-public class Vaporize extends PCLCard
-{
+public class Vaporize extends PCLCard {
     public static final PCLCardData DATA = register(Vaporize.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.COMMON, PCLAttackType.Piercing)
             .setDamage(7, 3)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
             .setCore();
 
-    public Vaporize()
-    {
+    public Vaporize() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove()
                 .setDamageEffect(EffekseerEFK.SWORD18)
                 .setChain(CMod.perElement(PCLCardTarget.Single, 1, PCLAffinity.Red), PTrait.damage(1));

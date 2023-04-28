@@ -3,28 +3,25 @@ package pinacolada.resources.conjurer;
 import extendedui.ui.TextureCache;
 import pinacolada.resources.PCLImages;
 
-public class ConjurerImages extends PCLImages
-{
+public class ConjurerImages extends PCLImages {
     public final Core core = new Core();
     public final Monsters monsters = new Monsters();
 
-    public ConjurerImages(String id)
-    {
+    public ConjurerImages(String id) {
         super(id);
     }
 
-    public static class Core
-    {
+    public static class Core {
         public final TextureCache elementAir = new TextureCache("images/conjurer/ui/core/Element_Air.png");
         public final TextureCache elementDark = new TextureCache("images/conjurer/ui/core/Element_Dark.png");
         public final TextureCache elementEarth = new TextureCache("images/conjurer/ui/core/Element_Earth.png");
         public final TextureCache elementFire = new TextureCache("images/conjurer/ui/core/Element_Fire.png");
         public final TextureCache elementLight = new TextureCache("images/conjurer/ui/core/Element_Light.png");
         public final TextureCache elementWater = new TextureCache("images/conjurer/ui/core/Element_Water.png");
+        public final TextureCache squareBg = new TextureCache("images/conjurer/ui/core/SquareBG.png");
     }
 
-    public static class Monsters
-    {
+    public static class Monsters {
         public final TextureCache airCloud1 = new TextureCache("images/conjurer/monsters/AirCloud1.png");
         public final TextureCache airCloud2 = new TextureCache("images/conjurer/monsters/AirCloud2.png");
         public final TextureCache air1 = new TextureCache("images/conjurer/monsters/Air1.png");

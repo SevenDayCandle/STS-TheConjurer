@@ -11,11 +11,11 @@ import extendedui.EUIUtils;
 import extendedui.utilities.ColoredString;
 import pinacolada.actions.PCLActions;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.dungeon.CombatManager;
 import pinacolada.interfaces.listeners.OnElementalDebuffListener;
 import pinacolada.interfaces.markers.MultiplicativePower;
 import pinacolada.interfaces.markers.StablizingPower;
 import pinacolada.misc.AffinityReactions;
-import pinacolada.dungeon.CombatManager;
 import pinacolada.powers.PCLPower;
 import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -27,8 +27,7 @@ import pinacolada.utilities.PCLRenderHelpers;
 import java.util.HashMap;
 import java.util.Set;
 
-public abstract class AbstractPCLElementalPower extends PCLPower implements MultiplicativePower, StablizingPower
-{
+public abstract class AbstractPCLElementalPower extends PCLPower implements MultiplicativePower, StablizingPower {
     public static final int BASE_DAMAGE_MULTIPLIER = 30;
     public static final int DEFAULT_COMBUST_INCREASE = BASE_DAMAGE_MULTIPLIER / 2;
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, AbstractPCLElementalPower.class);
@@ -37,8 +36,7 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Mult
     public static final HashMap<String, Integer> DENOMINATORS = new HashMap<>();
     public int stabilizeTurns;
 
-    public AbstractPCLElementalPower(AbstractCreature owner, AbstractCreature source, String id, int amount)
-    {
+    public AbstractPCLElementalPower(AbstractCreature owner, AbstractCreature source, String id, int amount) {
         super(owner, id);
 
         this.source = source;
@@ -46,23 +44,11 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Mult
         initialize(amount, PowerType.DEBUFF, false);
     }
 
-    public static float getAmplifyMultiplier(PCLAffinity affinity)
-    {
-        return getAmplifyMultiplier(affinity, CombatManager.playerSystem.getLevel(affinity),1);
+    public static float getAmplifyMultiplier(PCLAffinity affinity) {
+        return getAmplifyMultiplier(affinity, CombatManager.playerSystem.getLevel(affinity), 1);
     }
 
-    public static float getAmplifyMultiplier(PCLAffinity affinity, float modifier)
-    {
-        return getAmplifyMultiplier(affinity, CombatManager.playerSystem.getLevel(affinity), modifier);
-    }
-
-    public static float getAmplifyMultiplier(PCLAffinity affinity, int level)
-    {
-        return getAmplifyMultiplier(affinity, level, 1);
-    }
-
-    public static float getAmplifyMultiplier(PCLAffinity affinity, int level, float modifier)
-    {
+    public static float getAmplifyMultiplier(PCLAffinity affinity, int level, float modifier) {
         return (getAmplifyMultiplierForLevel(level)) * modifier;
     }
 
@@ -70,23 +56,19 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Mult
         return BASE_DAMAGE_MULTIPLIER + DEFAULT_COMBUST_INCREASE * level;
     }
 
-    public static float getIntensifyMultiplier(String powerID)
-    {
-        return getIntensifyMultiplier(powerID, CombatManager.playerSystem.getLevel(AFFINITIES.get(powerID)),1);
+    public static float getAmplifyMultiplier(PCLAffinity affinity, float modifier) {
+        return getAmplifyMultiplier(affinity, CombatManager.playerSystem.getLevel(affinity), modifier);
     }
 
-    public static float getIntensifyMultiplier(String powerID, float modifier)
-    {
-        return getIntensifyMultiplier(powerID, CombatManager.playerSystem.getLevel(AFFINITIES.get(powerID)), modifier);
+    public static float getAmplifyMultiplier(PCLAffinity affinity, int level) {
+        return getAmplifyMultiplier(affinity, level, 1);
     }
 
-    public static float getIntensifyMultiplier(String powerID, int level)
-    {
-        return getIntensifyMultiplier(powerID, level, 1);
+    public static float getIntensifyMultiplier(String powerID) {
+        return getIntensifyMultiplier(powerID, CombatManager.playerSystem.getLevel(AFFINITIES.get(powerID)), 1);
     }
 
-    public static float getIntensifyMultiplier(String powerID, int level, float modifier)
-    {
+    public static float getIntensifyMultiplier(String powerID, int level, float modifier) {
         return (getIntensifyMultiplierForLevel(powerID, level) + CombatManager.getEffectBonus(powerID)) * modifier;
     }
 
@@ -100,77 +82,46 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Mult
         return base + increase;
     }
 
-    public static PCLAffinity setAffinity(String id, PCLAffinity affinity)
-    {
+    public static float getIntensifyMultiplier(String powerID, int level) {
+        return getIntensifyMultiplier(powerID, level, 1);
+    }
+
+    public static PCLAffinity setAffinity(String id, PCLAffinity affinity) {
         AFFINITIES.put(id, affinity);
         return affinity;
     }
 
-    public static int setTop(String id, int multiplier)
-    {
-        DENOMINATORS.put(id, multiplier);
-        return multiplier;
-    }
-
-    public static int setMultiplier(String id, int multiplier)
-    {
+    public static int setMultiplier(String id, int multiplier) {
         MULTIPLIERS.put(id, multiplier);
         return multiplier;
     }
 
-    public PCLAffinity getAffinity()
-    {
+    public static int setTop(String id, int multiplier) {
+        DENOMINATORS.put(id, multiplier);
+        return multiplier;
+    }
+
+    @Override
+    public void atEndOfRound() {
+        super.atEndOfRound();
+        if (stabilizeTurns > 0) {
+            stabilizeTurns -= 1;
+        }
+        else {
+            removePower(PCLActions.instant);
+        }
+    }
+
+    public PCLAffinity getAffinity() {
         return AFFINITIES.get(ID);
     }
 
-    protected float getElementalMultiplier()
-    {
-        float mult = 1;
-        if (owner != null && owner.powers != null)
-        {
-            for (AbstractPower po : owner.powers)
-            {
-                if (po instanceof OnElementalDebuffListener)
-                {
-                    mult = ((OnElementalDebuffListener) po).getPercentage(mult, this, owner);
-                }
-            }
-        }
-        return mult;
-    }
-
-    public float getIntensifyMultiplier()
-    {
-        if (GameUtilities.isPlayer(owner))
-        {
-            return MULTIPLIERS.get(ID);
-        }
-        return getIntensifyMultiplier(ID, getElementalMultiplier());
-    }
-
-    public float calculateValue(int amount, float multiplier)
-    {
-        return amount + MathUtils.ceil(amount * (multiplier / 100f));
-    }
+    public abstract AbstractGameAction.AttackEffect getAttackEffect();
 
     @Override
-    protected ColoredString getPrimaryAmount(Color c)
-    {
-        return new ColoredString(amount, stabilizeTurns > 0 ? Settings.BLUE_TEXT_COLOR : Color.WHITE, c.a);
-    }
-
-    @Override
-    protected ColoredString getSecondaryAmount(Color c)
-    {
-        return ConjurerReactionMeter.meter.isHighlighted() ? new ColoredString((int) calculateValue(ConjurerReactionMeter.meter.getPreviewGain(), getIntensifyMultiplier()), Color.GREEN, c.a) : new ColoredString((int) getIntensifyMultiplier(), Color.RED, c.a);
-    }
-
-    @Override
-    public String getUpdatedDescription()
-    {
+    public String getUpdatedDescription() {
         String sub = getUpdatedDescriptionImpl();
-        if (PGR.isLoaded())
-        {
+        if (PGR.isLoaded()) {
             final PowerStrings strings = PGR.getPowerStrings(POWER_ID);
             Set<PCLAffinity> affs = ConjurerReactionMeter.meter.getElementButton(getAffinity()).getCombustAffinities();
             Set<PCLAffinity> rAffs = ConjurerReactionMeter.meter.getElementButton(getAffinity()).getRedoxAffinities();
@@ -187,38 +138,57 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Mult
     }
 
     @Override
-    public void onInitialApplication()
-    {
-        super.onInitialApplication();
-    }
-
-    public void stabilize(int turns)
-    {
-        stabilizeTurns += turns;
-        flash();
-    }
-
-    protected String getUpdatedDescriptionImpl()
-    {
-        return formatDescription(0, PCLRenderHelpers.decimalFormat(getIntensifyMultiplier()));
+    protected ColoredString getPrimaryAmount(Color c) {
+        return new ColoredString(amount, stabilizeTurns > 0 ? Settings.BLUE_TEXT_COLOR : Color.WHITE, c.a);
     }
 
     @Override
-    public void atEndOfRound()
-    {
-        super.atEndOfRound();
-        if (stabilizeTurns > 0) {
-            stabilizeTurns -= 1;
-        }
-        else {
-            removePower(PCLActions.instant);
-        }
+    protected ColoredString getSecondaryAmount(Color c) {
+        return ConjurerReactionMeter.meter.isHighlighted() ? new ColoredString((int) calculateValue(ConjurerReactionMeter.meter.getPreviewGain(), getIntensifyMultiplier()), Color.GREEN, c.a) : new ColoredString((int) getIntensifyMultiplier(), Color.RED, c.a);
     }
 
-    public void onReact(AbstractCreature source, AffinityReactions reactions, int amount)
-    {
+    public float calculateValue(int amount, float multiplier) {
+        return amount + MathUtils.ceil(amount * (multiplier / 100f));
+    }
+
+    public float getIntensifyMultiplier() {
+        if (GameUtilities.isPlayer(owner)) {
+            return MULTIPLIERS.get(ID);
+        }
+        return getIntensifyMultiplier(ID, getElementalMultiplier());
+    }
+
+    public static float getIntensifyMultiplier(String powerID, float modifier) {
+        return getIntensifyMultiplier(powerID, CombatManager.playerSystem.getLevel(AFFINITIES.get(powerID)), modifier);
+    }
+
+    protected float getElementalMultiplier() {
+        float mult = 1;
+        if (owner != null && owner.powers != null) {
+            for (AbstractPower po : owner.powers) {
+                if (po instanceof OnElementalDebuffListener) {
+                    mult = ((OnElementalDebuffListener) po).getPercentage(mult, this, owner);
+                }
+            }
+        }
+        return mult;
+    }
+
+    @Override
+    public void onInitialApplication() {
+        super.onInitialApplication();
+    }
+
+    protected String getUpdatedDescriptionImpl() {
+        return formatDescription(0, PCLRenderHelpers.decimalFormat(getIntensifyMultiplier()));
+    }
+
+    public void onReact(AbstractCreature source, AffinityReactions reactions, int amount) {
         flash();
     }
 
-    public abstract AbstractGameAction.AttackEffect getAttackEffect();
+    public void stabilize(int turns) {
+        stabilizeTurns += turns;
+        flash();
+    }
 }

@@ -13,8 +13,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.skills.PSpecialSkill;
 
 @VisibleCard
-public class ChemicalSynthesis extends PCLCard
-{
+public class ChemicalSynthesis extends PCLCard {
     public static final PCLCardData DATA = register(ChemicalSynthesis.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.Single)
             .setAffinities(PCLAffinity.Blue)
@@ -22,23 +21,18 @@ public class ChemicalSynthesis extends PCLCard
             .setCostUpgrades(-1)
             .setColorless();
 
-    public ChemicalSynthesis()
-    {
+    public ChemicalSynthesis() {
         super(DATA);
     }
 
     @Override
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addSpecialMove(0, this::action, 2, 2);
     }
 
-    public void action(PSpecialSkill move, PCLUseInfo info)
-    {
-        for (AbstractPotion potion : player.potions)
-        {
-            if (potion != null && potion.canUse())
-            {
+    public void action(PSpecialSkill move, PCLUseInfo info) {
+        for (AbstractPotion potion : player.potions) {
+            if (potion != null && potion.canUse()) {
                 PCLActions.bottom.usePotion(potion, info.target, move.amount);
                 return;
             }

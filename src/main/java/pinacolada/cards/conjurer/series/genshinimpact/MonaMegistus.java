@@ -15,8 +15,7 @@ import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class MonaMegistus extends PCLCard
-{
+public class MonaMegistus extends PCLCard {
     public static final PCLCardData DATA = register(MonaMegistus.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Immaterial)
             .setDamage(3, 1)
@@ -24,13 +23,11 @@ public class MonaMegistus extends PCLCard
             .setAffinities(2, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public MonaMegistus()
-    {
+    public MonaMegistus() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.WATER);
         addUseMove(PCond.cooldown(0), PMod.scryPer(1).setUpgrade(1), PMove.applyToEnemies(2, PCLElementHelper.Gelus));
     }

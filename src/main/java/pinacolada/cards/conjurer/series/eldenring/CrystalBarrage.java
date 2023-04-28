@@ -13,21 +13,18 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMod;
 
 @VisibleCard
-public class CrystalBarrage extends PCLCard
-{
+public class CrystalBarrage extends PCLCard {
     public static final PCLCardData DATA = register(CrystalBarrage.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.UNCOMMON, PCLAttackType.Ranged)
             .setDamage(10, 0)
             .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
-    public CrystalBarrage()
-    {
+    public CrystalBarrage() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.ICE).setBonus(PMod.perPowerSingle(1, PCLElementHelper.Blasted), 1, 1);
     }
 }

@@ -16,8 +16,7 @@ import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Ganyu extends PCLCard
-{
+public class Ganyu extends PCLCard {
     public static final PCLCardData DATA = register(Ganyu.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE, PCLAttackType.Ranged)
             .setRTags(PCLCardTag.Ethereal)
@@ -26,13 +25,11 @@ public class Ganyu extends PCLCard
             .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public Ganyu()
-    {
+    public Ganyu() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.ICE);
         addUseMove(PCond.cooldown(1), PMod.bonusPerPowerSingle(1, PCLElementHelper.Gelus), PMove.applyToSingle(2, PCLElementHelper.Gelus));
     }

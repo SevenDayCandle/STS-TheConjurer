@@ -14,27 +14,18 @@ import pinacolada.monsters.animations.PCLAllyAnimation;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.utilities.PCLRenderHelpers;
 
-public class ConjurerFireAllyAnimation extends PCLAllyAnimation
-{
+public class ConjurerFireAllyAnimation extends PCLAllyAnimation {
     public static final float RADIUS = 320;
 
-    public ConjurerFireAllyAnimation(PCLCreature creature)
-    {
+    public ConjurerFireAllyAnimation(PCLCreature creature) {
         super(creature);
     }
 
-    public void updateImpl(float deltaTime, float x, float y)
-    {
-        PCLEffects.Queue.add(new FadingParticleEffect(FireIgniteEffect.getRandomTexture(), x + MathUtils.random(-64, 64), y + MathUtils.random(-32, 4))
-                .setBlendingMode(PCLRenderHelpers.BlendingMode.Glowing)
-                .setFlip(MathUtils.randomBoolean(), false)
-                .setScale(MathUtils.random(0.25f, 0.63f))
-                .setRotation(0, MathUtils.random(400f, 600f))
-                .setTargetPosition(x, y + RADIUS, 100f)).setDuration(0.7f, false);
+    public void playActAnimation(float x, float y) {
+        PCLEffects.TopLevelQueue.add(VFX.circularWave(x, y).setScale(0.25f, 12f).setColors(Color.WHITE, Color.RED));
     }
 
-    public void renderSprite(SpriteBatch sb, float x, float y)
-    {
+    public void renderSprite(SpriteBatch sb, float x, float y) {
         sb.setColor(this.renderColor);
         float scaleExt = owner.getBobEffect().y / (Settings.scale * 455f);
         float scaleInt = -(owner.getBobEffect().y / (Settings.scale * 550f));
@@ -57,8 +48,12 @@ public class ConjurerFireAllyAnimation extends PCLAllyAnimation
         sb.setColor(Color.WHITE);
     }
 
-    public void playActAnimation(float x, float y)
-    {
-        PCLEffects.TopLevelQueue.add(VFX.circularWave(x, y).setScale(0.25f, 12f).setColors(Color.WHITE, Color.RED));
+    public void updateImpl(float deltaTime, float x, float y) {
+        PCLEffects.Queue.add(new FadingParticleEffect(FireIgniteEffect.getRandomTexture(), x + MathUtils.random(-64, 64), y + MathUtils.random(-32, 4))
+                .setBlendingMode(PCLRenderHelpers.BlendingMode.Glowing)
+                .setFlip(MathUtils.randomBoolean(), false)
+                .setScale(MathUtils.random(0.25f, 0.63f))
+                .setRotation(0, MathUtils.random(400f, 600f))
+                .setTargetPosition(x, y + RADIUS, 100f)).setDuration(0.7f, false);
     }
 }

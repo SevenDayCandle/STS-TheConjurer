@@ -14,8 +14,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMod;
 
 @VisibleCard
-public class LisaMinci extends PCLCard
-{
+public class LisaMinci extends PCLCard {
     public static final PCLCardData DATA = register(LisaMinci.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.COMMON, PCLAttackType.Immaterial)
             .setDamage(3, 0)
@@ -23,13 +22,11 @@ public class LisaMinci extends PCLCard
             .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public LisaMinci()
-    {
+    public LisaMinci() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.LIGHTNING);
         addUseMove(PCond.cooldown(1), PMod.scryPer(2), CMove.gainReaction(6).setUpgrade(1));
     }

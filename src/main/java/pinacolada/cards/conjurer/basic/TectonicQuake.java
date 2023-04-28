@@ -15,8 +15,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class TectonicQuake extends PCLCard
-{
+public class TectonicQuake extends PCLCard {
     public static final PCLCardData DATA = register(TectonicQuake.class, ConjurerResources.conjurer)
             .setAttack(3, CardRarity.RARE, PCLAttackType.Normal, PCLCardTarget.AllEnemy)
             .setTags(PCLCardTag.Exhaust)
@@ -24,13 +23,11 @@ public class TectonicQuake extends PCLCard
             .setAffinities(2, PCLAffinity.Orange)
             .setCore();
 
-    public TectonicQuake()
-    {
+    public TectonicQuake() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove().setDamageEffect(ConjurerEFK.MGC_EarthSpell_LV3);
         addUseMove(PMove.applyToEnemies(3, PCLElementHelper.Petra, PCLPowerHelper.Weak));
     }

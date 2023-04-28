@@ -22,46 +22,37 @@ import pinacolada.skills.PSkill;
 import pinacolada.utilities.GameUtilities;
 
 @VisibleCard
-public class VerdantGale extends PCLCard
-{
+public class VerdantGale extends PCLCard {
     public static final PCLCardData DATA = register(VerdantGale.class, ConjurerResources.conjurer)
             .setPower(3, CardRarity.RARE)
             .setAffinities(2, PCLAffinity.Green)
             .setUTags(PCLCardTag.Retain)
             .setCore();
 
-    public VerdantGale()
-    {
+    public VerdantGale() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addSpecialPower(0, (s, i) -> new VerdantGalePower(i.source, s), 4).setUpgrade(1);
     }
 
-    public static class VerdantGalePower extends PSpecialCardPower implements OnSpecificPowerActivatedSubscriber
-    {
-        public VerdantGalePower(AbstractCreature owner, PSkill<?> move)
-        {
+    public static class VerdantGalePower extends PSpecialCardPower implements OnSpecificPowerActivatedSubscriber {
+        public VerdantGalePower(AbstractCreature owner, PSkill<?> move) {
             super(VerdantGale.DATA, owner, move);
         }
 
         @Override
-        public void onInitialApplication()
-        {
+        public void onInitialApplication() {
             super.onInitialApplication();
 
             PCLActions.bottom.playVFX(VFX.razorWind(owner.hb));
         }
 
         @Override
-        public boolean onPowerActivated(AbstractPower power, AbstractCreature source, boolean originalValue)
-        {
-            if (power instanceof FlowPower)
-            {
-                for (AbstractMonster enemy : GameUtilities.getEnemies(true))
-                {
+        public boolean onPowerActivated(AbstractPower power, AbstractCreature source, boolean originalValue) {
+            if (power instanceof FlowPower) {
+                for (AbstractMonster enemy : GameUtilities.getEnemies(true)) {
                     move.getActions().applyPower(enemy, PCLCardTarget.Single, PCLPowerHelper.Poison, move.amount).addCallback((po) -> {
                         move.getActions().loseHP(owner, enemy, GameUtilities.getPowerAmount(enemy, PoisonPower.POWER_ID), AbstractGameAction.AttackEffect.POISON);
                     });

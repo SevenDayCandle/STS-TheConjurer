@@ -8,21 +8,18 @@ import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerResources;
 
 @VisibleCard
-public class StrikeR extends PCLCard
-{
+public class StrikeR extends PCLCard {
     public static final PCLCardData DATA = register(StrikeR.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.BASIC)
             .setAffinities(PCLAffinity.Red)
             .setDamage(6, 3)
             .setStrike();
 
-    public StrikeR()
-    {
+    public StrikeR() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_DIAGONAL);
     }
 }

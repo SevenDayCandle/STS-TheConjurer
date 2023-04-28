@@ -14,8 +14,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class JackFrost extends PCLCard
-{
+public class JackFrost extends PCLCard {
     public static final PCLCardData DATA = register(JackFrost.class, ConjurerResources.conjurer)
             .setSummon(0, CardRarity.COMMON, PCLAttackType.Immaterial)
             .setDamage(1, 1)
@@ -23,13 +22,11 @@ public class JackFrost extends PCLCard
             .setAffinities(2, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public JackFrost()
-    {
+    public JackFrost() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.ICE);
         addUseMove(PCond.cooldown(0), PMove.applyToSingle(2, PCLElementHelper.Gelus));
     }

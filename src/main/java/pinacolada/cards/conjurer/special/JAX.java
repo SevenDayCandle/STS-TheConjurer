@@ -11,21 +11,18 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class JAX extends PCLCard
-{
+public class JAX extends PCLCard {
     public static final PCLCardData DATA = register(JAX.class, ConjurerResources.conjurer)
             .setSkill(0, CardRarity.SPECIAL, PCLCardTarget.None)
             .setAffinities(PCLAffinity.Purple)
             .setTags(PCLCardTag.Exhaust)
             .setColorless();
 
-    public JAX()
-    {
+    public JAX() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addUseMove(PMove.gain(6, PCLPowerHelper.DelayedDamage));
         addUseMove(PMove.gain(4, PCLPowerHelper.Vigor, PCLPowerHelper.Sorcery).setUpgrade(1));
     }

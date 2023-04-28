@@ -11,20 +11,17 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
-public class BoilingPoint extends PCLCard
-{
+public class BoilingPoint extends PCLCard {
     public static final PCLCardData DATA = register(BoilingPoint.class, ConjurerResources.conjurer)
             .setPower(1, CardRarity.UNCOMMON)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
             .setCore();
 
-    public BoilingPoint()
-    {
+    public BoilingPoint() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addGainPower(PTrigger.when(CCond.combust(), PMove.gainBlock(2).setUpgrade(1)));
     }
 }

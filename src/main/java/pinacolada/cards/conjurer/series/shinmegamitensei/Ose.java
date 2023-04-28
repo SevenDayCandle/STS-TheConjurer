@@ -13,8 +13,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Ose extends PCLCard
-{
+public class Ose extends PCLCard {
     public static final PCLCardData DATA = register(Ose.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.UNCOMMON)
             .setDamage(5, 1)
@@ -22,13 +21,11 @@ public class Ose extends PCLCard
             .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public Ose()
-    {
+    public Ose() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_HEAVY);
         addUseMove(PCond.onWithdraw(), PMove.applyToAllies(2, PCLPowerHelper.Strength).setUpgrade(1));
     }

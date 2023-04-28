@@ -12,22 +12,19 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Status_SearingBurn extends PCLCard
-{
+public class Status_SearingBurn extends PCLCard {
     public static final PCLCardData DATA = register(Status_SearingBurn.class, ConjurerResources.conjurer)
             .setStatus(-2, CardRarity.SPECIAL, PCLCardTarget.AllEnemy)
             .setTags(PCLCardTag.Ethereal, PCLCardTag.Unplayable)
             .setAffinities(PCLAffinity.Red)
             .setCore(true);
 
-    public Status_SearingBurn()
-    {
+    public Status_SearingBurn() {
         super(DATA);
     }
 
     @Override
-    public void setup(Object input)
-    {
-        addUseMove(PCond.onDraw(),PMove.apply(PCLCardTarget.All, 2, PCLElementHelper.Ignis));
+    public void setup(Object input) {
+        addUseMove(PCond.onDraw(), PMove.apply(PCLCardTarget.All, 2, PCLElementHelper.Ignis));
     }
 }

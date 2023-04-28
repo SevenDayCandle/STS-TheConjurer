@@ -13,8 +13,7 @@ import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class HinanawiTenshi extends PCLCard
-{
+public class HinanawiTenshi extends PCLCard {
     public static final PCLCardData DATA = register(HinanawiTenshi.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Normal)
             .setDamage(2, 1)
@@ -22,13 +21,11 @@ public class HinanawiTenshi extends PCLCard
             .setAffinities(PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.touhouProject);
 
-    public HinanawiTenshi()
-    {
+    public HinanawiTenshi() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
         addUseMove(CCond.redox(), PMove.modifyDamage(1));
     }

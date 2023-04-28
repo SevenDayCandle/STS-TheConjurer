@@ -5,7 +5,6 @@ import pinacolada.annotations.CombatSubscriber;
 import pinacolada.misc.AffinityReactions;
 
 @CombatSubscriber
-public interface OnElementReactSubscriber extends PCLCombatSubscriber
-{
+public interface OnElementReactSubscriber extends PCLCombatSubscriber {
     void onElementReact(AffinityReactions reactions, AbstractCreature m);
 }

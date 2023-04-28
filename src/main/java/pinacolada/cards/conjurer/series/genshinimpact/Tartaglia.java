@@ -13,9 +13,9 @@ import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMod;
 import pinacolada.skills.PTrait;
+
 @VisibleCard
-public class Tartaglia extends PCLCard
-{
+public class Tartaglia extends PCLCard {
     public static final PCLCardData DATA = register(Tartaglia.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.AllEnemy)
             .setDamage(2, 0)
@@ -23,13 +23,11 @@ public class Tartaglia extends PCLCard
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public Tartaglia()
-    {
+    public Tartaglia() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL).setChain(PMod.perCreatureWith(1, PCLElementHelper.Ignis, PCLElementHelper.Gelus), PTrait.damage(1).setUpgrade(1));
     }
 }

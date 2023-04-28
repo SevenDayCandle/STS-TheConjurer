@@ -16,8 +16,7 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
-public class Dagda extends PCLCard
-{
+public class Dagda extends PCLCard {
     public static final PCLCardData DATA = register(Dagda.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.AllEnemy)
             .setDamage(2, 1)
@@ -25,13 +24,11 @@ public class Dagda extends PCLCard
             .setAffinities(2, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public Dagda()
-    {
+    public Dagda() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(AbstractGameAction.AttackEffect.BLUNT_HEAVY);
         addGainPower(PTrigger.interactable(
                 CCond.payReaction(15),

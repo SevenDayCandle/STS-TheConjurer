@@ -14,8 +14,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class CometAzur extends PCLCard
-{
+public class CometAzur extends PCLCard {
     public static final PCLCardData DATA = register(CometAzur.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.RARE, PCLAttackType.Piercing)
             .setTags(PCLCardTag.Exhaust)
@@ -23,13 +22,11 @@ public class CometAzur extends PCLCard
             .setAffinities(2, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
-    public CometAzur()
-    {
+    public CometAzur() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(EffekseerEFK.BLOW05);
         addUseMove(PMove.gain(2, PCLPowerHelper.Energized, PCLPowerHelper.DrawMinus));
     }

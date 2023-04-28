@@ -14,21 +14,18 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PMultiSkill;
 
 @VisibleCard
-public class Smokescreen extends PCLCard
-{
+public class Smokescreen extends PCLCard {
     public static final PCLCardData DATA = register(Smokescreen.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.Self)
             .setBlock(3, 2, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
             .setCore();
 
-    public Smokescreen()
-    {
+    public Smokescreen() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addBlockMove();
         addUseMove(PCond.cycle(1), PMultiSkill.join(PMove.gain(2, PCLElementHelper.Aer, PCLPowerHelper.Blur), PMove.selfExhaust()));
     }

@@ -12,8 +12,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class AnnTakamaki extends PCLCard
-{
+public class AnnTakamaki extends PCLCard {
     public static final PCLCardData DATA = register(AnnTakamaki.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON)
             .setDamage(4, 0)
@@ -21,13 +20,11 @@ public class AnnTakamaki extends PCLCard
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public AnnTakamaki()
-    {
+    public AnnTakamaki() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
         addUseMove(PCond.cooldown(3),
                 PMove.create(AnnTakamaki_Carmen.DATA.ID));

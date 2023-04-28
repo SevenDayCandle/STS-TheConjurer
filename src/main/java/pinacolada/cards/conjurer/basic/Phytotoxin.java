@@ -11,20 +11,17 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
-public class Phytotoxin extends PCLCard
-{
+public class Phytotoxin extends PCLCard {
     public static final PCLCardData DATA = register(Phytotoxin.class, ConjurerResources.conjurer)
             .setPower(1, CardRarity.UNCOMMON)
             .setAffinities(1, PCLAffinity.Green, PCLAffinity.Orange)
             .setCore();
 
-    public Phytotoxin()
-    {
+    public Phytotoxin() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addGainPower(PTrigger.when(PCond.haveTakenDamage(), PMove.applyToEnemies(2, PCLPowerHelper.Poison).setUpgrade(1)));
     }
 }

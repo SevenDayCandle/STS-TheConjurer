@@ -14,8 +14,7 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
-public class HongMeiling extends PCLCard
-{
+public class HongMeiling extends PCLCard {
     public static final PCLCardData DATA = register(HongMeiling.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON)
             .setDamage(2, 0)
@@ -23,13 +22,11 @@ public class HongMeiling extends PCLCard
             .setAffinities(1, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.touhouProject);
 
-    public HongMeiling()
-    {
+    public HongMeiling() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
         addGainPower(PTrigger.when(PCond.haveTakenDamage(), PMove.gainPlayer(4, PCLPowerHelper.NextTurnBlock).setUpgrade(1)));
     }

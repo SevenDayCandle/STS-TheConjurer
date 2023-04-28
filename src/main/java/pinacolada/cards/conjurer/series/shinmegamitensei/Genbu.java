@@ -15,8 +15,7 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PMultiSkill;
 
 @VisibleCard
-public class Genbu extends PCLCard
-{
+public class Genbu extends PCLCard {
     public static final PCLCardData DATA = register(Genbu.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Immaterial)
             .setDamage(1, 1, 2)
@@ -24,13 +23,11 @@ public class Genbu extends PCLCard
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public Genbu()
-    {
+    public Genbu() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.CLAW);
         addUseMove(PCond.cooldown(1),
                 PCond.highestAffinityBranch(PCLAffinity.Blue, PCLAffinity.Green),

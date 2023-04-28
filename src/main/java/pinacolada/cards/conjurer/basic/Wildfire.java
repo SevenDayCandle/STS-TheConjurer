@@ -15,21 +15,18 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
-public class Wildfire extends PCLCard
-{
+public class Wildfire extends PCLCard {
     public static final PCLCardData DATA = register(Wildfire.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.UNCOMMON, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
             .setDamage(12, 1)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
             .setCore();
 
-    public Wildfire()
-    {
+    public Wildfire() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BURN);
         addGainPower(2, PTrigger.when(PCond.onTurnStart(), PMove.applyToEnemies(1, PCLElementHelper.Ignis).setUpgrade(1)));
     }

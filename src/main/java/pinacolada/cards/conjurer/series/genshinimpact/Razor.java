@@ -13,8 +13,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Razor extends PCLCard
-{
+public class Razor extends PCLCard {
     public static final PCLCardData DATA = register(Razor.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON)
             .setDamage(4, 1)
@@ -22,13 +21,11 @@ public class Razor extends PCLCard
             .setAffinities(PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public Razor()
-    {
+    public Razor() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
         addUseMove(PCond.cooldown(1), PMove.applyToSingle(1, PCLPowerHelper.Vulnerable).setUpgrade(1));
     }

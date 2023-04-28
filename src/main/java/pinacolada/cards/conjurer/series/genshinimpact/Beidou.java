@@ -14,8 +14,7 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PMultiSkill;
 
 @VisibleCard
-public class Beidou extends PCLCard
-{
+public class Beidou extends PCLCard {
     public static final PCLCardData DATA = register(Beidou.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.COMMON)
             .setDamage(4, 1)
@@ -23,13 +22,11 @@ public class Beidou extends PCLCard
             .setAffinities(PCLAffinity.Red, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public Beidou()
-    {
+    public Beidou() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_HEAVY);
         addUseMove(PCond.cooldown(2), PMultiSkill.join(PMove.dealDamageToAll(3), PMove.gainBlock(PCLCardTarget.Team, 5)));
     }

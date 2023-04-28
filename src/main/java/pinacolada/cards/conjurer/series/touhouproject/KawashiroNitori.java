@@ -16,8 +16,7 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
-public class KawashiroNitori extends PCLCard
-{
+public class KawashiroNitori extends PCLCard {
     public static final PCLCardData DATA = register(KawashiroNitori.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Ranged)
             .setDamage(2, 1)
@@ -25,13 +24,11 @@ public class KawashiroNitori extends PCLCard
             .setAffinities(PCLAffinity.Green, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public KawashiroNitori()
-    {
+    public KawashiroNitori() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.WATER);
         addGainPower(PTrigger.interactable(
                 CCond.payReaction(13),

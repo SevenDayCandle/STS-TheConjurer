@@ -16,40 +16,20 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.utilities.PCLRenderHelpers;
 import pinacolada.utilities.RandomizedList;
 
-public class ConjurerAirAllyAnimation extends PCLAllyAnimation
-{
+public class ConjurerAirAllyAnimation extends PCLAllyAnimation {
+    public static final float RADIUS = 320;
     private static final TextureCache[] particles = {ConjurerResources.conjurer.images.monsters.airCloud1, ConjurerResources.conjurer.images.monsters.airCloud2};
     private static final RandomizedList<TextureCache> textures = new RandomizedList<>();
-    public static final float RADIUS = 320;
 
-    public static Texture getRandomTexture()
-    {
-        if (textures.size() <= 1) // Adds some randomness but still ensures all textures are cycled through
-        {
-            textures.addAll(particles);
-        }
-
-        return textures.retrieveUnseeded(true).texture();
-    }
-
-    public ConjurerAirAllyAnimation(PCLCreature creature)
-    {
+    public ConjurerAirAllyAnimation(PCLCreature creature) {
         super(creature);
     }
 
-    public void updateImpl(float deltaTime, float x, float y)
-    {
-        PCLEffects.List.add(new FadingParticleEffect(getRandomTexture(), x, y)
-                .setColor(new Color(MathUtils.random(0.7f, 1f), 1, MathUtils.random(0.8f, 1f), MathUtils.random(0.5f, 0.8f)))
-                .setBlendingMode(MathUtils.randomBoolean() ? PCLRenderHelpers.BlendingMode.Overlay : PCLRenderHelpers.BlendingMode.Normal)
-                .setScale(MathUtils.random(0.2f, 0.5f))
-                .setRotation(0f, MathUtils.random(150f, 250f))
-                .setTargetPosition(x + RADIUS * MathUtils.cos(angle), y + RADIUS * MathUtils.sin(angle), 100f)
-        ).setDuration(1f, false).renderBehind = true;
+    public void playActAnimation(float x, float y) {
+        PCLEffects.TopLevelQueue.add(VFX.circularWave(x, y).setScale(0.25f, 12f).setColors(Color.WHITE, Color.GREEN));
     }
 
-    public void renderSprite(SpriteBatch sb, float x, float y)
-    {
+    public void renderSprite(SpriteBatch sb, float x, float y) {
         sb.setColor(this.renderColor);
         float scaleExt1 = owner.getBobEffect().y / (Settings.scale * 557f);
         float scaleExt2 = owner.getBobEffect().y / (Settings.scale * 300f);
@@ -72,8 +52,22 @@ public class ConjurerAirAllyAnimation extends PCLAllyAnimation
         sb.setColor(Color.WHITE);
     }
 
-    public void playActAnimation(float x, float y)
-    {
-        PCLEffects.TopLevelQueue.add(VFX.circularWave(x, y).setScale(0.25f, 12f).setColors(Color.WHITE, Color.GREEN));
+    public void updateImpl(float deltaTime, float x, float y) {
+        PCLEffects.List.add(new FadingParticleEffect(getRandomTexture(), x, y)
+                .setColor(new Color(MathUtils.random(0.7f, 1f), 1, MathUtils.random(0.8f, 1f), MathUtils.random(0.5f, 0.8f)))
+                .setBlendingMode(MathUtils.randomBoolean() ? PCLRenderHelpers.BlendingMode.Overlay : PCLRenderHelpers.BlendingMode.Normal)
+                .setScale(MathUtils.random(0.2f, 0.5f))
+                .setRotation(0f, MathUtils.random(150f, 250f))
+                .setTargetPosition(x + RADIUS * MathUtils.cos(angle), y + RADIUS * MathUtils.sin(angle), 100f)
+        ).setDuration(1f, false).renderBehind = true;
+    }
+
+    public static Texture getRandomTexture() {
+        if (textures.size() <= 1) // Adds some randomness but still ensures all textures are cycled through
+        {
+            textures.addAll(particles);
+        }
+
+        return textures.retrieveUnseeded(true).texture();
     }
 }

@@ -13,8 +13,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class JeanGunnhildr extends PCLCard
-{
+public class JeanGunnhildr extends PCLCard {
     public static final PCLCardData DATA = register(JeanGunnhildr.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE)
             .setDamage(3, 2)
@@ -22,13 +21,11 @@ public class JeanGunnhildr extends PCLCard
             .setAffinities(PCLAffinity.Green, PCLAffinity.Orange, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public JeanGunnhildr()
-    {
+    public JeanGunnhildr() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL);
         addUseMove(PCond.cooldown(1), PMove.applyToTeam(-1, PCLPowerHelper.Vulnerable, PCLPowerHelper.Frail));
     }

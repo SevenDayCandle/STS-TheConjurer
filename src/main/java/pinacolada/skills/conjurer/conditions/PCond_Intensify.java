@@ -3,8 +3,8 @@ package pinacolada.skills.conjurer.conditions;
 import extendedui.EUIRM;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.interfaces.subscribers.OnIntensifySubscriber;
 import pinacolada.dungeon.PCLUseInfo;
+import pinacolada.interfaces.subscribers.OnIntensifySubscriber;
 import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerEnum;
 import pinacolada.skills.PSkill;
@@ -13,58 +13,48 @@ import pinacolada.skills.PSkillSaveData;
 import pinacolada.skills.fields.PField_Affinity;
 import pinacolada.skills.skills.PPassiveCond;
 
-public class PCond_Intensify extends PPassiveCond<PField_Affinity> implements OnIntensifySubscriber
-{
+public class PCond_Intensify extends PPassiveCond<PField_Affinity> implements OnIntensifySubscriber {
     public static final PSkillData<PField_Affinity> DATA = register(PCond_Intensify.class, PField_Affinity.class, 1, 1)
             .setColors(ConjurerEnum.Cards.THE_CONJURER)
             .selfTarget();
 
-    public PCond_Intensify()
-    {
+    public PCond_Intensify() {
         this((PCLAffinity) null);
     }
 
-    public PCond_Intensify(PCLAffinity... affinities)
-    {
+    public PCond_Intensify(PCLAffinity... affinities) {
         super(DATA, PCLCardTarget.None, 0);
         fields.setAffinity(affinities);
     }
 
-    public PCond_Intensify(PSkillSaveData content)
-    {
+    public PCond_Intensify(PSkillSaveData content) {
         super(DATA, content);
     }
 
     // This should not activate the child effect when played normally
 
     @Override
-    public String getSubText()
-    {
+    public boolean checkCondition(PCLUseInfo info, boolean isUsing, PSkill<?> triggerSource) {
+        return false;
+    }
+
+    @Override
+    public void use(PCLUseInfo info) {
+    }
+
+    @Override
+    public void use(PCLUseInfo info, int index) {
+    }
+
+    @Override
+    public String getSubText() {
         return TEXT.cond_wheneverYou(fields.affinities.isEmpty() ? PGR.core.tooltips.level.title : EUIRM.strings.verbNoun(PGR.core.tooltips.level.title, fields.getAffinityLevelOrString()));
     }
 
     @Override
-    public void onIntensify(PCLAffinity pclAffinity)
-    {
-        if (fields.affinities.isEmpty() || fields.affinities.contains(pclAffinity))
-        {
+    public void onIntensify(PCLAffinity pclAffinity) {
+        if (fields.affinities.isEmpty() || fields.affinities.contains(pclAffinity)) {
             useFromTrigger(makeInfo(null).setData(pclAffinity));
         }
-    }
-
-    @Override
-    public void use(PCLUseInfo info)
-    {
-    }
-
-    @Override
-    public void use(PCLUseInfo info, int index)
-    {
-    }
-
-    @Override
-    public boolean checkCondition(PCLUseInfo info, boolean isUsing, PSkill<?> triggerSource)
-    {
-        return false;
     }
 }

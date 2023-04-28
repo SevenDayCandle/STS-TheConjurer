@@ -15,8 +15,7 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.special.moves.PMove_ExhaustAlly;
 
 @VisibleCard
-public class YusukeKitagawa_Goemon extends PCLCard
-{
+public class YusukeKitagawa_Goemon extends PCLCard {
     public static final PCLCardData DATA = register(YusukeKitagawa_Goemon.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.SPECIAL, PCLAttackType.Piercing, PCLCardTarget.AllEnemy)
             .setDamage(12, 2)
@@ -24,13 +23,11 @@ public class YusukeKitagawa_Goemon extends PCLCard
             .setAffinities(2, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public YusukeKitagawa_Goemon()
-    {
+    public YusukeKitagawa_Goemon() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
         addUseMove(PMove.applyToEnemies(6, PCLElementHelper.Gelus), new PMove_ExhaustAlly(PCLCardTarget.Self, 1));
     }

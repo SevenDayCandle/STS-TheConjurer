@@ -18,8 +18,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;
 
 @VisibleCard
-public class Wanderer extends PCLCard
-{
+public class Wanderer extends PCLCard {
     public static final PCLCardData DATA = register(Wanderer.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
             .setDamage(1, 0, 2)
@@ -28,27 +27,22 @@ public class Wanderer extends PCLCard
             .setAffinities(PCLAffinity.Green, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.genshinImpact, true);
 
-    public Wanderer()
-    {
+    public Wanderer() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.DAGGER);
         addSpecialPower(0, (s, i) -> new WandererPower(i.source, s), 3, 1);
     }
 
-    public static class WandererPower extends PSpecialCardPower
-    {
-        public WandererPower(AbstractCreature owner, PSkill move)
-        {
+    public static class WandererPower extends PSpecialCardPower {
+        public WandererPower(AbstractCreature owner, PSkill move) {
             super(DATA, owner, move);
         }
 
         public void onAfterCardPlayed(AbstractCard card) {
-            if ((card.type == CardType.SKILL || card.type == CardType.CURSE) && owner instanceof PCLCardAlly)
-            {
+            if ((card.type == CardType.SKILL || card.type == CardType.CURSE) && owner instanceof PCLCardAlly) {
                 ((PCLCardAlly) owner).takeTurn();
                 this.flash();
             }

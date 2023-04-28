@@ -12,8 +12,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Deluge extends PCLCard
-{
+public class Deluge extends PCLCard {
     public static final PCLCardData DATA = register(Deluge.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.RARE, PCLCardTarget.Team)
             .setBlock(3, 1)
@@ -21,13 +20,11 @@ public class Deluge extends PCLCard
             .setAffinities(2, PCLAffinity.Blue)
             .setCore();
 
-    public Deluge()
-    {
+    public Deluge() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addBlockMove();
         addUseMove(PMove.modifyAffinity(1, 2, PCLAffinity.Blue).setUpgradeExtra(1).edit(f -> f.setCardGroup(PCLCardGroupHelper.Hand)));
     }

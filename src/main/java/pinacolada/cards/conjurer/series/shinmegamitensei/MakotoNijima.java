@@ -14,8 +14,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class MakotoNijima extends PCLCard
-{
+public class MakotoNijima extends PCLCard {
     public static final PCLCardData DATA = register(MakotoNijima.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.AllEnemy)
             .setDamage(3, 1)
@@ -23,13 +22,11 @@ public class MakotoNijima extends PCLCard
             .setAffinities(PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public MakotoNijima()
-    {
+    public MakotoNijima() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
         addUseMove(PCond.cooldown(3),
                 PMove.create(MakotoNijima_Johanna.DATA.ID));

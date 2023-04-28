@@ -17,8 +17,7 @@ import pinacolada.skills.PMod;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
-public class Girimekhala extends PCLCard
-{
+public class Girimekhala extends PCLCard {
     public static final PCLCardData DATA = register(Girimekhala.class, ConjurerResources.conjurer)
             .setSummon(3, CardRarity.RARE, PCLAttackType.Normal, PCLCardTarget.AllEnemy)
             .setDamage(6, 0)
@@ -26,13 +25,11 @@ public class Girimekhala extends PCLCard
             .setAffinities(PCLAffinity.Orange, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public Girimekhala()
-    {
+    public Girimekhala() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(AbstractGameAction.AttackEffect.BLUNT_HEAVY);
         addGainPower(PTrigger.interactable(
                 PCond.exhaustRandom(3, PCLCardGroupHelper.DrawPile),

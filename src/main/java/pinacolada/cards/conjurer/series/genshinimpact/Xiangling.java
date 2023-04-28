@@ -15,8 +15,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Xiangling extends PCLCard
-{
+public class Xiangling extends PCLCard {
     public static final PCLCardData DATA = register(Xiangling.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Normal, PCLCardTarget.AllEnemy)
             .setDamage(3, 1)
@@ -24,13 +23,11 @@ public class Xiangling extends PCLCard
             .setAffinities(PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public Xiangling()
-    {
+    public Xiangling() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL);
         addUseMove(PCond.cooldown(0), PMove.applyToRandom(3, PCLElementHelper.Ignis));
     }

@@ -14,8 +14,7 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
-public class ShikiOuji extends PCLCard
-{
+public class ShikiOuji extends PCLCard {
     public static final PCLCardData DATA = register(ShikiOuji.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.RARE, PCLAttackType.Normal)
             .setDamage(2, 0, 2)
@@ -23,13 +22,11 @@ public class ShikiOuji extends PCLCard
             .setAffinities(PCLAffinity.Red, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public ShikiOuji()
-    {
+    public ShikiOuji() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_HEAVY);
         addGainPower(PTrigger.when(PCond.haveTakenDamage(), PMove.dealDamageToAll(7).setUpgrade(2)));
     }

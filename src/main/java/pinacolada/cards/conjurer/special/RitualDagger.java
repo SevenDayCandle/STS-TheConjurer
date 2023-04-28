@@ -13,12 +13,11 @@ import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.skills.PLimit;
 import pinacolada.skills.skills.base.conditions.PCond_Fatal;
-import pinacolada.skills.skills.base.moves.PMove_RemovePower;
 import pinacolada.skills.skills.base.moves.PMove_PermanentUpgrade;
+import pinacolada.skills.skills.base.moves.PMove_RemovePower;
 
 @VisibleCard
-public class RitualDagger extends PCLCard
-{
+public class RitualDagger extends PCLCard {
     public static final PCLCardData DATA = register(RitualDagger.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.SPECIAL, PCLAttackType.Normal, PCLCardTarget.Single)
             .setDamage(9, 3)
@@ -27,13 +26,11 @@ public class RitualDagger extends PCLCard
             .setUnique(true, -1)
             .setColorless();
 
-    public RitualDagger()
-    {
+    public RitualDagger() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(AbstractGameAction.AttackEffect.NONE).setDamageEffect(EffekseerEFK.SWORD16);
         addUseMove(
                 new PMove_RemovePower(PCLCardTarget.Single, PCLPowerHelper.Intangible, PCLPowerHelper.Artifact));

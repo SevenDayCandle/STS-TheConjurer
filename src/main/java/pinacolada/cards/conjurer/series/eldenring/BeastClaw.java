@@ -14,21 +14,18 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class BeastClaw extends PCLCard
-{
+public class BeastClaw extends PCLCard {
     public static final PCLCardData DATA = register(BeastClaw.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.COMMON, PCLAttackType.Normal)
             .setDamage(5, 2)
             .setAffinities(PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
-    public BeastClaw()
-    {
+    public BeastClaw() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.EARTH);
         addUseMove(PMove.applyToSingle(1, PCLElementHelper.Petra, PCLPowerHelper.Vulnerable).setUpgrade(1));
     }

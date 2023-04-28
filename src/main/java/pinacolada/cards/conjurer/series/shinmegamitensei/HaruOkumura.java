@@ -13,8 +13,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class HaruOkumura extends PCLCard
-{
+public class HaruOkumura extends PCLCard {
     public static final PCLCardData DATA = register(HaruOkumura.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE, PCLAttackType.Normal)
             .setDamage(2, 1)
@@ -22,13 +21,11 @@ public class HaruOkumura extends PCLCard
             .setAffinities(PCLAffinity.Orange, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public HaruOkumura()
-    {
+    public HaruOkumura() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
         addUseMove(PCond.cooldown(2),
                 PMove.create(HaruOkumura_Milady.DATA.ID));

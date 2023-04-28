@@ -13,21 +13,18 @@ import pinacolada.skills.CMod;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class RazorTurbine extends PCLCard
-{
+public class RazorTurbine extends PCLCard {
     public static final PCLCardData DATA = register(RazorTurbine.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.UNCOMMON, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
             .setDamage(4, 2)
             .setAffinities(PCLAffinity.Green)
             .setCore();
 
-    public RazorTurbine()
-    {
+    public RazorTurbine() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(ConjurerEFK.WIND02);
         addUseMove(CMod.bonusOnRedox(1), PMove.draw(2).setUpgrade(1));
     }

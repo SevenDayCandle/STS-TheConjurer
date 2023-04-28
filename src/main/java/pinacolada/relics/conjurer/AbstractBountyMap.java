@@ -8,22 +8,42 @@ import extendedui.EUIUtils;
 import extendedui.ui.tooltips.EUITooltip;
 import pinacolada.relics.PCLRelic;
 
-public abstract class AbstractBountyMap extends PCLRelic
-{
-    public AbstractBountyMap(String id)
-    {
+public abstract class AbstractBountyMap extends PCLRelic {
+    public AbstractBountyMap(String id) {
         super(id, RelicTier.SPECIAL, LandingSound.MAGICAL);
     }
 
-    protected Class<? extends AbstractRoom> getCurrentRequiredRoom()
-    {
+    @Override
+    public void update() {
+        super.update();
+        if (counter < 0) {
+            this.usedUp();
+        }
+    }    protected Class<? extends AbstractRoom> getCurrentRequiredRoom() {
         return EventRoom.class;
     }
 
-/*    protected abstract AnimatorCustomEventRoom.GetEvent GetEventConstructor();*/
+    /*    protected abstract AnimatorCustomEventRoom.GetEvent GetEventConstructor();*/
 
-    private void fixDescription()
-    {
+    @Override
+    public void justEnteredRoom(AbstractRoom room) {
+        super.justEnteredRoom(room);
+
+        Class<? extends AbstractRoom> roomType = this.getCurrentRequiredRoom();
+
+        if (counter >= 0 && room != null && (room.getClass().equals(roomType) || (roomType.equals(EventRoom.class) && "?".equals(room.getMapSymbol())))) {
+            flash();
+            if (roomType.equals(EventRoom.class)) {
+                setCounter(-1);
+                this.usedUp();
+                /*PCLEvent.ForceEvent(GetEventConstructor());*/
+            }
+            else {
+                addCounter(1);
+            }
+            fixDescription();
+        }
+    }    private void fixDescription() {
         this.description = getUpdatedDescription();
         this.tips.clear();
         this.tips.add(new EUITooltip(this.name, this.description));
@@ -31,60 +51,26 @@ public abstract class AbstractBountyMap extends PCLRelic
     }
 
     @Override
-    public String getUpdatedDescription()
-    {
+    public String getUpdatedDescription() {
         Class<? extends AbstractRoom> room = this.getCurrentRequiredRoom();
-        if (CardCrawlGame.isInARun() && counter >= 0)
-        {
+        if (CardCrawlGame.isInARun() && counter >= 0) {
             String name = room.equals(MonsterRoomElite.class) ? "Elite" : room.getSimpleName().split("Room")[0];
             return EUIUtils.format(DESCRIPTIONS[0], DESCRIPTIONS[1] + name);
         }
-        else
-        {
+        else {
             return EUIUtils.format(DESCRIPTIONS[0], "");
         }
     }
 
     @Override
-    public void onEquip()
-    {
+    public void onEquip() {
         super.onEquip();
         setCounter(0);
 
         fixDescription();
     }
 
-    @Override
-    public void update()
-    {
-        super.update();
-        if (counter < 0)
-        {
-            this.usedUp();
-        }
-    }
 
-    @Override
-    public void justEnteredRoom(AbstractRoom room)
-    {
-        super.justEnteredRoom(room);
 
-        Class<? extends AbstractRoom> roomType = this.getCurrentRequiredRoom();
 
-        if (counter >= 0 && room != null && (room.getClass().equals(roomType) || (roomType.equals(EventRoom.class) && "?".equals(room.getMapSymbol()))))
-        {
-            flash();
-            if (roomType.equals(EventRoom.class))
-            {
-                setCounter(-1);
-                this.usedUp();
-                /*PCLEvent.ForceEvent(GetEventConstructor());*/
-            }
-            else
-            {
-                addCounter(1);
-            }
-            fixDescription();
-        }
-    }
 }

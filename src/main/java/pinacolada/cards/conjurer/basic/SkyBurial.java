@@ -14,21 +14,18 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class SkyBurial extends PCLCard
-{
+public class SkyBurial extends PCLCard {
     public static final PCLCardData DATA = register(SkyBurial.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.RARE, PCLAttackType.Normal)
             .setDamage(5, 1, 3)
             .setAffinities(1, PCLAffinity.Green)
             .setCore();
 
-    public SkyBurial()
-    {
+    public SkyBurial() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove().setDamageEffect((s, m) -> VFX.razorWind(s.hb).duration);
         addUseMove(PCond.ifElse(PMove.applyToSingle(1, PCLPowerHelper.Vulnerable, PCLElementHelper.Aer), PMove.selfExhaust(), PCond.discardRandom(2)));
     }

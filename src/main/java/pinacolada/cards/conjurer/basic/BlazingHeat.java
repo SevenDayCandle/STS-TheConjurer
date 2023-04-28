@@ -19,52 +19,41 @@ import pinacolada.skills.PSkill;
 import pinacolada.utilities.GameUtilities;
 
 @VisibleCard
-public class BlazingHeat extends PCLCard
-{
+public class BlazingHeat extends PCLCard {
     public static final PCLCardData DATA = register(BlazingHeat.class, ConjurerResources.conjurer)
             .setPower(3, CardRarity.RARE)
             .setAffinities(2, PCLAffinity.Red)
             .setCore();
 
-    public BlazingHeat()
-    {
+    public BlazingHeat() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addSpecialPower(0, (s, i) -> new BlazingHeatPower(i.source, s), 1).setUpgrade(1);
     }
 
-    public static class BlazingHeatPower extends PSpecialCardPower
-    {
-        public BlazingHeatPower(AbstractCreature owner, PSkill<?> move)
-        {
+    public static class BlazingHeatPower extends PSpecialCardPower {
+        public BlazingHeatPower(AbstractCreature owner, PSkill<?> move) {
             super(BlazingHeat.DATA, owner, move);
         }
 
-        public void atEndOfTurn(boolean isPlayer)
-        {
+        public void atEndOfTurn(boolean isPlayer) {
             super.atEndOfTurn(isPlayer);
-            for (AbstractMonster mo : GameUtilities.getEnemies(true))
-            {
+            for (AbstractMonster mo : GameUtilities.getEnemies(true)) {
                 IgnisPower po = GameUtilities.getPower(mo, IgnisPower.class);
-                if (po != null)
-                {
+                if (po != null) {
                     PCLActions.bottom.applyPower(owner, PCLCardTarget.Single, PCLElementHelper.Blasted, po.amount);
                 }
             }
         }
 
-        public void onInitialApplication()
-        {
+        public void onInitialApplication() {
             super.onInitialApplication();
             PCLActions.bottom.playVFX(new ScreenOnFireEffect3());
             PCLActions.bottom.callback(() -> {
-                for (AbstractPower po : GameUtilities.getPowers(BlastedPower.POWER_ID))
-                {
-                    if (po instanceof BlastedPower)
-                    {
+                for (AbstractPower po : GameUtilities.getPowers(BlastedPower.POWER_ID)) {
+                    if (po instanceof BlastedPower) {
                         ((BlastedPower) po).expanded = true;
                     }
                 }

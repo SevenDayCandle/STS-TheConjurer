@@ -15,21 +15,18 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PMultiSkill;
 
 @VisibleCard
-public class PotOfGreed extends PCLCard
-{
+public class PotOfGreed extends PCLCard {
     public static final PCLCardData DATA = register(PotOfGreed.class, ConjurerResources.conjurer)
             .setSkill(0, CardRarity.UNCOMMON, PCLCardTarget.None)
             .setTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Purple)
             .setColorless();
 
-    public PotOfGreed()
-    {
+    public PotOfGreed() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addUseMove(PCond.exhaustRandom(2, PCLCardGroupHelper.DrawPile).setUpgrade(-1), PMultiSkill.join(PMove.draw(2).setUpgrade(1), PMove.gain(2, PCLPowerHelper.NextTurnDraw)));
     }
 }

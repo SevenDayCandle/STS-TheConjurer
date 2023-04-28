@@ -6,8 +6,7 @@ import pinacolada.powers.conjurer.*;
 import pinacolada.resources.PCLTooltips;
 import pinacolada.resources.PGR;
 
-public class ConjurerTooltips extends PCLTooltips
-{
+public class ConjurerTooltips extends PCLTooltips {
     public EUITooltip aer = EUITooltip.findByID("Aer");
     public EUITooltip blasted = EUITooltip.findByID("Blasted");
     public EUITooltip charge = EUITooltip.findByID("Charge");
@@ -25,28 +24,8 @@ public class ConjurerTooltips extends PCLTooltips
     public EUITooltip reaction = EUITooltip.findByID("Reaction");
     public EUITooltip redox = EUITooltip.findByID("Redox");
 
-    @Override
-    public void initializeIcons()
-    {
-        aer.setIconFromPath(PGR.getPowerImage(AerPower.POWER_ID));
-        blasted.setIconFromPath(PGR.getPowerImage(BlastedPower.POWER_ID));
-        corrosion.setIconFromPath(PGR.getPowerImage(CorrosionPower.POWER_ID));
-        elementalExposure.setIconFromPath(PGR.getPowerImage(ElementalExposurePower.POWER_ID));
-        elementalMastery.setIconFromPath(PGR.getPowerImage(ElementalMasteryPower.POWER_ID));
-        flow.setIconFromPath(PGR.getPowerImage(FlowPower.POWER_ID));
-        frostbite.setIconFromPath(PGR.getPowerImage(FrostbitePower.POWER_ID));
-        gelus.setIconFromPath(PGR.getPowerImage(GelusPower.POWER_ID));
-        ignis.setIconFromPath(PGR.getPowerImage(IgnisPower.POWER_ID));
-        lux.setIconFromPath(PGR.getPowerImage(LuxPower.POWER_ID));
-        petra.setIconFromPath(PGR.getPowerImage(PetraPower.POWER_ID));
-
-        flow.formatDescription(FlowPower.PER_STACK);
-    }
-
-    public EUITooltip getLevelTooltip(PCLAffinity affinity)
-    {
-        switch (affinity)
-        {
+    public EUITooltip getLevelTooltip(PCLAffinity affinity) {
+        switch (affinity) {
             case Red:
                 return ignis;
             case Green:
@@ -68,8 +47,24 @@ public class ConjurerTooltips extends PCLTooltips
         }
     }
 
-    public EUITooltip getRerollTooltip()
-    {
+    public EUITooltip getRerollTooltip() {
         return charge;
+    }
+
+    @Override
+    public void initializeIcons() {
+        aer.setIconFromPath(PGR.getPowerImage(AerPower.POWER_ID));
+        blasted.setIconFromPath(PGR.getPowerImage(BlastedPower.POWER_ID));
+        corrosion.setIconFromPath(PGR.getPowerImage(CorrosionPower.POWER_ID));
+        elementalExposure.setIconFromPath(PGR.getPowerImage(ElementalExposurePower.POWER_ID));
+        elementalMastery.setIconFromPath(PGR.getPowerImage(ElementalMasteryPower.POWER_ID));
+        flow.setIconFromPath(PGR.getPowerImage(FlowPower.POWER_ID));
+        frostbite.setIconFromPath(PGR.getPowerImage(FrostbitePower.POWER_ID));
+        gelus.setIconFromPath(PGR.getPowerImage(GelusPower.POWER_ID));
+        ignis.setIconFromPath(PGR.getPowerImage(IgnisPower.POWER_ID));
+        lux.setIconFromPath(PGR.getPowerImage(LuxPower.POWER_ID));
+        petra.setIconFromPath(PGR.getPowerImage(PetraPower.POWER_ID));
+
+        flow.formatDescription(FlowPower.PER_STACK);
     }
 }

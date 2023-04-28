@@ -14,8 +14,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Bennett extends PCLCard
-{
+public class Bennett extends PCLCard {
     public static final PCLCardData DATA = register(Bennett.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON)
             .setDamage(3, 0)
@@ -23,13 +22,11 @@ public class Bennett extends PCLCard
             .setAffinities(PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public Bennett()
-    {
+    public Bennett() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
         addUseMove(PCond.cooldown(1), PMove.apply(PCLCardTarget.Team, 3, PCLPowerHelper.Vigor).setUpgrade(1));
     }

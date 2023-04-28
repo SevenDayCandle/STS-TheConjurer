@@ -12,21 +12,18 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Bite extends PCLCard
-{
+public class Bite extends PCLCard {
     public static final PCLCardData DATA = register(Bite.class, ConjurerResources.conjurer)
             .setAttack(0, CardRarity.SPECIAL, PCLAttackType.Normal, PCLCardTarget.Single)
             .setDamage(5, 3)
             .setAffinities(PCLAffinity.Purple)
             .setColorless();
 
-    public Bite()
-    {
+    public Bite() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BITE);
         addUseMove(PCond.fatal(), PMove.gainTempHP(6));
     }

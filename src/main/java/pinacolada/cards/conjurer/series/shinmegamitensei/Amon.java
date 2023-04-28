@@ -15,8 +15,7 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
-public class Amon extends PCLCard
-{
+public class Amon extends PCLCard {
     public static final PCLCardData DATA = register(Amon.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Piercing)
             .setDamage(4, 1)
@@ -24,13 +23,11 @@ public class Amon extends PCLCard
             .setAffinities(PCLAffinity.Red, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public Amon()
-    {
+    public Amon() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLEnum.AttackEffect.CLAW);
         addGainPower(PTrigger.interactable(
                 CCond.payReaction(9),

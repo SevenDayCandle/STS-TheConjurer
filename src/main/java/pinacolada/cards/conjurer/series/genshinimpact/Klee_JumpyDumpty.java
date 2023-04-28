@@ -15,8 +15,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Klee_JumpyDumpty extends PCLCard
-{
+public class Klee_JumpyDumpty extends PCLCard {
     public static final PCLCardData DATA = register(Klee_JumpyDumpty.class, ConjurerResources.conjurer)
             .setAttack(0, CardRarity.SPECIAL, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy)
             .setDamage(9, 4)
@@ -24,13 +23,11 @@ public class Klee_JumpyDumpty extends PCLCard
             .setAffinities(PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public Klee_JumpyDumpty()
-    {
+    public Klee_JumpyDumpty() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SMALL_EXPLOSION);
         addUseMove(PMove.applyToEveryone(2, PCLElementHelper.Ignis));
     }

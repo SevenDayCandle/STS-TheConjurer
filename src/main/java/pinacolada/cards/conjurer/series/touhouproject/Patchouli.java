@@ -23,8 +23,7 @@ import pinacolada.utilities.RandomizedList;
 import java.util.ArrayList;
 
 @VisibleCard
-public class Patchouli extends PCLCard
-{
+public class Patchouli extends PCLCard {
     public static final PCLCardData DATA = register(Patchouli.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.RARE, PCLAttackType.Immaterial)
             .setDamage(4, 1)
@@ -32,40 +31,32 @@ public class Patchouli extends PCLCard
             .setAffinities(2, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.touhouProject);
 
-    public Patchouli()
-    {
+    public Patchouli() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.ELECTRIC);
         addUseMove(PCond.cooldown(2), new PatchouliCond(DATA, 2, 4).setUpgrade(1).setUpgradeExtra(1));
     }
 
-    protected static class PatchouliCond extends PCustomCond
-    {
+    protected static class PatchouliCond extends PCustomCond {
         public ArrayList<PSkill<?>> debuffs;
 
-        public PatchouliCond(PCLCardData data, int amount, int choices)
-        {
+        public PatchouliCond(PCLCardData data, int amount, int choices) {
             super(data, 0, amount, choices);
         }
 
-        protected void useImpl(PCLUseInfo info)
-        {
+        protected void useImpl(PCLUseInfo info) {
             RandomizedList<PSkill<?>> choices = new RandomizedList<>(getDebuffs());
-            while (choices.size() > extra)
-            {
+            while (choices.size() > extra) {
                 choices.retrieve(rng, true);
             }
             getActions().tryChooseSkill(getPCLSource().cardData, amount, info.source, info.target, choices);
         }
 
-        protected ArrayList<PSkill<?>> getDebuffs()
-        {
-            if (debuffs == null)
-            {
+        protected ArrayList<PSkill<?>> getDebuffs() {
+            if (debuffs == null) {
                 debuffs = new ArrayList<>();
                 debuffs.add(PMove.applyToSingle(2, PCLPowerHelper.Vulnerable));
                 debuffs.add(PMove.applyToSingle(2, PCLPowerHelper.Weak));
@@ -74,8 +65,7 @@ public class Patchouli extends PCLCard
                 debuffs.add(PMove.applyToSingle(2, PCLPowerHelper.Blinded));
                 debuffs.add(PMove.applyToSingle(2, PCLPowerHelper.Bruised));
 
-                if (GameUtilities.getPlayerClass() == ConjurerEnum.Characters.THE_CONJURER)
-                {
+                if (GameUtilities.getPlayerClass() == ConjurerEnum.Characters.THE_CONJURER) {
                     debuffs.add(PMove.applyToSingle(3, PCLElementHelper.Ignis));
                     debuffs.add(PMove.applyToSingle(3, PCLElementHelper.Gelus));
                     debuffs.add(PMove.applyToSingle(3, PCLElementHelper.Aer));

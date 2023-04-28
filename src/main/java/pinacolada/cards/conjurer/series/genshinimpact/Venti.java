@@ -17,8 +17,7 @@ import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Venti extends PCLCard
-{
+public class Venti extends PCLCard {
     public static final PCLCardData DATA = register(Venti.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
             .setDamage(2, 0, 2)
@@ -27,13 +26,11 @@ public class Venti extends PCLCard
             .setAffinities(PCLAffinity.Green.make(2), PCLAffinity.Yellow.make(1))
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public Venti()
-    {
+    public Venti() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.WIND);
         addUseMove(PCond.cooldown(1), PMod.cyclePer(2).edit(f -> f.setType(CardType.ATTACK)), PMove.applyToEnemies(2, PCLElementHelper.Aer));
     }

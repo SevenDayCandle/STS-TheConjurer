@@ -5,10 +5,8 @@ import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerResources;
 
 @SpireInitializer
-public class TheConjurer
-{
-    public static void initialize()
-    {
+public class TheConjurer {
+    public static void initialize() {
         PGR.registerResource(ConjurerResources.conjurer);
     }
 }

@@ -24,8 +24,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 @VisibleCard
-public class UtsuhoReiuji extends PCLCard
-{
+public class UtsuhoReiuji extends PCLCard {
     public static final PCLCardData DATA = register(UtsuhoReiuji.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy)
             .setDamage(5, 0)
@@ -33,36 +32,28 @@ public class UtsuhoReiuji extends PCLCard
             .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.touhouProject);
 
-    public UtsuhoReiuji()
-    {
+    public UtsuhoReiuji() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.FIRE);
         addUseMove(PCond.onSummon(), getSpecialMove(0, this::specialMove, 4).setUpgrade(1).setTarget(PCLCardTarget.All));
     }
 
-    public void specialMove(PSpecialSkill move, PCLUseInfo info)
-    {
+    public void specialMove(PSpecialSkill move, PCLUseInfo info) {
         HashSet<PCLAffinity> available = new HashSet<>(Arrays.asList(PCLAffinity.getAvailableAffinities()));
         available.add(PCLAffinity.Star);
 
         PCLActions.bottom.withdrawAlly(EUIUtils.filter(GameUtilities.getSummons(true), a -> a != move.getOwnerCreature()))
                 .addCallback(cards -> {
-                    for (AbstractCard c : cards)
-                    {
+                    for (AbstractCard c : cards) {
                         PCLCardAffinities cardAffinities = GameUtilities.getPCLCardAffinities(c);
-                        if (cardAffinities != null)
-                        {
-                            for (PCLAffinity aff : cardAffinities.getAffinities(false, false))
-                            {
-                                if (available.contains(aff))
-                                {
+                        if (cardAffinities != null) {
+                            for (PCLAffinity aff : cardAffinities.getAffinities(false, false)) {
+                                if (available.contains(aff)) {
                                     PCLElementHelper debuff = PCLElementHelper.get(aff);
-                                    if (debuff != null)
-                                    {
+                                    if (debuff != null) {
                                         move.getActions().applyPower(info.source, info.target, move.target, debuff, move.amount);
                                     }
                                 }

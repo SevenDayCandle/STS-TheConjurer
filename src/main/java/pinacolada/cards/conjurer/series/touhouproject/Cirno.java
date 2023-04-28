@@ -17,8 +17,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Cirno extends PCLCard
-{
+public class Cirno extends PCLCard {
     public static final PCLCardData DATA = register(Cirno.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Immaterial, PCLCardTarget.AllEnemy)
             .setDamage(2, 0)
@@ -27,13 +26,11 @@ public class Cirno extends PCLCard
             .setRTags(PCLCardTag.Ethereal)
             .setLoadout(ConjurerPlayerData.touhouProject);
 
-    public Cirno()
-    {
+    public Cirno() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.ICE);
         addUseMove(PCond.cooldown(1), PMove.applyToEnemies(2, PCLElementHelper.Frostbite, PCLPowerHelper.Shackles));
     }

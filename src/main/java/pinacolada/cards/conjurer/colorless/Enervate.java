@@ -16,26 +16,22 @@ import pinacolada.skills.skills.PSpecialSkill;
 import pinacolada.utilities.GameUtilities;
 
 @VisibleCard
-public class Enervate extends PCLCard
-{
+public class Enervate extends PCLCard {
     public static final PCLCardData DATA = register(Enervate.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON)
             .setTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Blue)
             .setCore(true);
 
-    public Enervate()
-    {
+    public Enervate() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addSpecialMove(0, this::action, 2).setUpgrade(1);
     }
 
-    public void action(PSpecialSkill move, PCLUseInfo info)
-    {
+    public void action(PSpecialSkill move, PCLUseInfo info) {
         int strength = GameUtilities.getPowerAmount(info.target, StrengthPower.POWER_ID) / 2;
         PCLActions.bottom.applyPower(info.source, info.target, PCLCardTarget.Single, PCLPowerHelper.Strength, -(strength > 0 ? strength + move.amount : move.amount));
     }

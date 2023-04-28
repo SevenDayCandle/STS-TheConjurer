@@ -13,8 +13,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class ConjurerPlayerData extends PCLAbstractPlayerData
-{
+public class ConjurerPlayerData extends PCLAbstractPlayerData {
     private static final String MOD_ID = "Conjurer";
     private static final String BANNED_CARDS_CONJURER = PCLMainConfig.createFullID("BannedCardsConjurer");
     private static final String BANNED_RELICS_CONJURER = PCLMainConfig.createFullID("BannedRelicsConjurer");
@@ -28,14 +27,27 @@ public class ConjurerPlayerData extends PCLAbstractPlayerData
     public static ConjurerLoadout touhouProject = new TouhouProject();
     public static ConjurerLoadout eldenRing = new EldenRing();
 
-    public ConjurerPlayerData(PCLResources<?, ?, ?, ?> resources)
-    {
+    public ConjurerPlayerData(PCLResources<?, ?, ?, ?> resources) {
         super(resources);
     }
 
     @Override
-    public List<PCLLoadout> getAvailableLoadouts()
-    {
+    public PCLCharacterConfig getConfig() {
+        return new PCLCharacterConfig(MOD_ID, BANNED_CARDS_CONJURER, BANNED_RELICS_CONJURER, CARDS_COUNT_CONJURER, CONJURER_METER_POSITION, TROPHIES_CONJURER);
+    }
+
+    @Override
+    public PCLLoadout getCoreLoadout() {
+        return core;
+    }
+
+    @Override
+    public List<String> getStartingRelics() {
+        return Collections.singletonList(PeriodicTable.ID);
+    }
+
+    @Override
+    public List<PCLLoadout> getAvailableLoadouts() {
         return Arrays.asList(
                 eldenRing,
                 genshinImpact,
@@ -44,14 +56,7 @@ public class ConjurerPlayerData extends PCLAbstractPlayerData
         );
     }
 
-    @Override
-    public PCLCharacterConfig getConfig()
-    {
-        return new PCLCharacterConfig(MOD_ID, BANNED_CARDS_CONJURER, BANNED_RELICS_CONJURER, CARDS_COUNT_CONJURER, CONJURER_METER_POSITION, TROPHIES_CONJURER);
-    }
-
-    public void updateRelicsForDungeon()
-    {
+    public void updateRelicsForDungeon() {
         PGR.dungeon.removeRelic(PenNib.ID);
         PGR.dungeon.removeRelic(Kunai.ID);
         PGR.dungeon.removeRelic(Shuriken.ID);
@@ -72,17 +77,5 @@ public class ConjurerPlayerData extends PCLAbstractPlayerData
         PGR.dungeon.addRelic(PaperFrog.ID, AbstractRelic.RelicTier.UNCOMMON);
         PGR.dungeon.addRelic(SneckoSkull.ID, AbstractRelic.RelicTier.COMMON);
         PGR.dungeon.addRelic(RedSkull.ID, AbstractRelic.RelicTier.COMMON);
-    }
-
-    @Override
-    public PCLLoadout getCoreLoadout()
-    {
-        return core;
-    }
-
-    @Override
-    public List<String> getStartingRelics()
-    {
-        return Collections.singletonList(PeriodicTable.ID);
     }
 }

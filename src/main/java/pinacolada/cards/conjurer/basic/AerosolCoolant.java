@@ -12,21 +12,18 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class AerosolCoolant extends PCLCard
-{
+public class AerosolCoolant extends PCLCard {
     public static final PCLCardData DATA = register(AerosolCoolant.class, ConjurerResources.conjurer)
             .setSkill(0, CardRarity.UNCOMMON)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Green)
             .setCore();
 
-    public AerosolCoolant()
-    {
+    public AerosolCoolant() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addUseMove(PCond.checkPower(PCLCardTarget.All, 0, PCLElementHelper.Aer), PMove.draw(2));
-        addUseMove(PMove.applyToSingle(1,  PCLElementHelper.Gelus, PCLElementHelper.Aer).setUpgrade(1));
+        addUseMove(PMove.applyToSingle(1, PCLElementHelper.Gelus, PCLElementHelper.Aer).setUpgrade(1));
     }
 }

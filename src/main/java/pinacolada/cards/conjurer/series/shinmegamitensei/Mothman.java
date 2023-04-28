@@ -14,8 +14,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMod;
 
 @VisibleCard
-public class Mothman extends PCLCard
-{
+public class Mothman extends PCLCard {
     public static final PCLCardData DATA = register(Mothman.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Ranged)
             .setDamage(2, 1)
@@ -23,13 +22,11 @@ public class Mothman extends PCLCard
             .setAffinities(PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public Mothman()
-    {
+    public Mothman() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.WIND);
         addUseMove(PCond.cooldown(1), PMod.bonusPerLevel(4, PCLAffinity.Green), CMove.gainReaction(9));
     }

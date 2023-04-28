@@ -14,8 +14,7 @@ import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class AyaShameimaru extends PCLCard
-{
+public class AyaShameimaru extends PCLCard {
     public static final PCLCardData DATA = register(AyaShameimaru.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE, PCLAttackType.Piercing)
             .setDamage(2, 1, 2)
@@ -23,13 +22,11 @@ public class AyaShameimaru extends PCLCard
             .setAffinities(2, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.touhouProject);
 
-    public AyaShameimaru()
-    {
+    public AyaShameimaru() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL);
         addUseMove(CCond.redox(), PMove.fetchRandom(1, PCLCardGroupHelper.DrawPile).edit(f -> f.setType(CardType.SKILL)));
     }

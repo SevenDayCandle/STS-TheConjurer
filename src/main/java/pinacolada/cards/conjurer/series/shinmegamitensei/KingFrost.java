@@ -14,8 +14,7 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
-public class KingFrost extends PCLCard
-{
+public class KingFrost extends PCLCard {
     public static final PCLCardData DATA = register(KingFrost.class, ConjurerResources.conjurer)
             .setSummon(3, CardRarity.RARE, PCLAttackType.Immaterial)
             .setDamage(2, 0)
@@ -23,13 +22,11 @@ public class KingFrost extends PCLCard
             .setAffinities(2, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public KingFrost()
-    {
+    public KingFrost() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.ICE);
         addGainPower(PTrigger.interactable(
                 CCond.payReaction(8).setUpgrade(-1),

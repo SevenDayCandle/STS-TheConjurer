@@ -12,20 +12,17 @@ import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class PestThreads extends PCLCard
-{
+public class PestThreads extends PCLCard {
     public static final PCLCardData DATA = register(PestThreads.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON)
             .setAffinities(PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
-    public PestThreads()
-    {
+    public PestThreads() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addUseMove(PMod.drawPer(2).setUpgrade(1).edit(f -> f.setAffinity(PCLAffinity.Green)), PMove.applyToRandom(5, PCLElementHelper.Poison));
     }
 }

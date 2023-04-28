@@ -9,17 +9,14 @@ import pinacolada.skills.skills.PMultiSkill;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleRelic
-public class ChiliPepper extends PCLPointerRelic
-{
+public class ChiliPepper extends PCLPointerRelic {
     public static final String ID = createFullID(ChiliPepper.class);
 
-    public ChiliPepper()
-    {
+    public ChiliPepper() {
         super(ID, RelicTier.UNCOMMON, LandingSound.FLAT);
     }
 
-    public void setup()
-    {
+    public void setup() {
         addUseMove(PTrigger.when(PCond.onTurnStart(), PMultiSkill.join(PMove.applyToEnemies(4, PCLElementHelper.Blasted))));
     }
 }

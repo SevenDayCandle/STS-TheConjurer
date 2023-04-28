@@ -15,26 +15,25 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.utilities.PCLRenderHelpers;
 import pinacolada.utilities.RandomizedList;
 
-public class ConjurerStarAllyAnimation extends PCLAllyAnimation
-{
+public class ConjurerStarAllyAnimation extends PCLAllyAnimation {
+    public static final float RADIUS = 320;
+    protected static final float BASE_PROJECTILE_TIMER = 0.1F;
     private static final TextureCache[] FRAMES = {ConjurerResources.conjurer.images.monsters.chaos1, ConjurerResources.conjurer.images.monsters.chaos2, ConjurerResources.conjurer.images.monsters.chaos3};
     private static final RandomizedList<TextureCache> textures = new RandomizedList<>();
-    protected static final float BASE_PROJECTILE_TIMER = 0.1F;
-    public static final float RADIUS = 320;
-
     private float projVfxTimer = BASE_PROJECTILE_TIMER;
 
-    public ConjurerStarAllyAnimation(PCLCreature creature)
-    {
+    public ConjurerStarAllyAnimation(PCLCreature creature) {
         super(creature);
     }
 
-    public void update(float deltaTime, float x, float y)
-    {
+    public void playActAnimation(float x, float y) {
+        PCLEffects.TopLevelQueue.add(VFX.circularWave(x, y).setScale(0.25f, 12f).setColors(Color.WHITE, Color.PURPLE));
+    }
+
+    public void update(float deltaTime, float x, float y) {
         super.update(deltaTime, x, y);
         this.projVfxTimer -= deltaTime;
-        if (this.projVfxTimer < 0.0F)
-        {
+        if (this.projVfxTimer < 0.0F) {
             float r = MathUtils.random(0, 360f);
             PCLEffects.Queue.add(new FadingParticleEffect(ConjurerResources.conjurer.images.monsters.chaosOrbital.texture(), x, y)
                     .setBlendingMode(PCLRenderHelpers.BlendingMode.Glowing)
@@ -46,8 +45,7 @@ public class ConjurerStarAllyAnimation extends PCLAllyAnimation
         }
     }
 
-    public void renderSprite(SpriteBatch sb, float x, float y)
-    {
+    public void renderSprite(SpriteBatch sb, float x, float y) {
         int size = FRAMES[0].texture().getHeight();
         int hSize = size / 2;
         sb.setColor(this.renderColor);
@@ -64,10 +62,5 @@ public class ConjurerStarAllyAnimation extends PCLAllyAnimation
         sb.draw(FRAMES[2].texture(), x - hSize, y - hSize, 48f, 48f, 96f, 96f, scale2, scale2, -angle, 0, 0, 96, 96, !hFlip, vFlip);
 
         sb.setColor(Color.WHITE);
-    }
-
-    public void playActAnimation(float x, float y)
-    {
-        PCLEffects.TopLevelQueue.add(VFX.circularWave(x, y).setScale(0.25f, 12f).setColors(Color.WHITE, Color.PURPLE));
     }
 }

@@ -13,20 +13,17 @@ import pinacolada.skills.skills.PMultiSkill;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
-public class Paleontology extends PCLCard
-{
+public class Paleontology extends PCLCard {
     public static final PCLCardData DATA = register(Paleontology.class, ConjurerResources.conjurer)
             .setPower(2, CardRarity.UNCOMMON)
             .setAffinities(1, PCLAffinity.Orange)
             .setCore();
 
-    public Paleontology()
-    {
+    public Paleontology() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addGainPower(PTrigger.when(PCond.onTurnStart(), PMultiSkill.join(CMove.gainReaction(4).setUpgrade(2), PMove.fetch(2, 1, PCLCardGroupHelper.DiscardPile))));
     }
 }

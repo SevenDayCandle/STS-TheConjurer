@@ -14,8 +14,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class MarisaKirisame extends PCLCard
-{
+public class MarisaKirisame extends PCLCard {
     public static final PCLCardData DATA = register(MarisaKirisame.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Immaterial)
             .setDamage(3, 1)
@@ -23,13 +22,11 @@ public class MarisaKirisame extends PCLCard
             .setAffinities(1, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.touhouProject);
 
-    public MarisaKirisame()
-    {
+    public MarisaKirisame() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.ELECTRIC);
         addUseMove(PCond.cooldown(4).setUpgrade(-1), PMove.gainPlayer(1, PCLPowerHelper.Critical));
     }

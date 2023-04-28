@@ -17,8 +17,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class HuTao extends PCLCard
-{
+public class HuTao extends PCLCard {
     public static final PCLCardData DATA = register(HuTao.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Piercing, PCLCardTarget.RandomEnemy)
             .setRTags(PCLCardTag.Ethereal)
@@ -27,13 +26,11 @@ public class HuTao extends PCLCard
             .setAffinities(PCLAffinity.Red, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public HuTao()
-    {
+    public HuTao() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLEnum.AttackEffect.BURN).setVFXColor(Color.VIOLET, Color.VIOLET);
         addUseMove(PCond.cooldown(0), PCond.exhaustRandom(1, PCLCardGroupHelper.DiscardPile), PMove.gainEnergy(1));
     }

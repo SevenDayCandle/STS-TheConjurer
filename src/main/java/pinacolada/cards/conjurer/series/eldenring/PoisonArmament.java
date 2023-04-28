@@ -14,20 +14,17 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
-public class PoisonArmament extends PCLCard
-{
+public class PoisonArmament extends PCLCard {
     public static final PCLCardData DATA = register(PoisonArmament.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.Self)
             .setAffinities(1, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
-    public PoisonArmament()
-    {
+    public PoisonArmament() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addGainPower(1, PTrigger.when(PCond.isAttacking(PCLCardTarget.Self), PMove.applyToSingle(2, PCLElementHelper.Aer, PCLElementHelper.Poison).setUpgrade(1)));
     }
 }

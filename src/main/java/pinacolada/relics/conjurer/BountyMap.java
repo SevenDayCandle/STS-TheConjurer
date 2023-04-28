@@ -2,20 +2,16 @@ package pinacolada.relics.conjurer;
 
 import com.megacrit.cardcrawl.rooms.*;
 
-public class BountyMap extends AbstractBountyMap
-{
+public class BountyMap extends AbstractBountyMap {
     public static final String ID = createFullID(BountyMap.class);
 
-    public BountyMap()
-    {
+    public BountyMap() {
         super(ID);
     }
 
     @Override
-    protected Class<? extends AbstractRoom> getCurrentRequiredRoom()
-    {
-        switch (counter)
-        {
+    protected Class<? extends AbstractRoom> getCurrentRequiredRoom() {
+        switch (counter) {
             case 0:
                 return MonsterRoom.class;
             case 1:

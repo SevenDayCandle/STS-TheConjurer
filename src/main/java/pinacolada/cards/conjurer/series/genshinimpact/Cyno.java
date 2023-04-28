@@ -20,8 +20,7 @@ import pinacolada.skills.PSkill;
 import pinacolada.utilities.GameUtilities;
 
 @VisibleCard
-public class Cyno extends PCLCard
-{
+public class Cyno extends PCLCard {
     public static final PCLCardData DATA = register(Cyno.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON)
             .setDamage(4, 1)
@@ -29,53 +28,43 @@ public class Cyno extends PCLCard
             .setAffinities(PCLAffinity.Orange, PCLAffinity.Yellow, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.genshinImpact, true);
 
-    public Cyno()
-    {
+    public Cyno() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_HEAVY);
         addSpecialPower(0, (s, i) -> new CynoPower(i.source, s), 3, 1).setUpgrade(1);
     }
 
-    public static class CynoPower extends PSpecialCardPower implements OnAllyDeathSubscriber, OnMonsterDeathSubscriber
-    {
-        public CynoPower(AbstractCreature owner, PSkill move)
-        {
+    public static class CynoPower extends PSpecialCardPower implements OnAllyDeathSubscriber, OnMonsterDeathSubscriber {
+        public CynoPower(AbstractCreature owner, PSkill move) {
             super(DATA, owner, move);
         }
 
         @Override
-        public void onAllyDeath(PCLCard pclCard, PCLCardAlly pclCardAlly)
-        {
+        public void onAllyDeath(PCLCard pclCard, PCLCardAlly pclCardAlly) {
             act();
         }
 
-        @Override
-        public void onMonsterDeath(AbstractMonster abstractMonster, boolean b)
-        {
-            act();
-        }
-
-        protected void act()
-        {
+        protected void act() {
             PCLActions.bottom.gainEnergyNextTurn(move.extra);
-            if (owner instanceof PCLCardAlly)
-            {
+            if (owner instanceof PCLCardAlly) {
                 PCLCard card = ((PCLCardAlly) owner).card;
-                if (card != null)
-                {
+                if (card != null) {
                     GameUtilities.modifyDamage(card, card.baseDamage + move.amount, false);
                     flash();
                 }
             }
-            else
-            {
+            else {
                 PCLActions.bottom.applyPower(new StrengthPower(owner, move.amount));
                 flash();
             }
+        }
+
+        @Override
+        public void onMonsterDeath(AbstractMonster abstractMonster, boolean b) {
+            act();
         }
     }
 }

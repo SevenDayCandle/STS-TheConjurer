@@ -15,8 +15,7 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PMultiCond;
 
 @VisibleCard
-public class Cactuar extends PCLCard
-{
+public class Cactuar extends PCLCard {
     public static final PCLCardData DATA = register(Cactuar.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
             .setDamage(1, 1, 2)
@@ -24,13 +23,11 @@ public class Cactuar extends PCLCard
             .setAffinities(PCLAffinity.Green)
             .setColorless();
 
-    public Cactuar()
-    {
+    public Cactuar() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.DAGGER);
         addUseMove(PMultiCond.or(PCond.onSummon(), PCond.onWithdraw()), PMove.gainPlayer(1, PCLPowerHelper.Thorns).setUpgrade(1));
     }

@@ -21,79 +21,53 @@ import pinacolada.utilities.GameUtilities;
 import java.util.ArrayList;
 
 @VisibleCard
-public class GeneticEngineering extends PCLCard
-{
+public class GeneticEngineering extends PCLCard {
     public static final PCLCardData DATA = register(GeneticEngineering.class, ConjurerResources.conjurer)
             .setPower(0, CardRarity.UNCOMMON)
             .setUTags(PCLCardTag.Haste, PCLCardTag.Retain)
             .setAffinities(2, PCLAffinity.Blue)
             .setCore(true);
 
-    public GeneticEngineering()
-    {
+    public GeneticEngineering() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addSpecialPower(0, (s, i) -> new GeneticEngineeringPower(i.target, s), 2);
     }
 
-    public static class GeneticEngineeringPower extends PSpecialCardPower implements OnCardCreatedSubscriber
-    {
-        public GeneticEngineeringPower(AbstractCreature owner, PSkill move)
-        {
+    public static class GeneticEngineeringPower extends PSpecialCardPower implements OnCardCreatedSubscriber {
+        public GeneticEngineeringPower(AbstractCreature owner, PSkill move) {
             super(DATA, owner, move);
         }
 
         @Override
-        public void onCardCreated(AbstractCard c, boolean startOfBattle)
-        {
+        public void onCardCreated(AbstractCard c, boolean startOfBattle) {
             applyToCard(c);
         }
 
-        @Override
-        public void onInitialApplication()
-        {
-            super.onInitialApplication();
-
-            for (AbstractCard c : GameUtilities.getCardsInAnyPile())
-            {
-                applyToCard(c);
-            }
-        }
-
-        protected void applyToCard(AbstractCard c)
-        {
-            if (c.type == CardType.STATUS)
-            {
+        protected void applyToCard(AbstractCard c) {
+            if (c.type == CardType.STATUS) {
                 PCLCard pc = EUIUtils.safeCast(c, PCLCard.class);
-                if (pc != null)
-                {
+                if (pc != null) {
                     PCLCardTag.Unplayable.set(pc, 0);
                     PCLCardTag.Exhaust.set(pc, 1);
                     pc.setTarget(PCLCardTarget.RandomEnemy);
 
                     ArrayList<PSkill<?>> newSkills = new ArrayList<>();
-                    for (PSkill<?> skill : pc.getEffects())
-                    {
+                    for (PSkill<?> skill : pc.getEffects()) {
                         PSkill<?> bottom = skill.getLowestChild();
-                        if (bottom != null && bottom.isDetrimental())
-                        {
+                        if (bottom != null && bottom.isDetrimental()) {
                             // PMove_Gain effects such as Void are negative and should be inverted
-                            if (bottom instanceof PMove_Gain && bottom.amount < 0)
-                            {
+                            if (bottom instanceof PMove_Gain && bottom.amount < 0) {
                                 bottom.setAmount(-bottom.amount);
                             }
-                            else
-                            {
+                            else {
                                 bottom.setAmount(bottom.amount * move.amount);
-                                if (bottom.target.targetsSelf())
-                                {
+                                if (bottom.target.targetsSelf()) {
                                     bottom.setTarget(PCLCardTarget.RandomEnemy);
                                 }
-                                else
-                                {
+                                else {
                                     bottom.setTarget(PCLCardTarget.Self);
                                 }
                             }
@@ -102,28 +76,33 @@ public class GeneticEngineering extends PCLCard
                         newSkills.add(bottom);
                     }
 
-                    if (pc.cost < 0)
-                    {
+                    if (pc.cost < 0) {
                         GameUtilities.modifyCostForCombat(pc, 0, false);
                     }
 
-                    if (newSkills.size() == 0)
-                    {
+                    if (newSkills.size() == 0) {
                         newSkills.add(PMove.gainBlock(move.amount * (pc.cost + 1)));
                     }
 
                     pc.getEffects().clear();
-                    for (PSkill<?> skill : newSkills)
-                    {
+                    for (PSkill<?> skill : newSkills) {
                         pc.addUseMove(skill);
                     }
                     pc.initializeDescription();
                 }
-                else
-                {
+                else {
                     PCLCardTag.Ethereal.set(c, 1);
                     PCLCardTag.Haste.set(c, 1);
                 }
+            }
+        }
+
+        @Override
+        public void onInitialApplication() {
+            super.onInitialApplication();
+
+            for (AbstractCard c : GameUtilities.getCardsInAnyPile()) {
+                applyToCard(c);
             }
         }
     }

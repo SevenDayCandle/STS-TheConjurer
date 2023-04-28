@@ -17,33 +17,27 @@ import pinacolada.skills.skills.PSpecialSkill;
 import pinacolada.utilities.GameUtilities;
 
 @VisibleCard
-public class MonsterReborn extends PCLCard
-{
+public class MonsterReborn extends PCLCard {
     public static final PCLCardData DATA = register(MonsterReborn.class, ConjurerResources.conjurer)
             .setSkill(0, CardRarity.UNCOMMON, PCLCardTarget.AllAlly)
             .setTags(PCLCardTag.Purge)
             .setAffinities(2, PCLAffinity.Yellow)
             .setColorless();
 
-    public MonsterReborn()
-    {
+    public MonsterReborn() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addSpecialMove(0, this::action, 1, 30).setUpgradeExtra(20);
     }
 
-    public void action(PSpecialSkill move, PCLUseInfo info)
-    {
+    public void action(PSpecialSkill move, PCLUseInfo info) {
         PCLActions.bottom.playFromPile(move.getName(), move.amount, move.target.getTarget(info.target), CombatManager.PURGED_CARDS)
                 .setFilter(c -> c.type == PCLEnum.CardType.SUMMON && c instanceof PCLCard)
                 .addCallback(cards -> {
-                    for (AbstractCard c : cards)
-                    {
-                        if (c.type == PCLEnum.CardType.SUMMON && c instanceof PCLCard)
-                        {
+                    for (AbstractCard c : cards) {
+                        if (c.type == PCLEnum.CardType.SUMMON && c instanceof PCLCard) {
                             GameUtilities.modifySecondaryValueRelative((PCLCard) c, c.baseHeal * move.extra / 100, false);
                         }
                     }

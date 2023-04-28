@@ -14,8 +14,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Xingqiu extends PCLCard
-{
+public class Xingqiu extends PCLCard {
     public static final PCLCardData DATA = register(Xingqiu.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Piercing)
             .setDamage(1, 1, 2)
@@ -23,13 +22,11 @@ public class Xingqiu extends PCLCard
             .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public Xingqiu()
-    {
+    public Xingqiu() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL);
         addUseMove(PCond.cooldown(1), PMove.gainPlayer(2, PCLPowerHelper.Warding).setUpgrade(1));
     }

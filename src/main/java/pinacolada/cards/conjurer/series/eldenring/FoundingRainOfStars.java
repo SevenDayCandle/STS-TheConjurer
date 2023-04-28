@@ -14,20 +14,17 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
-public class FoundingRainOfStars extends PCLCard
-{
+public class FoundingRainOfStars extends PCLCard {
     public static final PCLCardData DATA = register(FoundingRainOfStars.class, ConjurerResources.conjurer)
             .setPower(1, CardRarity.RARE)
             .setAffinities(PCLAffinity.Blue.make(2), PCLAffinity.Yellow.make())
             .setLoadout(ConjurerPlayerData.eldenRing);
 
-    public FoundingRainOfStars()
-    {
+    public FoundingRainOfStars() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addGainPower(PTrigger.when(PCond.onTurnStart(), PMod.bonusPerLevel(1, PCLAffinity.Blue), PMove.applyToEveryone(2, PCLElementHelper.Gelus).setUpgrade(1)));
     }
 }

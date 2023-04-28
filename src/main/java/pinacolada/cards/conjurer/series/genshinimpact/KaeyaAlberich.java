@@ -13,8 +13,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class KaeyaAlberich extends PCLCard
-{
+public class KaeyaAlberich extends PCLCard {
     public static final PCLCardData DATA = register(KaeyaAlberich.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON)
             .setDamage(3, 0)
@@ -22,13 +21,11 @@ public class KaeyaAlberich extends PCLCard
             .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public KaeyaAlberich()
-    {
+    public KaeyaAlberich() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.ICE);
         addUseMove(PCond.cooldown(0), PMove.applyToSingle(2, PCLElementHelper.Gelus).setUpgrade(1));
     }

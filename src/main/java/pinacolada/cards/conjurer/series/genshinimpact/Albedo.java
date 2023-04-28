@@ -15,8 +15,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Albedo extends PCLCard
-{
+public class Albedo extends PCLCard {
     public static final PCLCardData DATA = register(Albedo.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Immaterial)
             .setDamage(3, 1)
@@ -24,13 +23,11 @@ public class Albedo extends PCLCard
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Orange, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public Albedo()
-    {
+    public Albedo() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.EARTH);
         addUseMove(PCond.cooldown(2), PMove.stabilize(PCLCardTarget.Single, PCLElementHelper.Gelus, PCLElementHelper.Petra));
     }

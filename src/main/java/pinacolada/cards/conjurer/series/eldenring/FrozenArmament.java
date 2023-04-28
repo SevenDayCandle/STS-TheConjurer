@@ -14,20 +14,17 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
-public class FrozenArmament extends PCLCard
-{
+public class FrozenArmament extends PCLCard {
     public static final PCLCardData DATA = register(FrozenArmament.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.Self)
             .setAffinities(1, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
-    public FrozenArmament()
-    {
+    public FrozenArmament() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addGainPower(1, PTrigger.when(PCond.isAttacking(PCLCardTarget.Self), PMove.applyToSingle(2, PCLElementHelper.Gelus, PCLElementHelper.Frostbite).setUpgrade(1)));
     }
 }

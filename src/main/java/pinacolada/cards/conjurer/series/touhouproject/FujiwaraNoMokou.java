@@ -15,8 +15,7 @@ import pinacolada.skills.skills.PMultiSkill;
 import pinacolada.skills.skills.base.moves.PMove_Reshuffle;
 
 @VisibleCard
-public class FujiwaraNoMokou extends PCLCard
-{
+public class FujiwaraNoMokou extends PCLCard {
     public static final PCLCardData DATA = register(FujiwaraNoMokou.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON)
             .setDamage(3, 1)
@@ -24,13 +23,11 @@ public class FujiwaraNoMokou extends PCLCard
             .setAffinities(1, PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.touhouProject);
 
-    public FujiwaraNoMokou()
-    {
+    public FujiwaraNoMokou() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BURN);
         addUseMove(PCond.onDeath(), PMultiSkill.join(new PMove_Reshuffle(), PMove.applyToTeam(3, PCLPowerHelper.Vigor)));
     }

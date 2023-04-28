@@ -8,21 +8,18 @@ import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.resources.conjurer.ConjurerResources;
 
 @VisibleCard
-public class DefendG extends PCLCard
-{
+public class DefendG extends PCLCard {
     public static final PCLCardData DATA = register(DefendG.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.BASIC, PCLCardTarget.Self)
             .setAffinities(PCLAffinity.Green)
             .setBlock(5, 3)
             .setDefend();
 
-    public DefendG()
-    {
+    public DefendG() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addBlockMove();
     }
 }

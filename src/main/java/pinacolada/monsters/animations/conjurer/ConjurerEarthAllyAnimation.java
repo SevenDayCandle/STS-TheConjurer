@@ -11,26 +11,18 @@ import pinacolada.monsters.PCLCreature;
 import pinacolada.monsters.animations.PCLAllyAnimation;
 import pinacolada.resources.conjurer.ConjurerResources;
 
-public class ConjurerEarthAllyAnimation extends PCLAllyAnimation
-{
+public class ConjurerEarthAllyAnimation extends PCLAllyAnimation {
     public static final float RADIUS = 320;
 
-    public ConjurerEarthAllyAnimation(PCLCreature creature)
-    {
+    public ConjurerEarthAllyAnimation(PCLCreature creature) {
         super(creature);
     }
 
-    public void updateImpl(float deltaTime, float x, float y)
-    {
-        PCLEffects.Queue.add(new FadingParticleEffect(RockBurstEffect.getRandomTexture(), x + MathUtils.random(-90, 90), y + MathUtils.random(-32, 4))
-                .setFlip(MathUtils.randomBoolean(), false)
-                .setScale(MathUtils.random(0.09f, 0.32f))
-                .setRotation(0, MathUtils.random(400f, 600f))
-                .setTargetPosition(x, y + RADIUS, 50f)).setDuration(0.6f, false);
+    public void playActAnimation(float x, float y) {
+        PCLEffects.TopLevelQueue.add(VFX.circularWave(x, y).setScale(0.25f, 12f).setColors(Color.WHITE, Color.ORANGE));
     }
 
-    public void renderSprite(SpriteBatch sb, float x, float y)
-    {
+    public void renderSprite(SpriteBatch sb, float x, float y) {
         sb.setColor(this.renderColor);
         float angleExt = this.angle / 13f;
         int size = ConjurerResources.conjurer.images.monsters.earth1.texture().getHeight();
@@ -41,8 +33,11 @@ public class ConjurerEarthAllyAnimation extends PCLAllyAnimation
         sb.setColor(Color.WHITE);
     }
 
-    public void playActAnimation(float x, float y)
-    {
-        PCLEffects.TopLevelQueue.add(VFX.circularWave(x, y).setScale(0.25f, 12f).setColors(Color.WHITE, Color.ORANGE));
+    public void updateImpl(float deltaTime, float x, float y) {
+        PCLEffects.Queue.add(new FadingParticleEffect(RockBurstEffect.getRandomTexture(), x + MathUtils.random(-90, 90), y + MathUtils.random(-32, 4))
+                .setFlip(MathUtils.randomBoolean(), false)
+                .setScale(MathUtils.random(0.09f, 0.32f))
+                .setRotation(0, MathUtils.random(400f, 600f))
+                .setTargetPosition(x, y + RADIUS, 50f)).setDuration(0.6f, false);
     }
 }

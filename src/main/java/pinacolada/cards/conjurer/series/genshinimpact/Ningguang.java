@@ -16,8 +16,7 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PMultiSkill;
 
 @VisibleCard
-public class Ningguang extends PCLCard
-{
+public class Ningguang extends PCLCard {
     public static final PCLCardData DATA = register(Ningguang.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Ranged)
             .setDamage(3, 1)
@@ -25,13 +24,11 @@ public class Ningguang extends PCLCard
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public Ningguang()
-    {
+    public Ningguang() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.EARTH);
         addUseMove(PCond.cooldown(2), PMultiSkill.choose(PMove.retain(1, PCLAffinity.Orange).edit(f -> f.setCardGroup(PCLCardGroupHelper.Hand)).setUpgrade(1), PMove.applyToEnemies(3, PCLElementHelper.Petra).setUpgrade(2)));
     }

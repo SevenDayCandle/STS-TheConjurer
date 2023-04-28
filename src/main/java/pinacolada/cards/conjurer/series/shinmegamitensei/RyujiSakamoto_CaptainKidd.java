@@ -14,8 +14,7 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.special.moves.PMove_ExhaustAlly;
 
 @VisibleCard
-public class RyujiSakamoto_CaptainKidd extends PCLCard
-{
+public class RyujiSakamoto_CaptainKidd extends PCLCard {
     public static final PCLCardData DATA = register(RyujiSakamoto_CaptainKidd.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.SPECIAL)
             .setDamage(9, 3)
@@ -23,13 +22,11 @@ public class RyujiSakamoto_CaptainKidd extends PCLCard
             .setAffinities(PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public RyujiSakamoto_CaptainKidd()
-    {
+    public RyujiSakamoto_CaptainKidd() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
         addUseMove(PMove.applyToEnemies(2, PCLPowerHelper.Vulnerable, PCLPowerHelper.Weak), new PMove_ExhaustAlly(PCLCardTarget.Self, 1));
     }

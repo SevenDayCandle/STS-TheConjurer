@@ -10,20 +10,17 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Crystallize extends PCLCard
-{
+public class Crystallize extends PCLCard {
     public static final PCLCardData DATA = register(Crystallize.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.None)
             .setAffinities(PCLAffinity.Blue)
             .setCore(true);
 
-    public Crystallize()
-    {
+    public Crystallize() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addUseMove(PMove.retain(2).setUpgrade(1), PMove.modifyBlock(2).useParent(true));
     }
 }

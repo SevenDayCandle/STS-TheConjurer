@@ -13,8 +13,7 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
-public class Airavata extends PCLCard
-{
+public class Airavata extends PCLCard {
     public static final PCLCardData DATA = register(Airavata.class, ConjurerResources.conjurer)
             .setSummon(3, CardRarity.UNCOMMON)
             .setDamage(3, 0)
@@ -22,13 +21,11 @@ public class Airavata extends PCLCard
             .setAffinities(PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public Airavata()
-    {
+    public Airavata() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(AbstractGameAction.AttackEffect.BLUNT_HEAVY);
         addGainPower(PTrigger.interactable(
                 CCond.payReaction(9).setUpgrade(-1),

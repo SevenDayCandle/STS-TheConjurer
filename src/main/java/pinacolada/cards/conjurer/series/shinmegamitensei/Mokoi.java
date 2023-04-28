@@ -14,8 +14,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Mokoi extends PCLCard
-{
+public class Mokoi extends PCLCard {
     public static final PCLCardData DATA = register(Mokoi.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON)
             .setDamage(2, 1)
@@ -23,13 +22,11 @@ public class Mokoi extends PCLCard
             .setAffinities(PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public Mokoi()
-    {
+    public Mokoi() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
         addUseMove(PCond.cooldown(2), PMove.applyToRandom(2, PCLElementHelper.Shackles, PCLPowerHelper.Vulnerable));
     }

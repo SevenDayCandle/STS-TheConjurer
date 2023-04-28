@@ -12,21 +12,18 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Ignite extends PCLCard
-{
+public class Ignite extends PCLCard {
     public static final PCLCardData DATA = register(Ignite.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.COMMON, PCLAttackType.Ranged)
             .setDamage(7, 3)
             .setAffinities(PCLAffinity.Red)
             .setCore();
 
-    public Ignite()
-    {
+    public Ignite() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BURN);
         addUseMove(PMove.applyToSingle(3, PCLElementHelper.Ignis));
     }

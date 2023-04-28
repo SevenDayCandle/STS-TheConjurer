@@ -29,102 +29,38 @@ import pinacolada.ui.combat.ConjurerReactionMeter;
 
 import java.util.HashSet;
 
-public class ConjurerResources extends PCLResources<ConjurerPlayerData, ConjurerImages, ConjurerTooltips, ConjurerStrings>
-{
+public class ConjurerResources extends PCLResources<ConjurerPlayerData, ConjurerImages, ConjurerTooltips, ConjurerStrings> {
     public static final String ID = "conjurer";
     public static final ConjurerResources conjurer = new ConjurerResources();
     public static final PCLAffinity[] affinities = EUIUtils.array(PCLAffinity.Red, PCLAffinity.Green, PCLAffinity.Blue, PCLAffinity.Orange);
 
-    public ConjurerResources()
-    {
+    public ConjurerResources() {
         super(ID, ConjurerEnum.Cards.THE_CONJURER, ConjurerEnum.Characters.THE_CONJURER, new ConjurerImages(ID));
     }
 
     @Override
-    public void initializeColor()
-    {
-        Color color = CardHelper.getColor(106, 210, 177);
-        BaseMod.addColor(cardColor, color, color, color, color, color, color, color,
-                images.attack, images.skill, images.power,
-                images.orbA, images.attackL, images.skillL,
-                images.powerL, images.orbB, images.orbC);
-    }
-
-    @Override
-    public ConjurerPlayerData getData()
-    {
+    public ConjurerPlayerData getData() {
         return new ConjurerPlayerData(this);
     }
 
     @Override
-    public ConjurerTooltips getTooltips()
-    {
-        return new ConjurerTooltips();
-    }
-
-    @Override
-    public ConjurerStrings getStrings()
-    {
-        return new ConjurerStrings(this);
-    }
-
-    @Override
-    public void receiveEditCharacters()
-    {
-        BaseMod.addCharacter(new ConjurerCharacter(), images.charButton, images.charBackground, playerClass);
-    }
-
-    protected void postInitialize()
-    {
-        super.postInitialize();
-        CombatManager.playerSystem.registerMeter(playerClass, ConjurerReactionMeter.meter);
-        PCLAffinity.registerAvailableAffinities(cardColor, affinities);
-        PCLAffinity.registerAffinityBorder(cardColor, PCLCoreImages.Core.borderSpecial2);
-        PCLCardAlly.registerAnimation(cardColor, this::getAnimation);
-    }
-
-    protected PCLAllyAnimation getAnimation(PCLCardAlly ally)
-    {
-        HashSet<PCLAffinity> available = new HashSet<>(PCLAffinity.getAvailableAffinitiesAsList());
-        available.add(PCLAffinity.Star);
-
-        PCLCardAffinity highest = ally.hasCard() ? ally.card.affinities.getHighest(cAff -> available.contains(cAff.type)) : null;
-        if (highest != null)
-        {
-            switch (highest.type)
-            {
-                case Star:
-                    return new ConjurerStarAllyAnimation(ally);
-                case Red:
-                    return new ConjurerFireAllyAnimation(ally);
-                case Green:
-                    return new ConjurerAirAllyAnimation(ally);
-                case Blue:
-                    return new ConjurerWaterAllyAnimation(ally);
-                case Orange:
-                    return new ConjurerEarthAllyAnimation(ally);
-            }
-        }
-        return new PCLGeneralAllyAnimation(ally);
-    }
-
-    @Override
-    public boolean containsColorless(AbstractCard card)
-    {
+    public boolean containsColorless(AbstractCard card) {
         return card instanceof PCLCard;
     }
 
     @Override
-    public boolean filterColorless(AbstractCard card)
-    {
+    public boolean filterColorless(AbstractCard card) {
         return card instanceof PCLCard && ((PCLCard) card).cardData.resources == this;
     }
 
     @Override
-    public PCLCardData getReplacement(String cardID)
-    {
-        switch (cardID)
-        {
+    public PCLCardData getAscendersBane() {
+        return Curse_AscendersBane.DATA;
+    }
+
+    @Override
+    public PCLCardData getReplacement(String cardID) {
+        switch (cardID) {
             case Apparition.ID:
                 return pinacolada.cards.conjurer.special.Apparition.DATA;
             case AscendersBane.ID:
@@ -177,9 +113,57 @@ public class ConjurerResources extends PCLResources<ConjurerPlayerData, Conjurer
     }
 
     @Override
-    public PCLCardData getAscendersBane()
-    {
-        return Curse_AscendersBane.DATA;
+    public void initializeColor() {
+        Color color = CardHelper.getColor(106, 210, 177);
+        BaseMod.addColor(cardColor, color, color, color, color, color, color, color,
+                images.attack, images.skill, images.power,
+                images.orbA, images.attackL, images.skillL,
+                images.powerL, images.orbB, images.orbC);
+    }
+
+    @Override
+    public void receiveEditCharacters() {
+        BaseMod.addCharacter(new ConjurerCharacter(), images.charButton, images.charBackground, playerClass);
+    }
+
+    @Override
+    public ConjurerTooltips getTooltips() {
+        return new ConjurerTooltips();
+    }
+
+    @Override
+    public ConjurerStrings getStrings() {
+        return new ConjurerStrings(this);
+    }
+
+    protected void postInitialize() {
+        super.postInitialize();
+        CombatManager.playerSystem.registerMeter(playerClass, ConjurerReactionMeter.meter);
+        PCLAffinity.registerAvailableAffinities(cardColor, affinities);
+        PCLAffinity.registerAffinityBorder(cardColor, PCLCoreImages.Core.borderSpecial2);
+        PCLCardAlly.registerAnimation(cardColor, this::getAnimation);
+    }
+
+    protected PCLAllyAnimation getAnimation(PCLCardAlly ally) {
+        HashSet<PCLAffinity> available = new HashSet<>(PCLAffinity.getAvailableAffinitiesAsList());
+        available.add(PCLAffinity.Star);
+
+        PCLCardAffinity highest = ally.hasCard() ? ally.card.affinities.getHighest(cAff -> available.contains(cAff.type)) : null;
+        if (highest != null) {
+            switch (highest.type) {
+                case Star:
+                    return new ConjurerStarAllyAnimation(ally);
+                case Red:
+                    return new ConjurerFireAllyAnimation(ally);
+                case Green:
+                    return new ConjurerAirAllyAnimation(ally);
+                case Blue:
+                    return new ConjurerWaterAllyAnimation(ally);
+                case Orange:
+                    return new ConjurerEarthAllyAnimation(ally);
+            }
+        }
+        return new PCLGeneralAllyAnimation(ally);
     }
 
 }

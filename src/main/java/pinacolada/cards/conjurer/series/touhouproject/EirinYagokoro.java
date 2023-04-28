@@ -20,8 +20,7 @@ import pinacolada.skills.PTrait;
 import pinacolada.skills.skills.PCustomMod;
 
 @VisibleCard
-public class EirinYagokoro extends PCLCard
-{
+public class EirinYagokoro extends PCLCard {
     public static final PCLCardData DATA = register(EirinYagokoro.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Immaterial)
             .setDamage(2, 0)
@@ -29,27 +28,22 @@ public class EirinYagokoro extends PCLCard
             .setAffinities(1, PCLAffinity.Blue, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.touhouProject, true);
 
-    public EirinYagokoro()
-    {
+    public EirinYagokoro() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.POISON).setChain(new EirinYagokoroMod(DATA, 1), PTrait.damage(2).setUpgrade(1));
         addUseMove(PCond.onSummon(), PMove.gainTempHP(PCLCardTarget.None, 3).setUpgrade(1));
     }
 
-    protected static class EirinYagokoroMod extends PCustomMod
-    {
-        public EirinYagokoroMod(PCLCardData data, int amount)
-        {
+    protected static class EirinYagokoroMod extends PCustomMod {
+        public EirinYagokoroMod(PCLCardData data, int amount) {
             super(data, 0, amount);
         }
 
         @Override
-        public int getModifiedAmount(PSkill<?> be, PCLUseInfo info)
-        {
+        public int getModifiedAmount(PSkill<?> be, PCLUseInfo info) {
             return EUIUtils.count(AbstractDungeon.player.potions, po -> po != null && po.canUse());
         }
     }

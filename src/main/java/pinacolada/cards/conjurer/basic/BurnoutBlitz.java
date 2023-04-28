@@ -13,21 +13,18 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class BurnoutBlitz extends PCLCard
-{
+public class BurnoutBlitz extends PCLCard {
     public static final PCLCardData DATA = register(BurnoutBlitz.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.RARE, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
             .setDamage(12, 2, 2)
             .setAffinities(2, PCLAffinity.Red)
             .setCore();
 
-    public BurnoutBlitz()
-    {
+    public BurnoutBlitz() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(EffekseerEFK.FIRE08);
         addUseMove(PMove.createDiscardPile(2, Status_SearingBurn.DATA.ID));
     }

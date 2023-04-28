@@ -14,8 +14,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class YunJin extends PCLCard
-{
+public class YunJin extends PCLCard {
     public static final PCLCardData DATA = register(YunJin.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Normal, PCLCardTarget.AllEnemy)
             .setDamage(1, 1)
@@ -23,14 +22,12 @@ public class YunJin extends PCLCard
             .setAffinities(PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public YunJin()
-    {
+    public YunJin() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL);
-        addUseMove(PCond.cooldown(1), PCond.cycle(1), PMove.gainBlock(PCLCardTarget.None,5));
+        addUseMove(PCond.cooldown(1), PCond.cycle(1), PMove.gainBlock(PCLCardTarget.None, 5));
     }
 }

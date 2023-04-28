@@ -12,20 +12,17 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class FoliarTorque extends PCLCard
-{
+public class FoliarTorque extends PCLCard {
     public static final PCLCardData DATA = register(FoliarTorque.class, ConjurerResources.conjurer)
             .setSkill(0, CardRarity.COMMON, PCLCardTarget.Single)
             .setAffinities(2, PCLAffinity.Green)
             .setCore();
 
-    public FoliarTorque()
-    {
+    public FoliarTorque() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addUseMove(PCond.cycle(1), PMove.applyToSingle(3, PCLElementHelper.Aer).setUpgrade(1));
     }
 }

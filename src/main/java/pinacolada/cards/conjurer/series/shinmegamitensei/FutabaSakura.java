@@ -18,8 +18,7 @@ import pinacolada.ui.combat.ConjurerReactionMeter;
 import pinacolada.utilities.GameUtilities;
 
 @VisibleCard
-public class FutabaSakura extends PCLCard
-{
+public class FutabaSakura extends PCLCard {
     public static final PCLCardData DATA = register(FutabaSakura.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE, PCLAttackType.Immaterial, PCLCardTarget.RandomEnemy)
             .setDamage(2, 1)
@@ -27,19 +26,16 @@ public class FutabaSakura extends PCLCard
             .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public FutabaSakura()
-    {
+    public FutabaSakura() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.PSYCHOKINESIS);
         addGainPower(PTrigger.when(CCond.redox(), getSpecialMove(0, this::specialMove, 22)));
     }
 
-    public void specialMove(PSpecialSkill move, PCLUseInfo info)
-    {
+    public void specialMove(PSpecialSkill move, PCLUseInfo info) {
         int am = GameUtilities.getRNG().random(move.amount);
         move.getActions().callback(() -> ConjurerReactionMeter.meter.addCount(am, true));
     }

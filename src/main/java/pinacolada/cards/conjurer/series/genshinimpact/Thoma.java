@@ -14,8 +14,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Thoma extends PCLCard
-{
+public class Thoma extends PCLCard {
     public static final PCLCardData DATA = register(Thoma.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON)
             .setDamage(2, 1)
@@ -23,13 +22,11 @@ public class Thoma extends PCLCard
             .setAffinities(PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public Thoma()
-    {
+    public Thoma() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_VERTICAL);
         addUseMove(PCond.onWithdraw(), PMove.applyToEnemies(2, PCLElementHelper.Ignis, PCLPowerHelper.Weak));
     }

@@ -14,54 +14,48 @@ import pinacolada.skills.fields.PField_Affinity;
 import pinacolada.skills.skills.base.modifiers.PMod_Per;
 import pinacolada.ui.combat.ConjurerReactionMeter;
 
-public class PMod_PerElement extends PMod_Per<PField_Affinity>
-{
+public class PMod_PerElement extends PMod_Per<PField_Affinity> {
 
     public static final PSkillData<PField_Affinity> DATA = register(PMod_PerElement.class, PField_Affinity.class, ConjurerEnum.Cards.THE_CONJURER);
 
-    public PMod_PerElement(PSkillSaveData content)
-    {
+    public PMod_PerElement(PSkillSaveData content) {
         super(DATA, content);
     }
 
-    public PMod_PerElement()
-    {
+    public PMod_PerElement() {
         super(DATA);
     }
 
-    public PMod_PerElement(int amount, PCLAffinity... affinities)
-    {
+    public PMod_PerElement(int amount, PCLAffinity... affinities) {
         this(PCLCardTarget.AllEnemy, amount, affinities);
     }
 
-    public PMod_PerElement(PCLCardTarget target, int amount, PCLAffinity... affinities)
-    {
+    public PMod_PerElement(PCLCardTarget target, int amount, PCLAffinity... affinities) {
         super(DATA, target, amount);
         fields.setAffinity(affinities);
     }
 
     @Override
-    public int getMultiplier(PCLUseInfo info)
-    {
+    public int getMultiplier(PCLUseInfo info) {
         return EUIUtils.sumInt(getTargetList(info), t -> t.powers != null ? EUIUtils.sumInt(t.powers, po -> isPowerElemental(po.ID) ? po.amount : 0) : 0) / Math.max(1, this.amount);
     }
 
     @Override
-    public String getSubSampleText()
-    {
+    public String getSubSampleText() {
         return ConjurerResources.conjurer.tooltips.elementalDebuff.title;
     }
 
+    protected boolean isPowerElemental(String id) {
+        return fields.affinities.isEmpty() ? ConjurerReactionMeter.meter.isPowerElemental(id) : EUIUtils.any(fields.affinities, a -> ConjurerReactionMeter.meter.isPowerElemental(id, a));
+    }
+
     @Override
-    public String getSubText()
-    {
+    public String getSubText() {
         String baseString = fields.affinities.isEmpty() ? plural(ConjurerResources.conjurer.tooltips.elementalDebuff) : PCLElementHelper.getPowerAndString(fields.affinities);
-        if (amount > 1)
-        {
+        if (amount > 1) {
             baseString = EUIRM.strings.numNoun(getAmountRawString(), baseString);
         }
-        switch (target)
-        {
+        switch (target) {
             case All:
             case Any:
                 return TEXT.subjects_onAnyCharacter(baseString);
@@ -74,10 +68,5 @@ public class PMod_PerElement extends PMod_Per<PField_Affinity>
             default:
                 return baseString;
         }
-    }
-
-    protected boolean isPowerElemental(String id)
-    {
-        return fields.affinities.isEmpty() ? ConjurerReactionMeter.meter.isPowerElemental(id) : EUIUtils.any(fields.affinities, a -> ConjurerReactionMeter.meter.isPowerElemental(id, a));
     }
 }

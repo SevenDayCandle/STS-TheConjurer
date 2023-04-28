@@ -19,45 +19,36 @@ import pinacolada.utilities.GameUtilities;
 import java.util.ArrayList;
 
 @VisibleCard
-public class ErodingTerra extends PCLCard
-{
+public class ErodingTerra extends PCLCard {
     public static final PCLCardData DATA = register(ErodingTerra.class, ConjurerResources.conjurer)
             .setPower(3, CardRarity.RARE)
             .setAffinities(2, PCLAffinity.Orange)
             .setUTags(PCLCardTag.Retain)
             .setCore();
 
-    public ErodingTerra()
-    {
+    public ErodingTerra() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addSpecialPower(0, (s, i) -> new ErodingTerraPower(i.source, s), 1);
     }
 
-    public static class ErodingTerraPower extends PSpecialCardPower
-    {
-        public ErodingTerraPower(AbstractCreature owner, PSkill<?> move)
-        {
+    public static class ErodingTerraPower extends PSpecialCardPower {
+        public ErodingTerraPower(AbstractCreature owner, PSkill<?> move) {
             super(ErodingTerra.DATA, owner, move);
         }
 
         @Override
-        public void atEndOfRound()
-        {
+        public void atEndOfRound() {
             super.atEndOfRound();
             ArrayList<PetraPower> powers = GameUtilities.getPowers(PetraPower.POWER_ID);
-            for (PetraPower po : powers)
-            {
+            for (PetraPower po : powers) {
                 int stacks = MathUtils.ceil(po.amount / 2f);
-                if (po.stabilizeTurns > 0)
-                {
+                if (po.stabilizeTurns > 0) {
                     PCLActions.bottom.gainBlock(stacks);
                 }
-                else
-                {
+                else {
                     PCLActions.last.applyPower(po.owner, PCLCardTarget.Single, PCLElementHelper.Petra, stacks);
                 }
                 flash();

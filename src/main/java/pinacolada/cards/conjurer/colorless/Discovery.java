@@ -17,43 +17,36 @@ import pinacolada.utilities.GameUtilities;
 import pinacolada.utilities.RandomizedList;
 
 @VisibleCard
-public class Discovery extends PCLCard
-{
+public class Discovery extends PCLCard {
     public static final PCLCardData DATA = register(Discovery.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.None)
             .setRTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Blue)
             .setColorless();
 
-    public Discovery()
-    {
+    public Discovery() {
         super(DATA);
     }
 
     @Override
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addSpecialMove(0, this::action, 1, 3);
     }
 
-    public void action(PSpecialSkill move, PCLUseInfo info)
-    {
+    public void action(PSpecialSkill move, PCLUseInfo info) {
         CardGroup choices = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         RandomizedList<AbstractCard> unseenCards = new RandomizedList<>(GameUtilities.getAvailableCards(GenericCondition.fromT1(c -> !c.isSeen && GameUtilities.isObtainableInCombat(c))));
-        if (unseenCards.size() < move.extra)
-        {
+        if (unseenCards.size() < move.extra) {
             unseenCards.addAll(GameUtilities.getAvailableCards(GenericCondition.fromT1(c -> c.isSeen)));
         }
 
-        while (choices.size() < move.extra && !unseenCards.isEmpty())
-        {
+        while (choices.size() < move.extra && !unseenCards.isEmpty()) {
             choices.addToBottom(unseenCards.retrieve(rng, true));
         }
 
         PCLActions.bottom.selectFromPile(getName(), move.amount, choices)
                 .addCallback((cards) -> {
-                    for (AbstractCard c : cards)
-                    {
+                    for (AbstractCard c : cards) {
                         AbstractCard copy = c.makeStatEquivalentCopy();
                         GameUtilities.modifyCostForTurn(copy, 0, false);
                         PCLActions.bottom.makeCardInHand(copy);

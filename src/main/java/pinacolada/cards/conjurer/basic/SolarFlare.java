@@ -11,21 +11,18 @@ import pinacolada.skills.CMod;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class SolarFlare extends PCLCard
-{
+public class SolarFlare extends PCLCard {
     public static final PCLCardData DATA = register(SolarFlare.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.RARE)
             .setDamage(8, 1)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Yellow)
             .setCore();
 
-    public SolarFlare()
-    {
+    public SolarFlare() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(EffekseerEFK.FIRE16);
         addUseMove(CMod.perReaction(7).setUpgrade(-1), PMove.modifyDamage(1));
     }

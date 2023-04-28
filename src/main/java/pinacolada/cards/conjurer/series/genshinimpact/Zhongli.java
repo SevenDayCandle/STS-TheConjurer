@@ -15,8 +15,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Zhongli extends PCLCard
-{
+public class Zhongli extends PCLCard {
     public static final PCLCardData DATA = register(Zhongli.class, ConjurerResources.conjurer)
             .setSummon(3, CardRarity.RARE, PCLAttackType.Piercing)
             .setDamage(2, 0)
@@ -24,13 +23,11 @@ public class Zhongli extends PCLCard
             .setAffinities(2, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public Zhongli()
-    {
+    public Zhongli() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.EARTH);
         addUseMove(PCond.cooldown(6).setUpgrade(-1), PMove.playCopy(1, PCLCardTarget.None, ErodingTerra.DATA.ID));
     }

@@ -25,116 +25,67 @@ import java.util.HashMap;
 import java.util.UUID;
 
 @VisibleCard
-public class Curse_Normality extends PCLCard
-{
+public class Curse_Normality extends PCLCard {
     public static final PCLCardData DATA = register(Curse_Normality.class, ConjurerResources.conjurer)
             .setCurse(-2, PCLCardTarget.None, true)
             .setTags(PCLCardTag.Unplayable);
 
-    public Curse_Normality()
-    {
+    public Curse_Normality() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addUseMove(new NormalityMove(DATA));
     }
 
-    public static class NormalityMove extends PCustomCond implements OnApplyPowerSubscriber, OnPhaseChangedSubscriber
-    {
+    public static class NormalityMove extends PCustomCond implements OnApplyPowerSubscriber, OnPhaseChangedSubscriber {
         protected static final HashMap<AbstractCreature, HashMap<String, Integer>> POWERS = new HashMap<>();
         protected static UUID battleID;
         protected static int turnCache;
 
-        public NormalityMove(PCLCardData data)
-        {
+        public NormalityMove(PCLCardData data) {
             super(data);
-        }
-
-        protected static void checkForNewBattle()
-        {
-            if (CombatManager.battleID != battleID)
-            {
-                battleID = CombatManager.battleID;
-                turnCache = -1;
-                POWERS.clear();
-            }
-        }
-
-        protected static boolean hasNormality()
-        {
-            return EUIUtils.any(player.hand.group, c -> c instanceof PointerProvider && EUIUtils.any(((PointerProvider) c).getSkills().onUseEffects, e -> e instanceof NormalityMove));
-        }
-
-        @Override
-        public void triggerOnCreate(AbstractCard c, boolean startOfBattle)
-        {
-            super.triggerOnCreate(c, startOfBattle);
-            tryActivate();
-            CombatManager.subscribe(this);
         }
 
         // Apply the power then remove it, to allow effects that trigger on power application to activate
         @Override
-        public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source)
-        {
+        public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
             PCLActions.last.callback(() -> {
-                if (hasNormality() && (GameUtilities.isPCLPower(power)))
-                {
+                if (hasNormality() && (GameUtilities.isPCLPower(power))) {
                     negatePower(power, target);
                 }
             });
         }
 
         @Override
-        public void onPhaseChanged(GameActionManager.Phase phase)
-        {
+        public void onPhaseChanged(GameActionManager.Phase phase) {
             tryActivate();
         }
 
         @Override
-        public void refresh(PCLUseInfo info, boolean conditionMet)
-        {
+        public void refresh(PCLUseInfo info, boolean conditionMet) {
             super.refresh(info, conditionMet);
-            if (GameUtilities.inBattle())
-            {
+            if (GameUtilities.inBattle()) {
                 tryActivate();
             }
         }
 
-        protected void storePower(AbstractPower power, AbstractCreature owner, int amount)
-        {
-            HashMap<String, Integer> targetSet = POWERS.getOrDefault(owner, new HashMap<>());
-            targetSet.merge(power.ID, amount, Integer::sum);
-            POWERS.put(owner, targetSet);
+        @Override
+        public void triggerOnCreate(AbstractCard c, boolean startOfBattle) {
+            super.triggerOnCreate(c, startOfBattle);
+            tryActivate();
+            CombatManager.subscribe(this);
         }
 
-        protected void negatePower(AbstractPower power, AbstractCreature owner)
-        {
-            checkForNewBattle();
-            storePower(power, owner, power.amount);
-            PCLActions.bottom.callback(-power.amount, (a, __) -> {
-                GameUtilities.applyPowerInstantly(owner, power, a);
-            });
-        }
-
-        protected void tryActivate()
-        {
-            if (GameUtilities.isPlayerTurn(true))
-            {
+        protected void tryActivate() {
+            if (GameUtilities.isPlayerTurn(true)) {
                 checkForNewBattle();
                 boolean has = hasNormality();
-                if (has && turnCache < 0)
-                {
-                    for (AbstractCreature c : GameUtilities.getAllCharacters(true))
-                    {
-                        if (c.powers != null)
-                        {
-                            for (AbstractPower po : c.powers)
-                            {
-                                if ((GameUtilities.isPCLPower(po)))
-                                {
+                if (has && turnCache < 0) {
+                    for (AbstractCreature c : GameUtilities.getAllCharacters(true)) {
+                        if (c.powers != null) {
+                            for (AbstractPower po : c.powers) {
+                                if ((GameUtilities.isPCLPower(po))) {
                                     negatePower(po, c);
                                 }
                             }
@@ -142,34 +93,26 @@ public class Curse_Normality extends PCLCard
                     }
                     turnCache = GameActionManager.turn;
                 }
-                else if (!has && turnCache >= 0)
-                {
-                    for (AbstractCreature owner : POWERS.keySet())
-                    {
-                        if (owner != null)
-                        {
+                else if (!has && turnCache >= 0) {
+                    for (AbstractCreature owner : POWERS.keySet()) {
+                        if (owner != null) {
                             HashMap<String, Integer> targetSet = POWERS.getOrDefault(owner, new HashMap<>());
-                            for (String powerID : targetSet.keySet())
-                            {
+                            for (String powerID : targetSet.keySet()) {
                                 int amount = targetSet.getOrDefault(powerID, 0);
                                 PCLPowerHelper ph = PCLPowerHelper.get(powerID);
 
-                                if (turnCache < GameActionManager.turn)
-                                {
+                                if (turnCache < GameActionManager.turn) {
                                     int diff = GameActionManager.turn - turnCache;
                                     // Turn based powers cannot go below 0
-                                    if (ph.endTurnBehavior == PCLPowerHelper.Behavior.TurnBased)
-                                    {
+                                    if (ph.endTurnBehavior == PCLPowerHelper.Behavior.TurnBased) {
                                         amount = Math.max(0, amount - diff);
                                     }
-                                    else if (ph.endTurnBehavior == PCLPowerHelper.Behavior.SingleTurn)
-                                    {
+                                    else if (ph.endTurnBehavior == PCLPowerHelper.Behavior.SingleTurn) {
                                         amount = 0;
                                     }
                                 }
 
-                                if (ph != null && amount != 0)
-                                {
+                                if (ph != null && amount != 0) {
                                     PCLActions.bottom.callback(amount, (a, __) -> {
                                         GameUtilities.applyPowerInstantly(owner, ph, a);
                                     });
@@ -184,6 +127,32 @@ public class Curse_Normality extends PCLCard
                     turnCache = -1;
                 }
             }
+        }
+
+        protected static void checkForNewBattle() {
+            if (CombatManager.battleID != battleID) {
+                battleID = CombatManager.battleID;
+                turnCache = -1;
+                POWERS.clear();
+            }
+        }
+
+        protected static boolean hasNormality() {
+            return EUIUtils.any(player.hand.group, c -> c instanceof PointerProvider && EUIUtils.any(((PointerProvider) c).getSkills().onUseEffects, e -> e instanceof NormalityMove));
+        }
+
+        protected void negatePower(AbstractPower power, AbstractCreature owner) {
+            checkForNewBattle();
+            storePower(power, owner, power.amount);
+            PCLActions.bottom.callback(-power.amount, (a, __) -> {
+                GameUtilities.applyPowerInstantly(owner, power, a);
+            });
+        }
+
+        protected void storePower(AbstractPower power, AbstractCreature owner, int amount) {
+            HashMap<String, Integer> targetSet = POWERS.getOrDefault(owner, new HashMap<>());
+            targetSet.merge(power.ID, amount, Integer::sum);
+            POWERS.put(owner, targetSet);
         }
     }
 }

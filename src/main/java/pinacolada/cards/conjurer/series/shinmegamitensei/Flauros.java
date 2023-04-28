@@ -14,8 +14,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Flauros extends PCLCard
-{
+public class Flauros extends PCLCard {
     public static final PCLCardData DATA = register(Flauros.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.COMMON, PCLAttackType.Normal)
             .setDamage(6, 1)
@@ -23,13 +22,11 @@ public class Flauros extends PCLCard
             .setAffinities(2, PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public Flauros()
-    {
+    public Flauros() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.CLAW);
         addUseMove(PCond.onWithdraw(), PMove.applyToEnemies(2, PCLPowerHelper.Vulnerable, PCLPowerHelper.Weak));
     }

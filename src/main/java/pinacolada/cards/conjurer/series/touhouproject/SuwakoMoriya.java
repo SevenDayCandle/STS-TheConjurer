@@ -14,8 +14,7 @@ import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class SuwakoMoriya extends PCLCard
-{
+public class SuwakoMoriya extends PCLCard {
     public static final PCLCardData DATA = register(SuwakoMoriya.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Normal)
             .setDamage(2, 0)
@@ -23,13 +22,11 @@ public class SuwakoMoriya extends PCLCard
             .setAffinities(PCLAffinity.Orange, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.touhouProject);
 
-    public SuwakoMoriya()
-    {
+    public SuwakoMoriya() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BITE);
         addUseMove(CCond.combust(), PMove.applyToSingle(3, PCLPowerHelper.Poison).setUpgrade(1));
     }

@@ -14,21 +14,18 @@ import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class NuclearTransmutation extends PCLCard
-{
+public class NuclearTransmutation extends PCLCard {
     public static final PCLCardData DATA = register(NuclearTransmutation.class, ConjurerResources.conjurer)
             .setSkill(-1, CardRarity.RARE, PCLCardTarget.None)
             .setTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Blue)
             .setCore(true);
 
-    public NuclearTransmutation()
-    {
+    public NuclearTransmutation() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addUseMove(PMod.xEnergy(0).setUpgrade(1), PMove.createRandom(1, 1, PCLCardGroupHelper.Hand).edit(f -> f.setType(PCLEnum.CardType.SUMMON)), PMove.modifyCost(-5, 99).useParent(true));
     }
 }

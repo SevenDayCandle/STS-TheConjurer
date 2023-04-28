@@ -14,8 +14,7 @@ import pinacolada.skills.CMove;
 import pinacolada.skills.PCond;
 
 @VisibleCard
-public class Chironnupu extends PCLCard
-{
+public class Chironnupu extends PCLCard {
     public static final PCLCardData DATA = register(Chironnupu.class, ConjurerResources.conjurer)
             .setSummon(0, CardRarity.COMMON, PCLAttackType.Ranged)
             .setDamage(1, 0, 2)
@@ -23,13 +22,11 @@ public class Chironnupu extends PCLCard
             .setAffinities(PCLAffinity.Green, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public Chironnupu()
-    {
+    public Chironnupu() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
         addUseMove(PCond.isAttacking(PCLCardTarget.Single),
                 CMove.gainReaction(7).setUpgrade(3));

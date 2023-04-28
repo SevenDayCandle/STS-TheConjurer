@@ -15,21 +15,18 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
-public class ZamorIceStorm extends PCLCard
-{
+public class ZamorIceStorm extends PCLCard {
     public static final PCLCardData DATA = register(ZamorIceStorm.class, ConjurerResources.conjurer)
             .setSkill(2, CardRarity.UNCOMMON, PCLCardTarget.AllEnemy)
             .setAffinities(2, PCLAffinity.Blue)
             .setTags(PCLCardTag.Exhaust)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
-    public ZamorIceStorm()
-    {
+    public ZamorIceStorm() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addUseMove(PMove.applyToEnemies(4, PCLElementHelper.Gelus, PCLElementHelper.Frostbite).setUpgrade(1));
         addGainPower(3, PTrigger.when(PCond.onTurnStart(), PMove.applyToEnemies(2, PCLElementHelper.Gelus, PCLElementHelper.Frostbite).setUpgrade(1)));
     }

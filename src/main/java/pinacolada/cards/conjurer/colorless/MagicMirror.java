@@ -17,55 +17,44 @@ import pinacolada.skills.PSkill;
 import pinacolada.utilities.GameUtilities;
 
 @VisibleCard
-public class MagicMirror extends PCLCard
-{
+public class MagicMirror extends PCLCard {
     public static final PCLCardData DATA = register(MagicMirror.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.RARE, PCLCardTarget.Self)
             .setTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Blue)
             .setCore(true);
 
-    public MagicMirror()
-    {
+    public MagicMirror() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addSpecialPower(0, (s, i) -> new MagicMirrorPower(i.source, s), 2).setUpgrade(1);
     }
 
-    public static class MagicMirrorPower extends PSpecialCardPower implements OnTryApplyPowerSubscriber
-    {
-        public MagicMirrorPower(AbstractCreature owner, PSkill<?> move)
-        {
+    public static class MagicMirrorPower extends PSpecialCardPower implements OnTryApplyPowerSubscriber {
+        public MagicMirrorPower(AbstractCreature owner, PSkill<?> move) {
             super(DATA, owner, move);
             initialize(move.amount);
         }
 
         @Override
-        public boolean tryApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source, AbstractGameAction action)
-        {
-            if ((power.owner == owner || target == owner) && source != null)
-            {
+        public boolean tryApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source, AbstractGameAction action) {
+            if ((power.owner == owner || target == owner) && source != null) {
                 boolean isDebuff = GameUtilities.isDebuff(power);
-                if (isDebuff && amount > 0)
-                {
+                if (isDebuff && amount > 0) {
                     reducePower(1);
-                    if (amount <= 0)
-                    {
+                    if (amount <= 0) {
                         removePower();
                     }
 
                     flash();
                     // Only actually reflect basic debuffs because modded debuffs on enemies may cause crashes
-                    if (GameUtilities.isPCLPower(power))
-                    {
+                    if (GameUtilities.isPCLPower(power)) {
                         action.target = source;
                         power.owner = source;
                     }
-                    else
-                    {
+                    else {
                         return false;
                     }
                 }

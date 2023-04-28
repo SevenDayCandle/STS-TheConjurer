@@ -14,8 +14,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Gorou extends PCLCard
-{
+public class Gorou extends PCLCard {
     public static final PCLCardData DATA = register(Gorou.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Ranged)
             .setDamage(3, 1)
@@ -23,13 +22,11 @@ public class Gorou extends PCLCard
             .setAffinities(PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public Gorou()
-    {
+    public Gorou() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
         addUseMove(PCond.cooldown(0), PMove.applyToSingle(2, PCLElementHelper.Petra).setUpgrade(1));
     }

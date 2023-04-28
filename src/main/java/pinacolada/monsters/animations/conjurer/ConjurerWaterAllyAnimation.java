@@ -15,28 +15,18 @@ import pinacolada.monsters.animations.PCLAllyAnimation;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.utilities.PCLRenderHelpers;
 
-public class ConjurerWaterAllyAnimation extends PCLAllyAnimation
-{
+public class ConjurerWaterAllyAnimation extends PCLAllyAnimation {
     public static final float RADIUS = 320;
 
-    public ConjurerWaterAllyAnimation(PCLCreature creature)
-    {
+    public ConjurerWaterAllyAnimation(PCLCreature creature) {
         super(creature);
     }
 
-    public void updateImpl(float deltaTime, float x, float y)
-    {
-        PCLEffects.Queue.add(new FadingParticleEffect(SnowBurstEffect.getRandomTexture(), x, y)
-                .setBlendingMode(PCLRenderHelpers.BlendingMode.Glowing)
-                .setScale(MathUtils.random(0.2f, 0.5f))
-                .setRotation(0, MathUtils.random(150f, 360f))
-                .setTargetPosition(x + RADIUS * MathUtils.cos(angle), y + RADIUS * MathUtils.sin(angle), 100f)
-        ).setDuration(1f, false)
-                .renderBehind = true;
+    public void playActAnimation(float x, float y) {
+        PCLEffects.TopLevelQueue.add(VFX.circularWave(x, y).setScale(0.25f, 12f).setColors(Color.WHITE, Color.BLUE));
     }
 
-    public void renderSprite(SpriteBatch sb, float x, float y)
-    {
+    public void renderSprite(SpriteBatch sb, float x, float y) {
         sb.setColor(this.renderColor);
         float scaleExt = owner.getBobEffect().y / (Settings.scale * 575f);
         float scaleExt2 = owner.getBobEffect().y / (Settings.scale * 400f);
@@ -67,8 +57,13 @@ public class ConjurerWaterAllyAnimation extends PCLAllyAnimation
         sb.setColor(Color.WHITE);
     }
 
-    public void playActAnimation(float x, float y)
-    {
-        PCLEffects.TopLevelQueue.add(VFX.circularWave(x, y).setScale(0.25f, 12f).setColors(Color.WHITE, Color.BLUE));
+    public void updateImpl(float deltaTime, float x, float y) {
+        PCLEffects.Queue.add(new FadingParticleEffect(SnowBurstEffect.getRandomTexture(), x, y)
+                .setBlendingMode(PCLRenderHelpers.BlendingMode.Glowing)
+                .setScale(MathUtils.random(0.2f, 0.5f))
+                .setRotation(0, MathUtils.random(150f, 360f))
+                .setTargetPosition(x + RADIUS * MathUtils.cos(angle), y + RADIUS * MathUtils.sin(angle), 100f)
+        ).setDuration(1f, false)
+                .renderBehind = true;
     }
 }

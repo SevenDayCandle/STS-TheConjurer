@@ -14,20 +14,17 @@ import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class MagicDownpour extends PCLCard
-{
+public class MagicDownpour extends PCLCard {
     public static final PCLCardData DATA = register(MagicDownpour.class, ConjurerResources.conjurer)
             .setSkill(2, CardRarity.RARE, PCLCardTarget.Team)
             .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
-    public MagicDownpour()
-    {
+    public MagicDownpour() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addUseMove(PMod.bonusPerLevel(1, PCLAffinity.Blue).setUpgrade(1), PMove.gainTempHP(5).setUpgrade(1));
         addUseMove(PDelay.turnStart(1), PMove.applyToEveryone(2, PCLElementHelper.Gelus));
     }

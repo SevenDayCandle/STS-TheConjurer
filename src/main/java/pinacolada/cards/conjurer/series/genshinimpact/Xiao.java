@@ -18,8 +18,7 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PMultiSkill;
 
 @VisibleCard
-public class Xiao extends PCLCard
-{
+public class Xiao extends PCLCard {
     public static final PCLCardData DATA = register(Xiao.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.RARE, PCLAttackType.Piercing, PCLCardTarget.AllEnemy)
             .setRTags(PCLCardTag.Ethereal)
@@ -28,13 +27,11 @@ public class Xiao extends PCLCard
             .setAffinities(PCLAffinity.Green, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public Xiao()
-    {
+    public Xiao() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.POISON);
         addUseMove(PCond.cooldown(1), PMultiSkill.join(PMove.createDrawPile(1, Curse_Decay.DATA.ID), PMove.applyToEnemies(7, PCLPowerHelper.Poison)));
     }

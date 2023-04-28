@@ -15,8 +15,7 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
-public class Cerberus extends PCLCard
-{
+public class Cerberus extends PCLCard {
     public static final PCLCardData DATA = register(Cerberus.class, ConjurerResources.conjurer)
             .setSummon(3, CardRarity.UNCOMMON)
             .setDamage(7, 1)
@@ -24,13 +23,11 @@ public class Cerberus extends PCLCard
             .setAffinities(2, PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public Cerberus()
-    {
+    public Cerberus() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BITE);
         addGainPower(PTrigger.interactable(
                 CCond.payReaction(9),

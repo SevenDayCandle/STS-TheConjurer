@@ -15,8 +15,7 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
-public class Baphomet extends PCLCard
-{
+public class Baphomet extends PCLCard {
     public static final PCLCardData DATA = register(Baphomet.class, ConjurerResources.conjurer)
             .setSummon(3, CardRarity.RARE, PCLAttackType.Piercing)
             .setDamage(5, 0)
@@ -24,13 +23,11 @@ public class Baphomet extends PCLCard
             .setAffinities(PCLAffinity.Red, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public Baphomet()
-    {
+    public Baphomet() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(AbstractGameAction.AttackEffect.FIRE);
         addGainPower(PTrigger.interactable(
                 PCond.takeDamageTo(6).setUpgrade(-1),

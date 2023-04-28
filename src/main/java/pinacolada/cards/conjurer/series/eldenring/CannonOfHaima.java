@@ -15,21 +15,18 @@ import pinacolada.skills.PMod;
 import pinacolada.skills.PTrait;
 
 @VisibleCard
-public class CannonOfHaima extends PCLCard
-{
+public class CannonOfHaima extends PCLCard {
     public static final PCLCardData DATA = register(CannonOfHaima.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
             .setDamage(6, 0)
             .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
-    public CannonOfHaima()
-    {
+    public CannonOfHaima() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.ICE).setChain(PMod.perCard(1, PCLCardGroupHelper.DiscardPile).edit(f -> f.setAffinity(PCLAffinity.Blue)), PTrait.damage(4).setUpgrade(1));
     }
 }

@@ -15,21 +15,18 @@ import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class PoisonMist extends PCLCard
-{
+public class PoisonMist extends PCLCard {
     public static final PCLCardData DATA = register(PoisonMist.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.AllEnemy)
             .setRTags(PCLCardTag.Ethereal)
             .setAffinities(PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
-    public PoisonMist()
-    {
+    public PoisonMist() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addUseMove(PMove.applyToEnemies(4, PCLElementHelper.Aer, PCLPowerHelper.Poison));
         addUseMove(CCond.redox(), PMove.gain(1, PCLPowerHelper.Blur));
     }

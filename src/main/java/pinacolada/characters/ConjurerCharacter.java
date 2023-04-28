@@ -25,79 +25,42 @@ import pinacolada.utilities.PCLRenderHelpers;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConjurerCharacter extends PCLCharacter
-{
+public class ConjurerCharacter extends PCLCharacter {
     public static final CharacterStrings characterStrings = ConjurerResources.conjurer.getCharacterStrings();
     public static final Color MAIN_COLOR = CardHelper.getColor(106, 210, 177);
     public static final String[] NAMES = characterStrings.NAMES;
     public static final String[] TEXT = characterStrings.TEXT;
     private int effectCount;
 
-    public ConjurerCharacter()
-    {
+    public ConjurerCharacter() {
         super(NAMES[0], ConjurerResources.conjurer.playerClass, new PCLEnergyOrb(ConjurerResources.conjurer.images.getOrbTextures(), ConjurerResources.conjurer.images.orbFlash),
                 ConjurerResources.conjurer.images.skeletonAtlas, ConjurerResources.conjurer.images.skeletonJson,
                 ConjurerResources.conjurer.images.shoulder2, ConjurerResources.conjurer.images.shoulder1, ConjurerResources.conjurer.images.corpse, TEXT[0]);
     }
 
     @Override
-    public AbstractCard.CardColor getCardColor()
-    {
+    public AbstractCard.CardColor getCardColor() {
         return ConjurerResources.conjurer.cardColor;
     }
 
     @Override
-    public Color getCardRenderColor()
-    {
+    public Color getCardRenderColor() {
         return MAIN_COLOR.cpy();
     }
 
     @Override
-    public AbstractCard getStartCardForEvent()
-    {
+    public AbstractCard getStartCardForEvent() {
         return new pinacolada.cards.conjurer.basic.Strike();
     }
 
     @Override
-    public Color getCardTrailColor()
-    {
+    public Color getCardTrailColor() {
         return MAIN_COLOR.cpy();
     }
 
     @Override
-    public AbstractPlayer newInstance()
-    {
+    public AbstractPlayer newInstance() {
         return new ConjurerCharacter();
-    }
-
-    @Override
-    public BitmapFont getEnergyNumFont()
-    {
-        return FontHelper.energyNumFontBlue;
-    }
-
-    @Override
-    public String getCustomModeCharacterButtonSoundKey()
-    {
-        return PCLSFX.ORB_FROST_EVOKE;
-    }
-
-    @Override
-    public Color getSlashAttackColor()
-    {
-        return Color.CYAN;
-    }
-
-    @Override
-    public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect()
-    {
-        return new AbstractGameAction.AttackEffect[]
-                {
-                        PCLEnum.AttackEffect.BURN,
-                        PCLEnum.AttackEffect.ICE,
-                        PCLEnum.AttackEffect.WIND,
-                        PCLEnum.AttackEffect.EARTH,
-                };
     }
 
     @Override
@@ -106,21 +69,15 @@ public class ConjurerCharacter extends PCLCharacter
         return new ArrayList<>();
     }
 
-    public void reloadDefaultAnimation()
-    {
-        reloadAnimation(0.5f);
-    }
-
     @Override
     public void updateVictoryVfx(ArrayList<AbstractGameEffect> effects) {
         if (effectCount == 0) {
             effects.add(new ScreenGradientEffect(1f, Color.BLACK, Color.TEAL, Color.BLACK, Color.TEAL, Color.BLACK, Color.LIME, Color.BLACK, Color.LIME).setLooping(true));
         }
 
-        if (effectCount < 40)
-        {
+        if (effectCount < 40) {
             int x = MathUtils.random(Settings.WIDTH);
-            effects.add(new FadingParticleEffect(SnowBurstEffect.getRandomTexture(), MathUtils.random(Settings.WIDTH), - EUIBase.scale(40f))
+            effects.add(new FadingParticleEffect(SnowBurstEffect.getRandomTexture(), MathUtils.random(Settings.WIDTH), -EUIBase.scale(40f))
                     .setBlendingMode(PCLRenderHelpers.BlendingMode.Glowing)
                     .setScale(MathUtils.random(0.4f, 1f))
                     .setRotation(0, MathUtils.random(150f, 360f))
@@ -130,5 +87,35 @@ public class ConjurerCharacter extends PCLCharacter
         }
 
         effectCount++;
+    }
+
+    public void reloadDefaultAnimation() {
+        reloadAnimation(0.5f);
+    }
+
+    @Override
+    public BitmapFont getEnergyNumFont() {
+        return FontHelper.energyNumFontBlue;
+    }
+
+    @Override
+    public String getCustomModeCharacterButtonSoundKey() {
+        return PCLSFX.ORB_FROST_EVOKE;
+    }
+
+    @Override
+    public Color getSlashAttackColor() {
+        return Color.CYAN;
+    }
+
+    @Override
+    public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
+        return new AbstractGameAction.AttackEffect[]
+                {
+                        PCLEnum.AttackEffect.BURN,
+                        PCLEnum.AttackEffect.ICE,
+                        PCLEnum.AttackEffect.WIND,
+                        PCLEnum.AttackEffect.EARTH,
+                        };
     }
 }

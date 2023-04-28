@@ -11,20 +11,17 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
-public class Permafrost extends PCLCard
-{
+public class Permafrost extends PCLCard {
     public static final PCLCardData DATA = register(Permafrost.class, ConjurerResources.conjurer)
             .setPower(1, CardRarity.UNCOMMON)
             .setAffinities(2, PCLAffinity.Blue)
             .setCore();
 
-    public Permafrost()
-    {
+    public Permafrost() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addGainPower(PTrigger.when(PCond.onOtherCardPlayed(PCLAffinity.Blue), PMove.applyToRandom(1, PCLElementHelper.Gelus).setUpgrade(1)));
     }
 }

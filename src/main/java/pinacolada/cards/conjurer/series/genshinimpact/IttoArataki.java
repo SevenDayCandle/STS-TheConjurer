@@ -15,8 +15,7 @@ import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class IttoArataki extends PCLCard
-{
+public class IttoArataki extends PCLCard {
     public static final PCLCardData DATA = register(IttoArataki.class, ConjurerResources.conjurer)
             .setSummon(3, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
             .setDamage(6, 1)
@@ -24,13 +23,11 @@ public class IttoArataki extends PCLCard
             .setAffinities(1, PCLAffinity.Red, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public IttoArataki()
-    {
+    public IttoArataki() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(AbstractGameAction.AttackEffect.BLUNT_HEAVY);
         addUseMove(CCond.combust(), PMove.gainPlayer(8, PCLPowerHelper.NextTurnBlock));
     }

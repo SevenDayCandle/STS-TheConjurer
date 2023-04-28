@@ -13,8 +13,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Magilou extends PCLCard
-{
+public class Magilou extends PCLCard {
     public static final PCLCardData DATA = register(Magilou.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Immaterial)
             .setDamage(3, 1)
@@ -22,13 +21,11 @@ public class Magilou extends PCLCard
             .setAffinities(PCLAffinity.Blue)
             .setColorless();
 
-    public Magilou()
-    {
+    public Magilou() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.GHOST);
         addUseMove(PCond.cooldown(1), PMove.applyToTeam(1, PCLPowerHelper.Sorcery));
     }

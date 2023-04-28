@@ -17,8 +17,7 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PMultiCond;
 
 @VisibleCard
-public class FlameOfTheFellGod extends PCLCard
-{
+public class FlameOfTheFellGod extends PCLCard {
     public static final PCLCardData DATA = register(FlameOfTheFellGod.class, ConjurerResources.conjurer)
             .setAttack(4, CardRarity.RARE, PCLAttackType.Ranged)
             .setTags(PCLCardTag.Exhaust)
@@ -26,13 +25,11 @@ public class FlameOfTheFellGod extends PCLCard
             .setAffinities(2, PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
-    public FlameOfTheFellGod()
-    {
+    public FlameOfTheFellGod() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(EffekseerEFK.FIRE03);
         addUseMove(PMultiCond.or(PCond.onDiscard(), PCond.onReshuffle()), PMod.increaseOnUse(1).setUpgrade(1), PMove.applyToEveryone(3, PCLElementHelper.Ignis));
     }

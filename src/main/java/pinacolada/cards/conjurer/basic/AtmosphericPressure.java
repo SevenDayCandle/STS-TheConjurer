@@ -12,21 +12,18 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class AtmosphericPressure extends PCLCard
-{
+public class AtmosphericPressure extends PCLCard {
     public static final PCLCardData DATA = register(AtmosphericPressure.class, ConjurerResources.conjurer)
             .setSkill(0, CardRarity.UNCOMMON, PCLCardTarget.AllEnemy)
             .setTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Green)
             .setCore();
 
-    public AtmosphericPressure()
-    {
+    public AtmosphericPressure() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addUseMove(PMove.draw(1).setUpgrade(1));
         addUseMove(PMove.stabilize(PCLCardTarget.AllEnemy, PCLElementHelper.Gelus, PCLElementHelper.Aer));
     }

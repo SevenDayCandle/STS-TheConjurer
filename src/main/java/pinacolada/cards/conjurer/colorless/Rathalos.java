@@ -14,8 +14,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Rathalos extends PCLCard
-{
+public class Rathalos extends PCLCard {
     public static final PCLCardData DATA = register(Rathalos.class, ConjurerResources.conjurer)
             .setSummon(3, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
             .setDamage(3, 1, 0)
@@ -23,13 +22,11 @@ public class Rathalos extends PCLCard
             .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
             .setColorless();
 
-    public Rathalos()
-    {
+    public Rathalos() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BITE);
         addUseMove(PCond.cooldown(3), PMove.applyToRandom(4, PCLPowerHelper.Poison, PCLPowerHelper.Bruised));
     }

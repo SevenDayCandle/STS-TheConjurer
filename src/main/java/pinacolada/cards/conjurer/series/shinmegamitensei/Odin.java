@@ -15,8 +15,7 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
-public class Odin extends PCLCard
-{
+public class Odin extends PCLCard {
     public static final PCLCardData DATA = register(Odin.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.RARE, PCLAttackType.Piercing)
             .setDamage(5, 1)
@@ -24,13 +23,11 @@ public class Odin extends PCLCard
             .setAffinities(1, PCLAffinity.Red, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public Odin()
-    {
+    public Odin() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_HEAVY);
         addGainPower(PTrigger.interactable(
                 CCond.payReaction(13),

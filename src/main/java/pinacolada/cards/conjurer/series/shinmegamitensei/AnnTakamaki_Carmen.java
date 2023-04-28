@@ -15,8 +15,7 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.special.moves.PMove_ExhaustAlly;
 
 @VisibleCard
-public class AnnTakamaki_Carmen extends PCLCard
-{
+public class AnnTakamaki_Carmen extends PCLCard {
     public static final PCLCardData DATA = register(AnnTakamaki_Carmen.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.SPECIAL, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy)
             .setDamage(7, 1, 3)
@@ -24,13 +23,11 @@ public class AnnTakamaki_Carmen extends PCLCard
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public AnnTakamaki_Carmen()
-    {
+    public AnnTakamaki_Carmen() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
         addUseMove(PMove.applyToEnemies(6, PCLElementHelper.Ignis), new PMove_ExhaustAlly(PCLCardTarget.Self, 1));
     }

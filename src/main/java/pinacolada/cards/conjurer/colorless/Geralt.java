@@ -25,8 +25,7 @@ import pinacolada.utilities.WeightedList;
 import java.util.ArrayList;
 
 @VisibleCard
-public class Geralt extends PCLCard
-{
+public class Geralt extends PCLCard {
     public static final PCLCardData DATA = register(Geralt.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.RARE)
             .setDamage(4, 1)
@@ -34,45 +33,37 @@ public class Geralt extends PCLCard
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
             .setCore(true);
 
-    public Geralt()
-    {
+    public Geralt() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_HEAVY);
         addGainPower(PTrigger.interactable(-1, new GeraltCond(DATA, 1, 4)));
     }
 
-    protected static class GeraltCond extends PCustomCond
-    {
+    protected static class GeraltCond extends PCustomCond {
         public ArrayList<PSkill<?>> requests;
 
-        public GeraltCond(PCLCardData data, int amount, int choices)
-        {
+        public GeraltCond(PCLCardData data, int amount, int choices) {
             super(data, 0, amount, choices);
         }
 
-        protected void useImpl(PCLUseInfo info)
-        {
+        protected void useImpl(PCLUseInfo info) {
             requests = CombatManager.getCombatData(this.effectID, new ArrayList<>());
-            if (requests.isEmpty())
-            {
+            if (requests.isEmpty()) {
                 populateRequests();
             }
             PCLActions.bottom.tryChooseSkill(cardData, amount, info.source, info.target, requests)
                     .addCallback(choiceCards ->
                     {
-                        for (ChoiceCard<PSkill<?>> c : choiceCards)
-                        {
+                        for (ChoiceCard<PSkill<?>> c : choiceCards) {
                             requests.remove(c.value);
                         }
                     });
         }
 
-        protected void populateRequests()
-        {
+        protected void populateRequests() {
             WeightedList<PSkill<?>> choices = new WeightedList<>();
             choices.add(PCond.payEnergy(2), 2);
             choices.add(PCond.exhaust(2, PCLCardGroupHelper.Hand).edit(f -> f.setAffinity(PCLAffinity.getRandomAvailableAffinity())), 2);
@@ -84,24 +75,21 @@ public class Geralt extends PCLCard
 
             RandomizedList<PSkill<?>>[] rewards = EUIUtils.array(new RandomizedList<>(), new RandomizedList<>());
             rewards[1].add(PMove.draw(4));
-            rewards[1].add(PMove.gainPlayer( 3, PCLPowerHelper.Energized));
-            rewards[1].add(PMove.gainPlayer( 3, PCLPowerHelper.Strength));
+            rewards[1].add(PMove.gainPlayer(3, PCLPowerHelper.Energized));
+            rewards[1].add(PMove.gainPlayer(3, PCLPowerHelper.Strength));
             rewards[1].add(PMove.gainGold(15));
             rewards[1].add(PMove.modifyDamage(5));
-            rewards[0].add(PMove.gainPlayer( 2, PCLPowerHelper.Energized));
+            rewards[0].add(PMove.gainPlayer(2, PCLPowerHelper.Energized));
             rewards[0].add(PMove.gainPlayer(2, PCLPowerHelper.Thorns));
             rewards[0].add(PMove.modifyDamage(2));
             rewards[0].add(PMove.draw(2));
 
-            while (requests.size() < extra && !choices.isEmpty())
-            {
+            while (requests.size() < extra && !choices.isEmpty()) {
                 WeightedList<PSkill<?>>.Item option = choices.retrieveWithWeight(rng, true);
-                if (option != null)
-                {
+                if (option != null) {
                     PSkill<?> request = option.object;
                     int index = option.weight;
-                    if (index < rewards.length)
-                    {
+                    if (index < rewards.length) {
                         PSkill<?> reward = rewards[index].retrieve(rng, true);
                         request.setChild(reward);
                         requests.add(reward);

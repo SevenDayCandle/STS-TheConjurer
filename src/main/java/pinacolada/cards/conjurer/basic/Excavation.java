@@ -11,21 +11,18 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Excavation extends PCLCard
-{
+public class Excavation extends PCLCard {
     public static final PCLCardData DATA = register(Excavation.class, ConjurerResources.conjurer)
             .setSkill(2, CardRarity.UNCOMMON, PCLCardTarget.Self)
             .setBlock(9, 3)
             .setAffinities(PCLAffinity.Orange)
             .setCore();
 
-    public Excavation()
-    {
+    public Excavation() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addBlockMove();
         addUseMove(PMove.fetch(2, PCLCardGroupHelper.DiscardPile), PMove.retain(2).edit(f -> f.setForced(true)).useParent(true));
     }

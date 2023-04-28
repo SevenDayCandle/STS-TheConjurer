@@ -15,8 +15,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class YuukaKazami extends PCLCard
-{
+public class YuukaKazami extends PCLCard {
     public static final PCLCardData DATA = register(YuukaKazami.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.COMMON, PCLAttackType.Immaterial, PCLCardTarget.AllEnemy)
             .setDamage(1, 1, 2)
@@ -24,14 +23,12 @@ public class YuukaKazami extends PCLCard
             .setAffinities(1, PCLAffinity.Blue, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.touhouProject);
 
-    public YuukaKazami()
-    {
+    public YuukaKazami() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.WATER);
-        addUseMove(PCond.cooldown(2), PMove.applyToEnemies(5, PCLElementHelper.Gelus,  PCLElementHelper.Aer));
+        addUseMove(PCond.cooldown(2), PMove.applyToEnemies(5, PCLElementHelper.Gelus, PCLElementHelper.Aer));
     }
 }

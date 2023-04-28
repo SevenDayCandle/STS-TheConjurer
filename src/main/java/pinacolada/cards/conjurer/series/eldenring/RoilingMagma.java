@@ -15,21 +15,18 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class RoilingMagma extends PCLCard
-{
+public class RoilingMagma extends PCLCard {
     public static final PCLCardData DATA = register(RoilingMagma.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.UNCOMMON, PCLAttackType.Ranged)
             .setDamage(9, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
-    public RoilingMagma()
-    {
+    public RoilingMagma() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SMALL_EXPLOSION);
         addUseMove(PCond.exhaust(1, PCLCardGroupHelper.DiscardPile).edit(f -> f.setAffinity(PCLAffinity.Red)), PMove.applyToEnemies(5, PCLElementHelper.Ignis).setUpgrade(1));
     }

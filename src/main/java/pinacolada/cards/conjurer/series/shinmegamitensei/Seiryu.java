@@ -16,8 +16,7 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PMultiSkill;
 
 @VisibleCard
-public class Seiryu extends PCLCard
-{
+public class Seiryu extends PCLCard {
     public static final PCLCardData DATA = register(Seiryu.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.RARE, PCLAttackType.Piercing)
             .setDamage(4, 1)
@@ -25,13 +24,11 @@ public class Seiryu extends PCLCard
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
-    public Seiryu()
-    {
+    public Seiryu() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.CLAW);
         addUseMove(PCond.cooldown(0), PMultiSkill.choose(
                 CMove.gainReaction(10).setUpgrade(3),

@@ -11,20 +11,17 @@ import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Desiccation extends PCLCard
-{
+public class Desiccation extends PCLCard {
     public static final PCLCardData DATA = register(Desiccation.class, ConjurerResources.conjurer)
             .setSkill(0, CardRarity.COMMON)
             .setAffinities(PCLAffinity.Green, PCLAffinity.Orange)
             .setCore();
 
-    public Desiccation()
-    {
+    public Desiccation() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addUseMove(PMod.discardPer(2), PMove.applyToSingle(2, PCLElementHelper.Aer, PCLElementHelper.Petra).setUpgrade(1));
     }
 }

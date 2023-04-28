@@ -16,8 +16,7 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PMultiSkill;
 
 @VisibleCard
-public class AyakaKamisato extends PCLCard
-{
+public class AyakaKamisato extends PCLCard {
     public static final PCLCardData DATA = register(AyakaKamisato.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE, PCLAttackType.Normal)
             .setRTags(PCLCardTag.Ethereal)
@@ -26,14 +25,12 @@ public class AyakaKamisato extends PCLCard
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
-    public AyakaKamisato()
-    {
+    public AyakaKamisato() {
         super(DATA);
     }
 
-    public void setup(Object input)
-    {
+    public void setup(Object input) {
         addDamageMove(PCLAttackVFX.ICE);
-        addUseMove(PCond.onSummon(), PMultiSkill.join(PMove.takeDamage( 4), PMove.applyToEnemies(6, PCLElementHelper.Frostbite)));
+        addUseMove(PCond.onSummon(), PMultiSkill.join(PMove.takeDamage(4), PMove.applyToEnemies(6, PCLElementHelper.Frostbite)));
     }
 }
