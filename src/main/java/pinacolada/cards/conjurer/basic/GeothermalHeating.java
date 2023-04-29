@@ -22,6 +22,6 @@ public class GeothermalHeating extends PCLCard {
     }
 
     public void setup(Object input) {
-        addBlockMove().setBonus(PMod.perDistinctPower(PCLCardTarget.Single, 1), 3, 1);
+        addBlockMove().setBonus(PMod.perDistinctDebuff(PCLCardTarget.Single, 1), 3, 1);
     }
 }
