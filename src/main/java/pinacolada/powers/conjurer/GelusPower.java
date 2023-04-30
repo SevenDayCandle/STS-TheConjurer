@@ -14,7 +14,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 public class GelusPower extends AbstractPCLElementalPower {
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, GelusPower.class);
     public static final PCLAffinity AFFINITY = setAffinity(POWER_ID, PCLAffinity.Blue);
-    public static final int MULTIPLIER = setMultiplier(POWER_ID, 25);
+    public static final int MULTIPLIER = setMultiplier(POWER_ID, 30);
 
     public GelusPower(AbstractCreature owner, AbstractCreature source, int amount) {
         super(owner, source, POWER_ID, amount);
@@ -23,7 +23,10 @@ public class GelusPower extends AbstractPCLElementalPower {
     @Override
     public void playApplyPowerSfx() {
         PCLSFX.play(PCLSFX.ORB_FROST_CHANNEL, 0.95f, 1.05f);
-    }    public float calculateValue(int amount, float multiplier) {
+    }
+
+    @Override
+    public float calculateValue(int amount, float multiplier) {
         return Math.max(1, amount * (multiplier / 100f));
     }
 
@@ -32,13 +35,11 @@ public class GelusPower extends AbstractPCLElementalPower {
         return PCLEnum.AttackEffect.ICE;
     }
 
-
-
     @Override
-    public void onReact(AbstractCreature source, AffinityReactions reactions, int amount) {
+    public void onReact(AbstractCreature source, AffinityReactions reactions) {
         if (!(owner instanceof PCLCardAlly)) {
-            PCLActions.bottom.applyPower(source, owner, PCLCardTarget.Single, PCLElementHelper.Frostbite, (int) calculateValue(amount, getIntensifyMultiplier()), false);
+            PCLActions.bottom.applyPower(source, owner, PCLCardTarget.Single, PCLElementHelper.Frostbite, (int) calculateValue(reactions), false);
         }
-        super.onReact(source, reactions, amount);
+        super.onReact(source, reactions);
     }
 }

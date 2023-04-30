@@ -1,5 +1,6 @@
 package pinacolada.characters;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
@@ -31,6 +32,8 @@ public class ConjurerCharacter extends PCLCharacter {
     public static final String[] NAMES = characterStrings.NAMES;
     public static final String[] TEXT = characterStrings.TEXT;
     private int effectCount;
+    private float fallSpeed;
+    private boolean dead;
 
     public ConjurerCharacter() {
         super(NAMES[0], ConjurerResources.conjurer.playerClass, new PCLEnergyOrb(ConjurerResources.conjurer.images.getOrbTextures(), ConjurerResources.conjurer.images.orbFlash),
@@ -89,8 +92,28 @@ public class ConjurerCharacter extends PCLCharacter {
         effectCount++;
     }
 
+    // Do not show death image on death
+    @Override
+    public void update() {
+        super.update();
+        if (dead)
+        {
+            this.drawY -= Gdx.graphics.getDeltaTime() * fallSpeed;
+            fallSpeed -= Gdx.graphics.getDeltaTime() * 50;
+        }
+    }
+
+    @Override
     public void reloadDefaultAnimation() {
         reloadAnimation(0.5f);
+    }
+
+    // Do not show death image on death
+    @Override
+    public void playDeathAnimation() {
+        fallSpeed = 50 * Settings.scale;
+        flipVertical = true;
+        dead = true;
     }
 
     @Override

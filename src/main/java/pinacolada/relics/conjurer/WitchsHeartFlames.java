@@ -9,14 +9,16 @@ import pinacolada.dungeon.CombatManager;
 import pinacolada.effects.PCLEffects;
 import pinacolada.interfaces.subscribers.OnCardCreatedSubscriber;
 import pinacolada.relics.PCLRelic;
+import pinacolada.relics.PCLRelicData;
 import pinacolada.resources.conjurer.ConjurerResources;
 
 @VisibleRelic
 public class WitchsHeartFlames extends PCLRelic implements OnCardCreatedSubscriber {
-    public static final String ID = createFullID(ConjurerResources.conjurer, WitchsHeartFlames.class);
+    public static final PCLRelicData DATA = register(PeriodicTable.class, ConjurerResources.conjurer)
+            .setTier(RelicTier.UNCOMMON, LandingSound.MAGICAL);
 
     public WitchsHeartFlames() {
-        super(ID, RelicTier.UNCOMMON, LandingSound.MAGICAL, ConjurerResources.conjurer.playerClass);
+        super(DATA);
     }
 
     @Override

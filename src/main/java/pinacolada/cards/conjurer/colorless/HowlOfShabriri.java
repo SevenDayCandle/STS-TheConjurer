@@ -16,7 +16,7 @@ import pinacolada.skills.skills.PMultiSkill;
 @VisibleCard
 public class HowlOfShabriri extends PCLCard {
     public static final PCLCardData DATA = register(HowlOfShabriri.class, ConjurerResources.conjurer)
-            .setSkill(0, CardRarity.UNCOMMON, PCLCardTarget.None)
+            .setSkill(0, CardRarity.UNCOMMON, PCLCardTarget.Self)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
             .setUTags(PCLCardTag.Haste, PCLCardTag.Bounce)
             .setLoadout(ConjurerPlayerData.eldenRing, true);
@@ -26,6 +26,6 @@ public class HowlOfShabriri extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMultiSkill.join(PMove.apply(PCLCardTarget.Any, 3, PCLPowerHelper.Bruised), PMove.apply(PCLCardTarget.Any, 3, PCLPowerHelper.Vulnerable), PMove.apply(PCLCardTarget.AllEnemy, 1, PCLPowerHelper.Vulnerable)));
+        addUseMove(PMultiSkill.join(PMove.gain(1, PCLPowerHelper.Bruised), PMove.apply(PCLCardTarget.AllEnemy, 2, PCLPowerHelper.Bruised, PCLPowerHelper.Vulnerable).setUpgrade(1)));
     }
 }

@@ -1,7 +1,6 @@
 package pinacolada.resources.conjurer;
 
 import extendedui.ui.tooltips.EUITooltip;
-import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.powers.conjurer.*;
 import pinacolada.resources.PCLTooltips;
 import pinacolada.resources.PGR;
@@ -23,29 +22,6 @@ public class ConjurerTooltips extends PCLTooltips {
     public EUITooltip petra = EUITooltip.findByID("Petra");
     public EUITooltip reaction = EUITooltip.findByID("Reaction");
     public EUITooltip redox = EUITooltip.findByID("Redox");
-
-    public EUITooltip getLevelTooltip(PCLAffinity affinity) {
-        switch (affinity) {
-            case Red:
-                return ignis;
-            case Green:
-                return aer;
-            case Blue:
-                return gelus;
-            case Orange:
-                return petra;
-            case Yellow:
-                return lux;
-            case Purple:
-                return corrosion;
-            case Silver:
-            case Star:
-            case General:
-            case Unknown:
-            default:
-                return PGR.core.tooltips.affinityGeneral;
-        }
-    }
 
     public EUITooltip getRerollTooltip() {
         return charge;

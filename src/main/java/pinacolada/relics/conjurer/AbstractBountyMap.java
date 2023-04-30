@@ -7,10 +7,11 @@ import com.megacrit.cardcrawl.rooms.MonsterRoomElite;
 import extendedui.EUIUtils;
 import extendedui.ui.tooltips.EUITooltip;
 import pinacolada.relics.PCLRelic;
+import pinacolada.relics.PCLRelicData;
 
 public abstract class AbstractBountyMap extends PCLRelic {
-    public AbstractBountyMap(String id) {
-        super(id, RelicTier.SPECIAL, LandingSound.MAGICAL);
+    public AbstractBountyMap(PCLRelicData data) {
+        super(data);
     }
 
     @Override

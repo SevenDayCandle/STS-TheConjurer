@@ -1,6 +1,6 @@
 {
 	"Aer": {
-		"DESCRIPTION": "[A-G] #yElemental #yDebuff. Reactions grant you [Flow], which can be used during your turn to draw cards.",
+		"DESCRIPTION": "[A-G] #yElemental #yDebuff. Reactions grant you charges to be used during your turn to draw cards.",
 		"NAME": "Aer"
 	},
 	"Blasted": {
@@ -48,11 +48,11 @@
 		"NAME": "Frostbite"
 	},
 	"Gelus": {
-		"DESCRIPTION": "[A-B] #yElemental #yDebuff. Reactions on a non-#ySummon target apply a debuff that decreases damage dealt and increases damage taken this turn.",
+		"DESCRIPTION": "[A-B] #yElemental #yDebuff. Reactions on a non-#ySummon target increases damage it takes and decreases damage it deals.",
 		"NAME": "Gelus"
 	},
 	"Ignis": {
-		"DESCRIPTION": "[A-R] #yElemental #yDebuff. Reactions on a non-#ySummon target apply a debuff that deals damage at the start of its turn.",
+		"DESCRIPTION": "[A-R] #yElemental #yDebuff. Reactions on a non-#ySummon target damage it at the start of its turn.",
 		"NAME": "Ignis"
 	},
 	"Lux": {
@@ -67,7 +67,7 @@
 		"PROGRESSIVE": "morphing"
 	},
 	"Petra": {
-		"DESCRIPTION": "[A-O] #yElemental #yDebuff. Reactions on the target grant [Block] next turn.",
+		"DESCRIPTION": "[A-O] #yElemental #yDebuff. Reactions on the target grant you [Block] next turn.",
 		"NAME": "Petra"
 	},
 	"Reaction": {

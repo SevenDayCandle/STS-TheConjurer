@@ -7,7 +7,7 @@
 	},
 	"conjurer:AerPower":
 	{
-		"DESCRIPTIONS": ["Reactions on this target give you [Flow] equal to #b{0}% of Reaction gained.", "Reactions on targets with [Aer] give you [Flow] equal to #b{0}% of Reaction gained."],
+		"DESCRIPTIONS": ["#b{0}% of Reaction gained from this power are returned to you as [Flow].", "#b{0}% of Reaction gained from [Aer] are returned to you as [Flow]."],
 		"NAME": "Aer"
 	},
 	"conjurer:BlastedPower":
@@ -47,12 +47,12 @@
 	},
 	"conjurer:GelusPower":
 	{
-		"DESCRIPTIONS": ["Reactions on this target apply [Frostbite] to it equal to #b{0}% of Reaction gained.", "Reactions on non-#ySummon targets with [Gelus] apply [Frostbite] to it equal to #b{0}% of Reaction gained."],
+		"DESCRIPTIONS": ["#b{0}% of Reaction gained from this power are applied to this target as [Frostbite].", "#b{0}% of Reaction gained from [Gelus] are applied to its owner as [Frostbite]."],
 		"NAME": "Gelus"
 	},
 	"conjurer:IgnisPower":
 	{
-		"DESCRIPTIONS": ["Reactions on this target apply [Blasted] equal to #b{0}% of Reaction gained.", "Reactions on non-#ySummon targets with [Ignis] apply [Blasted] to it equal to #b{0}% of Reaction gained."],
+		"DESCRIPTIONS": ["#b{0}% of Reaction gained from this power are applied to this target as [Blasted].", "#b{0}% of Reaction gained from [Ignis] are applied to its owner as [Blasted]."],
 		"NAME": "Ignis"
 	},
 	"conjurer:LuxPower":
@@ -62,7 +62,7 @@
 	},
 	"conjurer:PetraPower":
 	{
-		"DESCRIPTIONS": ["Reactions on this target give you [NTB] equal to #b{0}% of Reaction gained", "Reactions on targets with [Petra] give you [NTB] equal to #b{0}% of Reaction gained."],
+		"DESCRIPTIONS": ["#b{0}% of Reaction gained from this power are returned to you as [NTB].", "#b{0}% of Reaction gained from [Petra] are returned to you as [NTB]."],
 		"NAME": "Petra"
 	},
 	"conjurer:PetrifiedPower":

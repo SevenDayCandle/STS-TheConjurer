@@ -43,7 +43,7 @@ public class ConjurerPlayerData extends PCLAbstractPlayerData {
 
     @Override
     public List<String> getStartingRelics() {
-        return Collections.singletonList(PeriodicTable.ID);
+        return Collections.singletonList(PeriodicTable.DATA.ID);
     }
 
     @Override

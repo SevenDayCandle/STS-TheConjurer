@@ -5,16 +5,18 @@ import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleRelic;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.relics.PCLRelic;
+import pinacolada.relics.PCLRelicData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.ui.combat.ConjurerElementButton;
 import pinacolada.ui.combat.ConjurerReactionMeter;
 
 @VisibleRelic
 public class CrimsonMapleLeaf extends PCLRelic {
-    public static final String ID = createFullID(ConjurerResources.conjurer, CrimsonMapleLeaf.class);
+    public static final PCLRelicData DATA = register(CrimsonMapleLeaf.class, ConjurerResources.conjurer)
+            .setTier(RelicTier.BOSS, LandingSound.MAGICAL);
 
     public CrimsonMapleLeaf() {
-        super(ID, RelicTier.BOSS, LandingSound.MAGICAL, ConjurerResources.conjurer.playerClass);
+        super(DATA);
     }
 
     @Override

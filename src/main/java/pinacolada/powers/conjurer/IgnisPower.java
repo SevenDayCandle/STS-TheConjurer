@@ -23,7 +23,10 @@ public class IgnisPower extends AbstractPCLElementalPower {
     @Override
     public void playApplyPowerSfx() {
         PCLSFX.play(PCLSFX.ATTACK_FIRE, 0.95f, 1.05f);
-    }    public float calculateValue(int amount, float multiplier) {
+    }
+
+    @Override
+    public float calculateValue(int amount, float multiplier) {
         return Math.max(1, amount * (multiplier / 100f));
     }
 
@@ -32,13 +35,11 @@ public class IgnisPower extends AbstractPCLElementalPower {
         return PCLEnum.AttackEffect.BURN;
     }
 
-
-
     @Override
-    public void onReact(AbstractCreature source, AffinityReactions reactions, int amount) {
+    public void onReact(AbstractCreature source, AffinityReactions reactions) {
         if (!(owner instanceof PCLCardAlly)) {
-            PCLActions.bottom.applyPower(source, owner, PCLCardTarget.Single, PCLElementHelper.Blasted, (int) calculateValue(amount, getIntensifyMultiplier()));
+            PCLActions.bottom.applyPower(source, owner, PCLCardTarget.Single, PCLElementHelper.Blasted, (int) calculateValue(reactions));
         }
-        super.onReact(source, reactions, amount);
+        super.onReact(source, reactions);
     }
 }

@@ -4,15 +4,17 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleRelic;
 import pinacolada.relics.PCLRelic;
+import pinacolada.relics.PCLRelicData;
 import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 
 @VisibleRelic
 public class PeriodicTable extends PCLRelic {
-    public static final String ID = createFullID(ConjurerResources.conjurer, PeriodicTable.class);
+    public static final PCLRelicData DATA = register(PeriodicTable.class, ConjurerResources.conjurer)
+            .setTier(RelicTier.STARTER, LandingSound.SOLID);
 
     public PeriodicTable() {
-        super(ID, RelicTier.STARTER, LandingSound.SOLID);
+        super(DATA);
     }
 
     @Override

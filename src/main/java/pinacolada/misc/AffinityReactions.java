@@ -43,6 +43,24 @@ public class AffinityReactions {
         return !redoxes.isEmpty();
     }
 
+    public int getValue(PCLAffinity affinity)
+    {
+        int sum = 0;
+        if (combustions.containsKey(affinity))
+        {
+            for (Integer value : combustions.get(affinity).values()) {
+                sum += value;
+            }
+        }
+        if (redoxes.containsKey(affinity))
+        {
+            for (Integer value : redoxes.get(affinity).values()) {
+                sum += value;
+            }
+        }
+        return sum;
+    }
+
     public int sum() {
         int sum = 0;
         for (PCLAffinity affinity : combustions.keySet()) {

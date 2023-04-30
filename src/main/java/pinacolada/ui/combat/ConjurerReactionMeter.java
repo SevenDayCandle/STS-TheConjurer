@@ -45,7 +45,6 @@ import pinacolada.utilities.PCLRenderHelpers;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 
 import static extendedui.EUIUtils.array;
 
@@ -80,8 +79,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
     protected int reactionCount;
     protected PCLAffinity lastUpgrade = PCLAffinity.General;
     protected PCLClickableUse skips;
-    private List<PCLCardAffinity> lastCardAffinities = new ArrayList<>();
-    private List<AbstractPCLElementalPower> lastTargetPowers = new ArrayList<>();
+    private AffinityReactions previewReactions;
     private int reactionPreview;
 
 
@@ -275,8 +273,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
         if (lastUpgrade == null) {
             set(PCLAffinity.General, 0);
         }
-        lastCardAffinities = new ArrayList<>();
-        lastTargetPowers = new ArrayList<>();
+        previewReactions = null;
         totalReactions.clear();
         enableCharges(false);
 
@@ -313,14 +310,11 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
         }
 
         if ((shouldUpdateForTarget || shouldUpdateForCard) && card != null) {
-            lastTargetPowers = EUIUtils.flattenList(EUIUtils.map(card.pclTarget.getTargets(AbstractDungeon.player, target), this::getElementalPowers));
-            if (shouldUpdateForCard) {
-                lastCardAffinities = GameUtilities.getPCLCardAffinities(card).getCardAffinities(true);
-            }
+            previewReactions = getReactions(card, card.pclTarget.getTargets(AbstractDungeon.player, target));
 
-            reactionPreview = reactionCount;
+            reactionPreview = reactionCount + previewReactions.sum();
             for (ConjurerElementButton element : elements) {
-                reactionPreview += element.updatePreview(lastCardAffinities, lastTargetPowers);
+                element.updatePreview(previewReactions);
             }
         }
         else if (card == null) {
@@ -455,6 +449,11 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
 
     public int getPreviewGain() {
         return reactionPreview - reactionCount;
+    }
+
+    public AffinityReactions getPreviewReactions()
+    {
+        return previewReactions;
     }
 
     public ConjurerReactionButton getReactionButton(PCLAffinity dest, PCLAffinity target) {

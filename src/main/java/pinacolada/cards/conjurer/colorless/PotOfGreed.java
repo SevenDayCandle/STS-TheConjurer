@@ -8,11 +8,9 @@ import pinacolada.cards.base.PCLCardGroupHelper;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
-import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PCond;
+import pinacolada.skills.PDelay;
 import pinacolada.skills.PMove;
-import pinacolada.skills.skills.PMultiSkill;
 
 @VisibleCard
 public class PotOfGreed extends PCLCard {
@@ -27,6 +25,7 @@ public class PotOfGreed extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PCond.exhaustRandom(2, PCLCardGroupHelper.DrawPile).setUpgrade(-1), PMultiSkill.join(PMove.draw(2).setUpgrade(1), PMove.gain(2, PCLPowerHelper.NextTurnDraw)));
+        addUseMove(PMove.draw(3).setUpgrade(1));
+        addUseMove(PDelay.turnStart(1), PMove.transform(PotOfGreed.DATA, 1, PCLCardGroupHelper.Hand).edit(f -> f.setForced(true)));
     }
 }

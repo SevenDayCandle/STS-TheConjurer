@@ -8,7 +8,6 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.powers.PCLPowerHelper;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -18,9 +17,9 @@ import pinacolada.skills.PMove;
 @VisibleCard
 public class BlackFrost extends PCLCard {
     public static final PCLCardData DATA = register(BlackFrost.class, ConjurerResources.conjurer)
-            .setSummon(1, CardRarity.RARE, PCLAttackType.Immaterial, PCLCardTarget.AllEnemy)
-            .setDamage(7, 1)
-            .setHp(4, 2)
+            .setSummon(1, CardRarity.RARE, PCLAttackType.Immaterial, PCLCardTarget.RandomEnemy)
+            .setDamage(5, 1)
+            .setHp(3, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
@@ -30,6 +29,6 @@ public class BlackFrost extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(AbstractGameAction.AttackEffect.FIRE);
-        addUseMove(PCond.cooldown(0), PMove.applyToEveryone(1, PCLElementHelper.Ignis, PCLElementHelper.Gelus, PCLPowerHelper.Vulnerable));
+        addUseMove(PCond.cooldown(0), PMove.applyToEveryone(2, PCLElementHelper.Ignis, PCLElementHelper.Gelus).edit(f -> f.setRandom(true)));
     }
 }

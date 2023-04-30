@@ -1,12 +1,14 @@
 package pinacolada.relics.conjurer;
 
 import com.megacrit.cardcrawl.rooms.*;
+import pinacolada.relics.PCLRelicData;
+import pinacolada.resources.conjurer.ConjurerResources;
 
 public class BountyMap2 extends AbstractBountyMap {
-    public static final String ID = createFullID(BountyMap2.class);
+    public static final PCLRelicData DATA = register(BountyMap2.class, ConjurerResources.conjurer).setTier(RelicTier.SPECIAL, LandingSound.FLAT);
 
     public BountyMap2() {
-        super(ID);
+        super(DATA);
     }
 
     @Override

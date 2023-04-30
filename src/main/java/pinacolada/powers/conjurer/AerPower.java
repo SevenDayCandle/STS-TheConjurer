@@ -22,7 +22,10 @@ public class AerPower extends AbstractPCLElementalPower {
     @Override
     public void playApplyPowerSfx() {
         PCLSFX.play(PCLSFX.WIND, 0.75f, 0.85f);
-    }    public float calculateValue(int amount, float multiplier) {
+    }
+
+    @Override
+    public float calculateValue(int amount, float multiplier) {
         return Math.max(1, amount * (multiplier / 100f));
     }
 
@@ -31,11 +34,9 @@ public class AerPower extends AbstractPCLElementalPower {
         return PCLEnum.AttackEffect.WIND;
     }
 
-
-
     @Override
-    public void onReact(AbstractCreature source, AffinityReactions reactions, int amount) {
-        PCLActions.bottom.gain(PCLElementHelper.Flow, MathUtils.ceil(calculateValue(amount, getIntensifyMultiplier())));
-        super.onReact(source, reactions, amount);
+    public void onReact(AbstractCreature source, AffinityReactions reactions) {
+        PCLActions.bottom.gain(PCLElementHelper.Flow, MathUtils.ceil(calculateValue(reactions)));
+        super.onReact(source, reactions);
     }
 }

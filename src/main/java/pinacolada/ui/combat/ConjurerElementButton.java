@@ -22,6 +22,7 @@ import pinacolada.dungeon.CombatManager;
 import pinacolada.effects.PCLEffects;
 import pinacolada.effects.affinity.GenericFlashEffect;
 import pinacolada.interfaces.subscribers.OnTryElementReactSubscriber;
+import pinacolada.misc.AffinityReactions;
 import pinacolada.powers.conjurer.AbstractPCLElementalPower;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.PGR;
@@ -30,7 +31,10 @@ import pinacolada.resources.pcl.PCLCoreStrings;
 import pinacolada.utilities.GameUtilities;
 import pinacolada.utilities.PCLRenderHelpers;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 public class ConjurerElementButton extends EUIButton {
     public static final String INCREASE_ID = ConjurerResources.conjurer.createID(ConjurerElementButton.class.getSimpleName());
@@ -256,30 +260,31 @@ public class ConjurerElementButton extends EUIButton {
         }
     }
 
-    public int updatePreview(List<PCLCardAffinity> lastCardAffinities, List<AbstractPCLElementalPower> lastTargetPowers) {
-        int retAmount = 0;
+    public void updatePreview(AffinityReactions afs) {
         unsetPreview();
 
-        for (AbstractPower po : lastTargetPowers) {
-            if (matchesPower(po.ID)) {
-                for (PCLCardAffinity af : lastCardAffinities) {
-                    if (hasReaction(af.type)) {
-                        if (af.type == PCLAffinity.Star) {
-                            for (ConjurerReactionButton reaction : reactions.values()) {
-                                reaction.highlight();
-                                retAmount += reactionGain(po, af, reaction.type);
-                            }
-                        }
-                        else {
-                            ConjurerReactionButton reaction = reactions.get(af.type);
-                            reaction.highlight();
-                            retAmount += reactionGain(po, af, reaction.type);
-                        }
-                    }
+        if (afs.hasCombust(affinity))
+        {
+            for (PCLAffinity reactor : afs.combustions.get(affinity).keySet())
+            {
+                ConjurerReactionButton button = reactions.get(reactor);
+                if (button != null)
+                {
+                    button.highlight();
                 }
             }
         }
-        return retAmount;
+        if (afs.hasRedox(affinity))
+        {
+            for (PCLAffinity reactor : afs.redoxes.get(affinity).keySet())
+            {
+                ConjurerReactionButton button = reactions.get(reactor);
+                if (button != null)
+                {
+                    button.highlight();
+                }
+            }
+        }
     }
 
     public void unsetPreview() {

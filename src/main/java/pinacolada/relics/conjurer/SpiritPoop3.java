@@ -3,12 +3,15 @@ package pinacolada.relics.conjurer;
 import pinacolada.actions.PCLActions;
 import pinacolada.powers.common.InnovationPower;
 import pinacolada.relics.PCLRelic;
+import pinacolada.relics.PCLRelicData;
+import pinacolada.resources.conjurer.ConjurerResources;
 
 public class SpiritPoop3 extends PCLRelic {
-    public static final String ID = createFullID(SpiritPoop3.class);
+    public static final PCLRelicData DATA = register(PeriodicTable.class, ConjurerResources.conjurer)
+            .setTier(RelicTier.SPECIAL, LandingSound.SOLID);
 
     public SpiritPoop3() {
-        super(ID, RelicTier.SPECIAL, LandingSound.SOLID);
+        super(DATA);
     }
 
     @Override

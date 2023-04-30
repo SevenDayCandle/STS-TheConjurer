@@ -27,7 +27,7 @@ public class ChemicalSynthesis extends PCLCard {
 
     @Override
     public void setup(Object input) {
-        addSpecialMove(0, this::action, 2, 2);
+        addSpecialMove(0, this::action, 2, 4);
     }
 
     public void action(PSpecialSkill move, PCLUseInfo info) {

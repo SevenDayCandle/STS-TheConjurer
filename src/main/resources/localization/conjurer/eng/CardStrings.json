@@ -1,11 +1,11 @@
 {
 	"BASIC":
 	{
-		"conjurer:AerosolCoolant": {"NAME": "AerosolCoolant"},
+		"conjurer:AerosolCoolant": {"NAME": "Aerosol Coolant"},
 		"conjurer:AirCurrent": {"NAME": "Air Current"},
 		"conjurer:ArcticTide": {"NAME": "Arctic Tide"},
 		"conjurer:AtmosphericPressure": {"NAME": "Atmospheric Pressure"},
-		"conjurer:BlazingHeat": {"EXTENDED_DESCRIPTION": ["[Blasted] damages everyone on the target's side. At turn end, [Ignis] is converted into {0} [Blasted]"], "NAME": "Blazing Heat"},
+		"conjurer:BlazingHeat": {"EXTENDED_DESCRIPTION": ["[Blasted] damages everyone on the target's side and is affected by damage modifiers"], "NAME": "Blazing Heat"},
 		"conjurer:Bloom": {"NAME": "Bloom"},
 		"conjurer:BoilingPoint": {"NAME": "Boiling Point"},
 		"conjurer:BotanicTherapy": {"NAME": "Botanic Therapy"},
@@ -68,7 +68,7 @@
 		"conjurer:TropicalMonsoon": {"NAME": "Tropical Monsoon"},
 		"conjurer:Vaporize": {"NAME": "Vaporize"},
 		"conjurer:VerdantGale": {
-			"EXTENDED_DESCRIPTION": ["Using [Flow] applies {0} [Poison] to all enemies and triggers it"],
+			"EXTENDED_DESCRIPTION": ["Using [Flow] applies {0} [Poison] to all enemies and triggers their [Poison]"],
 			"NAME": "Verdant Gale"
 		},
 		"conjurer:Wildfire": {"NAME": "Wildfire"},
@@ -101,6 +101,7 @@
 		"conjurer:MagicMirror": {"EXTENDED_DESCRIPTION": ["Reflect the next {0} Debuffs received"], "NAME": "Magic Mirror"},
 		"conjurer:Magilou": {"NAME": "Magilou"},
 		"conjurer:Marin": {"NAME": "Marin"},
+		"conjurer:MidnightOil": {"NAME": "Midnight Oil"},
 		"conjurer:MonsterReborn": {"EXTENDED_DESCRIPTION": ["Summon {0} Purged Summon. It has +{1}% HP"], "NAME": "Monster Reborn"},
 		"conjurer:NuclearTransmutation": {"NAME": "Nuclear Transmutation"},
 		"conjurer:OracleSphere": {"EXTENDED_DESCRIPTION": ["Reshuffle your deck. Move {0} cards to the top"], "NAME": "Oracle Sphere"},

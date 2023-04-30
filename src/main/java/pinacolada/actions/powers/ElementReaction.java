@@ -37,8 +37,7 @@ public class ElementReaction extends PCLAction<AffinityReactions> {
             return;
         }
 
-        int sum = reactions.sum();
-        ConjurerReactionMeter.meter.addCount(sum, showEffect);
+        ConjurerReactionMeter.meter.addCount(reactions.sum(), showEffect);
 
         ArrayList<AbstractCreature> cr = new ArrayList<>();
         if (target != null) {
@@ -57,7 +56,7 @@ public class ElementReaction extends PCLAction<AffinityReactions> {
             CombatManager.subscriberDo(OnElementReactSubscriber.class, s -> s.onElementReact(reactions, mo));
             for (AbstractPower po : mo.powers) {
                 if (po instanceof AbstractPCLElementalPower) {
-                    ((AbstractPCLElementalPower) po).onReact(source, reactions, sum);
+                    ((AbstractPCLElementalPower) po).onReact(source, reactions);
                 }
             }
         }

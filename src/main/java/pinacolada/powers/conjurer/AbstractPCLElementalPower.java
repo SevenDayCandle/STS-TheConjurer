@@ -144,7 +144,20 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Mult
 
     @Override
     protected ColoredString getSecondaryAmount(Color c) {
-        return ConjurerReactionMeter.meter.isHighlighted() ? new ColoredString((int) calculateValue(ConjurerReactionMeter.meter.getPreviewGain(), getIntensifyMultiplier()), Color.GREEN, c.a) : new ColoredString((int) getIntensifyMultiplier(), Color.RED, c.a);
+        if (ConjurerReactionMeter.meter.isHighlighted())
+        {
+            AffinityReactions reactions = ConjurerReactionMeter.meter.getPreviewReactions();
+            if (reactions != null)
+            {
+                return new ColoredString((int) calculateValue(reactions), Color.GREEN, c.a);
+            }
+        }
+        return new ColoredString((int) getIntensifyMultiplier(), Color.RED, c.a);
+    }
+
+    public float calculateValue(AffinityReactions reactions)
+    {
+        return calculateValue(reactions.getValue(getAffinity()), getIntensifyMultiplier());
     }
 
     public float calculateValue(int amount, float multiplier) {
@@ -183,7 +196,7 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Mult
         return formatDescription(0, PCLRenderHelpers.decimalFormat(getIntensifyMultiplier()));
     }
 
-    public void onReact(AbstractCreature source, AffinityReactions reactions, int amount) {
+    public void onReact(AbstractCreature source, AffinityReactions reactions) {
         flash();
     }
 
