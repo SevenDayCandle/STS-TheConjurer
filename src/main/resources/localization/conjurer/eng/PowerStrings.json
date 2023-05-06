@@ -62,7 +62,7 @@
 	},
 	"conjurer:PetraPower":
 	{
-		"DESCRIPTIONS": ["#b{0}% of Reaction gained from this power are returned to you as [NTB].", "#b{0}% of Reaction gained from [Petra] are returned to you as [NTB]."],
+		"DESCRIPTIONS": ["#b{0}% of Reaction gained from this power are returned to you as [Block].", "#b{0}% of Reaction gained from [Petra] are returned to you as [Block]."],
 		"NAME": "Petra"
 	},
 	"conjurer:PetrifiedPower":

@@ -67,7 +67,7 @@
 		"PROGRESSIVE": "morphing"
 	},
 	"Petra": {
-		"DESCRIPTION": "[A-O] #yElemental #yDebuff. Reactions on the target grant you [Block] next turn.",
+		"DESCRIPTION": "[A-O] #yElemental #yDebuff. Reactions on the target grant you [Block].",
 		"NAME": "Petra"
 	},
 	"Reaction": {

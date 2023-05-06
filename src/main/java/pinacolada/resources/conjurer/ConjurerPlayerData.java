@@ -60,11 +60,9 @@ public class ConjurerPlayerData extends PCLAbstractPlayerData {
         PGR.dungeon.removeRelic(PenNib.ID);
         PGR.dungeon.removeRelic(Kunai.ID);
         PGR.dungeon.removeRelic(Shuriken.ID);
-        PGR.dungeon.removeRelic(SneckoEye.ID);
         PGR.dungeon.removeRelic(TinyHouse.ID);
         PGR.dungeon.removeRelic(RunicPyramid.ID);
         PGR.dungeon.removeRelic(CeramicFish.ID);
-        PGR.dungeon.removeRelic(IncenseBurner.ID);
         PGR.dungeon.removeRelic(PrismaticShard.ID);
         PGR.dungeon.addRelic(MarkOfPain.ID, AbstractRelic.RelicTier.BOSS);
         PGR.dungeon.addRelic(Melange.ID, AbstractRelic.RelicTier.SHOP);

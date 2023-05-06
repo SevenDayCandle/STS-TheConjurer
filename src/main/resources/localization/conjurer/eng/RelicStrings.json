@@ -24,6 +24,12 @@
 		"FLAVOR": "On this mountain path, where the red leaves lifeless lie... My heart calls for a companion, echoing the deer's cry...",
 		"NAME": "Crimson Maple Leaf"
 	},
+	"conjurer:HomeRunBat":
+	{
+		"DESCRIPTIONS": ["The first time each turn you attack an enemy with [~Lock-On], gain #b{0} [Critical]."],
+		"FLAVOR": "Pass the power.",
+		"NAME": "Home Run Bat"
+	},
 	"conjurer:MagicBaton":
 	{
 		"DESCRIPTIONS": ["Whenever you #yRedox, reduce the #yCooldown of the next card played by #b1."],
@@ -71,6 +77,12 @@
 	  "DESCRIPTIONS": ["At the start of battle, #ySummon #b1 of #b{0} special #ySummons."],
 	  "FLAVOR": "Pass the power.",
 	  "NAME": "Magic Baton"
+	},
+	"conjurer:TriKarmaPurification":
+	{
+		"DESCRIPTIONS": ["Disables [A-O]. Replaces #yRedoxes with #yCombusts. Doubles the effect of all #yElemental #yDebuffs."],
+		"FLAVOR": "Pass the power.",
+		"NAME": "Tri-Karma Purification"
 	},
 	"conjurer:WitchsHeartFlames":
 	{

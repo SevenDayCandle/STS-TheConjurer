@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.series.genshinimpact;
 
 
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import pinacolada.annotations.VisibleCard;
@@ -37,11 +38,12 @@ public class Wanderer extends PCLCard {
     }
 
     public static class WandererPower extends PSpecialCardPower {
-        public WandererPower(AbstractCreature owner, PSkill move) {
+        public WandererPower(AbstractCreature owner, PSkill<?> move) {
             super(DATA, owner, move);
         }
 
-        public void onAfterCardPlayed(AbstractCard card) {
+        @Override
+        public void onUseCard(AbstractCard card, UseCardAction action) {
             if ((card.type == CardType.SKILL || card.type == CardType.CURSE) && owner instanceof PCLCardAlly) {
                 ((PCLCardAlly) owner).takeTurn();
                 this.flash();

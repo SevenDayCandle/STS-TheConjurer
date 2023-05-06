@@ -25,7 +25,7 @@ public class PotOfGreed extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.draw(3).setUpgrade(1));
+        addUseMove(PMove.draw(2).setUpgrade(1));
         addUseMove(PDelay.turnStart(1), PMove.transform(PotOfGreed.DATA, 1, PCLCardGroupHelper.Hand).edit(f -> f.setForced(true)));
     }
 }

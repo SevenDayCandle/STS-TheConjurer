@@ -9,15 +9,15 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.powers.conjurer.PCLElementHelper;
-import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
+import pinacolada.skills.fields.PField_CardGeneric;
 
 @VisibleCard
 public class DustTornado extends PCLCard {
     public static final PCLCardData DATA = register(DustTornado.class, ConjurerResources.conjurer)
-            .setSkill(0, CardRarity.RARE, PCLCardTarget.AllEnemy)
+            .setSkill(0, CardRarity.RARE, PCLCardTarget.Single)
             .setTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Green, PCLAffinity.Orange)
             .setCore();
@@ -28,7 +28,7 @@ public class DustTornado extends PCLCard {
 
     public void setup(Object input) {
         addUseMove(PCond.exhaust(1),
-                PMove.play(2, PCLCardTarget.SingleAlly, PCLCardGroupHelper.DiscardPile).setUpgrade(1).edit(f -> f.setType(PCLEnum.CardType.SUMMON).setRandom()));
+                PMove.play(2, PCLCardTarget.Single, PCLCardGroupHelper.DiscardPile).setUpgrade(1).edit(PField_CardGeneric::setRandom));
         addUseMove(PCond.onDiscard(), PMove.applyToEnemies(4, PCLElementHelper.Petra));
     }
 }

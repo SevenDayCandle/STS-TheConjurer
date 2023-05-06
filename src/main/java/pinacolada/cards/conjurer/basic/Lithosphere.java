@@ -13,7 +13,7 @@ import pinacolada.skills.PMove;
 public class Lithosphere extends PCLCard {
     public static final PCLCardData DATA = register(Lithosphere.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.COMMON)
-            .setBlock(7, 2)
+            .setBlock(6, 2)
             .setAffinities(2, PCLAffinity.Orange)
             .setCore();
 

@@ -4,10 +4,8 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import pinacolada.actions.PCLActions;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLSFX;
 import pinacolada.misc.AffinityReactions;
-import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 
@@ -37,7 +35,7 @@ public class PetraPower extends AbstractPCLElementalPower {
 
     @Override
     public void onReact(AbstractCreature source, AffinityReactions reactions) {
-        PCLActions.bottom.applyPower(source, PCLCardTarget.Single, PCLPowerHelper.NextTurnBlock, (int) calculateValue(reactions));
+        PCLActions.bottom.gainBlock((int) calculateValue(reactions));
         super.onReact(source, reactions);
     }
 }

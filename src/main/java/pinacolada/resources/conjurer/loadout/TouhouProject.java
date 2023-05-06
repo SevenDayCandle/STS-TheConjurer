@@ -6,6 +6,6 @@ public class TouhouProject extends ConjurerLoadout {
     public static final String ID = createID(TouhouProject.class);
 
     public TouhouProject() {
-        super(ID, 0);
+        super(ID, 4);
     }
 }
