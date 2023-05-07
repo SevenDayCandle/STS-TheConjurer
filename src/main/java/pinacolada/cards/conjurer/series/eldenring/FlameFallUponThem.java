@@ -27,6 +27,6 @@ public class FlameFallUponThem extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SMALL_EXPLOSION);
-        addUseMove(PMove.applyToEnemies(2, PCLElementHelper.Ignis).setUpgrade(1));
+        addUseMove(PMove.applyToEnemies(3, PCLElementHelper.Ignis).setUpgrade(1));
     }
 }
