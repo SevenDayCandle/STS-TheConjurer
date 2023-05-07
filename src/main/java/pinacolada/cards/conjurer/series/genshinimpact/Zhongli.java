@@ -13,11 +13,12 @@ import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
+import pinacolada.skills.skills.DelayTiming;
 
 @VisibleCard
 public class Zhongli extends PCLCard {
     public static final PCLCardData DATA = register(Zhongli.class, ConjurerResources.conjurer)
-            .setSummon(3, CardRarity.RARE, PCLAttackType.Piercing)
+            .setSummon(3, CardRarity.RARE, PCLAttackType.Piercing, PCLCardTarget.Single, DelayTiming.EndOfTurnFirst)
             .setDamage(2, 0)
             .setHp(25, 3)
             .setAffinities(2, PCLAffinity.Orange)

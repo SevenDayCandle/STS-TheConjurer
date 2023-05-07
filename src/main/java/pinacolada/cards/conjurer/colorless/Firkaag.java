@@ -13,11 +13,12 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMod;
 import pinacolada.skills.PTrait;
+import pinacolada.skills.skills.DelayTiming;
 
 @VisibleCard
 public class Firkaag extends PCLCard {
     public static final PCLCardData DATA = register(Firkaag.class, ConjurerResources.conjurer)
-            .setSummon(3, CardRarity.RARE, PCLAttackType.Piercing, PCLCardTarget.AllEnemy)
+            .setSummon(3, CardRarity.RARE, PCLAttackType.Piercing, PCLCardTarget.AllEnemy, DelayTiming.EndOfTurnFirst)
             .setDamage(13, 0)
             .setHp(21, 5)
             .setAffinities(1, PCLAffinity.Red)

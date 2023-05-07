@@ -14,12 +14,13 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CMove;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMod;
+import pinacolada.skills.skills.DelayTiming;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
 public class Girimekhala extends PCLCard {
     public static final PCLCardData DATA = register(Girimekhala.class, ConjurerResources.conjurer)
-            .setSummon(3, CardRarity.RARE, PCLAttackType.Normal, PCLCardTarget.AllEnemy)
+            .setSummon(3, CardRarity.RARE, PCLAttackType.Normal, PCLCardTarget.AllEnemy, DelayTiming.EndOfTurnFirst)
             .setDamage(6, 0)
             .setHp(16, 3)
             .setAffinities(PCLAffinity.Orange, PCLAffinity.Purple)

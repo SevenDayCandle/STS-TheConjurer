@@ -7,17 +7,19 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
+import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.conjurer.basic.Overheat;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
+import pinacolada.skills.skills.DelayTiming;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
 public class Baphomet extends PCLCard {
     public static final PCLCardData DATA = register(Baphomet.class, ConjurerResources.conjurer)
-            .setSummon(3, CardRarity.RARE, PCLAttackType.Piercing)
+            .setSummon(3, CardRarity.RARE, PCLAttackType.Piercing, PCLCardTarget.Single, DelayTiming.EndOfTurnFirst)
             .setDamage(5, 0)
             .setHp(13, 4)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Purple)

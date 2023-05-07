@@ -12,11 +12,12 @@ import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
+import pinacolada.skills.skills.DelayTiming;
 
 @VisibleCard
 public class Rathalos extends PCLCard {
     public static final PCLCardData DATA = register(Rathalos.class, ConjurerResources.conjurer)
-            .setSummon(3, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
+            .setSummon(3, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy, DelayTiming.EndOfTurnFirst)
             .setDamage(3, 1, 0)
             .setHp(11, 0)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Green)

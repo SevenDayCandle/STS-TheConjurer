@@ -1,6 +1,6 @@
 package pinacolada.skills.conjurer.conditions;
 
-import extendedui.interfaces.delegates.ActionT0;
+import extendedui.interfaces.delegates.ActionT1;
 import pinacolada.actions.PCLAction;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.dungeon.PCLUseInfo;
@@ -47,7 +47,7 @@ public class PCond_PayReaction extends PActiveCond<PField_Not> {
     }
 
     @Override
-    protected PCLAction<?> useImpl(PCLUseInfo pclUseInfo, ActionT0 actionT0, ActionT0 actionT01) {
+    protected PCLAction<?> useImpl(PCLUseInfo pclUseInfo, ActionT1<PCLUseInfo> actionT0, ActionT1<PCLUseInfo> actionT01) {
         return getActions().callback(() -> ConjurerReactionMeter.meter.trySpendCount(amount));
     }
 }

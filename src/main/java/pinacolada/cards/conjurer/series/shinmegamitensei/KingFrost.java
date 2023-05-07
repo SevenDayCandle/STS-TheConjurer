@@ -6,17 +6,19 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
+import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
+import pinacolada.skills.skills.DelayTiming;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
 public class KingFrost extends PCLCard {
     public static final PCLCardData DATA = register(KingFrost.class, ConjurerResources.conjurer)
-            .setSummon(3, CardRarity.RARE, PCLAttackType.Immaterial)
+            .setSummon(3, CardRarity.RARE, PCLAttackType.Immaterial, PCLCardTarget.Single, DelayTiming.EndOfTurnFirst)
             .setDamage(2, 0)
             .setHp(19, 4)
             .setAffinities(2, PCLAffinity.Blue)

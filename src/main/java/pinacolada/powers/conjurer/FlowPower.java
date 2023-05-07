@@ -16,7 +16,7 @@ import pinacolada.utilities.PCLRenderHelpers;
 
 public class FlowPower extends PCLPower implements DrawPileCardPreviewProvider {
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, FlowPower.class);
-    public static final int PER_STACK = 7;
+    public static final int PER_STACK = 6;
     private DrawPileCardPreview preview;
 
     public FlowPower(AbstractCreature owner, int amount) {

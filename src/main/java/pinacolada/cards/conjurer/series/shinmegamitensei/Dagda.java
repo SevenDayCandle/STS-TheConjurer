@@ -13,12 +13,13 @@ import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
+import pinacolada.skills.skills.DelayTiming;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
 public class Dagda extends PCLCard {
     public static final PCLCardData DATA = register(Dagda.class, ConjurerResources.conjurer)
-            .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.AllEnemy)
+            .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.AllEnemy, DelayTiming.EndOfTurnFirst)
             .setDamage(2, 1)
             .setHp(11, 2)
             .setAffinities(2, PCLAffinity.Orange)

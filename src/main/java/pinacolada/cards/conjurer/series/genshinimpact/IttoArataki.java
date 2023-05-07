@@ -13,11 +13,12 @@ import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
+import pinacolada.skills.skills.DelayTiming;
 
 @VisibleCard
 public class IttoArataki extends PCLCard {
     public static final PCLCardData DATA = register(IttoArataki.class, ConjurerResources.conjurer)
-            .setSummon(3, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
+            .setSummon(3, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy, DelayTiming.EndOfTurnFirst)
             .setDamage(6, 1)
             .setHp(14, 2)
             .setAffinities(1, PCLAffinity.Red, PCLAffinity.Orange)
