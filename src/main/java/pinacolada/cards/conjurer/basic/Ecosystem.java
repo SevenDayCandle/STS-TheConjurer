@@ -24,7 +24,7 @@ public class Ecosystem extends PCLCard {
     }
 
     public void setup(Object input) {
-        addGainPower(PTrigger.when(PCond.highestAffinityBranch(PCLAffinity.Blue, PCLAffinity.Green, PCLAffinity.Orange),
+        addGainPower(PTrigger.when(PCond.checkLevel(1, PCLAffinity.Blue, PCLAffinity.Green, PCLAffinity.Orange),
                 PMultiSkill.join(
                         PMove.gainPlayer(2, PCLPowerHelper.Energized),
                         PMove.gainPlayer(3, PCLPowerHelper.NextTurnDraw),

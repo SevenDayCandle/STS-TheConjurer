@@ -20,7 +20,7 @@ import pinacolada.skills.PTrait;
 public class ShatterEarth extends PCLCard {
     public static final PCLCardData DATA = register(ShatterEarth.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.UNCOMMON, PCLAttackType.Normal)
-            .setDamage(15, 2)
+            .setDamage(13, 2)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
