@@ -108,7 +108,6 @@
 		"conjurer:PocketPolymerization": {"EXTENDED_DESCRIPTION": ["Combine {0} Attacks or Skills in hand. If the resulting card costs 2+, reduce its cost by {1}"], "NAME": "Pocket Polymerization"},
 		"conjurer:Polymerization": {"EXTENDED_DESCRIPTION": ["When added to your deck, combine up to 2 Attacks or Skills from your deck into this card"], "NAME": "Polymerization"},
 		"conjurer:PortableTrashCan": {
-			"EXTENDED_DESCRIPTION": ["Purge any number of cards in hand or discard pile. Remove {0} of them from your deck"],
 			"NAME": "Portable Trash Can"
 		},
 		"conjurer:PotOfGreed": {"NAME": "Pot of Greed"},
