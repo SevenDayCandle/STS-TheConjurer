@@ -301,8 +301,8 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
     }
 
     @Override
-    public void updateImpl(PCLCard card, AbstractCreature target, boolean isDraggingCard, boolean shouldUpdateForCard, boolean shouldUpdateForTarget) {
-        super.updateImpl(card, target, isDraggingCard, shouldUpdateForCard, shouldUpdateForTarget);
+    public void updateImpl(PCLCard card, PCLCard originalCard, AbstractCreature target, AbstractCreature originalTarget, boolean isDraggingCard, boolean shouldUpdateForCard, boolean shouldUpdateForTarget) {
+        super.updateImpl(card, originalCard, target, originalTarget, isDraggingCard, shouldUpdateForCard, shouldUpdateForTarget);
         boolean interactable = skips.interactable();
 
         for (ConjurerElementButton element : elements) {
@@ -312,7 +312,8 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
         if ((shouldUpdateForTarget || shouldUpdateForCard) && card != null) {
             previewReactions = getReactions(card, card.pclTarget.getTargets(AbstractDungeon.player, target));
 
-            reactionPreview = reactionCount + previewReactions.sum();
+            int sum = isSwapIntended(card, originalCard) ? previewReactions.sum() * CombatManager.summons.triggerTimes : previewReactions.sum();
+            reactionPreview = reactionCount + sum;
             for (ConjurerElementButton element : elements) {
                 element.updatePreview(previewReactions);
             }
