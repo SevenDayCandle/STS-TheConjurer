@@ -12,6 +12,7 @@ import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
+import pinacolada.skills.skills.PBranchCond;
 
 @VisibleCard
 public class SkyBurial extends PCLCard {
@@ -27,6 +28,6 @@ public class SkyBurial extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove().setDamageEffect((s, m) -> VFX.razorWind(s.hb).duration);
-        addUseMove(PCond.ifElse(PMove.applyToSingle(1, PCLPowerHelper.Vulnerable, PCLElementHelper.Aer), PMove.selfExhaust(), PCond.discardRandom(2)));
+        addUseMove(PBranchCond.branch(PCond.discardRandom(2), PMove.applyToSingle(1, PCLPowerHelper.Vulnerable, PCLElementHelper.Aer), PMove.selfExhaust()));
     }
 }

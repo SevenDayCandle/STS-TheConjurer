@@ -8,7 +8,7 @@ import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
-import pinacolada.skills.skills.PMultiSkill;
+import pinacolada.skills.skills.PBranchCond;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
@@ -24,8 +24,8 @@ public class Ecosystem extends PCLCard {
     }
 
     public void setup(Object input) {
-        addGainPower(PTrigger.when(PCond.checkLevel(1, PCLAffinity.Blue, PCLAffinity.Green, PCLAffinity.Orange),
-                PMultiSkill.join(
+        addGainPower(PTrigger.when(
+                PBranchCond.branch(PCond.checkLevel(1, PCLAffinity.Blue, PCLAffinity.Green, PCLAffinity.Orange),
                         PMove.gainPlayer(2, PCLPowerHelper.Energized),
                         PMove.gainPlayer(3, PCLPowerHelper.NextTurnDraw),
                         PMove.applyToEnemies(2, PCLPowerHelper.Weak, PCLPowerHelper.Vulnerable)
