@@ -6,6 +6,12 @@
 		"FLAVOR": "Pass the power.",
 		"NAME": "Magic Baton"
 	},
+	"conjurer:ChiliPepper":
+	{
+		"DESCRIPTIONS": [],
+		"FLAVOR": "The opposite of chill.",
+		"NAME": "Chili Pepper"
+	},
 	"conjurer:CleansingBell":
 	{
 		"DESCRIPTIONS": ["#oRight-Click: Spend #b{0} charges to remove #b{1} of your leftmost debuff. Gain #b1 charge at the start of battle. Store up to #b{2} charges."],
