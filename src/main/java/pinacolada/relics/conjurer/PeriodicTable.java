@@ -11,7 +11,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 @VisibleRelic
 public class PeriodicTable extends PCLRelic {
     public static final PCLRelicData DATA = register(PeriodicTable.class, ConjurerResources.conjurer)
-            .setTier(RelicTier.STARTER, LandingSound.SOLID);
+            .setProps(RelicTier.STARTER, LandingSound.SOLID);
 
     public PeriodicTable() {
         super(DATA);

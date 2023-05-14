@@ -6,7 +6,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 
 public class SpiritPoop2 extends PCLRelic {
     public static final PCLRelicData DATA = register(PeriodicTable.class, ConjurerResources.conjurer)
-            .setTier(RelicTier.SPECIAL, LandingSound.SOLID);
+            .setProps(RelicTier.SPECIAL, LandingSound.SOLID);
 
     public SpiritPoop2() {
         super(DATA);

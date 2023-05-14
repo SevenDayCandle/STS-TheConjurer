@@ -5,7 +5,7 @@ import pinacolada.relics.PCLRelicData;
 import pinacolada.resources.conjurer.ConjurerResources;
 
 public class BountyMap extends AbstractBountyMap {
-    public static final PCLRelicData DATA = register(BountyMap.class, ConjurerResources.conjurer).setTier(RelicTier.SPECIAL, LandingSound.FLAT);
+    public static final PCLRelicData DATA = register(BountyMap.class, ConjurerResources.conjurer).setProps(RelicTier.SPECIAL, LandingSound.FLAT);
 
     public BountyMap() {
         super(DATA);

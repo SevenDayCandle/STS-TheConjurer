@@ -15,7 +15,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 @VisibleRelic
 public class WitchsHeartFlames extends PCLRelic implements OnCardCreatedSubscriber {
     public static final PCLRelicData DATA = register(PeriodicTable.class, ConjurerResources.conjurer)
-            .setTier(RelicTier.UNCOMMON, LandingSound.MAGICAL);
+            .setProps(RelicTier.UNCOMMON, LandingSound.MAGICAL);
 
     public WitchsHeartFlames() {
         super(DATA);

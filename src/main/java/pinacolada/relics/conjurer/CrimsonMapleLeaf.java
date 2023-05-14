@@ -13,7 +13,7 @@ import pinacolada.ui.combat.ConjurerReactionMeter;
 @VisibleRelic
 public class CrimsonMapleLeaf extends PCLRelic {
     public static final PCLRelicData DATA = register(CrimsonMapleLeaf.class, ConjurerResources.conjurer)
-            .setTier(RelicTier.BOSS, LandingSound.MAGICAL);
+            .setProps(RelicTier.BOSS, LandingSound.MAGICAL);
 
     public CrimsonMapleLeaf() {
         super(DATA);

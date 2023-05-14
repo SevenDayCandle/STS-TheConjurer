@@ -11,7 +11,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 @VisibleRelic
 public class StraightShooter extends PCLRelic {
     public static final PCLRelicData DATA = register(PeriodicTable.class, ConjurerResources.conjurer)
-            .setTier(RelicTier.UNCOMMON, LandingSound.CLINK);
+            .setProps(RelicTier.UNCOMMON, LandingSound.CLINK);
 
     public StraightShooter() {
         super(DATA);
