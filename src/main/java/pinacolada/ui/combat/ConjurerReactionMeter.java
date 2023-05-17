@@ -347,8 +347,8 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
             chargeTooltip.setDescription(
                     EUIUtils.joinStrings(EUIUtils.SPLIT_LINE,
                             ConjurerResources.conjurer.tooltips.charge.descriptions.get(0),
-                            PCLCoreStrings.leftClick(PSkill.capital(PGR.core.strings.act_applyAmount(1, helper.getTitleOrIcon()), true)),
-                            PCLCoreStrings.rightClick(PSkill.capital(PGR.core.strings.act_applyAmount(skips.getCurrentUses(), helper.getTitleOrIcon()), true))));
+                            PCLCoreStrings.leftClick(PSkill.capital(PGR.core.strings.act_applyX(1, helper.getTitleOrIcon()), true)),
+                            PCLCoreStrings.rightClick(PSkill.capital(PGR.core.strings.act_applyX(skips.getCurrentUses(), helper.getTitleOrIcon()), true))));
         }
     }
 

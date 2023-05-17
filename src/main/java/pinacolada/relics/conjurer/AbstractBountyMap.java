@@ -44,10 +44,12 @@ public abstract class AbstractBountyMap extends PCLRelic {
             }
             fixDescription();
         }
-    }    private void fixDescription() {
+    }
+
+    private void fixDescription() {
         this.description = getUpdatedDescription();
         this.tips.clear();
-        this.tips.add(new EUITooltip(this.name, this.description));
+        this.tips.add(new EUITooltip(this.getName(), this.description));
         this.initializeTips();
     }
 
