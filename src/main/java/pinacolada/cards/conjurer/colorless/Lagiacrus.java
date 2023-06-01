@@ -8,6 +8,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.PCLPowerHelper;
+import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
@@ -20,7 +21,7 @@ public class Lagiacrus extends PCLCard {
             .setDamage(3, 1, 0)
             .setHp(14, 0)
             .setAffinities(2, PCLAffinity.Blue)
-            .setColorless();
+            .setLoadout(ConjurerPlayerData.monsterHunter, true);
 
     public Lagiacrus() {
         super(DATA);

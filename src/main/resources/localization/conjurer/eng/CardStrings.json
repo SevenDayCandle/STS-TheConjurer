@@ -23,7 +23,7 @@
 		"conjurer:Ecosystem": {"NAME": "Ecosystem"},
 		"conjurer:Entropy": {"EXTENDED_DESCRIPTION": ["Apply {0} of the corresponding Elemental Debuffs of each discarded card"], "NAME": "Entropy"},
 		"conjurer:ErodingTerra": {
-			"EXTENDED_DESCRIPTION": ["At round end, [Petra] is halved instead of wearing off. If it was Stabilized, you gain half of it as [Block]"],
+			"EXTENDED_DESCRIPTION": ["At round end, Stabilize {0}% of everyone's [Petra]. If it was already Stabilized, gain it as [Block] instead."],
 			"NAME": "Eroding Terra"
 		},
 		"conjurer:Erosion": {"NAME": "Erosion"},
@@ -83,6 +83,7 @@
 		"conjurer:CloudStrife": {"NAME": "Cloud Strife"},
 		"conjurer:Clownpiece": {"EXTENDED_DESCRIPTION": ["If any of them was an Attack, all enemies gain [Provoked]"], "NAME": "Clownpiece"},
 		"conjurer:Crystallize": {"NAME": "Crystallize"},
+		"conjurer:Diablos": {"NAME": "Diablos"},
 		"conjurer:DiamondDazzle": {"EXTENDED_DESCRIPTION": ["+{0} damage per Augment on any card in hand", "While in your deck, you have a higher chance of finding Augments"], "NAME": "Diamond Dazzle"},
 		"conjurer:Discovery": {"EXTENDED_DESCRIPTION": ["Obtain {0} of {1} cards that you haven't unlocked yet. It costs 0 this turn"], "NAME": "Discovery"},
 		"conjurer:Egg": {"EXTENDED_DESCRIPTION": ["If this kills a boss or Elite"], "NAME": "Egg"},
@@ -102,7 +103,7 @@
 		"conjurer:Magilou": {"NAME": "Magilou"},
 		"conjurer:Marin": {"NAME": "Marin"},
 		"conjurer:MidnightOil": {"NAME": "Midnight Oil"},
-		"conjurer:MonsterReborn": {"EXTENDED_DESCRIPTION": ["Summon {0} Purged Summon. It has +{1}% HP"], "NAME": "Monster Reborn"},
+		"conjurer:MonsterReborn": {"EXTENDED_DESCRIPTION": ["Summon {0} Purged Summon. It has +{1}% HP and damage"], "NAME": "Monster Reborn"},
 		"conjurer:NuclearTransmutation": {"NAME": "Nuclear Transmutation"},
 		"conjurer:OracleSphere": {"EXTENDED_DESCRIPTION": ["Reshuffle your deck. Move {0} cards to the top"], "NAME": "Oracle Sphere"},
 		"conjurer:PocketPolymerization": {"EXTENDED_DESCRIPTION": ["Combine {0} Attacks or Skills in hand. If the resulting card costs 2+, reduce its cost by {1}"], "NAME": "Pocket Polymerization"},
@@ -118,6 +119,7 @@
 		"conjurer:PyramidFleet": {"EXTENDED_DESCRIPTION": ["All characters die in {0} turns. Progress enemy stacks whenever you gain a buff. Progress your stacks whenever you gain a debuff"], "NAME": "Pyramid Fleet"},
 		"conjurer:Radioactivity": {"EXTENDED_DESCRIPTION": ["Whenever you or your Summons apply a power, all enemies lose HP equal to stacks applied"], "NAME": "Radioactivity"},
 		"conjurer:Rathalos": {"NAME": "Rathalos"},
+		"conjurer:Reincarnation": {"NAME": "Reincarnation"},
 		"conjurer:Rorona": {"EXTENDED_DESCRIPTION": ["At the end of combat, Upgrade a random card in your deck","Obtain a random Potion"], "NAME": "Rorona"},
 		"conjurer:SatoriKomeiji": {"EXTENDED_DESCRIPTION": ["Move {0} cards in your draw pile to the top", "Your draw pile is shown in order. If you already had this effect: Gain {0} [Artifact]"], "NAME": "Satori Komeiji"},
 		"conjurer:SonarAnalysis": {

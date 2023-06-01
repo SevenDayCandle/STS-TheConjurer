@@ -1,8 +1,8 @@
 package pinacolada.characters;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -17,6 +17,7 @@ import extendedui.ui.EUIBase;
 import pinacolada.effects.PCLSFX;
 import pinacolada.effects.vfx.FadingParticleEffect;
 import pinacolada.effects.vfx.ScreenGradientEffect;
+import pinacolada.effects.vfx.SmokeParticleEffect;
 import pinacolada.effects.vfx.SnowBurstEffect;
 import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -33,7 +34,7 @@ public class ConjurerCharacter extends PCLCharacter {
     public static final String[] TEXT = characterStrings.TEXT;
     private int effectCount;
     private float fallSpeed;
-    private boolean dead;
+    private ArrayList<AbstractGameEffect> deathEffects;
 
     public ConjurerCharacter() {
         super(NAMES[0], ConjurerResources.conjurer.playerClass, new PCLEnergyOrb(ConjurerResources.conjurer.images.getOrbTextures(), ConjurerResources.conjurer.images.orbFlash),
@@ -92,14 +93,15 @@ public class ConjurerCharacter extends PCLCharacter {
         effectCount++;
     }
 
-    // Do not show death image on death
     @Override
-    public void update() {
-        super.update();
-        if (dead)
-        {
-            this.drawY -= Gdx.graphics.getDeltaTime() * fallSpeed;
-            fallSpeed -= Gdx.graphics.getDeltaTime() * 50;
+    public void render(SpriteBatch sb) {
+        super.render(sb);
+        if (deathEffects != null) {
+            for (AbstractGameEffect ef : deathEffects) {
+                ef.update();
+                ef.render(sb);
+            }
+            deathEffects.removeIf(e -> e.isDone);
         }
     }
 
@@ -108,12 +110,13 @@ public class ConjurerCharacter extends PCLCharacter {
         reloadAnimation(0.5f);
     }
 
-    // Do not show death image on death
     @Override
     public void playDeathAnimation() {
-        fallSpeed = 50 * Settings.scale;
-        flipVertical = true;
-        dead = true;
+        super.playDeathAnimation();
+        deathEffects = new ArrayList<>();
+        for (int i = 0; i < 25; i++) {
+            deathEffects.add(new SmokeParticleEffect(hb.cX, hb.cY, 0, 2.2F, 180.0F, 0.75F, getCardRenderColor()));
+        }
     }
 
     @Override

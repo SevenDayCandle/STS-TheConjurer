@@ -19,7 +19,7 @@ public class Genbu extends PCLCard {
     public static final PCLCardData DATA = register(Genbu.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Immaterial)
             .setDamage(1, 1, 2)
-            .setHp(8, 2)
+            .setHp(9, 2)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
@@ -31,8 +31,8 @@ public class Genbu extends PCLCard {
         addDamageMove(PCLAttackVFX.CLAW);
         addUseMove(PCond.cooldown(1),
                 PMultiSkill.choose(
-                        PMove.applyToEnemies(5, PCLElementHelper.Gelus),
-                        PMove.applyToEnemies(5, PCLElementHelper.Petra)
+                        PMove.applyToEnemies(4, PCLElementHelper.Gelus),
+                        PMove.applyToEnemies(4, PCLElementHelper.Petra)
                 )
         );
     }

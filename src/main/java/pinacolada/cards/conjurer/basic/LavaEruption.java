@@ -29,7 +29,7 @@ public class LavaEruption extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.BURN).setChain(new LavaEruptionMod(DATA, 1), PTrait.damage(3).setUpgrade(1));
+        addDamageMove(PCLAttackVFX.BURN).setChain(new LavaEruptionMod(DATA, 1), PTrait.damage(2).setUpgrade(1));
     }
 
     protected static class LavaEruptionMod extends PCustomMod {

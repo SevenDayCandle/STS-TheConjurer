@@ -9,6 +9,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
+import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMod;
@@ -22,7 +23,7 @@ public class Tigrex extends PCLCard {
             .setDamage(4, 1, 0)
             .setHp(15, 0)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Orange)
-            .setColorless();
+            .setLoadout(ConjurerPlayerData.monsterHunter, true);
 
     public Tigrex() {
         super(DATA);

@@ -8,7 +8,6 @@ import pinacolada.cards.base.PCLCardGroupHelper;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
-import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
@@ -29,6 +28,5 @@ public class DustTornado extends PCLCard {
     public void setup(Object input) {
         addUseMove(PCond.exhaust(1),
                 PMove.play(2, PCLCardTarget.Single, PCLCardGroupHelper.DiscardPile).setUpgrade(1).edit(PField_CardGeneric::setRandom));
-        addUseMove(PCond.onDiscard(), PMove.applyToEnemies(4, PCLElementHelper.Petra));
     }
 }

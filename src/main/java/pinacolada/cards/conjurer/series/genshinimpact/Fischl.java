@@ -6,6 +6,7 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
+import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -15,8 +16,8 @@ import pinacolada.skills.PMove;
 @VisibleCard
 public class Fischl extends PCLCard {
     public static final PCLCardData DATA = register(Fischl.class, ConjurerResources.conjurer)
-            .setSummon(0, CardRarity.UNCOMMON, PCLAttackType.Immaterial)
-            .setDamage(2, 1)
+            .setSummon(0, CardRarity.UNCOMMON, PCLAttackType.Immaterial, PCLCardTarget.RandomEnemy)
+            .setDamage(2, 1, 2)
             .setHp(3, 2)
             .setAffinities(PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.genshinImpact, true);
@@ -27,6 +28,6 @@ public class Fischl extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.GHOST);
-        addUseMove(PCond.cooldown(2), PMove.createDrawPile(1, Fischl_Oz.DATA.ID));
+        addUseMove(PCond.cooldown(3), PMove.createDrawPile(1, Fischl_Oz.DATA.ID));
     }
 }

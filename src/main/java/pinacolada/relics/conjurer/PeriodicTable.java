@@ -28,6 +28,7 @@ public class PeriodicTable extends PCLRelic {
                 });
     }
 
+    @Override
     public int getValue() {
         return 1;
     }

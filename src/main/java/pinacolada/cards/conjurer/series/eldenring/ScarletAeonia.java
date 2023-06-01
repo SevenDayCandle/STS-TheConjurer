@@ -12,6 +12,7 @@ import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.conjurer.AerPower;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -34,7 +35,7 @@ public class ScarletAeonia extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.applyToEveryone(7, PCLElementHelper.Aer));
+        addUseMove(PMove.applyToEveryone(7, PCLElementHelper.Aer).setUpgrade(2));
         addApplyPower(PCLCardTarget.Single, -1, PTrigger.when(PCond.onTurnEnd(), getSpecialMove(0, this::specialMove, 1, 3)));
     }
 
@@ -43,7 +44,8 @@ public class ScarletAeonia extends PCLCard {
         if (owner != null) {
             int poisonAmount = EUIUtils.sumInt(EUIUtils.filter(owner.powers, po -> ConjurerReactionMeter.meter.isPowerElemental(po.ID, PCLAffinity.Green)), po -> po.amount);
             if (poisonAmount > 0) {
-                PCLActions.bottom.applyPower(owner, PCLCardTarget.Single, PCLPowerHelper.Poison, poisonAmount);
+                PCLActions.bottom.applyPower(owner, PCLCardTarget.Self, PCLPowerHelper.Poison, poisonAmount);
+                PCLActions.bottom.removePower(owner, owner, AerPower.POWER_ID);
             }
         }
     }

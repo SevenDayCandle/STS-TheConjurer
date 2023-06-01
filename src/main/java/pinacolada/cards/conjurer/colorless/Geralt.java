@@ -15,6 +15,7 @@ import pinacolada.dungeon.CombatManager;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.PCLPowerHelper;
+import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
@@ -34,7 +35,7 @@ public class Geralt extends PCLCard {
             .setDamage(4, 1)
             .setHp(11, 3)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
-            .setCore(true);
+            .setLoadout(ConjurerPlayerData.theWitcher, true);
 
     public Geralt() {
         super(DATA);
@@ -42,14 +43,22 @@ public class Geralt extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_HEAVY);
-        addGainPower(PTrigger.interactable(-1, new GeraltCond(DATA, 1, 4)));
+        addGainPower(PTrigger.interactable(new GeraltCond(DATA, 1, 4)));
     }
 
     protected static class GeraltCond extends PCustomCond {
         public ArrayList<PSkill<?>> requests;
 
+        public GeraltCond(PCustomCond other) {
+            super(other);
+        }
+
         public GeraltCond(PCLCardData data, int amount, int choices) {
             super(data, 0, amount, choices);
+        }
+
+        public boolean checkCondition(PCLUseInfo info, boolean isUsing, PSkill<?> triggerSource) {
+            return true;
         }
 
         protected void useImpl(PCLUseInfo info) {
@@ -58,6 +67,7 @@ public class Geralt extends PCLCard {
                 populateRequests();
             }
             PCLActions.bottom.tryChooseSkill(cardData, amount, info.source, info.target, requests)
+                    .setOptions(false, true)
                     .addCallback(choiceCards ->
                     {
                         for (ChoiceCard<PSkill<?>> c : choiceCards) {
@@ -95,7 +105,7 @@ public class Geralt extends PCLCard {
                     if (index < rewards.length) {
                         PSkill<?> reward = rewards[index].retrieve(rng, true);
                         request.setChild(reward);
-                        requests.add(reward);
+                        requests.add(request);
                     }
                 }
             }

@@ -44,7 +44,7 @@
 		"NAME": "Flow"
 	},
 	"Frostbite": {
-		"DESCRIPTION": "Take more damage and deal less damage. At round end, reduce stacks by #b75%.",
+		"DESCRIPTION": "Every #b{0} stacks increases damage taken and reduces damage dealt by #b1. At round end, reduce stacks by #b75%.",
 		"NAME": "Frostbite"
 	},
 	"Gelus": {

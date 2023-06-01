@@ -16,9 +16,10 @@ import pinacolada.skills.skills.PSpecialSkill;
 public class ChemicalSynthesis extends PCLCard {
     public static final PCLCardData DATA = register(ChemicalSynthesis.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.Single)
-            .setAffinities(PCLAffinity.Blue)
+            .setAffinities(PCLAffinity.Blue, PCLAffinity.Silver)
             .setTags(PCLCardTag.Purge)
             .setCostUpgrades(-1)
+            .setMaxCopies(1)
             .setColorless();
 
     public ChemicalSynthesis() {

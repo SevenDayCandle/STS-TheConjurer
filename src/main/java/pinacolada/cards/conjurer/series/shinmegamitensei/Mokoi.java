@@ -20,7 +20,7 @@ import pinacolada.skills.skills.DelayTiming;
 public class Mokoi extends PCLCard {
     public static final PCLCardData DATA = register(Mokoi.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy, DelayTiming.EndOfTurnFirst)
-            .setDamage(2, 1)
+            .setDamage(3, 1)
             .setHp(6, 2)
             .setAffinities(PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);

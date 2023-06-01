@@ -13,6 +13,7 @@ import extendedui.EUIUtils;
 import extendedui.ui.controls.EUIButton;
 import extendedui.ui.controls.EUIImage;
 import extendedui.ui.hitboxes.EUIHitbox;
+import extendedui.ui.tooltips.EUIKeywordTooltip;
 import extendedui.ui.tooltips.EUITooltip;
 import extendedui.utilities.EUIColors;
 import pinacolada.actions.PCLActions;
@@ -53,6 +54,7 @@ public class ConjurerElementButton extends EUIButton {
     protected final PowerStrings reactionStrings;
     protected float intensifyFontScale = BASE_AMOUNT_SCALE;
     protected int level;
+    protected EUIKeywordTooltip keyword;
     private boolean busy;
 
     public ConjurerElementButton(ConjurerReactionMeter meter, PCLAffinity affinity, Texture texture, EUIHitbox hb) {
@@ -61,9 +63,10 @@ public class ConjurerElementButton extends EUIButton {
         this.affinity = affinity;
         reactionStrings = PGR.getPowerStrings(elementID());
         elementImage = new EUIImage(texture, hb).setColor(Color.GRAY).setScale(0.5f, 0.5f);
+        keyword = new EUIKeywordTooltip(reactionStrings.NAME);
 
         setOnClick(this::manualAddLevel);
-        setTooltip(reactionStrings.NAME, "");
+        setTooltip(keyword);
     }
 
     public String elementID() {
@@ -247,12 +250,12 @@ public class ConjurerElementButton extends EUIButton {
                 strings.add(EUIUtils.SPLIT_LINE + EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterNextIntensity, currentCost, power));
             }
 
-            tooltip.setIcon(power.getTooltip().icon);
-            tooltip.setDescription(EUIUtils.joinStrings(EUIUtils.SPLIT_LINE, strings));
-            if (tooltip.child == null) {
-                tooltip.child = new EUITooltip(PGR.core.strings.combat_nextLevelEffect);
+            keyword.setIcon(power.getTooltip().icon);
+            keyword.setDescription(EUIUtils.joinStrings(EUIUtils.SPLIT_LINE, strings));
+            if (keyword.child == null) {
+                keyword.child = new EUITooltip(PGR.core.strings.combat_nextLevelEffect);
             }
-            tooltip.child.setDescription(EUIUtils.joinStrings(EUIUtils.SPLIT_LINE,
+            keyword.child.setDescription(EUIUtils.joinStrings(EUIUtils.SPLIT_LINE,
                     PCLCoreStrings.headerString(PGR.core.tooltips.level.title, level + 1),
                     PGR.core.strings.combat_effect(EUIUtils.format(reactionStrings.DESCRIPTIONS[1], PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getIntensifyMultiplier(elementID(), level + 1)))
                             + " " + EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterDamage, affinity.getTooltip(), PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(affinity, level + 1))))

@@ -15,6 +15,7 @@ import extendedui.ui.controls.EUILabel;
 import extendedui.ui.controls.EUITextBox;
 import extendedui.ui.controls.EUITutorialPage;
 import extendedui.ui.hitboxes.RelativeHitbox;
+import extendedui.ui.tooltips.EUIKeywordTooltip;
 import extendedui.ui.tooltips.EUITooltip;
 import extendedui.utilities.EUIColors;
 import extendedui.utilities.EUIFontHelper;
@@ -105,7 +106,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
 
         skips = new PCLClickableUse(this, (a, b) -> tryUseCharge(lastUpgrade, b), PCLCardTarget.Single, MAX_CHARGE, false, true);
 
-        reactionHeader = new EUILabel(EUIFontHelper.cardtitlefontSmall,
+        reactionHeader = new EUILabel(EUIFontHelper.cardTitleFontSmall,
                 RelativeHitbox.fromPercentages(hb, 2, 2, 8f, 0.1f)).setLabel(ConjurerResources.conjurer.tooltips.reaction.title)
                 .setFontScale(0.8f)
                 .setAlignment(0.85f, 0.5f)
@@ -113,11 +114,11 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
         reactionCountText = new EUITextBox(EUIRM.images.panelEllipticalHalfH.texture(), RelativeHitbox.fromPercentages(hb, 2, 1.8f, 8f, -0.47f))
                 .setColors(EUIColors.black(0.6f), Settings.CREAM_COLOR)
                 .setAlignment(0.5f, 0.5f)
-                .setFont(EUIFontHelper.cardtitlefontNormal, BASE_AMOUNT_SCALE);
+                .setFont(EUIFontHelper.cardTitleFontNormal, BASE_AMOUNT_SCALE);
 
-        chargeTooltip = new EUITooltip(ConjurerResources.conjurer.tooltips.charge.title, ConjurerResources.conjurer.tooltips.charge.descriptions);
+        chargeTooltip = new EUITooltip(ConjurerResources.conjurer.tooltips.charge.title, ConjurerResources.conjurer.tooltips.charge.description);
 
-        chargeHeader = new EUILabel(EUIFontHelper.cardtitlefontSmall,
+        chargeHeader = new EUILabel(EUIFontHelper.cardTitleFontSmall,
                 RelativeHitbox.fromPercentages(hb, 2, 2, 10f, 0.1f)).setLabel(ConjurerResources.conjurer.tooltips.charge.title)
                 .setFontScale(0.75f)
                 .setAlignment(0.85f, 0.5f)
@@ -129,7 +130,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
         chargeText = new EUITextBox(EUIRM.images.panelEllipticalHalfH.texture(), RelativeHitbox.fromPercentages(chargeImage.hb, 1, 1, 0.5f, -0.25f))
                 .setColors(EUIColors.black(0.6f), Settings.CREAM_COLOR)
                 .setAlignment(0.5f, 0.5f)
-                .setFont(EUIFontHelper.cardtitlefontNormal, 0.6f);
+                .setFont(EUIFontHelper.cardTitleFontNormal, 0.6f);
         enableCharges(false);
     }
 
@@ -346,7 +347,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
             EUITooltip helper = PCLElementHelper.get(lastUpgrade).getTooltip();
             chargeTooltip.setDescription(
                     EUIUtils.joinStrings(EUIUtils.SPLIT_LINE,
-                            ConjurerResources.conjurer.tooltips.charge.descriptions.get(0),
+                            ConjurerResources.conjurer.tooltips.charge.description,
                             PCLCoreStrings.leftClick(PSkill.capital(PGR.core.strings.act_applyX(1, helper.getTitleOrIcon()), true)),
                             PCLCoreStrings.rightClick(PSkill.capital(PGR.core.strings.act_applyX(skips.getCurrentUses(), helper.getTitleOrIcon()), true))));
         }
@@ -427,7 +428,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
     @Override
     public PCLAffinity set(PCLAffinity affinity, int target) {
         lastUpgrade = affinity;
-        EUITooltip helper = PCLElementHelper.get(lastUpgrade).getTooltip();
+        EUIKeywordTooltip helper = PCLElementHelper.get(lastUpgrade).getTooltip();
         chargeImage.setBackground(helper.icon.getTexture()).setTooltip(helper);
         return getCurrentAffinity();
     }

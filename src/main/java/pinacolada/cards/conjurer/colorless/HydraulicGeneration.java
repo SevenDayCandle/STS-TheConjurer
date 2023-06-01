@@ -16,7 +16,7 @@ import pinacolada.skills.skills.PTrigger;
 public class HydraulicGeneration extends PCLCard {
     public static final PCLCardData DATA = register(HydraulicGeneration.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.None)
-            .setAffinities(PCLAffinity.Blue, PCLAffinity.Green)
+            .setAffinities(PCLAffinity.Blue, PCLAffinity.Green, PCLAffinity.Silver)
             .setCore(true);
 
     public HydraulicGeneration() {

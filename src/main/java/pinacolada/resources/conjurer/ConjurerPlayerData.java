@@ -3,10 +3,7 @@ package pinacolada.resources.conjurer;
 import com.megacrit.cardcrawl.relics.*;
 import pinacolada.relics.conjurer.PeriodicTable;
 import pinacolada.resources.*;
-import pinacolada.resources.conjurer.loadout.EldenRing;
-import pinacolada.resources.conjurer.loadout.GenshinImpact;
-import pinacolada.resources.conjurer.loadout.ShinMegamiTensei;
-import pinacolada.resources.conjurer.loadout.TouhouProject;
+import pinacolada.resources.conjurer.loadout.*;
 import pinacolada.resources.loadout.PCLLoadout;
 
 import java.util.Arrays;
@@ -22,10 +19,20 @@ public class ConjurerPlayerData extends PCLAbstractPlayerData {
     private static final String TROPHIES_CONJURER = PCLMainConfig.createFullID("TrophiesConjurer");
 
     public static ConjurerLoadout core = new ConjurerLoadout();
-    public static ConjurerLoadout genshinImpact = new GenshinImpact();
-    public static ConjurerLoadout shinMegamiTensei = new ShinMegamiTensei();
-    public static ConjurerLoadout touhouProject = new TouhouProject();
+
+    public static ConjurerLoadout atelier = new Atelier();
+    public static ConjurerLoadout baldursGate = new BaldursGate();
     public static ConjurerLoadout eldenRing = new EldenRing();
+    public static ConjurerLoadout finalFantasy = new FinalFantasy();
+    public static ConjurerLoadout genshinImpact = new GenshinImpact();
+    public static ConjurerLoadout honkai = new Honkai();
+    public static ConjurerLoadout monsterHunter = new MonsterHunter();
+    public static ConjurerLoadout shinMegamiTensei = new ShinMegamiTensei();
+    public static ConjurerLoadout slayTheSpire = new SlayTheSpire();
+    public static ConjurerLoadout tales = new Tales();
+    public static ConjurerLoadout theWitcher = new TheWitcher();
+    public static ConjurerLoadout touhouProject = new TouhouProject();
+    public static ConjurerLoadout yuGiOh = new YuGiOh();
 
     public ConjurerPlayerData(PCLResources<?, ?, ?, ?> resources) {
         super(resources);
@@ -57,13 +64,6 @@ public class ConjurerPlayerData extends PCLAbstractPlayerData {
     }
 
     public void updateRelicsForDungeon() {
-        PGR.dungeon.removeRelic(PenNib.ID);
-        PGR.dungeon.removeRelic(Kunai.ID);
-        PGR.dungeon.removeRelic(Shuriken.ID);
-        PGR.dungeon.removeRelic(TinyHouse.ID);
-        PGR.dungeon.removeRelic(RunicPyramid.ID);
-        PGR.dungeon.removeRelic(CeramicFish.ID);
-        PGR.dungeon.removeRelic(PrismaticShard.ID);
         PGR.dungeon.addRelic(MarkOfPain.ID, AbstractRelic.RelicTier.BOSS);
         PGR.dungeon.addRelic(Melange.ID, AbstractRelic.RelicTier.SHOP);
         PGR.dungeon.addRelic(TwistedFunnel.ID, AbstractRelic.RelicTier.SHOP);

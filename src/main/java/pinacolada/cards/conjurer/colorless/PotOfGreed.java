@@ -8,6 +8,7 @@ import pinacolada.cards.base.PCLCardGroupHelper;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
+import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PDelay;
 import pinacolada.skills.PMove;
@@ -18,7 +19,7 @@ public class PotOfGreed extends PCLCard {
             .setSkill(0, CardRarity.UNCOMMON, PCLCardTarget.None)
             .setTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Purple)
-            .setColorless();
+            .setLoadout(ConjurerPlayerData.yuGiOh, true);
 
     public PotOfGreed() {
         super(DATA);

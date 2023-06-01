@@ -5,8 +5,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import extendedui.EUIUtils;
 import extendedui.interfaces.delegates.FuncT1;
 import extendedui.interfaces.delegates.FuncT3;
-import extendedui.interfaces.markers.TooltipProvider;
-import extendedui.ui.tooltips.EUITooltip;
+import extendedui.ui.tooltips.EUIKeywordTooltip;
 import org.apache.commons.lang3.StringUtils;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.powers.PCLPowerHelper;
@@ -14,10 +13,13 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.resources.pcl.PCLCoreStrings;
 import pinacolada.utilities.GameUtilities;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.stream.Collectors;
 
-public class PCLElementHelper extends PCLPowerHelper implements TooltipProvider {
+public class PCLElementHelper extends PCLPowerHelper {
     private static final Map<String, PCLElementHelper> ALL = new HashMap<>();
     private static final Map<PCLAffinity, PCLElementHelper> ALL_BY_AFFINITY = new HashMap<>();
 
@@ -31,7 +33,7 @@ public class PCLElementHelper extends PCLPowerHelper implements TooltipProvider 
     public static final PCLPowerHelper Flow = new PCLPowerHelper(FlowPower.POWER_ID, ConjurerResources.conjurer.tooltips.flow, FlowPower::new, Behavior.Permanent, false, false, false);
     public final PCLAffinity affinity;
 
-    public PCLElementHelper(String id, EUITooltip tooltip, FuncT3<AbstractPower, AbstractCreature, AbstractCreature, Integer> constructor, PCLAffinity affinity) {
+    public PCLElementHelper(String id, EUIKeywordTooltip tooltip, FuncT3<AbstractPower, AbstractCreature, AbstractCreature, Integer> constructor, PCLAffinity affinity) {
         super(id, tooltip, constructor, Behavior.SingleTurn, false, true, true);
         this.affinity = affinity;
 
@@ -88,10 +90,5 @@ public class PCLElementHelper extends PCLPowerHelper implements TooltipProvider 
 
     public AbstractPower create(AbstractCreature owner, AbstractCreature source, int amount) {
         return constructorT3.invoke(owner, source, amount);
-    }
-
-    @Override
-    public List<EUITooltip> getTips() {
-        return Collections.singletonList(tooltip);
     }
 }

@@ -8,6 +8,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.PCLPowerHelper;
+import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
@@ -19,7 +20,7 @@ public class Magilou extends PCLCard {
             .setDamage(3, 1)
             .setHp(4, 2)
             .setAffinities(PCLAffinity.Blue)
-            .setColorless();
+            .setLoadout(ConjurerPlayerData.tales, true);
 
     public Magilou() {
         super(DATA);

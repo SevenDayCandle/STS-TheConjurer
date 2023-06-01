@@ -22,6 +22,6 @@ public class Phytotoxin extends PCLCard {
     }
 
     public void setup(Object input) {
-        addGainPower(PTrigger.when(PCond.haveTakenDamage(), PMove.applyToEnemies(2, PCLPowerHelper.Poison).setUpgrade(1)));
+        addGainPower(PTrigger.when(PCond.haveTakenDamage(), PMove.applyToEnemies(1, PCLPowerHelper.Poison).setUpgrade(1)));
     }
 }

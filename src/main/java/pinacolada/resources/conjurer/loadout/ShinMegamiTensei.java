@@ -6,6 +6,6 @@ public class ShinMegamiTensei extends ConjurerLoadout {
     public static final String ID = createID(ShinMegamiTensei.class);
 
     public ShinMegamiTensei() {
-        super(ID, 2);
+        super(ID, 1);
     }
 }

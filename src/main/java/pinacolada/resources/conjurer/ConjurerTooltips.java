@@ -1,31 +1,27 @@
 package pinacolada.resources.conjurer;
 
-import extendedui.ui.tooltips.EUITooltip;
+import extendedui.ui.tooltips.EUIKeywordTooltip;
 import pinacolada.powers.conjurer.*;
 import pinacolada.resources.PCLTooltips;
 import pinacolada.resources.PGR;
 
 public class ConjurerTooltips extends PCLTooltips {
-    public EUITooltip aer = EUITooltip.findByID("Aer");
-    public EUITooltip blasted = EUITooltip.findByID("Blasted");
-    public EUITooltip charge = EUITooltip.findByID("Charge");
-    public EUITooltip combust = EUITooltip.findByID("Combust");
-    public EUITooltip corrosion = EUITooltip.findByID("Corrosion");
-    public EUITooltip elementalDebuff = EUITooltip.findByID("Elemental Debuff");
-    public EUITooltip elementalExposure = EUITooltip.findByID("Elemental Exposure");
-    public EUITooltip elementalMastery = EUITooltip.findByID("Elemental Mastery");
-    public EUITooltip flow = EUITooltip.findByID("Flow");
-    public EUITooltip frostbite = EUITooltip.findByID("Frostbite");
-    public EUITooltip gelus = EUITooltip.findByID("Gelus");
-    public EUITooltip ignis = EUITooltip.findByID("Ignis");
-    public EUITooltip lux = EUITooltip.findByID("Lux");
-    public EUITooltip petra = EUITooltip.findByID("Petra");
-    public EUITooltip reaction = EUITooltip.findByID("Reaction");
-    public EUITooltip redox = EUITooltip.findByID("Redox");
-
-    public EUITooltip getRerollTooltip() {
-        return charge;
-    }
+    public EUIKeywordTooltip aer = EUIKeywordTooltip.findByID("Aer");
+    public EUIKeywordTooltip blasted = EUIKeywordTooltip.findByID("Blasted");
+    public EUIKeywordTooltip charge = EUIKeywordTooltip.findByID("Charge");
+    public EUIKeywordTooltip combust = EUIKeywordTooltip.findByID("Combust");
+    public EUIKeywordTooltip corrosion = EUIKeywordTooltip.findByID("Corrosion");
+    public EUIKeywordTooltip elementalDebuff = EUIKeywordTooltip.findByID("Elemental Debuff");
+    public EUIKeywordTooltip elementalExposure = EUIKeywordTooltip.findByID("Elemental Exposure");
+    public EUIKeywordTooltip elementalMastery = EUIKeywordTooltip.findByID("Elemental Mastery");
+    public EUIKeywordTooltip flow = EUIKeywordTooltip.findByID("Flow");
+    public EUIKeywordTooltip frostbite = EUIKeywordTooltip.findByID("Frostbite");
+    public EUIKeywordTooltip gelus = EUIKeywordTooltip.findByID("Gelus");
+    public EUIKeywordTooltip ignis = EUIKeywordTooltip.findByID("Ignis");
+    public EUIKeywordTooltip lux = EUIKeywordTooltip.findByID("Lux");
+    public EUIKeywordTooltip petra = EUIKeywordTooltip.findByID("Petra");
+    public EUIKeywordTooltip reaction = EUIKeywordTooltip.findByID("Reaction");
+    public EUIKeywordTooltip redox = EUIKeywordTooltip.findByID("Redox");
 
     @Override
     public void initializeIcons() {
@@ -42,5 +38,6 @@ public class ConjurerTooltips extends PCLTooltips {
         petra.setIconFromPath(PGR.getPowerImage(PetraPower.POWER_ID));
 
         flow.formatDescription(FlowPower.PER_STACK);
+        frostbite.formatDescription((int) FrostbitePower.POTENCY);
     }
 }

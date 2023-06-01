@@ -13,7 +13,7 @@ import pinacolada.skills.skills.base.moves.PMove_RemoveCard;
 public class PortableTrashCan extends PCLCard {
     public static final PCLCardData DATA = register(PortableTrashCan.class, ConjurerResources.conjurer)
             .setSkill(0, CardRarity.RARE, PCLCardTarget.None)
-            .setTags(PCLCardTag.Purge.make(), PCLCardTag.Retain.make(0, -1))
+            .setTags(PCLCardTag.Fleeting.make(), PCLCardTag.Retain.make(0, -1))
             .setColorless();
 
     public PortableTrashCan() {
@@ -22,6 +22,6 @@ public class PortableTrashCan extends PCLCard {
 
     @Override
     public void setup(Object input) {
-        addUseMove(new PMove_RemoveCard(1, PCLCardGroupHelper.Hand));
+        addUseMove(new PMove_RemoveCard(0, PCLCardGroupHelper.Hand));
     }
 }

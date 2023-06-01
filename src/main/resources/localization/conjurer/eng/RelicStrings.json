@@ -1,5 +1,11 @@
 
 {
+	"conjurer:BreakGauge":
+	{
+		"DESCRIPTIONS": ["Enemies have {0}% less HP but start battle with [Metallicize] equal to {1}% of their HP. Whenever you break an enemy's [Block], apply {2} [Bruised] and [Blinded] to it."],
+		"FLAVOR": "Pass the power.",
+		"NAME": "Cleansing Bell"
+	},
 	"conjurer:ChemicalCookbook":
 	{
 		"DESCRIPTIONS": ["Certain #yConjurer cards will now appear in card rewards."],
@@ -48,9 +54,15 @@
 		"FLAVOR": "Pass the power.",
 		"NAME": "Nature's Bounty"
 	},
+	"conjurer:OceanHuedClam":
+	{
+		"DESCRIPTIONS": [],
+		"FLAVOR": "The opposite of chill.",
+		"NAME": "Ocean-Hued Clam"
+	},
 	"conjurer:PeriodicTable":
 	{
-		"DESCRIPTIONS": ["At the start of combat, draw #b{0} card (prioritizing #ySummons). It costs #b{0} less this turn."],
+		"DESCRIPTIONS": ["At the start of combat, draw a card, prioritizing #ySummons. It costs #b{0} less this turn."],
 		"FLAVOR": "A table that repeats itself every so often.",
 		"NAME": "Periodic Table"
 	},
@@ -62,7 +74,7 @@
 	},
 	"conjurer:ScorpionStinger":
 	{
-		"DESCRIPTIONS": ["[Poison] is treated as a [A-G] #yElemental #yDebuff. The first time each turn you play an #yAttack, apply #b{0} [Poison] to everyone."],
+		"DESCRIPTIONS": ["[Poison] is treated as a [A-G] #yElemental #yDebuff. At the end of round, [Poison] triggers an additional time and is cut in half."],
 		"FLAVOR": "Pass the power.",
 		"NAME": "Scorpion Stinger"
 	},

@@ -9,6 +9,7 @@ import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.PCLPowerHelper;
+import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
@@ -21,7 +22,7 @@ public class Cactuar extends PCLCard {
             .setDamage(1, 1, 2)
             .setHp(4, 0)
             .setAffinities(PCLAffinity.Green)
-            .setColorless();
+            .setLoadout(ConjurerPlayerData.finalFantasy, true);
 
     public Cactuar() {
         super(DATA);

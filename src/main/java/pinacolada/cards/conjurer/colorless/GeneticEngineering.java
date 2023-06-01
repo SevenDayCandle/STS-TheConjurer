@@ -25,7 +25,7 @@ public class GeneticEngineering extends PCLCard {
     public static final PCLCardData DATA = register(GeneticEngineering.class, ConjurerResources.conjurer)
             .setPower(0, CardRarity.UNCOMMON)
             .setUTags(PCLCardTag.Haste, PCLCardTag.Retain)
-            .setAffinities(2, PCLAffinity.Blue)
+            .setAffinities(PCLAffinity.Blue.make(2), PCLAffinity.Silver.make())
             .setCore(true);
 
     public GeneticEngineering() {

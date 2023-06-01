@@ -43,6 +43,10 @@ public class Patchouli extends PCLCard {
     protected static class PatchouliCond extends PCustomCond {
         public ArrayList<PSkill<?>> debuffs;
 
+        public PatchouliCond(PCustomCond other) {
+            super(other);
+        }
+
         public PatchouliCond(PCLCardData data, int amount, int choices) {
             super(data, 0, amount, choices);
         }

@@ -9,6 +9,7 @@ import extendedui.EUIRenderHelpers;
 import extendedui.EUIUtils;
 import extendedui.ui.controls.EUIImage;
 import extendedui.ui.hitboxes.EUIHitbox;
+import extendedui.ui.tooltips.EUIKeywordTooltip;
 import extendedui.utilities.EUIColors;
 import pinacolada.powers.conjurer.AbstractPCLElementalPower;
 import pinacolada.resources.PGR;
@@ -26,6 +27,7 @@ public class ConjurerReactionButton extends EUIImage {
     public final ConjurerElementButton source;
     public final ConjurerElementButton target;
     protected final EUIImage overlay;
+    protected EUIKeywordTooltip keyword;
     public ConjurerElementButton.Type type;
     public ConjurerElementButton.Type baseType;
 
@@ -39,7 +41,8 @@ public class ConjurerReactionButton extends EUIImage {
         rotation = EUIRenderHelpers.getAngleDegrees(this.source.hb.cX, this.source.hb.cY, this.target.hb.cX, this.target.hb.cY);
         overlay.rotation = rotation;
 
-        setTooltip(target.tooltip.title, "");
+        keyword = new EUIKeywordTooltip(target.tooltip.title);
+        setTooltip(keyword);
     }
 
     private void setColorForType() {
@@ -82,8 +85,8 @@ public class ConjurerReactionButton extends EUIImage {
 
     public void updateDescription() {
         if (PGR.isLoaded()) {
-            tooltip.setIcon(target.elementPower().tooltip.icon);
-            tooltip.setDescription(type == ConjurerElementButton.Type.Combust ?
+            keyword.setIcon(target.elementPower().tooltip.icon);
+            keyword.setDescription(type == ConjurerElementButton.Type.Combust ?
                     EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterCombust, source.affinity.getTooltip(), target.elementPower().tooltip, PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(source.affinity))) :
                     EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterRedox, source.affinity.getTooltip(), target.elementPower().tooltip, PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(source.affinity))));
         }

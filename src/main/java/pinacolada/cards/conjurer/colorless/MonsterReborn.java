@@ -12,6 +12,7 @@ import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.dungeon.CombatManager;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.resources.PCLEnum;
+import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.skills.PSpecialSkill;
 import pinacolada.utilities.GameUtilities;
@@ -22,7 +23,7 @@ public class MonsterReborn extends PCLCard {
             .setSkill(0, CardRarity.UNCOMMON, PCLCardTarget.AllAlly)
             .setTags(PCLCardTag.Purge)
             .setAffinities(2, PCLAffinity.Yellow)
-            .setColorless();
+            .setLoadout(ConjurerPlayerData.yuGiOh, true);
 
     public MonsterReborn() {
         super(DATA);
@@ -38,6 +39,7 @@ public class MonsterReborn extends PCLCard {
                 .addCallback(cards -> {
                     for (AbstractCard c : cards) {
                         if (c.type == PCLEnum.CardType.SUMMON && c instanceof PCLCard) {
+                            GameUtilities.modifyDamage(c, c.baseDamage * move.extra / 100, false);
                             GameUtilities.modifySecondaryValueRelative((PCLCard) c, c.baseHeal * move.extra / 100, false);
                         }
                     }

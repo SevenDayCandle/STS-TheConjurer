@@ -22,7 +22,7 @@ public class Firkaag extends PCLCard {
             .setDamage(13, 0)
             .setHp(21, 5)
             .setAffinities(1, PCLAffinity.Red)
-            .setLoadout(ConjurerPlayerData.touhouProject, true);
+            .setLoadout(ConjurerPlayerData.baldursGate, true);
 
     public Firkaag() {
         super(DATA);
@@ -30,6 +30,6 @@ public class Firkaag extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.FIRE).setBonus(PMod.perCardPlayed(1), 3, 1);
-        addUseMove(PCond.havePlayed(35).edit(f -> f.setNot(true).setForced(true)), PTrait.unplayable());
+        addUseMove(PCond.havePlayed(12).edit(f -> f.setNot(true).setForced(true)), PTrait.unplayable());
     }
 }

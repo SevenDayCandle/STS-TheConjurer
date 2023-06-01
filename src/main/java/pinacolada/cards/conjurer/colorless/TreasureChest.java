@@ -12,9 +12,10 @@ import pinacolada.skills.skills.base.moves.PMove_GainGold;
 @VisibleCard
 public class TreasureChest extends PCLCard {
     public static final PCLCardData DATA = register(TreasureChest.class, ConjurerResources.conjurer)
-            .setSkill(3, CardRarity.RARE)
+            .setSkill(2, CardRarity.RARE)
             .setTags(PCLCardTag.Unplayable, PCLCardTag.Fleeting)
             .setObtainableInCombat(false)
+            .setMaxCopies(1)
             .setCore(true);
 
     public TreasureChest() {
@@ -22,7 +23,7 @@ public class TreasureChest extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(new PMove_GainGold(550).setUpgrade(200));
+        addUseMove(new PMove_GainGold(330).setUpgrade(120));
         addUseMove(PCond.onDraw(), PMove.createDiscardPile(1, TreasureChest_TreasureKey.DATA.ID));
     }
 }

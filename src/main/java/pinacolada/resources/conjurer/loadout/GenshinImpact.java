@@ -6,6 +6,6 @@ public class GenshinImpact extends ConjurerLoadout {
     public static final String ID = createID(GenshinImpact.class);
 
     public GenshinImpact() {
-        super(ID, 1);
+        super(ID, 0);
     }
 }

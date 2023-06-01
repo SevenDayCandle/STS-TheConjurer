@@ -11,12 +11,13 @@ import pinacolada.utilities.PCLRenderHelpers;
 
 public class FrostbitePower extends PCLPower {
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, FrostbitePower.class);
+    public static final float POTENCY = 10;
     public static final Color healthBarColor = Color.SKY.cpy();
     public boolean expanded;
 
     public FrostbitePower(AbstractCreature owner, int amount) {
         super(owner, POWER_ID);
-
+        this.priority = 0;
         initialize(amount, PowerType.DEBUFF, true);
     }
 
@@ -59,6 +60,6 @@ public class FrostbitePower extends PCLPower {
     }
 
     public float getPotency() {
-        return this.amount / 10f;
+        return this.amount / POTENCY;
     }
 }

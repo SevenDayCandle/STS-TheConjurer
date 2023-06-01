@@ -25,7 +25,7 @@ public class MagicDownpour extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMod.bonusPerLevel(1, PCLAffinity.Blue).setUpgrade(1), PMove.gainTempHP(5).setUpgrade(1));
-        addUseMove(PDelay.turnStart(1), PMove.applyToEveryone(2, PCLElementHelper.Gelus));
+        addUseMove(PMod.bonusPerLevel(1, PCLAffinity.Blue).setUpgrade(1), PMove.gainTempHP(7).setUpgrade(1));
+        addUseMove(PDelay.turnStart(1), PMove.applyToEveryone(4, PCLElementHelper.Gelus));
     }
 }

@@ -7,7 +7,6 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.dungeon.PCLUseInfo;
-import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PSpecialSkill;
@@ -17,7 +16,7 @@ import pinacolada.utilities.GameUtilities;
 public class TreasureChest_TreasureKey extends PCLCard {
     public static final PCLCardData DATA = register(TreasureChest_TreasureKey.class, ConjurerResources.conjurer)
             .setSkill(0, CardRarity.SPECIAL)
-            .setTags(PCLCardTag.Haste.make(1, 2), PCLCardTag.Purge.make(1))
+            .setTags(PCLCardTag.Purge.make(1))
             .setCore(true);
 
     public TreasureChest_TreasureKey() {
@@ -25,7 +24,7 @@ public class TreasureChest_TreasureKey extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.gain(3, PCLPowerHelper.NextTurnBlock).setUpgrade(4));
+        addUseMove(PMove.draw(1).setUpgrade(1));
         addSpecialMove(0, this::action);
     }
 
