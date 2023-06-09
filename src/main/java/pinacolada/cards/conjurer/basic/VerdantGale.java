@@ -11,7 +11,6 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.effects.VFX;
 import pinacolada.interfaces.subscribers.OnSpecificPowerActivatedSubscriber;
 import pinacolada.powers.PCLPowerHelper;
@@ -26,7 +25,8 @@ public class VerdantGale extends PCLCard {
     public static final PCLCardData DATA = register(VerdantGale.class, ConjurerResources.conjurer)
             .setPower(3, CardRarity.RARE)
             .setAffinities(2, PCLAffinity.Green)
-            .setUTags(PCLCardTag.Retain)
+            .setCostUpgrades(-1)
+            .setMaxCopies(1)
             .setCore();
 
     public VerdantGale() {
@@ -34,7 +34,7 @@ public class VerdantGale extends PCLCard {
     }
 
     public void setup(Object input) {
-        addSpecialPower(0, (s, i) -> new VerdantGalePower(i.source, s), 4).setUpgrade(1);
+        addSpecialPower(0, (s, i) -> new VerdantGalePower(i.source, s), 4);
     }
 
     public static class VerdantGalePower extends PSpecialCardPower implements OnSpecificPowerActivatedSubscriber {

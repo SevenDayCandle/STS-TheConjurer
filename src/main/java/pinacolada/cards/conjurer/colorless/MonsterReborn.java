@@ -20,7 +20,7 @@ import pinacolada.utilities.GameUtilities;
 @VisibleCard
 public class MonsterReborn extends PCLCard {
     public static final PCLCardData DATA = register(MonsterReborn.class, ConjurerResources.conjurer)
-            .setSkill(0, CardRarity.UNCOMMON, PCLCardTarget.AllAlly)
+            .setSkill(0, CardRarity.RARE, PCLCardTarget.AllAlly)
             .setTags(PCLCardTag.Purge)
             .setAffinities(2, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.yuGiOh, true);

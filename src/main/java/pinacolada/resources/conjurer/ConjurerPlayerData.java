@@ -59,7 +59,8 @@ public class ConjurerPlayerData extends PCLAbstractPlayerData {
                 eldenRing,
                 genshinImpact,
                 shinMegamiTensei,
-                touhouProject
+                touhouProject,
+                monsterHunter
         );
     }
 

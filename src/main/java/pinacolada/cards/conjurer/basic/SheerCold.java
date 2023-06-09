@@ -21,6 +21,7 @@ public class SheerCold extends PCLCard {
             .setPower(3, CardRarity.RARE)
             .setAffinities(2, PCLAffinity.Blue)
             .setCostUpgrades(-1)
+            .setMaxCopies(1)
             .setCore();
 
     public SheerCold() {

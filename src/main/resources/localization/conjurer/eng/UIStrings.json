@@ -14,7 +14,7 @@
 		"TEXT": [
 			"Play cards on enemies with #yElemental #yDebuffs to make #yReactions. Click the buttons to spend #yReactions to improve #yElemental #yDebuffs.",
 			"#yElemental #yDebuffs ([Ignis], [Gelus], [Aer], [Petra]) are removed at the end of each round. Each #yDebuff is associated with the #yAffinity that it shares an icon with. [Ignis] -> [A-R], [Aer] -> [A-G], [Gelus] -> [A-B], [Petra] -> [A-O].",
-			"The arrows show the two types of interactions between the #yElemental #yDebuffs that occur when a card with the former #yDebuff's #yAffinity targets a creature with the latter #yDebuff. Blue-gray arrows signify #yCombusts. Brown arrows signify #yRedoxes. | When you drag a card over a target, arrows for reactions that will occur will be highlighted, and the target's debuffs will show how powerful its effects will be.",
+			"The arrows show the two types of interactions between the #yElemental #yDebuffs that occur when a card with the former #yDebuff's #yAffinity targets a creature with the latter #yDebuff. Blue arrows signify #yCombusts. Brown arrows signify #yRedoxes. | When you drag a card over a target, arrows for reactions that will occur will be highlighted, and the target's debuffs will show how powerful its effects will be.",
 			"#yCombusts and #yRedoxes grant #yReactions. #yCombusts provide a damage bonus to the card being played, while #yRedoxes provide a [Block] bonus to it. | Spend #yReactions by clicking on a #yDebuff's button to increase its #yLevel (signified by the blue number on each #yElemental #yDebuff). #yLevels increase a #yDebuff's passive effect as well as its #yCombust and #yRedox bonuses. Each #yLevel costs more than the last."
 		]
 	}

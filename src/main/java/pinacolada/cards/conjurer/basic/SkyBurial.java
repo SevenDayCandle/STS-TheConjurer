@@ -27,7 +27,7 @@ public class SkyBurial extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove().setDamageEffect((s, m) -> VFX.razorWind(s.hb).duration);
+        addDamageMove().setDamageEffect((s, m) -> VFX.razorWind(s.hb).duration * 0.2f);
         addUseMove(PBranchCond.branch(PCond.discardRandom(2), PMove.applyToSingle(1, PCLPowerHelper.Vulnerable, PCLElementHelper.Aer), PMove.selfExhaust()));
     }
 }

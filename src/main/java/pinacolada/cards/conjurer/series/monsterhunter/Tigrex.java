@@ -1,4 +1,4 @@
-package pinacolada.cards.conjurer.colorless;
+package pinacolada.cards.conjurer.series.monsterhunter;
 
 
 import pinacolada.annotations.VisibleCard;
@@ -14,7 +14,6 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
-import pinacolada.skills.PTrait;
 
 @VisibleCard
 public class Tigrex extends PCLCard {
@@ -23,14 +22,14 @@ public class Tigrex extends PCLCard {
             .setDamage(4, 1, 0)
             .setHp(15, 0)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Orange)
-            .setLoadout(ConjurerPlayerData.monsterHunter, true);
+            .setLoadout(ConjurerPlayerData.monsterHunter);
 
     public Tigrex() {
         super(DATA);
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.BITE).setChain(PMod.perCard(1, PCLCardGroupHelper.ExhaustPile), PTrait.damage(1));
+        addDamageMove(PCLAttackVFX.BITE).setBonus(PMod.perCard(1, PCLCardGroupHelper.ExhaustPile),1);
         addUseMove(PCond.cooldown(0), PCond.exhaustRandom(1), PMove.gainTempHP(PCLCardTarget.Team, 2));
     }
 }

@@ -31,7 +31,7 @@ public class Teddie extends PCLCard {
         addDamageMove(PCLAttackVFX.SPARK);
         addGainPower(PTrigger.interactable(
                 PCond.payEnergy(1),
-                PMove.gainPlayer(2))
+                PMove.gainPlayer(1))
         );
     }
 }

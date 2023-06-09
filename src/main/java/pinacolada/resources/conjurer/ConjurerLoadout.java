@@ -2,6 +2,7 @@ package pinacolada.resources.conjurer;
 
 import pinacolada.resources.PGR;
 import pinacolada.resources.loadout.PCLLoadout;
+import pinacolada.resources.loadout.PCLRelicSlot;
 
 public class ConjurerLoadout extends PCLLoadout {
 
@@ -23,5 +24,9 @@ public class ConjurerLoadout extends PCLLoadout {
 
     public ConjurerLoadout(String id) {
         this(id, 0);
+    }
+
+    public void addLoadoutRelics(PCLRelicSlot r1) {
+        super.addLoadoutRelics(r1);
     }
 }

@@ -8,7 +8,6 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.powers.PSpecialCardPower;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.powers.conjurer.PetraPower;
@@ -23,7 +22,8 @@ public class ErodingTerra extends PCLCard {
     public static final PCLCardData DATA = register(ErodingTerra.class, ConjurerResources.conjurer)
             .setPower(3, CardRarity.RARE)
             .setAffinities(2, PCLAffinity.Orange)
-            .setUTags(PCLCardTag.Retain)
+            .setCostUpgrades(-1)
+            .setMaxCopies(1)
             .setCore();
 
     public ErodingTerra() {
@@ -31,7 +31,7 @@ public class ErodingTerra extends PCLCard {
     }
 
     public void setup(Object input) {
-        addSpecialPower(0, (s, i) -> new ErodingTerraPower(i.source, s), 1);
+        addSpecialPower(0, (s, i) -> new ErodingTerraPower(i.source, s), 50);
     }
 
     public static class ErodingTerraPower extends PSpecialCardPower {
@@ -44,7 +44,7 @@ public class ErodingTerra extends PCLCard {
             super.atEndOfRound();
             ArrayList<PetraPower> powers = GameUtilities.getPowers(PetraPower.POWER_ID);
             for (PetraPower po : powers) {
-                int stacks = MathUtils.ceil(po.amount / 2f);
+                int stacks = MathUtils.ceil(po.amount * amount / 100f);
                 if (po.stabilizeTurns > 0) {
                     PCLActions.bottom.gainBlock(stacks);
                 }

@@ -1,4 +1,4 @@
-package pinacolada.cards.conjurer.colorless;
+package pinacolada.cards.conjurer.series.eldenring;
 
 
 import pinacolada.annotations.VisibleCard;

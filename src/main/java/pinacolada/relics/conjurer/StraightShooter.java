@@ -1,15 +1,16 @@
 package pinacolada.relics.conjurer;
 
-import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleRelic;
-import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.conjurer.series.genshinimpact.Klee_JumpyDumpty;
-import pinacolada.relics.PCLRelic;
+import pinacolada.relics.PCLPointerRelic;
 import pinacolada.relics.PCLRelicData;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.PCond;
+import pinacolada.skills.PMove;
+import pinacolada.skills.skills.PTrigger;
 
 @VisibleRelic
-public class StraightShooter extends PCLRelic {
+public class StraightShooter extends PCLPointerRelic {
     public static final PCLRelicData DATA = register(PeriodicTable.class, ConjurerResources.conjurer)
             .setProps(RelicTier.UNCOMMON, LandingSound.CLINK);
 
@@ -17,18 +18,7 @@ public class StraightShooter extends PCLRelic {
         super(DATA);
     }
 
-    @Override
-    public void onShuffle() {
-        super.onShuffle();
-        PCLActions.bottom.makeCardInDrawPile(new Klee_JumpyDumpty())
-                .addCallback(card ->
-                {
-                    if (card instanceof PCLCard) {
-                        card.upgrade();
-                        card.applyPowers();
-                    }
-
-                });
-        flash();
+    public void setup() {
+        addUseMove(PTrigger.when(PCond.shuffle(), PMove.createDrawPile(1, Klee_JumpyDumpty.DATA.ID)));
     }
 }

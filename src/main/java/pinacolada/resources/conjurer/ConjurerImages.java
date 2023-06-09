@@ -32,9 +32,9 @@ public class ConjurerImages extends PCLImages {
         public final TextureCache chaos3 = new TextureCache("images/conjurer/monsters/Chaos3.png");
         public final TextureCache chaosOrbital = new TextureCache("images/conjurer/monsters/ChaosOrbital.png");
         public final TextureCache earth1 = new TextureCache("images/conjurer/monsters/Earth1.png");
-        public final TextureCache fireExternal = new TextureCache("images/conjurer/monsters/FireExternal.png");
-        public final TextureCache fireExternal2 = new TextureCache("images/conjurer/monsters/FireExternal2.png");
-        public final TextureCache fireInternal = new TextureCache("images/conjurer/monsters/FireInternal.png");
+        public final TextureCache fire1 = new TextureCache("images/conjurer/monsters/Fire1.png");
+        public final TextureCache fire2 = new TextureCache("images/conjurer/monsters/Fire2.png");
+        public final TextureCache fire3 = new TextureCache("images/conjurer/monsters/Fire3.png");
         public final TextureCache water1 = new TextureCache("images/conjurer/monsters/Water1.png");
         public final TextureCache water2 = new TextureCache("images/conjurer/monsters/Water2.png");
         public final TextureCache water3 = new TextureCache("images/conjurer/monsters/Water3.png");

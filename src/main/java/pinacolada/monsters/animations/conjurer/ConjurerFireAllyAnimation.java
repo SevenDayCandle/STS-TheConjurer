@@ -31,17 +31,17 @@ public class ConjurerFireAllyAnimation extends PCLAllyAnimation {
         float scaleInt = -(owner.getBobEffect().y / (Settings.scale * 550f));
         float angleExt = this.angle;
         float angleInt = -(this.angle);
-        int size = ConjurerResources.conjurer.images.monsters.fireInternal.texture().getHeight();
+        int size = ConjurerResources.conjurer.images.monsters.fire1.texture().getHeight();
         int hSize = size / 2;
 
-        sb.draw(ConjurerResources.conjurer.images.monsters.fireInternal.texture(), x - hSize, y - hSize / 2f, hSize, hSize, size, size, this.scale + scaleExt, this.scale + scaleExt, angleExt, 0, 0, size, size, hFlip, vFlip);
+        sb.draw(ConjurerResources.conjurer.images.monsters.fire1.texture(), x - hSize, y - hSize / 2f, hSize, hSize, size, size, this.scale + scaleExt, this.scale + scaleExt, angleExt, 0, 0, size, size, hFlip, vFlip);
         PCLRenderHelpers.BlendingMode.Glowing.apply(sb);
         this.shineColor.a = Interpolation.sine.apply(0.1f, 0.42f, angleExt / 185) * this.transitionAlpha;
         sb.setColor(this.shineColor);
-        sb.draw(ConjurerResources.conjurer.images.monsters.fireExternal.texture(), x - hSize, y - hSize / 2f, hSize, hSize, size, size, this.scale + scaleInt, this.scale + scaleInt, angleInt, 0, 0, size, size, hFlip, vFlip);
+        sb.draw(ConjurerResources.conjurer.images.monsters.fire2.texture(), x - hSize, y - hSize / 2f, hSize, hSize, size, size, this.scale + scaleInt, this.scale + scaleInt, angleInt, 0, 0, size, size, hFlip, vFlip);
         this.shineColor.a = Interpolation.sine.apply(0.42f, 0.7f, angleInt / 185) * this.transitionAlpha;
         sb.setColor(this.shineColor);
-        sb.draw(ConjurerResources.conjurer.images.monsters.fireExternal2.texture(), x - hSize, y - hSize / 2f, hSize, hSize, size, size, this.scale + scaleInt, this.scale + scaleInt, angleInt * 2, 0, 0, size, size, hFlip, vFlip);
+        sb.draw(ConjurerResources.conjurer.images.monsters.fire3.texture(), x - hSize, y - hSize / 2f, hSize, hSize, size, size, this.scale + scaleInt, this.scale + scaleInt, angleInt * 2, 0, 0, size, size, hFlip, vFlip);
         sb.setColor(this.renderColor);
         PCLRenderHelpers.BlendingMode.Normal.apply(sb);
 

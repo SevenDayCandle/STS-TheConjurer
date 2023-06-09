@@ -20,7 +20,7 @@
 	},
 	"conjurer:CleansingBell":
 	{
-		"DESCRIPTIONS": ["#oRight-Click: Spend #b{0} charges to remove #b{1} of your leftmost debuff. Gain #b1 charge at the start of battle. Store up to #b{2} charges."],
+		"DESCRIPTIONS": ["#oRight-Click: Spend #b{0} charges to remove #b{0} of your leftmost debuff. Gain #b1 charge at the start of battle. Store up to #b{1} charges."],
 		"FLAVOR": "Pass the power.",
 		"NAME": "Cleansing Bell"
 	},
@@ -32,7 +32,7 @@
 	},
 	"conjurer:CrimsonMapleLeaf":
 	{
-		"DESCRIPTIONS": ["[Malleable] is treated as a [A-G] #yElemental #yDebuff. [A-R] cards #yCombust [A-G] and [A-O] #yElemental #yDebuffs. Double the #yReaction prices for levelling up #yElemental #yDebuffs."],
+		"DESCRIPTIONS": ["[Malleable] is treated as a [A-G] #yElemental #yDebuff. [A-R] cards #yCombust [A-G] and [A-O] #yElemental #yDebuffs. Double the cost of levelling #yElemental #yDebuffs."],
 		"FLAVOR": "On this mountain path, where the red leaves lifeless lie... My heart calls for a companion, echoing the deer's cry...",
 		"NAME": "Crimson Maple Leaf"
 	},
@@ -66,6 +66,12 @@
 		"FLAVOR": "A table that repeats itself every so often.",
 		"NAME": "Periodic Table"
 	},
+	"conjurer:PortableCactus":
+	{
+		"DESCRIPTIONS": [],
+		"FLAVOR": "Spiky like a Spiker.",
+		"NAME": "Portable Cactus"
+	},
 	"conjurer:QuadraticGlobe":
 	{
 		"DESCRIPTIONS": ["Whenever you #ySummon or #yWithdraw a #ySummon, apply #b{0} of its corresponding #yElemental #yDebuffs to it and a random enemy."],
@@ -86,7 +92,7 @@
 	},
 	"conjurer:StraightShooter":
 	{
-		"DESCRIPTIONS": ["Whenever you shuffle your deck, add an upgraded #yJumpy #yDumpty to your Draw Pile."],
+		"DESCRIPTIONS": [],
 		"FLAVOR": "It's pretty straightforward.",
 		"NAME": "Straight Shooter"
 	},
@@ -96,11 +102,11 @@
 	  "FLAVOR": "Pass the power.",
 	  "NAME": "Magic Baton"
 	},
-	"conjurer:TriKarmaPurification":
+	"conjurer:Triquetra":
 	{
-		"DESCRIPTIONS": ["Disables [A-O]. Replaces #yRedoxes with #yCombusts. Doubles the effect of all #yElemental #yDebuffs."],
-		"FLAVOR": "Pass the power.",
-		"NAME": "Tri-Karma Purification"
+		"DESCRIPTIONS": ["Disables [A-O]. Cards can no longer #yRedox. Halve the cost of levelling #yElemental #yDebuffs."],
+		"FLAVOR": "Divide by three and you get...",
+		"NAME": "Triquetra"
 	},
 	"conjurer:WitchsHeartFlames":
 	{

@@ -12,7 +12,7 @@
 		"NAME": "Charge"
 	},
 	"Combust": {
-		"DESCRIPTION": "#yCombust an #yElemental #yDebuff by playing an #yAffinity card against a target with it. | [A-R] > [Gelus], [A-G] > [Petra], [A-B] > [Ignis], [A-O] > [Aer].",
+		"DESCRIPTION": "#yCombust an #yElemental #yDebuff by playing an #yAffinity card against a target with it. Blue arrows on the #yReaction #yMeter denote #yCombusts.",
 		"NAME": "Combust",
 		"PAST": "combusted",
 		"PRESENT": "combusts",
@@ -75,7 +75,7 @@
 		"NAME": "Reaction"
 	},
 	"Redox": {
-		"DESCRIPTION": "#yRedox an #yElemental #yDebuff by playing an #yAffinity card against a target with it. | [A-R] > [Petra], [A-G] > [Gelus], [A-B] > [Aer], [A-O] > [Ignis].",
+		"DESCRIPTION": "#yRedox an #yElemental #yDebuff by playing an #yAffinity card against a target with it. Brown arrows on the #yReaction #yMeter denote #yRedoxes.",
 		"NAME": "Redox",
 		"PAST": "redoxed",
 		"PRESENT": "redoxes",

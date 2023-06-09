@@ -17,7 +17,7 @@ public class OracleSphere extends PCLCard {
     public static final PCLCardData DATA = register(OracleSphere.class, ConjurerResources.conjurer)
             .setSkill(0, CardRarity.RARE)
             .setTags(PCLCardTag.Exhaust)
-            .setAffinities(2, PCLAffinity.Blue)
+            .setAffinities(PCLAffinity.Blue)
             .setCore(true);
 
     public OracleSphere() {

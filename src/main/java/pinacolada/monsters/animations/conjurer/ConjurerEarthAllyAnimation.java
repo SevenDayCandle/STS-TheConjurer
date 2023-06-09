@@ -24,7 +24,7 @@ public class ConjurerEarthAllyAnimation extends PCLAllyAnimation {
 
     public void renderSprite(SpriteBatch sb, float x, float y) {
         sb.setColor(this.renderColor);
-        float angleExt = this.angle / 13f;
+        float angleExt = this.angle / 8f;
         int size = ConjurerResources.conjurer.images.monsters.earth1.texture().getHeight();
         int hSize = size / 2;
 
@@ -37,7 +37,7 @@ public class ConjurerEarthAllyAnimation extends PCLAllyAnimation {
         PCLEffects.Queue.add(new FadingParticleEffect(RockBurstEffect.getRandomTexture(), x + MathUtils.random(-90, 90), y + MathUtils.random(-32, 4))
                 .setFlip(MathUtils.randomBoolean(), false)
                 .setScale(MathUtils.random(0.09f, 0.32f))
-                .setRotation(0, MathUtils.random(400f, 600f))
+                .setRotation(0, MathUtils.random(300f, 500f))
                 .setTargetPosition(x, y + RADIUS, 50f)).setDuration(0.6f, false);
     }
 }

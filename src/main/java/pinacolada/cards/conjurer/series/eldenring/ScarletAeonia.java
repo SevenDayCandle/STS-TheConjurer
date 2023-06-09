@@ -21,6 +21,7 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PSpecialSkill;
 import pinacolada.skills.skills.PTrigger;
 import pinacolada.ui.combat.ConjurerReactionMeter;
+import pinacolada.utilities.GameUtilities;
 
 @VisibleCard
 public class ScarletAeonia extends PCLCard {
@@ -41,7 +42,7 @@ public class ScarletAeonia extends PCLCard {
 
     public void specialMove(PSpecialSkill move, PCLUseInfo info) {
         AbstractCreature owner = move.getOwnerCreature();
-        if (owner != null) {
+        if (!GameUtilities.isDeadOrEscaped(owner)) {
             int poisonAmount = EUIUtils.sumInt(EUIUtils.filter(owner.powers, po -> ConjurerReactionMeter.meter.isPowerElemental(po.ID, PCLAffinity.Green)), po -> po.amount);
             if (poisonAmount > 0) {
                 PCLActions.bottom.applyPower(owner, PCLCardTarget.Self, PCLPowerHelper.Poison, poisonAmount);

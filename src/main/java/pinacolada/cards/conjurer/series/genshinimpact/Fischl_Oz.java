@@ -19,7 +19,7 @@ import pinacolada.skills.skills.special.moves.PMove_ExhaustAlly;
 public class Fischl_Oz extends PCLCard {
     public static final PCLCardData DATA = register(Fischl_Oz.class, ConjurerResources.conjurer)
             .setSummon(0, CardRarity.SPECIAL, PCLAttackType.Immaterial)
-            .setDamage(4, 1)
+            .setDamage(5, 1)
             .setHp(3, 2)
             .setAffinities(PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.genshinImpact, true);

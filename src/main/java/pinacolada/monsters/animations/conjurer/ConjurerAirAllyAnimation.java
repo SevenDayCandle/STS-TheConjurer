@@ -33,8 +33,8 @@ public class ConjurerAirAllyAnimation extends PCLAllyAnimation {
         sb.setColor(this.renderColor);
         float scaleExt1 = owner.getBobEffect().y / (Settings.scale * 557f);
         float scaleExt2 = owner.getBobEffect().y / (Settings.scale * 300f);
-        float angleExt1 = this.angle * 6.3f;
-        float angleExt2 = this.angle * 8.1f;
+        float angleExt1 = this.angle * 5f;
+        float angleExt2 = this.angle * 7f;
         int size = ConjurerResources.conjurer.images.monsters.air1.texture().getHeight();
         int hSize = size / 2;
 
@@ -53,11 +53,11 @@ public class ConjurerAirAllyAnimation extends PCLAllyAnimation {
     }
 
     public void updateImpl(float deltaTime, float x, float y) {
-        PCLEffects.List.add(new FadingParticleEffect(getRandomTexture(), x, y)
+        PCLEffects.Queue.add(new FadingParticleEffect(getRandomTexture(), x, y)
+                .setBlendingMode(PCLRenderHelpers.BlendingMode.Glowing)
                 .setColor(new Color(MathUtils.random(0.7f, 1f), 1, MathUtils.random(0.8f, 1f), MathUtils.random(0.5f, 0.8f)))
-                .setBlendingMode(MathUtils.randomBoolean() ? PCLRenderHelpers.BlendingMode.Overlay : PCLRenderHelpers.BlendingMode.Normal)
-                .setScale(MathUtils.random(0.2f, 0.5f))
-                .setRotation(0f, MathUtils.random(150f, 250f))
+                .setScale(MathUtils.random(0.1f, 0.35f))
+                .setRotation(0f, MathUtils.random(450f, 650f))
                 .setTargetPosition(x + RADIUS * MathUtils.cos(angle), y + RADIUS * MathUtils.sin(angle), 100f)
         ).setDuration(1f, false).renderBehind = true;
     }

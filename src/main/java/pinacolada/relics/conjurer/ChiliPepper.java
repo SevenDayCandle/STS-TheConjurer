@@ -20,6 +20,6 @@ public class ChiliPepper extends PCLPointerRelic {
     }
 
     public void setup() {
-        addUseMove(PTrigger.when(PCond.onTurnStart(), PMultiSkill.join(PMove.applyToEnemies(4, PCLElementHelper.Blasted))));
+        addUseMove(PTrigger.when(PCond.onTurnStart(), PMultiSkill.join(PMove.applyToRandom(3, PCLElementHelper.Ignis))));
     }
 }

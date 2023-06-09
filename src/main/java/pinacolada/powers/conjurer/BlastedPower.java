@@ -42,11 +42,6 @@ public class BlastedPower extends PCLPower implements HealthBarRenderPower {
     }
 
     @Override
-    public String getUpdatedDescription() {
-        return formatDescription(0, amount, getDecrease());
-    }
-
-    @Override
     public void atStartOfTurn() {
         this.flashWithoutSound();
 
@@ -61,14 +56,7 @@ public class BlastedPower extends PCLPower implements HealthBarRenderPower {
                     .canKill(owner == null || !owner.isPlayer);
         }
 
-        reducePower(getDecrease());
-        if (amount <= 0) {
-            removePower();
-        }
-    }
-
-    public int getDecrease() {
-        return MathUtils.ceil(amount / 2f);
+        removePower();
     }
 
     public DamageInfo getExpandedDamageInfo()

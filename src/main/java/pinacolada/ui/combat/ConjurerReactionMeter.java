@@ -230,6 +230,14 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
         }
     }
 
+    public void hideAffinity(PCLAffinity affinity) {
+        ConjurerElementButton button = getElementButton(affinity);
+        if (button != null) {
+            button.setActive(false);
+            button.setEnabled(false);
+        }
+    }
+
     @Override
     public PCLUseInfo generateInfo(AbstractCard card, AbstractCreature source, AbstractCreature target) {
         return new ConjurerUseInfo(card, source, target);

@@ -6,14 +6,14 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
+import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
-import pinacolada.skills.skills.PMultiSkill;
+import pinacolada.skills.skills.PMultiCond;
 
 @VisibleCard
 public class AyakaKamisato extends PCLCard {
@@ -31,6 +31,6 @@ public class AyakaKamisato extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.ICE);
-        addUseMove(PCond.onSummon(), PMultiSkill.join(PMove.takeDamage(4), PMove.applyToEnemies(6, PCLElementHelper.Frostbite)));
+        addUseMove(PMultiCond.or(PCond.onSummon(), PCond.onWithdraw()), PMove.loseHp(PCLCardTarget.All, 3));
     }
 }

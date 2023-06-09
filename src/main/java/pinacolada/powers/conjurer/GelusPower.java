@@ -14,7 +14,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 public class GelusPower extends AbstractPCLElementalPower {
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, GelusPower.class);
     public static final PCLAffinity AFFINITY = setAffinity(POWER_ID, PCLAffinity.Blue);
-    public static final int MULTIPLIER = setMultiplier(POWER_ID, 30);
+    public static final int MULTIPLIER = setMultiplier(POWER_ID, 50);
 
     public GelusPower(AbstractCreature owner, AbstractCreature source, int amount) {
         super(owner, source, POWER_ID, amount);

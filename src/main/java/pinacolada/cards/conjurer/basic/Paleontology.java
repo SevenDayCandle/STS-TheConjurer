@@ -6,10 +6,8 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.PCLCardGroupHelper;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CMove;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
-import pinacolada.skills.skills.PMultiSkill;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
@@ -24,6 +22,6 @@ public class Paleontology extends PCLCard {
     }
 
     public void setup(Object input) {
-        addGainPower(PTrigger.when(PCond.onTurnStart(), PMultiSkill.join(CMove.gainReaction(4).setUpgrade(2), PMove.fetch(2, 1, PCLCardGroupHelper.DiscardPile))));
+        addGainPower(PTrigger.when(PCond.onTurnStart(), PMove.fetch(2, 1, PCLCardGroupHelper.DiscardPile).setUpgrade(1)));
     }
 }

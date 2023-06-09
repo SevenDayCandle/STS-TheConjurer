@@ -12,7 +12,7 @@
 	},
 	"conjurer:BlastedPower":
 	{
-		"DESCRIPTIONS": ["At the start of its turn, takes #b{0} damage, then loses #b{1} stacks."],
+		"DESCRIPTIONS": ["At the start of its turn, takes #b{0} damage, then loses this power."],
 		"NAME": "Blasted"
 	},
 	"conjurer:CorrosionPower":

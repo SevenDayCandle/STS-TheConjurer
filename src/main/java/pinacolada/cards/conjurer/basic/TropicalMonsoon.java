@@ -15,7 +15,7 @@ import pinacolada.skills.PMove;
 @VisibleCard
 public class TropicalMonsoon extends PCLCard {
     public static final PCLCardData DATA = register(TropicalMonsoon.class, ConjurerResources.conjurer)
-            .setAttack(2, CardRarity.UNCOMMON, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
+            .setAttack(2, CardRarity.COMMON, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
             .setDamage(4, 1, 2)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Green)
             .setCore();

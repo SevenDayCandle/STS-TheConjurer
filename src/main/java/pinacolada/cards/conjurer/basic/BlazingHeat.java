@@ -20,6 +20,7 @@ public class BlazingHeat extends PCLCard {
             .setPower(3, CardRarity.RARE)
             .setAffinities(2, PCLAffinity.Red)
             .setCostUpgrades(-1)
+            .setMaxCopies(1)
             .setCore();
 
     public BlazingHeat() {

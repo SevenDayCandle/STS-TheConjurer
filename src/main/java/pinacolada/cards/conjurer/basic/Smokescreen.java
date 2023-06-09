@@ -18,7 +18,7 @@ public class Smokescreen extends PCLCard {
     public static final PCLCardData DATA = register(Smokescreen.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.Self)
             .setBlock(3, 2, 2)
-            .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
+            .setAffinities(PCLAffinity.Green)
             .setCore();
 
     public Smokescreen() {

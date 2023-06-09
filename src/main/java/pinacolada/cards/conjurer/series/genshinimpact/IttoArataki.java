@@ -19,8 +19,8 @@ import pinacolada.skills.skills.DelayTiming;
 public class IttoArataki extends PCLCard {
     public static final PCLCardData DATA = register(IttoArataki.class, ConjurerResources.conjurer)
             .setSummon(3, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy, DelayTiming.EndOfTurnFirst)
-            .setDamage(6, 1)
-            .setHp(14, 2)
+            .setDamage(5, 1)
+            .setHp(13, 2)
             .setAffinities(1, PCLAffinity.Red, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
@@ -30,6 +30,6 @@ public class IttoArataki extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(AbstractGameAction.AttackEffect.BLUNT_HEAVY);
-        addUseMove(CCond.combust(), PMove.gainPlayer(8, PCLPowerHelper.NextTurnBlock));
+        addUseMove(CCond.combust(), PMove.gainPlayer(6, PCLPowerHelper.NextTurnBlock));
     }
 }

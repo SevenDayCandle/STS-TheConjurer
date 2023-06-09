@@ -24,7 +24,7 @@ public class EirinYagokoro extends PCLCard {
     public static final PCLCardData DATA = register(EirinYagokoro.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Immaterial)
             .setDamage(2, 0)
-            .setHp(5, 1)
+            .setHp(4, 1)
             .setAffinities(1, PCLAffinity.Blue, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.touhouProject, true);
 
@@ -34,7 +34,7 @@ public class EirinYagokoro extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.POISON).setChain(new EirinYagokoroMod(DATA, 1), PTrait.damage(2).setUpgrade(1));
-        addUseMove(PCond.onSummon(), PMove.gainTempHP(PCLCardTarget.None, 3).setUpgrade(1));
+        addUseMove(PCond.onSummon(), PMove.gainTempHP(PCLCardTarget.None, 2).setUpgrade(1));
     }
 
     protected static class EirinYagokoroMod extends PCustomMod {

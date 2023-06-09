@@ -5,6 +5,7 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
@@ -23,6 +24,6 @@ public class Geomorphology extends PCLCard {
     }
 
     public void setup(Object input) {
-        addGainPower(PTrigger.when(PCond.onSummon(), PMove.applyToEveryone(1, PCLElementHelper.Petra)));
+        addGainPower(PTrigger.when(PCond.onOtherCardPlayed(CardType.POWER, PCLEnum.CardType.SUMMON), PMove.applyToEveryone(1, PCLElementHelper.Petra)));
     }
 }

@@ -1,4 +1,4 @@
-package pinacolada.cards.conjurer.colorless;
+package pinacolada.cards.conjurer.series.monsterhunter;
 
 
 import pinacolada.annotations.VisibleCard;
@@ -8,6 +8,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
+import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -15,20 +16,20 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.DelayTiming;
 
 @VisibleCard
-public class Diablos extends PCLCard {
-    public static final PCLCardData DATA = register(Diablos.class, ConjurerResources.conjurer)
-            .setSummon(3, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy, DelayTiming.EndOfTurnFirst)
-            .setDamage(4, 1, 0)
-            .setHp(17, 0)
+public class Radobaan extends PCLCard {
+    public static final PCLCardData DATA = register(Radobaan.class, ConjurerResources.conjurer)
+            .setSummon(2, CardRarity.COMMON, PCLAttackType.Normal, PCLCardTarget.Single, DelayTiming.EndOfTurnFirst)
+            .setDamage(2, 1, 0)
+            .setHp(15, 2)
             .setAffinities(2, PCLAffinity.Orange)
-            .setLoadout(ConjurerPlayerData.monsterHunter, true);
+            .setLoadout(ConjurerPlayerData.monsterHunter);
 
-    public Diablos() {
+    public Radobaan() {
         super(DATA);
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.EARTH);
-        addUseMove(PCond.cooldown(3), PMove.discardRandom(3), PMove.gainBlockPlayer(16));
+        addDamageMove(PCLAttackVFX.BITE);
+        addUseMove(PCond.haveTakenDamage(), PMove.gain(2, PCLPowerHelper.Thorns, PCLPowerHelper.PlatedArmor));
     }
 }

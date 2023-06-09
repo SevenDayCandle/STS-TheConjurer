@@ -1,5 +1,6 @@
 package pinacolada.skills.conjurer.moves;
 
+import pinacolada.actions.powers.GainReaction;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.resources.conjurer.ConjurerEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -7,7 +8,6 @@ import pinacolada.skills.PSkillData;
 import pinacolada.skills.PSkillSaveData;
 import pinacolada.skills.fields.PField_Empty;
 import pinacolada.skills.skills.base.moves.PMove_Gain;
-import pinacolada.ui.combat.ConjurerReactionMeter;
 
 public class PMove_GainReaction extends PMove_Gain {
     public static final PSkillData<PField_Empty> DATA = register(PMove_GainReaction.class, PField_Empty.class, ConjurerEnum.Cards.THE_CONJURER);
@@ -31,7 +31,7 @@ public class PMove_GainReaction extends PMove_Gain {
 
     @Override
     public void use(PCLUseInfo info) {
-        getActions().callback(() -> ConjurerReactionMeter.meter.addCount(amount, true));
+        getActions().add(new GainReaction(amount));
         super.use(info);
     }
 }

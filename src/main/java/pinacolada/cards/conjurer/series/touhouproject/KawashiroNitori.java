@@ -22,7 +22,7 @@ public class KawashiroNitori extends PCLCard {
             .setDamage(2, 1)
             .setHp(5, 1)
             .setAffinities(PCLAffinity.Green, PCLAffinity.Blue)
-            .setLoadout(ConjurerPlayerData.genshinImpact);
+            .setLoadout(ConjurerPlayerData.touhouProject);
 
     public KawashiroNitori() {
         super(DATA);
