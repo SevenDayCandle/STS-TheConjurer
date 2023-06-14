@@ -14,7 +14,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
-import pinacolada.skills.PTrait;
+import pinacolada.skills.skills.PTrait;
 
 @VisibleCard
 public class ShatterEarth extends PCLCard {
@@ -30,6 +30,6 @@ public class ShatterEarth extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.EARTH).setChain(PCond.block(PCLCardTarget.Single, 1), PTrait.damage(9).setUpgrade(3));
-        addUseMove(CCond.redox(), PMove.applyToSingle(2, PCLElementHelper.Petra, PCLElementHelper.Gelus));
+        addUseMove(CCond.react(), PMove.applyToSingle(2, PCLElementHelper.Petra, PCLElementHelper.Gelus));
     }
 }

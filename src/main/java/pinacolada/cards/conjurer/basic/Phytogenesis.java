@@ -23,6 +23,6 @@ public class Phytogenesis extends PCLCard {
     }
 
     public void setup(Object input) {
-        addGainPower(PTrigger.when(PCond.haveLostHP(), PMultiSkill.join(PMove.gainBlock(2).setUpgrade(1), CMove.gainReaction(5))));
+        addGainPower(PTrigger.when(PCond.haveLostHP(), PMultiSkill.join(PMove.gainBlock(2).setUpgrade(1), CMove.gainMatter(5))));
     }
 }

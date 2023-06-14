@@ -18,7 +18,7 @@ public class ConjurerStarAllyAnimation extends PCLAllyAnimation {
     public static final float RADIUS = 320;
     public static final Color START_COLOR = new Color(0.9f, 0.65f, 1, 0.8f);
     public static final Color TARGET_COLOR = new Color(0.74f, 0.3f, 1, 0.7f);
-    protected static final float BASE_FLASH_TIMER = 0.4F;
+    protected static final float BASE_FLASH_TIMER = 0.5F;
     private float flashTimer = BASE_FLASH_TIMER;
 
     public ConjurerStarAllyAnimation(PCLCreature creature) {

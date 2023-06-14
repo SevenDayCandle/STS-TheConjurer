@@ -1,9 +1,9 @@
 package pinacolada.skills;
 
-import pinacolada.skills.conjurer.moves.PMove_GainReaction;
+import pinacolada.skills.conjurer.moves.PMove_GainMatter;
 
 public abstract class CMove {
-    public static PMove gainReaction(int amount) {
-        return new PMove_GainReaction(amount);
+    public static PMove_GainMatter gainMatter(int amount) {
+        return new PMove_GainMatter(amount);
     }
 }

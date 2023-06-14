@@ -28,6 +28,6 @@ public class AyaShameimaru extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL);
-        addUseMove(CCond.redox(), PMove.fetchRandom(1, PCLCardGroupHelper.DrawPile).edit(f -> f.setType(CardType.SKILL)));
+        addUseMove(CCond.react(), PMove.fetchRandom(1, PCLCardGroupHelper.DrawPile).edit(f -> f.setType(CardType.SKILL)));
     }
 }

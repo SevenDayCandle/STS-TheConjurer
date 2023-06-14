@@ -32,7 +32,7 @@ public class FutabaSakura extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.PSYCHOKINESIS);
-        addGainPower(PTrigger.when(CCond.redox(), getSpecialMove(0, this::specialMove, 22)));
+        addGainPower(PTrigger.when(CCond.react(), getSpecialMove(0, this::specialMove, 22)));
     }
 
     public void specialMove(PSpecialSkill move, PCLUseInfo info) {

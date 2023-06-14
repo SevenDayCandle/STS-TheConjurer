@@ -31,7 +31,7 @@ public class KawashiroNitori extends PCLCard {
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.WATER);
         addGainPower(PTrigger.interactable(
-                CCond.payReaction(13),
+                CCond.payMatter(13),
                 PMod.bonusPerLevel(2, PCLAffinity.Blue), PMove.gainBlock(PCLCardTarget.None, 6).setUpgrade(1)
         ));
     }

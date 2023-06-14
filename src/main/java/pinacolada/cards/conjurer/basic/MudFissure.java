@@ -9,7 +9,7 @@ import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
-import pinacolada.skills.PTrait;
+import pinacolada.skills.skills.PTrait;
 
 @VisibleCard
 public class MudFissure extends PCLCard {

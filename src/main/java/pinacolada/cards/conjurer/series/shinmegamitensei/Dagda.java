@@ -13,7 +13,7 @@ import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
-import pinacolada.skills.skills.DelayTiming;
+import pinacolada.skills.delay.DelayTiming;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
@@ -32,7 +32,7 @@ public class Dagda extends PCLCard {
     public void setup(Object input) {
         addDamageMove(AbstractGameAction.AttackEffect.BLUNT_HEAVY);
         addGainPower(PTrigger.interactable(
-                CCond.payReaction(20),
+                CCond.payMatter(20),
                 PMove.stabilize(PCLCardTarget.AllEnemy, PCLElementHelper.Petra))
         );
     }

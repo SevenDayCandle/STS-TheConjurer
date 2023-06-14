@@ -11,8 +11,8 @@ import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
-import pinacolada.skills.PTrait;
-import pinacolada.skills.skills.DelayTiming;
+import pinacolada.skills.delay.DelayTiming;
+import pinacolada.skills.skills.PTrait;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
@@ -31,7 +31,7 @@ public class Cerberus extends PCLCard {
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BITE);
         addGainPower(PTrigger.interactable(
-                CCond.payReaction(10),
+                CCond.payMatter(10),
                 PTrait.damage(2).setUpgrade(1)
         ));
     }

@@ -12,7 +12,7 @@ import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMod;
-import pinacolada.skills.PTrait;
+import pinacolada.skills.skills.PTrait;
 
 @VisibleCard
 public class Tartaglia extends PCLCard {

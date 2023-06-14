@@ -12,7 +12,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
-import pinacolada.skills.PTrait;
+import pinacolada.skills.skills.PTrait;
 
 @VisibleCard
 public class Yelan extends PCLCard {

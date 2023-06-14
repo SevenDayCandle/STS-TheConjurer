@@ -13,7 +13,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 public class AerPower extends AbstractPCLElementalPower {
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, AerPower.class);
     public static final PCLAffinity AFFINITY = setAffinity(POWER_ID, PCLAffinity.Green);
-    public static final int MULTIPLIER = setMultiplier(POWER_ID, 40);
+    public static final int MULTIPLIER = setMultiplier(POWER_ID, 50);
 
     public AerPower(AbstractCreature owner, AbstractCreature source, int amount) {
         super(owner, source, POWER_ID, amount);

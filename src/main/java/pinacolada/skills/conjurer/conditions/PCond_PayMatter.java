@@ -14,40 +14,40 @@ import pinacolada.ui.combat.ConjurerReactionMeter;
 
 import static pinacolada.resources.conjurer.ConjurerEnum.Cards.THE_CONJURER;
 
-public class PCond_PayReaction extends PActiveCond<PField_Not> {
-    public static final PSkillData<PField_Not> DATA = register(PCond_PayReaction.class, PField_Not.class)
+public class PCond_PayMatter extends PActiveCond<PField_Not> {
+    public static final PSkillData<PField_Not> DATA = register(PCond_PayMatter.class, PField_Not.class)
             .setColors(THE_CONJURER)
             .selfTarget();
 
-    public PCond_PayReaction(PSkillSaveData content) {
+    public PCond_PayMatter(PSkillSaveData content) {
         super(DATA, content);
     }
 
-    public PCond_PayReaction() {
+    public PCond_PayMatter() {
         super(DATA, PCLCardTarget.None, 1);
     }
 
-    public PCond_PayReaction(int amount) {
+    public PCond_PayMatter(int amount) {
         super(DATA, PCLCardTarget.None, amount);
     }
 
     @Override
     public boolean checkCondition(PCLUseInfo info, boolean isUsing, PSkill<?> triggerSource) {
-        return ConjurerReactionMeter.meter.getReactionCount() >= amount;
+        return ConjurerReactionMeter.meter.getMatter() >= amount;
     }
 
     @Override
     public String getSampleText(PSkill<?> callingSkill) {
-        return TEXT.act_pay("X", ConjurerResources.conjurer.tooltips.reaction.title);
+        return TEXT.act_pay("X", ConjurerResources.conjurer.tooltips.matter.title);
     }
 
     @Override
     public String getSubText() {
-        return capital(TEXT.act_pay(getAmountRawString(), ConjurerResources.conjurer.tooltips.reaction.title), true);
+        return capital(TEXT.act_pay(getAmountRawString(), ConjurerResources.conjurer.tooltips.matter.title), true);
     }
 
     @Override
     protected PCLAction<?> useImpl(PCLUseInfo pclUseInfo, ActionT1<PCLUseInfo> actionT0, ActionT1<PCLUseInfo> actionT01) {
-        return getActions().callback(() -> ConjurerReactionMeter.meter.trySpendCount(amount));
+        return getActions().callback(() -> ConjurerReactionMeter.meter.trySpendMatter(amount));
     }
 }

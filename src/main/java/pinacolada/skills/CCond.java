@@ -1,26 +1,21 @@
 package pinacolada.skills;
 
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.skills.conjurer.conditions.PCond_CheckReaction;
-import pinacolada.skills.conjurer.conditions.PCond_Combust;
-import pinacolada.skills.conjurer.conditions.PCond_PayReaction;
-import pinacolada.skills.conjurer.conditions.PCond_Redox;
+import pinacolada.skills.conjurer.conditions.PCond_CheckMatter;
+import pinacolada.skills.conjurer.conditions.PCond_PayMatter;
+import pinacolada.skills.conjurer.conditions.PCond_React;
 
 public abstract class CCond {
 
-    public static PCond checkReaction(int amount) {
-        return new PCond_CheckReaction(amount);
+    public static PCond_CheckMatter checkMatter(int amount) {
+        return new PCond_CheckMatter(amount);
     }
 
-    public static PCond combust(PCLAffinity... affinities) {
-        return new PCond_Combust(affinities);
+    public static PCond_React react(PCLAffinity... affinities) {
+        return new PCond_React(affinities);
     }
 
-    public static PCond payReaction(int amount) {
-        return new PCond_PayReaction(amount);
-    }
-
-    public static PCond redox(PCLAffinity... affinities) {
-        return new PCond_Redox(affinities);
+    public static PCond_PayMatter payMatter(int amount) {
+        return new PCond_PayMatter(amount);
     }
 }

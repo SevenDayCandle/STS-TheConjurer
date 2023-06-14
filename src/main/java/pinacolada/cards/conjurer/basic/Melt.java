@@ -28,6 +28,6 @@ public class Melt extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(ConjurerEFK.MGC_PowerRelease);
-        addUseMove(CCond.combust(), PMultiSkill.join(PMove.loseHpPercent(PCLCardTarget.Single, 15), PMove.selfExhaust()));
+        addUseMove(CCond.react(), PMultiSkill.join(PMove.loseHpPercent(PCLCardTarget.Single, 15), PMove.selfExhaust()));
     }
 }

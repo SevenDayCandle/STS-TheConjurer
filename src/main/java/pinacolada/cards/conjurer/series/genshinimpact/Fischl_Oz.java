@@ -18,8 +18,8 @@ import pinacolada.skills.skills.special.moves.PMove_ExhaustAlly;
 @VisibleCard
 public class Fischl_Oz extends PCLCard {
     public static final PCLCardData DATA = register(Fischl_Oz.class, ConjurerResources.conjurer)
-            .setSummon(0, CardRarity.SPECIAL, PCLAttackType.Immaterial)
-            .setDamage(5, 1)
+            .setSummon(0, CardRarity.SPECIAL, PCLAttackType.Immaterial, PCLCardTarget.AllEnemy)
+            .setDamage(4, 1)
             .setHp(3, 2)
             .setAffinities(PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.genshinImpact, true);
@@ -30,6 +30,6 @@ public class Fischl_Oz extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.GHOST);
-        addUseMove(PCond.cooldown(0), PMove.applyToEnemies(3, PCLPowerHelper.Blinded), new PMove_ExhaustAlly(PCLCardTarget.Self, 1));
+        addUseMove(PCond.onWithdraw(), PMove.applyToEnemies(3, PCLPowerHelper.Blinded), new PMove_ExhaustAlly(PCLCardTarget.Self, 1));
     }
 }

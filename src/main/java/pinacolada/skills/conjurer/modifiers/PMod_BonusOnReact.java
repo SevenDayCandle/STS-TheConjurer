@@ -11,24 +11,24 @@ import pinacolada.skills.skills.base.modifiers.PMod_BonusOn;
 
 import static pinacolada.resources.conjurer.ConjurerEnum.Cards.THE_CONJURER;
 
-public class PMod_BonusOnCombust extends PMod_BonusOn<PField_Affinity> {
-    public static final PSkillData<PField_Affinity> DATA = register(PMod_BonusOnCombust.class, PField_Affinity.class).setColors(THE_CONJURER).selfTarget();
+public class PMod_BonusOnReact extends PMod_BonusOn<PField_Affinity> {
+    public static final PSkillData<PField_Affinity> DATA = register(PMod_BonusOnReact.class, PField_Affinity.class).setColors(THE_CONJURER).selfTarget();
 
-    public PMod_BonusOnCombust(PSkillSaveData content) {
+    public PMod_BonusOnReact(PSkillSaveData content) {
         super(DATA, content);
     }
 
-    public PMod_BonusOnCombust() {
+    public PMod_BonusOnReact() {
         this(0);
     }
 
-    public PMod_BonusOnCombust(int amount) {
+    public PMod_BonusOnReact(int amount) {
         super(DATA, amount);
     }
 
     @Override
     public String getSubText() {
-        return ConjurerResources.conjurer.tooltips.combust.title;
+        return ConjurerResources.conjurer.tooltips.reaction.title;
     }
 
     @Override
@@ -37,6 +37,6 @@ public class PMod_BonusOnCombust extends PMod_BonusOn<PField_Affinity> {
         if (cInfo == null) {
             return false;
         }
-        return fields.affinities.isEmpty() ? cInfo.reactions.hasCombust() : EUIUtils.all(fields.affinities, cInfo.reactions::hasCombust);
+        return fields.affinities.isEmpty() ? cInfo.reactions.hasReaction() : EUIUtils.all(fields.affinities, cInfo.reactions::hasReaction);
     }
 }

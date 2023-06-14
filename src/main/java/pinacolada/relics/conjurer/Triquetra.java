@@ -26,9 +26,7 @@ public class Triquetra extends PCLRelic {
                 b.initialize();
             }
             ConjurerReactionMeter.meter.disableAffinity(PCLAffinity.Orange);
-            ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Green).addCombustion(ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Red));
-            ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Blue).addCombustion(ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Green));
-            ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Red).addCombustion(ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Blue));
+            ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Green).addReaction(ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Red));
             for (ConjurerElementButton element : ConjurerReactionMeter.meter.getElementButtons()) {
                 element.currentCost /= getValue();
             }

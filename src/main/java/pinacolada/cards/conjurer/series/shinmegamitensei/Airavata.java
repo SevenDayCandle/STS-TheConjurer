@@ -12,13 +12,13 @@ import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
-import pinacolada.skills.skills.DelayTiming;
+import pinacolada.skills.delay.DelayTiming;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
 public class Airavata extends PCLCard {
     public static final PCLCardData DATA = register(Airavata.class, ConjurerResources.conjurer)
-            .setSummon(3, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.Single, DelayTiming.EndOfTurnFirst)
+            .setSummon(3, CardRarity.COMMON, PCLAttackType.Normal, PCLCardTarget.Single, DelayTiming.EndOfTurnFirst)
             .setDamage(3, 0)
             .setHp(16, 3)
             .setAffinities(PCLAffinity.Orange)
@@ -31,7 +31,7 @@ public class Airavata extends PCLCard {
     public void setup(Object input) {
         addDamageMove(AbstractGameAction.AttackEffect.BLUNT_HEAVY);
         addGainPower(PTrigger.interactable(
-                CCond.payReaction(9).setUpgrade(-1),
+                CCond.payMatter(9).setUpgrade(-1),
                 PMove.retain(2)
         ));
     }

@@ -13,7 +13,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
 import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
-import pinacolada.skills.skills.DelayTiming;
+import pinacolada.skills.delay.DelayTiming;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
@@ -32,7 +32,7 @@ public class Amon extends PCLCard {
     public void setup(Object input) {
         addDamageMove(PCLEnum.AttackEffect.CLAW);
         addGainPower(PTrigger.interactable(
-                CCond.payReaction(9),
+                CCond.payMatter(9),
                 PMod.bonusPerLevel(4, PCLAffinity.Red).setUpgrade(1), PMove.dealDamage(6, PCLEnum.AttackEffect.CLAW).setUpgrade(1)
         ));
     }

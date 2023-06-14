@@ -26,6 +26,6 @@ public class FlameGrantMeStrength extends PCLCard {
 
     public void setup(Object input) {
         addUseMove(PMove.gain(5, PCLElementHelper.Ignis));
-        addUseMove(CMod.bonusOnCombust(2), PMove.gainTemporary(3, PCLPowerHelper.Strength).setUpgrade(2));
+        addUseMove(CMod.bonusOnReact(2), PMove.gainTemporary(3, PCLPowerHelper.Strength).setUpgrade(2));
     }
 }

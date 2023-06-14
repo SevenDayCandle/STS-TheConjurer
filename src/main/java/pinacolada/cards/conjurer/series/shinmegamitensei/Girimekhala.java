@@ -14,7 +14,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CMove;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMod;
-import pinacolada.skills.skills.DelayTiming;
+import pinacolada.skills.delay.DelayTiming;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
@@ -34,7 +34,7 @@ public class Girimekhala extends PCLCard {
         addDamageMove(AbstractGameAction.AttackEffect.BLUNT_HEAVY);
         addGainPower(PTrigger.interactable(
                 PCond.exhaustRandom(3, PCLCardGroupHelper.DrawPile),
-                PMod.increaseOnUse(20), CMove.gainReaction(30)
+                PMod.increaseOnUse(20), CMove.gainMatter(30)
         ));
     }
 }

@@ -13,36 +13,36 @@ import pinacolada.ui.combat.ConjurerReactionMeter;
 
 import static pinacolada.resources.conjurer.ConjurerEnum.Cards.THE_CONJURER;
 
-public class PCond_CheckReaction extends PPassiveCond<PField_Not> {
-    public static final PSkillData<PField_Not> DATA = register(PCond_CheckReaction.class, PField_Not.class)
+public class PCond_CheckMatter extends PPassiveCond<PField_Not> {
+    public static final PSkillData<PField_Not> DATA = register(PCond_CheckMatter.class, PField_Not.class)
             .setColors(THE_CONJURER)
             .selfTarget();
 
-    public PCond_CheckReaction(PSkillSaveData content) {
+    public PCond_CheckMatter(PSkillSaveData content) {
         super(DATA, content);
     }
 
-    public PCond_CheckReaction() {
+    public PCond_CheckMatter() {
         super(DATA, PCLCardTarget.None, 1);
     }
 
-    public PCond_CheckReaction(int amount) {
+    public PCond_CheckMatter(int amount) {
         super(DATA, PCLCardTarget.None, amount);
     }
 
     @Override
     public boolean checkCondition(PCLUseInfo info, boolean isUsing, PSkill<?> triggerSource) {
-        return fields.doesValueMatchThreshold(ConjurerReactionMeter.meter.getReactionCount());
+        return fields.doesValueMatchThreshold(ConjurerReactionMeter.meter.getMatter());
     }
 
     @Override
     public String getSampleText(PSkill<?> callingSkill) {
-        return EUIRM.strings.numNoun(TEXT.subjects_x, ConjurerResources.conjurer.tooltips.reaction.title);
+        return EUIRM.strings.numNoun(TEXT.subjects_x, ConjurerResources.conjurer.tooltips.matter.title);
     }
 
     @Override
     public String getSubText() {
-        return getTargetHasString(fields.getThresholdRawString(ConjurerResources.conjurer.tooltips.reaction.title));
+        return getTargetHasString(fields.getThresholdRawString(ConjurerResources.conjurer.tooltips.matter.title));
     }
 
     @Override

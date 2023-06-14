@@ -3,11 +3,7 @@
 	"Conjurer":
 	{
 		"NAMES": [ "The Conjurer"],
-	  	"OPTIONS": [
-		  "Genshin Impact",
-		  "Shin Megami Tensei",
-		  "Touhou Project",
-		  "Elden Ring"
+		"OPTIONS": [
 		],
 		"TEXT": [ "(W.I.P.)" ]
 	}

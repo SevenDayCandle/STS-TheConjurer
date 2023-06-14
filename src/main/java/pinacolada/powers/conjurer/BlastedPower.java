@@ -65,7 +65,7 @@ public class BlastedPower extends PCLPower implements HealthBarRenderPower {
         for (AbstractPower p : owner.powers) {
             for (ConjurerElementButton element : ConjurerReactionMeter.meter.getElementButtons())
             {
-                if (element.canCombust(PCLAffinity.Red, p.ID))
+                if (element.canReact(PCLAffinity.Red, p.ID))
                 {
                     multiplier += AbstractPCLElementalPower.getAmplifyMultiplier(PCLAffinity.Red);
                 }

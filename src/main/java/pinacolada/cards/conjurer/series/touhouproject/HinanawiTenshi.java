@@ -27,6 +27,6 @@ public class HinanawiTenshi extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
-        addUseMove(CCond.redox(), PMove.modifyDamage(1));
+        addUseMove(CCond.react(), PMove.modifyDamage(1));
     }
 }

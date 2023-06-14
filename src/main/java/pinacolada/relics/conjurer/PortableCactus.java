@@ -19,6 +19,6 @@ public class PortableCactus extends PCLPointerRelic {
     }
 
     public void setup() {
-        addUseMove(PTrigger.when(PCond.haveTakenDamage(), PMultiSkill.join(PMove.gainBlockPlayer(1), PMove.dealDamageToRandom(2))));
+        addUseMove(PTrigger.when(PCond.haveTakenDamage(), PMultiSkill.join(PMove.gainBlockPlayer(1), PMove.dealDamageToRandom(1))));
     }
 }

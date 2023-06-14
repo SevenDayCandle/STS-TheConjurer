@@ -9,7 +9,6 @@ public class ConjurerTooltips extends PCLTooltips {
     public EUIKeywordTooltip aer = EUIKeywordTooltip.findByID("Aer");
     public EUIKeywordTooltip blasted = EUIKeywordTooltip.findByID("Blasted");
     public EUIKeywordTooltip charge = EUIKeywordTooltip.findByID("Charge");
-    public EUIKeywordTooltip combust = EUIKeywordTooltip.findByID("Combust");
     public EUIKeywordTooltip corrosion = EUIKeywordTooltip.findByID("Corrosion");
     public EUIKeywordTooltip elementalDebuff = EUIKeywordTooltip.findByID("Elemental Debuff");
     public EUIKeywordTooltip elementalExposure = EUIKeywordTooltip.findByID("Elemental Exposure");
@@ -19,9 +18,9 @@ public class ConjurerTooltips extends PCLTooltips {
     public EUIKeywordTooltip gelus = EUIKeywordTooltip.findByID("Gelus");
     public EUIKeywordTooltip ignis = EUIKeywordTooltip.findByID("Ignis");
     public EUIKeywordTooltip lux = EUIKeywordTooltip.findByID("Lux");
+    public EUIKeywordTooltip matter = EUIKeywordTooltip.findByID("Matter");
     public EUIKeywordTooltip petra = EUIKeywordTooltip.findByID("Petra");
     public EUIKeywordTooltip reaction = EUIKeywordTooltip.findByID("Reaction");
-    public EUIKeywordTooltip redox = EUIKeywordTooltip.findByID("Redox");
 
     @Override
     public void initializeIcons() {

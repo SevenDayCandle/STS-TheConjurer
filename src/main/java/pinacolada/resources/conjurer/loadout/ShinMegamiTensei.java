@@ -10,7 +10,7 @@ public class ShinMegamiTensei extends ConjurerLoadout {
     public static final String ID = createID(ShinMegamiTensei.class);
 
     public ShinMegamiTensei() {
-        super(ID, 1);
+        super(ID, 2);
     }
 
     protected void setDefaultCardsForData(PCLLoadoutData data) {

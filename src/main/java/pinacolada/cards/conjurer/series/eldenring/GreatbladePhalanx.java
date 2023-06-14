@@ -26,6 +26,6 @@ public class GreatbladePhalanx extends PCLCard {
 
     public void setup(Object input) {
         addBlockMove();
-        addUseMove(CCond.combust(), PMultiSkill.join(PMove.gainTemporary(5, PCLPowerHelper.Thorns).setUpgrade(1), PMove.applyToSingle(1, PCLPowerHelper.Vulnerable)));
+        addUseMove(CCond.react(), PMultiSkill.join(PMove.gainTemporary(5, PCLPowerHelper.Thorns).setUpgrade(1), PMove.applyToSingle(1, PCLPowerHelper.Vulnerable)));
     }
 }

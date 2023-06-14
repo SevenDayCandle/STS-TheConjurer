@@ -13,19 +13,19 @@ import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
-import pinacolada.skills.skills.DelayTiming;
+import pinacolada.skills.delay.DelayTiming;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
-public class Bazelguese extends PCLCard {
-    public static final PCLCardData DATA = register(Bazelguese.class, ConjurerResources.conjurer)
+public class Bazelgeuse extends PCLCard {
+    public static final PCLCardData DATA = register(Bazelgeuse.class, ConjurerResources.conjurer)
             .setSummon(3, CardRarity.RARE, PCLAttackType.Ranged, PCLCardTarget.AllEnemy, DelayTiming.EndOfTurnFirst)
             .setDamage(4, 1)
             .setHp(10, 1)
             .setAffinities(2, PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 
-    public Bazelguese() {
+    public Bazelgeuse() {
         super(DATA);
     }
 

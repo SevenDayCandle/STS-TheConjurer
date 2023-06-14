@@ -28,6 +28,6 @@ public class LisaMinci extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.LIGHTNING);
-        addUseMove(PCond.cooldown(1), PMod.scryPer(2), CMove.gainReaction(6).setUpgrade(1));
+        addUseMove(PCond.cooldown(1), PMod.scryPer(2), CMove.gainMatter(6).setUpgrade(1));
     }
 }

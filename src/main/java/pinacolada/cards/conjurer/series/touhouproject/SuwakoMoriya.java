@@ -28,6 +28,6 @@ public class SuwakoMoriya extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BITE);
-        addUseMove(CCond.combust(), PMove.applyToSingle(3, PCLPowerHelper.Poison).setUpgrade(1));
+        addUseMove(CCond.react(), PMove.applyToSingle(3, PCLPowerHelper.Poison).setUpgrade(1));
     }
 }

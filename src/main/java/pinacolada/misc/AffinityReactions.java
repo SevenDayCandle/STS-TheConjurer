@@ -5,56 +5,35 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import java.util.HashMap;
 
 public class AffinityReactions {
-    public final HashMap<PCLAffinity, HashMap<PCLAffinity, Integer>> combustions = new HashMap<>();
-    public final HashMap<PCLAffinity, HashMap<PCLAffinity, Integer>> redoxes = new HashMap<>();
+    public final HashMap<PCLAffinity, HashMap<PCLAffinity, Integer>> reactions = new HashMap<>();
 
     public AffinityReactions() {
     }
 
-    public void addCombust(PCLAffinity dest, PCLAffinity reactor, int amount) {
-        HashMap<PCLAffinity, Integer> amp = combustions.getOrDefault(dest, new HashMap<>());
+    public void addReaction(PCLAffinity dest, PCLAffinity reactor, int amount) {
+        HashMap<PCLAffinity, Integer> amp = reactions.getOrDefault(dest, new HashMap<>());
         amp.merge(reactor, amount, Integer::sum);
-        combustions.putIfAbsent(dest, amp);
+        reactions.putIfAbsent(dest, amp);
     }
 
-    public void addRedox(PCLAffinity dest, PCLAffinity reactor, int amount) {
-        HashMap<PCLAffinity, Integer> intensification = redoxes.getOrDefault(dest, new HashMap<>());
-        intensification.merge(reactor, amount, Integer::sum);
-        redoxes.putIfAbsent(dest, intensification);
-    }
-
-    public boolean hasCombust(PCLAffinity aff) {
-        return combustions.containsKey(aff);
-    }
-
-    public boolean hasRedox(PCLAffinity aff) {
-        return redoxes.containsKey(aff);
+    public boolean hasReaction(PCLAffinity aff) {
+        return reactions.containsKey(aff);
     }
 
     public boolean isEmpty() {
-        return !hasCombust() && !hasRedox();
+        return !hasReaction();
     }
 
-    public boolean hasCombust() {
-        return !combustions.isEmpty();
-    }
-
-    public boolean hasRedox() {
-        return !redoxes.isEmpty();
+    public boolean hasReaction() {
+        return !reactions.isEmpty();
     }
 
     public int getValue(PCLAffinity affinity)
     {
         int sum = 0;
-        if (combustions.containsKey(affinity))
+        if (reactions.containsKey(affinity))
         {
-            for (Integer value : combustions.get(affinity).values()) {
-                sum += value;
-            }
-        }
-        if (redoxes.containsKey(affinity))
-        {
-            for (Integer value : redoxes.get(affinity).values()) {
+            for (Integer value : reactions.get(affinity).values()) {
                 sum += value;
             }
         }
@@ -63,13 +42,8 @@ public class AffinityReactions {
 
     public int sum() {
         int sum = 0;
-        for (PCLAffinity affinity : combustions.keySet()) {
-            for (Integer value : combustions.get(affinity).values()) {
-                sum += value;
-            }
-        }
-        for (PCLAffinity affinity : redoxes.keySet()) {
-            for (Integer value : redoxes.get(affinity).values()) {
+        for (PCLAffinity affinity : reactions.keySet()) {
+            for (Integer value : reactions.get(affinity).values()) {
                 sum += value;
             }
         }

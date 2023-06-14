@@ -12,8 +12,8 @@ import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
-import pinacolada.skills.PTrait;
-import pinacolada.skills.skills.DelayTiming;
+import pinacolada.skills.skills.PTrait;
+import pinacolada.skills.delay.DelayTiming;
 
 @VisibleCard
 public class Anjanath extends PCLCard {

@@ -47,12 +47,12 @@
 	},
 	"conjurer:GelusPower":
 	{
-		"DESCRIPTIONS": ["#b{0}% of Reaction gained from this power are applied to this target as [Frostbite].", "#b{0}% of Reaction gained from [Gelus] are applied to its owner as [Frostbite]."],
+		"DESCRIPTIONS": ["#b{0}% of Matter gained from this power are applied to this target as [Frostbite].", "#b{0}% of Reaction gained from [Gelus] are applied to its owner as [Frostbite]."],
 		"NAME": "Gelus"
 	},
 	"conjurer:IgnisPower":
 	{
-		"DESCRIPTIONS": ["#b{0}% of Reaction gained from this power are applied to this target as [Blasted].", "#b{0}% of Reaction gained from [Ignis] are applied to its owner as [Blasted]."],
+		"DESCRIPTIONS": ["#b{0}% of Matter gained from this power are applied to this target as [Blasted].", "#b{0}% of Reaction gained from [Ignis] is dealt as damage to its owner at the start of its turn."],
 		"NAME": "Ignis"
 	},
 	"conjurer:LuxPower":

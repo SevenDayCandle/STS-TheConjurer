@@ -12,7 +12,7 @@ import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
-import pinacolada.skills.skills.DelayTiming;
+import pinacolada.skills.delay.DelayTiming;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
@@ -31,7 +31,7 @@ public class KingFrost extends PCLCard {
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.ICE);
         addGainPower(PTrigger.interactable(
-                CCond.payReaction(8).setUpgrade(-1),
+                CCond.payMatter(8).setUpgrade(-1),
                 PMove.create(1, JackFrost.DATA.ID))
         );
     }

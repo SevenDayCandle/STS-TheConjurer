@@ -23,8 +23,7 @@ public class CrimsonMapleLeaf extends PCLRelic {
     protected void activateBattleEffect() {
         PCLActions.bottom.callback(() -> {
             ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Green).addAdditionalPower(MalleablePower.POWER_ID);
-            ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Green).addCombustion(ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Red));
-            ConjurerReactionMeter.meter.getReactionButton(PCLAffinity.Orange, PCLAffinity.Red).switchType();
+            ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Green).addReaction(ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Red));
             for (ConjurerElementButton element : ConjurerReactionMeter.meter.getElementButtons()) {
                 element.currentCost *= getValue();
             }

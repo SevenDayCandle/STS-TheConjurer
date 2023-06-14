@@ -10,7 +10,7 @@ public class GenshinImpact extends ConjurerLoadout {
     public static final String ID = createID(GenshinImpact.class);
 
     public GenshinImpact() {
-        super(ID, 0);
+        super(ID, 1);
     }
 
     protected void setDefaultCardsForData(PCLLoadoutData data) {

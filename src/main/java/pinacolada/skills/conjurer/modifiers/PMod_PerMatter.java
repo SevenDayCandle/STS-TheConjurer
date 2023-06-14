@@ -10,29 +10,29 @@ import pinacolada.skills.fields.PField_Not;
 import pinacolada.skills.skills.base.modifiers.PMod_Per;
 import pinacolada.ui.combat.ConjurerReactionMeter;
 
-public class PMod_PerReaction extends PMod_Per<PField_Not> {
+public class PMod_PerMatter extends PMod_Per<PField_Not> {
 
-    public static final PSkillData<PField_Not> DATA = register(PMod_PerReaction.class, PField_Not.class, ConjurerEnum.Cards.THE_CONJURER).selfTarget();
+    public static final PSkillData<PField_Not> DATA = register(PMod_PerMatter.class, PField_Not.class, ConjurerEnum.Cards.THE_CONJURER).selfTarget();
 
-    public PMod_PerReaction(PSkillSaveData content) {
+    public PMod_PerMatter(PSkillSaveData content) {
         super(DATA, content);
     }
 
-    public PMod_PerReaction() {
+    public PMod_PerMatter() {
         super(DATA);
     }
 
-    public PMod_PerReaction(int amount) {
+    public PMod_PerMatter(int amount) {
         super(DATA, PCLCardTarget.None, amount);
     }
 
     @Override
     public int getMultiplier(PCLUseInfo info) {
-        return ConjurerReactionMeter.meter.getReactionCount();
+        return ConjurerReactionMeter.meter.getMatter();
     }
 
     @Override
     public String getSubText() {
-        return ConjurerResources.conjurer.tooltips.reaction.title;
+        return ConjurerResources.conjurer.tooltips.matter.title;
     }
 }

@@ -45,7 +45,6 @@ import pinacolada.utilities.PCLRenderHelpers;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 
 import static extendedui.EUIUtils.array;
 
@@ -62,7 +61,6 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
     public static final int STARTING_CHARGE = 2;
     public static final int MAX_CHARGE = 5;
     public static final ConjurerReactionMeter meter = new ConjurerReactionMeter();
-    private final HashMap<ConjurerElementButton.Type, Integer> totalReactions = new HashMap<>();
     protected ArrayList<ConjurerElementButton> elements = new ArrayList<>();
     protected ConjurerElementButton fire;
     protected ConjurerElementButton air;
@@ -77,11 +75,12 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
     protected EUITextBox reactionCountText;
     protected EUITooltip chargeTooltip;
     protected PCLClickableUse charges;
-    protected int reactionCount;
+    protected int matterCount;
+    protected int totalReactions;
     protected PCLAffinity lastUpgrade = PCLAffinity.General;
     protected PCLClickableUse skips;
     private AffinityReactions previewReactions;
-    private int reactionPreview;
+    private int matterPreview;
 
 
     public ConjurerReactionMeter() {
@@ -107,10 +106,10 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
         skips = new PCLClickableUse(this, (a, b) -> tryUseCharge(lastUpgrade, b), PCLCardTarget.Single, MAX_CHARGE, false, true);
 
         reactionHeader = new EUILabel(EUIFontHelper.cardTitleFontSmall,
-                RelativeHitbox.fromPercentages(hb, 2, 2, 8f, 0.1f)).setLabel(ConjurerResources.conjurer.tooltips.reaction.title)
+                RelativeHitbox.fromPercentages(hb, 2, 2, 8f, 0.1f)).setLabel(ConjurerResources.conjurer.tooltips.matter.title)
                 .setFontScale(0.8f)
                 .setAlignment(0.85f, 0.5f)
-                .setTooltip(ConjurerResources.conjurer.tooltips.reaction);
+                .setTooltip(ConjurerResources.conjurer.tooltips.matter);
         reactionCountText = new EUITextBox(EUIRM.images.panelEllipticalHalfH.texture(), RelativeHitbox.fromPercentages(hb, 2, 1.8f, 8f, -0.47f))
                 .setColors(EUIColors.black(0.6f), Settings.CREAM_COLOR)
                 .setAlignment(0.5f, 0.5f)
@@ -159,20 +158,10 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
     }
 
     public void addCount(int amount, boolean flash) {
-        this.reactionPreview = this.reactionCount = this.reactionCount + amount;
+        this.matterPreview = this.matterCount = this.matterCount + amount;
         if (flash) {
             reactionCountText.label.setFontScale(8.0f);
         }
-    }
-
-    public void addExtraReactions() {
-        water.addCombustion(light);
-        light.addCombustion(dark);
-        light.addCombustion(earth);
-        light.addRedox(water);
-        earth.addRedox(light);
-        light.addCombustion(dark);
-        dark.addCombustion(light);
     }
 
     public void flash(PCLAffinity affinity) {
@@ -201,9 +190,10 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
                 SUMMON_TUTORIAL2,
                 SUMMON_TUTORIAL3,
                 SUMMON_TUTORIAL4,
-                new EUITutorialPage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.elementalDebuff.title), ConjurerResources.conjurer.strings.conjurerTutorial1),
-                new EUITutorialPage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.reaction.title, 1), ConjurerResources.conjurer.strings.conjurerTutorial2),
-                new EUITutorialPage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.reaction.title, 2), ConjurerResources.conjurer.strings.conjurerTutorial3)
+                new EUITutorialPage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.elementalDebuff.title, 1), ConjurerResources.conjurer.strings.conjurerTutorial1),
+                new EUITutorialPage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.elementalDebuff.title, 2), ConjurerResources.conjurer.strings.conjurerTutorial2),
+                new EUITutorialPage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.elementalDebuff.title, 3), ConjurerResources.conjurer.strings.conjurerTutorial3),
+                new EUITutorialPage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.matter.title, 3), ConjurerResources.conjurer.strings.conjurerTutorial4)
         );
     }
 
@@ -268,7 +258,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
 
     @Override
     public Object getRerollDescription() {
-        return ConjurerResources.conjurer.tooltips.reaction.title;
+        return ConjurerResources.conjurer.tooltips.matter.title;
     }
 
     public void initialize() {
@@ -276,14 +266,14 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
         for (ConjurerElementButton b : elements) {
             b.initialize();
         }
-        reactionPreview = reactionCount = 0;
+        matterPreview = matterCount = 0;
         skips.setUses(STARTING_CHARGE, MAX_CHARGE, false, true);
         set(GameUtilities.getRandomElement(PCLAffinity.getAvailableAffinities()), 0);
         if (lastUpgrade == null) {
             set(PCLAffinity.General, 0);
         }
         previewReactions = null;
-        totalReactions.clear();
+        totalReactions = 0;
         enableCharges(false);
 
         addDefaultReactions();
@@ -322,23 +312,23 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
             previewReactions = getReactions(card, card.pclTarget.getTargets(AbstractDungeon.player, target));
 
             int sum = isSwapIntended(card, originalCard) ? previewReactions.sum() * CombatManager.summons.triggerTimes : previewReactions.sum();
-            reactionPreview = reactionCount + sum;
+            matterPreview = matterCount + sum;
             for (ConjurerElementButton element : elements) {
                 element.updatePreview(previewReactions);
             }
         }
         else if (card == null) {
-            reactionPreview = reactionCount;
+            matterPreview = matterCount;
             for (ConjurerElementButton element : elements) {
                 element.unsetPreview();
                 if (element.hb.hovered && element.canIntensify()) {
-                    reactionPreview -= element.currentCost;
+                    matterPreview -= element.currentCost;
                 }
             }
         }
         reactionHeader.tryUpdate();
         reactionCountText.label.setFontScale(PCLRenderHelpers.lerpScale(reactionCountText.label.fontScale, BASE_AMOUNT_SCALE));
-        reactionCountText.setLabel(reactionPreview).setFontColor(isHighlighted() ? ACTIVE_COLOR : EUIColors.blue(1f)).tryUpdate();
+        reactionCountText.setLabel(matterPreview).setFontColor(isHighlighted() ? ACTIVE_COLOR : EUIColors.blue(1f)).tryUpdate();
 
         if (chargeHeader.isActive) {
             chargeHeader.update();
@@ -366,7 +356,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
     }
 
     public boolean isHighlighted() {
-        return reactionPreview != reactionCount;
+        return matterPreview != matterCount;
     }
 
     public float modifyBlock(float block, PCLCard source, PCLCard card, AbstractCreature target) {
@@ -376,7 +366,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
             for (PCLCardAffinity aff : source.affinities.getCardAffinities(true)) {
                 for (AbstractPower p : target.powers) {
                     for (ConjurerElementButton element : getElementButtons()) {
-                        if (element.canRedox(aff.type, p.ID)) {
+                        if (element.canReact(aff.type, p.ID)) {
                             {
                                 multiplier += AbstractPCLElementalPower.getAmplifyMultiplier(aff.type) * aff.level;
                             }
@@ -397,7 +387,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
             for (PCLCardAffinity aff : source.affinities.getCardAffinities(true)) {
                 for (AbstractPower p : target.powers) {
                     for (ConjurerElementButton element : getElementButtons()) {
-                        if (element.canCombust(aff.type, p.ID)) {
+                        if (element.canReact(aff.type, p.ID)) {
                             multiplier += AbstractPCLElementalPower.getAmplifyMultiplier(aff.type) * aff.level;
                         }
                     }
@@ -415,7 +405,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
             PCLAffinity aff = ((PCLOrb) orb).affinity;
             for (AbstractPower p : target.powers) {
                 for (ConjurerElementButton element : getElementButtons()) {
-                    if (element.canCombust(aff, p.ID)) {
+                    if (element.canReact(aff, p.ID)) {
                         multiplier += AbstractPCLElementalPower.getAmplifyMultiplier(aff);
                     }
                 }
@@ -442,15 +432,10 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
     }
 
     public void addDefaultReactions() {
-        fire.addCombustion(water);
-        air.addCombustion(earth);
-        water.addCombustion(fire);
-        earth.addCombustion(air);
-
-        fire.addRedox(earth);
-        air.addRedox(water);
-        water.addRedox(air);
-        earth.addRedox(fire);
+        fire.addReaction(water);
+        water.addReaction(air);
+        air.addReaction(earth);
+        earth.addReaction(fire);
     }
 
     public ConjurerElementButton getElementButton(PCLAffinity affinity) {
@@ -458,7 +443,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
     }
 
     public int getPreviewGain() {
-        return reactionPreview - reactionCount;
+        return matterPreview - matterCount;
     }
 
     public AffinityReactions getPreviewReactions()
@@ -471,8 +456,8 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
         return destButton != null ? destButton.reactions.get(target) : null;
     }
 
-    public int getReactionCount() {
-        return reactionCount;
+    public int getMatter() {
+        return matterCount;
     }
 
     public AffinityReactions getReactions(AbstractCard card, Collection<? extends AbstractCreature> mo) {
@@ -491,11 +476,8 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
                     for (ConjurerElementButton button : getElementButtons()) {
                         if (button.matchesPower(po.ID)) {
                             for (PCLCardAffinity af : affs) {
-                                if (button.hasCombust(af.type)) {
-                                    reactions.addCombust(button.affinity, af.type, button.reactionGain(po, af, ConjurerElementButton.Type.Combust));
-                                }
-                                if (button.hasRedox(af.type)) {
-                                    reactions.addRedox(button.affinity, af.type, button.reactionGain(po, af, ConjurerElementButton.Type.Redox));
+                                if (button.hasReact(af.type)) {
+                                    reactions.addReaction(button.affinity, af.type, button.reactionGain(po, af));
                                 }
                             }
                         }
@@ -510,8 +492,8 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
         return elements;
     }
 
-    public int getTotalReactionsMade(ConjurerElementButton.Type type) {
-        return totalReactions.getOrDefault(type, 0);
+    public int getTotalReactionsMade() {
+        return totalReactions;
     }
 
     public boolean isPowerElemental(String id, PCLAffinity affinity) {
@@ -527,11 +509,8 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
     }
 
     public void onReaction(AffinityReactions reactions) {
-        if (reactions.hasCombust()) {
-            totalReactions.merge(ConjurerElementButton.Type.Combust, 1, Integer::sum);
-        }
-        if (reactions.hasRedox()) {
-            totalReactions.merge(ConjurerElementButton.Type.Redox, 1, Integer::sum);
+        if (reactions.hasReaction()) {
+            totalReactions += 1;
         }
     }
 
@@ -541,8 +520,8 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
         }
     }
 
-    public boolean trySpendCount(int amount) {
-        if (reactionCount < amount) {
+    public boolean trySpendMatter(int amount) {
+        if (matterCount < amount) {
             return false;
         }
         addCount(-amount, false);

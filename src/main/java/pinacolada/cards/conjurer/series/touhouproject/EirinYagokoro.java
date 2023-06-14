@@ -16,7 +16,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 import pinacolada.skills.PSkill;
-import pinacolada.skills.PTrait;
+import pinacolada.skills.skills.PTrait;
 import pinacolada.skills.skills.PCustomMod;
 
 @VisibleCard

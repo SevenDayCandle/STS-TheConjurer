@@ -123,13 +123,11 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Mult
         String sub = getUpdatedDescriptionImpl();
         if (PGR.isLoaded()) {
             final PowerStrings strings = PGR.getPowerStrings(POWER_ID);
-            Set<PCLAffinity> affs = ConjurerReactionMeter.meter.getElementButton(getAffinity()).getCombustAffinities();
-            Set<PCLAffinity> rAffs = ConjurerReactionMeter.meter.getElementButton(getAffinity()).getRedoxAffinities();
+            Set<PCLAffinity> affs = ConjurerReactionMeter.meter.getElementButton(getAffinity()).getReactAffinities();
             return EUIUtils.joinStrings(" ",
                     EUIUtils.format(strings.DESCRIPTIONS[0]
                             , getIntensifyMultiplier()
-                            , PCLCoreStrings.joinWithAnd(EUIUtils.map(affs, a -> a.getTooltip().getTitleOrIcon()))
-                            , PCLCoreStrings.joinWithAnd(EUIUtils.map(rAffs, a -> a.getTooltip().getTitleOrIcon()))),
+                            , PCLCoreStrings.joinWithAnd(EUIUtils.map(affs, a -> a.getTooltip().getTitleOrIcon()))),
                     sub,
                     stabilizeTurns > 0 ? EUIUtils.format(strings.DESCRIPTIONS[2], stabilizeTurns + 1) : strings.DESCRIPTIONS[1]
             );

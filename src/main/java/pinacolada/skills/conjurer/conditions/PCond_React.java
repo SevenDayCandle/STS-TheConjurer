@@ -18,22 +18,21 @@ import pinacolada.skills.fields.PField_Affinity;
 import pinacolada.skills.skills.PPassiveCond;
 import pinacolada.skills.skills.PTrigger;
 
-public class PCond_Redox extends PPassiveCond<PField_Affinity> implements OnElementReactSubscriber {
-
-    public static final PSkillData<PField_Affinity> DATA = register(PCond_Redox.class, PField_Affinity.class, 1, 1)
+public class PCond_React extends PPassiveCond<PField_Affinity> implements OnElementReactSubscriber {
+    public static final PSkillData<PField_Affinity> DATA = register(PCond_React.class, PField_Affinity.class, 1, 1)
             .setColors(ConjurerEnum.Cards.THE_CONJURER)
             .selfTarget();
 
-    public PCond_Redox() {
-        this((PCLAffinity) null);
+    public PCond_React() {
+        super(DATA, PCLCardTarget.None, 0);
     }
 
-    public PCond_Redox(PCLAffinity... affinities) {
+    public PCond_React(PCLAffinity... affinities) {
         super(DATA, PCLCardTarget.None, 0);
         fields.setAffinity(affinities);
     }
 
-    public PCond_Redox(PSkillSaveData content) {
+    public PCond_React(PSkillSaveData content) {
         super(DATA, content);
     }
 
@@ -43,21 +42,21 @@ public class PCond_Redox extends PPassiveCond<PField_Affinity> implements OnElem
         if (cInfo == null) {
             return false;
         }
-        return fields.random ^ (fields.affinities.isEmpty() ? cInfo.reactions.hasRedox() : EUIUtils.all(fields.affinities, cInfo.reactions::hasRedox));
+        return fields.random ^ (fields.affinities.isEmpty() ? cInfo.reactions.hasReaction() : EUIUtils.all(fields.affinities, cInfo.reactions::hasReaction));
     }
 
     @Override
     public String getSubText() {
         if (hasParentType(PTrigger.class)) {
-            return TEXT.cond_wheneverYou(fields.affinities.isEmpty() ? ConjurerResources.conjurer.tooltips.redox.title : EUIRM.strings.verbNoun(ConjurerResources.conjurer.tooltips.redox.title, fields.getAffinityLevelOrString()));
+            return TEXT.cond_wheneverYou(fields.affinities.isEmpty() ? ConjurerResources.conjurer.tooltips.reaction.title : EUIRM.strings.verbNoun(ConjurerResources.conjurer.tooltips.reaction.title, fields.getAffinityLevelOrString()));
         }
-        String base = fields.affinities.isEmpty() ? ConjurerResources.conjurer.tooltips.redox.title : EUIRM.strings.adjNoun(fields.getAffinityLevelOrString(), ConjurerResources.conjurer.tooltips.redox.title);
+        String base = fields.affinities.isEmpty() ? ConjurerResources.conjurer.tooltips.reaction.title : EUIRM.strings.adjNoun(fields.getAffinityLevelOrString(), ConjurerResources.conjurer.tooltips.reaction.title);
         return fields.random ? TEXT.cond_not(base) : base;
     }
 
     @Override
     public void onElementReact(AffinityReactions reactions, AbstractCreature abstractCreature) {
-        if (fields.affinities.isEmpty() ? reactions.hasRedox() : EUIUtils.all(fields.affinities, reactions::hasRedox)) {
+        if (fields.affinities.isEmpty() ? reactions.hasReaction() : EUIUtils.all(fields.affinities, reactions::hasReaction)) {
             useFromTrigger(makeInfo(abstractCreature));
         }
     }

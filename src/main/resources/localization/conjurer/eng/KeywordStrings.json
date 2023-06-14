@@ -1,6 +1,6 @@
 {
 	"Aer": {
-		"DESCRIPTION": "[A-G] #yElemental #yDebuff. Reactions grant you charges to be used during your turn to draw cards.",
+		"DESCRIPTION": "Playing [A-O] cards on targets with [Aer] grants charges to be used during your turn to draw cards.",
 		"NAME": "Aer"
 	},
 	"Blasted": {
@@ -11,13 +11,6 @@
 		"DESCRIPTION": "Apply the last #yElemental #yDebuff you manually leveled up to an enemy. The first time each turn you level up an #yElemental #yDebuff manually, gain #b1 #yCharge.",
 		"NAME": "Charge"
 	},
-	"Combust": {
-		"DESCRIPTION": "#yCombust an #yElemental #yDebuff by playing an #yAffinity card against a target with it. Blue arrows on the #yReaction #yMeter denote #yCombusts.",
-		"NAME": "Combust",
-		"PAST": "combusted",
-		"PRESENT": "combusts",
-		"PROGRESSIVE": "combusting"
-	},
 	"Corrosion": {
 		"DESCRIPTION": "[A-P] #yElemental #yDebuff. When #yAttacking, deal a portion of damage dealt to yourself and ALL allies.",
 		"NAME": "Corrosion"
@@ -27,7 +20,7 @@
 								"NAME": "Death"
 				},
 	"Elemental Debuff": {
-		"DESCRIPTION": "[Ignis], [Gelus], [Aer], [Petra]. Remove at the end of the round.",
+		"DESCRIPTION": "[Ignis], [Gelus], [Aer], [Petra]. Playing cards on targets with these debuffs triggers #yReactions. Remove at the end of the round.",
 		"NAME": "Elemental Debuff",
 		"PLURAL": "elemental debuffs"
 	},
@@ -48,38 +41,31 @@
 		"NAME": "Frostbite"
 	},
 	"Gelus": {
-		"DESCRIPTION": "[A-B] #yElemental #yDebuff. Reactions on a non-#ySummon target increases damage it takes and decreases damage it deals.",
+		"DESCRIPTION": "Playing [A-G] cards on targets with [Gelus] increases damage they takes and decreases damage they deal.",
 		"NAME": "Gelus"
 	},
 	"Ignis": {
-		"DESCRIPTION": "[A-R] #yElemental #yDebuff. Reactions on a non-#ySummon target damage it at the start of its turn.",
+		"DESCRIPTION": "Playing [A-B] cards on targets with [Ignis] damages them at the start of their turn.",
 		"NAME": "Ignis"
 	},
 	"Lux": {
 		"DESCRIPTION": "[A-Y] #yElemental #yDebuff. Reactions on the target are multiplied.",
 		"NAME": "Lux"
 	},
-	"Morph": {
-		"DESCRIPTION": "Change both directions of a #yCombust reaction into a #yRedox or vice versa.",
-		"NAME": "Morph",
-		"PAST": "morphed",
-		"PRESENT": "morphs",
-		"PROGRESSIVE": "morphing"
+	"Matter": {
+		"DESCRIPTION": "Obtained from #yCombusting and #yRedoxing. Can be spent to level #yElemental #yDebuffs.",
+		"NAME": "Matter"
 	},
 	"Petra": {
-		"DESCRIPTION": "[A-O] #yElemental #yDebuff. Reactions on the target grant you [Block].",
+		"DESCRIPTION": "Playing [A-R] cards on targets with [Petra] grant you [Block].",
 		"NAME": "Petra"
 	},
 	"Reaction": {
-		"DESCRIPTION": "Obtained from #yCombusting and #yRedoxing. Can be spent to level #yElemental #yDebuffs.",
-		"NAME": "Reaction"
-	},
-	"Redox": {
-		"DESCRIPTION": "#yRedox an #yElemental #yDebuff by playing an #yAffinity card against a target with it. Brown arrows on the #yReaction #yMeter denote #yRedoxes.",
-		"NAME": "Redox",
-		"PAST": "redoxed",
-		"PRESENT": "redoxes",
-		"PROGRESSIVE": "redoxing"
+		"DESCRIPTION": "Occurs upon playing a card with an #yAffinity that activates the target's #yElemental #yDebuff. This also grants #yMatter.",
+		"NAME": "Reaction",
+		"PAST": "Reacted",
+		"PRESENT": "Reacts",
+		"PROGRESSIVE": "Reacting"
 	},
 				"Umbra": {
 								"DESCRIPTION": "[A-P] #yElemental #yDebuff. Reactions on a non-#ySummon target applies a debuff that causes its #yAttacks to damage itself.",

@@ -11,9 +11,8 @@ import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;
-import pinacolada.skills.PTrait;
 import pinacolada.skills.skills.PCustomMod;
-import pinacolada.ui.combat.ConjurerElementButton;
+import pinacolada.skills.skills.PTrait;
 import pinacolada.ui.combat.ConjurerReactionMeter;
 
 @VisibleCard
@@ -39,7 +38,7 @@ public class LavaEruption extends PCLCard {
 
         @Override
         public int getModifiedAmount(PSkill<?> be, PCLUseInfo info) {
-            return ConjurerReactionMeter.meter.getTotalReactionsMade(ConjurerElementButton.Type.Redox);
+            return ConjurerReactionMeter.meter.getTotalReactionsMade();
         }
     }
 }

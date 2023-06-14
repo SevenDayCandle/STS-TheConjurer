@@ -18,6 +18,15 @@ public class ConjurerStrings extends PCLStrings {
     public final String conjurerTutorial1 = tutorial.TEXT[1];
     public final String conjurerTutorial2 = tutorial.TEXT[2];
     public final String conjurerTutorial3 = tutorial.TEXT[3];
+    public final String conjurerTutorial4 = tutorial.TEXT[4];
+    public final String conjurerInteractive1 = tutorial.TEXT[5];
+    public final String conjurerInteractive2 = tutorial.TEXT[6];
+    public final String conjurerInteractive3 = tutorial.TEXT[7];
+    public final String conjurerInteractive4 = tutorial.TEXT[8];
+    public final String conjurerSummonInteractive1 = tutorial.TEXT[9];
+    public final String conjurerSummonInteractive2 = tutorial.TEXT[10];
+    public final String conjurerSummonInteractive3 = tutorial.TEXT[11];
+    public final String conjurerSummonInteractive4 = tutorial.TEXT[12];
     public ConjurerStrings(PCLResources<?, ?, ?, ?> resources) {
         super(resources);
     }

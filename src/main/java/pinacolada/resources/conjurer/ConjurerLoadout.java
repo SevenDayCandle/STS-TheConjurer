@@ -1,5 +1,7 @@
 package pinacolada.resources.conjurer;
 
+import pinacolada.relics.conjurer.DisguisePropBox;
+import pinacolada.relics.conjurer.QuadraticGlobe;
 import pinacolada.resources.PGR;
 import pinacolada.resources.loadout.PCLLoadout;
 import pinacolada.resources.loadout.PCLRelicSlot;
@@ -28,5 +30,7 @@ public class ConjurerLoadout extends PCLLoadout {
 
     public void addLoadoutRelics(PCLRelicSlot r1) {
         super.addLoadoutRelics(r1);
+        r1.addItem(new QuadraticGlobe(), 5);
+        r1.addItem(new DisguisePropBox(), 20);
     }
 }

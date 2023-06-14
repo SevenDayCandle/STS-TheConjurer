@@ -9,7 +9,7 @@ import pinacolada.effects.EffekseerEFK;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
-import pinacolada.skills.conjurer.modifiers.PMod_PerReaction;
+import pinacolada.skills.conjurer.modifiers.PMod_PerMatter;
 
 @VisibleCard
 public class ExothermicCannon extends PCLCard {
@@ -25,6 +25,6 @@ public class ExothermicCannon extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(EffekseerEFK.BLOW04);
-        addUseMove(new PMod_PerReaction(3).setExtra(8).setUpgrade(0, -1).setUpgradeExtra(0, 2), PMove.applyToSingle(1, PCLElementHelper.Ignis));
+        addUseMove(new PMod_PerMatter(3).setExtra(8).setUpgrade(0, -1).setUpgradeExtra(0, 2), PMove.applyToSingle(1, PCLElementHelper.Ignis));
     }
 }

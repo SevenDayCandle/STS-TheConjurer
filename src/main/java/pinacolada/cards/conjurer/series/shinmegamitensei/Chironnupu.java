@@ -29,6 +29,6 @@ public class Chironnupu extends PCLCard {
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
         addUseMove(PCond.isAttacking(PCLCardTarget.Single),
-                CMove.gainReaction(7).setUpgrade(3));
+                CMove.gainMatter(7).setUpgrade(3));
     }
 }

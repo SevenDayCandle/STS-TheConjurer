@@ -11,7 +11,7 @@ import pinacolada.skills.skills.PTrigger;
 
 @VisibleRelic
 public class StraightShooter extends PCLPointerRelic {
-    public static final PCLRelicData DATA = register(PeriodicTable.class, ConjurerResources.conjurer)
+    public static final PCLRelicData DATA = register(StraightShooter.class, ConjurerResources.conjurer)
             .setProps(RelicTier.UNCOMMON, LandingSound.CLINK);
 
     public StraightShooter() {

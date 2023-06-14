@@ -26,6 +26,6 @@ public class RazorTurbine extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(ConjurerEFK.WIND02);
-        addUseMove(CMod.bonusOnRedox(1), PMove.draw(2));
+        addUseMove(CMod.bonusOnReact(1), PMove.draw(2));
     }
 }
