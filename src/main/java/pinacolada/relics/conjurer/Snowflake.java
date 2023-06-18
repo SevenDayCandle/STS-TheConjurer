@@ -11,7 +11,7 @@ import pinacolada.skills.skills.special.primary.PRoot;
 @VisibleRelic
 public class Snowflake extends PCLPointerRelic {
     public static final PCLRelicData DATA = register(Snowflake.class, ConjurerResources.conjurer)
-            .setProps(RelicTier.COMMON, LandingSound.FLAT);
+            .setProps(RelicTier.COMMON, LandingSound.MAGICAL);
 
     public Snowflake() {
         super(DATA);

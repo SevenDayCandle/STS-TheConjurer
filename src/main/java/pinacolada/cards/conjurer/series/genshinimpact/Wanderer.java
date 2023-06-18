@@ -21,7 +21,7 @@ import pinacolada.skills.PSkill;
 @VisibleCard
 public class Wanderer extends PCLCard {
     public static final PCLCardData DATA = register(Wanderer.class, ConjurerResources.conjurer)
-            .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
+            .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Piercing, PCLCardTarget.RandomEnemy)
             .setDamage(1, 0, 2)
             .setRTags(PCLCardTag.Ethereal)
             .setHp(5, 1)

@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.series.touhouproject;
 
 
+import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
@@ -51,12 +52,13 @@ public class Patchouli extends PCLCard {
             super(data, 0, amount, choices);
         }
 
-        protected void useImpl(PCLUseInfo info) {
+        @Override
+        protected void useImpl(PCLUseInfo info, PCLActions order) {
             RandomizedList<PSkill<?>> choices = new RandomizedList<>(getDebuffs());
             while (choices.size() > extra) {
                 choices.retrieve(rng, true);
             }
-            getActions().tryChooseSkill(getPCLSource().cardData, amount, info.source, info.target, choices);
+            order.tryChooseSkill(getPCLSource().cardData, amount, info.source, info.target, choices);
         }
 
         protected ArrayList<PSkill<?>> getDebuffs() {
@@ -71,8 +73,8 @@ public class Patchouli extends PCLCard {
 
                 if (GameUtilities.getPlayerClass() == ConjurerEnum.Characters.THE_CONJURER) {
                     debuffs.add(PMove.applyToSingle(3, PCLElementHelper.Ignis));
-                    debuffs.add(PMove.applyToSingle(3, PCLElementHelper.Gelus));
-                    debuffs.add(PMove.applyToSingle(3, PCLElementHelper.Aer));
+                    debuffs.add(PMove.applyToSingle(3, PCLElementHelper.Aqua));
+                    debuffs.add(PMove.applyToSingle(3, PCLElementHelper.Ventus));
                     debuffs.add(PMove.applyToSingle(3, PCLElementHelper.Petra));
                 }
             }

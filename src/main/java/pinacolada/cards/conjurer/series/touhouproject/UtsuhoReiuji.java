@@ -27,7 +27,7 @@ import java.util.HashSet;
 public class UtsuhoReiuji extends PCLCard {
     public static final PCLCardData DATA = register(UtsuhoReiuji.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy)
-            .setDamage(5, 0)
+            .setDamage(4, 0)
             .setHp(7, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.touhouProject);
@@ -41,7 +41,7 @@ public class UtsuhoReiuji extends PCLCard {
         addUseMove(PCond.onSummon(), getSpecialMove(0, this::specialMove, 4).setUpgrade(1).setTarget(PCLCardTarget.All));
     }
 
-    public void specialMove(PSpecialSkill move, PCLUseInfo info) {
+    public void specialMove(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
         HashSet<PCLAffinity> available = new HashSet<>(Arrays.asList(PCLAffinity.getAvailableAffinities()));
         available.add(PCLAffinity.Star);
 
@@ -54,7 +54,7 @@ public class UtsuhoReiuji extends PCLCard {
                                 if (available.contains(aff)) {
                                     PCLElementHelper debuff = PCLElementHelper.get(aff);
                                     if (debuff != null) {
-                                        move.getActions().applyPower(info.source, info.target, move.target, debuff, move.amount);
+                                        order.applyPower(info.source, info.target, move.target, debuff, move.amount);
                                     }
                                 }
                             }

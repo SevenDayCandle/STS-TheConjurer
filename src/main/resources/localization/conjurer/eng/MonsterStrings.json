@@ -1,0 +1,14 @@
+{
+	"conjurer:ConjurerSummonTutorialMonster":
+	{
+		"MOVES": [],
+		"NAME": "Summon Tutorial",
+		"DIALOG": [""]
+	},
+	"conjurer:ConjurerTutorialMonster":
+	{
+		"MOVES": [],
+		"NAME": "Element Tutorial",
+		"DIALOG": [""]
+	}
+}

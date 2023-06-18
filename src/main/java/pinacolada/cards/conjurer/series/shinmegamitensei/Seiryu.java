@@ -32,7 +32,7 @@ public class Seiryu extends PCLCard {
         addDamageMove(PCLAttackVFX.CLAW);
         addUseMove(PCond.cooldown(0), PMultiSkill.choose(
                 CMove.gainMatter(10).setUpgrade(3),
-                PMove.applyToEnemies(2, PCLElementHelper.Aer)
+                PMove.applyToEnemies(2, PCLElementHelper.Ventus)
         ));
     }
 }

@@ -1,7 +1,7 @@
 {
-	"Aer": {
-		"DESCRIPTION": "Playing [A-O] cards on targets with [Aer] grants charges to be used during your turn to draw cards.",
-		"NAME": "Aer"
+	"Aqua": {
+		"DESCRIPTION": "Playing [A-G] cards on targets with [Aqua] increases damage they take and decreases damage they deal.",
+		"NAME": "Aqua"
 	},
 	"Blasted": {
 		"DESCRIPTION": "Take damage at the start of turn, then reduce stacks in half.",
@@ -15,12 +15,12 @@
 		"DESCRIPTION": "[A-P] #yElemental #yDebuff. When #yAttacking, deal a portion of damage dealt to yourself and ALL allies.",
 		"NAME": "Corrosion"
 	},
-				"Death": {
-								"DESCRIPTION": "Your #yAttacks deal a portion of its damage to yourself. At the end of turn, you have a chance of instantly dying.",
-								"NAME": "Death"
-				},
+	"Death": {
+		"DESCRIPTION": "Your #yAttacks deal a portion of its damage to yourself. At the end of turn, you have a chance of instantly dying.",
+		"NAME": "Death"
+	},
 	"Elemental Debuff": {
-		"DESCRIPTION": "[Ignis], [Gelus], [Aer], [Petra]. Playing cards on targets with these debuffs triggers #yReactions. Remove at the end of the round.",
+		"DESCRIPTION": "[Ignis], [Aqua], [Ventus], [Petra]. Playing cards on targets with these debuffs triggers #yReactions. Remove at the end of the round.",
 		"NAME": "Elemental Debuff",
 		"PLURAL": "elemental debuffs"
 	},
@@ -40,10 +40,6 @@
 		"DESCRIPTION": "Every #b{0} stacks increases damage taken and reduces damage dealt by #b1. At round end, reduce stacks by #b75%.",
 		"NAME": "Frostbite"
 	},
-	"Gelus": {
-		"DESCRIPTION": "Playing [A-G] cards on targets with [Gelus] increases damage they takes and decreases damage they deal.",
-		"NAME": "Gelus"
-	},
 	"Ignis": {
 		"DESCRIPTION": "Playing [A-B] cards on targets with [Ignis] damages them at the start of their turn.",
 		"NAME": "Ignis"
@@ -53,7 +49,7 @@
 		"NAME": "Lux"
 	},
 	"Matter": {
-		"DESCRIPTION": "Obtained from #yCombusting and #yRedoxing. Can be spent to level #yElemental #yDebuffs.",
+		"DESCRIPTION": "#yReactions grant #yMatter. Can be spent to level #yElemental #yDebuffs.",
 		"NAME": "Matter"
 	},
 	"Petra": {
@@ -63,12 +59,21 @@
 	"Reaction": {
 		"DESCRIPTION": "Occurs upon playing a card with an #yAffinity that activates the target's #yElemental #yDebuff. This also grants #yMatter.",
 		"NAME": "Reaction",
+		"PLURAL": "Reactions",
 		"PAST": "Reacted",
 		"PRESENT": "Reacts",
 		"PROGRESSIVE": "Reacting"
 	},
-				"Umbra": {
-								"DESCRIPTION": "[A-P] #yElemental #yDebuff. Reactions on a non-#ySummon target applies a debuff that causes its #yAttacks to damage itself.",
-								"NAME": "Umbra"
-				}
+	"Tether": {
+		"DESCRIPTION": "Activates if the #ySummon in front of it meets the given condition.",
+		"NAME": "Tether"
+	},
+	"Umbra": {
+		"DESCRIPTION": "[A-P] #yElemental #yDebuff. Reactions on a non-#ySummon target applies a debuff that causes its #yAttacks to damage itself.",
+		"NAME": "Umbra"
+	},
+	"Ventus": {
+		"DESCRIPTION": "Playing [A-O] cards on targets with [Ventus] grants charges to be used during your turn to draw cards.",
+		"NAME": "Ventus"
+	}
 }

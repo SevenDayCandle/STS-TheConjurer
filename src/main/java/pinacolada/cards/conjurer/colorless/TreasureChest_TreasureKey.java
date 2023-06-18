@@ -28,8 +28,8 @@ public class TreasureChest_TreasureKey extends PCLCard {
         addSpecialMove(0, this::action);
     }
 
-    public void action(PSpecialSkill move, PCLUseInfo info) {
-        PCLActions.bottom.selectFromPile(move.getName(), 1, player.hand)
+    public void action(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
+        order.selectFromPile(move.getName(), 1, player.hand)
                 .setFilter(c -> TreasureChest.DATA.ID.equals(c.cardID))
                 .addCallback(cards -> {
                     for (AbstractCard c : cards) {

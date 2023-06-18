@@ -14,12 +14,11 @@ import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
-import pinacolada.skills.delay.DelayTiming;
 
 @VisibleCard
 public class KuluYaKu extends PCLCard {
     public static final PCLCardData DATA = register(KuluYaKu.class, ConjurerResources.conjurer)
-            .setSummon(1, CardRarity.COMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy, DelayTiming.EndOfTurnFirst)
+            .setSummon(1, CardRarity.COMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
             .setCostUpgrades(-1)
             .setDamage(4, 0, 0)
             .setHp(4, 0)

@@ -31,6 +31,7 @@ public class LuxPower extends AbstractPCLElementalPower implements OnTryElementR
         return (int) calculateValue(amount, getIntensifyMultiplier());
     }
 
+    @Override
     public float calculateValue(int amount, float multiplier) {
         return amount + MathUtils.ceil(amount * (multiplier / 100f));
     }

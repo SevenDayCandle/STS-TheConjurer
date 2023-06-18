@@ -31,8 +31,8 @@ public class Enervate extends PCLCard {
         addSpecialMove(0, this::action, 2).setUpgrade(1);
     }
 
-    public void action(PSpecialSkill move, PCLUseInfo info) {
+    public void action(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
         int strength = GameUtilities.getPowerAmount(info.target, StrengthPower.POWER_ID) / 2;
-        PCLActions.bottom.applyPower(info.source, info.target, PCLCardTarget.Single, PCLPowerHelper.Strength, -(strength > 0 ? strength + move.amount : move.amount));
+        order.applyPower(info.source, info.target, PCLCardTarget.Single, PCLPowerHelper.Strength, -(strength > 0 ? strength + move.amount : move.amount));
     }
 }

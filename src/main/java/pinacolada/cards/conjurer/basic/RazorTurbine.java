@@ -16,8 +16,8 @@ import pinacolada.skills.PMove;
 public class RazorTurbine extends PCLCard {
     public static final PCLCardData DATA = register(RazorTurbine.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.UNCOMMON, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
-            .setDamage(4, 3)
-            .setAffinities(PCLAffinity.Green)
+            .setDamage(5, 3)
+            .setAffinities(2, PCLAffinity.Green)
             .setCore();
 
     public RazorTurbine() {

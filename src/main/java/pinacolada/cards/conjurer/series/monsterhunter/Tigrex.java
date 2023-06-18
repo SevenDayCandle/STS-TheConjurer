@@ -12,15 +12,15 @@ import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
-import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
+import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
 public class Tigrex extends PCLCard {
     public static final PCLCardData DATA = register(Tigrex.class, ConjurerResources.conjurer)
-            .setSummon(3, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
+            .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
             .setDamage(4, 1, 0)
-            .setHp(15, 0)
+            .setHp(12, 0)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 
@@ -29,7 +29,7 @@ public class Tigrex extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.BITE).setBonus(PMod.perCard(1, PCLCardGroupHelper.ExhaustPile),1);
-        addUseMove(PCond.cooldown(0), PCond.exhaustRandom(1), PMove.gainTempHP(PCLCardTarget.Team, 2));
+        addDamageMove(PCLAttackVFX.BITE);
+        addGainPower(PTrigger.when(PCond.haveTakenDamage(), PCond.exhaust(1, PCLCardGroupHelper.DiscardPile), PMove.gainTempHP(PCLCardTarget.Team, 2)));
     }
 }

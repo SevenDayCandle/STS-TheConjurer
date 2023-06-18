@@ -8,7 +8,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.dungeon.PCLUseInfo;
-import pinacolada.effects.PCLAttackVFX;
+import pinacolada.effects.ConjurerEFK;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;
 import pinacolada.skills.skills.PCustomMod;
@@ -28,7 +28,7 @@ public class LavaEruption extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.BURN).setChain(new LavaEruptionMod(DATA, 1), PTrait.damage(2).setUpgrade(1));
+        addDamageMove(ConjurerEFK.FIRE13).setChain(new LavaEruptionMod(DATA, 1), PTrait.damage(2).setUpgrade(1));
     }
 
     protected static class LavaEruptionMod extends PCustomMod {

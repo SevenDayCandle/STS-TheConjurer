@@ -6,6 +6,7 @@ import pinacolada.resources.PCLImages;
 public class ConjurerImages extends PCLImages {
     public final Core core = new Core();
     public final Monsters monsters = new Monsters();
+    public final Tutorial tutorial = new Tutorial();
 
     public ConjurerImages(String id) {
         super(id);
@@ -39,6 +40,19 @@ public class ConjurerImages extends PCLImages {
         public final TextureCache water2 = new TextureCache("images/conjurer/monsters/Water2.png");
         public final TextureCache water3 = new TextureCache("images/conjurer/monsters/Water3.png");
         public final TextureCache water4 = new TextureCache("images/conjurer/monsters/Water4.png");
+    }
+
+    public static class Tutorial {
+        public final TextureCache afftut01 = new TextureCache("images/conjurer/ui/tutorial/afftut01.png");
+        public final TextureCache etut01 = new TextureCache("images/conjurer/ui/tutorial/etut01.png");
+        public final TextureCache etut02 = new TextureCache("images/conjurer/ui/tutorial/etut02.png");
+        public final TextureCache etut03 = new TextureCache("images/conjurer/ui/tutorial/etut03.png");
+        public final TextureCache tut01 = new TextureCache("images/conjurer/ui/tutorial/tut01.png");
+        public final TextureCache tut02 = new TextureCache("images/conjurer/ui/tutorial/tut02.png");
+        public final TextureCache tut03 = new TextureCache("images/conjurer/ui/tutorial/tut03.png");
+        public final TextureCache tut04 = new TextureCache("images/conjurer/ui/tutorial/tut04.png");
+        public final TextureCache tut05 = new TextureCache("images/conjurer/ui/tutorial/tut05.png");
+        public final TextureCache tut06 = new TextureCache("images/conjurer/ui/tutorial/tut06.png");
     }
 
 }

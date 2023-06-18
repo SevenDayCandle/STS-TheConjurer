@@ -25,7 +25,7 @@ public class TropicalMonsoon extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(ConjurerEFK.MGC_Nature01);
-        addUseMove(PMove.applyToEnemies(2, PCLElementHelper.Gelus, PCLElementHelper.Aer).setUpgrade(1));
+        addDamageMove(ConjurerEFK.MGC_Nature03);
+        addUseMove(PMove.applyToEnemies(2, PCLElementHelper.Aqua, PCLElementHelper.Ventus).setUpgrade(1));
     }
 }

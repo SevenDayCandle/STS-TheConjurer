@@ -52,7 +52,7 @@ public class Cyno extends PCLCard {
             if (owner instanceof PCLCardAlly) {
                 PCLCard card = ((PCLCardAlly) owner).card;
                 if (card != null) {
-                    GameUtilities.modifyDamage(card, card.baseDamage + move.amount, false);
+                    GameUtilities.modifyDamage(card, card.baseDamage + move.amount, false, false);
                     flash();
                 }
             }

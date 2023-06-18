@@ -28,6 +28,6 @@ public class Chongyun extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.ICE);
-        addUseMove(PCond.cooldown(1), PMod.bonusPerLevel(2, PCLAffinity.Blue), PMove.applyToSingle(3, PCLElementHelper.Gelus));
+        addUseMove(PCond.cooldown(1), PMod.bonusPerLevel(2, PCLAffinity.Blue), PMove.applyToSingle(3, PCLElementHelper.Aqua));
     }
 }

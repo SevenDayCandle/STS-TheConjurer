@@ -29,8 +29,8 @@ public class OracleSphere extends PCLCard {
         addSpecialMove(0, this::action, 5).setUpgrade(2);
     }
 
-    public void action(PSpecialSkill move, PCLUseInfo info) {
-        PCLActions.bottom.reshuffleDiscardPile(false).addCallback(() -> {
+    public void action(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
+        order.reshuffleDiscardPile(false).addCallback(() -> {
             PCLActions.last.reshuffleFromPile(name, move.amount, player.drawPile).setDestination(PCLCardSelection.Top);
         });
     }

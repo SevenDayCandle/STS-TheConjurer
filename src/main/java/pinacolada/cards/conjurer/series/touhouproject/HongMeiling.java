@@ -18,7 +18,7 @@ public class HongMeiling extends PCLCard {
     public static final PCLCardData DATA = register(HongMeiling.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON)
             .setDamage(2, 0)
-            .setHp(7, 3)
+            .setHp(8, 3)
             .setAffinities(1, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.touhouProject);
 

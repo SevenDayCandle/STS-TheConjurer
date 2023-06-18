@@ -20,8 +20,8 @@ import pinacolada.skills.PMove;
 public class Cirno extends PCLCard {
     public static final PCLCardData DATA = register(Cirno.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Immaterial, PCLCardTarget.AllEnemy)
-            .setDamage(2, 0)
-            .setHp(4, 1)
+            .setDamage(3, 0)
+            .setHp(3, 1)
             .setAffinities(1, PCLAffinity.Blue)
             .setRTags(PCLCardTag.Ethereal)
             .setLoadout(ConjurerPlayerData.touhouProject);

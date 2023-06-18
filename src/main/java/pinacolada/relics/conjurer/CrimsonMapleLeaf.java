@@ -7,13 +7,12 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.relics.PCLRelic;
 import pinacolada.relics.PCLRelicData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.ui.combat.ConjurerElementButton;
 import pinacolada.ui.combat.ConjurerReactionMeter;
 
 @VisibleRelic
 public class CrimsonMapleLeaf extends PCLRelic {
     public static final PCLRelicData DATA = register(CrimsonMapleLeaf.class, ConjurerResources.conjurer)
-            .setProps(RelicTier.BOSS, LandingSound.MAGICAL);
+            .setProps(RelicTier.RARE, LandingSound.MAGICAL);
 
     public CrimsonMapleLeaf() {
         super(DATA);
@@ -24,9 +23,6 @@ public class CrimsonMapleLeaf extends PCLRelic {
         PCLActions.bottom.callback(() -> {
             ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Green).addAdditionalPower(MalleablePower.POWER_ID);
             ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Green).addReaction(ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Red));
-            for (ConjurerElementButton element : ConjurerReactionMeter.meter.getElementButtons()) {
-                element.currentCost *= getValue();
-            }
         });
     }
 

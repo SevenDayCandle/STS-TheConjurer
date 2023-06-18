@@ -29,6 +29,6 @@ public class Adramelech extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(AbstractGameAction.AttackEffect.FIRE);
-        addUseMove(PCond.cooldown(0), PMove.applyToRandom(3, PCLElementHelper.Ignis, PCLElementHelper.Aer, PCLElementHelper.Petra).edit(f -> f.setRandom(true)));
+        addUseMove(PCond.cooldown(0), PMove.applyToRandom(3, PCLElementHelper.Ignis, PCLElementHelper.Ventus, PCLElementHelper.Petra).edit(f -> f.setRandom(true)));
     }
 }

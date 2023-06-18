@@ -19,7 +19,7 @@ public class CometAzur extends PCLCard {
             .setAttack(2, CardRarity.RARE, PCLAttackType.Piercing)
             .setTags(PCLCardTag.Exhaust)
             .setDamage(36, 4)
-            .setAffinities(2, PCLAffinity.Blue)
+            .setAffinities(1, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
     public CometAzur() {

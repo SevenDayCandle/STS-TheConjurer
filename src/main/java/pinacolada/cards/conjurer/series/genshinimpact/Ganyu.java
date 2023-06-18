@@ -31,6 +31,6 @@ public class Ganyu extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.ICE);
-        addUseMove(PCond.cooldown(1), PMod.bonusPerPowerSingle(1, PCLElementHelper.Gelus), PMove.applyToSingle(2, PCLElementHelper.Gelus));
+        addUseMove(PCond.cooldown(1), PMod.bonusPerPowerSingle(1, PCLElementHelper.Aqua), PMove.applyToSingle(2, PCLElementHelper.Aqua));
     }
 }

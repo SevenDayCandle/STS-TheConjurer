@@ -6,6 +6,7 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
+import pinacolada.effects.ConjurerEFK;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -17,7 +18,7 @@ import pinacolada.skills.PMove;
 public class MagicDownpour extends PCLCard {
     public static final PCLCardData DATA = register(MagicDownpour.class, ConjurerResources.conjurer)
             .setSkill(2, CardRarity.RARE, PCLCardTarget.Team)
-            .setAffinities(PCLAffinity.Blue)
+            .setAffinities(2, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
     public MagicDownpour() {
@@ -25,7 +26,7 @@ public class MagicDownpour extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMod.bonusPerLevel(1, PCLAffinity.Blue).setUpgrade(1), PMove.gainTempHP(7).setUpgrade(1));
-        addUseMove(PDelay.turnStart(1), PMove.applyToEveryone(4, PCLElementHelper.Gelus));
+        addUseMove(PMod.bonusPerLevel(1, PCLAffinity.Blue).setUpgrade(1), PMove.gainTempHP(7).setVFX(ConjurerEFK.CURE02).setUpgrade(1));
+        addUseMove(PDelay.turnStart(1), PMove.applyToEveryone(5, PCLElementHelper.Aqua));
     }
 }

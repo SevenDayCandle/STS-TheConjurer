@@ -7,7 +7,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.PCLCardGroupHelper;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
-import pinacolada.effects.PCLAttackVFX;
+import pinacolada.effects.EffekseerEFK;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -27,7 +27,7 @@ public class RoilingMagma extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.SMALL_EXPLOSION);
-        addUseMove(PCond.exhaust(1, PCLCardGroupHelper.DiscardPile).edit(f -> f.setAffinity(PCLAffinity.Red)), PMove.applyToEnemies(5, PCLElementHelper.Ignis).setUpgrade(1));
+        addDamageMove(EffekseerEFK.FIRE07);
+        addUseMove(PCond.exhaust(1, PCLCardGroupHelper.DiscardPile), PMove.applyToEnemies(4, PCLElementHelper.Ignis).setUpgrade(1));
     }
 }

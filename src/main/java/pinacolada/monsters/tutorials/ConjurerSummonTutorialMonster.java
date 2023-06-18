@@ -1,6 +1,7 @@
 package pinacolada.monsters.tutorials;
 
-import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.esotericsoftware.spine.AnimationState;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -18,8 +19,6 @@ import pinacolada.cards.conjurer.series.genshinimpact.Bennett;
 import pinacolada.cards.conjurer.series.genshinimpact.KaeyaAlberich;
 import pinacolada.cards.conjurer.series.shinmegamitensei.JackFrost;
 import pinacolada.cards.conjurer.series.shinmegamitensei.PyroJack;
-import pinacolada.effects.PCLEffects;
-import pinacolada.effects.vfx.SmokeEffect;
 import pinacolada.monsters.PCLCardAlly;
 import pinacolada.monsters.PCLCreatureData;
 import pinacolada.monsters.PCLTutorialMonster;
@@ -33,22 +32,20 @@ import pinacolada.utilities.GameUtilities;
 
 public class ConjurerSummonTutorialMonster extends PCLTutorialMonster {
 
-    public static final PCLCreatureData DATA = register(ConjurerSummonTutorialMonster.class)
+    public static final PCLCreatureData DATA = register(ConjurerSummonTutorialMonster.class, ConjurerResources.conjurer)
             .setHp(999999)
-            .setHb(0.0F, -4.0F, 128, 128);
+            .setHb(0.0F, 0F, 128, 128);
+    protected final Color renderColor = Color.SKY.cpy();
 
     public ConjurerSummonTutorialMonster() {
         super(DATA);
         this.loadAnimation("images/monsters/theBottom/slimeS/skeleton.atlas", "images/monsters/theBottom/slimeS/skeleton.json", 1.0F);
         AnimationState.TrackEntry e = this.state.setAnimation(0, "idle", true);
-        e.setTime(e.getEndTime() * MathUtils.random());
         addSteps(this::step1, this::step2, this::step3, this::step4);
     }
 
-    @Override
-    public void usePreBattleAction() {
-        super.usePreBattleAction();
-        PCLEffects.Queue.add(new SmokeEffect(hb.cX, hb.cY));
+    public void renderAnimation(SpriteBatch sb) {
+        this.renderAnimation(sb, renderColor);
     }
 
     public EUITourTooltip step1() {
@@ -63,9 +60,9 @@ public class ConjurerSummonTutorialMonster extends PCLTutorialMonster {
             }
         }
 
-        EUITourTooltip.queueTutorial(new EUITourTooltip(targetHb, PGR.core.tooltips.summon.title, PGR.core.strings.tutorial_summonTutorial1)
+        EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(targetHb, PGR.core.tooltips.summon.title, PGR.core.strings.tutorial_summonTutorial1)
                 .setCanDismiss(true));
-        EUITourTooltip.queueTutorial(new EUITourTooltip(targetHb, PGR.core.tooltips.summon.title, PGR.core.strings.tutorial_summonTutorial2)
+        EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(targetHb, PGR.core.tooltips.summon.title, PGR.core.strings.tutorial_summonTutorial2)
                         .setFlash(new EUIImage(PCLCoreImages.Monsters.emptyShadow.texture(), new EUIHitbox(targetHb)))
                 .setCanDismiss(true));
         return new EUITourTooltip(UseCardAction.class, PGR.core.tooltips.summon.title, ConjurerResources.conjurer.strings.conjurerSummonInteractive1)
@@ -81,7 +78,7 @@ public class ConjurerSummonTutorialMonster extends PCLTutorialMonster {
             }
         }
 
-        EUITourTooltip.queueTutorial(new EUITourTooltip(targetHb, PGR.core.tooltips.summon.title, PGR.core.strings.tutorial_summonTutorial3)
+        EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(targetHb, PGR.core.tooltips.summon.title, PGR.core.strings.tutorial_summonTutorial3)
                 .setCanDismiss(true));
         return new EUITourTooltip(SelectCreature.class, PGR.core.tooltips.summon.title, PGR.core.strings.tutorial_summonTutorial4)
                 .setPosition(targetHb.x, targetHb.y)
@@ -105,12 +102,13 @@ public class ConjurerSummonTutorialMonster extends PCLTutorialMonster {
         }
         ConjurerReactionButton button = ConjurerReactionMeter.meter.getReactionButton(PCLAffinity.Orange, PCLAffinity.Red);
 
-        EUITourTooltip.queueTutorial(new EUITourTooltip(targetHb, PGR.core.tooltips.summon.title, PGR.core.strings.tutorial_summonTutorial5)
+        EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(targetHb, PGR.core.tooltips.summon.title, PGR.core.strings.tutorial_summonTutorial5)
                 .setCanDismiss(true));
-        EUITourTooltip.queueTutorial(new EUITourTooltip(button, PGR.core.tooltips.summon.title, ConjurerResources.conjurer.strings.conjurerSummonInteractive2)
+        EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(button, PGR.core.tooltips.summon.title, ConjurerResources.conjurer.strings.conjurerSummonInteractive2)
                 .setCanDismiss(true));
         return new EUITourTooltip(ElementReaction.class, PGR.core.tooltips.summon.title, ConjurerResources.conjurer.strings.conjurerSummonInteractive3)
-                .setPosition(hb.x - hb.width * 3, hb.y + hb.height);
+                .setPosition(hb.x - hb.width * 3, hb.y + hb.height)
+                .setCanDismiss(false);
     }
 
     public EUITourTooltip step4() {
@@ -125,11 +123,12 @@ public class ConjurerSummonTutorialMonster extends PCLTutorialMonster {
                 break;
             }
         }
-        EUITourTooltip.queueTutorial(new EUITourTooltip(targetHb, PGR.core.tooltips.summon.title, PGR.core.strings.tutorial_summonTutorial6)
+        EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(targetHb, PGR.core.tooltips.summon.title, PGR.core.strings.tutorial_summonTutorial6)
                 .setCanDismiss(true));
-        EUITourTooltip.queueTutorial(new EUITourTooltip(targetHb, PGR.core.tooltips.summon.title, PGR.core.strings.tutorial_summonTutorial7)
+        EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(targetHb, PGR.core.tooltips.summon.title, PGR.core.strings.tutorial_summonTutorial7)
                 .setCanDismiss(true));
         return new EUITourTooltip(UseCardAction.class, PGR.core.tooltips.summon.title, ConjurerResources.conjurer.strings.conjurerSummonInteractive4)
-                .setPosition(hb.x - hb.width * 3, hb.y + hb.height);
+                .setPosition(hb.x - hb.width * 3, hb.y + hb.height)
+                .setCanDismiss(false);
     }
 }

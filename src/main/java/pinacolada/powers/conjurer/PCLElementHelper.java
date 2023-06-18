@@ -23,8 +23,8 @@ public class PCLElementHelper extends PCLPowerHelper {
     private static final Map<String, PCLElementHelper> ALL = new HashMap<>();
     private static final Map<PCLAffinity, PCLElementHelper> ALL_BY_AFFINITY = new HashMap<>();
 
-    public static final PCLElementHelper Aer = new PCLElementHelper(AerPower.POWER_ID, ConjurerResources.conjurer.tooltips.aer, AerPower::new, AerPower.AFFINITY);
-    public static final PCLElementHelper Gelus = new PCLElementHelper(GelusPower.POWER_ID, ConjurerResources.conjurer.tooltips.gelus, GelusPower::new, GelusPower.AFFINITY);
+    public static final PCLElementHelper Ventus = new PCLElementHelper(VentusPower.POWER_ID, ConjurerResources.conjurer.tooltips.ventus, VentusPower::new, VentusPower.AFFINITY);
+    public static final PCLElementHelper Aqua = new PCLElementHelper(AquaPower.POWER_ID, ConjurerResources.conjurer.tooltips.aqua, AquaPower::new, AquaPower.AFFINITY);
     public static final PCLElementHelper Ignis = new PCLElementHelper(IgnisPower.POWER_ID, ConjurerResources.conjurer.tooltips.ignis, IgnisPower::new, IgnisPower.AFFINITY);
     public static final PCLElementHelper Lux = new PCLElementHelper(LuxPower.POWER_ID, ConjurerResources.conjurer.tooltips.lux, LuxPower::new, LuxPower.AFFINITY);
     public static final PCLElementHelper Petra = new PCLElementHelper(PetraPower.POWER_ID, ConjurerResources.conjurer.tooltips.petra, PetraPower::new, PetraPower.AFFINITY);

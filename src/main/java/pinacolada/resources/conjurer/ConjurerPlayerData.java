@@ -21,6 +21,7 @@ public class ConjurerPlayerData extends PCLAbstractPlayerData<ConjurerResources,
     public static ConjurerLoadout genshinImpact = new GenshinImpact();
     public static ConjurerLoadout honkai = new Honkai();
     public static ConjurerLoadout monsterHunter = new MonsterHunter();
+    public static ConjurerLoadout ragnarok = new RagnarokOnline();
     public static ConjurerLoadout shinMegamiTensei = new ShinMegamiTensei();
     public static ConjurerLoadout slayTheSpire = new SlayTheSpire();
     public static ConjurerLoadout tales = new Tales();

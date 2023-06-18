@@ -26,9 +26,9 @@ public class Ecosystem extends PCLCard {
     public void setup(Object input) {
         addGainPower(PTrigger.when(
                 PBranchCond.branch(PCond.checkLevel(1, PCLAffinity.Blue, PCLAffinity.Green, PCLAffinity.Orange),
-                        PMove.gainPlayer(2, PCLPowerHelper.Energized),
-                        PMove.gainPlayer(3, PCLPowerHelper.NextTurnDraw),
-                        PMove.applyToEnemies(2, PCLPowerHelper.Weak, PCLPowerHelper.Vulnerable)
+                        PMove.gainEnergy(1),
+                        PMove.draw(2),
+                        PMove.gainTemporary(5, PCLPowerHelper.Malleable)
                 )));
     }
 }

@@ -29,6 +29,6 @@ public class YuukaKazami extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.WATER);
-        addUseMove(PCond.cooldown(2), PMove.applyToEnemies(5, PCLElementHelper.Gelus, PCLElementHelper.Aer));
+        addUseMove(PCond.cooldown(2), PMove.applyToEnemies(5, PCLElementHelper.Aqua, PCLElementHelper.Ventus));
     }
 }

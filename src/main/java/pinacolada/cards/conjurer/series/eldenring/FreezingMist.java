@@ -27,7 +27,7 @@ public class FreezingMist extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.applyToEnemies(5, PCLElementHelper.Gelus, PCLElementHelper.Frostbite));
+        addUseMove(PMove.applyToEnemies(5, PCLElementHelper.Aqua, PCLElementHelper.Frostbite));
         addUseMove(CCond.react(), PMove.applyToEnemies(2, PCLPowerHelper.Weak));
     }
 }

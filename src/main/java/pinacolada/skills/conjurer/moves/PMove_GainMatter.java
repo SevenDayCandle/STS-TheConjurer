@@ -1,5 +1,6 @@
 package pinacolada.skills.conjurer.moves;
 
+import pinacolada.actions.PCLActions;
 import pinacolada.actions.powers.GainReaction;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.resources.conjurer.ConjurerEnum;
@@ -30,8 +31,8 @@ public class PMove_GainMatter extends PMove_Gain {
     }
 
     @Override
-    public void use(PCLUseInfo info) {
-        getActions().add(new GainReaction(amount));
-        super.use(info);
+    public void use(PCLUseInfo info, PCLActions order) {
+        order.add(new GainReaction(amount));
+        super.use(info, order);
     }
 }

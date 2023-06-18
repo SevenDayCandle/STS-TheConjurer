@@ -9,7 +9,6 @@ import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
-import pinacolada.skills.skills.PTrait;
 
 @VisibleCard
 public class MudFissure extends PCLCard {
@@ -24,6 +23,6 @@ public class MudFissure extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.EARTH).setChain(PCond.checkPower(PCLCardTarget.Single, 1).edit(f -> f.setDebuff(true)), PTrait.damage(6).setUpgrade(2));
+        addDamageMove(PCLAttackVFX.EARTH).setBonus((PCond<?>) PCond.checkPower(PCLCardTarget.Single, 1).edit(f -> f.setDebuff(true)), 6, 2);
     }
 }

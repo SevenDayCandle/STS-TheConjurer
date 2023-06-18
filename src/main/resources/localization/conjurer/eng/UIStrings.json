@@ -1,22 +1,19 @@
 {
 	"conjurer:Combat": {
 		"TEXT": [
-			"Debuff Effect",
 			"Level Price",
 			"{0} cards have #b+{1}% damage and #yBlock on #yReact.",
-			"{#o:Click this to Morph this pair into {0}.}",
-			"{0} cards #yReact with {1} to deal #b+{2}% damage.",
-			"{0} cards #yRedox {1} to give #b+{2}% [Block].",
+			"When {0} cards #yReact with {1}, they have #b+{2}% damage and #yBlock.",
 			"#gNext #gLevel #gAvailable"
 		]
 	},
 	"conjurer:Tutorial": {
 		"TEXT": [
 			"Play cards on enemies with #yElemental #yDebuffs to trigger #yReactions, granting #yMatter. Click the buttons to spend #yMatter to improve #yElemental #yDebuffs.",
-			"Each #yElemental #yDebuff is associated with the #yAffinity that it shares an icon with. [Ignis] is associated with [A-R], [Aer] with [A-G], [Gelus] with [A-B], and [Petra] with [A-O].",
+			"Each #yElemental #yDebuff is associated with the #yAffinity that it shares an icon with. [Ignis] is associated with [A-R], [Ventus] with [A-G], [Aqua] with [A-B], and [Petra] with [A-O].",
 			"The arrows signify that a #yReaction will occur when a card with the former #yDebuff's #yAffinity targets a creature with the latter's #yElemental #yDebuff.",
 			"When you drag a card over a target, arrows for #yReactions that will occur will be highlighted, and the target's debuffs will show how powerful its effects will be.",
-			"#yReactions provide a damage bonus to the card being played and grant #yMatter. | Spend #yMatter by clicking on a #yDebuff's button to increase its #yLevel (signified by the blue number on each #yElemental #yDebuff). #yLevels increase a #yDebuff's passive effect and damage bonuses. Each #yLevel costs more than the last.",
+			"#yReactions grant a damage and #yBlock bonus to the card being played and grant #yMatter. Spend #yMatter by clicking on a #yDebuff's button to increase its #yLevel. #yLevels increase a #yDebuff's passive effect and damage bonuses. Each #yLevel costs more than the last.",
 			"This button represents an #yElemental #yDebuff. Hover over it to view the current effects of this debuff.",
 			"I have given you a card that applies [Petra]. Play it on me.",
 			"Play the card that #yReacts with [Petra]. When you hover over that card, the arrow pointing from [Ignis] to [Petra] will glow.",

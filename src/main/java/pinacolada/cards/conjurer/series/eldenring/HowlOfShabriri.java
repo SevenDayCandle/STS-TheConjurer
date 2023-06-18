@@ -6,7 +6,6 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -18,7 +17,6 @@ public class HowlOfShabriri extends PCLCard {
     public static final PCLCardData DATA = register(HowlOfShabriri.class, ConjurerResources.conjurer)
             .setSkill(0, CardRarity.UNCOMMON, PCLCardTarget.Self)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
-            .setUTags(PCLCardTag.Haste, PCLCardTag.Bounce)
             .setLoadout(ConjurerPlayerData.eldenRing, true);
 
     public HowlOfShabriri() {
@@ -26,6 +24,7 @@ public class HowlOfShabriri extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMultiSkill.join(PMove.gain(1, PCLPowerHelper.Bruised), PMove.apply(PCLCardTarget.AllEnemy, 2, PCLPowerHelper.Bruised, PCLPowerHelper.Vulnerable).setUpgrade(1)));
+        addUseMove(PMultiSkill.join(PMove.applyToEveryone(3, PCLPowerHelper.Vigor),
+                PMove.applyToEnemies(2, PCLPowerHelper.Bruised).setUpgrade(1)));
     }
 }

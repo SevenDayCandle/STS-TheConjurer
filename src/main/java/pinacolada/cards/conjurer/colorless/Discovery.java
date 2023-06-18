@@ -32,7 +32,7 @@ public class Discovery extends PCLCard {
         addSpecialMove(0, this::action, 1, 3);
     }
 
-    public void action(PSpecialSkill move, PCLUseInfo info) {
+    public void action(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
         CardGroup choices = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         RandomizedList<AbstractCard> unseenCards = new RandomizedList<>(GameUtilities.getCardsFromStandardCombatPools((c -> !c.isSeen && GameUtilities.isObtainableInCombat(c))));
         if (unseenCards.size() < move.extra) {
@@ -43,12 +43,12 @@ public class Discovery extends PCLCard {
             choices.addToBottom(unseenCards.retrieve(rng, true));
         }
 
-        PCLActions.bottom.selectFromPile(getName(), move.amount, choices)
+        order.selectFromPile(getName(), move.amount, choices)
                 .addCallback((cards) -> {
                     for (AbstractCard c : cards) {
                         AbstractCard copy = c.makeStatEquivalentCopy();
                         GameUtilities.modifyCostForTurn(copy, 0, false);
-                        PCLActions.bottom.makeCardInHand(copy);
+                        order.makeCardInHand(copy);
                     }
                 });
     }

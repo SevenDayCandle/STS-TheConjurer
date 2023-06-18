@@ -14,7 +14,7 @@ import pinacolada.skills.skills.PTrait;
 public class ColossalFormation extends PCLCard {
     public static final PCLCardData DATA = register(ColossalFormation.class, ConjurerResources.conjurer)
             .setSkill(3, CardRarity.COMMON, PCLCardTarget.Self)
-            .setBlock(13, 2)
+            .setBlock(15, 2)
             .setAffinities(2, PCLAffinity.Orange)
             .setCore();
 
@@ -23,6 +23,6 @@ public class ColossalFormation extends PCLCard {
     }
 
     public void setup(Object input) {
-        addBlockMove().setChain(CCond.checkMatter(20), PTrait.block(17).setUpgrade(3));
+        addBlockMove().setChain(CCond.checkMatter(20), PTrait.block(15).setUpgrade(3));
     }
 }

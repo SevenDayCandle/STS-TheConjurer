@@ -1,10 +1,11 @@
 package pinacolada.relics.conjurer;
 
+import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.monsters.beyond.*;
 import com.megacrit.cardcrawl.monsters.city.*;
 import com.megacrit.cardcrawl.monsters.exordium.*;
-import extendedui.EUIInputManager;
 import extendedui.EUIUtils;
+import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleRelic;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.conjurer.colorless.Iridescence;
@@ -27,7 +28,7 @@ import pinacolada.utilities.GameUtilities;
 @VisibleRelic
 public class DisguisePropBox extends PCLRelic {
     public static final PCLRelicData DATA = register(DisguisePropBox.class, ConjurerResources.conjurer)
-            .setProps(RelicTier.BOSS, LandingSound.MAGICAL);
+            .setProps(RelicTier.BOSS, LandingSound.FLAT);
     protected transient PSkill<?> monsterSkill;
 
     public DisguisePropBox() {
@@ -38,7 +39,7 @@ public class DisguisePropBox extends PCLRelic {
     public void update() {
         super.update();
 
-        if (GameUtilities.inBattle() && this.hb.hovered && EUIInputManager.rightClick.isJustPressed()) {
+        if (GameUtilities.inBattle() && this.hb.hovered && InputHelper.justClickedRight) {
             selectCreatureForTransform().addCallback(() -> {
                 monsterSkill = getSkillForMonster();
             });
@@ -54,7 +55,7 @@ public class DisguisePropBox extends PCLRelic {
     protected void activateBattleEffect() {
         monsterSkill = getSkillForMonster();
         if (monsterSkill != null) {
-            monsterSkill.use(new PCLUseInfo(null, player, null));
+            monsterSkill.use(new PCLUseInfo(null, player, null), PCLActions.bottom);
         }
     }
 

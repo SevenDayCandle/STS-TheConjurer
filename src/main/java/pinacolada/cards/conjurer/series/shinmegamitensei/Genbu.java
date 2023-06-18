@@ -31,7 +31,7 @@ public class Genbu extends PCLCard {
         addDamageMove(PCLAttackVFX.CLAW);
         addUseMove(PCond.cooldown(1),
                 PMultiSkill.choose(
-                        PMove.applyToEnemies(4, PCLElementHelper.Gelus),
+                        PMove.applyToEnemies(4, PCLElementHelper.Aqua),
                         PMove.applyToEnemies(4, PCLElementHelper.Petra)
                 )
         );

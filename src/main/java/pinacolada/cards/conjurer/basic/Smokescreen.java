@@ -27,6 +27,6 @@ public class Smokescreen extends PCLCard {
 
     public void setup(Object input) {
         addBlockMove();
-        addUseMove(PCond.cycle(1), PMultiSkill.join(PMove.gain(2, PCLElementHelper.Aer, PCLPowerHelper.Blur), PMove.selfExhaust()));
+        addUseMove(PCond.cycle(1), PMultiSkill.join(PMove.gain(2, PCLElementHelper.Ventus, PCLPowerHelper.Blur), PMove.selfExhaust()));
     }
 }

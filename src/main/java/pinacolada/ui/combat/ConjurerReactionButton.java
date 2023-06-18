@@ -87,7 +87,7 @@ public class ConjurerReactionButton extends EUIImage {
         if (PGR.isLoaded()) {
             keyword.setIcon(target.elementPower().tooltip.icon);
             keyword.setDescription(
-                    EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterCombust, source.affinity.getTooltip(), target.elementPower().tooltip, PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(source.affinity))));
+                    EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterReact, source.affinity.getTooltip(), target.elementPower().tooltip, PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(source.affinity))));
         }
     }
 

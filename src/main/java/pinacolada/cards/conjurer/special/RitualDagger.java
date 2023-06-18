@@ -11,8 +11,8 @@ import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.effects.EffekseerEFK;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.PCond;
 import pinacolada.skills.skills.PLimit;
-import pinacolada.skills.skills.base.conditions.PCond_Fatal;
 import pinacolada.skills.skills.base.moves.PMove_PermanentUpgrade;
 
 @VisibleCard
@@ -32,7 +32,7 @@ public class RitualDagger extends PCLCard {
     public void setup(Object input) {
         addDamageMove(AbstractGameAction.AttackEffect.NONE).setDamageEffect(EffekseerEFK.SWORD16);
         addUseMove(
-                PLimit.limited(), new PCond_Fatal(), new PMove_PermanentUpgrade(1)
+                PLimit.limited(), PCond.fatal(), new PMove_PermanentUpgrade(1)
         );
     }
 }

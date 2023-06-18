@@ -14,14 +14,14 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 import pinacolada.skills.delay.DelayTiming;
-import pinacolada.skills.skills.PMultiCond;
+import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
 public class PukeiPukei extends PCLCard {
     public static final PCLCardData DATA = register(PukeiPukei.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy, DelayTiming.EndOfTurnFirst)
             .setDamage(3, 1, 0)
-            .setHp(6, 0)
+            .setHp(7, 0)
             .setAffinities(PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 
@@ -31,6 +31,6 @@ public class PukeiPukei extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.POISON);
-        addUseMove(PMultiCond.or(PCond.onSummon(), PCond.haveTakenDamage()), PMove.applyToEnemies(3, PCLPowerHelper.Poison));
+        addGainPower(PTrigger.when(PCond.haveTakenDamage(), PMove.applyToEnemies(4, PCLPowerHelper.Poison)));
     }
 }

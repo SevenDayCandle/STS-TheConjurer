@@ -35,7 +35,7 @@ public class NaturalSelection extends PCLCard {
         addUseMove(PMove.reshuffle(1), getSpecialMove(0, this::specialMove, 1).setTarget(PCLCardTarget.All));
     }
 
-    public void specialMove(PSpecialSkill move, PCLUseInfo info) {
+    public void specialMove(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
         List<? extends AbstractCard> cards = info.getDataAsList(AbstractCard.class);
         if (cards != null) {
             for (AbstractCard c : cards) {
@@ -45,7 +45,7 @@ public class NaturalSelection extends PCLCard {
                         PCLElementHelper debuff = PCLElementHelper.get(aff);
                         if (debuff != null) {
                             for (AbstractCreature target : move.target.getTargets(info.source, info.target)) {
-                                PCLActions.bottom.stabilizePower(info.source, target, debuff, move.amount);
+                                PCLActions.delayed.stabilizePower(info.source, target, debuff, move.amount);
                             }
                         }
                     }

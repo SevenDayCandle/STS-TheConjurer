@@ -24,6 +24,7 @@ public class PestThreads extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMod.drawPer(2).setUpgrade(1).edit(f -> f.setAffinity(PCLAffinity.Green)), PMove.applyToRandom(5, PCLElementHelper.Poison));
+        addUseMove(PMod.drawPer(2).setUpgrade(1).edit(f -> f.setAffinity(PCLAffinity.Green)),
+                PMove.applyToRandom(5, PCLElementHelper.Poison));
     }
 }

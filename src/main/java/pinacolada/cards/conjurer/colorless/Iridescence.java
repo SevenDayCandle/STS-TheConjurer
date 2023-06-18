@@ -20,7 +20,7 @@ public class Iridescence extends PCLCard {
     public static final PCLCardData DATA = register(Iridescence.class, ConjurerResources.conjurer)
             .setSkill(0, CardRarity.UNCOMMON, PCLCardTarget.None)
             .setAffinities(PCLAffinity.Star)
-            .setTags(PCLCardTag.Haste.make(0, -1))
+            .setRTags(PCLCardTag.Exhaust)
             .setColorless();
 
     public Iridescence() {
@@ -32,8 +32,8 @@ public class Iridescence extends PCLCard {
         addSpecialMove(0, this::action, 1);
     }
 
-    public void action(PSpecialSkill move, PCLUseInfo info) {
-        PCLActions.bottom.selectFromPile(name, player.hand.size(), player.hand)
+    public void action(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
+        order.selectFromPile(name, player.hand.size(), player.hand)
                 .setOrigin(PCLCardSelection.Random)
                 .addCallback(cards -> {
                     int totalCost = 0;

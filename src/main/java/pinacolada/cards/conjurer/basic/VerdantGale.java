@@ -53,8 +53,8 @@ public class VerdantGale extends PCLCard {
         public boolean onPowerActivated(AbstractPower power, AbstractCreature source, boolean originalValue) {
             if (power instanceof FlowPower) {
                 for (AbstractMonster enemy : GameUtilities.getEnemies(true)) {
-                    move.getActions().applyPower(enemy, PCLCardTarget.Single, PCLPowerHelper.Poison, move.amount).addCallback((po) -> {
-                        move.getActions().loseHP(owner, enemy, GameUtilities.getPowerAmount(enemy, PoisonPower.POWER_ID), AbstractGameAction.AttackEffect.POISON);
+                    PCLActions.bottom.applyPower(enemy, PCLCardTarget.Single, PCLPowerHelper.Poison, move.amount).addCallback((po) -> {
+                        PCLActions.bottom.loseHP(owner, enemy, GameUtilities.getPowerAmount(enemy, PoisonPower.POWER_ID), AbstractGameAction.AttackEffect.POISON);
                     });
                 }
             }

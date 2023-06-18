@@ -45,7 +45,7 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Mult
     }
 
     public static float getAmplifyMultiplier(PCLAffinity affinity) {
-        return getAmplifyMultiplier(affinity, CombatManager.playerSystem.getLevel(affinity), 1);
+        return getAmplifyMultiplier(affinity, CombatManager.playerSystem.getLevel(affinity), ConjurerReactionMeter.meter.getAmplifyRate(affinity));
     }
 
     public static float getAmplifyMultiplier(PCLAffinity affinity, int level, float modifier) {
@@ -61,7 +61,7 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Mult
     }
 
     public static float getAmplifyMultiplier(PCLAffinity affinity, int level) {
-        return getAmplifyMultiplier(affinity, level, 1);
+        return getAmplifyMultiplier(affinity, level, ConjurerReactionMeter.meter.getAmplifyRate(affinity));
     }
 
     public static float getIntensifyMultiplier(String powerID) {
@@ -153,13 +153,12 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Mult
         return new ColoredString((int) getIntensifyMultiplier(), Color.RED, c.a);
     }
 
-    public float calculateValue(AffinityReactions reactions)
-    {
+    public float calculateValue(AffinityReactions reactions) {
         return calculateValue(reactions.getValue(getAffinity()), getIntensifyMultiplier());
     }
 
     public float calculateValue(int amount, float multiplier) {
-        return amount + MathUtils.ceil(amount * (multiplier / 100f));
+        return amount > 0 ? MathUtils.ceil(amount * (multiplier / 100f)) : 0;
     }
 
     public float getIntensifyMultiplier() {

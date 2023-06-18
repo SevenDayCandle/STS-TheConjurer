@@ -23,6 +23,6 @@ public class FoliarTorque extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PCond.cycle(1), PMove.applyToSingle(3, PCLElementHelper.Aer).setUpgrade(1));
+        addUseMove(PCond.cycle(1), PMove.applyToSingle(3, PCLElementHelper.Ventus).setUpgrade(1));
     }
 }

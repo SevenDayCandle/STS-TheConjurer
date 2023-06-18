@@ -3,6 +3,7 @@ package pinacolada.cards.conjurer.series.shinmegamitensei;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import extendedui.EUIUtils;
+import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
@@ -38,8 +39,8 @@ public class Joker extends PCLCard {
         addUseMove(PCond.cooldown(0), getSpecialMove(0, this::specialMove, 1).setUpgrade(1));
     }
 
-    public void specialMove(PSpecialSkill move, PCLUseInfo info) {
-        move.getActions().selectFromPile(name, move.amount, player.discardPile)
+    public void specialMove(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
+        order.selectFromPile(name, move.amount, player.discardPile)
                 .setFilter(c -> c instanceof PointerProvider && EUIUtils.any(((PointerProvider) c).getFullEffects(), effect -> effect.hasChildType(CooldownProvider.class)))
                 .setOrigin(PCLCardSelection.Random)
                 .setAnyNumber(true)
@@ -50,7 +51,7 @@ public class Joker extends PCLCard {
                         if (provider != null) {
                             provider.doEffects(ef -> ef.recurse(subEffect -> {
                                 if (subEffect instanceof CooldownProvider) {
-                                    subEffect.use(info);
+                                    subEffect.use(info, order);
                                 }
                             }));
                         }

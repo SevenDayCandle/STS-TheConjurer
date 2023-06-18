@@ -31,35 +31,35 @@ public class AtomicDisplacement extends PCLCard {
         addSpecialMove(0, this::action, 5).setUpgrade(2);
     }
 
-    public void action(PSpecialSkill move, PCLUseInfo info) {
+    public void action(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
         ArrayList<AbstractPower> playerPowers = new ArrayList<>();
         ArrayList<AbstractPower> enemyPowers = new ArrayList<>();
         for (AbstractPower po : info.source.powers) {
             if (GameUtilities.isPCLDebuff(po)) {
                 playerPowers.add(po);
-                PCLActions.bottom.removePower(info.source, po);
+                PCLActions.top.removePower(info.source, po);
             }
         }
         for (AbstractPower po : info.target.powers) {
             if (GameUtilities.isPCLDebuff(po)) {
                 enemyPowers.add(po);
-                PCLActions.bottom.removePower(info.target, po);
+                PCLActions.top.removePower(info.target, po);
             }
         }
 
         for (AbstractPower po : playerPowers) {
             po.owner = info.target;
-            PCLActions.bottom.applyPower(info.source, info.target, po);
+            order.applyPower(info.source, info.target, po);
         }
         for (AbstractPower po : enemyPowers) {
             po.owner = info.source;
-            PCLActions.bottom.applyPower(info.source, info.source, po);
+            order.applyPower(info.source, info.source, po);
         }
 
         int gained = enemyPowers.size() - playerPowers.size();
         int thp = gained * move.amount;
         if (thp > 0) {
-            PCLActions.bottom.gainTemporaryHP(thp);
+            order.gainTemporaryHP(thp);
         }
     }
 }

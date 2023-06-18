@@ -26,11 +26,6 @@ public class IgnisPower extends AbstractPCLElementalPower {
     }
 
     @Override
-    public float calculateValue(int amount, float multiplier) {
-        return Math.max(1, amount * (multiplier / 100f));
-    }
-
-    @Override
     public AbstractGameAction.AttackEffect getAttackEffect() {
         return PCLEnum.AttackEffect.BURN;
     }

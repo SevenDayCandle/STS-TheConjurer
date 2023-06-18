@@ -2,13 +2,13 @@
 {
 	"conjurer:AbstractPCLElementalPower":
 	{
-		"DESCRIPTIONS": ["Cards deal #b+{0}% damage per {1} and give #b+{0}% [Block] per {2}.", "Removed at the end of round.", "Lasts for {0} turns."],
+		"DESCRIPTIONS": ["Cards deal #b+{0}% damage and give #b+{0}% [Block] per {1}.", "Removed at the end of round.", "Lasts for {0} turns."],
 		"NAME": "Elemental Debuff"
 	},
-	"conjurer:AerPower":
+	"conjurer:AquaPower":
 	{
-		"DESCRIPTIONS": ["#b{0}% of Reaction gained from this power are returned to you as [Flow].", "#b{0}% of Reaction gained from [Aer] are returned to you as [Flow]."],
-		"NAME": "Aer"
+		"DESCRIPTIONS": ["#b{0}% of Matter gained from this power are applied to this target as [Frostbite].", "#b{0}% of Reaction gained from [Aqua] are applied to its owner as [Frostbite]."],
+		"NAME": "Aqua"
 	},
 	"conjurer:BlastedPower":
 	{
@@ -45,11 +45,6 @@
 		"DESCRIPTIONS": ["Takes #b+{0} damage from #yAttacks and deals #b-{0} damage. At the start of its turn, loses #b{1} stacks."],
 		"NAME": "Frostbite"
 	},
-	"conjurer:GelusPower":
-	{
-		"DESCRIPTIONS": ["#b{0}% of Matter gained from this power are applied to this target as [Frostbite].", "#b{0}% of Reaction gained from [Gelus] are applied to its owner as [Frostbite]."],
-		"NAME": "Gelus"
-	},
 	"conjurer:IgnisPower":
 	{
 		"DESCRIPTIONS": ["#b{0}% of Matter gained from this power are applied to this target as [Blasted].", "#b{0}% of Reaction gained from [Ignis] is dealt as damage to its owner at the start of its turn."],
@@ -70,9 +65,16 @@
 		"DESCRIPTIONS": ["For #b{0} turns: #yElemental #yDebuffs cannot be reduced."],
 		"NAME": "Petrified"
 	},
-				"conjurer:UmbraPower":
-				{
-								"DESCRIPTIONS": ["Reactions on this target apply Death to it equal to #b{0}% of Reaction gained.", "Reactions on non-#ySummon targets with Umbra apply Death to it equal to #b{0}% of Reaction gained."],
-								"NAME": "Umbra"
-				}
+	"conjurer:UmbraPower": {
+		"DESCRIPTIONS": [
+			"Reactions on this target apply Death to it equal to #b{0}% of Reaction gained.",
+			"Reactions on non-#ySummon targets with Umbra apply Death to it equal to #b{0}% of Reaction gained."
+		],
+		"NAME": "Umbra"
+	},
+	"conjurer:VentusPower":
+	{
+		"DESCRIPTIONS": ["#b{0}% of Reaction gained from this power are returned to you as [Flow].", "#b{0}% of Reaction gained from [Ventus] are returned to you as [Flow]."],
+		"NAME": "Ventus"
+	}
 }

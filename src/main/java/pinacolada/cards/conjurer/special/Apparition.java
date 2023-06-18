@@ -1,27 +1,26 @@
 package pinacolada.cards.conjurer.special;
 
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.cards.base.fields.PCLCardTarget;
+import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.tags.PCLCardTag;
-import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.powers.PCLPowerHelper;
+import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
-import pinacolada.skills.skills.PSpecialSkill;
 
 @VisibleCard
 public class Apparition extends PCLCard {
     public static final PCLCardData DATA = register(Apparition.class, ConjurerResources.conjurer)
-            .setSkill(1, CardRarity.SPECIAL, PCLCardTarget.None)
+            .setSummon(1, CardRarity.SPECIAL, PCLAttackType.Immaterial)
+            .setDamage(1, 2)
+            .setHp(1, 0)
             .setAffinities(PCLAffinity.Purple)
-            .setTags(PCLCardTag.Exhaust, PCLCardTag.Ethereal)
-            .setCostUpgrades(-1)
-            .setCore(true);
+            .setTags(PCLCardTag.Ethereal)
+            .setLoadout(ConjurerPlayerData.ragnarok, true);
 
     public Apparition() {
         super(DATA);
@@ -29,16 +28,7 @@ public class Apparition extends PCLCard {
 
     @Override
     public void setup(Object input) {
-        addUseMove(PMove.apply(PCLCardTarget.All, 1, PCLPowerHelper.Intangible));
-        addSpecialMove(0, this::action, 1);
-    }
-
-    public void action(PSpecialSkill move, PCLUseInfo info) {
-        PCLActions.bottom.moveCards(AbstractDungeon.player.hand, AbstractDungeon.player.discardPile)
-                .setFilter(c -> c instanceof Apparition)
-                .showEffect(true, true, 0.25f)
-                .addCallback(cards -> {
-                    PCLActions.bottom.draw(cards.size());
-                });
+        addDamageMove();
+        addUseMove(PCond.onDeath(), PMove.applyToEveryone(2, PCLPowerHelper.Intangible));
     }
 }

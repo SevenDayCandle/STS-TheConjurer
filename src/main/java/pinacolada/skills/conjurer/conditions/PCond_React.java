@@ -1,7 +1,6 @@
 package pinacolada.skills.conjurer.conditions;
 
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import extendedui.EUIRM;
 import extendedui.EUIUtils;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
@@ -42,16 +41,16 @@ public class PCond_React extends PPassiveCond<PField_Affinity> implements OnElem
         if (cInfo == null) {
             return false;
         }
-        return fields.random ^ (fields.affinities.isEmpty() ? cInfo.reactions.hasReaction() : EUIUtils.all(fields.affinities, cInfo.reactions::hasReaction));
+        return fields.not ^ (fields.affinities.isEmpty() ? cInfo.reactions.hasReaction() : EUIUtils.all(fields.affinities, cInfo.reactions::hasReaction));
     }
 
     @Override
     public String getSubText() {
         if (hasParentType(PTrigger.class)) {
-            return TEXT.cond_wheneverYou(fields.affinities.isEmpty() ? ConjurerResources.conjurer.tooltips.reaction.title : EUIRM.strings.verbNoun(ConjurerResources.conjurer.tooltips.reaction.title, fields.getAffinityLevelOrString()));
+            return TEXT.cond_whenAObject(TEXT.subjects_card, fields.affinities.isEmpty() ? ConjurerResources.conjurer.tooltips.reaction.present() : TEXT.subjects_withX(ConjurerResources.conjurer.tooltips.reaction.past(), fields.getAffinityLevelOrString()));
         }
-        String base = fields.affinities.isEmpty() ? ConjurerResources.conjurer.tooltips.reaction.title : EUIRM.strings.adjNoun(fields.getAffinityLevelOrString(), ConjurerResources.conjurer.tooltips.reaction.title);
-        return fields.random ? TEXT.cond_not(base) : base;
+        String base = fields.affinities.isEmpty() ? ConjurerResources.conjurer.tooltips.reaction.past() : TEXT.subjects_withX(ConjurerResources.conjurer.tooltips.reaction.past(), fields.getAffinityLevelOrString());
+        return TEXT.cond_ifTargetHas(TEXT.subjects_this, PCLCardTarget.Single.ordinal(), fields.not ? TEXT.cond_not(base) : base);
     }
 
     @Override

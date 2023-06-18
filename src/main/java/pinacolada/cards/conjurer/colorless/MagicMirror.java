@@ -10,6 +10,8 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
+import pinacolada.effects.ConjurerEFK;
+import pinacolada.effects.PCLEffects;
 import pinacolada.interfaces.subscribers.OnTryApplyPowerSubscriber;
 import pinacolada.powers.PSpecialCardPower;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -36,6 +38,12 @@ public class MagicMirror extends PCLCard {
         public MagicMirrorPower(AbstractCreature owner, PSkill<?> move) {
             super(DATA, owner, move);
             initialize(move.amount);
+        }
+
+        @Override
+        public void onInitialApplication() {
+            super.onInitialApplication();
+            PCLEffects.Queue.playEFX(ConjurerEFK.MGC_W2_Shield_OnHit);
         }
 
         @Override

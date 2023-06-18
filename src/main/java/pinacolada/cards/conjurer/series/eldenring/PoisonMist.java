@@ -27,7 +27,7 @@ public class PoisonMist extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.applyToEnemies(4, PCLElementHelper.Aer, PCLPowerHelper.Poison));
+        addUseMove(PMove.applyToEnemies(4, PCLElementHelper.Ventus, PCLPowerHelper.Poison));
         addUseMove(CCond.react(), PMove.gain(1, PCLPowerHelper.Blur));
     }
 }

@@ -14,7 +14,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 import pinacolada.skills.delay.DelayTiming;
-import pinacolada.skills.skills.PMultiCond;
+import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
 public class Rathian extends PCLCard {
@@ -31,6 +31,6 @@ public class Rathian extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BITE);
-        addUseMove(PMultiCond.or(PCond.onSummon(), PCond.haveTakenDamage()), PMove.applyToEnemies(1, PCLElementHelper.Bruised));
+        addGainPower(PTrigger.when(PCond.haveTakenDamage(), PMove.applyToEnemies(1, PCLElementHelper.Bruised)));
     }
 }

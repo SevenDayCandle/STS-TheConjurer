@@ -14,6 +14,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 import pinacolada.skills.delay.DelayTiming;
+import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
 public class Radobaan extends PCLCard {
@@ -30,6 +31,6 @@ public class Radobaan extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BITE);
-        addUseMove(PCond.haveTakenDamage(), PMove.gain(2, PCLPowerHelper.Thorns, PCLPowerHelper.PlatedArmor));
+        addGainPower(PTrigger.when(PCond.haveTakenDamage(), PMove.gain(2, PCLPowerHelper.Thorns, PCLPowerHelper.PlatedArmor)));
     }
 }

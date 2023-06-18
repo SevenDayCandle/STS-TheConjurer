@@ -31,13 +31,13 @@ public class ChemicalSynthesis extends PCLCard {
         addSpecialMove(0, this::action, 2, 4);
     }
 
-    public void action(PSpecialSkill move, PCLUseInfo info) {
+    public void action(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
         for (AbstractPotion potion : player.potions) {
             if (potion != null && potion.canUse()) {
-                PCLActions.bottom.usePotion(potion, info.target, move.amount);
+                order.usePotion(potion, info.target, move.amount);
                 return;
             }
         }
-        PCLActions.bottom.heal(move.extra);
+        order.heal(move.extra);
     }
 }

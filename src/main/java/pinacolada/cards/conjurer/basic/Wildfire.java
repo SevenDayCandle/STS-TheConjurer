@@ -7,7 +7,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.effects.PCLAttackVFX;
+import pinacolada.effects.ConjurerEFK;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -18,7 +18,7 @@ import pinacolada.skills.skills.PTrigger;
 public class Wildfire extends PCLCard {
     public static final PCLCardData DATA = register(Wildfire.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.UNCOMMON, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
-            .setDamage(13, 1)
+            .setDamage(12, 1)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
             .setCore();
 
@@ -27,7 +27,7 @@ public class Wildfire extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.BURN);
-        addGainPower(2, PTrigger.when(PCond.onTurnStart(), PMove.applyToEnemies(2, PCLElementHelper.Ignis).setUpgrade(1)));
+        addDamageMove(ConjurerEFK.FIRE11);
+        addGainPower(3, PTrigger.when(PCond.onTurnStart(), PMove.applyToEnemies(3, PCLElementHelper.Ignis).setUpgrade(1)));
     }
 }

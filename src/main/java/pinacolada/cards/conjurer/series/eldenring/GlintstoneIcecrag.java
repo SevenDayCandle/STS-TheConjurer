@@ -26,6 +26,6 @@ public class GlintstoneIcecrag extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.ICE);
-        addUseMove(PMove.applyToSingle(5, PCLElementHelper.Gelus, PCLElementHelper.Frostbite).setUpgrade(1));
+        addUseMove(PMove.applyToSingle(5, PCLElementHelper.Aqua, PCLElementHelper.Frostbite).setUpgrade(1));
     }
 }

@@ -10,10 +10,7 @@ import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import extendedui.EUIRM;
 import extendedui.EUIUtils;
-import extendedui.ui.controls.EUIButton;
-import extendedui.ui.controls.EUILabel;
-import extendedui.ui.controls.EUITextBox;
-import extendedui.ui.controls.EUITutorialPage;
+import extendedui.ui.controls.*;
 import extendedui.ui.hitboxes.RelativeHitbox;
 import extendedui.ui.tooltips.EUIKeywordTooltip;
 import extendedui.ui.tooltips.EUITooltip;
@@ -47,6 +44,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import static extendedui.EUIUtils.array;
+import static pinacolada.ui.combat.ConjurerElementButton.BASE_AMPLIFY;
 
 public class ConjurerReactionMeter extends PCLPlayerMeter {
     public static final String ID = createFullID(ConjurerResources.conjurer, PCLEmptyMeter.class);
@@ -103,7 +101,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
         light.setActive(false);
         dark.setActive(false);
 
-        skips = new PCLClickableUse(this, (a, b) -> tryUseCharge(lastUpgrade, b), PCLCardTarget.Single, MAX_CHARGE, false, true);
+        skips = new PCLClickableUse(this, (a, b, c) -> tryUseCharge(lastUpgrade, b, c), PCLCardTarget.Single, MAX_CHARGE, false, true);
 
         reactionHeader = new EUILabel(EUIFontHelper.cardTitleFontSmall,
                 RelativeHitbox.fromPercentages(hb, 2, 2, 8f, 0.1f)).setLabel(ConjurerResources.conjurer.tooltips.matter.title)
@@ -133,14 +131,14 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
         enableCharges(false);
     }
 
-    public boolean tryUseCharge(PCLAffinity affinity, PCLUseInfo info) {
+    public boolean tryUseCharge(PCLAffinity affinity, PCLUseInfo info, PCLActions order) {
         Integer value = info.getData(Integer.class);
         if (value == null) {
             value = 1;
         }
         if (affinity != null && info.target != null) {
             PCLElementHelper helper = PCLElementHelper.get(affinity);
-            PCLActions.bottom.applyPower(info.target, PCLCardTarget.Single, helper, value);
+            order.applyPower(info.target, PCLCardTarget.Single, helper, value);
             return true;
         }
         return false;
@@ -184,16 +182,18 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
     @Override
     public EUITutorialPage[] getInfoPages() {
         return array(
-                AFFINITY_TUTORIAL,
-                TAG_TUTORIAL,
-                SUMMON_TUTORIAL1,
-                SUMMON_TUTORIAL2,
-                SUMMON_TUTORIAL3,
-                SUMMON_TUTORIAL4,
-                new EUITutorialPage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.elementalDebuff.title, 1), ConjurerResources.conjurer.strings.conjurerTutorial1),
-                new EUITutorialPage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.elementalDebuff.title, 2), ConjurerResources.conjurer.strings.conjurerTutorial2),
-                new EUITutorialPage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.elementalDebuff.title, 3), ConjurerResources.conjurer.strings.conjurerTutorial3),
-                new EUITutorialPage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.matter.title, 3), ConjurerResources.conjurer.strings.conjurerTutorial4)
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.affinityGeneral.title), PGR.core.strings.tutorial_affinityTutorial, ConjurerResources.conjurer.images.tutorial.afftut01.texture()),
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 1), PGR.core.strings.tutorial_summonTutorial1, ConjurerResources.conjurer.images.tutorial.tut01.texture()),
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 2), PGR.core.strings.tutorial_summonTutorial2, ConjurerResources.conjurer.images.tutorial.tut02.texture()),
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 3), PGR.core.strings.tutorial_summonTutorial3, ConjurerResources.conjurer.images.tutorial.tut03.texture()),
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 4), PGR.core.strings.tutorial_summonTutorial4, ConjurerResources.conjurer.images.tutorial.tut03.texture()),
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 5), PGR.core.strings.tutorial_summonTutorial5, ConjurerResources.conjurer.images.tutorial.tut04.texture()),
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 6), PGR.core.strings.tutorial_summonTutorial6, ConjurerResources.conjurer.images.tutorial.tut05.texture()),
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 7), PGR.core.strings.tutorial_summonTutorial7, ConjurerResources.conjurer.images.tutorial.tut06.texture()),
+                new EUITutorialImagePage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.elementalDebuff.title), ConjurerResources.conjurer.strings.conjurerTutorial1, ConjurerResources.conjurer.images.tutorial.etut01.texture()),
+                new EUITutorialImagePage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.reaction.title, 1), ConjurerResources.conjurer.strings.conjurerTutorial2, ConjurerResources.conjurer.images.tutorial.etut02.texture()),
+                new EUITutorialImagePage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.reaction.title, 2), ConjurerResources.conjurer.strings.conjurerTutorial3, ConjurerResources.conjurer.images.tutorial.etut02.texture()),
+                new EUITutorialImagePage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.matter.title), ConjurerResources.conjurer.strings.conjurerTutorial4, ConjurerResources.conjurer.images.tutorial.etut03.texture())
         );
     }
 
@@ -436,6 +436,11 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
         water.addReaction(air);
         air.addReaction(earth);
         earth.addReaction(fire);
+    }
+
+    public float getAmplifyRate(PCLAffinity affinity) {
+        ConjurerElementButton destButton = getElementButton(affinity);
+        return destButton != null ? destButton.currentAmplifyMultiplier : BASE_AMPLIFY;
     }
 
     public ConjurerElementButton getElementButton(PCLAffinity affinity) {
