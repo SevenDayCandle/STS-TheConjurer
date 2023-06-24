@@ -37,7 +37,7 @@
 		"NAME": "Flow"
 	},
 	"Frostbite": {
-		"DESCRIPTION": "Every #b{0} stacks increases damage taken and reduces damage dealt by #b1. At round end, reduce stacks by #b75%.",
+		"DESCRIPTION": "Every #b{0} stacks increases damage taken from #yAttacks and #yOrbs by #b1, and reduces damage dealt by #b1. At round end, reduce stacks by #b75%.",
 		"NAME": "Frostbite"
 	},
 	"Ignis": {

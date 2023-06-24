@@ -7,10 +7,12 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
+import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
+import pinacolada.skills.skills.PMultiSkill;
 
 @VisibleCard
 public class Bite extends PCLCard {
@@ -26,6 +28,6 @@ public class Bite extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BITE);
-        addUseMove(PCond.fatal(), PMove.gainTempHP(6));
+        addUseMove(PCond.fatal().edit(f -> f.setRandom(true)), PMultiSkill.join(PMove.gainTempHP(4), PMove.gain(1, PCLPowerHelper.NextTurnDraw)));
     }
 }

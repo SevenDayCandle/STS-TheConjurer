@@ -28,7 +28,7 @@ public class FrostbitePower extends PCLPower {
 
     @Override
     public float modifyOrbIncoming(float inital) {
-        return expanded ? super.modifyOrbIncoming(inital) + getPotency() : super.modifyOrbIncoming(inital);
+        return super.modifyOrbIncoming(inital) + getPotency();
     }
 
     public int getDecrease() {

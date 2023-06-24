@@ -39,16 +39,16 @@ import java.util.Set;
 public class ConjurerElementButton extends EUIButton {
     public static final String INCREASE_ID = ConjurerResources.conjurer.createID(ConjurerElementButton.class.getSimpleName());
     public static final Color ACTIVE_COLOR = new Color(0.5f, 1f, 0.5f, 1f);
-    public static final float BASE_AMPLIFY = 1f;
     public static final int BASE_COST = 10;
-    public static final int BASE_COST_RATE = 10;
+    public static final int BASE_COST_RATE = 5;
     public static final float BASE_AMOUNT_SCALE = 1f;
 
     public final PCLAffinity affinity;
     public final ArrayList<String> additionalPowers = new ArrayList<>();
     public final ConjurerReactionMeter meter;
+    public boolean canInteract;
     public int currentCost;
-    public float currentAmplifyMultiplier;
+    public int currentAmplifyOffset;
     protected EUIImage elementImage;
     protected boolean reactionEnabled;
     protected final HashMap<PCLAffinity, ConjurerReactionButton> reactions = new HashMap<>();
@@ -75,7 +75,7 @@ public class ConjurerElementButton extends EUIButton {
     }
 
     public void manualAddLevel() {
-        if (!busy && reactionEnabled) {
+        if (!busy && reactionEnabled && canInteract) {
             busy = true;
             PCLActions.bottom.callback(() -> {
                 meter.set(affinity, 0);
@@ -150,8 +150,9 @@ public class ConjurerElementButton extends EUIButton {
         reactions.clear();
         level = 0;
         currentCost = BASE_COST;
-        currentAmplifyMultiplier = BASE_AMPLIFY;
+        currentAmplifyOffset = 0;
         elementImage.setColor(Color.GRAY);
+        canInteract = true;
         busy = false;
     }
 
@@ -161,6 +162,10 @@ public class ConjurerElementButton extends EUIButton {
         for (ConjurerReactionButton button : reactions.values()) {
             button.setActive(reactionEnabled);
         }
+    }
+
+    public void setLevelEnabled(boolean value) {
+        canInteract = value;
     }
 
     public void renderForTutorialWithArrows(SpriteBatch sb, float x, float y) {
@@ -178,7 +183,7 @@ public class ConjurerElementButton extends EUIButton {
     @Override
     public void renderImpl(SpriteBatch sb) {
         super.renderImpl(sb);
-        PCLRenderHelpers.drawGrayscaleIf(sb, s -> elementImage.renderCentered(s, hb), busy);
+        PCLRenderHelpers.drawGrayscaleIf(sb, s -> elementImage.renderCentered(s, hb), busy || !canInteract);
         for (ConjurerReactionButton button : reactions.values()) {
             button.tryRenderCentered(sb);
         }
@@ -213,11 +218,11 @@ public class ConjurerElementButton extends EUIButton {
             strings.add(PCLCoreStrings.headerString(PGR.core.tooltips.level.title, level));
             strings.add(PCLCoreStrings.headerString(ConjurerResources.conjurer.strings.combat_conjurerMeterCost, currentCost));
             strings.add(PGR.core.strings.combat_effect(EUIUtils.format(reactionStrings.DESCRIPTIONS[1], PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getIntensifyMultiplier(elementID())))
-                    + " " + EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterBonus, affinity.getTooltip(), PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(affinity, level, currentAmplifyMultiplier)))));
+                    + " " + EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterBonus, affinity.getTooltip(), PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(level, currentAmplifyOffset)))));
             strings.add(EUIUtils.SPLIT_LINE + PCLCoreStrings.colorString("p", PGR.core.strings.combat_nextLevelEffect));
             strings.add(PCLCoreStrings.headerString(PGR.core.tooltips.level.title, level + 1));
             strings.add(PGR.core.strings.combat_effect(EUIUtils.format(reactionStrings.DESCRIPTIONS[1], PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getIntensifyMultiplier(elementID(), level + 1)))
-                    + " " + EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterBonus, affinity.getTooltip(), PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(affinity, level + 1, currentAmplifyMultiplier))))
+                    + " " + EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterBonus, affinity.getTooltip(), PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(level + 1, currentAmplifyOffset))))
             );
             if (canIntensify()) {
                 strings.add(EUIUtils.SPLIT_LINE + EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterNextIntensity, currentCost, power));

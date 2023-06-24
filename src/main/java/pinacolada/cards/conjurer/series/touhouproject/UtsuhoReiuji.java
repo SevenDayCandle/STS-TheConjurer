@@ -20,13 +20,10 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.skills.PSpecialSkill;
 import pinacolada.utilities.GameUtilities;
 
-import java.util.Arrays;
-import java.util.HashSet;
-
 @VisibleCard
 public class UtsuhoReiuji extends PCLCard {
     public static final PCLCardData DATA = register(UtsuhoReiuji.class, ConjurerResources.conjurer)
-            .setSummon(1, CardRarity.RARE, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy)
+            .setSummon(1, CardRarity.RARE, PCLAttackType.Ranged, PCLCardTarget.Single)
             .setDamage(4, 0)
             .setHp(7, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
@@ -42,20 +39,15 @@ public class UtsuhoReiuji extends PCLCard {
     }
 
     public void specialMove(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
-        HashSet<PCLAffinity> available = new HashSet<>(Arrays.asList(PCLAffinity.getAvailableAffinities()));
-        available.add(PCLAffinity.Star);
-
         PCLActions.bottom.withdrawAlly(EUIUtils.filter(GameUtilities.getSummons(true), a -> a != move.getOwnerCreature()))
                 .addCallback(cards -> {
                     for (AbstractCard c : cards) {
                         PCLCardAffinities cardAffinities = GameUtilities.getPCLCardAffinities(c);
                         if (cardAffinities != null) {
-                            for (PCLAffinity aff : cardAffinities.getAffinities(false, false)) {
-                                if (available.contains(aff)) {
-                                    PCLElementHelper debuff = PCLElementHelper.get(aff);
-                                    if (debuff != null) {
-                                        order.applyPower(info.source, info.target, move.target, debuff, move.amount);
-                                    }
+                            for (PCLAffinity aff : cardAffinities.getAffinities(true, true)) {
+                                PCLElementHelper debuff = PCLElementHelper.get(aff);
+                                if (debuff != null) {
+                                    order.applyPower(info.source, info.target, move.target, debuff, move.amount);
                                 }
                             }
                         }

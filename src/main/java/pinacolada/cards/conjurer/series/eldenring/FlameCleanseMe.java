@@ -25,6 +25,6 @@ public class FlameCleanseMe extends PCLCard {
 
     public void setup(Object input) {
         addUseMove(PMove.gain(-1, PCLPowerHelper.Vulnerable, PCLPowerHelper.Weak).setUpgrade(-1));
-        addUseMove(PMove.applyToEveryone(2, PCLElementHelper.Ignis));
+        addUseMove(PMove.applyToEveryone(3, PCLElementHelper.Ignis).setUpgrade(1));
     }
 }

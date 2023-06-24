@@ -18,7 +18,7 @@ import pinacolada.skills.skills.special.moves.PMove_ExhaustAlly;
 public class YuNarukami extends PCLCard {
     public static final PCLCardData DATA = register(YuNarukami.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE)
-            .setDamage(4, 1)
+            .setDamage(3, 0)
             .setHp(6, 2)
             .setAffinities(PCLAffinity.Star)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei, true);
@@ -30,8 +30,8 @@ public class YuNarukami extends PCLCard {
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_DIAGONAL);
         addUseMove(PCond.cooldown(4),
-                PMultiSkill.choose(PMove.create(YuNarukami_Izanagi.DATA.ID), PMove.create(YuNarukami_MagatsuIzanagi.DATA.ID)),
-                new PMove_ExhaustAlly(PCLCardTarget.Self, 1)
+                new PMove_ExhaustAlly(PCLCardTarget.Self, 1),
+                PMultiSkill.choose(PMove.create(YuNarukami_Izanagi.DATA.ID), PMove.create(YuNarukami_MagatsuIzanagi.DATA.ID))
         );
     }
 }

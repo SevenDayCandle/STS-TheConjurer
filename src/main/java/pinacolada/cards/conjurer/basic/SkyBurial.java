@@ -27,6 +27,6 @@ public class SkyBurial extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(ConjurerEFK.EVFXForge05_06_LiftingGust);
-        addUseMove(PMod.discardRandomPer(0), PMove.applyToRandom(2, PCLPowerHelper.Poison));
+        addUseMove(PMod.discardPer(0).edit(f -> f.setForced(true)), PMove.gainTemporary(2, PCLPowerHelper.Thorns));
     }
 }

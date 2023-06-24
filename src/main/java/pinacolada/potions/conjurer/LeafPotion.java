@@ -19,12 +19,7 @@ public class LeafPotion extends PCLPotion {
         super(DATA);
     }
 
-    @Override
-    public int getPotency(int ascensionLevel) {
-        return 4;
-    }
-
     public void setup() {
-        addUseMove(PMove.applyToSingle(getPotency(), PCLElementHelper.Ventus, PCLPowerHelper.Poison));
+        addUseMove(PMove.applyToSingle(4, PCLElementHelper.Ventus, PCLPowerHelper.Poison));
     }
 }

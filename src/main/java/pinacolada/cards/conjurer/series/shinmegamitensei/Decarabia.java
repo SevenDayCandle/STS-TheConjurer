@@ -19,7 +19,7 @@ import pinacolada.skills.skills.PTrigger;
 public class Decarabia extends PCLCard {
     public static final PCLCardData DATA = register(Decarabia.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Immaterial, PCLCardTarget.AllEnemy)
-            .setDamage(2, 0)
+            .setDamage(3, 0)
             .setHp(5, 1)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
@@ -31,8 +31,8 @@ public class Decarabia extends PCLCard {
     public void setup(Object input) {
         addDamageMove(AbstractGameAction.AttackEffect.FIRE);
         addGainPower(PTrigger.interactable(
-                CCond.payMatter(11).setUpgrade(-3),
-                PMove.applyToEnemies(2, PCLElementHelper.Ignis, PCLElementHelper.Aqua)
+                CCond.payMatter(9),
+                PMove.applyToEnemies(3, PCLElementHelper.Ignis, PCLElementHelper.Aqua).setUpgrade(1)
         ));
     }
 }

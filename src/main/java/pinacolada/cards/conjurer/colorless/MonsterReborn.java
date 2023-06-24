@@ -40,7 +40,7 @@ public class MonsterReborn extends PCLCard {
                     for (AbstractCard c : cards) {
                         if (c.type == PCLEnum.CardType.SUMMON && c instanceof PCLCard) {
                             GameUtilities.modifyDamage(c, c.baseDamage * move.extra / 100, false, false);
-                            GameUtilities.modifySecondaryValueRelative((PCLCard) c, c.baseHeal * move.extra / 100, false);
+                            ((PCLCard) c).updateHeal(c.baseHeal + c.baseHeal * move.extra / 100);
                         }
                     }
                 });

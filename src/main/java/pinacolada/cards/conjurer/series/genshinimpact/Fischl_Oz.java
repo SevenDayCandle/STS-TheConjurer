@@ -21,7 +21,7 @@ public class Fischl_Oz extends PCLCard {
             .setSummon(0, CardRarity.SPECIAL, PCLAttackType.Immaterial, PCLCardTarget.AllEnemy)
             .setDamage(4, 1)
             .setHp(3, 2)
-            .setAffinities(PCLAffinity.Purple)
+            .setAffinities(PCLAffinity.Blue, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.genshinImpact, true);
 
     public Fischl_Oz() {

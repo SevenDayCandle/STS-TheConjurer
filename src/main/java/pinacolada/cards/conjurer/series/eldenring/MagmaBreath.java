@@ -6,7 +6,7 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
-import pinacolada.effects.PCLAttackVFX;
+import pinacolada.effects.EffekseerEFK;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -26,7 +26,7 @@ public class MagmaBreath extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.SMALL_EXPLOSION);
+        addDamageMove(EffekseerEFK.FIRE10);
         addUseMove(PMod.bonusOnExhausted(4), PMove.applyToSingle(2, PCLElementHelper.Ignis).setUpgrade(1));
     }
 }

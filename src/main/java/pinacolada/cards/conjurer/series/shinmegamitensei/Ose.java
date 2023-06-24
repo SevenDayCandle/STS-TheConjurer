@@ -19,8 +19,8 @@ import pinacolada.skills.delay.DelayTiming;
 public class Ose extends PCLCard {
     public static final PCLCardData DATA = register(Ose.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.Single, DelayTiming.EndOfTurnFirst)
-            .setDamage(5, 1)
-            .setHp(9, 1)
+            .setDamage(6, 1)
+            .setHp(8, 1)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
@@ -30,6 +30,6 @@ public class Ose extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_HEAVY);
-        addUseMove(PCond.onWithdraw(), PMove.applyToAllies(2, PCLPowerHelper.Strength).setUpgrade(1));
+        addUseMove(PCond.onWithdraw(), PMove.applyTemporary(PCLCardTarget.Team, 7, PCLPowerHelper.Vigor).setUpgrade(1));
     }
 }

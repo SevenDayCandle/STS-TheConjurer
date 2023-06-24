@@ -10,9 +10,10 @@ import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PCond;
+import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PMultiSkill;
+import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
 public class Genbu extends PCLCard {
@@ -29,11 +30,11 @@ public class Genbu extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.CLAW);
-        addUseMove(PCond.cooldown(1),
+        addGainPower(PTrigger.interactable(CCond.payMatter(9),
                 PMultiSkill.choose(
-                        PMove.applyToEnemies(4, PCLElementHelper.Aqua),
-                        PMove.applyToEnemies(4, PCLElementHelper.Petra)
+                        PMove.applyToEnemies(6, PCLElementHelper.Aqua),
+                        PMove.applyToEnemies(6, PCLElementHelper.Petra)
                 )
-        );
+        ));
     }
 }

@@ -17,7 +17,7 @@ public class JeanGunnhildr extends PCLCard {
     public static final PCLCardData DATA = register(JeanGunnhildr.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE)
             .setDamage(3, 2)
-            .setHp(8, 1)
+            .setHp(7, 1)
             .setAffinities(PCLAffinity.Green, PCLAffinity.Orange, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
@@ -27,6 +27,6 @@ public class JeanGunnhildr extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL);
-        addUseMove(PCond.cooldown(1), PMove.applyToTeam(-1, PCLPowerHelper.Vulnerable, PCLPowerHelper.Frail));
+        addUseMove(PCond.cooldown(1), PMove.applyToTeam(-1, PCLPowerHelper.Vulnerable));
     }
 }

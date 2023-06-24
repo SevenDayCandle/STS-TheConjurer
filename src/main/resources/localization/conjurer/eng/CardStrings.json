@@ -20,7 +20,7 @@
 		"conjurer:DeltaStream": {"NAME": "Delta Stream"},
 		"conjurer:Desiccation": {"NAME": "Desiccation"},
 		"conjurer:DustTornado": {"NAME": "Dust Tornado"},
-		"conjurer:Ecosystem": {"NAME": "Ecosystem"},
+		"conjurer:Ecosystem": {"EXTENDED_DESCRIPTION": ["Stabilize its Elemental Debuff on all characters"], "NAME": "Ecosystem"},
 		"conjurer:Entropy": {"EXTENDED_DESCRIPTION": ["Apply {0} of the corresponding Elemental Debuffs of each discarded card"], "NAME": "Entropy"},
 		"conjurer:ErodingTerra": {
 			"EXTENDED_DESCRIPTION": ["At round end, Stabilize {0}% of everyone's [Petra]. If it was already Stabilized, you gain it as [Block]"],
@@ -41,7 +41,7 @@
 		"conjurer:MagmaFlare": {"NAME": "Magma Flare"},
 		"conjurer:Melt": {"NAME": "Melt"},
 		"conjurer:MudFissure": {"NAME": "Mud Fissure"},
-		"conjurer:NaturalSelection": {"EXTENDED_DESCRIPTION": ["Stabilize their corresponding Elemental Debuffs on all characters"], "NAME": "Natural Selection"},
+		"conjurer:NaturalSelection": {"NAME": "Natural Selection"},
 		"conjurer:OceanSubmersion": {"NAME": "Ocean Submersion"},
 		"conjurer:Overheat": {"NAME": "Overheat"},
 		"conjurer:Paleontology": {"NAME": "Paleontology"},
@@ -53,7 +53,7 @@
 		"conjurer:RazorTurbine": {"NAME": "Razor Turbine"},
 		"conjurer:SeismicShift": {"NAME": "Seismic Shift"},
 		"conjurer:SheerCold": {
-			"EXTENDED_DESCRIPTION": ["[Frostbite] is treated as a [A-B] Elemental Debuff and increases [Immaterial Damage] and non-Attack damage received"],
+			"EXTENDED_DESCRIPTION": ["[Frostbite] is treated as a [A-B] Elemental Debuff and increases non-Attack damage received"],
 			"NAME": "Sheer Cold"
 		},
 		"conjurer:SkyBurial": {"NAME": "Sky Burial"},
@@ -105,7 +105,7 @@
 		"conjurer:MirrorForce": {"EXTENDED_DESCRIPTION": ["Reflect the next {0} enemy attacks this turn"], "NAME": "Mirror Force"},
 		"conjurer:MonsterReborn": {"EXTENDED_DESCRIPTION": ["Summon {0} Purged Summon. Increase its HP and damage by {1}%"], "NAME": "Monster Reborn"},
 		"conjurer:NuclearTransmutation": {"NAME": "Nuclear Transmutation"},
-		"conjurer:OracleSphere": {"EXTENDED_DESCRIPTION": ["Reshuffle your deck. Move {0} cards to the top"], "NAME": "Oracle Sphere"},
+		"conjurer:OracleSphere": {"EXTENDED_DESCRIPTION": ["Move {0} cards to the top"], "NAME": "Oracle Sphere"},
 		"conjurer:PocketPolymerization": {"EXTENDED_DESCRIPTION": ["Combine {0} Attacks or Skills in hand. If the resulting card costs 2+, reduce its cost by {1}"], "NAME": "Pocket Polymerization"},
 		"conjurer:Polymerization": {"EXTENDED_DESCRIPTION": ["When Obtained, combine up to {0} Attacks or Skills from your deck into this card"], "NAME": "Polymerization"},
 		"conjurer:PortableTrashCan": {
@@ -270,7 +270,9 @@
 		"conjurer:KushalaDaora": {"NAME": "Kushala Daora"},
 		"conjurer:Lagiacrus": {"NAME": "Lagiacrus"},
 		"conjurer:Lavasioth": {"NAME": "Lavasioth"},
+		"conjurer:Lifepowder": {"NAME": "Lifepowder"},
 		"conjurer:Legiana": {"NAME": "Legiana"},
+		"conjurer:Namielle": {"NAME": "Namielle"},
 		"conjurer:Nargacuga": {"NAME": "Nargacuga"},
 		"conjurer:PukeiPukei": {"NAME": "Pukei-Pukei"},
 		"conjurer:Radobaan": {"NAME": "Radobaan"},
@@ -279,6 +281,8 @@
 		"conjurer:Rathian": {"NAME": "Rathian"},
 		"conjurer:Tigrex": {"NAME": "Tigrex"},
 		"conjurer:Velkhana": {"NAME": "Velkhana"},
+		"conjurer:VigorwaspSpray": {"NAME": "Vigorwasp Spray"},
+		"conjurer:Zamtrios": {"NAME": "Zamtrios"},
 		"conjurer:ZorahMagdaros": {"NAME": "Zorah Magdaros"}
 	},
 	"SERIES:SHINMEGAMITENSEI":

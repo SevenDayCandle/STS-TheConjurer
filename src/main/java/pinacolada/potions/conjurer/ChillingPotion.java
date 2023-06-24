@@ -20,12 +20,7 @@ public class ChillingPotion extends PCLPotion {
         super(DATA);
     }
 
-    @Override
-    public int getPotency(int ascensionLevel) {
-        return 6;
-    }
-
     public void setup() {
-        addUseMove(PMultiSkill.join(PMove.applyToEnemies(getPotency(), PCLElementHelper.Aqua), PMove.stabilize(PCLCardTarget.AllEnemy, PCLElementHelper.Aqua)));
+        addUseMove(PMultiSkill.join(PMove.applyToEnemies(6, PCLElementHelper.Aqua), PMove.stabilize(PCLCardTarget.AllEnemy, PCLElementHelper.Aqua)));
     }
 }

@@ -26,12 +26,21 @@ public class QuadraticGlobe extends PCLRelic {
             ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Orange).addReaction(PCLAffinity.Green);
             ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Green).addReaction(PCLAffinity.Blue);
             for (ConjurerElementButton element : ConjurerReactionMeter.meter.getElementButtons()) {
-                element.currentAmplifyMultiplier /= getValue();
+                element.currentAmplifyOffset = getValue();
+                element.currentCost = (int) (element.currentCost * (100 + getPricePercent()) / 100f);
             }
         });
     }
 
+    public String getUpdatedDescription() {
+        return this.formatDescription(0, this.getValue(), this.getPricePercent());
+    }
+
     public int getValue() {
-        return 2;
+        return -10;
+    }
+
+    public int getPricePercent() {
+        return 50;
     }
 }

@@ -44,7 +44,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import static extendedui.EUIUtils.array;
-import static pinacolada.ui.combat.ConjurerElementButton.BASE_AMPLIFY;
 
 public class ConjurerReactionMeter extends PCLPlayerMeter {
     public static final String ID = createFullID(ConjurerResources.conjurer, PCLEmptyMeter.class);
@@ -346,8 +345,8 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
             chargeTooltip.setDescription(
                     EUIUtils.joinStrings(EUIUtils.SPLIT_LINE,
                             ConjurerResources.conjurer.tooltips.charge.description,
-                            PCLCoreStrings.leftClick(PSkill.capital(PGR.core.strings.act_applyX(1, helper.getTitleOrIcon()), true)),
-                            PCLCoreStrings.rightClick(PSkill.capital(PGR.core.strings.act_applyX(skips.getCurrentUses(), helper.getTitleOrIcon()), true))));
+                            PCLCoreStrings.leftClick(PSkill.capital(PGR.core.strings.act_applyAmountX(1, helper.getTitleOrIcon()), true)),
+                            PCLCoreStrings.rightClick(PSkill.capital(PGR.core.strings.act_applyAmountX(skips.getCurrentUses(), helper.getTitleOrIcon()), true))));
         }
     }
 
@@ -438,9 +437,9 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
         earth.addReaction(fire);
     }
 
-    public float getAmplifyRate(PCLAffinity affinity) {
+    public int getAmplifyOffset(PCLAffinity affinity) {
         ConjurerElementButton destButton = getElementButton(affinity);
-        return destButton != null ? destButton.currentAmplifyMultiplier : BASE_AMPLIFY;
+        return destButton != null ? destButton.currentAmplifyOffset : 0;
     }
 
     public ConjurerElementButton getElementButton(PCLAffinity affinity) {

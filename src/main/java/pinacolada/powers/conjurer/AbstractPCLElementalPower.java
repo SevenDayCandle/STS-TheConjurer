@@ -13,7 +13,6 @@ import pinacolada.actions.PCLActions;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.dungeon.CombatManager;
 import pinacolada.interfaces.listeners.OnElementalDebuffListener;
-import pinacolada.interfaces.markers.MultiplicativePower;
 import pinacolada.interfaces.markers.StablizingPower;
 import pinacolada.misc.AffinityReactions;
 import pinacolada.powers.PCLPower;
@@ -27,13 +26,12 @@ import pinacolada.utilities.PCLRenderHelpers;
 import java.util.HashMap;
 import java.util.Set;
 
-public abstract class AbstractPCLElementalPower extends PCLPower implements MultiplicativePower, StablizingPower {
+public abstract class AbstractPCLElementalPower extends PCLPower implements StablizingPower {
     public static final int BASE_DAMAGE_MULTIPLIER = 30;
     public static final int DEFAULT_COMBUST_INCREASE = BASE_DAMAGE_MULTIPLIER / 2;
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, AbstractPCLElementalPower.class);
     public static final HashMap<String, PCLAffinity> AFFINITIES = new HashMap<>();
     public static final HashMap<String, Integer> MULTIPLIERS = new HashMap<>();
-    public static final HashMap<String, Integer> DENOMINATORS = new HashMap<>();
     public int stabilizeTurns;
 
     public AbstractPCLElementalPower(AbstractCreature owner, AbstractCreature source, String id, int amount) {
@@ -45,23 +43,11 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Mult
     }
 
     public static float getAmplifyMultiplier(PCLAffinity affinity) {
-        return getAmplifyMultiplier(affinity, CombatManager.playerSystem.getLevel(affinity), ConjurerReactionMeter.meter.getAmplifyRate(affinity));
+        return getAmplifyMultiplier(CombatManager.playerSystem.getLevel(affinity), ConjurerReactionMeter.meter.getAmplifyOffset(affinity));
     }
 
-    public static float getAmplifyMultiplier(PCLAffinity affinity, int level, float modifier) {
-        return (getAmplifyMultiplierForLevel(level)) * modifier;
-    }
-
-    public static float getAmplifyMultiplierForLevel(int level) {
-        return BASE_DAMAGE_MULTIPLIER + DEFAULT_COMBUST_INCREASE * level;
-    }
-
-    public static float getAmplifyMultiplier(PCLAffinity affinity, float modifier) {
-        return getAmplifyMultiplier(affinity, CombatManager.playerSystem.getLevel(affinity), modifier);
-    }
-
-    public static float getAmplifyMultiplier(PCLAffinity affinity, int level) {
-        return getAmplifyMultiplier(affinity, level, ConjurerReactionMeter.meter.getAmplifyRate(affinity));
+    public static float getAmplifyMultiplier(int level, int modifier) {
+        return (BASE_DAMAGE_MULTIPLIER + modifier + (DEFAULT_COMBUST_INCREASE + modifier / 2f) * level);
     }
 
     public static float getIntensifyMultiplier(String powerID) {
@@ -75,10 +61,6 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Mult
     public static float getIntensifyMultiplierForLevel(String powerID, int level) {
         float base = MULTIPLIERS.getOrDefault(powerID, 10);
         float increase = level * base / 2f;
-        if (DENOMINATORS.containsKey(powerID)) {
-            float top = DENOMINATORS.get(powerID);
-            return 100 * ((base + increase) / (top + base + increase));
-        }
         return base + increase;
     }
 
@@ -93,11 +75,6 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Mult
 
     public static int setMultiplier(String id, int multiplier) {
         MULTIPLIERS.put(id, multiplier);
-        return multiplier;
-    }
-
-    public static int setTop(String id, int multiplier) {
-        DENOMINATORS.put(id, multiplier);
         return multiplier;
     }
 

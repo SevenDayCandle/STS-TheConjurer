@@ -13,7 +13,7 @@ import pinacolada.skills.skills.PTrigger;
 @VisibleRelic
 public class ChiliPepper extends PCLPointerRelic {
     public static final PCLRelicData DATA = register(ChiliPepper.class, ConjurerResources.conjurer)
-            .setProps(RelicTier.UNCOMMON, LandingSound.FLAT);
+            .setProps(RelicTier.COMMON, LandingSound.FLAT);
 
     public ChiliPepper() {
         super(DATA);

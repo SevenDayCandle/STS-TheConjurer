@@ -10,6 +10,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardSelection;
+import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.effects.PCLEffects;
@@ -26,7 +27,8 @@ public class Joker extends PCLCard {
     public static final PCLCardData DATA = register(Joker.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE, PCLAttackType.Ranged)
             .setDamage(3, 0)
-            .setHp(5, 2)
+            .setHp(5, 1)
+            .setRTags(PCLCardTag.Ethereal)
             .setAffinities(PCLAffinity.Star)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
@@ -36,7 +38,7 @@ public class Joker extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.DARKNESS);
-        addUseMove(PCond.cooldown(0), getSpecialMove(0, this::specialMove, 1).setUpgrade(1));
+        addUseMove(PCond.cooldown(0), getSpecialMove(0, this::specialMove, 2));
     }
 
     public void specialMove(PSpecialSkill move, PCLUseInfo info, PCLActions order) {

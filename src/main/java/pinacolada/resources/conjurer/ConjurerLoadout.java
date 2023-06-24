@@ -3,7 +3,7 @@ package pinacolada.resources.conjurer;
 import pinacolada.relics.conjurer.DisguisePropBox;
 import pinacolada.relics.conjurer.QuadraticGlobe;
 import pinacolada.relics.pcl.GenericDice;
-import pinacolada.relics.pcl.GiftGivingGift;
+import pinacolada.relics.pcl.HeartShapedBox;
 import pinacolada.relics.pcl.Macroscope;
 import pinacolada.resources.PGR;
 import pinacolada.resources.loadout.PCLLoadout;
@@ -36,6 +36,6 @@ public class ConjurerLoadout extends PCLLoadout {
         r1.addItem(new Macroscope(), 4);
         r1.addItem(new DisguisePropBox(), 12);
         r1.addItem(new QuadraticGlobe(), 12);
-        r1.addItem(new GiftGivingGift(), 15);
+        r1.addItem(new HeartShapedBox(), 15);
     }
 }

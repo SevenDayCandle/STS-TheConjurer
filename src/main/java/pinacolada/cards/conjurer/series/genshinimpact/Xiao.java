@@ -20,7 +20,7 @@ import pinacolada.skills.skills.PMultiSkill;
 @VisibleCard
 public class Xiao extends PCLCard {
     public static final PCLCardData DATA = register(Xiao.class, ConjurerResources.conjurer)
-            .setSummon(2, CardRarity.RARE, PCLAttackType.Piercing, PCLCardTarget.AllEnemy)
+            .setSummon(1, CardRarity.RARE, PCLAttackType.Piercing, PCLCardTarget.AllEnemy)
             .setRTags(PCLCardTag.Ethereal)
             .setDamage(3, 0, 2)
             .setHp(5, 1)

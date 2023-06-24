@@ -12,7 +12,7 @@ import pinacolada.skills.skills.PTrigger;
 @VisibleRelic
 public class PortableCactus extends PCLPointerRelic {
     public static final PCLRelicData DATA = register(PortableCactus.class, ConjurerResources.conjurer)
-            .setProps(RelicTier.UNCOMMON, LandingSound.FLAT);
+            .setProps(RelicTier.COMMON, LandingSound.FLAT);
 
     public PortableCactus() {
         super(DATA);

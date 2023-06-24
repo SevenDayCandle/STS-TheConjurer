@@ -6,12 +6,11 @@ import extendedui.utilities.ColoredString;
 import pinacolada.actions.PCLActions;
 import pinacolada.effects.PCLSFX;
 import pinacolada.interfaces.listeners.OnElementalDebuffListener;
-import pinacolada.interfaces.markers.MultiplicativePower;
 import pinacolada.powers.PCLPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.utilities.GameUtilities;
 
-public class ElementalExposurePower extends PCLPower implements OnElementalDebuffListener, MultiplicativePower {
+public class ElementalExposurePower extends PCLPower implements OnElementalDebuffListener {
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, ElementalExposurePower.class);
     public static final int ELEMENTAL_MODIFIER = 25;
     public static final int DECAY_TURNS = 1;

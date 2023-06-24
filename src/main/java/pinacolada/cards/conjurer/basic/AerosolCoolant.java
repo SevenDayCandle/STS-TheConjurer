@@ -8,7 +8,6 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
@@ -23,7 +22,7 @@ public class AerosolCoolant extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PCond.checkPower(PCLCardTarget.All, 0, PCLElementHelper.Ventus).edit(f -> f.setNot(true)), PMove.draw(2));
-        addUseMove(PMove.applyToSingle(1, PCLElementHelper.Aqua, PCLElementHelper.Ventus).setUpgrade(1));
+        addUseMove(PMove.applyToSingle(2, PCLElementHelper.Aqua, PCLElementHelper.Ventus).setUpgrade(1));
+        addUseMove(PMove.withdrawAlly(PCLCardTarget.AllAlly, 2));
     }
 }

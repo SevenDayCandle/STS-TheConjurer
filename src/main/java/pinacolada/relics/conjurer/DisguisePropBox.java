@@ -1,9 +1,9 @@
 package pinacolada.relics.conjurer;
 
-import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.monsters.beyond.*;
 import com.megacrit.cardcrawl.monsters.city.*;
 import com.megacrit.cardcrawl.monsters.exordium.*;
+import extendedui.EUIInputManager;
 import extendedui.EUIUtils;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleRelic;
@@ -39,7 +39,7 @@ public class DisguisePropBox extends PCLRelic {
     public void update() {
         super.update();
 
-        if (GameUtilities.inBattle() && this.hb.hovered && InputHelper.justClickedRight) {
+        if (GameUtilities.inBattle() && this.hb.hovered && EUIInputManager.rightClick.isJustPressed()) {
             selectCreatureForTransform().addCallback(() -> {
                 monsterSkill = getSkillForMonster();
             });
@@ -124,7 +124,7 @@ public class DisguisePropBox extends PCLRelic {
             case TimeEater.ID: return PMove.applyToEveryone(1, PCLPowerHelper.Silenced);
             case TheCollector.ID: return PMove.applyToRandom(3, PCLPowerHelper.Vulnerable, PCLPowerHelper.Weak, PCLPowerHelper.Frail);
             case TheGuardian.ID: return PMultiSkill.join(PMove.gainPlayer(3, PCLPowerHelper.Thorns), PMove.gainPlayer(10, PCLPowerHelper.CurlUp));
-            case Transient.ID: return PMove.applyToRandom(99, PCLPowerHelper.Shackles);
+            case Transient.ID: return PMove.applyToRandom(15, PCLPowerHelper.Shackles);
             case WrithingMass.ID: return PMultiSkill.join(PMove.gainPlayer(1, PCLPowerHelper.Malleable), PMove.applyToRandom(1, PCLPowerHelper.Weak, PCLPowerHelper.Vulnerable));
         }
         return PMove.gainEnergy(1);

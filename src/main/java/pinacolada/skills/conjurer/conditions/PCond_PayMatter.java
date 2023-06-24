@@ -3,6 +3,7 @@ package pinacolada.skills.conjurer.conditions;
 import extendedui.interfaces.delegates.ActionT1;
 import pinacolada.actions.PCLAction;
 import pinacolada.actions.PCLActions;
+import pinacolada.actions.powers.GainReaction;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -48,7 +49,7 @@ public class PCond_PayMatter extends PActiveCond<PField_Not> {
     }
 
     @Override
-    protected PCLAction<?> useImpl(PCLUseInfo pclUseInfo, PCLActions order, ActionT1<PCLUseInfo> actionT0, ActionT1<PCLUseInfo> actionT01) {
-        return order.callback(() -> ConjurerReactionMeter.meter.trySpendMatter(amount));
+    protected PCLAction<?> useImpl(PCLUseInfo info, PCLActions order, ActionT1<PCLUseInfo> onComplete, ActionT1<PCLUseInfo> onFail) {
+        return order.add(new GainReaction(-amount)).addCallback(() -> onComplete.invoke(info));
     }
 }

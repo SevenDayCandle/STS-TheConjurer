@@ -19,8 +19,8 @@ import pinacolada.skills.PMove;
 @VisibleCard
 public class Deviljho extends PCLCard {
     public static final PCLCardData DATA = register(Deviljho.class, ConjurerResources.conjurer)
-            .setSummon(3, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
-            .setDamage(5, 1, 0)
+            .setSummon(3, CardRarity.UNCOMMON, PCLAttackType.Brutal, PCLCardTarget.RandomEnemy)
+            .setDamage(4, 1, 0)
             .setHp(15, 0)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.monsterHunter, true);

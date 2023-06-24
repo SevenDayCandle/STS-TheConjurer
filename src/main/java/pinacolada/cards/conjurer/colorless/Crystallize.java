@@ -21,6 +21,6 @@ public class Crystallize extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.retain(2).setUpgrade(1), PMove.modifyBlock(2).useParent(true));
+        addUseMove(PMove.retain(2), PMove.modifyBlock(3).setUpgrade(1).edit(f -> f.setForced(true)).useParent(true));
     }
 }

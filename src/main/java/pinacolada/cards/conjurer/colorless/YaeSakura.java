@@ -19,7 +19,7 @@ public class YaeSakura extends PCLCard {
             .setSummon(1, CardRarity.RARE, PCLAttackType.Immaterial)
             .setDamage(3, 1)
             .setHp(4, 2)
-            .setAffinities(PCLAffinity.Purple)
+            .setAffinities(PCLAffinity.Blue, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.honkai, true);
 
     public YaeSakura() {

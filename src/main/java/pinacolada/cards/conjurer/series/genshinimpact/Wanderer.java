@@ -1,7 +1,6 @@
 package pinacolada.cards.conjurer.series.genshinimpact;
 
 
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import pinacolada.annotations.VisibleCard;
@@ -12,6 +11,7 @@ import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.effects.PCLAttackVFX;
+import pinacolada.interfaces.subscribers.OnCardPlayedSubscriber;
 import pinacolada.monsters.PCLCardAlly;
 import pinacolada.powers.PSpecialCardPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
@@ -37,13 +37,13 @@ public class Wanderer extends PCLCard {
         addSpecialPower(0, (s, i) -> new WandererPower(i.source, s), 3, 1);
     }
 
-    public static class WandererPower extends PSpecialCardPower {
+    public static class WandererPower extends PSpecialCardPower implements OnCardPlayedSubscriber {
         public WandererPower(AbstractCreature owner, PSkill<?> move) {
             super(DATA, owner, move);
         }
 
         @Override
-        public void onUseCard(AbstractCard card, UseCardAction action) {
+        public void onCardPlayed(AbstractCard card) {
             if ((card.type == CardType.SKILL || card.type == CardType.CURSE) && owner instanceof PCLCardAlly) {
                 ((PCLCardAlly) owner).takeTurn();
                 this.flash();

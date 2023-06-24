@@ -42,7 +42,7 @@
 	},
 	"conjurer:FrostbitePower":
 	{
-		"DESCRIPTIONS": ["Takes #b+{0} damage from #yAttacks and deals #b-{0} damage. At the start of its turn, loses #b{1} stacks."],
+		"DESCRIPTIONS": ["Takes #b+{0} damage from #yAttacks and #yOrbs, and deals #b-{0} damage. At the start of its turn, loses #b{1} stacks."],
 		"NAME": "Frostbite"
 	},
 	"conjurer:IgnisPower":

@@ -12,6 +12,7 @@ import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.skills.PSpecialSkill;
+import pinacolada.skills.skills.base.moves.PMove_Shuffle;
 
 @VisibleCard
 public class OracleSphere extends PCLCard {
@@ -26,12 +27,10 @@ public class OracleSphere extends PCLCard {
     }
 
     public void setup(Object input) {
-        addSpecialMove(0, this::action, 5).setUpgrade(2);
+        addUseMove(new PMove_Shuffle(), getSpecialMove(0, this::action, 5).setUpgrade(2));
     }
 
     public void action(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
-        order.reshuffleDiscardPile(false).addCallback(() -> {
-            PCLActions.last.reshuffleFromPile(name, move.amount, player.drawPile).setDestination(PCLCardSelection.Top);
-        });
+        PCLActions.last.reshuffleFromPile(name, move.amount, player.drawPile).setDestination(PCLCardSelection.Top);
     }
 }
