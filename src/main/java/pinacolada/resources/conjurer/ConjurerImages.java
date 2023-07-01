@@ -47,12 +47,12 @@ public class ConjurerImages extends PCLImages {
         public final TextureCache etut01 = new TextureCache("images/conjurer/ui/tutorial/etut01.png");
         public final TextureCache etut02 = new TextureCache("images/conjurer/ui/tutorial/etut02.png");
         public final TextureCache etut03 = new TextureCache("images/conjurer/ui/tutorial/etut03.png");
-        public final TextureCache tut01 = new TextureCache("images/conjurer/ui/tutorial/tut01.png");
-        public final TextureCache tut02 = new TextureCache("images/conjurer/ui/tutorial/tut02.png");
-        public final TextureCache tut03 = new TextureCache("images/conjurer/ui/tutorial/tut03.png");
-        public final TextureCache tut04 = new TextureCache("images/conjurer/ui/tutorial/tut04.png");
-        public final TextureCache tut05 = new TextureCache("images/conjurer/ui/tutorial/tut05.png");
-        public final TextureCache tut06 = new TextureCache("images/conjurer/ui/tutorial/tut06.png");
+        public final TextureCache ctut01 = new TextureCache("images/conjurer/ui/tutorial/ctut01.png");
+        public final TextureCache ctut02 = new TextureCache("images/conjurer/ui/tutorial/ctut02.png");
+        public final TextureCache ctut03 = new TextureCache("images/conjurer/ui/tutorial/ctut03.png");
+        public final TextureCache ctut04 = new TextureCache("images/conjurer/ui/tutorial/ctut04.png");
+        public final TextureCache ctut05 = new TextureCache("images/conjurer/ui/tutorial/ctut05.png");
+        public final TextureCache ctut06 = new TextureCache("images/conjurer/ui/tutorial/ctut06.png");
     }
 
 }

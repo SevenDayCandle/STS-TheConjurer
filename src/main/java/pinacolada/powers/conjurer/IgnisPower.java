@@ -21,11 +21,6 @@ public class IgnisPower extends AbstractPCLElementalPower {
     }
 
     @Override
-    public void playApplyPowerSfx() {
-        PCLSFX.play(PCLSFX.ATTACK_FIRE, 0.95f, 1.05f);
-    }
-
-    @Override
     public AbstractGameAction.AttackEffect getAttackEffect() {
         return PCLEnum.AttackEffect.BURN;
     }
@@ -36,5 +31,10 @@ public class IgnisPower extends AbstractPCLElementalPower {
             PCLActions.bottom.applyPower(source, owner, PCLCardTarget.Single, PCLElementHelper.Blasted, (int) calculateValue(reactions));
         }
         super.onReact(source, reactions);
+    }
+
+    @Override
+    public void playApplyPowerSfx() {
+        PCLSFX.play(PCLSFX.ATTACK_FIRE, 0.95f, 1.05f);
     }
 }

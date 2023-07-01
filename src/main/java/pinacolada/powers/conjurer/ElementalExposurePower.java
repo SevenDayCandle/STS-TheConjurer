@@ -36,6 +36,11 @@ public class ElementalExposurePower extends PCLPower implements OnElementalDebuf
     }
 
     @Override
+    protected ColoredString getSecondaryAmount(Color c) {
+        return new ColoredString(secondaryAmount, Color.WHITE, c.a);
+    }
+
+    @Override
     public String getUpdatedDescription() {
         return formatDescription(0, amount * ELEMENTAL_MODIFIER, secondaryAmount);
     }
@@ -49,11 +54,6 @@ public class ElementalExposurePower extends PCLPower implements OnElementalDebuf
     @Override
     public void reducePower(int reduceAmount) {
         super.reducePower(reduceAmount);
-    }
-
-    @Override
-    protected ColoredString getSecondaryAmount(Color c) {
-        return new ColoredString(secondaryAmount, Color.WHITE, c.a);
     }
 
     @Override

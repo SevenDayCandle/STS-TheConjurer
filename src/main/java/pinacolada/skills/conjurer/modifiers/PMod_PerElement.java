@@ -36,17 +36,13 @@ public class PMod_PerElement extends PMod_Per<PField_Affinity> {
     }
 
     @Override
-    public int getMultiplier(PCLUseInfo info) {
-        return EUIUtils.sumInt(getTargetList(info), t -> t.powers != null ? EUIUtils.sumInt(t.powers, po -> isPowerElemental(po.ID) ? po.amount : 0) : 0) / Math.max(1, this.amount);
-    }
-
-    @Override
     public String getSubSampleText() {
         return ConjurerResources.conjurer.tooltips.elementalDebuff.title;
     }
 
-    protected boolean isPowerElemental(String id) {
-        return fields.affinities.isEmpty() ? ConjurerReactionMeter.meter.isPowerElemental(id) : EUIUtils.any(fields.affinities, a -> ConjurerReactionMeter.meter.isPowerElemental(id, a));
+    @Override
+    public int getMultiplier(PCLUseInfo info) {
+        return EUIUtils.sumInt(getTargetList(info), t -> t.powers != null ? EUIUtils.sumInt(t.powers, po -> isPowerElemental(po.ID) ? po.amount : 0) : 0) / Math.max(1, this.amount);
     }
 
     @Override
@@ -68,5 +64,9 @@ public class PMod_PerElement extends PMod_Per<PField_Affinity> {
             default:
                 return baseString;
         }
+    }
+
+    protected boolean isPowerElemental(String id) {
+        return fields.affinities.isEmpty() ? ConjurerReactionMeter.meter.isPowerElemental(id) : EUIUtils.any(fields.affinities, a -> ConjurerReactionMeter.meter.isPowerElemental(id, a));
     }
 }

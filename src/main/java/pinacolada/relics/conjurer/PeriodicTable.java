@@ -39,16 +39,16 @@ public class PeriodicTable extends PCLRelic {
     }
 
     @Override
+    public int getValue() {
+        return 2;
+    }
+
+    @Override
     public String getUpdatedDescription() {
         if (EUIGameUtils.inBattle()) {
             PCLElementHelper element = PCLElementHelper.get(PCLAffinity.basic()[current]);
             return super.getUpdatedDescription() + EUIUtils.DOUBLE_SPLIT_LINE + formatDescription(1, element.getTooltip().getTitleOrIcon());
         }
         return super.getUpdatedDescription();
-    }
-
-    @Override
-    public int getValue() {
-        return 2;
     }
 }

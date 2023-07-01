@@ -58,14 +58,18 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Stab
         return (getIntensifyMultiplierForLevel(powerID, level) + CombatManager.getEffectBonus(powerID)) * modifier;
     }
 
+    public static float getIntensifyMultiplier(String powerID, int level) {
+        return getIntensifyMultiplier(powerID, level, 1);
+    }
+
+    public static float getIntensifyMultiplier(String powerID, float modifier) {
+        return getIntensifyMultiplier(powerID, CombatManager.playerSystem.getLevel(AFFINITIES.get(powerID)), modifier);
+    }
+
     public static float getIntensifyMultiplierForLevel(String powerID, int level) {
         float base = MULTIPLIERS.getOrDefault(powerID, 10);
         float increase = level * base / 2f;
         return base + increase;
-    }
-
-    public static float getIntensifyMultiplier(String powerID, int level) {
-        return getIntensifyMultiplier(powerID, level, 1);
     }
 
     public static PCLAffinity setAffinity(String id, PCLAffinity affinity) {
@@ -89,11 +93,52 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Stab
         }
     }
 
+    public float calculateValue(AffinityReactions reactions) {
+        return calculateValue(reactions.getValue(getAffinity()), getIntensifyMultiplier());
+    }
+
+    public float calculateValue(int amount, float multiplier) {
+        return amount > 0 ? MathUtils.ceil(amount * (multiplier / 100f)) : 0;
+    }
+
     public PCLAffinity getAffinity() {
         return AFFINITIES.get(ID);
     }
 
-    public abstract AbstractGameAction.AttackEffect getAttackEffect();
+    protected float getElementalMultiplier() {
+        float mult = 1;
+        if (owner != null && owner.powers != null) {
+            for (AbstractPower po : owner.powers) {
+                if (po instanceof OnElementalDebuffListener) {
+                    mult = ((OnElementalDebuffListener) po).getPercentage(mult, this, owner);
+                }
+            }
+        }
+        return mult;
+    }
+
+    public float getIntensifyMultiplier() {
+        if (GameUtilities.isPlayer(owner)) {
+            return MULTIPLIERS.get(ID);
+        }
+        return getIntensifyMultiplier(ID, getElementalMultiplier());
+    }
+
+    @Override
+    protected ColoredString getPrimaryAmount(Color c) {
+        return new ColoredString(amount, stabilizeTurns > 0 ? Settings.BLUE_TEXT_COLOR : Color.WHITE, c.a);
+    }
+
+    @Override
+    protected ColoredString getSecondaryAmount(Color c) {
+        if (ConjurerReactionMeter.meter.isHighlighted()) {
+            AffinityReactions reactions = ConjurerReactionMeter.meter.getPreviewReactions();
+            if (reactions != null) {
+                return new ColoredString((int) calculateValue(reactions), Color.GREEN, c.a);
+            }
+        }
+        return new ColoredString((int) getIntensifyMultiplier(), Color.RED, c.a);
+    }
 
     @Override
     public String getUpdatedDescription() {
@@ -113,55 +158,6 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Stab
     }
 
     @Override
-    protected ColoredString getPrimaryAmount(Color c) {
-        return new ColoredString(amount, stabilizeTurns > 0 ? Settings.BLUE_TEXT_COLOR : Color.WHITE, c.a);
-    }
-
-    @Override
-    protected ColoredString getSecondaryAmount(Color c) {
-        if (ConjurerReactionMeter.meter.isHighlighted())
-        {
-            AffinityReactions reactions = ConjurerReactionMeter.meter.getPreviewReactions();
-            if (reactions != null)
-            {
-                return new ColoredString((int) calculateValue(reactions), Color.GREEN, c.a);
-            }
-        }
-        return new ColoredString((int) getIntensifyMultiplier(), Color.RED, c.a);
-    }
-
-    public float calculateValue(AffinityReactions reactions) {
-        return calculateValue(reactions.getValue(getAffinity()), getIntensifyMultiplier());
-    }
-
-    public float calculateValue(int amount, float multiplier) {
-        return amount > 0 ? MathUtils.ceil(amount * (multiplier / 100f)) : 0;
-    }
-
-    public float getIntensifyMultiplier() {
-        if (GameUtilities.isPlayer(owner)) {
-            return MULTIPLIERS.get(ID);
-        }
-        return getIntensifyMultiplier(ID, getElementalMultiplier());
-    }
-
-    public static float getIntensifyMultiplier(String powerID, float modifier) {
-        return getIntensifyMultiplier(powerID, CombatManager.playerSystem.getLevel(AFFINITIES.get(powerID)), modifier);
-    }
-
-    protected float getElementalMultiplier() {
-        float mult = 1;
-        if (owner != null && owner.powers != null) {
-            for (AbstractPower po : owner.powers) {
-                if (po instanceof OnElementalDebuffListener) {
-                    mult = ((OnElementalDebuffListener) po).getPercentage(mult, this, owner);
-                }
-            }
-        }
-        return mult;
-    }
-
-    @Override
     public void onInitialApplication() {
         super.onInitialApplication();
     }
@@ -178,4 +174,6 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Stab
         stabilizeTurns += turns;
         flash();
     }
+
+    public abstract AbstractGameAction.AttackEffect getAttackEffect();
 }

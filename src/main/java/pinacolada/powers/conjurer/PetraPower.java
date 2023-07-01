@@ -19,11 +19,6 @@ public class PetraPower extends AbstractPCLElementalPower {
     }
 
     @Override
-    public void playApplyPowerSfx() {
-        PCLSFX.play(PCLSFX.PCL_ORB_EARTH_CHANNEL, 0.95f, 1.05f);
-    }
-
-    @Override
     public AbstractGameAction.AttackEffect getAttackEffect() {
         return PCLEnum.AttackEffect.EARTH;
     }
@@ -32,5 +27,10 @@ public class PetraPower extends AbstractPCLElementalPower {
     public void onReact(AbstractCreature source, AffinityReactions reactions) {
         PCLActions.bottom.gainBlock((int) calculateValue(reactions));
         super.onReact(source, reactions);
+    }
+
+    @Override
+    public void playApplyPowerSfx() {
+        PCLSFX.play(PCLSFX.PCL_ORB_EARTH_CHANNEL, 0.95f, 1.05f);
     }
 }

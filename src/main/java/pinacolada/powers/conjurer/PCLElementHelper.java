@@ -40,24 +40,18 @@ public class PCLElementHelper extends PCLPowerHelper {
         registerHelper(id, affinity);
     }
 
-    protected void registerHelper(String powerID, PCLAffinity affinity) {
-        super.registerHelper(powerID);
-        ALL.putIfAbsent(powerID, this);
-        ALL_BY_AFFINITY.putIfAbsent(affinity, this);
-    }
-
     public static PCLElementHelper get(String powerID) {
         return ALL.get(powerID);
+    }
+
+    public static PCLElementHelper get(PCLAffinity affinity) {
+        return ALL_BY_AFFINITY.getOrDefault(affinity, Lux);
     }
 
     public static String getPowerAndString(Collection<PCLAffinity> affinities) {
         return PCLCoreStrings.joinWithAnd(EUIUtils.map(affinities, (a) -> {
             return get(a).getTooltip().getTitleOrIcon();
         }));
-    }
-
-    public static PCLElementHelper get(PCLAffinity affinity) {
-        return ALL_BY_AFFINITY.getOrDefault(affinity, Lux);
     }
 
     public static FuncT1<Boolean, AbstractPower> getPowerFilter(Collection<PCLAffinity> affinities) {
@@ -90,5 +84,11 @@ public class PCLElementHelper extends PCLPowerHelper {
 
     public AbstractPower create(AbstractCreature owner, AbstractCreature source, int amount) {
         return constructorT3.invoke(owner, source, amount);
+    }
+
+    protected void registerHelper(String powerID, PCLAffinity affinity) {
+        super.registerHelper(powerID);
+        ALL.putIfAbsent(powerID, this);
+        ALL_BY_AFFINITY.putIfAbsent(affinity, this);
     }
 }

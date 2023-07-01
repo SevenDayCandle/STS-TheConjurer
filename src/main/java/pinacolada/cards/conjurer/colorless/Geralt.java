@@ -61,21 +61,6 @@ public class Geralt extends PCLCard {
             return true;
         }
 
-        protected void useImpl(PCLUseInfo info) {
-            requests = CombatManager.getCombatData(this.effectID, new ArrayList<>());
-            if (requests.isEmpty()) {
-                populateRequests();
-            }
-            PCLActions.bottom.tryChooseSkill(cardData, amount, info.source, info.target, requests)
-                    .setOptions(false, true)
-                    .addCallback(choiceCards ->
-                    {
-                        for (ChoiceCard<PSkill<?>> c : choiceCards) {
-                            requests.remove(c.value);
-                        }
-                    });
-        }
-
         protected void populateRequests() {
             WeightedList<PSkill<?>> choices = new WeightedList<>();
             choices.add(PCond.payEnergy(2), 2);
@@ -109,6 +94,21 @@ public class Geralt extends PCLCard {
                     }
                 }
             }
+        }
+
+        protected void useImpl(PCLUseInfo info) {
+            requests = CombatManager.getCombatData(this.effectID, new ArrayList<>());
+            if (requests.isEmpty()) {
+                populateRequests();
+            }
+            PCLActions.bottom.tryChooseSkill(cardData, amount, info.source, info.target, requests)
+                    .setOptions(false, true)
+                    .addCallback(choiceCards ->
+                    {
+                        for (ChoiceCard<PSkill<?>> c : choiceCards) {
+                            requests.remove(c.value);
+                        }
+                    });
         }
     }
 }

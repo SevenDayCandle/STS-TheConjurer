@@ -63,7 +63,7 @@ public class ConjurerSummonTutorialMonster extends PCLTutorialMonster {
         EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(targetHb, PGR.core.tooltips.summon.title, PGR.core.strings.tutorial_summonTutorial1)
                 .setCanDismiss(true));
         EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(targetHb, PGR.core.tooltips.summon.title, PGR.core.strings.tutorial_summonTutorial2)
-                        .setFlash(new EUIImage(PCLCoreImages.Monsters.emptyShadow.texture(), new EUIHitbox(targetHb)))
+                .setFlash(new EUIImage(PCLCoreImages.Monsters.emptyShadow.texture(), new EUIHitbox(targetHb)))
                 .setCanDismiss(true));
         return new EUITourTooltip(UseCardAction.class, PGR.core.tooltips.summon.title, ConjurerResources.conjurer.strings.conjurerSummonInteractive1)
                 .setPosition(hb.x - hb.width * 3, hb.y + hb.height);

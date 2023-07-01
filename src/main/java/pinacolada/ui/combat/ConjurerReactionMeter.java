@@ -40,14 +40,13 @@ import pinacolada.skills.PSkill;
 import pinacolada.utilities.GameUtilities;
 import pinacolada.utilities.PCLRenderHelpers;
 
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.*;
 
 import static extendedui.EUIUtils.array;
 
 public class ConjurerReactionMeter extends PCLPlayerMeter {
+    private static final HashMap<String, Set<PCLAffinity>> CARD_AFFINITIES = new HashMap<>();
     public static final String ID = createFullID(ConjurerResources.conjurer, PCLEmptyMeter.class);
-
     public static final Color ACTIVE_COLOR = new Color(0.5f, 1f, 0.5f, 1f);
     public static final float ICON_SIZE = scale(48);
     public static final float BASE_AMOUNT_SCALE = 1f;
@@ -58,6 +57,8 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
     public static final int STARTING_CHARGE = 2;
     public static final int MAX_CHARGE = 5;
     public static final ConjurerReactionMeter meter = new ConjurerReactionMeter();
+    private AffinityReactions previewReactions;
+    private int matterPreview;
     protected ArrayList<ConjurerElementButton> elements = new ArrayList<>();
     protected ConjurerElementButton fire;
     protected ConjurerElementButton air;
@@ -76,8 +77,6 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
     protected int totalReactions;
     protected PCLAffinity lastUpgrade = PCLAffinity.General;
     protected PCLClickableUse skips;
-    private AffinityReactions previewReactions;
-    private int matterPreview;
 
 
     public ConjurerReactionMeter() {
@@ -130,26 +129,6 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
         enableCharges(false);
     }
 
-    public boolean tryUseCharge(PCLAffinity affinity, PCLUseInfo info, PCLActions order) {
-        Integer value = info.getData(Integer.class);
-        if (value == null) {
-            value = 1;
-        }
-        if (affinity != null && info.target != null) {
-            PCLElementHelper helper = PCLElementHelper.get(affinity);
-            order.applyPower(info.target, PCLCardTarget.Single, helper, value);
-            return true;
-        }
-        return false;
-    }
-
-    // TODO use this in a relic
-    public void enableCharges(boolean value) {
-        chargeHeader.setActive(value);
-        chargeImage.setActive(value);
-        chargeText.setActive(value);
-    }
-
     public void addCount(int amount) {
         addCount(amount, true);
     }
@@ -161,39 +140,11 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
         }
     }
 
-    public void flash(PCLAffinity affinity) {
-        ConjurerElementButton button = getElementButton(affinity);
-        if (button != null) {
-            button.flash();
-        }
-    }
-
-    @Override
-    public String getInfoTitle() {
-        return ConjurerCharacter.NAMES[0];
-    }
-
-    @Override
-    public String getInfoMainDescrption() {
-        return ConjurerResources.conjurer.strings.conjurerSimple;
-    }
-
-    @Override
-    public EUITutorialPage[] getInfoPages() {
-        return array(
-                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.affinityGeneral.title), PGR.core.strings.tutorial_affinityTutorial, ConjurerResources.conjurer.images.tutorial.afftut01.texture()),
-                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 1), PGR.core.strings.tutorial_summonTutorial1, ConjurerResources.conjurer.images.tutorial.tut01.texture()),
-                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 2), PGR.core.strings.tutorial_summonTutorial2, ConjurerResources.conjurer.images.tutorial.tut02.texture()),
-                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 3), PGR.core.strings.tutorial_summonTutorial3, ConjurerResources.conjurer.images.tutorial.tut03.texture()),
-                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 4), PGR.core.strings.tutorial_summonTutorial4, ConjurerResources.conjurer.images.tutorial.tut03.texture()),
-                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 5), PGR.core.strings.tutorial_summonTutorial5, ConjurerResources.conjurer.images.tutorial.tut04.texture()),
-                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 6), PGR.core.strings.tutorial_summonTutorial6, ConjurerResources.conjurer.images.tutorial.tut05.texture()),
-                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 7), PGR.core.strings.tutorial_summonTutorial7, ConjurerResources.conjurer.images.tutorial.tut06.texture()),
-                new EUITutorialImagePage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.elementalDebuff.title), ConjurerResources.conjurer.strings.conjurerTutorial1, ConjurerResources.conjurer.images.tutorial.etut01.texture()),
-                new EUITutorialImagePage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.reaction.title, 1), ConjurerResources.conjurer.strings.conjurerTutorial2, ConjurerResources.conjurer.images.tutorial.etut02.texture()),
-                new EUITutorialImagePage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.reaction.title, 2), ConjurerResources.conjurer.strings.conjurerTutorial3, ConjurerResources.conjurer.images.tutorial.etut02.texture()),
-                new EUITutorialImagePage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.matter.title), ConjurerResources.conjurer.strings.conjurerTutorial4, ConjurerResources.conjurer.images.tutorial.etut03.texture())
-        );
+    public void addDefaultReactions() {
+        fire.addReaction(water);
+        water.addReaction(air);
+        air.addReaction(earth);
+        earth.addReaction(fire);
     }
 
     public void addLevel(PCLAffinity affinity, int amount) {
@@ -219,27 +170,19 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
         }
     }
 
-    public void hideAffinity(PCLAffinity affinity) {
-        ConjurerElementButton button = getElementButton(affinity);
-        if (button != null) {
-            button.setActive(false);
-            button.setEnabled(false);
-        }
-    }
-
     @Override
     public PCLUseInfo generateInfo(AbstractCard card, AbstractCreature source, AbstractCreature target) {
         return new ConjurerUseInfo(card, source, target);
     }
 
     @Override
-    public PCLAffinity getCurrentAffinity() {
-        return lastUpgrade;
+    public PCLAffinity get(int target) {
+        return getCurrentAffinity();
     }
 
     @Override
-    public PCLAffinity get(int target) {
-        return getCurrentAffinity();
+    public PCLAffinity getCurrentAffinity() {
+        return lastUpgrade;
     }
 
     public EUITooltip getTooltip() {
@@ -350,14 +293,6 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
         }
     }
 
-    private ArrayList<AbstractPCLElementalPower> getElementalPowers(AbstractCreature c) {
-        return c != null && c.powers != null ? EUIUtils.mapAsNonnull(c.powers, po -> EUIUtils.safeCast(po, AbstractPCLElementalPower.class)) : new ArrayList<>();
-    }
-
-    public boolean isHighlighted() {
-        return matterPreview != matterCount;
-    }
-
     public float modifyBlock(float block, PCLCard source, PCLCard card, AbstractCreature target) {
         if (target != null) {
             float oldBlock = block;
@@ -414,6 +349,13 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
         return initial;
     }
 
+    public void onCardCreated(AbstractCard card, boolean startOfBattle) {
+        super.onCardCreated(card, startOfBattle);
+        if (!(card instanceof PCLCard)) {
+            applyAffinities(card);
+        }
+    }
+
     @Override
     public void onCardPlayed(PCLCard card, PCLUseInfo info, boolean fromSummon) {
         ConjurerUseInfo cInfo = EUIUtils.safeCast(info, ConjurerUseInfo.class);
@@ -430,11 +372,98 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
         return getCurrentAffinity();
     }
 
-    public void addDefaultReactions() {
-        fire.addReaction(water);
-        water.addReaction(air);
-        air.addReaction(earth);
-        earth.addReaction(fire);
+    @Override
+    public String getInfoMainDescrption() {
+        return ConjurerResources.conjurer.strings.conjurerSimple;
+    }
+
+    @Override
+    public EUITutorialPage[] getInfoPages() {
+        return array(
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.affinityGeneral.title), PGR.core.strings.tutorial_affinityTutorial, ConjurerResources.conjurer.images.tutorial.afftut01.texture()),
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 1), PGR.core.strings.tutorial_summonTutorial1, ConjurerResources.conjurer.images.tutorial.ctut01.texture()),
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 2), PGR.core.strings.tutorial_summonTutorial2, ConjurerResources.conjurer.images.tutorial.ctut02.texture()),
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 3), PGR.core.strings.tutorial_summonTutorial3, ConjurerResources.conjurer.images.tutorial.ctut03.texture()),
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 4), PGR.core.strings.tutorial_summonTutorial4, ConjurerResources.conjurer.images.tutorial.ctut03.texture()),
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 5), PGR.core.strings.tutorial_summonTutorial5, ConjurerResources.conjurer.images.tutorial.ctut04.texture()),
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 6), PGR.core.strings.tutorial_summonTutorial6, ConjurerResources.conjurer.images.tutorial.ctut05.texture()),
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 7), PGR.core.strings.tutorial_summonTutorial7, ConjurerResources.conjurer.images.tutorial.ctut06.texture()),
+                new EUITutorialImagePage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.elementalDebuff.title), ConjurerResources.conjurer.strings.conjurerTutorial1, ConjurerResources.conjurer.images.tutorial.etut01.texture()),
+                new EUITutorialImagePage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.reaction.title, 1), ConjurerResources.conjurer.strings.conjurerTutorial2, ConjurerResources.conjurer.images.tutorial.etut02.texture()),
+                new EUITutorialImagePage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.reaction.title, 2), ConjurerResources.conjurer.strings.conjurerTutorial3, ConjurerResources.conjurer.images.tutorial.etut02.texture()),
+                new EUITutorialImagePage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.matter.title), ConjurerResources.conjurer.strings.conjurerTutorial4, ConjurerResources.conjurer.images.tutorial.etut03.texture())
+        );
+    }
+
+    @Override
+    public String getInfoTitle() {
+        return ConjurerCharacter.NAMES[0];
+    }
+
+    // TODO check for custom card attributes
+    public void applyAffinities(AbstractCard card) {
+
+        Set<PCLAffinity> affinities = CARD_AFFINITIES.get(card.cardID);
+        if (affinities == null) {
+            affinities = new HashSet<>();
+
+            if (idHas(card, "Fire", "Flame", "Burn", "Scorch", "Heat", "Solar")) {
+                affinities.add(PCLAffinity.Red);
+            }
+            if (idHas(card, "Lava", "Magma")) {
+                affinities.add(PCLAffinity.Red);
+                affinities.add(PCLAffinity.Orange);
+            }
+            if (idHas(card, "Water", "Ice", "Icicle", "Snow", "Frost", "Chill", "Cold", "Freeze", "Aqua", "Ocean", "Bubble", "Liquid")) {
+                affinities.add(PCLAffinity.Blue);
+            }
+            if (idHas(card, "Storm", "Mist", "Fog")) {
+                affinities.add(PCLAffinity.Blue);
+                affinities.add(PCLAffinity.Green);
+            }
+            if (idHas(card, "Mud", "Swamp")) {
+                affinities.add(PCLAffinity.Blue);
+                affinities.add(PCLAffinity.Orange);
+            }
+            if (idHas(card, "Wind", "Sky", "Poison", "Toxic", "Air", "Smoke")) {
+                affinities.add(PCLAffinity.Green);
+            }
+            if (idHas(card, "Leaf", "Nature", "Wood", "Forest", "Grass", "Blossom", "Bloom", "Plant", "Tree")) {
+                affinities.add(PCLAffinity.Green);
+                affinities.add(PCLAffinity.Orange);
+            }
+            if (idHas(card, "Earth", "Rock", "Stone", "Ground", "Land")) {
+                affinities.add(PCLAffinity.Orange);
+            }
+            if (idHas(card, "Electric", "Thunder", "Lightning", "Shock", "Holy", "Bless", "Sacred")) {
+                affinities.add(PCLAffinity.Yellow);
+            }
+            if (idHas(card, "Dark", "Shadow", "Evil", "Night", "Curse", "Void", "Corrupt", "infinitespire")) {
+                affinities.add(PCLAffinity.Purple);
+            }
+            if (idHas(card, "Rainbow")) {
+                affinities.add(PCLAffinity.Star);
+            }
+        }
+
+        for (PCLAffinity af : affinities) {
+            GameUtilities.modifyAffinityLevel(card, af, 1, true);
+        }
+
+    }
+
+    // TODO use this in a relic
+    public void enableCharges(boolean value) {
+        chargeHeader.setActive(value);
+        chargeImage.setActive(value);
+        chargeText.setActive(value);
+    }
+
+    public void flash(PCLAffinity affinity) {
+        ConjurerElementButton button = getElementButton(affinity);
+        if (button != null) {
+            button.flash();
+        }
     }
 
     public int getAmplifyOffset(PCLAffinity affinity) {
@@ -446,22 +475,29 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
         return affinity.id >= 0 && affinity.id < elements.size() ? elements.get(affinity.id) : null;
     }
 
+    public ArrayList<ConjurerElementButton> getElementButtons() {
+        return elements;
+    }
+
+    private ArrayList<AbstractPCLElementalPower> getElementalPowers(AbstractCreature c) {
+        return c != null && c.powers != null ? EUIUtils.mapAsNonnull(c.powers, po -> EUIUtils.safeCast(po, AbstractPCLElementalPower.class)) : new ArrayList<>();
+    }
+
+    public int getMatter() {
+        return matterCount;
+    }
+
     public int getPreviewGain() {
         return matterPreview - matterCount;
     }
 
-    public AffinityReactions getPreviewReactions()
-    {
+    public AffinityReactions getPreviewReactions() {
         return previewReactions;
     }
 
     public ConjurerReactionButton getReactionButton(PCLAffinity dest, PCLAffinity target) {
         ConjurerElementButton destButton = getElementButton(dest);
         return destButton != null ? destButton.reactions.get(target) : null;
-    }
-
-    public int getMatter() {
-        return matterCount;
     }
 
     public AffinityReactions getReactions(AbstractCard card, Collection<? extends AbstractCreature> mo) {
@@ -492,12 +528,24 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
         return reactions;
     }
 
-    public ArrayList<ConjurerElementButton> getElementButtons() {
-        return elements;
-    }
-
     public int getTotalReactionsMade() {
         return totalReactions;
+    }
+
+    public void hideAffinity(PCLAffinity affinity) {
+        ConjurerElementButton button = getElementButton(affinity);
+        if (button != null) {
+            button.setActive(false);
+            button.setEnabled(false);
+        }
+    }
+
+    protected boolean idHas(AbstractCard card, String... matches) {
+        return EUIUtils.any(matches, card.cardID::contains);
+    }
+
+    public boolean isHighlighted() {
+        return matterPreview != matterCount;
     }
 
     public boolean isPowerElemental(String id, PCLAffinity affinity) {
@@ -530,5 +578,18 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
         }
         addCount(-amount, false);
         return true;
+    }
+
+    public boolean tryUseCharge(PCLAffinity affinity, PCLUseInfo info, PCLActions order) {
+        Integer value = info.getData(Integer.class);
+        if (value == null) {
+            value = 1;
+        }
+        if (affinity != null && info.target != null) {
+            PCLElementHelper helper = PCLElementHelper.get(affinity);
+            order.applyPower(info.target, PCLCardTarget.Single, helper, value);
+            return true;
+        }
+        return false;
     }
 }

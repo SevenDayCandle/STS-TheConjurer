@@ -12,7 +12,7 @@ import pinacolada.effects.ConjurerEFK;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;
 import pinacolada.skills.skills.PCustomMod;
-import pinacolada.skills.skills.PTrait;
+import pinacolada.skills.PTrait;
 import pinacolada.ui.combat.ConjurerReactionMeter;
 
 @VisibleCard

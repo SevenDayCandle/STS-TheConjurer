@@ -8,7 +8,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
-import pinacolada.skills.skills.PTrait;
+import pinacolada.skills.PTrait;
 
 @VisibleCard
 public class ColossalFormation extends PCLCard {

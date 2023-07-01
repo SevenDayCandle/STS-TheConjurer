@@ -27,11 +27,6 @@ public class Iridescence extends PCLCard {
         super(DATA);
     }
 
-    @Override
-    public void setup(Object input) {
-        addSpecialMove(0, this::action, 1);
-    }
-
     public void action(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
         order.selectFromPile(name, player.hand.size(), player.hand)
                 .setOrigin(PCLCardSelection.Random)
@@ -51,5 +46,10 @@ public class Iridescence extends PCLCard {
                         }
                     }
                 });
+    }
+
+    @Override
+    public void setup(Object input) {
+        addSpecialMove(0, this::action, 1);
     }
 }

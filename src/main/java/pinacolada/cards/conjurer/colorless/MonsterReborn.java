@@ -29,10 +29,6 @@ public class MonsterReborn extends PCLCard {
         super(DATA);
     }
 
-    public void setup(Object input) {
-        addSpecialMove(0, this::action, 1, 30).setUpgradeExtra(20);
-    }
-
     public void action(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
         order.playFromPile(move.getName(), move.amount, move.target.getTarget(info.target), CombatManager.PURGED_CARDS)
                 .setFilter(c -> c.type == PCLEnum.CardType.SUMMON && c instanceof PCLCard)
@@ -44,5 +40,9 @@ public class MonsterReborn extends PCLCard {
                         }
                     }
                 });
+    }
+
+    public void setup(Object input) {
+        addSpecialMove(0, this::action, 1, 30).setUpgradeExtra(20);
     }
 }

@@ -16,6 +16,12 @@ public class ConjurerScreenAnimationEffect extends PCLEffect {
     protected void firstUpdate() {
     }
 
+    public void render(SpriteBatch sb) {
+        for (PCLEffect subEffect : subEffects) {
+            subEffect.render(sb);
+        }
+    }
+
     protected void updateInternal(float deltaTime) {
         this.duration -= deltaTime;
         for (PCLEffect subEffect : subEffects) {
@@ -27,12 +33,6 @@ public class ConjurerScreenAnimationEffect extends PCLEffect {
             if (subEffects.size() < MAX) {
                 // TODO
             }
-        }
-    }
-
-    public void render(SpriteBatch sb) {
-        for (PCLEffect subEffect : subEffects) {
-            subEffect.render(sb);
         }
     }
 

@@ -43,11 +43,6 @@ public class ConjurerResources extends PCLResources<ConjurerPlayerData, Conjurer
     }
 
     @Override
-    public ConjurerPlayerData getData() {
-        return new ConjurerPlayerData(this);
-    }
-
-    @Override
     public boolean containsColorless(AbstractCard card) {
         return card instanceof PCLCard;
     }
@@ -90,21 +85,6 @@ public class ConjurerResources extends PCLResources<ConjurerPlayerData, Conjurer
                 images.powerL, images.orbB, images.orbC);
     }
 
-    @Override
-    public void receiveEditCharacters() {
-        BaseMod.addCharacter(new ConjurerCharacter(), images.charButton, images.charBackground, playerClass);
-    }
-
-    @Override
-    public ConjurerTooltips getTooltips() {
-        return new ConjurerTooltips();
-    }
-
-    @Override
-    public ConjurerStrings getStrings() {
-        return new ConjurerStrings(this);
-    }
-
     protected void postInitialize() {
         super.postInitialize();
         CombatManager.playerSystem.registerMeter(playerClass, ConjurerReactionMeter.meter);
@@ -113,6 +93,26 @@ public class ConjurerResources extends PCLResources<ConjurerPlayerData, Conjurer
         PCLCardAlly.registerAnimation(cardColor, this::getAnimation);
         data.addTutorial(ConjurerTutorialMonster.DATA);
         PCLTutorialMonster.register(data.config.seenSummonTutorial, ConjurerSummonTutorialMonster.DATA, p -> p.chosenClass == data.resources.playerClass && EUIUtils.any(p.masterDeck.group, card -> card.type == PCLEnum.CardType.SUMMON));
+    }
+
+    @Override
+    public void receiveEditCharacters() {
+        BaseMod.addCharacter(new ConjurerCharacter(), images.charButton, images.charBackground, playerClass);
+    }
+
+    @Override
+    public ConjurerPlayerData getData() {
+        return new ConjurerPlayerData(this);
+    }
+
+    @Override
+    public ConjurerStrings getStrings() {
+        return new ConjurerStrings(this);
+    }
+
+    @Override
+    public ConjurerTooltips getTooltips() {
+        return new ConjurerTooltips();
     }
 
     protected PCLAllyAnimation getAnimation(PCLCardAlly ally) {

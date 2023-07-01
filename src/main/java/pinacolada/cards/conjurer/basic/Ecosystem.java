@@ -18,8 +18,8 @@ import pinacolada.utilities.GameUtilities;
 public class Ecosystem extends PCLCard {
     public static final PCLCardData DATA = register(Ecosystem.class, ConjurerResources.conjurer)
             .setPower(2, CardRarity.RARE)
-            .setCostUpgrades(-1)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Green, PCLAffinity.Orange)
+            .setMaxCopies(2)
             .setCore();
 
     public Ecosystem() {
@@ -27,9 +27,9 @@ public class Ecosystem extends PCLCard {
     }
 
     public void setup(Object input) {
-        addGainPower(PTrigger.when(PCond.checkLevel(1),
-                        getSpecialMove(0, this::specialMove, 1)
-                ));
+        addGainPower(PTrigger.when(1, PCond.checkLevel(1),
+                getSpecialMove(0, this::specialMove, 1)
+        ).setUpgrade(1));
     }
 
     public void specialMove(PSpecialSkill move, PCLUseInfo info, PCLActions order) {

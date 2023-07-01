@@ -27,10 +27,6 @@ public class AtomicDisplacement extends PCLCard {
         super(DATA);
     }
 
-    public void setup(Object input) {
-        addSpecialMove(0, this::action, 5).setUpgrade(2);
-    }
-
     public void action(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
         ArrayList<AbstractPower> playerPowers = new ArrayList<>();
         ArrayList<AbstractPower> enemyPowers = new ArrayList<>();
@@ -61,5 +57,9 @@ public class AtomicDisplacement extends PCLCard {
         if (thp > 0) {
             order.gainTemporaryHP(thp);
         }
+    }
+
+    public void setup(Object input) {
+        addSpecialMove(0, this::action, 5).setUpgrade(2);
     }
 }

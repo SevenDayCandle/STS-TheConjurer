@@ -27,11 +27,6 @@ public class Discovery extends PCLCard {
         super(DATA);
     }
 
-    @Override
-    public void setup(Object input) {
-        addSpecialMove(0, this::action, 1, 3);
-    }
-
     public void action(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
         CardGroup choices = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         RandomizedList<AbstractCard> unseenCards = new RandomizedList<>(GameUtilities.getCardsFromStandardCombatPools((c -> !c.isSeen && GameUtilities.isObtainableInCombat(c))));
@@ -51,5 +46,10 @@ public class Discovery extends PCLCard {
                         order.makeCardInHand(copy);
                     }
                 });
+    }
+
+    @Override
+    public void setup(Object input) {
+        addSpecialMove(0, this::action, 1, 3);
     }
 }

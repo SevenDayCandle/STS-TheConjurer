@@ -14,7 +14,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
-import pinacolada.skills.skills.PTrait;
+import pinacolada.skills.PTrait;
 
 @VisibleCard
 public class ShatterEarth extends PCLCard {

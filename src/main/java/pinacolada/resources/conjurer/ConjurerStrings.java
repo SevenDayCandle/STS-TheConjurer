@@ -6,11 +6,11 @@ import pinacolada.resources.PCLStrings;
 
 public class ConjurerStrings extends PCLStrings {
     private final UIStrings combat = getUIStrings("Combat");
+    private final UIStrings tutorial = getUIStrings("Tutorial");
     public final String combat_conjurerMeterCost = combat.TEXT[0];
     public final String combat_conjurerMeterBonus = combat.TEXT[1];
     public final String combat_conjurerMeterReact = combat.TEXT[2];
     public final String combat_conjurerMeterNextIntensity = combat.TEXT[3];
-    private final UIStrings tutorial = getUIStrings("Tutorial");
     public final String conjurerSimple = tutorial.TEXT[0];
     public final String conjurerTutorial1 = tutorial.TEXT[1];
     public final String conjurerTutorial2 = tutorial.TEXT[2];
@@ -24,6 +24,7 @@ public class ConjurerStrings extends PCLStrings {
     public final String conjurerSummonInteractive2 = tutorial.TEXT[10];
     public final String conjurerSummonInteractive3 = tutorial.TEXT[11];
     public final String conjurerSummonInteractive4 = tutorial.TEXT[12];
+
     public ConjurerStrings(PCLResources<?, ?, ?, ?> resources) {
         super(resources);
     }

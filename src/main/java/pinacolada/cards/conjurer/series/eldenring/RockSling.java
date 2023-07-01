@@ -12,7 +12,7 @@ import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
-import pinacolada.skills.skills.PTrait;
+import pinacolada.skills.PTrait;
 
 @VisibleCard
 public class RockSling extends PCLCard {

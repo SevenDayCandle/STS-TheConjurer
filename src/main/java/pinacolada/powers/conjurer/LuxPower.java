@@ -20,15 +20,8 @@ public class LuxPower extends AbstractPCLElementalPower implements OnTryElementR
     }
 
     @Override
-    public void onRemove() {
-        super.onRemove();
-
-        CombatManager.unsubscribe(this);
-    }
-
-    @Override
-    public int onTryElementReact(int amount, PCLAffinity button, PCLAffinity trigger) {
-        return (int) calculateValue(amount, getIntensifyMultiplier());
+    public AbstractGameAction.AttackEffect getAttackEffect() {
+        return PCLEnum.AttackEffect.ELECTRIC;
     }
 
     @Override
@@ -44,8 +37,15 @@ public class LuxPower extends AbstractPCLElementalPower implements OnTryElementR
     }
 
     @Override
-    public AbstractGameAction.AttackEffect getAttackEffect() {
-        return PCLEnum.AttackEffect.ELECTRIC;
+    public void onRemove() {
+        super.onRemove();
+
+        CombatManager.unsubscribe(this);
+    }
+
+    @Override
+    public int onTryElementReact(int amount, PCLAffinity button, PCLAffinity trigger) {
+        return (int) calculateValue(amount, getIntensifyMultiplier());
     }
 
     @Override

@@ -39,6 +39,12 @@ public class MirrorForce extends PCLCard {
             initialize(move.amount);
         }
 
+        @Override
+        public void atEndOfRound() {
+            super.atEndOfRound();
+            removePower();
+        }
+
         public int onAttacked(DamageInfo info, int damageAmount) {
             if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != this.owner && amount > 0) {
                 this.flash();
@@ -48,13 +54,6 @@ public class MirrorForce extends PCLCard {
                 return 0;
             }
             return damageAmount;
-        }
-
-
-        @Override
-        public void atEndOfRound() {
-            super.atEndOfRound();
-            removePower();
         }
     }
 }

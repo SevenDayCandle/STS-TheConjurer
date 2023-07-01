@@ -42,11 +42,6 @@ public class Cyno extends PCLCard {
             super(DATA, owner, move);
         }
 
-        @Override
-        public void onAllyDeath(PCLCard pclCard, PCLCardAlly pclCardAlly) {
-            act();
-        }
-
         protected void act() {
             PCLActions.bottom.gainEnergyNextTurn(move.extra);
             if (owner instanceof PCLCardAlly) {
@@ -60,6 +55,11 @@ public class Cyno extends PCLCard {
                 PCLActions.bottom.applyPower(new StrengthPower(owner, move.amount));
                 flash();
             }
+        }
+
+        @Override
+        public void onAllyDeath(PCLCard pclCard, PCLCardAlly pclCardAlly) {
+            act();
         }
 
         @Override

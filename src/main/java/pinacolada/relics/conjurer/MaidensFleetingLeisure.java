@@ -28,15 +28,15 @@ public class MaidensFleetingLeisure extends PCLRelic implements OnAllyWithdrawSu
     }
 
     @Override
+    public int getValue() {
+        return 1;
+    }
+
+    @Override
     public void onAllyWithdraw(PCLCard pclCard, PCLCardAlly pclCardAlly) {
         PCLActions.bottom.callback(() -> {
             pclCard.updateHeal(pclCard.baseHeal + getValue());
             GameUtilities.modifyDamage(pclCard, pclCard.baseDamage + getValue(), false, false);
         });
-    }
-
-    @Override
-    public int getValue() {
-        return 1;
     }
 }

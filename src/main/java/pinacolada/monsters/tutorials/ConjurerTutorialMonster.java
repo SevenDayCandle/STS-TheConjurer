@@ -50,7 +50,7 @@ public class ConjurerTutorialMonster extends PCLTutorialMonster {
         EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(button, ConjurerResources.conjurer.tooltips.elementalDebuff.title, ConjurerResources.conjurer.strings.conjurerTutorial1)
                 .setCanDismiss(true));
         EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(card.hb, ConjurerResources.conjurer.tooltips.elementalDebuff.title, PGR.core.strings.tutorial_affinityTutorial)
-                        .setPosition(hb.x - hb.width * 3, hb.y + hb.height)
+                .setPosition(hb.x - hb.width * 3, hb.y + hb.height)
                 .setCanDismiss(true));
         return new EUITourTooltip(UseCardAction.class, ConjurerResources.conjurer.tooltips.elementalDebuff.title, ConjurerResources.conjurer.strings.conjurerInteractive2)
                 .setPosition(hb.x - hb.width * 3, hb.y + hb.height)

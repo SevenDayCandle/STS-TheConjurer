@@ -30,7 +30,7 @@ public class Deviljho extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.BITE).setBonus(PMod.perCard(1, PCLCardGroupHelper.ExhaustPile),1);
+        addDamageMove(PCLAttackVFX.BITE).setBonus(PMod.perCard(1, PCLCardGroupHelper.ExhaustPile), 1);
         addUseMove(PCond.cooldown(0), PCond.exhaustRandom(1), PMove.applyToEnemies(1, PCLPowerHelper.Vulnerable, PCLPowerHelper.Weak));
     }
 }

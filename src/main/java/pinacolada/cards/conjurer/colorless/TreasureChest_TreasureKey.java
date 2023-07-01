@@ -23,11 +23,6 @@ public class TreasureChest_TreasureKey extends PCLCard {
         super(DATA);
     }
 
-    public void setup(Object input) {
-        addUseMove(PMove.draw(1).setUpgrade(1));
-        addSpecialMove(0, this::action);
-    }
-
     public void action(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
         order.selectFromPile(move.getName(), 1, player.hand)
                 .setFilter(c -> TreasureChest.DATA.ID.equals(c.cardID))
@@ -36,5 +31,10 @@ public class TreasureChest_TreasureKey extends PCLCard {
                         GameUtilities.modifyTag(c, PCLCardTag.Unplayable, 0);
                     }
                 });
+    }
+
+    public void setup(Object input) {
+        addUseMove(PMove.draw(1).setUpgrade(1));
+        addSpecialMove(0, this::action);
     }
 }

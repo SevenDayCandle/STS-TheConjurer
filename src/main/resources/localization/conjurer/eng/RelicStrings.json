@@ -140,7 +140,7 @@
 	},
 	"conjurer:PeriodicTable":
 	{
-		"DESCRIPTIONS": ["At the start of each turn, apply #b{0} stacks of an #yElemental #yDebuff to a random enemy, rotating between [Ignis], [Aqua], [Ventus], and [Petra].", "#gNext #gDebuff: {0}"],
+		"DESCRIPTIONS": ["At the start of turn, apply #b{0} stacks of an #yElemental #yDebuff to a random enemy, rotating between [Ignis], [Aqua], [Ventus], and [Petra].", "#gNext #gDebuff: {0}"],
 		"FLAVOR": "A table that repeats itself every so often.",
 		"NAME": "Periodic Table"
 	},

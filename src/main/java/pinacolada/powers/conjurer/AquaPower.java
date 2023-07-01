@@ -21,11 +21,6 @@ public class AquaPower extends AbstractPCLElementalPower {
     }
 
     @Override
-    public void playApplyPowerSfx() {
-        PCLSFX.play(PCLSFX.ORB_FROST_CHANNEL, 0.95f, 1.05f);
-    }
-
-    @Override
     public AbstractGameAction.AttackEffect getAttackEffect() {
         return PCLEnum.AttackEffect.ICE;
     }
@@ -36,5 +31,10 @@ public class AquaPower extends AbstractPCLElementalPower {
             PCLActions.bottom.applyPower(source, owner, PCLCardTarget.Single, PCLElementHelper.Frostbite, (int) calculateValue(reactions), false);
         }
         super.onReact(source, reactions);
+    }
+
+    @Override
+    public void playApplyPowerSfx() {
+        PCLSFX.play(PCLSFX.ORB_FROST_CHANNEL, 0.95f, 1.05f);
     }
 }

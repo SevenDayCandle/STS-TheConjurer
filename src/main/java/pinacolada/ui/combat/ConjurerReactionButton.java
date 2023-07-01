@@ -23,9 +23,9 @@ public class ConjurerReactionButton extends EUIImage {
     public static float PROGRESS_PERCENT = 0.65f;
     public static float ROTATION_PERCENT = 0.03406598f;
     public static float ROTATION_MOD = -0.6883351f;
+    protected final EUIImage overlay;
     public final ConjurerElementButton source;
     public final ConjurerElementButton target;
-    protected final EUIImage overlay;
     protected EUIKeywordTooltip keyword;
 
     public ConjurerReactionButton(ConjurerElementButton target, ConjurerElementButton source) {
@@ -49,14 +49,14 @@ public class ConjurerReactionButton extends EUIImage {
         overlay.setTargetColor(HIGHLIGHT_AMPLIFY_COLOR);
     }
 
-    public void renderImpl(SpriteBatch sb) {
-        super.renderImpl(sb);
-        overlay.renderImpl(sb);
-    }
-
     public void renderCentered(SpriteBatch sb) {
         super.renderCentered(sb);
         overlay.renderCentered(sb);
+    }
+
+    public void renderImpl(SpriteBatch sb) {
+        super.renderImpl(sb);
+        overlay.renderImpl(sb);
     }
 
     public void updateImpl() {
@@ -83,16 +83,16 @@ public class ConjurerReactionButton extends EUIImage {
         overlay.updateImpl();
     }
 
+    public void unhighlight() {
+        overlay.setTargetColor(EUIColors.black(0));
+    }
+
     public void updateDescription() {
         if (PGR.isLoaded()) {
             keyword.setIcon(target.elementPower().tooltip.icon);
             keyword.setDescription(
                     EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterReact, source.affinity.getTooltip(), target.elementPower().tooltip, PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(source.affinity))));
         }
-    }
-
-    public void unhighlight() {
-        overlay.setTargetColor(EUIColors.black(0));
     }
 
 }

@@ -20,11 +20,6 @@ public class VentusPower extends AbstractPCLElementalPower {
     }
 
     @Override
-    public void playApplyPowerSfx() {
-        PCLSFX.play(PCLSFX.WIND, 0.75f, 0.85f);
-    }
-
-    @Override
     public AbstractGameAction.AttackEffect getAttackEffect() {
         return PCLEnum.AttackEffect.WIND;
     }
@@ -33,5 +28,10 @@ public class VentusPower extends AbstractPCLElementalPower {
     public void onReact(AbstractCreature source, AffinityReactions reactions) {
         PCLActions.bottom.gain(PCLElementHelper.Flow, MathUtils.ceil(calculateValue(reactions)));
         super.onReact(source, reactions);
+    }
+
+    @Override
+    public void playApplyPowerSfx() {
+        PCLSFX.play(PCLSFX.WIND, 0.75f, 0.85f);
     }
 }

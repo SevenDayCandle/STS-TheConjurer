@@ -13,12 +13,21 @@ public class FrostbitePower extends PCLPower {
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, FrostbitePower.class);
     public static final float POTENCY = 10;
     public static final Color healthBarColor = Color.SKY.cpy();
+    public float decay = 0.75f;
     public boolean expanded;
 
     public FrostbitePower(AbstractCreature owner, int amount) {
         super(owner, POWER_ID);
         this.priority = 0;
         initialize(amount, PowerType.DEBUFF, true);
+    }
+
+    public int getDecrease() {
+        return MathUtils.ceil(amount * decay);
+    }
+
+    public float getPotency() {
+        return this.amount / POTENCY;
     }
 
     @Override
@@ -29,10 +38,6 @@ public class FrostbitePower extends PCLPower {
     @Override
     public float modifyOrbIncoming(float inital) {
         return super.modifyOrbIncoming(inital) + getPotency();
-    }
-
-    public int getDecrease() {
-        return MathUtils.ceil(amount * 0.75f);
     }
 
     @Override
@@ -57,9 +62,5 @@ public class FrostbitePower extends PCLPower {
         if (amount <= 0) {
             removePower();
         }
-    }
-
-    public float getPotency() {
-        return this.amount / POTENCY;
     }
 }

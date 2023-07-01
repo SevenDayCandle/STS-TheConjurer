@@ -17,12 +17,21 @@ import pinacolada.utilities.PCLRenderHelpers;
 import pinacolada.utilities.RandomizedList;
 
 public class ConjurerAirAllyAnimation extends PCLAllyAnimation {
-    public static final float RADIUS = 320;
     private static final TextureCache[] particles = {ConjurerResources.conjurer.images.monsters.airCloud1, ConjurerResources.conjurer.images.monsters.airCloud2};
     private static final RandomizedList<TextureCache> textures = new RandomizedList<>();
+    public static final float RADIUS = 320;
 
     public ConjurerAirAllyAnimation(PCLCreature creature) {
         super(creature);
+    }
+
+    public static Texture getRandomTexture() {
+        if (textures.size() <= 1) // Adds some randomness but still ensures all textures are cycled through
+        {
+            textures.addAll(particles);
+        }
+
+        return textures.retrieveUnseeded(true).texture();
     }
 
     public void playActAnimation(float x, float y) {
@@ -41,11 +50,11 @@ public class ConjurerAirAllyAnimation extends PCLAllyAnimation {
         sb.draw(ConjurerResources.conjurer.images.monsters.air1.texture(), x - hSize, y - hSize / 2f, hSize, hSize, size, size, this.scale + scaleExt1, this.scale + scaleExt1, angleExt1, 0, 0, size, size, hFlip, vFlip);
         sb.draw(ConjurerResources.conjurer.images.monsters.air2.texture(), x - hSize, y - hSize / 2f, hSize, hSize, size, size, this.scale + scaleExt2, this.scale + scaleExt2, angleExt2, 0, 0, size, size, !hFlip, vFlip);
 
-        this.shineColor.a = Interpolation.sine.apply(0.1f, 0.33f, angleExt2 / 185);
+        this.shineColor.a = Interpolation.sine.apply(0.1f, 0.33f, angleExt2 / 185) * this.transitionAlpha;
         sb.setColor(this.shineColor);
         sb.draw(ConjurerResources.conjurer.images.monsters.air1.texture(), x - hSize, y - hSize / 2f, hSize, hSize, size, size, this.scale + scaleExt1, this.scale + scaleExt1, this.angle * 1.8f, 0, 0, size, size, hFlip, vFlip);
 
-        this.shineColor.a = Interpolation.sine.apply(0.1f, 0.33f, angleExt1 / 135);
+        this.shineColor.a = Interpolation.sine.apply(0.1f, 0.33f, angleExt1 / 135) * this.transitionAlpha;
         sb.setColor(this.shineColor);
         sb.draw(ConjurerResources.conjurer.images.monsters.air3.texture(), x - hSize, y - hSize / 2f, hSize, hSize, size, size, this.scale + scaleExt2, this.scale + scaleExt2, this.angle * 1.2f, 0, 0, size, size, hFlip, vFlip);
 
@@ -60,14 +69,5 @@ public class ConjurerAirAllyAnimation extends PCLAllyAnimation {
                 .setRotation(0f, MathUtils.random(450f, 650f))
                 .setTargetPosition(x + RADIUS * MathUtils.cos(angle), y + RADIUS * MathUtils.sin(angle), 100f)
         ).setDuration(1f, false).renderBehind = true;
-    }
-
-    public static Texture getRandomTexture() {
-        if (textures.size() <= 1) // Adds some randomness but still ensures all textures are cycled through
-        {
-            textures.addAll(particles);
-        }
-
-        return textures.retrieveUnseeded(true).texture();
     }
 }

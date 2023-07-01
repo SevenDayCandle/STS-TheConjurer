@@ -52,15 +52,6 @@ public class Patchouli extends PCLCard {
             super(data, 0, amount, choices);
         }
 
-        @Override
-        protected void useImpl(PCLUseInfo info, PCLActions order) {
-            RandomizedList<PSkill<?>> choices = new RandomizedList<>(getDebuffs());
-            while (choices.size() > extra) {
-                choices.retrieve(rng, true);
-            }
-            order.tryChooseSkill(getPCLSource().cardData, amount, info.source, info.target, choices);
-        }
-
         protected ArrayList<PSkill<?>> getDebuffs() {
             if (debuffs == null) {
                 debuffs = new ArrayList<>();
@@ -79,6 +70,15 @@ public class Patchouli extends PCLCard {
                 }
             }
             return debuffs;
+        }
+
+        @Override
+        protected void useImpl(PCLUseInfo info, PCLActions order) {
+            RandomizedList<PSkill<?>> choices = new RandomizedList<>(getDebuffs());
+            while (choices.size() > extra) {
+                choices.retrieve(rng, true);
+            }
+            order.tryChooseSkill(getPCLSource().cardData, amount, info.source, info.target, choices);
         }
     }
 }

@@ -26,22 +26,6 @@ public class BlastedPower extends PCLPower implements HealthBarRenderPower {
     }
 
     @Override
-    public int getHealthBarAmount()
-    {
-        if (expanded)
-        {
-            DamageInfo info = getExpandedDamageInfo();
-            return GameUtilities.getHealthBarAmount(owner, info.output, false, true);
-        }
-        return GameUtilities.getHealthBarAmount(owner, amount, false, true);
-    }
-
-    @Override
-    public Color getColor() {
-        return healthBarColor;
-    }
-
-    @Override
     public void atStartOfTurn() {
         this.flashWithoutSound();
 
@@ -59,14 +43,11 @@ public class BlastedPower extends PCLPower implements HealthBarRenderPower {
         removePower();
     }
 
-    public DamageInfo getExpandedDamageInfo()
-    {
+    public DamageInfo getExpandedDamageInfo() {
         float multiplier = 100;
         for (AbstractPower p : owner.powers) {
-            for (ConjurerElementButton element : ConjurerReactionMeter.meter.getElementButtons())
-            {
-                if (element.canReact(PCLAffinity.Red, p.ID))
-                {
+            for (ConjurerElementButton element : ConjurerReactionMeter.meter.getElementButtons()) {
+                if (element.canReact(PCLAffinity.Red, p.ID)) {
                     multiplier += AbstractPCLElementalPower.getAmplifyMultiplier(PCLAffinity.Red);
                 }
             }
@@ -75,5 +56,19 @@ public class BlastedPower extends PCLPower implements HealthBarRenderPower {
         DamageInfo estimated = new DamageInfo(owner, secondAmount, DamageInfo.DamageType.NORMAL);
         estimated.applyEnemyPowersOnly(owner);
         return estimated;
+    }
+
+    @Override
+    public int getHealthBarAmount() {
+        if (expanded) {
+            DamageInfo info = getExpandedDamageInfo();
+            return GameUtilities.getHealthBarAmount(owner, info.output, false, true);
+        }
+        return GameUtilities.getHealthBarAmount(owner, amount, false, true);
+    }
+
+    @Override
+    public Color getColor() {
+        return healthBarColor;
     }
 }

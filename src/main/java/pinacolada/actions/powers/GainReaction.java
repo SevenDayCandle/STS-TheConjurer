@@ -14,11 +14,6 @@ public class GainReaction extends PCLAction<Integer> {
         initialize(amount);
     }
 
-    public GainReaction setAllowNegative(boolean val) {
-        allowNegative = val;
-        return this;
-    }
-
     @Override
     protected void firstUpdate() {
         if (!allowNegative && amount < 0 && ConjurerReactionMeter.meter.getMatter() < -amount) {
@@ -30,6 +25,11 @@ public class GainReaction extends PCLAction<Integer> {
         PCLSFX.play(PCLSFX.POWER_FOCUS);
 
         complete(amount);
+    }
+
+    public GainReaction setAllowNegative(boolean val) {
+        allowNegative = val;
+        return this;
     }
 
 }

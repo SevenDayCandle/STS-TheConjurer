@@ -53,7 +53,7 @@
 		"conjurer:RazorTurbine": {"NAME": "Razor Turbine"},
 		"conjurer:SeismicShift": {"NAME": "Seismic Shift"},
 		"conjurer:SheerCold": {
-			"EXTENDED_DESCRIPTION": ["[Frostbite] is treated as a [A-B] Elemental Debuff and increases non-Attack damage received"],
+			"EXTENDED_DESCRIPTION": ["[Frostbite] decays by {0}% less per turn and increases non-Attack damage received"],
 			"NAME": "Sheer Cold"
 		},
 		"conjurer:SkyBurial": {"NAME": "Sky Burial"},

@@ -16,28 +16,26 @@ public class AffinityReactions {
         reactions.putIfAbsent(dest, amp);
     }
 
-    public boolean hasReaction(PCLAffinity aff) {
-        return reactions.containsKey(aff);
-    }
-
-    public boolean isEmpty() {
-        return !hasReaction();
+    public int getValue(PCLAffinity affinity) {
+        int sum = 0;
+        if (reactions.containsKey(affinity)) {
+            for (Integer value : reactions.get(affinity).values()) {
+                sum += value;
+            }
+        }
+        return sum;
     }
 
     public boolean hasReaction() {
         return !reactions.isEmpty();
     }
 
-    public int getValue(PCLAffinity affinity)
-    {
-        int sum = 0;
-        if (reactions.containsKey(affinity))
-        {
-            for (Integer value : reactions.get(affinity).values()) {
-                sum += value;
-            }
-        }
-        return sum;
+    public boolean hasReaction(PCLAffinity aff) {
+        return reactions.containsKey(aff);
+    }
+
+    public boolean isEmpty() {
+        return !hasReaction();
     }
 
     public int sum() {

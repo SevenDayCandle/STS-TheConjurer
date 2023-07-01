@@ -26,8 +26,8 @@ public class NaturalSelection extends PCLCard {
 
     public void setup(Object input) {
         addUseMove(PMove.fetch(1, PCLCardGroupHelper.DiscardPile).edit(f -> f.setType(CardType.ATTACK, CardType.SKILL))
-        , PMultiSkill.join(
-                PMove.modifyAffinity(1, PCLAffinity.Green).useParent(true),
+                , PMultiSkill.join(
+                        PMove.modifyAffinity(1, PCLAffinity.Green).useParent(true),
                         PMove.modifyTag(2, 1, PCLCardTag.Bounce).setUpgrade(1).useParent(true)
                 )
         );

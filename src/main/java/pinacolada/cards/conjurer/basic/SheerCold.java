@@ -29,7 +29,7 @@ public class SheerCold extends PCLCard {
     }
 
     public void setup(Object input) {
-        addSpecialPower(0, (s, i) -> new SheerColdPower(i.source, s), 1).setUpgrade(1);
+        addSpecialPower(0, (s, i) -> new SheerColdPower(i.source, s), 25);
     }
 
     public static class SheerColdPower extends PSpecialCardPower {
@@ -55,6 +55,7 @@ public class SheerCold extends PCLCard {
                 for (AbstractPower po : GameUtilities.getPowers(FrostbitePower.POWER_ID)) {
                     if (po instanceof FrostbitePower) {
                         ((FrostbitePower) po).expanded = true;
+                        ((FrostbitePower) po).decay -= amount / 100f;
                     }
                 }
             });

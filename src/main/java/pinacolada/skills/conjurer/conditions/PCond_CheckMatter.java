@@ -41,12 +41,12 @@ public class PCond_CheckMatter extends PPassiveCond<PField_Not> {
     }
 
     @Override
-    public String getSubText() {
-        return getTargetHasString(fields.getThresholdRawString(ConjurerResources.conjurer.tooltips.matter.title));
+    public String wrapAmount(int input) {
+        return fields.getThresholdValString(input);
     }
 
     @Override
-    public String wrapAmount(int input) {
-        return fields.getThresholdValString(input);
+    public String getSubText() {
+        return getTargetHasString(fields.getThresholdRawString(ConjurerResources.conjurer.tooltips.matter.title));
     }
 }

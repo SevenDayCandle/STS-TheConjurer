@@ -68,6 +68,27 @@ public class ConjurerCharacter extends PCLCharacter {
     }
 
     @Override
+    public void playDeathAnimation() {
+        super.playDeathAnimation();
+        deathEffects = new ArrayList<>();
+        for (int i = 0; i < 25; i++) {
+            deathEffects.add(new SmokeParticleEffect(hb.cX, hb.cY, 0, 2.2F, 180.0F, 0.75F, getCardRenderColor()));
+        }
+    }
+
+    @Override
+    public void render(SpriteBatch sb) {
+        super.render(sb);
+        if (deathEffects != null) {
+            for (AbstractGameEffect ef : deathEffects) {
+                ef.update();
+                ef.render(sb);
+            }
+            deathEffects.removeIf(e -> e.isDone);
+        }
+    }
+
+    @Override
     public List<CutscenePanel> getCutscenePanels() {
         effectCount = 0;
         return new ArrayList<>();
@@ -94,32 +115,6 @@ public class ConjurerCharacter extends PCLCharacter {
     }
 
     @Override
-    public void render(SpriteBatch sb) {
-        super.render(sb);
-        if (deathEffects != null) {
-            for (AbstractGameEffect ef : deathEffects) {
-                ef.update();
-                ef.render(sb);
-            }
-            deathEffects.removeIf(e -> e.isDone);
-        }
-    }
-
-    @Override
-    public void reloadDefaultAnimation() {
-        reloadAnimation(0.5f);
-    }
-
-    @Override
-    public void playDeathAnimation() {
-        super.playDeathAnimation();
-        deathEffects = new ArrayList<>();
-        for (int i = 0; i < 25; i++) {
-            deathEffects.add(new SmokeParticleEffect(hb.cX, hb.cY, 0, 2.2F, 180.0F, 0.75F, getCardRenderColor()));
-        }
-    }
-
-    @Override
     public BitmapFont getEnergyNumFont() {
         return FontHelper.energyNumFontBlue;
     }
@@ -143,5 +138,10 @@ public class ConjurerCharacter extends PCLCharacter {
                         PCLEnum.AttackEffect.WIND,
                         PCLEnum.AttackEffect.EARTH,
                         };
+    }
+
+    @Override
+    public void reloadDefaultAnimation() {
+        reloadAnimation(0.5f);
     }
 }

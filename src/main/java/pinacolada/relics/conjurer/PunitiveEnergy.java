@@ -39,6 +39,11 @@ public class PunitiveEnergy extends PCLRelic implements OnIntensifySubscriber {
     }
 
     @Override
+    public int getValue() {
+        return 1;
+    }
+
+    @Override
     public void onIntensify(PCLAffinity pclAffinity) {
         for (ConjurerElementButton b : ConjurerReactionMeter.meter.getElementButtons()) {
             if (b.canInteract) {
@@ -46,10 +51,5 @@ public class PunitiveEnergy extends PCLRelic implements OnIntensifySubscriber {
                 disabled.add(b.affinity);
             }
         }
-    }
-
-    @Override
-    public int getValue() {
-        return 1;
     }
 }

@@ -41,11 +41,6 @@ public class GeneticEngineering extends PCLCard {
             super(DATA, owner, move);
         }
 
-        @Override
-        public void onCardCreated(AbstractCard c, boolean startOfBattle) {
-            applyToCard(c);
-        }
-
         protected void applyToCard(AbstractCard c) {
             if (c.type == CardType.STATUS) {
                 PCLCard pc = EUIUtils.safeCast(c, PCLCard.class);
@@ -95,6 +90,11 @@ public class GeneticEngineering extends PCLCard {
                     PCLCardTag.Haste.set(c, 1);
                 }
             }
+        }
+
+        @Override
+        public void onCardCreated(AbstractCard c, boolean startOfBattle) {
+            applyToCard(c);
         }
 
         @Override

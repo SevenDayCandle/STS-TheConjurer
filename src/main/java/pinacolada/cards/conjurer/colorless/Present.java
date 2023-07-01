@@ -26,16 +26,16 @@ public class Present extends PCLCard {
         super(DATA);
     }
 
-    @Override
-    public void setup(Object input) {
-        addSpecialMove(0, this::action, 1);
-    }
-
     public void action(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
         AbstractCard random = GameUtilities.getRandomCombatCard();
         if (random != null) {
             order.playCopy(random, info.target)
                     .addCallback(() -> PCLActions.bottom.makeCardInDiscardPile(random.makeStatEquivalentCopy()));
         }
+    }
+
+    @Override
+    public void setup(Object input) {
+        addSpecialMove(0, this::action, 1);
     }
 }

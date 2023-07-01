@@ -12,7 +12,7 @@ import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMod;
-import pinacolada.skills.skills.PTrait;
+import pinacolada.skills.PTrait;
 
 @VisibleCard
 public class CannonOfHaima extends PCLCard {

@@ -37,11 +37,11 @@ public class ConjurerWaterAllyAnimation extends PCLAllyAnimation {
         int size = ConjurerResources.conjurer.images.monsters.water1.texture().getHeight();
         int hSize = size / 2;
 
-        this.shineColor.a = Interpolation.sine.apply(0.05f, 0.55f, angleExt / 135);
+        this.shineColor.a = Interpolation.sine.apply(0.05f, 0.55f, angleExt / 135) * this.transitionAlpha;
         sb.setColor(this.shineColor);
         sb.draw(ConjurerResources.conjurer.images.monsters.water3.texture(), x - hSize, y - hSize / 2f, hSize, hSize, size, size, this.scale + scaleExt2, this.scale + scaleExt2, angleExt * 1.2f, 0, 0, size, size, hFlip, vFlip);
 
-        this.shineColor.a = Interpolation.sine.apply(0.12f, 0.72f, angleExt2 / 185);
+        this.shineColor.a = Interpolation.sine.apply(0.12f, 0.72f, angleExt2 / 185) * this.transitionAlpha;
         sb.setColor(this.shineColor);
         sb.draw(ConjurerResources.conjurer.images.monsters.water4.texture(), x - hSize, y - hSize / 2f, hSize, hSize, size, size, this.scale + scaleExt2, this.scale + scaleExt2, -angleExt2 * 0.7f, 0, 0, size, size, !hFlip, vFlip);
 
@@ -49,7 +49,7 @@ public class ConjurerWaterAllyAnimation extends PCLAllyAnimation {
         sb.draw(ConjurerResources.conjurer.images.monsters.water1.texture(), x - hSize, y - hSize / 2f, hSize, hSize, size, size, this.scale + scaleInt, this.scale + scaleInt, angleInt * 1.3f, 0, 0, size, size, hFlip, vFlip);
 
         PCLRenderHelpers.setBlending(sb, EUIRenderHelpers.BlendingMode.Glowing);
-        this.shineColor.a = Interpolation.sine.apply(0.22f, 0.42f, angleExt / 165);
+        this.shineColor.a = Interpolation.sine.apply(0.22f, 0.42f, angleExt / 165) * this.transitionAlpha;
         sb.setColor(this.shineColor);
         sb.draw(ConjurerResources.conjurer.images.monsters.water2.texture(), x - hSize, y - hSize / 2f, hSize, hSize, size, size, this.scale + scaleExt, this.scale + scaleExt, -angleExt * 1.4f, 0, 0, size, size, hFlip, vFlip);
         PCLRenderHelpers.setBlending(sb, EUIRenderHelpers.BlendingMode.Normal);

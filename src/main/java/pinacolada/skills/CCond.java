@@ -11,11 +11,11 @@ public abstract class CCond {
         return new PCond_CheckMatter(amount);
     }
 
-    public static PCond_React react(PCLAffinity... affinities) {
-        return new PCond_React(affinities);
-    }
-
     public static PCond_PayMatter payMatter(int amount) {
         return new PCond_PayMatter(amount);
+    }
+
+    public static PCond_React react(PCLAffinity... affinities) {
+        return new PCond_React(affinities);
     }
 }

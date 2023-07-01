@@ -26,11 +26,6 @@ public class ChemicalSynthesis extends PCLCard {
         super(DATA);
     }
 
-    @Override
-    public void setup(Object input) {
-        addSpecialMove(0, this::action, 2, 4);
-    }
-
     public void action(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
         for (AbstractPotion potion : player.potions) {
             if (potion != null && potion.canUse()) {
@@ -39,5 +34,10 @@ public class ChemicalSynthesis extends PCLCard {
             }
         }
         order.heal(move.extra);
+    }
+
+    @Override
+    public void setup(Object input) {
+        addSpecialMove(0, this::action, 2, 4);
     }
 }

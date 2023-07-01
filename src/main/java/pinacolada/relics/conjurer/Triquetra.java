@@ -27,13 +27,6 @@ public class Triquetra extends PCLRelic implements OnTryApplyPowerSubscriber {
     }
 
     @Override
-    public void atBattleStart() {
-        super.atBattleStart();
-
-        CombatManager.subscribe(this);
-    }
-
-    @Override
     protected void activateBattleEffect() {
         PCLActions.bottom.callback(() -> {
             // Simplify element reactions
@@ -47,6 +40,13 @@ public class Triquetra extends PCLRelic implements OnTryApplyPowerSubscriber {
 
     public int getValue() {
         return 2;
+    }
+
+    @Override
+    public void atBattleStart() {
+        super.atBattleStart();
+
+        CombatManager.subscribe(this);
     }
 
     @Override

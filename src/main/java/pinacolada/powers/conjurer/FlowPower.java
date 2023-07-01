@@ -41,15 +41,13 @@ public class FlowPower extends PCLPower implements DrawPileCardPreviewProvider {
     }
 
     @Override
-    public String getUpdatedDescription() {
-        return formatDescription(0, PER_STACK);
+    protected ColoredString getPrimaryAmount(Color c) {
+        return new ColoredString(amount, amount >= PER_STACK ? Color.GREEN : Color.WHITE, c.a);
     }
 
     @Override
-    public void stackPower(int amount, boolean updateBase) {
-        super.stackPower(amount, updateBase);
-
-        refreshCard();
+    public String getUpdatedDescription() {
+        return formatDescription(0, PER_STACK);
     }
 
     @Override
@@ -62,8 +60,10 @@ public class FlowPower extends PCLPower implements DrawPileCardPreviewProvider {
     }
 
     @Override
-    protected ColoredString getPrimaryAmount(Color c) {
-        return new ColoredString(amount, amount >= PER_STACK ? Color.GREEN : Color.WHITE, c.a);
+    public void stackPower(int amount, boolean updateBase) {
+        super.stackPower(amount, updateBase);
+
+        refreshCard();
     }
 
     @Override

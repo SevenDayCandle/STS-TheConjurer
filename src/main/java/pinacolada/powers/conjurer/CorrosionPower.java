@@ -19,6 +19,16 @@ public class CorrosionPower extends AbstractPCLElementalPower {
         super(owner, source, POWER_ID, amount);
     }
 
+    public static float calculateDamage(DamageInfo info, float multiplier) {
+        float newDamage = Math.max(1, info.output * (multiplier / 100f));
+        return GameUtilities.isPlayer(info.owner) ? Math.min(GameUtilities.getHP(info.owner, true, true) - 1, newDamage) : newDamage;
+    }
+
+    @Override
+    public AbstractGameAction.AttackEffect getAttackEffect() {
+        return PCLEnum.AttackEffect.GHOST;
+    }
+
     @Override
     public void playApplyPowerSfx() {
         PCLSFX.play(PCLSFX.DARKLING_REGROW_2, 0.95f, 1.05f);
@@ -29,15 +39,5 @@ public class CorrosionPower extends AbstractPCLElementalPower {
             PCLActions.bottom.dealDamage(owner, owner, (int) calculateDamage(info, getIntensifyMultiplier()), DamageInfo.DamageType.THORNS, getAttackEffect());
             this.flash();
         }
-    }
-
-    public static float calculateDamage(DamageInfo info, float multiplier) {
-        float newDamage = Math.max(1, info.output * (multiplier / 100f));
-        return GameUtilities.isPlayer(info.owner) ? Math.min(GameUtilities.getHP(info.owner, true, true) - 1, newDamage) : newDamage;
-    }
-
-    @Override
-    public AbstractGameAction.AttackEffect getAttackEffect() {
-        return PCLEnum.AttackEffect.GHOST;
     }
 }
