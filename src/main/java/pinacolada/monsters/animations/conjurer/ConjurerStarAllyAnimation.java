@@ -15,14 +15,14 @@ import pinacolada.resources.pcl.PCLCoreImages;
 import pinacolada.utilities.PCLRenderHelpers;
 
 public class ConjurerStarAllyAnimation extends PCLAllyAnimation {
-    protected static final float BASE_FLASH_TIMER = 0.5F;
+    protected static final float BASE_FLASH_TIMER = 1.9F;
     public static final float RADIUS = 320;
-    public static final Color START_COLOR = new Color(0.9f, 0.65f, 1, 0.8f);
-    public static final Color TARGET_COLOR = new Color(0.74f, 0.3f, 1, 0.7f);
+    public static final Color START_COLOR = new Color(0.9f, 0.65f, 1, 0.67f);
+    public static final Color TARGET_COLOR = new Color(0.74f, 0.3f, 1, 0.42f);
     private float flashTimer = BASE_FLASH_TIMER;
 
     public ConjurerStarAllyAnimation(PCLCreature creature) {
-        super(creature, 0.1f, 0.1f);
+        super(creature, 0.125f, 0.14f);
     }
 
     public void playActAnimation(float x, float y) {
@@ -59,7 +59,7 @@ public class ConjurerStarAllyAnimation extends PCLAllyAnimation {
                     .setColor(START_COLOR, TARGET_COLOR, 1.8f)
                     .setRotation(angle, 120f)
                     .setScale(0.1f, 0.4f, 0.2f)
-                    .setDuration(1.8f, false)).renderBehind = true;
+                    .setDuration(1.6f, false)).renderBehind = true;
             this.flashTimer = BASE_FLASH_TIMER;
         }
     }

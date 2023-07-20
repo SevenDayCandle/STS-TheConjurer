@@ -7,7 +7,6 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -20,7 +19,7 @@ public class Bite extends PCLCard {
             .setAttack(0, CardRarity.SPECIAL, PCLAttackType.Normal, PCLCardTarget.Single)
             .setDamage(5, 3)
             .setAffinities(PCLAffinity.Purple)
-            .setLoadout(ConjurerPlayerData.eldenRing, true);
+            .setLoadout(ConjurerPlayerData.darkSouls, true);
 
     public Bite() {
         super(DATA);
@@ -28,6 +27,6 @@ public class Bite extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BITE);
-        addUseMove(PCond.fatal().edit(f -> f.setRandom(true)), PMultiSkill.join(PMove.gainTempHP(4), PMove.gain(1, PCLPowerHelper.NextTurnDraw)));
+        addUseMove(PCond.fatal().setTarget(PCLCardTarget.Single).edit(f -> f.setRandom(true)), PMultiSkill.join(PMove.gainTempHP(9).setUpgrade(1)));
     }
 }

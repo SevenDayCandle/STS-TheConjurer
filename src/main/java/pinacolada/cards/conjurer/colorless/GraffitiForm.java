@@ -94,9 +94,9 @@ public class GraffitiForm extends PCLCard {
             if (skill == null) {
                 skill = PMove.draw(1);
             }
-            return new PCLDynamicCardData(DATA.ID, DATA.resources)
-                    .addPSkill(skill)
-                    .makeCopy();
+            PCLDynamicCardData data = new PCLDynamicCardData(DATA.ID, DATA.resources);
+            data.addPSkill(skill);
+            return data.create();
         }
 
         @Override

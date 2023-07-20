@@ -45,18 +45,18 @@ public class PCond_React extends PPassiveCond<PField_Affinity> implements OnElem
     }
 
     @Override
-    public String getSubText() {
+    public String getSubText(PCLCardTarget perpsective) {
         if (hasParentType(PTrigger.class)) {
-            return TEXT.cond_whenAObject(TEXT.subjects_card, fields.affinities.isEmpty() ? ConjurerResources.conjurer.tooltips.reaction.present() : TEXT.subjects_withX(ConjurerResources.conjurer.tooltips.reaction.past(), fields.getAffinityLevelOrString()));
+            return TEXT.cond_whenAObject(TEXT.subjects_card, fields.affinities.isEmpty() ? ConjurerResources.conjurer.tooltips.reaction.present() : TEXT.subjects_withX(ConjurerResources.conjurer.tooltips.reaction.past(), fields.getAffinityOrString()));
         }
-        String base = fields.affinities.isEmpty() ? ConjurerResources.conjurer.tooltips.reaction.past() : TEXT.subjects_withX(ConjurerResources.conjurer.tooltips.reaction.past(), fields.getAffinityLevelOrString());
+        String base = fields.affinities.isEmpty() ? ConjurerResources.conjurer.tooltips.reaction.past() : TEXT.subjects_withX(ConjurerResources.conjurer.tooltips.reaction.past(), fields.getAffinityOrString());
         return TEXT.cond_ifTargetHas(TEXT.subjects_this, PCLCardTarget.Single.ordinal(), fields.not ? TEXT.cond_not(base) : base);
     }
 
     @Override
     public void onElementReact(AffinityReactions reactions, AbstractCreature abstractCreature) {
         if (fields.affinities.isEmpty() ? reactions.hasReaction() : EUIUtils.all(fields.affinities, reactions::hasReaction)) {
-            useFromTrigger(makeInfo(abstractCreature));
+            useFromTrigger(generateInfo(abstractCreature));
         }
     }
 }

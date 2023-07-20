@@ -15,7 +15,7 @@ import pinacolada.skills.PMove;
 @VisibleCard
 public class FlameCleanseMe extends PCLCard {
     public static final PCLCardData DATA = register(FlameCleanseMe.class, ConjurerResources.conjurer)
-            .setSkill(1, CardRarity.COMMON, PCLCardTarget.Self)
+            .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.Self)
             .setAffinities(PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
@@ -24,7 +24,7 @@ public class FlameCleanseMe extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.gain(-1, PCLPowerHelper.Vulnerable, PCLPowerHelper.Weak).setUpgrade(-1));
+        addUseMove(PMove.applyToTeam(-1, PCLPowerHelper.Vulnerable, PCLPowerHelper.Weak).setUpgrade(-1));
         addUseMove(PMove.applyToEveryone(3, PCLElementHelper.Ignis).setUpgrade(1));
     }
 }

@@ -1,62 +1,62 @@
 {
-	"Aqua": {
-		"DESCRIPTION": "Playing [A-G] cards on targets with [Aqua] increases damage they take and decreases damage they deal.",
+	"conjurer:Aqua": {
+		"DESCRIPTION": "Playing [A-G] cards on targets with [conjurer:Aqua] increases damage they take and decreases damage they deal.",
 		"NAME": "Aqua"
 	},
-	"Blasted": {
-		"DESCRIPTION": "Take damage at the start of turn, then reduce stacks in half.",
+	"conjurer:Blasted": {
+		"DESCRIPTION": "Take damage at the start of turn.",
 		"NAME": "Blasted"
 	},
-	"Charge": {
+	"conjurer:Charge": {
 		"DESCRIPTION": "Apply the last #yElemental #yDebuff you manually leveled up to an enemy. The first time each turn you level up an #yElemental #yDebuff manually, gain #b1 #yCharge.",
 		"NAME": "Charge"
 	},
-	"Corrosion": {
+	"conjurer:Corrosion": {
 		"DESCRIPTION": "[A-P] #yElemental #yDebuff. When #yAttacking, deal a portion of damage dealt to yourself and ALL allies.",
 		"NAME": "Corrosion"
 	},
-	"Death": {
+	"conjurer:Death": {
 		"DESCRIPTION": "Your #yAttacks deal a portion of its damage to yourself. At the end of turn, you have a chance of instantly dying.",
 		"NAME": "Death"
 	},
-	"Elemental Debuff": {
-		"DESCRIPTION": "[Ignis], [Aqua], [Ventus], [Petra]. Playing cards on targets with these debuffs triggers #yReactions. Remove at the end of the round.",
+	"conjurer:Elemental Debuff": {
+		"DESCRIPTION": "[conjurer:Ignis], [conjurer:Aqua], [conjurer:Ventus], [conjurer:Petra]. Playing cards on targets with these debuffs triggers #yReactions. Remove at the end of the round.",
 		"NAME": "Elemental Debuff",
 		"PLURAL": "elemental debuffs"
 	},
-	"Elemental Exposure": {
+	"conjurer:Elemental Exposure": {
 		"DESCRIPTION": "Increases the effectiveness of #yAuras and #yElemental #yDebuffs.",
 		"NAME": "Elemental Exposure"
 	},
-	"Elemental Mastery": {
+	"conjurer:Elemental Mastery": {
 		"DESCRIPTION": "Whenever you would gain #yAura stacks or apply #yElemental #yDebuffs, increase their stacks.",
 		"NAME": "Elemental Mastery"
 	},
-	"Flow": {
-		"DESCRIPTION": "During your turn, spend #b{0} [Flow] to draw a card.",
+	"conjurer:Flow": {
+		"DESCRIPTION": "During your turn, spend #b{0} [conjurer:Flow] to draw a card.",
 		"NAME": "Flow"
 	},
-	"Frostbite": {
+	"conjurer:Frostbite": {
 		"DESCRIPTION": "Every #b{0} stacks increases damage taken from #yAttacks and #yOrbs by #b1, and reduces damage dealt by #b1. At round end, reduce stacks by #b75%.",
 		"NAME": "Frostbite"
 	},
-	"Ignis": {
-		"DESCRIPTION": "Playing [A-B] cards on targets with [Ignis] damages them at the start of their turn.",
+	"conjurer:Ignis": {
+		"DESCRIPTION": "Playing [A-B] cards on targets with [conjurer:Ignis] damages them at the start of their turn.",
 		"NAME": "Ignis"
 	},
-	"Lux": {
+	"conjurer:Lux": {
 		"DESCRIPTION": "[A-Y] #yElemental #yDebuff. Reactions on the target are multiplied.",
 		"NAME": "Lux"
 	},
-	"Matter": {
+	"conjurer:Matter": {
 		"DESCRIPTION": "#yReactions grant #yMatter. Can be spent to level #yElemental #yDebuffs.",
 		"NAME": "Matter"
 	},
-	"Petra": {
-		"DESCRIPTION": "Playing [A-R] cards on targets with [Petra] grant you [Block].",
+	"conjurer:Petra": {
+		"DESCRIPTION": "Playing [A-R] cards on targets with [conjurer:Petra] grant you [Block].",
 		"NAME": "Petra"
 	},
-	"Reaction": {
+	"conjurer:Reaction": {
 		"DESCRIPTION": "Occurs upon playing a card with an #yAffinity that activates the target's #yElemental #yDebuff. This also grants #yMatter.",
 		"NAME": "Reaction",
 		"PLURAL": "Reactions",
@@ -64,16 +64,16 @@
 		"PRESENT": "Reacts",
 		"PROGRESSIVE": "Reacting"
 	},
-	"Tether": {
+	"conjurer:Tether": {
 		"DESCRIPTION": "Activates if the #ySummon in front of it meets the given condition.",
 		"NAME": "Tether"
 	},
-	"Umbra": {
+	"conjurer:Umbra": {
 		"DESCRIPTION": "[A-P] #yElemental #yDebuff. Reactions on a non-#ySummon target applies a debuff that causes its #yAttacks to damage itself.",
 		"NAME": "Umbra"
 	},
-	"Ventus": {
-		"DESCRIPTION": "Playing [A-O] cards on targets with [Ventus] grants charges to be used during your turn to draw cards.",
+	"conjurer:Ventus": {
+		"DESCRIPTION": "Playing [A-O] cards on targets with [conjurer:Ventus] grants charges to be used during your turn to draw cards.",
 		"NAME": "Ventus"
 	}
 }

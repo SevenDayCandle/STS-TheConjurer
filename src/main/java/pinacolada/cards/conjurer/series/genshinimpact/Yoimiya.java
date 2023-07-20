@@ -20,8 +20,8 @@ import pinacolada.skills.PMove;
 public class Yoimiya extends PCLCard {
     public static final PCLCardData DATA = register(Yoimiya.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy)
-            .setDamage(1, 0, 4, 1)
-            .setHp(4, 1)
+            .setDamage(1, array(0, 0), 4, array(1, 0))
+            .setHp(4, array(1, 0))
             .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
@@ -31,6 +31,7 @@ public class Yoimiya extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
-        addUseMove(PCond.cooldown(2), PMove.play(1, PCLCardTarget.RandomEnemy, PCLCardGroupHelper.DrawPile).edit(f -> f.setType(CardType.ATTACK).setCost(CostFilter.Cost0, CostFilter.Cost1).setOrigin(PCLCardSelection.Random)));
+        addUseMove(PCond.cooldown(2).setUpgrade(0, -1), PMove.play(1, PCLCardTarget.RandomEnemy, PCLCardGroupHelper.DrawPile)
+                .edit(f -> f.setType(CardType.ATTACK).setCost(CostFilter.Cost0, CostFilter.Cost1).setOrigin(PCLCardSelection.Random)));
     }
 }

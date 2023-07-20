@@ -1,9 +1,9 @@
 package pinacolada.resources.conjurer;
 
 import extendedui.ui.TextureCache;
-import pinacolada.resources.PCLImages;
+import pinacolada.resources.AbstractImages;
 
-public class ConjurerImages extends PCLImages {
+public class ConjurerImages extends AbstractImages {
     public final Core core = new Core();
     public final Monsters monsters = new Monsters();
     public final Tutorial tutorial = new Tutorial();
@@ -13,6 +13,7 @@ public class ConjurerImages extends PCLImages {
     }
 
     public static class Core {
+        public final TextureCache bokeh = new TextureCache("images/conjurer/ui/core/Bokeh.png");
         public final TextureCache elementAir = new TextureCache("images/conjurer/ui/core/Element_Air.png");
         public final TextureCache elementDark = new TextureCache("images/conjurer/ui/core/Element_Dark.png");
         public final TextureCache elementEarth = new TextureCache("images/conjurer/ui/core/Element_Earth.png");

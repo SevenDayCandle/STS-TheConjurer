@@ -14,9 +14,9 @@ import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.effects.PCLEffects;
-import pinacolada.interfaces.markers.EditorCard;
-import pinacolada.interfaces.providers.CooldownProvider;
+import pinacolada.interfaces.markers.SummonOnlyMove;
 import pinacolada.interfaces.providers.PointerProvider;
+import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -26,9 +26,9 @@ import pinacolada.skills.skills.PSpecialSkill;
 public class Joker extends PCLCard {
     public static final PCLCardData DATA = register(Joker.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE, PCLAttackType.Ranged)
-            .setDamage(3, 0)
-            .setHp(5, 1)
-            .setRTags(PCLCardTag.Ethereal)
+            .setDamage(1, array(0, 2, 0))
+            .setHp(5, array(2, 1, 0))
+            .setTags(PCLCardTag.Ethereal.make(1, array(0, 1, 1)))
             .setAffinities(PCLAffinity.Star)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
@@ -38,24 +38,24 @@ public class Joker extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.DARKNESS);
-        addUseMove(PCond.cooldown(0), getSpecialMove(0, this::specialMove, 2));
+        addUseMove(PCond.cooldown(0), getSpecialMove(0, this::specialMove, 2).setUpgrade(0, 0, 1));
     }
 
     public void specialMove(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
         order.selectFromPile(name, move.amount, player.discardPile)
-                .setFilter(c -> c instanceof PointerProvider && EUIUtils.any(((PointerProvider) c).getFullEffects(), effect -> effect.hasChildType(CooldownProvider.class)))
+                .setFilter(c -> c instanceof PointerProvider && c.type == PCLEnum.CardType.SUMMON && !(c instanceof Joker)) // Filter out other Jokers to avoid infinites
                 .setOrigin(PCLCardSelection.Random)
-                .setAnyNumber(true)
                 .addCallback(cards -> {
                     for (AbstractCard c : cards) {
-                        PCLEffects.Queue.showCardBriefly(c);
-                        EditorCard provider = EUIUtils.safeCast(c, EditorCard.class);
+                        PointerProvider provider = EUIUtils.safeCast(c, PointerProvider.class);
                         if (provider != null) {
-                            provider.doEffects(ef -> ef.recurse(subEffect -> {
-                                if (subEffect instanceof CooldownProvider) {
-                                    subEffect.use(info, order);
+                            PCLEffects.Queue.showCardBriefly(c.makeStatEquivalentCopy());
+                            provider.doEffects(ef -> {
+                                // Do not use powers bestowed onto summons
+                                if (!(ef instanceof SummonOnlyMove)) {
+                                    ef.use(info, order);
                                 }
-                            }));
+                            });
                         }
                     }
                 });

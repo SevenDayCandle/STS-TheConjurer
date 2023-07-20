@@ -3,22 +3,19 @@ package pinacolada.characters;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
-import extendedui.ui.EUIBase;
+import extendedui.utilities.EUIColors;
 import pinacolada.effects.PCLSFX;
-import pinacolada.effects.vfx.FadingParticleEffect;
-import pinacolada.effects.vfx.ScreenGradientEffect;
 import pinacolada.effects.vfx.SmokeParticleEffect;
-import pinacolada.effects.vfx.SnowBurstEffect;
 import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.ui.PCLEnergyOrb;
@@ -32,8 +29,6 @@ public class ConjurerCharacter extends PCLCharacter {
     public static final Color MAIN_COLOR = CardHelper.getColor(106, 210, 177);
     public static final String[] NAMES = characterStrings.NAMES;
     public static final String[] TEXT = characterStrings.TEXT;
-    private int effectCount;
-    private float fallSpeed;
     private ArrayList<AbstractGameEffect> deathEffects;
 
     public ConjurerCharacter() {
@@ -89,29 +84,20 @@ public class ConjurerCharacter extends PCLCharacter {
     }
 
     @Override
-    public List<CutscenePanel> getCutscenePanels() {
-        effectCount = 0;
-        return new ArrayList<>();
+    protected void renderPlayerSkeleton() {
+        this.skeleton.setColor(EUIColors.white(0.7f));
+        PCLRenderHelpers.drawGrayscale(CardCrawlGame.psb, s -> sr.draw(CardCrawlGame.psb, this.skeleton));
     }
 
     @Override
-    public void updateVictoryVfx(ArrayList<AbstractGameEffect> effects) {
-        if (effectCount == 0) {
-            effects.add(new ScreenGradientEffect(1f, Color.BLACK, Color.TEAL, Color.BLACK, Color.TEAL, Color.BLACK, Color.LIME, Color.BLACK, Color.LIME).setLooping(true));
-        }
+    protected void renderPlayerSprite(SpriteBatch sb) {
+        PCLRenderHelpers.drawGrayscale(sb,
+                s -> this.animation.renderSprite(s, this.drawX + this.animX, this.drawY + this.animY + AbstractDungeon.sceneOffsetY));
+    }
 
-        if (effectCount < 40) {
-            int x = MathUtils.random(Settings.WIDTH);
-            effects.add(new FadingParticleEffect(SnowBurstEffect.getRandomTexture(), MathUtils.random(Settings.WIDTH), -EUIBase.scale(40f))
-                    .setBlendingMode(PCLRenderHelpers.BlendingMode.Glowing)
-                    .setScale(MathUtils.random(0.4f, 1f))
-                    .setRotation(0, MathUtils.random(150f, 360f))
-                    .setTargetPosition(x, Settings.HEIGHT, MathUtils.random(1f, 50f))
-                    .setDuration(MathUtils.random(1f, 2f), false)
-            );
-        }
-
-        effectCount++;
+    @Override
+    public List<CutscenePanel> getCutscenePanels() {
+        return new ArrayList<>();
     }
 
     @Override

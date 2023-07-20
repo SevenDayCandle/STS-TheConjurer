@@ -27,12 +27,12 @@ public class PMod_PerMatter extends PMod_Per<PField_Not> {
     }
 
     @Override
-    public int getMultiplier(PCLUseInfo info) {
+    public int getMultiplier(PCLUseInfo info, boolean isUsing) {
         return ConjurerReactionMeter.meter.getMatter();
     }
 
     @Override
-    public String getSubText() {
+    public String getSubText(PCLCardTarget perpsective) {
         return ConjurerResources.conjurer.tooltips.matter.title;
     }
 }

@@ -41,12 +41,12 @@ public class PMod_PerElement extends PMod_Per<PField_Affinity> {
     }
 
     @Override
-    public int getMultiplier(PCLUseInfo info) {
+    public int getMultiplier(PCLUseInfo info, boolean isUsing) {
         return EUIUtils.sumInt(getTargetList(info), t -> t.powers != null ? EUIUtils.sumInt(t.powers, po -> isPowerElemental(po.ID) ? po.amount : 0) : 0) / Math.max(1, this.amount);
     }
 
     @Override
-    public String getSubText() {
+    public String getSubText(PCLCardTarget perpsective) {
         String baseString = fields.affinities.isEmpty() ? plural(ConjurerResources.conjurer.tooltips.elementalDebuff) : PCLElementHelper.getPowerAndString(fields.affinities);
         if (amount > 1) {
             baseString = EUIRM.strings.numNoun(getAmountRawString(), baseString);

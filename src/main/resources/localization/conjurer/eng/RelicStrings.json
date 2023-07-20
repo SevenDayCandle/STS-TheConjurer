@@ -80,27 +80,33 @@
 	},
 	"conjurer:EntropicDie":
 	{
-		"DESCRIPTIONS": [],
+		"DESCRIPTIONS": ["You may reroll cards from card rewards into cards with altered stats. | Entering #yRest rooms gives #b1 use per #b{0} cards in the pool."],
 		"FLAVOR": "Think about the food you want to eat the most.",
 		"NAME": "Entropic Die"
 	},
 	"conjurer:Everamber":
 	{
-		"DESCRIPTIONS": ["[Malleable] is treated as [Ventus]. [A-R] now #yReacts with [A-G]."],
+		"DESCRIPTIONS": ["[Malleable] is treated as [conjurer:Ventus]. [A-R] now #yReacts with [A-G]."],
 		"FLAVOR": "Inside the amber, a small, long-extinct insect remains frozen in time.",
 		"NAME": "Everamber"
 	},
 	"conjurer:FortuneGlue":
 	{
-		"DESCRIPTIONS": [],
+		"DESCRIPTIONS": ["Significantly boosts rare card reward chances from the next #b{0} monster rewards."],
 		"FLAVOR": "Is luck an ability? Maybe.",
 		"NAME": "Fortune Glue"
 	},
 	"conjurer:GalacticBigLotto":
 	{
-		"DESCRIPTIONS": [],
+		"DESCRIPTIONS": ["Whenever you enter a room, there is a #b{0}% chance to obtain a random relic. If this activates, there is a #b{0}% chance for you to lose #b{1}% of your current HP and to disable this relic."],
 		"FLAVOR": "You just need one galactic currency to bet on your luck and become a trader in the experience of making dreams.",
 		"NAME": "Galactic Big Lotto"
+	},
+	"conjurer:HellBull":
+	{
+		"DESCRIPTIONS": [],
+		"FLAVOR": "A drink that oozes with hell.",
+		"NAME": "Hell Bull"
 	},
 	"conjurer:InsectWeb":
 	{
@@ -116,7 +122,7 @@
 	},
 	"conjurer:MaidensFleetingLeisure":
 	{
-		"DESCRIPTIONS": ["When you #yWithdraw a #ySummon, fully heal it, then increase its damage and maximum HP by #b{0}"],
+		"DESCRIPTIONS": [],
 		"FLAVOR": "This flower shall be my medal. That is all I need.",
 		"NAME": "Maiden's Fleeting Leisure"
 	},
@@ -125,6 +131,12 @@
 		"DESCRIPTIONS": ["Start each battle with an additional #ySummon #ySlot."],
 		"FLAVOR": "A black, lightly beguiling stone.",
 		"NAME": "Memory Stone"
+	},
+	"conjurer:MusketeersFeltHat":
+	{
+		"DESCRIPTIONS": [],
+		"FLAVOR": "Yee. Haw.",
+		"NAME": "Musketeer's Felt Hat"
 	},
 	"conjurer:NymphsConstancy":
 	{
@@ -140,7 +152,7 @@
 	},
 	"conjurer:PeriodicTable":
 	{
-		"DESCRIPTIONS": ["At the start of turn, apply #b{0} stacks of an #yElemental #yDebuff to a random enemy, rotating between [Ignis], [Aqua], [Ventus], and [Petra].", "#gNext #gDebuff: {0}"],
+		"DESCRIPTIONS": ["At the start of turn, apply #b{0} stacks of an #yElemental #yDebuff to a random enemy, rotating between [conjurer:Ignis], [conjurer:Aqua], [conjurer:Ventus], and [conjurer:Petra].", "#gNext #gDebuff: {0}"],
 		"FLAVOR": "A table that repeats itself every so often.",
 		"NAME": "Periodic Table"
 	},
@@ -164,7 +176,7 @@
 	},
 	"conjurer:ScorpionStinger":
 	{
-		"DESCRIPTIONS": ["[Poison] is treated as [Ventus]. At the end of round, [Poison] triggers an additional time and is cut in half."],
+		"DESCRIPTIONS": ["[Poison] is treated as [conjurer:Ventus]. At the end of round, [Poison] triggers an additional time and is cut in half."],
 		"FLAVOR": "Pass the power.",
 		"NAME": "Scorpion Stinger"
 	},
@@ -204,6 +216,12 @@
 		"FLAVOR": "It silently pursues both time and tide.",
 		"NAME": "Sundial of Enduring Jade"
 	},
+	"conjurer:SunlightMedal":
+	{
+		"DESCRIPTIONS": [],
+		"FLAVOR": "Reminds one of the great honor of a shared victory.",
+		"NAME": "Sunlight Medal"
+	},
 	"conjurer:Thermostat":
 	{
 		"DESCRIPTIONS": ["[A-R] now #yReacts with [A-B]."],
@@ -218,7 +236,7 @@
 	},
 	"conjurer:Triquetra":
 	{
-		"DESCRIPTIONS": ["Disables [A-O]. [A-R] now #yReacts with [A-G]. If you would apply [Petra], gain it as [Next Turn Block] instead."],
+		"DESCRIPTIONS": ["Disables [A-O]. [A-R] now #yReacts with [A-G]. If you would apply [conjurer:Petra], gain it as [Next Turn Block] instead."],
 		"FLAVOR": "Divide by three and you get...",
 		"NAME": "Triquetra"
 	},
@@ -230,13 +248,13 @@
 	},
 	"conjurer:WarpingCompoundEye":
 	{
-		"DESCRIPTIONS": [],
+		"DESCRIPTIONS": ["randomize the values of the effects of cards in your hand"],
 		"FLAVOR": "The light of these gadgets can warp forward to the star system ahead of the user and bring back infromation from new worlds.",
 		"NAME": "Warping Compound Eye"
 	},
 	"conjurer:WitchsHeartFlames":
 	{
-		"DESCRIPTIONS": ["All #yCurses and #yStatuses are replaced with #ySearing #yBurn."],
+		"DESCRIPTIONS": [],
 		"FLAVOR": "A clear bottle containing liquid fire.",
 		"NAME": "Witch's Heart Flames"
 	},

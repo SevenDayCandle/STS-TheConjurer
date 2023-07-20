@@ -12,7 +12,7 @@ import pinacolada.ui.combat.ConjurerReactionMeter;
 @VisibleRelic
 public class QuadraticGlobe extends PCLRelic {
     public static final PCLRelicData DATA = register(QuadraticGlobe.class, ConjurerResources.conjurer)
-            .setProps(RelicTier.BOSS, LandingSound.MAGICAL);
+            .setProps(RelicTier.BOSS, LandingSound.CLINK);
 
     public QuadraticGlobe() {
         super(DATA);
@@ -36,11 +36,11 @@ public class QuadraticGlobe extends PCLRelic {
         return -10;
     }
 
-    public String getUpdatedDescription() {
+    public String getDescriptionImpl() {
         return this.formatDescription(0, this.getValue(), this.getPricePercent());
     }
 
     public int getPricePercent() {
-        return 50;
+        return 70;
     }
 }

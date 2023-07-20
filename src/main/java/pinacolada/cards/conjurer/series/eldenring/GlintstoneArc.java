@@ -18,7 +18,7 @@ public class GlintstoneArc extends PCLCard {
     public static final PCLCardData DATA = register(GlintstoneArc.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.COMMON, PCLAttackType.Ranged)
             .setDamage(7, 2)
-            .setAffinities(PCLAffinity.Blue, PCLAffinity.Green)
+            .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
     public GlintstoneArc() {
@@ -26,7 +26,7 @@ public class GlintstoneArc extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(ConjurerEFK.WIND02);
-        addUseMove(CMod.bonusOnReact(1), PMove.applyToRandom(1, PCLPowerHelper.Weak).setUpgrade(1));
+        addDamageMove(ConjurerEFK.SWORD04);
+        addUseMove(CMod.bonusOnReact(1), PMove.applyToSingle(1, PCLPowerHelper.Weak).setUpgrade(1));
     }
 }

@@ -7,7 +7,6 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.cards.pcl.curse.Curse_Decay;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.PCLPowerHelper;
@@ -21,8 +20,7 @@ import pinacolada.skills.skills.PMultiSkill;
 public class Xiao extends PCLCard {
     public static final PCLCardData DATA = register(Xiao.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE, PCLAttackType.Piercing, PCLCardTarget.AllEnemy)
-            .setRTags(PCLCardTag.Ethereal)
-            .setDamage(3, 0, 2)
+            .setDamage(2, 1, 2)
             .setHp(5, 1)
             .setAffinities(PCLAffinity.Green, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.genshinImpact);
@@ -33,6 +31,6 @@ public class Xiao extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.POISON);
-        addUseMove(PCond.cooldown(1), PMultiSkill.join(PMove.createDrawPile(1, Curse_Decay.DATA.ID), PMove.applyToEnemies(7, PCLPowerHelper.Poison)));
+        addUseMove(PCond.cooldown(1), PMultiSkill.join(PMove.createDrawPile(1, Curse_Decay.DATA.ID), PMove.applyToEnemies(6, PCLPowerHelper.Poison)));
     }
 }

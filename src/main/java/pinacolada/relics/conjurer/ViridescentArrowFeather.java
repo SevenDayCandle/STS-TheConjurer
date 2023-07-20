@@ -12,7 +12,7 @@ import pinacolada.skills.skills.PTrigger;
 @VisibleRelic
 public class ViridescentArrowFeather extends PCLPointerRelic {
     public static final PCLRelicData DATA = register(ViridescentArrowFeather.class, ConjurerResources.conjurer)
-            .setProps(RelicTier.SHOP, LandingSound.MAGICAL);
+            .setProps(RelicTier.UNCOMMON, LandingSound.MAGICAL);
 
     public ViridescentArrowFeather() {
         super(DATA);

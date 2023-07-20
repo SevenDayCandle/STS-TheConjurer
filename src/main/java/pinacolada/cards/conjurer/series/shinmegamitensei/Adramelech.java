@@ -18,7 +18,7 @@ import pinacolada.skills.PMove;
 public class Adramelech extends PCLCard {
     public static final PCLCardData DATA = register(Adramelech.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
-            .setDamage(3, 1)
+            .setDamage(3, array(1, 0))
             .setHp(8, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Green, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
@@ -29,6 +29,9 @@ public class Adramelech extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(AbstractGameAction.AttackEffect.FIRE);
-        addUseMove(PCond.cooldown(0), PMove.applyToRandom(3, PCLElementHelper.Ignis, PCLElementHelper.Ventus, PCLElementHelper.Petra).edit(f -> f.setRandom(true)));
+        addUseMove(PCond.cooldown(0),
+                PMove.applyToRandom(3, PCLElementHelper.Ignis, PCLElementHelper.Ventus, PCLElementHelper.Petra)
+                        .setUpgrade(0, 1)
+                        .edit(f -> f.setRandom(true)));
     }
 }

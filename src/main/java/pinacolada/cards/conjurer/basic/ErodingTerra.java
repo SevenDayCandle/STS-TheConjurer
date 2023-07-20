@@ -7,7 +7,6 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.powers.PSpecialCardPower;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.powers.conjurer.PetraPower;
@@ -49,7 +48,7 @@ public class ErodingTerra extends PCLCard {
                     PCLActions.bottom.gainBlock(stacks);
                 }
                 else {
-                    PCLActions.last.applyPower(po.owner, PCLCardTarget.Single, PCLElementHelper.Petra, stacks);
+                    PCLActions.last.applyPower(po.owner, PCLElementHelper.Petra, stacks);
                 }
                 flash();
             }

@@ -1,0 +1,33 @@
+package pinacolada.cards.conjurer.series.darksouls;
+
+
+import pinacolada.annotations.VisibleCard;
+import pinacolada.cards.base.PCLCard;
+import pinacolada.cards.base.PCLCardData;
+import pinacolada.cards.base.PCLCardGroupHelper;
+import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.cards.base.fields.PCLAttackType;
+import pinacolada.effects.EffekseerEFK;
+import pinacolada.resources.conjurer.ConjurerPlayerData;
+import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.PCond;
+import pinacolada.skills.PMod;
+import pinacolada.skills.PMove;
+
+@VisibleCard
+public class SoulStream extends PCLCard {
+    public static final PCLCardData DATA = register(SoulStream.class, ConjurerResources.conjurer)
+            .setAttack(1, CardRarity.RARE, PCLAttackType.Immaterial)
+            .setDamage(9, 3)
+            .setAffinities(PCLAffinity.Blue.make(2), PCLAffinity.Yellow.make())
+            .setLoadout(ConjurerPlayerData.darkSouls);
+
+    public SoulStream() {
+        super(DATA);
+    }
+
+    public void setup(Object input) {
+        addDamageMove(EffekseerEFK.LIGHT02).setBonus(PMod.perCard(1, PCLCardGroupHelper.ExhaustPile).edit(f -> f.setAffinity(PCLAffinity.Blue)), 2);
+        addUseMove(PCond.exhaust(1), PMove.gainBlock(5));
+    }
+}

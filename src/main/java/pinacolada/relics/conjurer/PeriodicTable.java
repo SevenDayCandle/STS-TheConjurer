@@ -1,11 +1,11 @@
 package pinacolada.relics.conjurer;
 
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import extendedui.EUIGameUtils;
 import extendedui.EUIUtils;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleRelic;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.relics.PCLRelic;
 import pinacolada.relics.PCLRelicData;
@@ -33,7 +33,10 @@ public class PeriodicTable extends PCLRelic {
     public void atTurnStartPostDraw() {
         super.atTurnStartPostDraw();
         PCLElementHelper element = PCLElementHelper.get(PCLAffinity.basic()[current]);
-        PCLActions.bottom.applyPower(PCLCardTarget.RandomEnemy, element, getValue());
+        AbstractMonster mo = GameUtilities.getRandomEnemy(true);
+        if (mo != null) {
+            PCLActions.bottom.applyPower(GameUtilities.getRandomEnemy(true), element, getValue());
+        }
         current = (current + 1) % 4;
         updateDescription(GameUtilities.getPlayerClass());
     }
@@ -44,7 +47,7 @@ public class PeriodicTable extends PCLRelic {
     }
 
     @Override
-    public String getUpdatedDescription() {
+    public String getDescriptionImpl() {
         if (EUIGameUtils.inBattle()) {
             PCLElementHelper element = PCLElementHelper.get(PCLAffinity.basic()[current]);
             return super.getUpdatedDescription() + EUIUtils.DOUBLE_SPLIT_LINE + formatDescription(1, element.getTooltip().getTitleOrIcon());

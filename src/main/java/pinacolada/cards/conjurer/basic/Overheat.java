@@ -6,10 +6,10 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
+import pinacolada.cards.pcl.status.Status_Burn;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
 
 @VisibleCard
@@ -24,7 +24,7 @@ public class Overheat extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.apply(PCLCardTarget.Team, 6, PCLPowerHelper.Vigor, PCLElementHelper.Ignis).setUpgrade(2));
-        addUseMove(PMod.perCreature(PCLCardTarget.AllAlly, 1), PMove.takeDamage(1));
+        addUseMove(PMove.apply(PCLCardTarget.Team, 8, PCLPowerHelper.Vigor, PCLElementHelper.Ignis).setUpgrade(3));
+        addUseMove(PMove.createDiscardPile(1, Status_Burn.DATA.ID));
     }
 }

@@ -1,10 +1,10 @@
 package pinacolada.resources.conjurer;
 
 import com.megacrit.cardcrawl.localization.UIStrings;
+import pinacolada.resources.AbstractStrings;
 import pinacolada.resources.PCLResources;
-import pinacolada.resources.PCLStrings;
 
-public class ConjurerStrings extends PCLStrings {
+public class ConjurerStrings extends AbstractStrings {
     private final UIStrings combat = getUIStrings("Combat");
     private final UIStrings tutorial = getUIStrings("Tutorial");
     public final String combat_conjurerMeterCost = combat.TEXT[0];

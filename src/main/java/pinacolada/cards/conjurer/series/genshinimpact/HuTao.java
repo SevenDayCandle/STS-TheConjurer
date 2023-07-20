@@ -20,9 +20,9 @@ import pinacolada.skills.PMove;
 public class HuTao extends PCLCard {
     public static final PCLCardData DATA = register(HuTao.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Piercing, PCLCardTarget.RandomEnemy)
-            .setRTags(PCLCardTag.Ethereal)
-            .setDamage(2, 1, 2)
-            .setHp(5, 0)
+            .setTags(PCLCardTag.Ethereal.make(1, array(0, 1)))
+            .setDamage(2, array(0, 1), 2, array(0, 0))
+            .setHp(5, array(1, 2))
             .setAffinities(PCLAffinity.Red, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 

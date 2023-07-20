@@ -18,8 +18,8 @@ import pinacolada.skills.skills.PTrigger;
 public class Teddie extends PCLCard {
     public static final PCLCardData DATA = register(Teddie.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy)
-            .setDamage(2, 0)
-            .setHp(7, 2)
+            .setDamage(2, array(1, -1))
+            .setHp(7, array(2, -1))
             .setAffinities(1, PCLAffinity.Star)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei, true);
 
@@ -31,7 +31,7 @@ public class Teddie extends PCLCard {
         addDamageMove(PCLAttackVFX.SPARK);
         addGainPower(PTrigger.interactable(
                 PCond.payEnergy(1),
-                PMove.gainPlayer(1))
+                PMove.gainPlayer(1).setUpgrade(0, 1))
         );
     }
 }

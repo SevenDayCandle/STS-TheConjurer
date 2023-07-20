@@ -23,7 +23,7 @@ public class Girimekhala extends PCLCard {
             .setSummon(3, CardRarity.RARE, PCLAttackType.Normal, PCLCardTarget.AllEnemy, DelayTiming.EndOfTurnFirst)
             .setDamage(6, 0)
             .setHp(16, 3)
-            .setAffinities(PCLAffinity.Orange, PCLAffinity.Purple)
+            .setAffinities(PCLAffinity.Orange.make(), PCLAffinity.Purple.make())
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
     public Girimekhala() {

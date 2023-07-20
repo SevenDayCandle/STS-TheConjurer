@@ -10,7 +10,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 @VisibleRelic
 public class MemoryStone extends PCLRelic {
     public static final PCLRelicData DATA = register(MemoryStone.class, ConjurerResources.conjurer)
-            .setProps(RelicTier.BOSS, LandingSound.MAGICAL);
+            .setProps(RelicTier.BOSS, LandingSound.CLINK);
 
     public MemoryStone() {
         super(DATA);

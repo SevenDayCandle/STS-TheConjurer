@@ -17,7 +17,7 @@ import pinacolada.skills.PMove;
 public class Klee extends PCLCard {
     public static final PCLCardData DATA = register(Klee.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Immaterial, PCLCardTarget.RandomEnemy)
-            .setDamage(1, 0)
+            .setDamage(1, array(2, 0))
             .setHp(3, 1)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.genshinImpact);
@@ -28,6 +28,6 @@ public class Klee extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SMALL_EXPLOSION);
-        addUseMove(PCond.cooldown(2).setUpgrade(-1), PMove.createDrawPile(1, Klee_JumpyDumpty.DATA.ID));
+        addUseMove(PCond.cooldown(2).setUpgrade(0, -1), PMove.createDrawPile(1, Klee_JumpyDumpty.DATA.ID));
     }
 }

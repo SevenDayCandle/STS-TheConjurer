@@ -46,7 +46,7 @@ public class ScarletAeonia extends PCLCard {
         if (!GameUtilities.isDeadOrEscaped(owner)) {
             int poisonAmount = EUIUtils.sumInt(EUIUtils.filter(owner.powers, po -> ConjurerReactionMeter.meter.isPowerElemental(po.ID, PCLAffinity.Green)), po -> po.amount);
             if (poisonAmount > 0) {
-                order.applyPower(owner, PCLCardTarget.Self, PCLPowerHelper.Poison, poisonAmount);
+                order.applyPower(owner, PCLPowerHelper.Poison, poisonAmount);
                 order.removePower(owner, owner, VentusPower.POWER_ID);
             }
         }

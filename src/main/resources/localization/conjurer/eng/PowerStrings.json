@@ -7,7 +7,7 @@
 	},
 	"conjurer:AquaPower":
 	{
-		"DESCRIPTIONS": ["#b{0}% of Matter gained from this power are applied to this target as [Frostbite].", "#b{0}% of Reaction gained from [Aqua] are applied to its owner as [Frostbite]."],
+		"DESCRIPTIONS": ["#b{0}% of Matter gained from this power are applied to this target as [conjurer:Frostbite].", "#b{0}% of Reaction gained from [conjurer:Aqua] are applied to its owner as [conjurer:Frostbite]."],
 		"NAME": "Aqua"
 	},
 	"conjurer:BlastedPower":
@@ -17,7 +17,7 @@
 	},
 	"conjurer:CorrosionPower":
 	{
-		"DESCRIPTIONS": ["#b{0}% of outgoing damage is dealt to itself and ALL allies.", "When targets with [Corrosion] attack, #b{0}% of damage is dealt to themselves and their allies."],
+		"DESCRIPTIONS": ["#b{0}% of outgoing damage is dealt to itself and ALL allies.", "When targets with [conjurer:Corrosion] attack, #b{0}% of damage is dealt to themselves and their allies."],
 		"NAME": "Corrosion"
 	},
 	"conjurer:DeathPower":
@@ -47,17 +47,17 @@
 	},
 	"conjurer:IgnisPower":
 	{
-		"DESCRIPTIONS": ["#b{0}% of Matter gained from this power are applied to this target as [Blasted].", "#b{0}% of Reaction gained from [Ignis] is dealt as damage to its owner at the start of its turn."],
+		"DESCRIPTIONS": ["#b{0}% of Matter gained from this power are applied to this target as [conjurer:Blasted].", "#b{0}% of Reaction gained from [conjurer:Ignis] is dealt as damage to its owner at the start of its turn."],
 		"NAME": "Ignis"
 	},
 	"conjurer:LuxPower":
 	{
-		"DESCRIPTIONS": ["Cards targeting this creature give #b+{0}% #yReaction.", "Cards targeting creatures with [Lux] give #b+{0}% #yReaction."],
+		"DESCRIPTIONS": ["Cards targeting this creature give #b+{0}% #yReaction.", "Cards targeting creatures with [conjurer:Lux] give #b+{0}% #yReaction."],
 		"NAME": "Lux"
 	},
 	"conjurer:PetraPower":
 	{
-		"DESCRIPTIONS": ["#b{0}% of Reaction gained from this power are returned to you as [Block].", "#b{0}% of Reaction gained from [Petra] are returned to you as [Block]."],
+		"DESCRIPTIONS": ["#b{0}% of Reaction gained from this power are returned to you as [Block].", "#b{0}% of Reaction gained from [conjurer:Petra] are returned to you as [Block]."],
 		"NAME": "Petra"
 	},
 	"conjurer:PetrifiedPower":
@@ -74,7 +74,7 @@
 	},
 	"conjurer:VentusPower":
 	{
-		"DESCRIPTIONS": ["#b{0}% of Reaction gained from this power are returned to you as [Flow].", "#b{0}% of Reaction gained from [Ventus] are returned to you as [Flow]."],
+		"DESCRIPTIONS": ["#b{0}% of Reaction gained from this power are returned to you as [conjurer:Flow].", "#b{0}% of Reaction gained from [conjurer:Ventus] are returned to you as [conjurer:Flow]."],
 		"NAME": "Ventus"
 	}
 }

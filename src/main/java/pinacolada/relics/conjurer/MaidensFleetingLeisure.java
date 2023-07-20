@@ -1,18 +1,17 @@
 package pinacolada.relics.conjurer;
 
-import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleRelic;
-import pinacolada.cards.base.PCLCard;
-import pinacolada.dungeon.CombatManager;
-import pinacolada.interfaces.subscribers.OnAllyWithdrawSubscriber;
-import pinacolada.monsters.PCLCardAlly;
-import pinacolada.relics.PCLRelic;
+import pinacolada.relics.PCLPointerRelic;
 import pinacolada.relics.PCLRelicData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.utilities.GameUtilities;
+import pinacolada.skills.PCond;
+import pinacolada.skills.PMove;
+import pinacolada.skills.skills.PMultiSkill;
+import pinacolada.skills.skills.PTrigger;
+import pinacolada.skills.skills.special.moves.PMove_RestoreCardHP;
 
 @VisibleRelic
-public class MaidensFleetingLeisure extends PCLRelic implements OnAllyWithdrawSubscriber {
+public class MaidensFleetingLeisure extends PCLPointerRelic {
     public static final PCLRelicData DATA = register(MaidensFleetingLeisure.class, ConjurerResources.conjurer)
             .setProps(RelicTier.UNCOMMON, LandingSound.MAGICAL);
 
@@ -20,23 +19,7 @@ public class MaidensFleetingLeisure extends PCLRelic implements OnAllyWithdrawSu
         super(DATA);
     }
 
-    @Override
-    public void atBattleStart() {
-        super.atBattleStart();
-
-        CombatManager.subscribe(this);
-    }
-
-    @Override
-    public int getValue() {
-        return 1;
-    }
-
-    @Override
-    public void onAllyWithdraw(PCLCard pclCard, PCLCardAlly pclCardAlly) {
-        PCLActions.bottom.callback(() -> {
-            pclCard.updateHeal(pclCard.baseHeal + getValue());
-            GameUtilities.modifyDamage(pclCard, pclCard.baseDamage + getValue(), false, false);
-        });
+    public void setup() {
+        addUseMove(PTrigger.when(PCond.onWithdraw(), PMultiSkill.join(new PMove_RestoreCardHP(3).useParent(true), PMove.modifyDamage(1).useParent(true))));
     }
 }

@@ -4,7 +4,6 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import pinacolada.actions.PCLActions;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLSFX;
 import pinacolada.misc.AffinityReactions;
 import pinacolada.monsters.PCLCardAlly;
@@ -28,7 +27,7 @@ public class AquaPower extends AbstractPCLElementalPower {
     @Override
     public void onReact(AbstractCreature source, AffinityReactions reactions) {
         if (!(owner instanceof PCLCardAlly)) {
-            PCLActions.bottom.applyPower(source, owner, PCLCardTarget.Single, PCLElementHelper.Frostbite, (int) calculateValue(reactions), false);
+            PCLActions.bottom.applyPower(source, owner, PCLElementHelper.Frostbite, (int) calculateValue(reactions), false);
         }
         super.onReact(source, reactions);
     }

@@ -39,12 +39,12 @@ public class PCond_PayMatter extends PActiveCond<PField_Not> {
     }
 
     @Override
-    public String getSampleText(PSkill<?> callingSkill) {
+    public String getSampleText(PSkill<?> callingSkill, PSkill<?> parentSkill) {
         return TEXT.act_pay("X", ConjurerResources.conjurer.tooltips.matter.title);
     }
 
     @Override
-    public String getSubText() {
+    public String getSubText(PCLCardTarget perpsective) {
         return capital(TEXT.act_pay(getAmountRawString(), ConjurerResources.conjurer.tooltips.matter.title), true);
     }
 

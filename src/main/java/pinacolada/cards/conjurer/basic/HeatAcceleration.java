@@ -5,8 +5,9 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.CMove;
+import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
@@ -21,7 +22,7 @@ public class HeatAcceleration extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.triggerAlly(PCLCardTarget.AllAlly, 2).setUpgrade(1));
-        addUseMove(PMove.apply(PCLCardTarget.Team, 1, PCLElementHelper.Vulnerable));
+        addUseMove(PMove.draw(2).setUpgrade(1));
+        addUseMove(PCond.exhaust(1), CMove.gainMatter(6).setUpgrade(1));
     }
 }

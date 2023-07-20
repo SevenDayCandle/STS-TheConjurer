@@ -19,7 +19,7 @@ public class Lagiacrus extends PCLCard {
     public static final PCLCardData DATA = register(Lagiacrus.class, ConjurerResources.conjurer)
             .setSummon(3, CardRarity.UNCOMMON, PCLAttackType.Normal)
             .setDamage(3, 1, 0)
-            .setHp(14, 0)
+            .setHp(14, 2)
             .setAffinities(2, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.monsterHunter, true);
 
@@ -30,8 +30,8 @@ public class Lagiacrus extends PCLCard {
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BITE);
         addGainPower(PTrigger.interactable(
-                PCond.exhaustRandom(1).setUpgrade(-1),
-                PMove.applyToEnemies(5, PCLPowerHelper.Constricted))
+                PCond.exhaustRandom(1),
+                PMove.applyToEnemies(3, PCLPowerHelper.Constricted))
         );
     }
 }

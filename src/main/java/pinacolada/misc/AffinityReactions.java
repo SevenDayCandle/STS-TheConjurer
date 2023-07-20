@@ -16,6 +16,10 @@ public class AffinityReactions {
         reactions.putIfAbsent(dest, amp);
     }
 
+    public void clear() {
+        reactions.clear();
+    }
+
     public int getValue(PCLAffinity affinity) {
         int sum = 0;
         if (reactions.containsKey(affinity)) {
@@ -36,6 +40,14 @@ public class AffinityReactions {
 
     public boolean isEmpty() {
         return !hasReaction();
+    }
+
+    public AffinityReactions makeCopy() {
+        AffinityReactions copy = new AffinityReactions();
+        for (PCLAffinity af : reactions.keySet()) {
+            copy.reactions.put(af, new HashMap<>(reactions.get(af)));
+        }
+        return copy;
     }
 
     public int sum() {

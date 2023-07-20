@@ -36,17 +36,12 @@ public class PCond_CheckMatter extends PPassiveCond<PField_Not> {
     }
 
     @Override
-    public String getSampleText(PSkill<?> callingSkill) {
+    public String getSampleText(PSkill<?> callingSkill, PSkill<?> parentSkill) {
         return EUIRM.strings.numNoun(TEXT.subjects_x, ConjurerResources.conjurer.tooltips.matter.title);
     }
 
     @Override
-    public String wrapAmount(int input) {
-        return fields.getThresholdValString(input);
-    }
-
-    @Override
-    public String getSubText() {
-        return getTargetHasString(fields.getThresholdRawString(ConjurerResources.conjurer.tooltips.matter.title));
+    public String getSubText(PCLCardTarget perpsective) {
+        return getTargetHasStringPerspective(perpsective, fields.getThresholdRawString(ConjurerResources.conjurer.tooltips.matter.title));
     }
 }

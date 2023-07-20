@@ -14,14 +14,13 @@ import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
-import pinacolada.skills.skills.PBranchCond;
 
 @VisibleCard
 public class RykardsRancor extends PCLCard {
     public static final PCLCardData DATA = register(RykardsRancor.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.RARE, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
             .setRTags(PCLCardTag.Ethereal)
-            .setDamage(25, 2)
+            .setDamage(24, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
@@ -31,6 +30,6 @@ public class RykardsRancor extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SMALL_EXPLOSION);
-        addUseMove(PBranchCond.branch(PCond.exhaustRandom(1), PMove.applyToEnemies(1, PCLPowerHelper.Vulnerable), PMove.selfExhaust()));
+        addUseMove(PCond.exhaustRandom(1), PMove.applyToEnemies(1, PCLPowerHelper.Vulnerable));
     }
 }

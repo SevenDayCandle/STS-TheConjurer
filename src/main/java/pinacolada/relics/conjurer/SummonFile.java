@@ -12,13 +12,13 @@ import pinacolada.skills.skills.special.primary.PRoot;
 @VisibleRelic
 public class SummonFile extends PCLPointerRelic {
     public static final PCLRelicData DATA = register(SummonFile.class, ConjurerResources.conjurer)
-            .setProps(RelicTier.RARE, LandingSound.MAGICAL);
+            .setProps(RelicTier.UNCOMMON, LandingSound.MAGICAL);
 
     public SummonFile() {
         super(DATA);
     }
 
     public void setup() {
-        addUseMove(new PRoot(), PMove.playCopy(1, PCLCardTarget.RandomAlly).edit(f -> f.setType(PCLEnum.CardType.SUMMON)));
+        addUseMove(new PRoot(), PMove.playCopy(1, PCLCardTarget.RandomAlly).edit(f -> f.setType(PCLEnum.CardType.SUMMON)), PMove.modifyDamage(1).useParent(true));
     }
 }

@@ -97,7 +97,7 @@ public class ConjurerResources extends PCLResources<ConjurerPlayerData, Conjurer
 
     @Override
     public void receiveEditCharacters() {
-        BaseMod.addCharacter(new ConjurerCharacter(), images.charButton, images.charBackground, playerClass);
+        BaseMod.addCharacter(new ConjurerCharacter(), images.charButton, "", playerClass); // No portrait
     }
 
     @Override

@@ -21,7 +21,7 @@ public class Jyuratodus extends PCLCard {
     public static final PCLCardData DATA = register(Jyuratodus.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.COMMON, PCLAttackType.Normal, PCLCardTarget.Single, DelayTiming.EndOfTurnFirst)
             .setDamage(4, 2, 0)
-            .setHp(10, 0)
+            .setHp(8, 0)
             .setAffinities(PCLAffinity.Orange, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 

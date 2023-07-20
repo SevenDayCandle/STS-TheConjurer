@@ -19,7 +19,7 @@ public class PyroJack extends PCLCard {
             .setSummon(0, CardRarity.COMMON, PCLAttackType.Immaterial)
             .setDamage(1, 1)
             .setHp(3, 2)
-            .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
+            .setAffinities(PCLAffinity.Red, PCLAffinity.Blue, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
     public PyroJack() {

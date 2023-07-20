@@ -2,6 +2,7 @@ package pinacolada.cards.conjurer.series.touhouproject;
 
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import extendedui.EUIUtils;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
@@ -47,7 +48,9 @@ public class UtsuhoReiuji extends PCLCard {
                             for (PCLAffinity aff : cardAffinities.getAffinities(true, true)) {
                                 PCLElementHelper debuff = PCLElementHelper.get(aff);
                                 if (debuff != null) {
-                                    order.applyPower(info.source, info.target, move.target, debuff, move.amount);
+                                    for (AbstractCreature target : move.getTargetList(info)) {
+                                        order.applyPower(info.source, target, debuff, move.amount);
+                                    }
                                 }
                             }
                         }

@@ -2,9 +2,6 @@ package pinacolada.resources.conjurer;
 
 import pinacolada.relics.conjurer.DisguisePropBox;
 import pinacolada.relics.conjurer.QuadraticGlobe;
-import pinacolada.relics.pcl.GenericDice;
-import pinacolada.relics.pcl.HeartShapedBox;
-import pinacolada.relics.pcl.Macroscope;
 import pinacolada.resources.PGR;
 import pinacolada.resources.loadout.LoadoutRelicSlot;
 import pinacolada.resources.loadout.PCLLoadout;
@@ -28,14 +25,16 @@ public class ConjurerLoadout extends PCLLoadout {
     }
 
     public static ConjurerLoadout generate(String prefix) {
-        return new ConjurerLoadout(PGR.createID(ConjurerResources.ID, prefix));
+        return generate(prefix, 0);
+    }
+
+    public static ConjurerLoadout generate(String prefix, int unlockLevel) {
+        return register(new ConjurerLoadout(PGR.createID(ConjurerResources.ID, prefix), unlockLevel));
     }
 
     public void addLoadoutRelics(LoadoutRelicSlot r1) {
-        r1.addItem(new GenericDice(), 4);
-        r1.addItem(new Macroscope(), 4);
-        r1.addItem(new DisguisePropBox(), 12);
+        super.addLoadoutRelics(r1);
         r1.addItem(new QuadraticGlobe(), 12);
-        r1.addItem(new HeartShapedBox(), 15);
+        r1.addItem(new DisguisePropBox(), 12);
     }
 }

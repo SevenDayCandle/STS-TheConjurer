@@ -8,7 +8,6 @@ import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
-import pinacolada.skills.skills.base.moves.PMove_GainGold;
 
 @VisibleCard
 public class TreasureChest extends PCLCard {
@@ -25,7 +24,7 @@ public class TreasureChest extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(new PMove_GainGold(330).setUpgrade(120));
+        addUseMove(PMove.gainGold(330).setUpgrade(120));
         addUseMove(PCond.onDraw(), PMove.createDiscardPile(1, TreasureChest_TreasureKey.DATA.ID));
     }
 }

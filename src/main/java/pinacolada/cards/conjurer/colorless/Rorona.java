@@ -4,7 +4,6 @@ package pinacolada.cards.conjurer.colorless;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PotionHelper;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
-import com.megacrit.cardcrawl.potions.PotionSlot;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
@@ -47,7 +46,7 @@ public class Rorona extends PCLCard {
         }
 
         public boolean checkCondition(PCLUseInfo info, boolean isUsing, PSkill<?> triggerSource) {
-            return AbstractDungeon.player != null && !(AbstractDungeon.player.potions.get(0) instanceof PotionSlot);
+            return AbstractDungeon.player != null;
         }
 
         public void useOutsideOfBattle() {

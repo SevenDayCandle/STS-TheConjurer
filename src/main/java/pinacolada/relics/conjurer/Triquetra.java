@@ -2,11 +2,11 @@ package pinacolada.relics.conjurer;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleRelic;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.dungeon.CombatManager;
 import pinacolada.interfaces.subscribers.OnTryApplyPowerSubscriber;
 import pinacolada.powers.PCLPowerHelper;
@@ -52,7 +52,7 @@ public class Triquetra extends PCLRelic implements OnTryApplyPowerSubscriber {
     @Override
     public boolean tryApplyPower(AbstractPower abstractPower, AbstractCreature abstractCreature, AbstractCreature abstractCreature1, AbstractGameAction abstractGameAction) {
         if (abstractPower instanceof PetraPower) {
-            PCLActions.bottom.applyPower(PCLCardTarget.None, PCLPowerHelper.NextTurnBlock, abstractPower.amount);
+            PCLActions.bottom.applyPower(AbstractDungeon.player, PCLPowerHelper.NextTurnBlock, abstractPower.amount);
             return false;
         }
         return true;

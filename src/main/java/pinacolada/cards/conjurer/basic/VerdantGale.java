@@ -10,7 +10,6 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.VFX;
 import pinacolada.interfaces.subscribers.OnSpecificPowerActivatedSubscriber;
 import pinacolada.powers.PCLPowerHelper;
@@ -53,7 +52,7 @@ public class VerdantGale extends PCLCard {
         public boolean onPowerActivated(AbstractPower power, AbstractCreature source, boolean originalValue) {
             if (power instanceof FlowPower) {
                 for (AbstractMonster enemy : GameUtilities.getEnemies(true)) {
-                    PCLActions.bottom.applyPower(enemy, PCLCardTarget.Single, PCLPowerHelper.Poison, move.amount).addCallback((po) -> {
+                    PCLActions.bottom.applyPower(enemy, PCLPowerHelper.Poison, move.amount).addCallback((po) -> {
                         PCLActions.bottom.loseHP(owner, enemy, GameUtilities.getPowerAmount(enemy, PoisonPower.POWER_ID), AbstractGameAction.AttackEffect.POISON);
                     });
                 }

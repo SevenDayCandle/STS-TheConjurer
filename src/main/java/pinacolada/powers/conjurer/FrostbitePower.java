@@ -2,18 +2,20 @@ package pinacolada.powers.conjurer;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.effects.PCLSFX;
 import pinacolada.powers.PCLPower;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.utilities.GameUtilities;
 import pinacolada.utilities.PCLRenderHelpers;
 
 public class FrostbitePower extends PCLPower {
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, FrostbitePower.class);
     public static final float POTENCY = 10;
     public static final Color healthBarColor = Color.SKY.cpy();
-    public float decay = 0.75f;
     public boolean expanded;
 
     public FrostbitePower(AbstractCreature owner, int amount) {
@@ -23,7 +25,7 @@ public class FrostbitePower extends PCLPower {
     }
 
     public int getDecrease() {
-        return MathUtils.ceil(amount * decay);
+        return MathUtils.ceil(amount * 0.75f);
     }
 
     public float getPotency() {
@@ -51,8 +53,13 @@ public class FrostbitePower extends PCLPower {
     }
 
     @Override
-    public float atDamageReceive(float damage, DamageInfo.DamageType type) {
-        return super.atDamageReceive((expanded || type == DamageInfo.DamageType.NORMAL) ? damage + getPotency() : damage, type);
+    public float atDamageReceive(float damage, DamageInfo.DamageType type, AbstractCard card) {
+        if (expanded) {
+            int red = GameUtilities.getPCLCardAffinityLevel(card, PCLAffinity.Red, true);
+            damage += damage * red * AbstractPCLElementalPower.getAmplifyMultiplier(PCLAffinity.Red);
+            return super.atDamageReceive((!GameUtilities.isPlayer(owner) || type == DamageInfo.DamageType.NORMAL) ? damage + getPotency() : damage, type, card);
+        }
+        return super.atDamageReceive(type == DamageInfo.DamageType.NORMAL ? damage + getPotency() : damage, type, card);
     }
 
     @Override

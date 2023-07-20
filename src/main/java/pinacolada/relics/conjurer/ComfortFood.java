@@ -11,14 +11,14 @@ import pinacolada.skills.skills.special.primary.PRoot;
 @VisibleRelic
 public class ComfortFood extends PCLPointerRelic {
     public static final PCLRelicData DATA = register(ComfortFood.class, ConjurerResources.conjurer)
-            .setProps(RelicTier.SHOP, LandingSound.FLAT);
+            .setProps(RelicTier.SHOP, LandingSound.CLINK);
 
     public ComfortFood() {
         super(DATA);
     }
 
     public void setup() {
-        addUseMove(PShift.obtain(), PMove.heal(10));
-        addUseMove(new PRoot(), PMove.gainTempHP(2));
+        addUseMove(PShift.obtain(), PMove.heal(12));
+        addUseMove(new PRoot(), PMove.gainTempHP(3));
     }
 }

@@ -55,7 +55,6 @@ public class SheerCold extends PCLCard {
                 for (AbstractPower po : GameUtilities.getPowers(FrostbitePower.POWER_ID)) {
                     if (po instanceof FrostbitePower) {
                         ((FrostbitePower) po).expanded = true;
-                        ((FrostbitePower) po).decay -= amount / 100f;
                     }
                 }
             });

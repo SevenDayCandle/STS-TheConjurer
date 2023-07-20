@@ -30,6 +30,6 @@ public class KushalaDaora extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.WIND);
-        addGainPower(PTrigger.when(PCond.onAllyTrigger(), PMove.gainPlayer(2, PCLElementHelper.Flow)));
+        addGainPower(PTrigger.when(PCond.onWithdraw(), PMove.gainPlayer(4, PCLElementHelper.Flow)));
     }
 }

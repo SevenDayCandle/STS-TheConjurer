@@ -17,7 +17,7 @@ import pinacolada.skills.PTrait;
 @VisibleCard
 public class CannonOfHaima extends PCLCard {
     public static final PCLCardData DATA = register(CannonOfHaima.class, ConjurerResources.conjurer)
-            .setAttack(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
+            .setAttack(2, CardRarity.UNCOMMON, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy)
             .setDamage(6, 0)
             .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.eldenRing);

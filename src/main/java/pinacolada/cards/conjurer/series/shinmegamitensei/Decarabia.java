@@ -13,14 +13,15 @@ import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
+import pinacolada.skills.delay.DelayTiming;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
 public class Decarabia extends PCLCard {
     public static final PCLCardData DATA = register(Decarabia.class, ConjurerResources.conjurer)
-            .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Immaterial, PCLCardTarget.AllEnemy)
-            .setDamage(3, 0)
-            .setHp(5, 1)
+            .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Immaterial, PCLCardTarget.AllEnemy, DelayTiming.EndOfTurnFirst)
+            .setDamage(3, array(1, 0))
+            .setHp(5, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
@@ -31,8 +32,8 @@ public class Decarabia extends PCLCard {
     public void setup(Object input) {
         addDamageMove(AbstractGameAction.AttackEffect.FIRE);
         addGainPower(PTrigger.interactable(
-                CCond.payMatter(9),
-                PMove.applyToEnemies(3, PCLElementHelper.Ignis, PCLElementHelper.Aqua).setUpgrade(1)
+                CCond.payMatter(9).setUpgrade(0, -2),
+                PMove.applyToEnemies(3, PCLElementHelper.Ignis, PCLElementHelper.Aqua)
         ));
     }
 }

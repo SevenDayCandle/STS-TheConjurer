@@ -1,9 +1,12 @@
 package pinacolada.skills.conjurer.modifiers;
 
+import extendedui.EUIRM;
 import extendedui.EUIUtils;
+import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.misc.ConjurerUseInfo;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.PSkill;
 import pinacolada.skills.PSkillData;
 import pinacolada.skills.PSkillSaveData;
 import pinacolada.skills.fields.PField_Affinity;
@@ -27,8 +30,18 @@ public class PMod_BonusOnReact extends PMod_BonusOn<PField_Affinity> {
     }
 
     @Override
-    public String getSubText() {
-        return ConjurerResources.conjurer.tooltips.reaction.title;
+    public String getConditionText(PCLCardTarget perpsective) {
+        return EUIRM.strings.generic2(getAmountRawString(), TEXT.cond_ifTargetHas(TEXT.subjects_this, PCLCardTarget.Single.ordinal(), fields.not ? TEXT.cond_not(getSubText(perpsective)) : getSubText(perpsective)));
+    }
+
+    @Override
+    public String getSampleText(PSkill<?> callingSkill, PSkill<?> parentSkill) {
+        return TEXT.cond_bonusIf(TEXT.subjects_x, ConjurerResources.conjurer.tooltips.reaction.title);
+    }
+
+    @Override
+    public String getSubText(PCLCardTarget perpsective) {
+        return fields.affinities.isEmpty() ? ConjurerResources.conjurer.tooltips.reaction.past() : TEXT.subjects_withX(ConjurerResources.conjurer.tooltips.reaction.past(), fields.getAffinityOrString());
     }
 
     @Override
