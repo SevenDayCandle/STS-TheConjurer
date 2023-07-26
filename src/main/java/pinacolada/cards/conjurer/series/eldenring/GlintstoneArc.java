@@ -26,7 +26,7 @@ public class GlintstoneArc extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(ConjurerEFK.SWORD04);
+        addDamageMove(ConjurerEFK.SWORD01);
         addUseMove(CMod.bonusOnReact(1), PMove.applyToSingle(1, PCLPowerHelper.Weak).setUpgrade(1));
     }
 }

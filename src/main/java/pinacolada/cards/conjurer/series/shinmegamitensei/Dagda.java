@@ -8,7 +8,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
@@ -20,7 +20,7 @@ import pinacolada.skills.skills.PTrigger;
 public class Dagda extends PCLCard {
     public static final PCLCardData DATA = register(Dagda.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.AllEnemy, DelayTiming.EndOfTurnFirst)
-            .setDamage(2, 1)
+            .setDamage(3, 1)
             .setHp(11, 2)
             .setAffinities(2, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
@@ -32,8 +32,8 @@ public class Dagda extends PCLCard {
     public void setup(Object input) {
         addDamageMove(AbstractGameAction.AttackEffect.BLUNT_HEAVY);
         addGainPower(PTrigger.interactable(
-                CCond.payMatter(20),
-                PMove.stabilize(PCLCardTarget.AllEnemy, PCLElementHelper.Petra))
+                CCond.payMatter(15),
+                PMove.gainTemporaryPlayer(1, PCLPowerHelper.Artifact))
         );
     }
 }

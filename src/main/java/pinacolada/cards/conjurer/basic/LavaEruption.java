@@ -28,7 +28,7 @@ public class LavaEruption extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(ConjurerEFK.FIRE13).setChain(new LavaEruptionMod(DATA, 1), PTrait.damage(2).setUpgrade(1));
+        addDamageMove(ConjurerEFK.SPEAR03).setChain(new LavaEruptionMod(DATA, 1), PTrait.damage(2).setUpgrade(1));
     }
 
     protected static class LavaEruptionMod extends PCustomMod {

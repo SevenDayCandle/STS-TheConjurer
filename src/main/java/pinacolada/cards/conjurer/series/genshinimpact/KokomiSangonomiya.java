@@ -31,7 +31,7 @@ public class KokomiSangonomiya extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.WATER).setBonus(PMod.perCreatureHP(PCLCardTarget.Self, 7), 1);
+        addDamageMove(PCLAttackVFX.WATER).setBonus(PMod.perCreatureHP(PCLCardTarget.Self, 6), 1);
         addSpecialPower(0, (s, i) -> new KokomiSangonomiyaPower(i.source, s), 3, 1);
     }
 

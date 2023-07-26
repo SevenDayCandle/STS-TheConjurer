@@ -28,6 +28,7 @@ public class CovalentBond extends PCLCard {
 
     public void action(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
         order.selectFromPile(getName(), move.amount, player.hand)
+                .setFilter(c -> c.type == CardType.ATTACK || c.type == CardType.SKILL)
                 .addCallback((cards) -> {
                     if (cards.size() > 0) {
                         Polymerization result = new Polymerization();

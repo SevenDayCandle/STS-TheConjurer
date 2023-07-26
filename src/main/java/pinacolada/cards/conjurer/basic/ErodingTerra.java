@@ -30,7 +30,7 @@ public class ErodingTerra extends PCLCard {
     }
 
     public void setup(Object input) {
-        addSpecialPower(0, (s, i) -> new ErodingTerraPower(i.source, s), 50);
+        addSpecialPower(0, (s, i) -> new ErodingTerraPower(i.source, s), 25);
     }
 
     public static class ErodingTerraPower extends PSpecialCardPower {
@@ -42,14 +42,19 @@ public class ErodingTerra extends PCLCard {
         public void atEndOfRound() {
             super.atEndOfRound();
             ArrayList<PetraPower> powers = GameUtilities.getPowers(PetraPower.POWER_ID);
+            int stacks = 0;
             for (PetraPower po : powers) {
-                int stacks = MathUtils.ceil(po.amount * amount / 100f);
                 if (po.stabilizeTurns > 0) {
-                    PCLActions.bottom.gainBlock(stacks);
+                    stacks += po.amount;
                 }
                 else {
-                    PCLActions.last.applyPower(po.owner, PCLElementHelper.Petra, stacks);
+                    int apply = MathUtils.ceil(po.amount * amount / 100f);
+                    PCLActions.last.applyPower(po.owner, PCLElementHelper.Petra, apply);
+                    stacks += apply;
                 }
+            }
+            if (stacks > 0) {
+                PCLActions.bottom.gainBlock(stacks);
                 flash();
             }
         }

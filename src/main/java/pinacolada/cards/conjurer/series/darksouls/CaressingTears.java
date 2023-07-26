@@ -7,6 +7,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
+import pinacolada.effects.ConjurerEFK;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -26,6 +27,6 @@ public class CaressingTears extends PCLCard {
 
     public void setup(Object input) {
         addUseMove(PMove.gainTempHP(PCLCardTarget.Team, 6).setUpgrade(2));
-        addUseMove(PMove.remove(PCLCardTarget.Team, PCLPowerHelper.Frail, PCLPowerHelper.Vulnerable, PCLPowerHelper.Weak));
+        addUseMove(PMove.remove(PCLCardTarget.Team, PCLPowerHelper.Frail, PCLPowerHelper.Vulnerable, PCLPowerHelper.Weak).setVFX(ConjurerEFK.MGC_HealingSpell_LV2));
     }
 }

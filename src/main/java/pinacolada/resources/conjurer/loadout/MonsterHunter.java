@@ -6,6 +6,6 @@ public class MonsterHunter extends ConjurerLoadout {
     public static final String ID = createID(MonsterHunter.class);
 
     public MonsterHunter() {
-        super(ID, 6);
+        super(ID, 5);
     }
 }

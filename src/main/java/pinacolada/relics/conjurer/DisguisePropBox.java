@@ -55,7 +55,7 @@ public class DisguisePropBox extends PCLRelic {
     }
 
     public String getDescriptionImpl() {
-        String desc = super.getUpdatedDescription();
+        String desc = super.getDescriptionImpl();
         return monsterSkill != null ? EUIUtils.joinStrings(EUIUtils.SPLIT_LINE, desc, formatDescription(1, monsterSkill.getPowerText())) : desc;
     }
 

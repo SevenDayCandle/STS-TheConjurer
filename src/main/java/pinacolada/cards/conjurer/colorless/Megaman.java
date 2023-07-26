@@ -61,7 +61,7 @@ public class Megaman extends PCLCard {
                     limit.setChild(costSkill);
                     costSkill = limit;
                 }
-                triggerCondition = new PCLClickableUse(this, costSkill, amount <= 0 ? -1 : amount, !metaScaling, true);
+                triggerCondition = new PCLClickableUse(this, costSkill, 1, !metaScaling, true);
             }
         }
 

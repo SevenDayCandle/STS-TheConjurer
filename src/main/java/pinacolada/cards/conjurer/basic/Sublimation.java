@@ -21,6 +21,6 @@ public class Sublimation extends PCLCard {
     }
 
     public void setup(Object input) {
-        addGainPower(PTrigger.when(CCond.react(), PMove.dealDamageToRandom(4).setUpgrade(2)));
+        addGainPower(PTrigger.when(CCond.react(), PMove.dealDamageToRandom(3).setUpgrade(1)));
     }
 }

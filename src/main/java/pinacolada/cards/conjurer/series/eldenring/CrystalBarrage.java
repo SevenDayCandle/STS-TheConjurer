@@ -25,6 +25,6 @@ public class CrystalBarrage extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(ConjurerEFK.EVFXForge01_10_FrostforgeSlash).setBonus(PMod.perPowerSingle(1, PCLElementHelper.Blasted), 1, 1);
+        addDamageMove(ConjurerEFK.EVFXForge01_12_FrostforgeShoot).setBonus(PMod.perPowerSingle(1, PCLElementHelper.Blasted), 1, 1);
     }
 }

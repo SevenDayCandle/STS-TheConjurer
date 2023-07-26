@@ -6,6 +6,7 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.dungeon.CombatManager;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -17,8 +18,7 @@ import pinacolada.utilities.GameUtilities;
 @VisibleCard
 public class Ecosystem extends PCLCard {
     public static final PCLCardData DATA = register(Ecosystem.class, ConjurerResources.conjurer)
-            .setPower(3, CardRarity.RARE)
-            .setCostUpgrades(-1)
+            .setPower(1, CardRarity.RARE)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Green, PCLAffinity.Orange)
             .setMaxCopies(2)
             .setCore();
@@ -29,8 +29,8 @@ public class Ecosystem extends PCLCard {
 
     public void setup(Object input) {
         addGainPower(PTrigger.when(1, PCond.checkLevel(1),
-                getSpecialMove(0, this::specialMove, 1)
-        ));
+                getSpecialMove(0, this::specialMove, 3)
+        ).setUpgrade(1));
     }
 
     public void specialMove(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
@@ -39,7 +39,7 @@ public class Ecosystem extends PCLCard {
             PCLElementHelper debuff = PCLElementHelper.get(aff);
             if (debuff != null) {
                 for (AbstractCreature target : GameUtilities.getAllCharacters(true)) {
-                    PCLActions.delayed.stabilizePower(info.source, target, debuff, move.amount);
+                    order.applyPower(info.source, target, debuff, move.amount + CombatManager.playerSystem.getLevel(aff));
                 }
             }
         }

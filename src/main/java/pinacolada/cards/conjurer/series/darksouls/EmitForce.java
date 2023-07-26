@@ -25,6 +25,6 @@ public class EmitForce extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(EffekseerEFK.GUN01).setBonus(PCond.pileHas(5, PCLCardGroupHelper.Hand), 6, 2);
+        addDamageMove(EffekseerEFK.SWORD09).setBonus(PCond.pileHas(5, PCLCardGroupHelper.Hand), 6, 2);
     }
 }

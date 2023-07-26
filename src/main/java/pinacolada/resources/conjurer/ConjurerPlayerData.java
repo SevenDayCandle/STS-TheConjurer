@@ -37,17 +37,17 @@ public class ConjurerPlayerData extends AbstractPlayerData<ConjurerResources, Co
     public static ConjurerLoadout shinMegamiTensei = PCLLoadout.register(new ShinMegamiTensei());
     public static ConjurerLoadout touhouProject = PCLLoadout.register(new TouhouProject());
 
-    public static ConjurerLoadout atelier = ConjurerLoadout.generate("Atelier", 6);
+    public static ConjurerLoadout atelier = ConjurerLoadout.generate("Atelier", 5);
     public static ConjurerLoadout baldursGate = ConjurerLoadout.generate("BaldursGate", 6);
-    public static ConjurerLoadout finalFantasy = ConjurerLoadout.generate("FinalFantasy", 5);
+    public static ConjurerLoadout finalFantasy = ConjurerLoadout.generate("FinalFantasy", 4);
     public static ConjurerLoadout honkai = ConjurerLoadout.generate("Honkai", 5);
     public static ConjurerLoadout megaman = ConjurerLoadout.generate("MegaMan", 6);
-    public static ConjurerLoadout phoenixWright = ConjurerLoadout.generate("PhoenixWright", 4);
+    public static ConjurerLoadout phoenixWright = ConjurerLoadout.generate("PhoenixWright", 3);
     public static ConjurerLoadout ragnarok = ConjurerLoadout.generate("RagnarokOnline", 6);
-    public static ConjurerLoadout slayTheSpire = ConjurerLoadout.generate("SlayTheSpire", 2);
+    public static ConjurerLoadout slayTheSpire = ConjurerLoadout.generate("SlayTheSpire", 1);
     public static ConjurerLoadout tales = ConjurerLoadout.generate("Tales", 3);
     public static ConjurerLoadout theWitcher = ConjurerLoadout.generate("TheWitcher", 5);
-    public static ConjurerLoadout yuGiOh = ConjurerLoadout.generate("YuGiOh", 3);
+    public static ConjurerLoadout yuGiOh = ConjurerLoadout.generate("YuGiOh", 2);
 
     public ConjurerPlayerData(ConjurerResources resources) {
         super(resources);

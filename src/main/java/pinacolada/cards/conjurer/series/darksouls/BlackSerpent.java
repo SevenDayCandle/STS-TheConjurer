@@ -27,7 +27,7 @@ public class BlackSerpent extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(EffekseerEFK.FIRE14).setBonus(PMod.perCreature(PCLCardTarget.AllAlly, 1), 7, 1);
+        addDamageMove(EffekseerEFK.SWORD25).setBonus(PMod.perCreature(PCLCardTarget.AllAlly, 1), 7, 1);
         addUseMove(PMove.applyToEveryone(2, PCLPowerHelper.Weak));
     }
 }

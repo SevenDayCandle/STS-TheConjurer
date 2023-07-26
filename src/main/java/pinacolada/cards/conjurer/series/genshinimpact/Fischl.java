@@ -19,7 +19,7 @@ public class Fischl extends PCLCard {
             .setSummon(0, CardRarity.UNCOMMON, PCLAttackType.Immaterial, PCLCardTarget.RandomEnemy)
             .setDamage(2, 1, 2)
             .setHp(3, 2)
-            .setAffinities(PCLAffinity.Blue, PCLAffinity.Purple)
+            .setAffinities(PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.genshinImpact, true);
 
     public Fischl() {

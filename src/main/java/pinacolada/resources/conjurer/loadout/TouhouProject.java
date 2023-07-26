@@ -10,7 +10,7 @@ public class TouhouProject extends ConjurerLoadout {
     public static final String ID = createID(TouhouProject.class);
 
     public TouhouProject() {
-        super(ID, 5);
+        super(ID, 4);
     }
 
     protected void setDefaultCardsForData(PCLLoadoutData data) {

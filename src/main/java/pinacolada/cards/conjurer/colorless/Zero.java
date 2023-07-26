@@ -17,7 +17,7 @@ import pinacolada.skills.PMod;
 public class Zero extends PCLCard {
     public static final PCLCardData DATA = register(Zero.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Piercing, PCLCardTarget.Single)
-            .setDamage(3, array(2, 0))
+            .setDamage(4, array(2, 0))
             .setHp(5, 1)
             .setAffinities(1, PCLAffinity.Red, PCLAffinity.Green, PCLAffinity.Silver)
             .setLoadout(ConjurerPlayerData.megaman, true);

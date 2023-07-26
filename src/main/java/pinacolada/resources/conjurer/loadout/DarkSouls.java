@@ -10,7 +10,7 @@ public class DarkSouls extends ConjurerLoadout {
     public static final String ID = createID(DarkSouls.class);
 
     public DarkSouls() {
-        super(ID, 4);
+        super(ID, 3);
     }
 
     protected void setDefaultCardsForData(PCLLoadoutData data) {

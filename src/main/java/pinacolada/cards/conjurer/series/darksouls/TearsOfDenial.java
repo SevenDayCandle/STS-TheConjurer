@@ -13,6 +13,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.dungeon.CombatManager;
+import pinacolada.effects.ConjurerEFK;
 import pinacolada.patches.power.FrailPowerPatches;
 import pinacolada.patches.power.VulnerablePowerPatches;
 import pinacolada.patches.power.WeakPowerPatches;
@@ -39,7 +40,7 @@ public class TearsOfDenial extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.gain(3, PCLPowerHelper.Frail, PCLPowerHelper.Vulnerable, PCLPowerHelper.Weak));
+        addUseMove(PMove.gain(3, PCLPowerHelper.Frail, PCLPowerHelper.Vulnerable, PCLPowerHelper.Weak).setVFX(ConjurerEFK.MGC_HealingSpell_LV2));
         addSpecialPower(0, (s, i) -> new TearsOfDenialPower(i.source, s), 2, 1);
     }
 

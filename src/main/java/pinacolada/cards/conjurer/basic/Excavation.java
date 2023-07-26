@@ -24,6 +24,6 @@ public class Excavation extends PCLCard {
 
     public void setup(Object input) {
         addBlockMove();
-        addUseMove(PMove.fetch(2, PCLCardGroupHelper.DiscardPile), PMove.retain(2).edit(f -> f.setForced(true)).useParent(true));
+        addUseMove(PMove.fetch(2, PCLCardGroupHelper.DiscardPile), PMove.retain(2).useParentForce());
     }
 }

@@ -7,7 +7,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.tags.PCLCardTag;
-import pinacolada.effects.EffekseerEFK;
+import pinacolada.effects.ConjurerEFK;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -27,7 +27,7 @@ public class CometAzur extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(EffekseerEFK.BLOW05);
+        addDamageMove(ConjurerEFK.MGC_W2_SuperSphereAttackImpact);
         addUseMove(PMove.gain(2, PCLPowerHelper.Energized, PCLPowerHelper.DrawMinus));
     }
 }

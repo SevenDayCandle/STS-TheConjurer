@@ -1,7 +1,6 @@
 package pinacolada.relics.conjurer;
 
 import pinacolada.annotations.VisibleRelic;
-import pinacolada.cards.base.PCLCardGroupHelper;
 import pinacolada.relics.PCLPointerRelic;
 import pinacolada.relics.PCLRelicData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -19,6 +18,6 @@ public class ViridescentArrowFeather extends PCLPointerRelic {
     }
 
     public void setup() {
-        addUseMove(PTrigger.when(1, PCond.onWithdraw(), PMove.fetchRandom(1, PCLCardGroupHelper.DrawPile)));
+        addUseMove(PTrigger.when(1, PCond.onWithdraw(), PMove.draw(1)));
     }
 }

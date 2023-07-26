@@ -21,7 +21,7 @@ public class PukeiPukei extends PCLCard {
     public static final PCLCardData DATA = register(PukeiPukei.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy, DelayTiming.EndOfTurnFirst)
             .setDamage(3, 1, 0)
-            .setHp(7, 0)
+            .setHp(6, 2)
             .setAffinities(PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 
@@ -31,6 +31,6 @@ public class PukeiPukei extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.POISON);
-        addGainPower(PTrigger.when(PCond.haveTakenDamage(), PMove.applyToEnemies(4, PCLPowerHelper.Poison)));
+        addGainPower(PTrigger.when(PCond.haveTakenDamage(), PMove.applyToEnemies(3, PCLPowerHelper.Poison)));
     }
 }

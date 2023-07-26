@@ -24,7 +24,7 @@ public class Ignite extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(EffekseerEFK.FIRE01);
+        addDamageMove(EffekseerEFK.FIRE04);
         addUseMove(PMove.applyToSingle(4, PCLElementHelper.Ignis).setUpgrade(1));
     }
 }

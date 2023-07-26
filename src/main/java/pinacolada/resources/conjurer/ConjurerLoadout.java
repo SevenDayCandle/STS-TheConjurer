@@ -34,7 +34,7 @@ public class ConjurerLoadout extends PCLLoadout {
 
     public void addLoadoutRelics(LoadoutRelicSlot r1) {
         super.addLoadoutRelics(r1);
-        r1.addItem(new QuadraticGlobe(), 12);
         r1.addItem(new DisguisePropBox(), 12);
+        r1.addItem(new QuadraticGlobe(), 16);
     }
 }

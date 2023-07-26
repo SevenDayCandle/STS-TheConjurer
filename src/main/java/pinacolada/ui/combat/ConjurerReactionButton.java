@@ -18,7 +18,7 @@ import pinacolada.resources.pcl.PCLCoreImages;
 import pinacolada.utilities.PCLRenderHelpers;
 
 public class ConjurerReactionButton extends EUIImage {
-    public static final float ICON_SIZE = scale(24);
+    public static final float ICON_SIZE = scale(32);
     public static final Color HIGHLIGHT_AMPLIFY_COLOR = new Color(0.4f, 0.7f, 1f, 1f);
     public static float PROGRESS_PERCENT = 0.65f;
     public static float ROTATION_PERCENT = 0.03406598f;

@@ -24,6 +24,6 @@ public class OceanSubmersion extends PCLCard {
 
     public void setup(Object input) {
         addUseMove(PMove.applyToEveryone(5, PCLElementHelper.Aqua).setUpgrade(1));
-        addUseMove(PMod.bonusPerLevel(2, PCLAffinity.Blue), PMove.gainBlock(PCLCardTarget.Team, 3).setUpgrade(1));
+        addUseMove(PMod.bonusPerLevel(2, PCLAffinity.Blue), PMove.gainBlock(PCLCardTarget.Team, 4).setUpgrade(2));
     }
 }

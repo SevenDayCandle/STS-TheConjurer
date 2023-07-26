@@ -23,7 +23,7 @@ public class FlameFan extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.applyToSingle(1, PCLElementHelper.Ignis, PCLElementHelper.Ventus).setUpgrade(1));
+        addUseMove(PMove.applyToSingle(2, PCLElementHelper.Ignis, PCLElementHelper.Ventus).setUpgrade(1));
         addUseMove(PMove.spreadPower(PCLCardTarget.Single, PCLElementHelper.Ignis));
     }
 }

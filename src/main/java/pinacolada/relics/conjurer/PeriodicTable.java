@@ -50,8 +50,8 @@ public class PeriodicTable extends PCLRelic {
     public String getDescriptionImpl() {
         if (EUIGameUtils.inBattle()) {
             PCLElementHelper element = PCLElementHelper.get(PCLAffinity.basic()[current]);
-            return super.getUpdatedDescription() + EUIUtils.DOUBLE_SPLIT_LINE + formatDescription(1, element.getTooltip().getTitleOrIcon());
+            return super.getDescriptionImpl() + EUIUtils.DOUBLE_SPLIT_LINE + formatDescription(1, element.getTooltip().getTitleOrIcon());
         }
-        return super.getUpdatedDescription();
+        return super.getDescriptionImpl();
     }
 }

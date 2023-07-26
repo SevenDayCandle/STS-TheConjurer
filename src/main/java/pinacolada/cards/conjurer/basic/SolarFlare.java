@@ -24,7 +24,7 @@ public class SolarFlare extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(EffekseerEFK.FIRE08);
+        addDamageMove(EffekseerEFK.SWORD24);
         addUseMove(CMod.perMatter(4).setUpgrade(-1), PMove.modifyDamage(1));
     }
 }

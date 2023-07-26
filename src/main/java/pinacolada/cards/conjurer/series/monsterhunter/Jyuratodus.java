@@ -31,6 +31,6 @@ public class Jyuratodus extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BITE);
-        addUseMove(PMultiCond.or(PCond.onWithdraw(), PCond.onDeath()), PMove.stabilize(PCLCardTarget.AllEnemy, PCLElementHelper.Aqua, PCLElementHelper.Petra));
+        addUseMove(PMultiCond.or(PCond.onWithdraw(), PCond.onDeath()), PMove.stabilize(PCLCardTarget.Single, PCLElementHelper.Petra));
     }
 }

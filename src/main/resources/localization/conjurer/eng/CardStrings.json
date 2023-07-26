@@ -20,10 +20,10 @@
 		"conjurer:DeltaStream": {"NAME": "Delta Stream"},
 		"conjurer:Desiccation": {"NAME": "Desiccation"},
 		"conjurer:DustTornado": {"NAME": "Dust Tornado"},
-		"conjurer:Ecosystem": {"EXTENDED_DESCRIPTION": ["Stabilize its Elemental Debuff on all characters"], "NAME": "Ecosystem"},
+		"conjurer:Ecosystem": {"EXTENDED_DESCRIPTION": ["apply {0} + its Level of its Elemental Debuff to all characters"], "NAME": "Ecosystem"},
 		"conjurer:Entropy": {"EXTENDED_DESCRIPTION": ["Apply {0} of the corresponding Elemental Debuffs of each discarded card"], "NAME": "Entropy"},
 		"conjurer:ErodingTerra": {
-			"EXTENDED_DESCRIPTION": ["At round end, Stabilize {0}% of everyone's [conjurer:Petra]. If it was already Stabilized, you gain it as [Block]"],
+			"EXTENDED_DESCRIPTION": ["At round end, Stabilize {0}% of everyone's [conjurer:Petra]. Gain [Block] equal to the total Stabilized amount"],
 			"NAME": "Eroding Terra"
 		},
 		"conjurer:Erosion": {"NAME": "Erosion"},
@@ -99,6 +99,7 @@
 			"EXTENDED_DESCRIPTION": ["Redistribute the costs of the cards in hand"],
 			"NAME": "Iridescence"
 		},
+		"conjurer:Kirby": {"EXTENDED_DESCRIPTION": ["When obtained, combine up to {0} Common Summons from your deck into this card"], "NAME": "Kirby"},
 		"conjurer:KomachiOnozuka": {"EXTENDED_DESCRIPTION": ["If this kills a boss or Elite"], "FLAVOR": "Kazu Muchuukai", "NAME": "Komachi Onozuka"},
 		"conjurer:MagicMirror": {"EXTENDED_DESCRIPTION": ["Reflect the next {0} Debuffs received"], "NAME": "Magic Mirror"},
 		"conjurer:Magilou": {"NAME": "Magilou"},
@@ -112,7 +113,7 @@
 		"conjurer:PhoenixWright": {"EXTENDED_DESCRIPTION": ["Effect changes based on the target's intent"], "NAME": "PhoenixWright"},
 		"conjurer:Photogrammetry": {"NAME": "Photogrammetry"},
 		"conjurer:Plagiarism": {"EXTENDED_DESCRIPTION": ["OBtain {0} of {1} cards from other classes. Add a copy to your hand that costs 0 this turn"], "NAME": "Plagiarism"},
-		"conjurer:Polymerization": {"EXTENDED_DESCRIPTION": ["When Obtained, combine up to {0} Attacks or Skills from your deck into this card"], "NAME": "Polymerization"},
+		"conjurer:Polymerization": {"EXTENDED_DESCRIPTION": ["When obtained, combine up to {0} Attacks or Skills from your deck into this card"], "NAME": "Polymerization"},
 		"conjurer:PortableTrashCan": {
 			"NAME": "Portable Trash Can"
 		},
@@ -137,7 +138,8 @@
 		"conjurer:TreasureChest": {"EXTENDED_DESCRIPTION": ["There is a small chance to get a special reward"], "NAME": "Treasure Chest"},
 		"conjurer:TreasureChest_TreasureKey": {"EXTENDED_DESCRIPTION": ["Unlock a Treasure Chest in hand"], "NAME": "Treasure Key"},
 		"conjurer:WeltYang": {"NAME": "Welt Yang"},
-		"conjurer:YaeSakura": {"NAME": "Yae Sakura"}
+		"conjurer:YaeSakura": {"NAME": "Yae Sakura"},
+		"conjurer:Zero": {"NAME": "Zero"}
 	},
 	"CURSE":
 	{
@@ -285,6 +287,7 @@
 		"conjurer:Sucrose": {"NAME": "Sucrose"},
 		"conjurer:Tartaglia": {"NAME": "Tartaglia"},
 		"conjurer:Thoma": {"NAME": "Thoma"},
+		"conjurer:Tighnari": {"NAME": "Tighnari"},
 		"conjurer:Venti": {"NAME": "Venti"},
 		"conjurer:Wanderer": {"EXTENDED_DESCRIPTION": ["Triggers whenever you play a Skill or Curse"], "NAME": "Wanderer"},
 		"conjurer:Xiangling": {"NAME": "Xiangling"},

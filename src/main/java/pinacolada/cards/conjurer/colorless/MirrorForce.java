@@ -30,11 +30,11 @@ public class MirrorForce extends PCLCard {
     }
 
     public void setup(Object input) {
-        addSpecialPower(0, (s, i) -> new MagicMirror.MagicMirrorPower(i.source, s), 2).setUpgrade(1);
+        addSpecialPower(0, (s, i) -> new MirrorForcePower(i.source, s), 2).setUpgrade(1);
     }
 
-    public static class MagicMirrorPower extends PSpecialCardPower {
-        public MagicMirrorPower(AbstractCreature owner, PSkill<?> move) {
+    public static class MirrorForcePower extends PSpecialCardPower {
+        public MirrorForcePower(AbstractCreature owner, PSkill<?> move) {
             super(DATA, owner, move);
             initialize(move.amount);
         }

@@ -102,6 +102,12 @@
 		"FLAVOR": "You just need one galactic currency to bet on your luck and become a trader in the experience of making dreams.",
 		"NAME": "Galactic Big Lotto"
 	},
+	"conjurer:HeavyGem":
+	{
+		"DESCRIPTIONS": [],
+		"FLAVOR": "A warrior can appreciate a heavy weapon.",
+		"NAME": "Heavy Gem"
+	},
 	"conjurer:HellBull":
 	{
 		"DESCRIPTIONS": [],
@@ -170,7 +176,7 @@
 	},
 	"conjurer:QuadraticGlobe":
 	{
-		"DESCRIPTIONS": ["#yReactions are now two-way. Base damage and [Block] bonuses from #yElemental #yDebuffs are reduced by #b{0}%. Prices for #yLevels are increased by #b{1}%."],
+		"DESCRIPTIONS": ["#yReactions are now two-way. Base damage and [Block] bonuses from #yElemental #yDebuffs are reduced by #b{0}%. Matter prices are increased by #b{1}%."],
 		"FLAVOR": "The globe can spin any way you want it to.",
 		"NAME": "Quadratic Globe"
 	},
@@ -179,6 +185,12 @@
 		"DESCRIPTIONS": ["[Poison] is treated as [conjurer:Ventus]. At the end of round, [Poison] triggers an additional time and is cut in half."],
 		"FLAVOR": "Pass the power.",
 		"NAME": "Scorpion Stinger"
+	},
+	"conjurer:ShrivingStone":
+	{
+		"DESCRIPTIONS": [],
+		"FLAVOR": "[A-B] now #yReacts with [A-O].",
+		"NAME": "Shriving Stone"
 	},
 	"conjurer:Snowflake":
 	{
@@ -239,6 +251,12 @@
 		"DESCRIPTIONS": ["Disables [A-O]. [A-R] now #yReacts with [A-G]. If you would apply [conjurer:Petra], gain it as [Next Turn Block] instead."],
 		"FLAVOR": "Divide by three and you get...",
 		"NAME": "Triquetra"
+	},
+	"conjurer:UpliftingAromatic":
+	{
+		"DESCRIPTIONS": ["#yMist cards become more potent. | Upon pickup, obtain a random #yMist card."],
+		"FLAVOR": "Inside the amber, a small, long-extinct insect remains frozen in time.",
+		"NAME": "Uplifting Aromatic"
 	},
 	"conjurer:ViridescentArrowFeather":
 	{

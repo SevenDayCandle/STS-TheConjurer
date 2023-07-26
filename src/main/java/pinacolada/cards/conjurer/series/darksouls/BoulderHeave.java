@@ -26,6 +26,6 @@ public class BoulderHeave extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(ConjurerEFK.MGC_EarthSpell_LV2).setBonus(PMod.perCard(PCLCardGroupHelper.Hand).edit(f -> f.setAffinity(PCLAffinity.Orange)), 4);
+        addDamageMove(ConjurerEFK.MGC_EarthSpell_LV1_Impact).setBonus(PMod.perCard(PCLCardGroupHelper.Hand).edit(f -> f.setAffinity(PCLAffinity.Orange)), 4);
     }
 }

@@ -7,7 +7,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.PCLCardGroupHelper;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
-import pinacolada.effects.EffekseerEFK;
+import pinacolada.effects.ConjurerEFK;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -27,7 +27,7 @@ public class SoulStream extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(EffekseerEFK.LIGHT02).setBonus(PMod.perCard(1, PCLCardGroupHelper.ExhaustPile).edit(f -> f.setAffinity(PCLAffinity.Blue)), 2);
+        addDamageMove(ConjurerEFK.MGC_W2_ManaFire).setBonus(PMod.perCard(1, PCLCardGroupHelper.ExhaustPile).edit(f -> f.setAffinity(PCLAffinity.Blue)), 2);
         addUseMove(PCond.exhaust(1), PMove.gainBlock(5));
     }
 }
