@@ -15,8 +15,7 @@ import pinacolada.skills.skills.special.moves.PMove_RestoreCardHP;
 @VisibleCard
 public class Homeward extends PCLCard {
     public static final PCLCardData DATA = register(Homeward.class, ConjurerResources.conjurer)
-            .setSkill(1, CardRarity.COMMON, PCLCardTarget.SingleAlly)
-            .setCostUpgrades(-1)
+            .setSkill(0, CardRarity.COMMON, PCLCardTarget.SingleAlly)
             .setAffinities(PCLAffinity.Green, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.darkSouls);
 
@@ -25,6 +24,6 @@ public class Homeward extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.withdrawAlly(2), PMultiSkill.join(new PMove_RestoreCardHP(7).useParentForce(), PMove.modifyCostExact(0).useParentForce().edit(f -> f.setOr(true))));
+        addUseMove(PMove.withdrawAlly(), PMultiSkill.join(new PMove_RestoreCardHP(4).useParentForce().setUpgrade(6), PMove.modifyCostExact(0).useParentForce().edit(f -> f.setOr(true))));
     }
 }

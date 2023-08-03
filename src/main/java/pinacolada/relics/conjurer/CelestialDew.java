@@ -10,15 +10,15 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleRelic
-public class BeastEye extends PCLPointerRelic {
-    public static final PCLRelicData DATA = register(BeastEye.class, ConjurerResources.conjurer)
+public class CelestialDew extends PCLPointerRelic {
+    public static final PCLRelicData DATA = register(CelestialDew.class, ConjurerResources.conjurer)
             .setProps(RelicTier.RARE, LandingSound.SOLID);
 
-    public BeastEye() {
+    public CelestialDew() {
         super(DATA);
     }
 
     public void setup() {
-        addUseMove(PTrigger.when(1, PCond.fatal(), PMove.gain(2, PCLPowerHelper.Strength)));
+        addUseMove(PTrigger.when(PCond.checkPowerSelf(1).edit(f -> f.setDebuff(true)), PMove.gain(1, PCLPowerHelper.Warding)));
     }
 }

@@ -18,7 +18,7 @@ import pinacolada.skills.PMove;
 public class GreatCombustion extends PCLCard {
     public static final PCLCardData DATA = register(GreatCombustion.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.UNCOMMON, PCLAttackType.Piercing)
-            .setDamage(4, 3)
+            .setDamage(8, 3)
             .setAffinities(PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.darkSouls);
 

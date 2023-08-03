@@ -20,7 +20,7 @@ import pinacolada.skills.skills.PMultiSkill;
 public class CrystalSoulSpear extends PCLCard {
     public static final PCLCardData DATA = register(CrystalSoulSpear.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.UNCOMMON, PCLAttackType.Piercing)
-            .setDamage(16, 3)
+            .setDamage(18, 3)
             .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.darkSouls);
 

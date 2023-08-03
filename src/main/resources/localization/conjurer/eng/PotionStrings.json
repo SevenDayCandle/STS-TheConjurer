@@ -1,5 +1,12 @@
 
 {
+	"conjurer:ArborealPotion":
+	{
+		"NAME": "Arboreal Potion",
+		"DESCRIPTIONS":
+		[
+		]
+	},
 	"conjurer:BurningPotion":
 	{
 		"NAME": "Burning Potion",
@@ -13,13 +20,6 @@
 		"DESCRIPTIONS":
 		[
 		]
-	},
-	"conjurer:LeafPotion":
-	{
-	  "NAME": "Leaf Potion",
-	  "DESCRIPTIONS":
-	  [
-	  ]
 	},
 	"conjurer:FlowingPotion":
 	{

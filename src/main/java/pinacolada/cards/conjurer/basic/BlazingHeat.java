@@ -36,6 +36,14 @@ public class BlazingHeat extends PCLCard {
             super(BlazingHeat.DATA, owner, move);
         }
 
+        @Override
+        public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
+            super.onApplyPower(power, target, source);
+            if (power instanceof BlastedPower) {
+                ((BlastedPower) power).expanded = true;
+            }
+        }
+
         public void onInitialApplication() {
             super.onInitialApplication();
             PCLActions.bottom.playVFX(new ScreenOnFireEffect3());

@@ -23,6 +23,6 @@ public class Lucidity extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMod.bonusPerLevel(5, PCLAffinity.Blue).setUpgrade(1), CMove.gainMatter(14).setUpgrade(3));
+        addUseMove(PMod.increaseOnUse(5).setUpgrade(1), CMove.gainMatter(14).setUpgrade(3));
     }
 }

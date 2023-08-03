@@ -26,6 +26,7 @@ import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.characters.ConjurerCharacter;
 import pinacolada.dungeon.CombatManager;
 import pinacolada.dungeon.PCLUseInfo;
+import pinacolada.interfaces.providers.ClickableProvider;
 import pinacolada.misc.AffinityReactions;
 import pinacolada.misc.ConjurerUseInfo;
 import pinacolada.orbs.PCLOrb;
@@ -44,7 +45,7 @@ import java.util.*;
 
 import static extendedui.EUIUtils.array;
 
-public class ConjurerReactionMeter extends PCLPlayerMeter {
+public class ConjurerReactionMeter extends PCLPlayerMeter implements ClickableProvider {
     private static final HashMap<String, Set<PCLAffinity>> CARD_AFFINITIES = new HashMap<>();
     public static final String ID = createFullID(ConjurerResources.conjurer, PCLEmptyMeter.class);
     public static final Color ACTIVE_COLOR = new Color(0.5f, 1f, 0.5f, 1f);
@@ -185,8 +186,18 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
         return lastUpgrade;
     }
 
+    @Override
+    public String getID() {
+        return ID;
+    }
+
     public EUITooltip getTooltip() {
         return chargeTooltip;
+    }
+
+    @Override
+    public PCLClickableUse getClickable() {
+        return skips;
     }
 
     @Override
@@ -400,7 +411,6 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
         return ConjurerCharacter.NAMES[0];
     }
 
-    // TODO check for custom card attributes
     public void applyAffinities(AbstractCard card) {
 
         Set<PCLAffinity> affinities = CARD_AFFINITIES.get(card.cardID);
@@ -444,6 +454,8 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
             if (idHas(card, "Rainbow")) {
                 affinities.add(PCLAffinity.Star);
             }
+
+            CARD_AFFINITIES.put(card.cardID, affinities);
         }
 
         for (PCLAffinity af : affinities) {

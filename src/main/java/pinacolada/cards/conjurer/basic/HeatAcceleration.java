@@ -21,7 +21,7 @@ public class HeatAcceleration extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.draw(2).setUpgrade(1));
+        addUseMove(PMove.draw(3));
         addUseMove(PCond.exhaust(1), PMove.triggerAlly(PCLCardTarget.RandomAlly, 1).setUpgrade(1));
     }
 }

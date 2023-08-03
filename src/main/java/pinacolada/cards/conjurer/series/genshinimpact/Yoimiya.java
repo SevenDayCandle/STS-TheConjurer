@@ -30,7 +30,7 @@ public class Yoimiya extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
+        addDamageMove(PCLAttackVFX.DAGGER);
         addUseMove(PCond.cooldown(2).setUpgrade(0, -1), PMove.play(1, PCLCardTarget.RandomEnemy, PCLCardGroupHelper.DrawPile)
                 .edit(f -> f.setType(CardType.ATTACK).setCost(CostFilter.Cost0, CostFilter.Cost1).setOrigin(PCLCardSelection.Random)));
     }

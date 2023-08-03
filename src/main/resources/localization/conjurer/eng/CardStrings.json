@@ -147,7 +147,7 @@
 		"conjurer:Curse_Depression": {"NAME": "Depression"},
 		"conjurer:Curse_Despair": {"NAME": "Despair"},
 		"conjurer:Curse_Devastation": {"NAME": "Devastation"},
-		"conjurer:Curse_Normality": {
+		"conjurer:Curse_Normality2": {
 			"EXTENDED_DESCRIPTION": ["While in hand, negate the {Buffs} and {Debuffs} of all characters (excluding those specific to cards or encounters)"],
 			"NAME": "Normality"
 		},
@@ -179,7 +179,7 @@
 		"conjurer:PestilentMist": {"NAME": "Pestilent Mist"},
 		"conjurer:PowerWithin": {"NAME": "Power Within"},
 		"conjurer:ProfuseSweat": {"NAME": "Profuse Sweat"},
-		"conjurer:Rapport": {"NAME": "Rapport"},
+		"conjurer:Rapport": {"EXTENDED_DESCRIPTION": ["For {0} turns, Summons deal +{1}% damage"], "NAME": "Rapport"},
 		"conjurer:SeethingChaos": {"NAME": "Seething Chaos"},
 		"conjurer:SnapFreeze": {"NAME": "Snap Freeze"},
 		"conjurer:SoulStream": {"NAME": "Soul Stream"},

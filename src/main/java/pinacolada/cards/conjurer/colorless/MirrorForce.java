@@ -30,7 +30,7 @@ public class MirrorForce extends PCLCard {
     }
 
     public void setup(Object input) {
-        addSpecialPower(0, (s, i) -> new MirrorForcePower(i.source, s), 2).setUpgrade(1);
+        addSpecialPower(0, (s, i) -> new MirrorForcePower(i.source, s), 3).setUpgrade(1);
     }
 
     public static class MirrorForcePower extends PSpecialCardPower {
@@ -49,7 +49,7 @@ public class MirrorForce extends PCLCard {
             if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != this.owner && amount > 0) {
                 this.flash();
                 reducePower(1);
-                PCLActions.bottom.dealDamage(move.getSourceCreature(), info.owner, damageAmount, DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.NONE)
+                PCLActions.top.dealDamage(move.getSourceCreature(), info.owner, damageAmount, DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.NONE)
                         .setDamageEffect(ConjurerEFK.MGC_W2_Shield_OnHit);
                 return 0;
             }

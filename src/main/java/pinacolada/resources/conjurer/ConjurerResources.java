@@ -7,7 +7,6 @@ import com.megacrit.cardcrawl.cards.colorless.Apparition;
 import com.megacrit.cardcrawl.cards.colorless.Bite;
 import com.megacrit.cardcrawl.cards.colorless.JAX;
 import com.megacrit.cardcrawl.cards.colorless.RitualDagger;
-import com.megacrit.cardcrawl.cards.curses.Normality;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import extendedui.EUIUtils;
 import pinacolada.cards.base.PCLCard;
@@ -15,7 +14,6 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.TemplateCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardAffinity;
-import pinacolada.cards.conjurer.curse.Curse_Normality;
 import pinacolada.cards.pcl.curse.Curse_AscendersBane;
 import pinacolada.characters.ConjurerCharacter;
 import pinacolada.dungeon.CombatManager;
@@ -66,8 +64,6 @@ public class ConjurerResources extends PCLResources<ConjurerPlayerData, Conjurer
                 return pinacolada.cards.conjurer.special.Bite.DATA.ID;
             case JAX.ID:
                 return pinacolada.cards.conjurer.special.JAX.DATA.ID;
-            case Normality.ID:
-                return Curse_Normality.DATA.ID;
             case RitualDagger.ID:
                 return pinacolada.cards.conjurer.special.RitualDagger.DATA.ID;
             default:

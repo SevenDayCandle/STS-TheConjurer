@@ -1,9 +1,11 @@
 package pinacolada.relics.conjurer;
 
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.MalleablePower;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleRelic;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.powers.PCLPowerHelper;
 import pinacolada.relics.PCLRelic;
 import pinacolada.relics.PCLRelicData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -23,10 +25,11 @@ public class Everamber extends PCLRelic {
         PCLActions.bottom.callback(() -> {
             ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Green).addAdditionalPower(MalleablePower.POWER_ID);
             ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Green).addReaction(ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Red));
+            PCLActions.bottom.applyPower(AbstractDungeon.player, PCLPowerHelper.Malleable, getValue());
         });
     }
 
     public int getValue() {
-        return 2;
+        return 1;
     }
 }

@@ -17,7 +17,7 @@ import pinacolada.skills.PMove;
 public class KukiShinobu extends PCLCard {
     public static final PCLCardData DATA = register(KukiShinobu.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Ranged)
-            .setDamage(2, 1, 2)
+            .setDamage(1, 1, 2)
             .setHp(5, 0)
             .setAffinities(PCLAffinity.Green, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.genshinImpact);

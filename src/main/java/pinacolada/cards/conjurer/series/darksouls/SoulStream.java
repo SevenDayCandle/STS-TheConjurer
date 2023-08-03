@@ -18,7 +18,7 @@ import pinacolada.skills.PMove;
 public class SoulStream extends PCLCard {
     public static final PCLCardData DATA = register(SoulStream.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.RARE, PCLAttackType.Immaterial)
-            .setDamage(9, 3)
+            .setDamage(7, 3)
             .setAffinities(PCLAffinity.Blue.make(2), PCLAffinity.Yellow.make())
             .setLoadout(ConjurerPlayerData.darkSouls);
 

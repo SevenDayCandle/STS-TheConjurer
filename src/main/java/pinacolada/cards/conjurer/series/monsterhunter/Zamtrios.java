@@ -18,7 +18,7 @@ import pinacolada.skills.delay.DelayTiming;
 public class Zamtrios extends PCLCard {
     public static final PCLCardData DATA = register(Zamtrios.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.Single, DelayTiming.EndOfTurnFirst)
-            .setDamage(2, 1, 2)
+            .setDamage(4, 2)
             .setHp(5, 0)
             .setAffinities(2, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.monsterHunter);
@@ -28,6 +28,6 @@ public class Zamtrios extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.BITE).setBonus(PCond.checkPower(PCLCardTarget.Single, 2, PCLElementHelper.Blasted), 2, 1);
+        addDamageMove(PCLAttackVFX.BITE).setBonus(PCond.checkPower(PCLCardTarget.Single, 1, PCLElementHelper.Blasted), 3, 1);
     }
 }

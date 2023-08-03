@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.red.Strike_Red;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
@@ -49,7 +50,7 @@ public class ConjurerCharacter extends PCLCharacter {
 
     @Override
     public AbstractCard getStartCardForEvent() {
-        return new pinacolada.cards.conjurer.basic.Strike();
+        return new Strike_Red();
     }
 
     @Override

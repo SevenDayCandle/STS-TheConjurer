@@ -21,6 +21,6 @@ public class FlowingPotion extends PCLPotion {
     }
 
     public void setup() {
-        addUseMove(PMultiSkill.join(PMove.applyToEnemies(6, PCLElementHelper.Ventus), PMove.stabilize(PCLCardTarget.AllEnemy, PCLElementHelper.Ventus)));
+        addUseMove(PMultiSkill.join(PMove.applyToEnemies(6, PCLElementHelper.Ventus), PMove.stabilize(PCLCardTarget.All, PCLElementHelper.Ventus)));
     }
 }

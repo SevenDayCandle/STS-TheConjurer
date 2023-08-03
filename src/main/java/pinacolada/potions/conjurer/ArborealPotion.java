@@ -10,16 +10,16 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 
 @VisiblePotion
-public class LeafPotion extends PCLPotion {
-    public static final PCLPotionData DATA = register(LeafPotion.class, ConjurerResources.conjurer)
+public class ArborealPotion extends PCLPotion {
+    public static final PCLPotionData DATA = register(ArborealPotion.class, ConjurerResources.conjurer)
             .setProps(PotionRarity.UNCOMMON, PotionSize.H)
             .setBottleColor(Color.FOREST, Color.LIME, Color.GREEN);
 
-    public LeafPotion() {
+    public ArborealPotion() {
         super(DATA);
     }
 
     public void setup() {
-        addUseMove(PMove.applyToSingle(4, PCLElementHelper.Ventus, PCLPowerHelper.Poison));
+        addUseMove(PMove.applyToSingle(2, PCLElementHelper.Ventus, PCLElementHelper.Petra, PCLPowerHelper.Poison));
     }
 }

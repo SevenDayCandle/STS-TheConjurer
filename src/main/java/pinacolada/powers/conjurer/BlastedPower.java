@@ -32,11 +32,11 @@ public class BlastedPower extends PCLPower implements HealthBarRenderPower {
         if (expanded) {
             for (AbstractCreature enemy : GameUtilities.getEnemies(true)) {
                 DamageInfo info = getExpandedDamageInfo();
-                PCLActions.bottom.dealDamage(owner, info, PCLAttackVFX.BURN).setPiercing(true, true);
+                PCLActions.bottom.dealDamage(owner, info, PCLAttackVFX.BURN).setPiercing(true, false);
             }
         }
         else {
-            PCLActions.bottom.loseHP(source, owner, amount, PCLAttackVFX.BURN)
+            PCLActions.bottom.dealDamage(source, owner, amount, DamageInfo.DamageType.THORNS, PCLAttackVFX.BURN)
                     .canKill(owner == null || !owner.isPlayer);
         }
 
@@ -62,9 +62,9 @@ public class BlastedPower extends PCLPower implements HealthBarRenderPower {
     public int getHealthBarAmount() {
         if (expanded) {
             DamageInfo info = getExpandedDamageInfo();
-            return GameUtilities.getHealthBarAmount(owner, info.output, false, true);
+            return GameUtilities.getHealthBarAmount(owner, info.output, true, true);
         }
-        return GameUtilities.getHealthBarAmount(owner, amount, false, true);
+        return GameUtilities.getHealthBarAmount(owner, amount, true, true);
     }
 
     @Override

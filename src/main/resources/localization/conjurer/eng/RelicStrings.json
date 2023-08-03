@@ -86,7 +86,7 @@
 	},
 	"conjurer:Everamber":
 	{
-		"DESCRIPTIONS": ["[Malleable] is treated as [conjurer:Ventus]. [A-R] now #yReacts with [A-G]."],
+		"DESCRIPTIONS": ["[A-R] now #yReacts with [A-G]. [Malleable] is treated as [conjurer:Ventus]. Start each battle with {0} [Malleable]."],
 		"FLAVOR": "Inside the amber, a small, long-extinct insect remains frozen in time.",
 		"NAME": "Everamber"
 	},
@@ -188,7 +188,7 @@
 	},
 	"conjurer:ShrivingStone":
 	{
-		"DESCRIPTIONS": [],
+		"DESCRIPTIONS": ["[A-B] now #yReacts with [A-O]."],
 		"FLAVOR": "[A-B] now #yReacts with [A-O].",
 		"NAME": "Shriving Stone"
 	},
@@ -245,6 +245,12 @@
 	  "DESCRIPTIONS": ["At the start of battle, #ySummon #b1 of #b{0} special #ySummons. There is a small chance for the chosen #ySummon to appear in that room's card rewards."],
 	  "FLAVOR": "In the reflection of the serene moonlight, the verdant lamp told of the silhouette of the stars and an everlasting melody.",
 	  "NAME": "A Thousand Floating Dreams"
+	},
+	"conjurer:TinyCastle":
+	{
+		"DESCRIPTIONS": ["[A-R] now #yReacts with [A-G]. [Malleable] is treated as [conjurer:Ventus]. Start each battle with {0} [Malleable]."],
+		"FLAVOR": "Inside the amber, a small, long-extinct insect remains frozen in time.",
+		"NAME": "Tiny Castle"
 	},
 	"conjurer:Triquetra":
 	{

@@ -20,7 +20,7 @@ public class RykardsRancor extends PCLCard {
     public static final PCLCardData DATA = register(RykardsRancor.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.RARE, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
             .setRTags(PCLCardTag.Ethereal)
-            .setDamage(24, 2)
+            .setDamage(23, 0)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.eldenRing);
 

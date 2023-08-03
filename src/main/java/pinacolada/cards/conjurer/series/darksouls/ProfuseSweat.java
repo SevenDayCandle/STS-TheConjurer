@@ -16,7 +16,7 @@ import pinacolada.skills.PMod;
 public class ProfuseSweat extends PCLCard {
     public static final PCLCardData DATA = register(ProfuseSweat.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.Self)
-            .setBlock(1, 0, 4, 1)
+            .setBlock(2, 0, 3, 1)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.darkSouls);
 

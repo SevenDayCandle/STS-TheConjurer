@@ -21,6 +21,6 @@ public class StoningPotion extends PCLPotion {
     }
 
     public void setup() {
-        addUseMove(PMultiSkill.join(PMove.applyToEnemies(6, PCLElementHelper.Petra), PMove.stabilize(PCLCardTarget.AllEnemy, PCLElementHelper.Petra)));
+        addUseMove(PMultiSkill.join(PMove.applyToEnemies(6, PCLElementHelper.Petra), PMove.stabilize(PCLCardTarget.All, PCLElementHelper.Petra)));
     }
 }

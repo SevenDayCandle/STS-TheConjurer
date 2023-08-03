@@ -63,7 +63,7 @@ public class ConjurerElementButton extends EUIButton {
         this.meter = meter;
         this.affinity = affinity;
         reactionStrings = PGR.getPowerStrings(elementID());
-        elementImage = new EUIImage(texture, hb).setColor(Color.GRAY).setScale(0.5f, 0.5f);
+        elementImage = new EUIImage(texture, hb).setColor(Color.GRAY).setScale(0.625f, 0.625f);
         keyword = new EUIKeywordTooltip(reactionStrings.NAME);
 
         setOnClick(this::manualAddLevel);

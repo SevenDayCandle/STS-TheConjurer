@@ -25,12 +25,12 @@ import java.util.HashMap;
 import java.util.UUID;
 
 @VisibleCard
-public class Curse_Normality extends PCLCard {
-    public static final PCLCardData DATA = register(Curse_Normality.class, ConjurerResources.conjurer)
+public class Curse_Normality2 extends PCLCard {
+    public static final PCLCardData DATA = register(Curse_Normality2.class, ConjurerResources.conjurer)
             .setCurse(-2, PCLCardTarget.None, true)
             .setTags(PCLCardTag.Unplayable);
 
-    public Curse_Normality() {
+    public Curse_Normality2() {
         super(DATA);
     }
 
