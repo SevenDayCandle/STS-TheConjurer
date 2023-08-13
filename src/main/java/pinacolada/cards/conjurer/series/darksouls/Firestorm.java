@@ -29,6 +29,6 @@ public class Firestorm extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(EffekseerEFK.SWORD04);
-        addUseMove(PCond.checkLevel(3, PCLAffinity.Red), PMultiSkill.join(PMove.selfExhaust(), PMove.applyToEnemies(11, PCLElementHelper.Ignis)));
+        addUseMove(PCond.checkLevel(3, PCLAffinity.Red), PMultiSkill.join(PMove.selfExhaust(), PMove.applyToEnemies(12, PCLElementHelper.Ignis)));
     }
 }

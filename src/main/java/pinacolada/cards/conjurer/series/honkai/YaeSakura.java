@@ -1,4 +1,4 @@
-package pinacolada.cards.conjurer.colorless;
+package pinacolada.cards.conjurer.series.honkai;
 
 
 import pinacolada.annotations.VisibleCard;

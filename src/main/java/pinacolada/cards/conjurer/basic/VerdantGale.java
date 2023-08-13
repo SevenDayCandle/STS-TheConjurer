@@ -1,5 +1,6 @@
 package pinacolada.cards.conjurer.basic;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -10,7 +11,7 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.effects.VFX;
+import pinacolada.effects.vfx.RazorWindEffect;
 import pinacolada.interfaces.subscribers.OnSpecificPowerActivatedSubscriber;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.powers.PSpecialCardPower;
@@ -45,7 +46,7 @@ public class VerdantGale extends PCLCard {
         public void onInitialApplication() {
             super.onInitialApplication();
 
-            PCLActions.bottom.playVFX(VFX.razorWind(owner.hb));
+            PCLActions.bottom.playVFX(new RazorWindEffect(owner.hb_x, owner.hb_y, owner.hb_y, MathUtils.random(1000.0F, 1200.0F), MathUtils.random(-20.0F, 20.0F)));
         }
 
         @Override

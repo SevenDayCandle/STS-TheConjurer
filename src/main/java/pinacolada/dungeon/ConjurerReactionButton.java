@@ -1,4 +1,4 @@
-package pinacolada.ui.combat;
+package pinacolada.dungeon;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;

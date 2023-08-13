@@ -31,6 +31,6 @@ public class Ranni extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.ICE);
-        addGainPower(PTrigger.when(PCond.checkPower(PCLCardTarget.Any, 1, PCLPowerHelper.Weak, PCLPowerHelper.Vulnerable), PMove.applyToRandom(5, PCLElementHelper.Frostbite).setUpgrade(2)));
+        addGainPower(PTrigger.when(PCond.checkPower(PCLCardTarget.Any, 1, PCLPowerHelper.Weak, PCLPowerHelper.Vulnerable), PMove.applyToRandom(5, PCLElementHelper.Cooled).setUpgrade(2)));
     }
 }

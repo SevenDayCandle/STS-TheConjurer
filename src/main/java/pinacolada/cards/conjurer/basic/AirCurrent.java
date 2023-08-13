@@ -15,7 +15,7 @@ import pinacolada.skills.PMove;
 public class AirCurrent extends PCLCard {
     public static final PCLCardData DATA = register(AirCurrent.class, ConjurerResources.conjurer)
             .setAttack(0, CardRarity.COMMON, PCLAttackType.Ranged)
-            .setDamage(2, 2)
+            .setDamage(3, 2)
             .setAffinities(PCLAffinity.Green)
             .setCore();
 
@@ -25,6 +25,6 @@ public class AirCurrent extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.WIND);
-        addUseMove(PMove.applyToSingle(3, PCLElementHelper.Ventus).setUpgrade(1));
+        addUseMove(PMove.applyToSingle(2, PCLElementHelper.Ventus).setUpgrade(1));
     }
 }

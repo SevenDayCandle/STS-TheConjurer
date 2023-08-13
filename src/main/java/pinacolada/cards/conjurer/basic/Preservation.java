@@ -13,6 +13,7 @@ import pinacolada.skills.PMove;
 public class Preservation extends PCLCard {
     public static final PCLCardData DATA = register(Preservation.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.COMMON, PCLCardTarget.Team)
+            .setBlock(5, 0)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Orange)
             .setCore();
 
@@ -21,7 +22,7 @@ public class Preservation extends PCLCard {
     }
 
     public void setup(Object input) {
+        addBlockMove(PCLCardTarget.Team);
         addUseMove(PMove.retain(2).setUpgrade(1));
-        addUseMove(PMove.gainBlock(PCLCardTarget.Team, 5));
     }
 }

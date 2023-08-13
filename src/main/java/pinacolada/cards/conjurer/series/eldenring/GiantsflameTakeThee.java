@@ -28,7 +28,7 @@ public class GiantsflameTakeThee extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.SMALL_EXPLOSION).setChain(PCond.checkPower(PCLCardTarget.Single, 1, PCLElementHelper.Frostbite), PTrait.damage(6).setUpgrade(3));
+        addDamageMove(PCLAttackVFX.SMALL_EXPLOSION).setChain(PCond.checkPower(PCLCardTarget.Single, 1, PCLElementHelper.Cooled), PTrait.damage(6).setUpgrade(3));
         addUseMove(PMove.applyToSingle(4, PCLElementHelper.Ignis));
     }
 }

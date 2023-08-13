@@ -7,11 +7,11 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import extendedui.utilities.ColoredString;
 import pinacolada.actions.PCLActions;
 import pinacolada.dungeon.CombatManager;
+import pinacolada.dungeon.DrawPileCardPreview;
 import pinacolada.effects.PCLSFX;
 import pinacolada.interfaces.providers.DrawPileCardPreviewProvider;
 import pinacolada.powers.PCLPower;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.ui.combat.DrawPileCardPreview;
 import pinacolada.utilities.PCLRenderHelpers;
 
 public class FlowPower extends PCLPower implements DrawPileCardPreviewProvider {

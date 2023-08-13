@@ -1,6 +1,8 @@
 package pinacolada.skills.conjurer.modifiers;
 
+import pinacolada.annotations.VisibleSkill;
 import pinacolada.cards.base.fields.PCLCardTarget;
+import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.resources.conjurer.ConjurerEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -8,8 +10,8 @@ import pinacolada.skills.PSkillData;
 import pinacolada.skills.PSkillSaveData;
 import pinacolada.skills.fields.PField_Not;
 import pinacolada.skills.skills.base.modifiers.PMod_Per;
-import pinacolada.ui.combat.ConjurerReactionMeter;
 
+@VisibleSkill
 public class PMod_PerMatter extends PMod_Per<PField_Not> {
 
     public static final PSkillData<PField_Not> DATA = register(PMod_PerMatter.class, PField_Not.class, ConjurerEnum.Cards.THE_CONJURER).selfTarget();

@@ -5,14 +5,15 @@ import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleRelic;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.dungeon.CombatManager;
+import pinacolada.dungeon.ConjurerElementButton;
+import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.interfaces.providers.PointerProvider;
 import pinacolada.interfaces.subscribers.OnCardCreatedSubscriber;
+import pinacolada.powers.conjurer.AbstractPCLElementalPower;
 import pinacolada.relics.PCLRelic;
 import pinacolada.relics.PCLRelicData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.conjurer.conditions.PCond_PayMatter;
-import pinacolada.ui.combat.ConjurerElementButton;
-import pinacolada.ui.combat.ConjurerReactionMeter;
 import pinacolada.utilities.GameUtilities;
 
 @VisibleRelic
@@ -32,8 +33,9 @@ public class QuadraticGlobe extends PCLRelic implements OnCardCreatedSubscriber 
             ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Orange).addReaction(PCLAffinity.Green);
             ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Green).addReaction(PCLAffinity.Blue);
             for (ConjurerElementButton element : ConjurerReactionMeter.meter.getElementButtons()) {
-                element.currentAmplifyOffset = getValue();
+                element.currentAmplifyOffset = AbstractPCLElementalPower.BASE_DAMAGE_MULTIPLIER * -getValue() / 100;
                 element.setCurrentCostMultiplier(getMultiplier());
+                CombatManager.addEffectBonus(element.elementID(), -getValue());
             }
 
             for (AbstractCard c : GameUtilities.getCardsInAnyPile()) {
@@ -44,19 +46,11 @@ public class QuadraticGlobe extends PCLRelic implements OnCardCreatedSubscriber 
     }
 
     public int getValue() {
-        return -10;
-    }
-
-    public String getDescriptionImpl() {
-        return this.formatDescription(0, this.getValue(), this.getPricePercent());
+        return 50;
     }
 
     public float getMultiplier() {
-        return (100 + getPricePercent()) / 100f;
-    }
-
-    public int getPricePercent() {
-        return 75;
+        return (100 + getValue()) / 100f;
     }
 
     @Override

@@ -7,12 +7,12 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.effects.vfx.ScreenFreezingEffect;
 import pinacolada.powers.PSpecialCardPower;
-import pinacolada.powers.conjurer.FrostbitePower;
+import pinacolada.powers.conjurer.CooledPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;
-import pinacolada.ui.combat.ConjurerReactionMeter;
 import pinacolada.utilities.GameUtilities;
 
 @VisibleCard
@@ -40,8 +40,8 @@ public class SheerCold extends PCLCard {
         @Override
         public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
             super.onApplyPower(power, target, source);
-            if (power instanceof FrostbitePower) {
-                ((FrostbitePower) power).expanded = true;
+            if (power instanceof CooledPower) {
+                ((CooledPower) power).expanded = true;
             }
         }
 
@@ -51,10 +51,10 @@ public class SheerCold extends PCLCard {
 
             PCLActions.bottom.playVFX(new ScreenFreezingEffect());
             PCLActions.bottom.callback(() -> {
-                ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Blue).addAdditionalPower(FrostbitePower.POWER_ID);
-                for (AbstractPower po : GameUtilities.getPowers(FrostbitePower.POWER_ID)) {
-                    if (po instanceof FrostbitePower) {
-                        ((FrostbitePower) po).expanded = true;
+                ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Blue).addAdditionalPower(CooledPower.POWER_ID);
+                for (AbstractPower po : GameUtilities.getPowers(CooledPower.POWER_ID)) {
+                    if (po instanceof CooledPower) {
+                        ((CooledPower) po).expanded = true;
                     }
                 }
             });

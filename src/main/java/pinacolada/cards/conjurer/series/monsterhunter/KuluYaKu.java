@@ -18,10 +18,9 @@ import pinacolada.skills.PMove;
 @VisibleCard
 public class KuluYaKu extends PCLCard {
     public static final PCLCardData DATA = register(KuluYaKu.class, ConjurerResources.conjurer)
-            .setSummon(1, CardRarity.COMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
-            .setCostUpgrades(0, -1)
-            .setDamage(4, array(2, 0), 1, array(0, 0))
-            .setHp(4, 0)
+            .setSummon(0, CardRarity.COMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
+            .setDamage(3, array(2, 0), 1, array(0, 0))
+            .setHp(3, 0)
             .setAffinities(PCLAffinity.Green, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 

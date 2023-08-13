@@ -8,10 +8,10 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import pinacolada.actions.PCLAction;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.dungeon.CombatManager;
+import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.interfaces.subscribers.OnElementReactSubscriber;
 import pinacolada.misc.AffinityReactions;
 import pinacolada.powers.conjurer.AbstractPCLElementalPower;
-import pinacolada.ui.combat.ConjurerReactionMeter;
 import pinacolada.utilities.GameUtilities;
 
 import java.util.ArrayList;
@@ -38,6 +38,7 @@ public class ElementReaction extends PCLAction<AffinityReactions> {
         }
 
         ConjurerReactionMeter.meter.addCount(reactions.sum(), showEffect);
+        ConjurerReactionMeter.meter.onReaction(reactions);
 
         ArrayList<AbstractCreature> cr = new ArrayList<>();
         if (target != null) {

@@ -8,6 +8,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
+import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
@@ -15,7 +16,6 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
 import pinacolada.skills.skills.PSpecialSkill;
 import pinacolada.skills.skills.PTrigger;
-import pinacolada.ui.combat.ConjurerReactionMeter;
 import pinacolada.utilities.GameUtilities;
 
 @VisibleCard

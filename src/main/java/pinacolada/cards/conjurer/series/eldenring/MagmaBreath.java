@@ -26,7 +26,7 @@ public class MagmaBreath extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(EffekseerEFK.FIRE10);
+        addDamageMove(EffekseerEFK.FIRE02);
         addUseMove(PMod.bonusOnExhausted(4), PMove.applyToSingle(2, PCLElementHelper.Ignis).setUpgrade(1));
     }
 }

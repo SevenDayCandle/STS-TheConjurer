@@ -3,6 +3,7 @@ package pinacolada.characters;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.red.Strike_Red;
@@ -14,9 +15,12 @@ import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
+import extendedui.EUIUtils;
+import extendedui.ui.EUIBase;
 import extendedui.utilities.EUIColors;
 import pinacolada.effects.PCLSFX;
-import pinacolada.effects.vfx.SmokeParticleEffect;
+import pinacolada.effects.vfx.FadingParticleEffect;
+import pinacolada.effects.vfx.SmokeEffect;
 import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.ui.PCLEnergyOrb;
@@ -68,7 +72,12 @@ public class ConjurerCharacter extends PCLCharacter {
         super.playDeathAnimation();
         deathEffects = new ArrayList<>();
         for (int i = 0; i < 25; i++) {
-            deathEffects.add(new SmokeParticleEffect(hb.cX, hb.cY, 0, 2.2F, 180.0F, 0.75F, getCardRenderColor()));
+            float rotation = MathUtils.random(0, 360f);
+            deathEffects.add(FadingParticleEffect.obtain(EUIUtils.random(SmokeEffect.IMAGES).texture(), hb.cX, hb.cY)
+                    .setColor(getCardRenderColor())
+                    .setScaleTarget(0.2f + MathUtils.random(0, 0.1f), 0.75F + MathUtils.random(0, 0.15f), 5f)
+                    .setRotation(rotation, MathUtils.random(-180.0F, 180.0F))
+                    .setTargetPosition(hb.cX + EUIBase.scale(180) * MathUtils.cos(rotation), hb.cY + EUIBase.scale(180) * MathUtils.sin(rotation), MathUtils.random(30f, 80f)));
         }
     }
 

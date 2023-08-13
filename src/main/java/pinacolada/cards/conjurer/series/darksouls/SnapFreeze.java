@@ -23,7 +23,7 @@ public class SnapFreeze extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.applyToSingle(5, PCLElementHelper.Frostbite).setUpgrade(2));
-        addUseMove(PMod.perPowerSingle(PCLElementHelper.Frostbite), PMove.dealDamage(1));
+        addUseMove(PMove.applyToSingle(5, PCLElementHelper.Cooled).setUpgrade(2));
+        addUseMove(PMod.perPowerSingle(PCLElementHelper.Cooled), PMove.dealDamage(1));
     }
 }

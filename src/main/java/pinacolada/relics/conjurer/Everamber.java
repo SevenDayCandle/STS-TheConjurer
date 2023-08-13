@@ -5,11 +5,11 @@ import com.megacrit.cardcrawl.powers.MalleablePower;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleRelic;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.relics.PCLRelic;
 import pinacolada.relics.PCLRelicData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.ui.combat.ConjurerReactionMeter;
 
 @VisibleRelic
 public class Everamber extends PCLRelic {

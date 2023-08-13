@@ -17,7 +17,7 @@ import pinacolada.skills.PTrait;
 public class CrystalHail extends PCLCard {
     public static final PCLCardData DATA = register(CrystalHail.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.COMMON, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
-            .setDamage(3, 1, 3)
+            .setDamage(4, 1, 3)
             .setAffinities(2, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.darkSouls);
 

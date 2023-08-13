@@ -10,6 +10,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
+import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.effects.ConjurerEFK;
 import pinacolada.powers.PCLPowerHelper;
@@ -21,7 +22,6 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PSpecialSkill;
 import pinacolada.skills.skills.PTrigger;
-import pinacolada.ui.combat.ConjurerReactionMeter;
 import pinacolada.utilities.GameUtilities;
 
 @VisibleCard
@@ -37,7 +37,7 @@ public class ScarletAeonia extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.applyToEveryone(7, PCLElementHelper.Ventus).setUpgrade(2));
+        addUseMove(PMove.applyToEveryone(6, PCLElementHelper.Ventus).setUpgrade(2));
         addApplyPower(PCLCardTarget.Single, -1, PTrigger.when(PCond.onTurnEnd(), getSpecialMove(0, this::specialMove, 1, 3))).setVFX(ConjurerEFK.EVFXForge02_08_BloomforgeWard);
     }
 

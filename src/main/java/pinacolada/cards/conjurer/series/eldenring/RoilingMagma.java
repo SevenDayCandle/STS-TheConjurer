@@ -27,7 +27,7 @@ public class RoilingMagma extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(EffekseerEFK.FIRE07);
+        addDamageMove(EffekseerEFK.FIRE10);
         addUseMove(PCond.exhaust(1, PCLCardGroupHelper.DiscardPile), PMove.applyToEnemies(4, PCLElementHelper.Ignis).setUpgrade(1));
     }
 }

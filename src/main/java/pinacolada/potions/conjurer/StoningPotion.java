@@ -7,6 +7,7 @@ import pinacolada.potions.PCLPotion;
 import pinacolada.potions.PCLPotionData;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.CMove;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PMultiSkill;
 
@@ -21,6 +22,6 @@ public class StoningPotion extends PCLPotion {
     }
 
     public void setup() {
-        addUseMove(PMultiSkill.join(PMove.applyToEnemies(6, PCLElementHelper.Petra), PMove.stabilize(PCLCardTarget.All, PCLElementHelper.Petra)));
+        addUseMove(PMultiSkill.join(PMove.applyToEnemies(6, PCLElementHelper.Petra), CMove.stabilize(PCLCardTarget.All, PCLElementHelper.Petra)));
     }
 }

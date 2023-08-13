@@ -19,6 +19,8 @@ import pinacolada.cards.conjurer.series.genshinimpact.Bennett;
 import pinacolada.cards.conjurer.series.genshinimpact.KaeyaAlberich;
 import pinacolada.cards.conjurer.series.shinmegamitensei.JackFrost;
 import pinacolada.cards.conjurer.series.shinmegamitensei.PyroJack;
+import pinacolada.dungeon.ConjurerReactionButton;
+import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.monsters.PCLCardAlly;
 import pinacolada.monsters.PCLCreatureData;
 import pinacolada.monsters.PCLTutorialMonster;
@@ -26,14 +28,12 @@ import pinacolada.powers.conjurer.PetraPower;
 import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.resources.pcl.PCLCoreImages;
-import pinacolada.ui.combat.ConjurerReactionButton;
-import pinacolada.ui.combat.ConjurerReactionMeter;
 import pinacolada.utilities.GameUtilities;
 
 public class ConjurerSummonTutorialMonster extends PCLTutorialMonster {
 
     public static final PCLCreatureData DATA = register(ConjurerSummonTutorialMonster.class, ConjurerResources.conjurer)
-            .setHp(999999)
+            .setHp(999)
             .setHb(0.0F, 0F, 128, 128);
     protected final Color renderColor = Color.SKY.cpy();
 
@@ -80,7 +80,9 @@ public class ConjurerSummonTutorialMonster extends PCLTutorialMonster {
 
         EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(targetHb, PGR.core.tooltips.summon.title, PGR.core.strings.tutorial_summonTutorial3)
                 .setCanDismiss(true));
-        return new EUITourTooltip(SelectCreature.class, PGR.core.tooltips.summon.title, PGR.core.strings.tutorial_summonTutorial4)
+        EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(targetHb, PGR.core.tooltips.summon.title, PGR.core.strings.tutorial_summonTutorial4)
+                .setCanDismiss(true));
+        return new EUITourTooltip(SelectCreature.class, PGR.core.tooltips.summon.title, PGR.core.strings.tutorial_summonTutorial5)
                 .setPosition(targetHb.x, targetHb.y)
                 .setCanDismiss(false);
     }

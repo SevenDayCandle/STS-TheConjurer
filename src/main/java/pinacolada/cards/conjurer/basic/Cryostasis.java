@@ -9,7 +9,7 @@ import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PMove;
+import pinacolada.skills.CMove;
 
 @VisibleCard
 public class Cryostasis extends PCLCard {
@@ -26,6 +26,6 @@ public class Cryostasis extends PCLCard {
 
     public void setup(Object input) {
         addBlockMove();
-        addUseMove(PMove.stabilize(PCLCardTarget.All, PCLElementHelper.Ignis, PCLElementHelper.Aqua));
+        addUseMove(CMove.stabilize(PCLCardTarget.All, PCLElementHelper.Ignis, PCLElementHelper.Aqua));
     }
 }

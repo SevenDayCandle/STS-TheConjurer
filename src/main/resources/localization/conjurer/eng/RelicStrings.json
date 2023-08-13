@@ -170,13 +170,13 @@
 	},
 	"conjurer:PunitiveEnergy":
 	{
-		"DESCRIPTIONS": ["Gain [E] at the start of your turn. You can only #yLevel #b1 #yElemental #yDebuff each turn."],
+		"DESCRIPTIONS": ["Gain [E] at the start of your turn. You can only #yLevel #b1 #yElemental #yDebuff each combat."],
 		"FLAVOR": "You feel a surge of courage just by looking at it.",
 		"NAME": "Punitive Energy"
 	},
 	"conjurer:QuadraticGlobe":
 	{
-		"DESCRIPTIONS": ["#yReactions are now two-way. Base damage and [Block] bonuses from #yElemental #yDebuffs are reduced by #b{0}%. Matter prices are increased by #b{1}%."],
+		"DESCRIPTIONS": ["#yReactions are now two-way. #yElemental #yDebuffs are #b{0}% less effective. Matter prices are increased by #b{0}%."],
 		"FLAVOR": "The globe can spin any way you want it to.",
 		"NAME": "Quadratic Globe"
 	},

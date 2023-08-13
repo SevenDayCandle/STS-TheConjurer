@@ -14,7 +14,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 public class VentusPower extends AbstractPCLElementalPower {
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, VentusPower.class);
     public static final PCLAffinity AFFINITY = setAffinity(POWER_ID, PCLAffinity.Green);
-    public static final int MULTIPLIER = setMultiplier(POWER_ID, 50);
+    public static final int MULTIPLIER = setMultiplier(POWER_ID, 100);
 
     public VentusPower(AbstractCreature owner, AbstractCreature source, int amount) {
         super(owner, source, POWER_ID, amount);

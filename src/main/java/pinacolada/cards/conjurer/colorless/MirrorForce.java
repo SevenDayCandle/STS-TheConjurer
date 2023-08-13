@@ -21,6 +21,7 @@ import pinacolada.skills.PSkill;
 public class MirrorForce extends PCLCard {
     public static final PCLCardData DATA = register(MirrorForce.class, ConjurerResources.conjurer)
             .setSkill(3, CardRarity.RARE, PCLCardTarget.Self)
+            .setBlock(3, 0)
             .setTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.yuGiOh, true);
@@ -30,6 +31,7 @@ public class MirrorForce extends PCLCard {
     }
 
     public void setup(Object input) {
+        addBlockMove();
         addSpecialPower(0, (s, i) -> new MirrorForcePower(i.source, s), 3).setUpgrade(1);
     }
 
@@ -49,7 +51,7 @@ public class MirrorForce extends PCLCard {
             if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != this.owner && amount > 0) {
                 this.flash();
                 reducePower(1);
-                PCLActions.top.dealDamage(move.getSourceCreature(), info.owner, damageAmount, DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.NONE)
+                PCLActions.top.dealDamage(move.getSourceCreature(), info.owner, info.output, DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.NONE)
                         .setDamageEffect(ConjurerEFK.MGC_W2_Shield_OnHit);
                 return 0;
             }

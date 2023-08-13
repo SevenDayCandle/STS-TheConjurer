@@ -15,7 +15,6 @@ public class Permafrost extends PCLCard {
     public static final PCLCardData DATA = register(Permafrost.class, ConjurerResources.conjurer)
             .setPower(1, CardRarity.UNCOMMON)
             .setAffinities(2, PCLAffinity.Blue)
-            .setCostUpgrades(-1)
             .setCore();
 
     public Permafrost() {
@@ -23,6 +22,6 @@ public class Permafrost extends PCLCard {
     }
 
     public void setup(Object input) {
-        addGainPower(PTrigger.when(PCond.onOtherCardPlayed(PCLAffinity.Blue), PMove.applyToRandom(1, PCLElementHelper.Aqua)));
+        addGainPower(PTrigger.when(3, PCond.onOtherCardPlayed(PCLAffinity.Blue), PMove.applyToRandom(1, PCLElementHelper.Aqua)).setUpgrade(2));
     }
 }

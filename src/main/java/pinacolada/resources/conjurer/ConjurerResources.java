@@ -17,6 +17,7 @@ import pinacolada.cards.base.fields.PCLCardAffinity;
 import pinacolada.cards.pcl.curse.Curse_AscendersBane;
 import pinacolada.characters.ConjurerCharacter;
 import pinacolada.dungeon.CombatManager;
+import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.monsters.PCLCardAlly;
 import pinacolada.monsters.PCLTutorialMonster;
 import pinacolada.monsters.animations.PCLAllyAnimation;
@@ -27,7 +28,6 @@ import pinacolada.monsters.tutorials.ConjurerTutorialMonster;
 import pinacolada.resources.PCLEnum;
 import pinacolada.resources.PCLResources;
 import pinacolada.resources.pcl.PCLCoreImages;
-import pinacolada.ui.combat.ConjurerReactionMeter;
 
 import java.util.HashSet;
 
@@ -88,7 +88,7 @@ public class ConjurerResources extends PCLResources<ConjurerPlayerData, Conjurer
         PCLAffinity.registerAffinityBorder(cardColor, PCLCoreImages.Core.borderSpecial2);
         PCLCardAlly.registerAnimation(cardColor, this::getAnimation);
         data.addTutorial(ConjurerTutorialMonster.DATA);
-        PCLTutorialMonster.register(data.config.seenSummonTutorial, ConjurerSummonTutorialMonster.DATA, p -> p.chosenClass == data.resources.playerClass && EUIUtils.any(p.masterDeck.group, card -> card.type == PCLEnum.CardType.SUMMON));
+        PCLTutorialMonster.register(ConjurerSummonTutorialMonster.DATA, data.config.seenSummonTutorial, p -> p.chosenClass == data.resources.playerClass && EUIUtils.any(p.masterDeck.group, card -> card.type == PCLEnum.CardType.SUMMON));
     }
 
     @Override

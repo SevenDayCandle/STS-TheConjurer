@@ -18,6 +18,6 @@ public class Snowflake extends PCLPointerRelic {
     }
 
     public void setup() {
-        addUseMove(new PRoot(), PMove.applyToEnemies(10, PCLElementHelper.Frostbite));
+        addUseMove(new PRoot(), PMove.applyToEnemies(10, PCLElementHelper.Cooled));
     }
 }

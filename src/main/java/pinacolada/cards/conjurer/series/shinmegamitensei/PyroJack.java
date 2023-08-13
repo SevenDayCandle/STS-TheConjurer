@@ -17,7 +17,7 @@ import pinacolada.skills.PMove;
 public class PyroJack extends PCLCard {
     public static final PCLCardData DATA = register(PyroJack.class, ConjurerResources.conjurer)
             .setSummon(0, CardRarity.COMMON, PCLAttackType.Immaterial)
-            .setDamage(1, 1)
+            .setDamage(2, 1)
             .setHp(3, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
@@ -28,6 +28,6 @@ public class PyroJack extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(AbstractGameAction.AttackEffect.FIRE);
-        addUseMove(PCond.cooldown(0), PMove.applyToSingle(2, PCLElementHelper.Ignis));
+        addUseMove(PCond.cooldown(0), PMove.applyToSingle(1, PCLElementHelper.Ignis));
     }
 }

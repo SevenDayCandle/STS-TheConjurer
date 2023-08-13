@@ -20,8 +20,8 @@ import pinacolada.skills.delay.DelayTiming;
 public class Nergigante extends PCLCard {
     public static final PCLCardData DATA = register(Nergigante.class, ConjurerResources.conjurer)
             .setSummon(3, CardRarity.RARE, PCLAttackType.Normal, PCLCardTarget.AllEnemy, DelayTiming.EndOfTurnFirst)
-            .setDamage(10, 1, 0)
-            .setHp(16, 0)
+            .setDamage(10, array(2, 0), 1, array(0, 0))
+            .setHp(18, 0)
             .setAffinities(PCLAffinity.Orange, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 
@@ -31,6 +31,6 @@ public class Nergigante extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.EARTH);
-        addUseMove(PCond.cooldown(1), PMove.dealDamage(3, PCLEnum.AttackEffect.EARTH, PCLCardTarget.AllAlly), PMove.gain(2, PCLPowerHelper.Strength));
+        addUseMove(PCond.cooldown(1), PMove.dealDamage(3, PCLEnum.AttackEffect.EARTH, PCLCardTarget.AllAlly), PMove.gain(3, PCLPowerHelper.Strength).setUpgrade(0, 2));
     }
 }

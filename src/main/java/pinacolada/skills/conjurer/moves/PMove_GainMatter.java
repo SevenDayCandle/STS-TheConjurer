@@ -2,6 +2,7 @@ package pinacolada.skills.conjurer.moves;
 
 import pinacolada.actions.PCLActions;
 import pinacolada.actions.powers.GainReaction;
+import pinacolada.annotations.VisibleSkill;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.resources.conjurer.ConjurerEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -10,6 +11,7 @@ import pinacolada.skills.PSkillSaveData;
 import pinacolada.skills.fields.PField_Empty;
 import pinacolada.skills.skills.base.moves.PMove_Gain;
 
+@VisibleSkill
 public class PMove_GainMatter extends PMove_Gain {
     public static final PSkillData<PField_Empty> DATA = register(PMove_GainMatter.class, PField_Empty.class, ConjurerEnum.Cards.THE_CONJURER);
 

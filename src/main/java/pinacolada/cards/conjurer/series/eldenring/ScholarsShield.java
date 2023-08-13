@@ -26,6 +26,6 @@ public class ScholarsShield extends PCLCard {
 
     public void setup(Object input) {
         addBlockMove();
-        addUseMove(CCond.react(), PMove.gain(3, PCLPowerHelper.Warding).setUpgrade(1));
+        addUseMove(CCond.react(), PMove.gain(5, PCLPowerHelper.Warding).setUpgrade(1));
     }
 }

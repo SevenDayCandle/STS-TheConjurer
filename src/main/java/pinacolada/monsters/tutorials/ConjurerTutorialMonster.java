@@ -13,19 +13,19 @@ import pinacolada.cards.conjurer.basic.Condensation;
 import pinacolada.cards.conjurer.basic.Ignite;
 import pinacolada.cards.conjurer.basic.Lithosphere;
 import pinacolada.cards.conjurer.series.eldenring.Lucidity;
+import pinacolada.dungeon.ConjurerElementButton;
+import pinacolada.dungeon.ConjurerReactionButton;
+import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.monsters.PCLCreatureData;
 import pinacolada.monsters.PCLTutorialMonster;
 import pinacolada.powers.conjurer.PetraPower;
 import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.ui.combat.ConjurerElementButton;
-import pinacolada.ui.combat.ConjurerReactionButton;
-import pinacolada.ui.combat.ConjurerReactionMeter;
 
 public class ConjurerTutorialMonster extends PCLTutorialMonster {
 
     public static final PCLCreatureData DATA = register(ConjurerTutorialMonster.class, ConjurerResources.conjurer)
-            .setHp(999999)
+            .setHp(999)
             .setHb(0.0F, 0F, 128, 128);
     protected final Color renderColor = Color.SALMON.cpy();
 

@@ -1,4 +1,4 @@
-package pinacolada.ui.combat;
+package pinacolada.dungeon;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -18,7 +18,6 @@ import extendedui.utilities.EUIColors;
 import pinacolada.actions.PCLActions;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardAffinity;
-import pinacolada.dungeon.CombatManager;
 import pinacolada.effects.PCLEffects;
 import pinacolada.effects.affinity.GenericFlashEffect;
 import pinacolada.interfaces.subscribers.OnTryElementReactSubscriber;
@@ -26,6 +25,7 @@ import pinacolada.misc.AffinityReactions;
 import pinacolada.powers.conjurer.AbstractPCLElementalPower;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.PGR;
+import pinacolada.resources.conjurer.ConjurerImages;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.resources.pcl.PCLCoreStrings;
 import pinacolada.utilities.GameUtilities;
@@ -39,8 +39,8 @@ import java.util.Set;
 public class ConjurerElementButton extends EUIButton {
     public static final String INCREASE_ID = ConjurerResources.conjurer.createID(ConjurerElementButton.class.getSimpleName());
     public static final Color ACTIVE_COLOR = new Color(0.5f, 1f, 0.5f, 1f);
-    public static final int BASE_COST = 10;
-    public static final int BASE_COST_RATE = 5;
+    public static final int BASE_COST = 20;
+    public static final int BASE_COST_RATE = 10;
     public static final float BASE_AMOUNT_SCALE = 1f;
     protected final HashMap<PCLAffinity, ConjurerReactionButton> reactions = new HashMap<>();
     protected final PowerStrings reactionStrings;
@@ -59,7 +59,7 @@ public class ConjurerElementButton extends EUIButton {
     protected float currentCostMultiplier = 1f;
 
     public ConjurerElementButton(ConjurerReactionMeter meter, PCLAffinity affinity, Texture texture, EUIHitbox hb) {
-        super(ConjurerResources.conjurer.images.core.squareBg.texture(), hb);
+        super(ConjurerImages.Core.squareBg.texture(), hb);
         this.meter = meter;
         this.affinity = affinity;
         reactionStrings = PGR.getPowerStrings(elementID());
@@ -227,7 +227,7 @@ public class ConjurerElementButton extends EUIButton {
     public void tryAddLevel() {
         if (meter.trySpendMatter(currentCost)) {
             addLevel(1);
-            PCLEffects.List.add(new GenericFlashEffect(elementImage.texture, this.hb.x, this.hb.y, true).setScale(Settings.scale * 0.5f));
+            PCLEffects.Queue.add(new GenericFlashEffect(elementImage.texture, this.hb.cX, this.hb.cY, true).setScale(Settings.scale * 0.5f));
             CombatManager.onIncreaseAffinityLevel(affinity);
         }
     }

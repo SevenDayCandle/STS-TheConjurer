@@ -17,7 +17,7 @@ import pinacolada.skills.PMove;
 public class Sucrose extends PCLCard {
     public static final PCLCardData DATA = register(Sucrose.class, ConjurerResources.conjurer)
             .setSummon(0, CardRarity.COMMON, PCLAttackType.Immaterial)
-            .setDamage(1, 1)
+            .setDamage(2, 1)
             .setHp(3, 2)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.genshinImpact);
@@ -28,6 +28,6 @@ public class Sucrose extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.WIND);
-        addUseMove(PCond.cooldown(0), PMove.applyToSingle(2, PCLElementHelper.Ventus));
+        addUseMove(PCond.cooldown(0), PMove.applyToSingle(1, PCLElementHelper.Ventus));
     }
 }

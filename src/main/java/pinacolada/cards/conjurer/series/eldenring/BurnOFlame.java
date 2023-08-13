@@ -6,7 +6,7 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
-import pinacolada.effects.PCLAttackVFX;
+import pinacolada.effects.ConjurerEFK;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -16,7 +16,7 @@ import pinacolada.skills.PMove;
 public class BurnOFlame extends PCLCard {
     public static final PCLCardData DATA = register(BurnOFlame.class, ConjurerResources.conjurer)
             .setAttack(0, CardRarity.COMMON, PCLAttackType.Ranged)
-            .setDamage(2, 3)
+            .setDamage(3, 3)
             .setAffinities(PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
@@ -25,7 +25,7 @@ public class BurnOFlame extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.BURN);
+        addDamageMove(ConjurerEFK.FIRE07);
         addUseMove(PMove.applyToSingle(2, PCLElementHelper.Ignis));
     }
 }

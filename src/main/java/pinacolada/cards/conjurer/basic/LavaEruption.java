@@ -7,13 +7,13 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
+import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.effects.ConjurerEFK;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;
 import pinacolada.skills.PTrait;
 import pinacolada.skills.skills.PCustomMod;
-import pinacolada.ui.combat.ConjurerReactionMeter;
 
 @VisibleCard
 public class LavaEruption extends PCLCard {

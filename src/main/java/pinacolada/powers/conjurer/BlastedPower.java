@@ -8,11 +8,11 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import pinacolada.actions.PCLActions;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.dungeon.ConjurerElementButton;
+import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.PCLPower;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.ui.combat.ConjurerElementButton;
-import pinacolada.ui.combat.ConjurerReactionMeter;
 import pinacolada.utilities.GameUtilities;
 
 public class BlastedPower extends PCLPower implements HealthBarRenderPower {
@@ -32,11 +32,11 @@ public class BlastedPower extends PCLPower implements HealthBarRenderPower {
         if (expanded) {
             for (AbstractCreature enemy : GameUtilities.getEnemies(true)) {
                 DamageInfo info = getExpandedDamageInfo();
-                PCLActions.bottom.dealDamage(owner, info, PCLAttackVFX.BURN).setPiercing(true, false);
+                PCLActions.bottom.dealDamage(owner, info, PCLAttackVFX.FIRE).setPiercing(true, false);
             }
         }
         else {
-            PCLActions.bottom.dealDamage(source, owner, amount, DamageInfo.DamageType.THORNS, PCLAttackVFX.BURN)
+            PCLActions.bottom.dealDamage(source, owner, amount, DamageInfo.DamageType.THORNS, PCLAttackVFX.FIRE)
                     .canKill(owner == null || !owner.isPlayer);
         }
 

@@ -2,6 +2,7 @@ package pinacolada.skills.conjurer.conditions;
 
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import extendedui.EUIUtils;
+import pinacolada.annotations.VisibleSkill;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.dungeon.PCLUseInfo;
@@ -17,6 +18,7 @@ import pinacolada.skills.fields.PField_Affinity;
 import pinacolada.skills.skills.PPassiveCond;
 import pinacolada.skills.skills.PTrigger;
 
+@VisibleSkill
 public class PCond_React extends PPassiveCond<PField_Affinity> implements OnElementReactSubscriber {
     public static final PSkillData<PField_Affinity> DATA = register(PCond_React.class, PField_Affinity.class, 1, 1)
             .setColors(ConjurerEnum.Cards.THE_CONJURER)

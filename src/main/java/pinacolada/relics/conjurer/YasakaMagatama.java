@@ -17,6 +17,6 @@ public class YasakaMagatama extends PCLPointerRelic {
     }
 
     public void setup() {
-        addUseMove(new PRoot(), CMove.gainMatter(15).setUpgrade(8));
+        addUseMove(new PRoot(), CMove.gainMatter(20).setUpgrade(10));
     }
 }

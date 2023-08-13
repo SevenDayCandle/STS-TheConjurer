@@ -15,7 +15,7 @@ import pinacolada.skills.PMod;
 public class FireSurge extends PCLCard {
     public static final PCLCardData DATA = register(FireSurge.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.COMMON, PCLAttackType.Ranged)
-            .setDamage(5, 2)
+            .setDamage(8, 2)
             .setAffinities(PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.darkSouls);
 
@@ -24,6 +24,6 @@ public class FireSurge extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(EffekseerEFK.FIRE04).setBonus(PMod.perLevel(1, PCLAffinity.Red), 3, 1);
+        addDamageMove(EffekseerEFK.FIRE04).setBonus(PMod.perLevel(1, PCLAffinity.Red), 5, 2);
     }
 }

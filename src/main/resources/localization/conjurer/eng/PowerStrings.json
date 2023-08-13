@@ -7,13 +7,18 @@
 	},
 	"conjurer:AquaPower":
 	{
-		"DESCRIPTIONS": ["#b{0}% of Matter gained from this power are applied to this target as [conjurer:Frostbite].", "#b{0}% of Reaction gained from [conjurer:Aqua] are applied to its owner as [conjurer:Frostbite]."],
+		"DESCRIPTIONS": ["#b{0}% of Matter gained from this power are applied to this target as [conjurer:Cooled].", "#b{0}% of Reaction gained from [conjurer:Aqua] are applied to its owner as [conjurer:Cooled]."],
 		"NAME": "Aqua"
 	},
 	"conjurer:BlastedPower":
 	{
 		"DESCRIPTIONS": ["At the start of its turn, takes #b{0} damage, then loses this power."],
 		"NAME": "Blasted"
+	},
+	"conjurer:CooledPower":
+	{
+		"DESCRIPTIONS": ["Takes #b+{0} damage from #yAttacks and #yOrbs, and deals #b-{0} damage. Loses this power at the end of round."],
+		"NAME": "Cooled"
 	},
 	"conjurer:CorrosionPower":
 	{
@@ -40,11 +45,6 @@
 		"DESCRIPTIONS": ["When this power has at least #b{0} stacks, click its draw pile preview to spend #b{0} stacks and draw that card."],
 		"NAME": "Flow"
 	},
-	"conjurer:FrostbitePower":
-	{
-		"DESCRIPTIONS": ["Takes #b+{0} damage from #yAttacks and #yOrbs, and deals #b-{0} damage. At the start of its turn, loses #b{1} stacks."],
-		"NAME": "Frostbite"
-	},
 	"conjurer:IgnisPower":
 	{
 		"DESCRIPTIONS": ["#b{0}% of Matter gained from this power are applied to this target as [conjurer:Blasted].", "#b{0}% of Reaction gained from [conjurer:Ignis] is dealt as damage to its owner at the start of its turn."],
@@ -64,6 +64,11 @@
 	{
 		"DESCRIPTIONS": ["For #b{0} turns: #yElemental #yDebuffs cannot be reduced."],
 		"NAME": "Petrified"
+	},
+	"conjurer:StabilizingPower":
+	{
+		"DESCRIPTIONS": ["{#y:{0}} will not decrease for #b{1} turn(s)."],
+		"NAME": "Stabilized"
 	},
 	"conjurer:UmbraPower": {
 		"DESCRIPTIONS": [

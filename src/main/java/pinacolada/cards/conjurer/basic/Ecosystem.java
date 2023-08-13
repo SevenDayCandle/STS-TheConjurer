@@ -28,9 +28,9 @@ public class Ecosystem extends PCLCard {
     }
 
     public void setup(Object input) {
-        addGainPower(PTrigger.when(1, PCond.checkLevel(1),
-                getSpecialMove(0, this::specialMove, 3)
-        ).setUpgrade(1));
+        addGainPower(PTrigger.when(2, PCond.checkLevel(1),
+                getSpecialMove(0, this::specialMove, 4).setUpgrade(1)
+        ));
     }
 
     public void specialMove(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
@@ -39,7 +39,7 @@ public class Ecosystem extends PCLCard {
             PCLElementHelper debuff = PCLElementHelper.get(aff);
             if (debuff != null) {
                 for (AbstractCreature target : GameUtilities.getAllCharacters(true)) {
-                    order.applyPower(info.source, target, debuff, move.amount + CombatManager.playerSystem.getLevel(aff));
+                    order.applyPower(info.source, target, debuff, move.amount * CombatManager.playerSystem.getLevel(aff));
                 }
             }
         }

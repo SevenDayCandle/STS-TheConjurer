@@ -24,7 +24,7 @@ import pinacolada.skills.skills.PMultiSkill;
 public class PhoenixWright extends PCLCard {
     public static final PCLCardData DATA = register(PhoenixWright.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON)
-            .setDamage(2, 1)
+            .setDamage(1, 1)
             .setHp(7, 2)
             .setAffinities(PCLAffinity.Orange, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.phoenixWright, true);

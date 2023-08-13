@@ -1,7 +1,6 @@
 package pinacolada.powers.conjurer;
 
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -12,20 +11,16 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.utilities.GameUtilities;
 import pinacolada.utilities.PCLRenderHelpers;
 
-public class FrostbitePower extends PCLPower {
-    public static final String POWER_ID = createFullID(ConjurerResources.conjurer, FrostbitePower.class);
+public class CooledPower extends PCLPower {
+    public static final String POWER_ID = createFullID(ConjurerResources.conjurer, CooledPower.class);
     public static final float POTENCY = 10;
     public static final Color healthBarColor = Color.SKY.cpy();
     public boolean expanded;
 
-    public FrostbitePower(AbstractCreature owner, int amount) {
+    public CooledPower(AbstractCreature owner, int amount) {
         super(owner, POWER_ID);
         this.priority = 0;
         initialize(amount, PowerType.DEBUFF, true);
-    }
-
-    public int getDecrease() {
-        return MathUtils.ceil(amount * 0.75f);
     }
 
     public float getPotency() {
@@ -34,7 +29,7 @@ public class FrostbitePower extends PCLPower {
 
     @Override
     public String getUpdatedDescription() {
-        return formatDescription(0, PCLRenderHelpers.decimalFormat(getPotency()), getDecrease());
+        return formatDescription(0, PCLRenderHelpers.decimalFormat(getPotency()));
     }
 
     @Override
@@ -65,9 +60,6 @@ public class FrostbitePower extends PCLPower {
     @Override
     public void atEndOfRound() {
         super.atEndOfRound();
-        reducePower(getDecrease());
-        if (amount <= 0) {
-            removePower();
-        }
+        removePower();
     }
 }

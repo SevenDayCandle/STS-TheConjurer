@@ -31,6 +31,6 @@ public class Diluc extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_HEAVY);
-        addUseMove(PCond.cooldown(2), PMod.bonusPerLevel(3, PCLAffinity.Red), PMove.dealDamageToAll(8, AbstractGameAction.AttackEffect.FIRE));
+        addUseMove(PCond.cooldown(2), PMod.bonusPerLevel(5, PCLAffinity.Red), PMove.dealDamageToAll(10, AbstractGameAction.AttackEffect.FIRE));
     }
 }

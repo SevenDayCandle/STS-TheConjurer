@@ -20,6 +20,6 @@ public class SunlightMedal extends PCLPointerRelic {
     }
 
     public void setup() {
-        addUseMove(PTrigger.combatEnd(PMod.perCard(1, PCLCardGroupHelper.MasterDeck).edit(f -> f.setType(PCLEnum.CardType.SUMMON)), PMove.gainGold(2)));
+        addUseMove(PTrigger.combatEnd(PMod.perCard(1, PCLCardGroupHelper.MasterDeck).edit(f -> f.setType(PCLEnum.CardType.SUMMON)), PMove.gainGold(1)));
     }
 }

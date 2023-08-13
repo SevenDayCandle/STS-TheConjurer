@@ -31,6 +31,6 @@ public class Velkhana extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.ICE);
-        addGainPower(PTrigger.when(PCond.onWithdraw(), PMove.applyToEnemies(4, PCLElementHelper.Frostbite).setUpgrade(1)));
+        addGainPower(PTrigger.when(PCond.onWithdraw(), PMove.applyToEnemies(4, PCLElementHelper.Cooled).setUpgrade(1)));
     }
 }

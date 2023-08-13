@@ -4,7 +4,9 @@ import extendedui.interfaces.delegates.ActionT1;
 import pinacolada.actions.PCLAction;
 import pinacolada.actions.PCLActions;
 import pinacolada.actions.powers.GainReaction;
+import pinacolada.annotations.VisibleSkill;
 import pinacolada.cards.base.fields.PCLCardTarget;
+import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;
@@ -12,10 +14,10 @@ import pinacolada.skills.PSkillData;
 import pinacolada.skills.PSkillSaveData;
 import pinacolada.skills.fields.PField_Not;
 import pinacolada.skills.skills.PActiveCond;
-import pinacolada.ui.combat.ConjurerReactionMeter;
 
 import static pinacolada.resources.conjurer.ConjurerEnum.Cards.THE_CONJURER;
 
+@VisibleSkill
 public class PCond_PayMatter extends PActiveCond<PField_Not> {
     public static final PSkillData<PField_Not> DATA = register(PCond_PayMatter.class, PField_Not.class)
             .setColors(THE_CONJURER)

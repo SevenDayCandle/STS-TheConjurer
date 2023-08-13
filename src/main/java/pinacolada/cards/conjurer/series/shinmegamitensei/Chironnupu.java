@@ -8,6 +8,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
+import pinacolada.monsters.PCLIntentType;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CMove;
@@ -28,7 +29,7 @@ public class Chironnupu extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
-        addUseMove(PCond.isAttacking(PCLCardTarget.Single),
+        addUseMove(PCond.intent(PCLCardTarget.Single, PCLIntentType.Buff, PCLIntentType.Debuff),
                 CMove.gainMatter(7).setUpgrade(0, 4));
     }
 }

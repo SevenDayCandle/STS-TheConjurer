@@ -21,7 +21,7 @@ public class FlameOfTheFellGod extends PCLCard {
     public static final PCLCardData DATA = register(FlameOfTheFellGod.class, ConjurerResources.conjurer)
             .setAttack(4, CardRarity.RARE, PCLAttackType.Ranged)
             .setTags(PCLCardTag.Exhaust)
-            .setDamage(56, 6)
+            .setDamage(56, 9)
             .setAffinities(2, PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
@@ -30,7 +30,7 @@ public class FlameOfTheFellGod extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(EffekseerEFK.FIRE03);
-        addUseMove(PMultiCond.or(PCond.onDiscard(), PCond.onReshuffle()), PMod.increaseOnUse(1).setUpgrade(1), PMove.applyToEveryone(3, PCLElementHelper.Ignis));
+        addDamageMove(EffekseerEFK.FIRE03).setBonus(PMod.perPowerSingle(PCLElementHelper.Cooled), 1);
+        addUseMove(PMultiCond.or(PCond.onDiscard(), PCond.onReshuffle()), PMove.applyToEveryone(4, PCLElementHelper.Ignis).setUpgrade(1));
     }
 }

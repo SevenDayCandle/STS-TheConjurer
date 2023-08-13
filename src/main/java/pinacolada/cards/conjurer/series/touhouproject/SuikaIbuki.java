@@ -22,7 +22,7 @@ public class SuikaIbuki extends PCLCard {
             .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.AllEnemy, DelayTiming.EndOfTurnFirst)
             .setDamage(5, 2)
             .setHp(7, 1)
-            .setAffinities(1, PCLAffinity.Red, PCLAffinity.Blue)
+            .setAffinities(1, PCLAffinity.Red, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.touhouProject);
 
     public SuikaIbuki() {

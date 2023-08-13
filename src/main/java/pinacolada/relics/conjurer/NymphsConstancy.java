@@ -19,6 +19,6 @@ public class NymphsConstancy extends PCLPointerRelic {
     }
 
     public void setup() {
-        addUseMove(PTrigger.when(PCond.onDiscard(), PMove.applyToEnemies(1, PCLElementHelper.Aqua)));
+        addUseMove(PTrigger.when(2, PCond.onDiscard(), PMove.applyToEnemies(1, PCLElementHelper.Aqua)));
     }
 }

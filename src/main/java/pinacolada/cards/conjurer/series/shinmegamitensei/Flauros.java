@@ -20,7 +20,7 @@ public class Flauros extends PCLCard {
     public static final PCLCardData DATA = register(Flauros.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.COMMON, PCLAttackType.Normal, PCLCardTarget.Single, DelayTiming.EndOfTurnFirst)
             .setDamage(6, 1)
-            .setHp(9, 2)
+            .setHp(9, 1)
             .setAffinities(2, PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
@@ -30,6 +30,6 @@ public class Flauros extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.CLAW);
-        addUseMove(PCond.onWithdraw(), PMove.applyToEnemies(2, PCLPowerHelper.Vulnerable, PCLPowerHelper.Weak));
+        addUseMove(PCond.onWithdraw(), PMove.applyToEnemies(2, PCLPowerHelper.Vulnerable, PCLPowerHelper.Weak).setUpgrade(1));
     }
 }

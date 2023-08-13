@@ -13,14 +13,15 @@ import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
+import pinacolada.skills.delay.DelayTiming;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
 public class KushalaDaora extends PCLCard {
     public static final PCLCardData DATA = register(KushalaDaora.class, ConjurerResources.conjurer)
-            .setSummon(3, CardRarity.RARE, PCLAttackType.Piercing, PCLCardTarget.AllEnemy)
-            .setDamage(1, 1, 2)
-            .setHp(10, 1)
+            .setSummon(3, CardRarity.RARE, PCLAttackType.Piercing, PCLCardTarget.AllEnemy, DelayTiming.EndOfTurnFirst)
+            .setDamage(2, 1, 2)
+            .setHp(11, 1)
             .setAffinities(2, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 
@@ -30,6 +31,6 @@ public class KushalaDaora extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.WIND);
-        addGainPower(PTrigger.when(PCond.onWithdraw(), PMove.gainPlayer(4, PCLElementHelper.Flow)));
+        addGainPower(PTrigger.when(PCond.onWithdraw(), PMove.gainPlayer(5, PCLElementHelper.Flow)));
     }
 }

@@ -28,7 +28,7 @@ public class StarsOfRuin extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(EffekseerEFK.BLOW08).setChain(PMod.perLevel(1, PCLAffinity.Blue), PTrait.hitCount(1));
-        addUseMove(PCond.checkLevel(4, PCLAffinity.Blue), PMove.gainTempHP(2));
+        addDamageMove(EffekseerEFK.BLOW08).setChain(PMod.perLevel(1, PCLAffinity.Blue), PTrait.hitCount(2));
+        addUseMove(PCond.checkLevel(3, PCLAffinity.Blue), PMove.gainTempHP(6));
     }
 }

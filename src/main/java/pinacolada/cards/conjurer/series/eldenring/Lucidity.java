@@ -15,6 +15,7 @@ import pinacolada.skills.PMod;
 public class Lucidity extends PCLCard {
     public static final PCLCardData DATA = register(Lucidity.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.COMMON, PCLCardTarget.Team)
+            .setBlock(3, 1)
             .setAffinities(PCLAffinity.Blue.make(2), PCLAffinity.Yellow.make())
             .setLoadout(ConjurerPlayerData.eldenRing);
 
@@ -23,6 +24,7 @@ public class Lucidity extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMod.increaseOnUse(5).setUpgrade(1), CMove.gainMatter(14).setUpgrade(3));
+        addBlockMove();
+        addUseMove(PMod.increaseOnUse(5).setUpgrade(1), CMove.gainMatter(15).setUpgrade(3));
     }
 }

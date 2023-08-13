@@ -2,8 +2,8 @@ package pinacolada.actions.powers;
 
 import com.megacrit.cardcrawl.core.Settings;
 import pinacolada.actions.PCLAction;
+import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.effects.PCLSFX;
-import pinacolada.ui.combat.ConjurerReactionMeter;
 
 
 public class GainReaction extends PCLAction<Integer> {

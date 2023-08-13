@@ -6,6 +6,7 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
+import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
@@ -16,8 +17,8 @@ import pinacolada.skills.PMove;
 @VisibleCard
 public class Chocobo extends PCLCard {
     public static final PCLCardData DATA = register(Chocobo.class, ConjurerResources.conjurer)
-            .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Normal)
-            .setDamage(2, 1)
+            .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
+            .setDamage(1, 1)
             .setHp(3, 2)
             .setAffinities(PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.finalFantasy, true);

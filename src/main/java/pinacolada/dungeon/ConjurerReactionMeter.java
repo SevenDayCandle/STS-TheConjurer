@@ -1,4 +1,4 @@
-package pinacolada.ui.combat;
+package pinacolada.dungeon;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -24,8 +24,6 @@ import pinacolada.cards.base.fields.PCLCardAffinities;
 import pinacolada.cards.base.fields.PCLCardAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.characters.ConjurerCharacter;
-import pinacolada.dungeon.CombatManager;
-import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.interfaces.providers.ClickableProvider;
 import pinacolada.misc.AffinityReactions;
 import pinacolada.misc.ConjurerUseInfo;
@@ -34,6 +32,7 @@ import pinacolada.powers.PCLClickableUse;
 import pinacolada.powers.conjurer.AbstractPCLElementalPower;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.PGR;
+import pinacolada.resources.conjurer.ConjurerImages;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.resources.pcl.PCLCoreImages;
 import pinacolada.resources.pcl.PCLCoreStrings;
@@ -83,12 +82,12 @@ public class ConjurerReactionMeter extends PCLPlayerMeter implements ClickablePr
     public ConjurerReactionMeter() {
         super(ID, ConjurerResources.conjurer.data.config.meterPosition, ICON_SIZE);
 
-        fire = new ConjurerElementButton(this, PCLAffinity.Red, ConjurerResources.conjurer.images.core.elementFire.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X, OFFSET_SCALE_Y + BUTTON_SCALE));
-        air = new ConjurerElementButton(this, PCLAffinity.Green, ConjurerResources.conjurer.images.core.elementAir.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X, OFFSET_SCALE_Y - BUTTON_SCALE));
-        water = new ConjurerElementButton(this, PCLAffinity.Blue, ConjurerResources.conjurer.images.core.elementWater.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X + BUTTON_SCALE, OFFSET_SCALE_Y));
-        earth = new ConjurerElementButton(this, PCLAffinity.Orange, ConjurerResources.conjurer.images.core.elementEarth.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X - BUTTON_SCALE, OFFSET_SCALE_Y));
-        light = new ConjurerElementButton(this, PCLAffinity.Yellow, ConjurerResources.conjurer.images.core.elementLight.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X, OFFSET_SCALE_Y));
-        dark = new ConjurerElementButton(this, PCLAffinity.Purple, ConjurerResources.conjurer.images.core.elementDark.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X, OFFSET_SCALE_Y));
+        fire = new ConjurerElementButton(this, PCLAffinity.Red, ConjurerImages.Core.elementFire.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X, OFFSET_SCALE_Y + BUTTON_SCALE));
+        air = new ConjurerElementButton(this, PCLAffinity.Green, ConjurerImages.Core.elementAir.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X, OFFSET_SCALE_Y - BUTTON_SCALE));
+        water = new ConjurerElementButton(this, PCLAffinity.Blue, ConjurerImages.Core.elementWater.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X + BUTTON_SCALE, OFFSET_SCALE_Y));
+        earth = new ConjurerElementButton(this, PCLAffinity.Orange, ConjurerImages.Core.elementEarth.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X - BUTTON_SCALE, OFFSET_SCALE_Y));
+        light = new ConjurerElementButton(this, PCLAffinity.Yellow, ConjurerImages.Core.elementLight.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X, OFFSET_SCALE_Y));
+        dark = new ConjurerElementButton(this, PCLAffinity.Purple, ConjurerImages.Core.elementDark.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X, OFFSET_SCALE_Y));
         elements.add(fire);
         elements.add(air);
         elements.add(water);
@@ -391,18 +390,19 @@ public class ConjurerReactionMeter extends PCLPlayerMeter implements ClickablePr
     @Override
     public EUITutorialPage[] getInfoPages() {
         return array(
-                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.affinityGeneral.title), PGR.core.strings.tutorial_affinityTutorial, ConjurerResources.conjurer.images.tutorial.afftut01.texture()),
-                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 1), PGR.core.strings.tutorial_summonTutorial1, ConjurerResources.conjurer.images.tutorial.ctut01.texture()),
-                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 2), PGR.core.strings.tutorial_summonTutorial2, ConjurerResources.conjurer.images.tutorial.ctut02.texture()),
-                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 3), PGR.core.strings.tutorial_summonTutorial3, ConjurerResources.conjurer.images.tutorial.ctut03.texture()),
-                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 4), PGR.core.strings.tutorial_summonTutorial4, ConjurerResources.conjurer.images.tutorial.ctut03.texture()),
-                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 5), PGR.core.strings.tutorial_summonTutorial5, ConjurerResources.conjurer.images.tutorial.ctut04.texture()),
-                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 6), PGR.core.strings.tutorial_summonTutorial6, ConjurerResources.conjurer.images.tutorial.ctut05.texture()),
-                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 7), PGR.core.strings.tutorial_summonTutorial7, ConjurerResources.conjurer.images.tutorial.ctut06.texture()),
-                new EUITutorialImagePage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.elementalDebuff.title), ConjurerResources.conjurer.strings.conjurerTutorial1, ConjurerResources.conjurer.images.tutorial.etut01.texture()),
-                new EUITutorialImagePage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.reaction.title, 1), ConjurerResources.conjurer.strings.conjurerTutorial2, ConjurerResources.conjurer.images.tutorial.etut02.texture()),
-                new EUITutorialImagePage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.reaction.title, 2), ConjurerResources.conjurer.strings.conjurerTutorial3, ConjurerResources.conjurer.images.tutorial.etut02.texture()),
-                new EUITutorialImagePage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.matter.title), ConjurerResources.conjurer.strings.conjurerTutorial4, ConjurerResources.conjurer.images.tutorial.etut03.texture())
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.affinityGeneral.title), PGR.core.strings.tutorial_affinityTutorial, ConjurerImages.Tutorial.afftut01.texture()),
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 1), PGR.core.strings.tutorial_summonTutorial1, ConjurerImages.Tutorial.ctut01.texture()),
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 2), PGR.core.strings.tutorial_summonTutorial2, ConjurerImages.Tutorial.ctut02.texture()),
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 3), PGR.core.strings.tutorial_summonTutorial3, ConjurerImages.Tutorial.ctut03.texture()),
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 4), PGR.core.strings.tutorial_summonTutorial4, ConjurerImages.Tutorial.ctut03.texture()),
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 5), PGR.core.strings.tutorial_summonTutorial5, ConjurerImages.Tutorial.ctut03.texture()),
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 6), PGR.core.strings.tutorial_summonTutorial6, ConjurerImages.Tutorial.ctut04.texture()),
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 7), PGR.core.strings.tutorial_summonTutorial7, ConjurerImages.Tutorial.ctut05.texture()),
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 8), PGR.core.strings.tutorial_summonTutorial8, ConjurerImages.Tutorial.ctut06.texture()),
+                new EUITutorialImagePage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.elementalDebuff.title), ConjurerResources.conjurer.strings.conjurerTutorial1, ConjurerImages.Tutorial.etut01.texture()),
+                new EUITutorialImagePage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.reaction.title, 1), ConjurerResources.conjurer.strings.conjurerTutorial2, ConjurerImages.Tutorial.etut02.texture()),
+                new EUITutorialImagePage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.reaction.title, 2), ConjurerResources.conjurer.strings.conjurerTutorial3, ConjurerImages.Tutorial.etut02.texture()),
+                new EUITutorialImagePage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.matter.title), ConjurerResources.conjurer.strings.conjurerTutorial4, ConjurerImages.Tutorial.etut03.texture())
         );
     }
 
@@ -420,14 +420,14 @@ public class ConjurerReactionMeter extends PCLPlayerMeter implements ClickablePr
             if (idHas(card, "Fire", "Flame", "Burn", "Scorch", "Heat", "Solar")) {
                 affinities.add(PCLAffinity.Red);
             }
-            if (idHas(card, "Lava", "Magma")) {
+            if (idHas(card, "Lava", "Magma", "Volcan")) {
                 affinities.add(PCLAffinity.Red);
                 affinities.add(PCLAffinity.Orange);
             }
             if (idHas(card, "Water", "Ice", "Icicle", "Snow", "Frost", "Chill", "Cold", "Freeze", "Aqua", "Ocean", "Bubble", "Liquid")) {
                 affinities.add(PCLAffinity.Blue);
             }
-            if (idHas(card, "Storm", "Mist", "Fog")) {
+            if (idHas(card, "Storm", "Mist", "Fog", "Cloud")) {
                 affinities.add(PCLAffinity.Blue);
                 affinities.add(PCLAffinity.Green);
             }
@@ -435,7 +435,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter implements ClickablePr
                 affinities.add(PCLAffinity.Blue);
                 affinities.add(PCLAffinity.Orange);
             }
-            if (idHas(card, "Wind", "Sky", "Poison", "Toxic", "Air", "Smoke")) {
+            if (idHas(card, "Wind", "Sky", "Poison", "Toxic", "Air", "Smoke", "Breeze", "Tornado")) {
                 affinities.add(PCLAffinity.Green);
             }
             if (idHas(card, "Leaf", "Nature", "Wood", "Forest", "Grass", "Blossom", "Bloom", "Plant", "Tree")) {
@@ -445,11 +445,14 @@ public class ConjurerReactionMeter extends PCLPlayerMeter implements ClickablePr
             if (idHas(card, "Earth", "Rock", "Stone", "Ground", "Land")) {
                 affinities.add(PCLAffinity.Orange);
             }
-            if (idHas(card, "Electric", "Thunder", "Lightning", "Shock", "Holy", "Bless", "Sacred")) {
+            if (idHas(card, "Electric", "Thunder", "Lightning", "Shock", "Volt", "Holy", "Bless", "Sacred")) {
                 affinities.add(PCLAffinity.Yellow);
             }
             if (idHas(card, "Dark", "Shadow", "Evil", "Night", "Curse", "Void", "Corrupt", "infinitespire")) {
                 affinities.add(PCLAffinity.Purple);
+            }
+            if (idHas(card, "Metal", "Steel")) {
+                affinities.add(PCLAffinity.Silver);
             }
             if (idHas(card, "Rainbow")) {
                 affinities.add(PCLAffinity.Star);

@@ -11,7 +11,7 @@ import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CCond;
+import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 import pinacolada.skills.delay.DelayTiming;
 
@@ -30,6 +30,6 @@ public class IttoArataki extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(AbstractGameAction.AttackEffect.BLUNT_HEAVY);
-        addUseMove(CCond.react(), PMove.gainPlayer(6, PCLPowerHelper.NextTurnBlock));
+        addUseMove(PCond.isAttacking(PCLCardTarget.RandomEnemy), PMove.gainPlayer(5, PCLPowerHelper.NextTurnBlock));
     }
 }

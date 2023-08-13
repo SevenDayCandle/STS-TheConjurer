@@ -18,7 +18,7 @@ import pinacolada.skills.PMove;
 public class WhiteDragonBreath extends PCLCard {
     public static final PCLCardData DATA = register(WhiteDragonBreath.class, ConjurerResources.conjurer)
             .setAttack(3, CardRarity.RARE, PCLAttackType.Immaterial)
-            .setDamage(30, 2)
+            .setDamage(30, 3)
             .setTags(PCLCardTag.Exhaust)
             .setAffinities(1, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.darkSouls);
@@ -28,7 +28,7 @@ public class WhiteDragonBreath extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(ConjurerEFK.MGC_W2_SuperSphereAttack).setBonus(PMod.perLevel(1, PCLAffinity.Blue), 3, 1);
-        addUseMove(PMove.applyToSingle(12, PCLElementHelper.Frostbite));
+        addDamageMove(ConjurerEFK.MGC_W2_SuperSphereAttack).setBonus(PMod.perLevel(1, PCLAffinity.Blue), 5, 2);
+        addUseMove(PMove.applyToSingle(12, PCLElementHelper.Cooled));
     }
 }

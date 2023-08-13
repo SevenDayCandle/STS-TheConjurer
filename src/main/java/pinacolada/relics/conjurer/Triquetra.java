@@ -8,14 +8,14 @@ import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleRelic;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.dungeon.CombatManager;
+import pinacolada.dungeon.ConjurerElementButton;
+import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.interfaces.subscribers.OnTryApplyPowerSubscriber;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.powers.conjurer.PetraPower;
 import pinacolada.relics.PCLRelic;
 import pinacolada.relics.PCLRelicData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.ui.combat.ConjurerElementButton;
-import pinacolada.ui.combat.ConjurerReactionMeter;
 
 @VisibleRelic
 public class Triquetra extends PCLRelic implements OnTryApplyPowerSubscriber {

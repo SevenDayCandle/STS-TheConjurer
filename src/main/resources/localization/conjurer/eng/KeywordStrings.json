@@ -1,44 +1,52 @@
 {
+	"conjurer:Affix": {
+		"DESCRIPTION": "Activates when a #ySummon in front of or behind this #ySummon that meets this condition's requirements is #yTriggered.",
+		"NAME": "Affix",
+		"PAST": "Affixed",
+		"PLURAL": "${0}@>1:Affixes@:Affix$",
+		"PRESENT": "Affixes",
+		"PROGRESSIVE": "Affixing"
+	},
 	"conjurer:Aqua": {
 		"DESCRIPTION": "Playing [A-G] cards on targets with [conjurer:Aqua] increases damage they take and decreases damage they deal.",
 		"NAME": "Aqua"
 	},
+	"conjurer:Back Affix": {
+		"DESCRIPTION": "Activates when a #ySummon behind this #ySummon that meets this condition's requirements is #yTriggered.",
+		"NAME": "Back Affix"
+	},
 	"conjurer:Blasted": {
-		"DESCRIPTION": "Take damage at the start of turn.",
+		"DESCRIPTION": "Take damage at the start of turn. Removed at round end.",
 		"NAME": "Blasted"
 	},
 	"conjurer:Charge": {
 		"DESCRIPTION": "Apply the last #yElemental #yDebuff you manually leveled up to an enemy. The first time each turn you level up an #yElemental #yDebuff manually, gain #b1 #yCharge.",
 		"NAME": "Charge"
 	},
-	"conjurer:Corrosion": {
-		"DESCRIPTION": "[A-P] #yElemental #yDebuff. When #yAttacking, deal a portion of damage dealt to yourself and ALL allies.",
-		"NAME": "Corrosion"
-	},
-	"conjurer:Death": {
-		"DESCRIPTION": "Your #yAttacks deal a portion of its damage to yourself. At the end of turn, you have a chance of instantly dying.",
-		"NAME": "Death"
+	"conjurer:Cooled": {
+		"DESCRIPTION": "Every #b{0} stacks increases damage taken from #yAttacks and #yOrbs by #b1, and reduces damage dealt by #b1. Removed at round end.",
+		"NAME": "Cooled"
 	},
 	"conjurer:Elemental Debuff": {
-		"DESCRIPTION": "[conjurer:Ignis], [conjurer:Aqua], [conjurer:Ventus], [conjurer:Petra]. Playing cards on targets with these debuffs triggers #yReactions. Remove at the end of the round.",
+		"DESCRIPTION": "[conjurer:Ignis], [conjurer:Aqua], [conjurer:Ventus], [conjurer:Petra]. Playing cards on targets with these debuffs triggers #yReactions. Removed at the end of the round.",
 		"NAME": "Elemental Debuff",
-		"PLURAL": "elemental debuffs"
+		"PLURAL": "${0}@>1:Elemental Debuffs@:Elemental Debuff$"
 	},
 	"conjurer:Elemental Exposure": {
-		"DESCRIPTION": "Increases the effectiveness of #yAuras and #yElemental #yDebuffs.",
+		"DESCRIPTION": "Increases the effectiveness of #yElemental #yDebuffs.",
 		"NAME": "Elemental Exposure"
 	},
 	"conjurer:Elemental Mastery": {
-		"DESCRIPTION": "Whenever you would gain #yAura stacks or apply #yElemental #yDebuffs, increase their stacks.",
+		"DESCRIPTION": "Whenever you apply #yElemental #yDebuffs, increase their stacks.",
 		"NAME": "Elemental Mastery"
 	},
 	"conjurer:Flow": {
 		"DESCRIPTION": "During your turn, spend #b{0} [conjurer:Flow] to draw a card.",
 		"NAME": "Flow"
 	},
-	"conjurer:Frostbite": {
-		"DESCRIPTION": "Every #b{0} stacks increases damage taken from #yAttacks and #yOrbs by #b1, and reduces damage dealt by #b1. At round end, reduce stacks by #b75%.",
-		"NAME": "Frostbite"
+	"conjurer:Front Affix": {
+		"DESCRIPTION": "Activates when a #ySummon in front of this #ySummon that meets this condition's requirements is #yTriggered.",
+		"NAME": "Front Affix"
 	},
 	"conjurer:Ignis": {
 		"DESCRIPTION": "Playing [A-B] cards on targets with [conjurer:Ignis] damages them at the start of their turn.",
@@ -59,17 +67,20 @@
 	"conjurer:Reaction": {
 		"DESCRIPTION": "Occurs upon playing a card with an #yAffinity that activates the target's #yElemental #yDebuff. This also grants #yMatter.",
 		"NAME": "Reaction",
-		"PLURAL": "Reactions",
 		"PAST": "Reacted",
+		"PLURAL": "${0}@>1:Reactions@:Reaction$",
 		"PRESENT": "Reacts",
 		"PROGRESSIVE": "Reacting"
 	},
-	"conjurer:Tether": {
-		"DESCRIPTION": "Activates if the #ySummon in front of it meets the given condition.",
-		"NAME": "Tether"
+	"conjurer:Stabilize":	{
+		"DESCRIPTION": "Prevent a turn-based power from being reduced at the start of turn.",
+		"NAME": "Stabilize",
+		"PAST": "Stabilized",
+		"PRESENT": "Stabilizes",
+		"PROGRESSIVE": "Stabilizing"
 	},
 	"conjurer:Umbra": {
-		"DESCRIPTION": "[A-P] #yElemental #yDebuff. Reactions on a non-#ySummon target applies a debuff that causes its #yAttacks to damage itself.",
+		"DESCRIPTION": "[A-P] #yElemental #yDebuff. Reactions on a non-#ySummon, non-boss target have a chance to instantly kill it.",
 		"NAME": "Umbra"
 	},
 	"conjurer:Ventus": {

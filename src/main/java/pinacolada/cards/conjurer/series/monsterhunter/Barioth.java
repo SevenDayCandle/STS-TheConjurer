@@ -30,6 +30,6 @@ public class Barioth extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BITE);
-        addUseMove(PCond.onWithdraw(), PMove.applyToEnemies(9, PCLElementHelper.Frostbite).setUpgrade(2));
+        addUseMove(PCond.onWithdraw(), PMove.applyToEnemies(9, PCLElementHelper.Cooled).setUpgrade(2));
     }
 }

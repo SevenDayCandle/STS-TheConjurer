@@ -30,6 +30,6 @@ public class CrystalSoulSpear extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(EffekseerEFK.SPEAR02);
-        addUseMove(PCond.checkLevel(3, PCLAffinity.Blue), PMultiSkill.join(PMove.selfExhaust(), PMod.perCard(1, PCLCardGroupHelper.DiscardPile).setChain(PMove.applyToSingle(2, PCLElementHelper.Frostbite))));
+        addUseMove(PCond.checkLevel(3, PCLAffinity.Blue), PMultiSkill.join(PMove.selfExhaust(), PMod.perCard(1, PCLCardGroupHelper.DiscardPile).setChain(PMove.applyToSingle(2, PCLElementHelper.Aqua))));
     }
 }

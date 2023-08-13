@@ -22,8 +22,8 @@ public class KokomiSangonomiya extends PCLCard {
     public static final PCLCardData DATA = register(KokomiSangonomiya.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE, PCLAttackType.Immaterial)
             .setDamage(1, 0)
-            .setHp(2, 2)
-            .setAffinities(PCLAffinity.Blue)
+            .setHp(2, 1)
+            .setAffinities(2, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.genshinImpact, true);
 
     public KokomiSangonomiya() {
@@ -31,7 +31,7 @@ public class KokomiSangonomiya extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.WATER).setBonus(PMod.perCreatureHP(PCLCardTarget.Self, 6), 1);
+        addDamageMove(PCLAttackVFX.WATER).setBonus(PMod.perCreatureHP(PCLCardTarget.Self, 5).setUpgrade(-1), 1);
         addSpecialPower(0, (s, i) -> new KokomiSangonomiyaPower(i.source, s), 3, 1);
     }
 

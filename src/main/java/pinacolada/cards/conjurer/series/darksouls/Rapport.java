@@ -36,6 +36,7 @@ public class Rapport extends PCLCard {
     public static class RapportPower extends PSpecialCardPower implements OnModifyDamageGiveLastSubscriber {
         public RapportPower(AbstractCreature owner, PSkill<?> move) {
             super(Rapport.DATA, owner, move);
+            initialize(move.amount, PowerType.BUFF, true);
         }
 
         @Override

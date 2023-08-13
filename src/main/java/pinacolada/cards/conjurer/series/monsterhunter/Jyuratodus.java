@@ -11,8 +11,8 @@ import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.CMove;
 import pinacolada.skills.PCond;
-import pinacolada.skills.PMove;
 import pinacolada.skills.delay.DelayTiming;
 import pinacolada.skills.skills.PMultiCond;
 
@@ -31,6 +31,6 @@ public class Jyuratodus extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BITE);
-        addUseMove(PMultiCond.or(PCond.onWithdraw(), PCond.onDeath()), PMove.stabilize(PCLCardTarget.Single, PCLElementHelper.Petra));
+        addUseMove(PMultiCond.or(PCond.onWithdraw(), PCond.onDeath()), CMove.stabilize(PCLCardTarget.Single, PCLElementHelper.Petra));
     }
 }

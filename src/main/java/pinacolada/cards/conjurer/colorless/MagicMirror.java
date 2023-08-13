@@ -22,6 +22,7 @@ import pinacolada.utilities.GameUtilities;
 public class MagicMirror extends PCLCard {
     public static final PCLCardData DATA = register(MagicMirror.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.RARE, PCLCardTarget.Self)
+            .setBlock(2, 0)
             .setTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Blue)
             .setCore(true);
@@ -31,6 +32,7 @@ public class MagicMirror extends PCLCard {
     }
 
     public void setup(Object input) {
+        addBlockMove();
         addSpecialPower(0, (s, i) -> new MagicMirrorPower(i.source, s), 2).setUpgrade(1);
     }
 

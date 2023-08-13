@@ -1,23 +1,19 @@
 package pinacolada.cards.conjurer.series.genshinimpact;
 
 
-import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.StrengthPower;
-import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.interfaces.subscribers.OnAllyDeathSubscriber;
-import pinacolada.interfaces.subscribers.OnMonsterDeathSubscriber;
-import pinacolada.monsters.PCLCardAlly;
-import pinacolada.powers.PSpecialCardPower;
+import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PSkill;
-import pinacolada.utilities.GameUtilities;
+import pinacolada.skills.PCond;
+import pinacolada.skills.PMove;
+import pinacolada.skills.skills.PMultiSkill;
+import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
 public class Cyno extends PCLCard {
@@ -34,37 +30,6 @@ public class Cyno extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_HEAVY);
-        addSpecialPower(0, (s, i) -> new CynoPower(i.source, s), 3, 1).setUpgrade(1);
-    }
-
-    public static class CynoPower extends PSpecialCardPower implements OnAllyDeathSubscriber, OnMonsterDeathSubscriber {
-        public CynoPower(AbstractCreature owner, PSkill move) {
-            super(DATA, owner, move);
-        }
-
-        protected void act() {
-            PCLActions.bottom.gainEnergyNextTurn(move.extra);
-            if (owner instanceof PCLCardAlly) {
-                PCLCard card = ((PCLCardAlly) owner).card;
-                if (card != null) {
-                    GameUtilities.modifyDamage(card, card.baseDamage + move.amount, false, false);
-                    flash();
-                }
-            }
-            else {
-                PCLActions.bottom.applyPower(new StrengthPower(owner, move.amount));
-                flash();
-            }
-        }
-
-        @Override
-        public void onAllyDeath(PCLCard pclCard, PCLCardAlly pclCardAlly) {
-            act();
-        }
-
-        @Override
-        public void onMonsterDeath(AbstractMonster abstractMonster, boolean b) {
-            act();
-        }
+        addGainPower(PTrigger.when(PCond.fatal().setTarget(PCLCardTarget.Any), PMultiSkill.join(PMove.modifyDamage(3).setUpgrade(1), PMove.gainPlayer(1, PCLPowerHelper.Energized))));
     }
 }

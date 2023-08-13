@@ -13,7 +13,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 public class LuxPower extends AbstractPCLElementalPower implements OnTryElementReactSubscriber {
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, LuxPower.class);
     public static final PCLAffinity AFFINITY = setAffinity(POWER_ID, PCLAffinity.Yellow);
-    public static final int MULTIPLIER = setMultiplier(POWER_ID, 40);
+    public static final int MULTIPLIER = setMultiplier(POWER_ID, 50);
 
     public LuxPower(AbstractCreature owner, AbstractCreature source, int amount) {
         super(owner, source, POWER_ID, amount);

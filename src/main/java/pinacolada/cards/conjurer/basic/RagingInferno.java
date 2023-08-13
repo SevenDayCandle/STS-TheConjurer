@@ -18,7 +18,7 @@ public class RagingInferno extends PCLCard {
     public static final PCLCardData DATA = register(RagingInferno.class, ConjurerResources.conjurer)
             .setAttack(3, CardRarity.RARE, PCLAttackType.Normal)
             .setTags(PCLCardTag.Exhaust)
-            .setDamage(33, 4)
+            .setDamage(33, 5)
             .setAffinities(2, PCLAffinity.Red)
             .setCore();
 
@@ -28,6 +28,6 @@ public class RagingInferno extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(EffekseerEFK.FIRE15);
-        addUseMove(PMod.bonusPerLevel(1, PCLAffinity.Red), PMove.applyToSingle(8, PCLElementHelper.Ignis).setUpgrade(1));
+        addUseMove(PMod.bonusPerLevel(1, PCLAffinity.Red), PMove.applyToSingle(6, PCLElementHelper.Ignis).setUpgrade(1));
     }
 }

@@ -41,7 +41,7 @@ public class ErodingTerra extends PCLCard {
         @Override
         public void atEndOfRound() {
             super.atEndOfRound();
-            ArrayList<PetraPower> powers = GameUtilities.getPowers(PetraPower.POWER_ID);
+            ArrayList<PetraPower> powers = GameUtilities.getPowers(PetraPower.class);
             int stacks = 0;
             for (PetraPower po : powers) {
                 if (po.stabilizeTurns > 0) {

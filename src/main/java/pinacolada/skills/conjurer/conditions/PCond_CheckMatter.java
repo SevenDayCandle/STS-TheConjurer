@@ -1,7 +1,9 @@
 package pinacolada.skills.conjurer.conditions;
 
 import extendedui.EUIRM;
+import pinacolada.annotations.VisibleSkill;
 import pinacolada.cards.base.fields.PCLCardTarget;
+import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;
@@ -9,10 +11,10 @@ import pinacolada.skills.PSkillData;
 import pinacolada.skills.PSkillSaveData;
 import pinacolada.skills.fields.PField_Not;
 import pinacolada.skills.skills.PPassiveCond;
-import pinacolada.ui.combat.ConjurerReactionMeter;
 
 import static pinacolada.resources.conjurer.ConjurerEnum.Cards.THE_CONJURER;
 
+@VisibleSkill
 public class PCond_CheckMatter extends PPassiveCond<PField_Not> {
     public static final PSkillData<PField_Not> DATA = register(PCond_CheckMatter.class, PField_Not.class)
             .setColors(THE_CONJURER)

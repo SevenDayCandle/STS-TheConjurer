@@ -2,6 +2,7 @@ package pinacolada.skills.conjurer.modifiers;
 
 import extendedui.EUIRM;
 import extendedui.EUIUtils;
+import pinacolada.annotations.VisibleSkill;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.misc.ConjurerUseInfo;
@@ -14,6 +15,7 @@ import pinacolada.skills.skills.base.modifiers.PMod_BonusOn;
 
 import static pinacolada.resources.conjurer.ConjurerEnum.Cards.THE_CONJURER;
 
+@VisibleSkill
 public class PMod_BonusOnReact extends PMod_BonusOn<PField_Affinity> {
     public static final PSkillData<PField_Affinity> DATA = register(PMod_BonusOnReact.class, PField_Affinity.class).setColors(THE_CONJURER).selfTarget();
 

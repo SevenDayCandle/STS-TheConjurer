@@ -12,6 +12,7 @@ import extendedui.utilities.ColoredString;
 import pinacolada.actions.PCLActions;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.dungeon.CombatManager;
+import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.interfaces.listeners.OnElementalDebuffListener;
 import pinacolada.interfaces.markers.StablizingPower;
 import pinacolada.misc.AffinityReactions;
@@ -19,7 +20,6 @@ import pinacolada.powers.PCLPower;
 import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.resources.pcl.PCLCoreStrings;
-import pinacolada.ui.combat.ConjurerReactionMeter;
 import pinacolada.utilities.GameUtilities;
 import pinacolada.utilities.PCLRenderHelpers;
 
@@ -27,7 +27,7 @@ import java.util.HashMap;
 import java.util.Set;
 
 public abstract class AbstractPCLElementalPower extends PCLPower implements StablizingPower {
-    public static final int BASE_DAMAGE_MULTIPLIER = 30;
+    public static final int BASE_DAMAGE_MULTIPLIER = 40;
     public static final int DEFAULT_COMBUST_INCREASE = BASE_DAMAGE_MULTIPLIER / 2;
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, AbstractPCLElementalPower.class);
     public static final HashMap<String, PCLAffinity> AFFINITIES = new HashMap<>();
@@ -55,7 +55,7 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Stab
     }
 
     public static float getIntensifyMultiplier(String powerID, int level, float modifier) {
-        return (getIntensifyMultiplierForLevel(powerID, level) + CombatManager.getEffectBonus(powerID)) * modifier;
+        return (getIntensifyMultiplierForLevel(powerID, level)) * modifier;
     }
 
     public static float getIntensifyMultiplier(String powerID, int level) {
@@ -67,7 +67,7 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Stab
     }
 
     public static float getIntensifyMultiplierForLevel(String powerID, int level) {
-        float base = MULTIPLIERS.getOrDefault(powerID, 10);
+        float base = MULTIPLIERS.getOrDefault(powerID, 100) + CombatManager.getEffectBonus(powerID);
         float increase = level * base / 2f;
         return base + increase;
     }

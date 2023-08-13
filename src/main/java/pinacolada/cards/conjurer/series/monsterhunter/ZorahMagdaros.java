@@ -21,7 +21,7 @@ import pinacolada.skills.skills.base.conditions.PCond_PayLevel;
 public class ZorahMagdaros extends PCLCard {
     public static final PCLCardData DATA = register(ZorahMagdaros.class, ConjurerResources.conjurer)
             .setSummon(4, CardRarity.RARE, PCLAttackType.Normal, PCLCardTarget.AllEnemy, DelayTiming.EndOfTurnFirst)
-            .setDamage(9, 1)
+            .setDamage(11, 1)
             .setHp(40, 1)
             .setAffinities(PCLAffinity.Orange.make(2), PCLAffinity.Red.make(1))
             .setLoadout(ConjurerPlayerData.monsterHunter);
@@ -32,6 +32,6 @@ public class ZorahMagdaros extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.EARTH);
-        addGainPower(PTrigger.interactable(new PCond_PayLevel(1, PCLAffinity.Orange), PMod.bonusPerLevel(3, PCLAffinity.Orange), PMove.applyToEnemies(6, PCLElementHelper.Petra, PCLElementHelper.Ignis)));
+        addGainPower(PTrigger.interactable(new PCond_PayLevel(1, PCLAffinity.Orange), PMod.bonusPerLevel(3, PCLAffinity.Orange), PMove.applyToEnemies(7, PCLElementHelper.Petra, PCLElementHelper.Ignis)));
     }
 }

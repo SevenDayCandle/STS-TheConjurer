@@ -13,7 +13,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 public class AquaPower extends AbstractPCLElementalPower {
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, AquaPower.class);
     public static final PCLAffinity AFFINITY = setAffinity(POWER_ID, PCLAffinity.Blue);
-    public static final int MULTIPLIER = setMultiplier(POWER_ID, 50);
+    public static final int MULTIPLIER = setMultiplier(POWER_ID, 100);
 
     public AquaPower(AbstractCreature owner, AbstractCreature source, int amount) {
         super(owner, source, POWER_ID, amount);
@@ -27,7 +27,7 @@ public class AquaPower extends AbstractPCLElementalPower {
     @Override
     public void onReact(AbstractCreature source, AffinityReactions reactions) {
         if (!(owner instanceof PCLCardAlly)) {
-            PCLActions.bottom.applyPower(source, owner, PCLElementHelper.Frostbite, (int) calculateValue(reactions), false);
+            PCLActions.bottom.applyPower(source, owner, PCLElementHelper.Cooled, (int) calculateValue(reactions), false);
         }
         super.onReact(source, reactions);
     }

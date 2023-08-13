@@ -29,6 +29,6 @@ public class BurnCatalyzation extends PCLCard {
     public void setup(Object input) {
         addUseMove(PMove.createDrawPile(2, Status_Burn.DATA.ID).edit(f -> f.setDestination(PCLCardSelection.Top)));
         addGainPower(2, PTrigger.when(PCond.onDraw().edit(f -> f.setCardIDs(Status_Burn.DATA.ID)),
-                PMultiSkill.join(PMove.draw(1), PMove.applyToEnemies(7, PCLElementHelper.Ignis, PCLElementHelper.Blasted))).setUpgrade(1));
+                PMultiSkill.join(PMove.draw(1), PMove.applyToEnemies(5, PCLElementHelper.Ignis, PCLElementHelper.Blasted))).setUpgrade(1));
     }
 }
