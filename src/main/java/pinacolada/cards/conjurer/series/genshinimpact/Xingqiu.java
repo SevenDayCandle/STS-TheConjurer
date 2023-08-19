@@ -28,6 +28,6 @@ public class Xingqiu extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL);
-        addUseMove(PCond.cooldown(1), PMove.gainPlayer(2, PCLPowerHelper.Warding).setUpgrade(1));
+        addUseMove(PCond.cooldown(1), PMove.gainPlayer(3, PCLPowerHelper.Warding).setUpgrade(1));
     }
 }

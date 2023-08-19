@@ -21,7 +21,6 @@ import pinacolada.cards.base.fields.PCLCardAffinity;
 import pinacolada.effects.PCLEffects;
 import pinacolada.effects.affinity.GenericFlashEffect;
 import pinacolada.interfaces.subscribers.OnTryElementReactSubscriber;
-import pinacolada.misc.AffinityReactions;
 import pinacolada.powers.conjurer.AbstractPCLElementalPower;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.PGR;
@@ -53,10 +52,10 @@ public class ConjurerElementButton extends EUIButton {
     protected float intensifyFontScale = BASE_AMOUNT_SCALE;
     protected int level;
     protected EUIKeywordTooltip keyword;
+    protected float currentCostMultiplier = 1f;
     public boolean canInteract;
     public int currentCost;
     public int currentAmplifyOffset;
-    protected float currentCostMultiplier = 1f;
 
     public ConjurerElementButton(ConjurerReactionMeter meter, PCLAffinity affinity, Texture texture, EUIHitbox hb) {
         super(ConjurerImages.Core.squareBg.texture(), hb);
@@ -192,21 +191,6 @@ public class ConjurerElementButton extends EUIButton {
         FontHelper.renderFontCentered(sb, FontHelper.powerAmountFont, "L" + level, hb.cX + scale(15), hb.cY - scale(15), EUIColors.blue(1f), intensifyFontScale);
     }
 
-    @Override
-    public void updateImpl() {
-        super.updateImpl();
-        elementImage.setTargetColor(canIntensify() ? Color.WHITE : Color.GRAY).updateImpl();
-        if (hb.hovered) {
-            updateDescription();
-            GameUtilities.highlightMatchingCards(affinity);
-        }
-        for (ConjurerReactionButton button : reactions.values()) {
-            button.tryUpdate();
-        }
-
-        intensifyFontScale = PCLRenderHelpers.lerpScale(intensifyFontScale, BASE_AMOUNT_SCALE);
-    }
-
     public void setCurrentCostMultiplier(float mult) {
         currentCost *= mult / currentCostMultiplier;
         currentCostMultiplier = mult;
@@ -266,6 +250,21 @@ public class ConjurerElementButton extends EUIButton {
             }
 
         }
+    }
+
+    @Override
+    public void updateImpl() {
+        super.updateImpl();
+        elementImage.setTargetColor(canIntensify() ? Color.WHITE : Color.GRAY).updateImpl();
+        if (hb.hovered) {
+            updateDescription();
+            GameUtilities.highlightMatchingCards(affinity);
+        }
+        for (ConjurerReactionButton button : reactions.values()) {
+            button.tryUpdate();
+        }
+
+        intensifyFontScale = PCLRenderHelpers.lerpScale(intensifyFontScale, BASE_AMOUNT_SCALE);
     }
 
     public void updatePreview(AffinityReactions afs) {

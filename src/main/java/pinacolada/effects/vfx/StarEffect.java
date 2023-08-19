@@ -13,9 +13,8 @@ import pinacolada.resources.conjurer.ConjurerImages;
 import java.util.ArrayList;
 
 public class StarEffect extends VisualEffect {
-    public static final TextureCache[] IMAGES = {ConjurerImages.Effects.sparkle1, ConjurerImages.Effects.sparkle2, ConjurerImages.Effects.sparkle3, ConjurerImages.Effects.sparkle4};
     protected static final ArrayList<Float> RGB = new ArrayList<>(3);
-
+    public static final TextureCache[] IMAGES = {ConjurerImages.Effects.sparkle1, ConjurerImages.Effects.sparkle2, ConjurerImages.Effects.sparkle3, ConjurerImages.Effects.sparkle4};
     protected float vfxFrequency = 0.015f;
     protected float vfxTimer;
 
@@ -39,6 +38,23 @@ public class StarEffect extends VisualEffect {
 
     public void render(SpriteBatch sb) {
         renderImage(sb, ConjurerImages.Effects.star.texture(), x, y, false, false);
+    }
+
+    public StarEffect setFrequency(float frequency) {
+        this.vfxFrequency = MathUtils.clamp(frequency, 0.01f, startingDuration / 5f);
+
+        return this;
+    }
+
+    public StarEffect setRandomColor() {
+        RGB.clear();
+        RGB.add(0.48f);
+        RGB.add(1f);
+        RGB.add(random(0.48f, 1f));
+
+        this.color = new Color(RGB.remove(random(0, 2)), RGB.remove(random(0, 1)), RGB.remove(0), 0.15f);
+
+        return this;
     }
 
     @Override
@@ -74,22 +90,5 @@ public class StarEffect extends VisualEffect {
         }
 
         super.updateInternal(deltaTime);
-    }
-
-    public StarEffect setFrequency(float frequency) {
-        this.vfxFrequency = MathUtils.clamp(frequency, 0.01f, startingDuration / 5f);
-
-        return this;
-    }
-
-    public StarEffect setRandomColor() {
-        RGB.clear();
-        RGB.add(0.48f);
-        RGB.add(1f);
-        RGB.add(random(0.48f, 1f));
-
-        this.color = new Color(RGB.remove(random(0, 2)), RGB.remove(random(0, 1)), RGB.remove(0), 0.15f);
-
-        return this;
     }
 }

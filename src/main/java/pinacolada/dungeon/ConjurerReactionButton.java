@@ -59,6 +59,18 @@ public class ConjurerReactionButton extends EUIImage {
         overlay.renderImpl(sb);
     }
 
+    public void unhighlight() {
+        overlay.setTargetColor(EUIColors.black(0));
+    }
+
+    public void updateDescription() {
+        if (PGR.isLoaded()) {
+            keyword.setIcon(target.elementPower().tooltip.icon);
+            keyword.setDescription(
+                    EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterReact, source.affinity.getTooltip(), target.elementPower().tooltip, PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(source.affinity))));
+        }
+    }
+
     public void updateImpl() {
         if (Gdx.input.isKeyPressed(Input.Keys.J)) {
             PROGRESS_PERCENT += Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT) ? 0.001f : -0.001f;
@@ -81,18 +93,6 @@ public class ConjurerReactionButton extends EUIImage {
         }
 
         overlay.updateImpl();
-    }
-
-    public void unhighlight() {
-        overlay.setTargetColor(EUIColors.black(0));
-    }
-
-    public void updateDescription() {
-        if (PGR.isLoaded()) {
-            keyword.setIcon(target.elementPower().tooltip.icon);
-            keyword.setDescription(
-                    EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterReact, source.affinity.getTooltip(), target.elementPower().tooltip, PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(source.affinity))));
-        }
     }
 
 }

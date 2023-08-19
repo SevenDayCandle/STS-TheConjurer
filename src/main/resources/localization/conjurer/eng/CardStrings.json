@@ -87,8 +87,9 @@
 		"conjurer:DiamondDazzle": {"EXTENDED_DESCRIPTION": ["+{0} damage per Augment on any card in hand", "While in your deck, you have a higher chance of finding Augments"], "NAME": "Diamond Dazzle"},
 		"conjurer:Discovery": {"EXTENDED_DESCRIPTION": ["Obtain {0} of {1} cards that you haven't unlocked yet. It costs 0 this turn"], "NAME": "Discovery"},
 		"conjurer:Egg": {"EXTENDED_DESCRIPTION": ["Transforms into a random Summon"], "NAME": "Egg"},
-		"conjurer:Enervate": {"EXTENDED_DESCRIPTION": ["Cut the target's [Strength] in half if it is positive, then reduce it by {0}."], "NAME": "Enervate"},
+		"conjurer:Enervate": {"EXTENDED_DESCRIPTION": ["Cut the target's [Strength] in half if it is positive, then reduce it by {0}"], "NAME": "Enervate"},
 		"conjurer:Firkaag": {"NAME": "Firkaag"},
+		"conjurer:ForceImpulseGundam": {"EXTENDED_DESCRIPTION": ["per upgrade on any card in hand"], "NAME": "Force Impulse Gundam"},
 		"conjurer:FreestyleForm": {"EXTENDED_DESCRIPTION": ["Apply {0} of {1} modifications to {0} card in hand"], "NAME": "Freestyle Form"},
 		"conjurer:GeneticEngineering": {"EXTENDED_DESCRIPTION": ["Status cards lose negative effects and gain positive effects"], "NAME": "Genetic Engineering"},
 		"conjurer:Geralt": {"EXTENDED_DESCRIPTION": ["Take on {0} of {1} requests"], "NAME": "Geralt of Rivia"},
@@ -99,6 +100,7 @@
 			"EXTENDED_DESCRIPTION": ["Redistribute the costs of the cards in hand"],
 			"NAME": "Iridescence"
 		},
+		"conjurer:Jakk": {"NAME": "Jakk"},
 		"conjurer:Kirby": {"EXTENDED_DESCRIPTION": ["When obtained, combine up to {0} Common Summons from your deck into this card"], "NAME": "Kirby"},
 		"conjurer:KomachiOnozuka": {"EXTENDED_DESCRIPTION": ["If this kills a boss or Elite"], "FLAVOR": "Kazu Muchuukai", "NAME": "Komachi Onozuka"},
 		"conjurer:MagicMirror": {"EXTENDED_DESCRIPTION": ["Reflect the next {0} Debuffs received"], "NAME": "Magic Mirror"},
@@ -107,6 +109,7 @@
 		"conjurer:Megaman": {"EXTENDED_DESCRIPTION": ["Pay a price to use an effect based on a random enemy"], "NAME": "Mega Man"},
 		"conjurer:MirrorForce": {"EXTENDED_DESCRIPTION": ["Reflect the next {0} enemy attacks this turn"], "NAME": "Mirror Force"},
 		"conjurer:MonsterReborn": {"EXTENDED_DESCRIPTION": ["Summon {0} Purged Summon. Increase its HP and damage by {1}%"], "NAME": "Monster Reborn"},
+		"conjurer:MS06ZakuII": {"EXTENDED_DESCRIPTION": ["Interactables on Summons may be used again"], "NAME": "MS-06 Zaku II"},
 		"conjurer:NuclearTransmutation": {"NAME": "Nuclear Transmutation"},
 		"conjurer:OracleSphere": {"EXTENDED_DESCRIPTION": ["Move {0} cards to the top"], "NAME": "Oracle Sphere"},
 		"conjurer:PhoenixWright": {"EXTENDED_DESCRIPTION": ["Effect changes based on the target's intent"], "NAME": "Phoenix Wright"},
@@ -136,21 +139,17 @@
 		"conjurer:TheWatcher": {"EXTENDED_DESCRIPTION": ["Obtain {0} of {1} Watcher cards. It costs 0 this turn"], "NAME": "The Watcher"},
 		"conjurer:TreasureChest": {"EXTENDED_DESCRIPTION": ["There is a small chance to get a special reward"], "NAME": "Treasure Chest"},
 		"conjurer:TreasureChest_TreasureKey": {"EXTENDED_DESCRIPTION": ["Unlock a Treasure Chest in hand"], "NAME": "Treasure Key"},
+		"conjurer:Whisper": {"NAME": "Whisper"},
+		"conjurer:WingGundamZero": {"EXTENDED_DESCRIPTION": ["Increase the maximum Upgrade level of the {0} leftmost cards in hand by {0} and Upgrade them"], "NAME": "Wing Gundam Zero"},
 		"conjurer:Zagreus": {"NAME": "Zagreus"},
 		"conjurer:Zero": {"NAME": "Zero"}
 	},
 	"CURSE":
 	{
-		"conjurer:Curse_Avarice": {"NAME": "Avarice"},
-		"conjurer:Curse_Depression": {"NAME": "Depression"},
-		"conjurer:Curse_Despair": {"NAME": "Despair"},
-		"conjurer:Curse_Devastation": {"NAME": "Devastation"},
-		"conjurer:Curse_Normality2": {
+		"conjurer:NormalizedNormality": {
 			"EXTENDED_DESCRIPTION": ["While in hand, negate the {Buffs} and {Debuffs} of all characters (excluding those specific to cards or encounters)"],
-			"NAME": "Normality"
-		},
-		"conjurer:Curse_Torment": {"NAME": "Torment"},
-		"conjurer:Curse_Wither": {"NAME": "Wither"}
+			"NAME": "Normalized Normality"
+		}
 	},
 	"SERIES:DARKSOULS":
 	{
@@ -248,7 +247,7 @@
 		"conjurer:Candace": {"NAME": "Candace"},
 		"conjurer:Chongyun": {"NAME": "Chongyun"},
 		"conjurer:Collei": {"NAME": "Collei"},
-		"conjurer:Cyno": {"EXTENDED_DESCRIPTION": ["Whenever any creature dies: You gain {1} [Energized], and this gains +{0} damage"], "NAME": "Cyno"},
+		"conjurer:Cyno": {"NAME": "Cyno"},
 		"conjurer:Dainsleif": {"NAME": "Dainsleif"},
 		"conjurer:Diluc": {"NAME": "Diluc Ragnvindr"},
 		"conjurer:Diona": {"NAME": "Diona"},
@@ -296,6 +295,7 @@
 		"conjurer:Xingqiu": {"NAME": "Xingqiu"},
 		"conjurer:Xinyan": {"NAME": "Xinyan"},
 		"conjurer:Yanfei": {"NAME": "Yanfei"},
+		"conjurer:YaoYao": {"NAME": "YaoYao"},
 		"conjurer:Yelan": {"NAME": "Yelan"},
 		"conjurer:Yoimiya": {"NAME": "Yoimiya Naganohara"},
 		"conjurer:YunJin": {"NAME": "Yunjin"},
@@ -304,14 +304,25 @@
 	"SERIES:HONKAI":
 	{
 		"conjurer:Aponia": {"NAME": "Aponia"},
+		"conjurer:Bailu": {"NAME": "Bailu"},
 		"conjurer:Blade": {"NAME": "Blade"},
+		"conjurer:BronyaZaychik": {"NAME": "Bronya Zaychik"},
+		"conjurer:Caelus": {"NAME": "Caelus"},
 		"conjurer:DanHeng": {"NAME": "Dan Heng"},
 		"conjurer:Elysia": {"NAME": "Elysia"},
-		"conjurer:Kafka": {"NAME": "Kafka"},
+		"conjurer:FuHua": {"NAME": "Fu Hua"},
+		"conjurer:FuXuan": {"NAME": "Fu Xuan"},
+		"conjurer:Kafka": {"EXTENDED_DESCRIPTION": ["When [Weak] or [Vulnerable] is applied, it is applied to everyone"], "NAME": "Kafka"},
+		"conjurer:HimekoMurata": {"NAME": "Himeko Murata"},
+		"conjurer:KianaKaslana": {"NAME": "Kiana Kaslana"},
 		"conjurer:March7th": {"NAME": "March 7th"},
+		"conjurer:NatashaCeobe": {"NAME": "Natasha Ceobe"},
+		"conjurer:Qingque": {"NAME": "Qingque"},
 		"conjurer:SampoKoski": {"NAME": "Sampo Koski"},
-		"conjurer:SilverwingNEX": {"NAME": "Silverwing NEX"},
+		"conjurer:SeeleVollerei": {"NAME": "Seele Vollerei"},
 		"conjurer:SilverWolf": {"NAME": "Silver Wolf"},
+		"conjurer:Stelle": {"NAME": "Stelle"},
+		"conjurer:SushangLi": {"NAME": "Sushang Li"},
 		"conjurer:Tingyun": {"NAME": "Tingyun"},
 		"conjurer:WeltYang": {"NAME": "Welt Yang"},
 		"conjurer:YaeSakura": {"NAME": "Yae Sakura"}
@@ -436,10 +447,11 @@
 		"conjurer:KaguyaHouraisan": {"EXTENDED_DESCRIPTION": ["Apply {0} of the Elemental Debuffs of each discarded card"], "NAME": "Kaguya Houraisan"},
 		"conjurer:KanakoYasaka": {"FLAVOR": "NextNinja",  "NAME": "Kanako Yasaka"},
 		"conjurer:KogasaTatara": {"FLAVOR": "NextNinja",  "NAME": "Kogasa Tatara"},
-		"conjurer:LettyWhiterock": {"EXTENDED_DESCRIPTION": ["[A-B] cards have +{0}% damage. [A-R] cards have -{0}% damage."], "NAME": "Letty Whiterock"},
+		"conjurer:LettyWhiterock": {"EXTENDED_DESCRIPTION": ["[A-B] cards have +{0}% damage. [A-R] cards have -{0}% damage"], "NAME": "Letty Whiterock"},
 		"conjurer:LilyWhite": {"NAME": "Lily White"},
 		"conjurer:MarisaKirisame": {"FLAVOR": "Kure~pu", "NAME": "Marisa Kirisame"},
 		"conjurer:MayumiJoutouguu": {"FLAVOR": "Kyouda Suzuka", "NAME": "Mayumi Joutouguu"},
+		"conjurer:MomijiInubashiri": {"NAME": "Momiji Inubashiri"},
 		"conjurer:Nazrin": {"NAME": "Nazrin"},
 		"conjurer:NitoriKawashiro": {"FLAVOR": "NextNinja", "NAME": "Nitori Kawashiro"},
 		"conjurer:Patchouli": {"EXTENDED_DESCRIPTION": ["Apply {0} of {1} Debuffs"], "NAME": "Patchouli"},
@@ -458,10 +470,6 @@
 	},
 	"SPECIAL":
 	{
-		"conjurer:Apparition": {
-			"EXTENDED_DESCRIPTION": ["Cycle all {Apparitions} in hand"],
-			"NAME": "Apparition"
-		},
 		"conjurer:AquaBenedicta": {"NAME": "Aqua Benedicta"},
 		"conjurer:Bite": {
 			"NAME": "Bite"
@@ -470,9 +478,6 @@
 		"conjurer:ElectromagneticWave": {"NAME": "Electromagnetic Wave"},
 		"conjurer:LexAeterna": {"NAME": "Lex Aeterna"},
 		"conjurer:IonizingSurge": {"NAME": "Ionizing Surge"},
-		"conjurer:JAX": {
-			"NAME": "J.A.X."
-		},
 		"conjurer:NobleSky": {"NAME": "Noble Sky"},
 		"conjurer:RitualDagger": {
 			"NAME": "Ritual Dagger"
@@ -480,9 +485,5 @@
 		"conjurer:Thundershock": {"NAME": "Thundershock"},
 		"conjurer:TriAttack": {"NAME": "Tri-Attack"},
 		"conjurer:VoltageAmplification": {"NAME": "Voltage Amplification"}
-	},
-	"STATUS":	{
-		"conjurer:Status_Growth": {"NAME": "Growth"},
-		"conjurer:Status_SearingBurn": {"NAME": "Searing Burn"}
 	}
 }

@@ -39,13 +39,13 @@ public class EntropicDie extends PCLRelic implements CardRewardActionProvider {
         return getReward(card, rewardItem);
     }
 
-    @Override
-    public PCLRelicData[] getReplacementIDs() {
-        return EUIUtils.array(GenericDice.DATA);
-    }
-
     protected int getBonus() {
         return GameUtilities.getTotalCardsInRewardPool() / BONUS_PER_CARDS;
+    }
+
+    @Override
+    public String getDescriptionImpl() {
+        return formatDescription(0, BONUS_PER_CARDS);
     }
 
     protected AbstractCard.CardRarity getRarity(AbstractCard card) {
@@ -63,6 +63,11 @@ public class EntropicDie extends PCLRelic implements CardRewardActionProvider {
             return AbstractCard.CardRarity.UNCOMMON;
         }
         return AbstractCard.CardRarity.COMMON;
+    }
+
+    @Override
+    public PCLRelicData[] getReplacementIDs() {
+        return EUIUtils.array(GenericDice.DATA);
     }
 
     public AbstractCard getReward(AbstractCard card, RewardItem rewardItem) {
@@ -92,18 +97,6 @@ public class EntropicDie extends PCLRelic implements CardRewardActionProvider {
     }
 
     @Override
-    public String getDescriptionImpl() {
-        return formatDescription(0, BONUS_PER_CARDS);
-    }
-
-    @Override
-    public void onEquip() {
-        super.onEquip();
-
-        setCounter(0);
-    }
-
-    @Override
     public void onEnterRoom(AbstractRoom room) {
         super.onEnterRoom(room);
         rerolls = 0;
@@ -112,5 +105,12 @@ public class EntropicDie extends PCLRelic implements CardRewardActionProvider {
             setCounter(counter + getBonus());
             flash();
         }
+    }
+
+    @Override
+    public void onEquip() {
+        super.onEquip();
+
+        setCounter(0);
     }
 }

@@ -17,7 +17,6 @@ import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import extendedui.EUIUtils;
 import extendedui.ui.EUIBase;
-import extendedui.utilities.EUIColors;
 import pinacolada.effects.PCLSFX;
 import pinacolada.effects.vfx.FadingParticleEffect;
 import pinacolada.effects.vfx.SmokeEffect;
@@ -53,56 +52,13 @@ public class ConjurerCharacter extends PCLCharacter {
     }
 
     @Override
-    public AbstractCard getStartCardForEvent() {
-        return new Strike_Red();
-    }
-
-    @Override
     public Color getCardTrailColor() {
         return MAIN_COLOR.cpy();
     }
 
     @Override
-    public AbstractPlayer newInstance() {
-        return new ConjurerCharacter();
-    }
-
-    @Override
-    public void playDeathAnimation() {
-        super.playDeathAnimation();
-        deathEffects = new ArrayList<>();
-        for (int i = 0; i < 25; i++) {
-            float rotation = MathUtils.random(0, 360f);
-            deathEffects.add(FadingParticleEffect.obtain(EUIUtils.random(SmokeEffect.IMAGES).texture(), hb.cX, hb.cY)
-                    .setColor(getCardRenderColor())
-                    .setScaleTarget(0.2f + MathUtils.random(0, 0.1f), 0.75F + MathUtils.random(0, 0.15f), 5f)
-                    .setRotation(rotation, MathUtils.random(-180.0F, 180.0F))
-                    .setTargetPosition(hb.cX + EUIBase.scale(180) * MathUtils.cos(rotation), hb.cY + EUIBase.scale(180) * MathUtils.sin(rotation), MathUtils.random(30f, 80f)));
-        }
-    }
-
-    @Override
-    public void render(SpriteBatch sb) {
-        super.render(sb);
-        if (deathEffects != null) {
-            for (AbstractGameEffect ef : deathEffects) {
-                ef.update();
-                ef.render(sb);
-            }
-            deathEffects.removeIf(e -> e.isDone);
-        }
-    }
-
-    @Override
-    protected void renderPlayerSkeleton() {
-        this.skeleton.setColor(EUIColors.white(0.7f));
-        PCLRenderHelpers.drawGrayscale(CardCrawlGame.psb, s -> sr.draw(CardCrawlGame.psb, this.skeleton));
-    }
-
-    @Override
-    protected void renderPlayerSprite(SpriteBatch sb) {
-        PCLRenderHelpers.drawGrayscale(sb,
-                s -> this.animation.renderSprite(s, this.drawX + this.animX, this.drawY + this.animY + AbstractDungeon.sceneOffsetY));
+    public String getCustomModeCharacterButtonSoundKey() {
+        return PCLSFX.ORB_FROST_EVOKE;
     }
 
     @Override
@@ -113,11 +69,6 @@ public class ConjurerCharacter extends PCLCharacter {
     @Override
     public BitmapFont getEnergyNumFont() {
         return FontHelper.energyNumFontBlue;
-    }
-
-    @Override
-    public String getCustomModeCharacterButtonSoundKey() {
-        return PCLSFX.ORB_FROST_EVOKE;
     }
 
     @Override
@@ -137,7 +88,57 @@ public class ConjurerCharacter extends PCLCharacter {
     }
 
     @Override
+    public AbstractCard getStartCardForEvent() {
+        return new Strike_Red();
+    }
+
+    @Override
+    public AbstractPlayer newInstance() {
+        return new ConjurerCharacter();
+    }
+
+    @Override
+    public void playDeathAnimation() {
+        super.playDeathAnimation();
+        deathEffects = new ArrayList<>();
+        for (int i = 0; i < 25; i++) {
+            float rotation = MathUtils.random(0, 360f);
+            deathEffects.add(FadingParticleEffect.obtain(EUIUtils.random(SmokeEffect.IMAGES).texture(), hb.cX, hb.cY)
+                    .setColor(getCardRenderColor())
+                    .setScaleTarget(0.2f + MathUtils.random(0, 0.1f), 0.75F + MathUtils.random(0, 0.15f), 5f)
+                    .setRotation(rotation, MathUtils.random(-180.0F, 180.0F))
+                    .setTargetPosition(hb.cX + EUIBase.scale(180) * MathUtils.cos(rotation), hb.cY + EUIBase.scale(180) * MathUtils.sin(rotation), MathUtils.random(30f, 80f))
+                    .setDuration(1f, false)
+            );
+        }
+    }
+
+    @Override
     public void reloadDefaultAnimation() {
         reloadAnimation(0.5f);
+    }
+
+    @Override
+    public void render(SpriteBatch sb) {
+        super.render(sb);
+        if (deathEffects != null) {
+            for (AbstractGameEffect ef : deathEffects) {
+                ef.update();
+                ef.render(sb);
+            }
+            deathEffects.removeIf(e -> e.isDone);
+        }
+    }
+
+    @Override
+    protected void renderPlayerSkeleton() {
+        this.skeleton.setColor(Color.SKY);
+        PCLRenderHelpers.drawCRT(CardCrawlGame.psb, s -> sr.draw(CardCrawlGame.psb, this.skeleton));
+    }
+
+    @Override
+    protected void renderPlayerSprite(SpriteBatch sb) {
+        PCLRenderHelpers.drawCRT(sb,
+                s -> this.animation.renderSprite(s, this.drawX + this.animX, this.drawY + this.animY + AbstractDungeon.sceneOffsetY));
     }
 }

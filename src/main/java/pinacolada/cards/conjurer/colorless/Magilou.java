@@ -28,6 +28,6 @@ public class Magilou extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.GHOST);
-        addUseMove(PCond.cooldown(1), PMove.applyToTeam(1, PCLPowerHelper.Sorcery));
+        addUseMove(PCond.cooldown(1), PMove.applyToAllies(2, PCLPowerHelper.Sorcery));
     }
 }

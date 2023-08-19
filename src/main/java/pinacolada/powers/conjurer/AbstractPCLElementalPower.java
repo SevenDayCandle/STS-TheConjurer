@@ -1,21 +1,26 @@
 package pinacolada.powers.conjurer;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import extendedui.EUI;
+import extendedui.EUIRenderHelpers;
 import extendedui.EUIUtils;
 import extendedui.utilities.ColoredString;
 import pinacolada.actions.PCLActions;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.dungeon.AffinityReactions;
 import pinacolada.dungeon.CombatManager;
+import pinacolada.dungeon.ConjurerElementButton;
 import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.interfaces.listeners.OnElementalDebuffListener;
 import pinacolada.interfaces.markers.StablizingPower;
-import pinacolada.misc.AffinityReactions;
 import pinacolada.powers.PCLPower;
 import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -24,15 +29,19 @@ import pinacolada.utilities.GameUtilities;
 import pinacolada.utilities.PCLRenderHelpers;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Set;
 
 public abstract class AbstractPCLElementalPower extends PCLPower implements StablizingPower {
+    private static List<PCLAffinity> hovered;
+    private static AbstractCard last;
     public static final int BASE_DAMAGE_MULTIPLIER = 40;
     public static final int DEFAULT_COMBUST_INCREASE = BASE_DAMAGE_MULTIPLIER / 2;
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, AbstractPCLElementalPower.class);
     public static final HashMap<String, PCLAffinity> AFFINITIES = new HashMap<>();
     public static final HashMap<String, Integer> MULTIPLIERS = new HashMap<>();
     public int stabilizeTurns;
+    protected float flashTimer;
 
     public AbstractPCLElementalPower(AbstractCreature owner, AbstractCreature source, String id, int amount) {
         super(owner, id);
@@ -117,6 +126,11 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Stab
         return mult;
     }
 
+    @Override
+    protected Color getImageColor(Color c) {
+        return (enabled) ? c : disabledColor;
+    }
+
     public float getIntensifyMultiplier() {
         if (GameUtilities.isPlayer(owner)) {
             return MULTIPLIERS.get(ID);
@@ -137,7 +151,7 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Stab
                 return new ColoredString((int) calculateValue(reactions), Color.GREEN, c.a);
             }
         }
-        return new ColoredString((int) getIntensifyMultiplier(), Color.RED, c.a);
+        return new ColoredString((int) getIntensifyMultiplier(), Color.GOLDENROD, c.a);
     }
 
     @Override
@@ -157,22 +171,58 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Stab
         return sub;
     }
 
+    protected String getUpdatedDescriptionImpl() {
+        return formatDescription(0, PCLRenderHelpers.decimalFormat(getIntensifyMultiplier()));
+    }
+
     @Override
     public void onInitialApplication() {
         super.onInitialApplication();
-    }
-
-    protected String getUpdatedDescriptionImpl() {
-        return formatDescription(0, PCLRenderHelpers.decimalFormat(getIntensifyMultiplier()));
     }
 
     public void onReact(AbstractCreature source, AffinityReactions reactions) {
         flash();
     }
 
+    @Override
+    protected void renderIconsImpl(SpriteBatch sb, float x, float y, Color borderColor, Color imageColor) {
+        PCLRenderHelpers.drawCentered(sb, imageColor, this.img, x, y, 32.0F, 32.0F, 1f, 0.0F);
+        if (flashTimer > 0) {
+            Color flashColor = imageColor.cpy();
+            flashColor.a = 0.5f + MathUtils.sin(flashTimer) * 0.5f;
+            EUIRenderHelpers.drawBlendedWithShader(sb, EUIRenderHelpers.BlendingMode.Glowing, EUIRenderHelpers.ShaderMode.Colorize, s -> {
+                PCLRenderHelpers.drawCentered(s, flashColor, this.img, x, y, 32.0F, 32.0F, 1f, 0.0F);
+            });
+        }
+    }
+
     public void stabilize(int turns) {
         stabilizeTurns += turns;
         flash();
+    }
+
+    @Override
+    public void updateHitbox() {
+        super.updateHitbox();
+        AbstractCard card = ConjurerReactionMeter.meter.getLastCard();
+        if (card != null) {
+            if (last != card) {
+                last = card;
+                hovered = GameUtilities.getVisiblePCLAffinities(card);
+            }
+            if (hovered != null) {
+                ConjurerElementButton button = ConjurerReactionMeter.meter.getElementButton(getAffinity());
+                if (button != null) {
+                    for (PCLAffinity affinity : hovered) {
+                        if (button.hasReact(affinity)) {
+                            flashTimer += EUI.delta() * 4;
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+        flashTimer = 0;
     }
 
     public abstract AbstractGameAction.AttackEffect getAttackEffect();

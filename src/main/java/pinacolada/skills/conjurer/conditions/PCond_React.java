@@ -5,10 +5,10 @@ import extendedui.EUIUtils;
 import pinacolada.annotations.VisibleSkill;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
+import pinacolada.dungeon.AffinityReactions;
+import pinacolada.dungeon.ConjurerUseInfo;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.interfaces.subscribers.OnElementReactSubscriber;
-import pinacolada.misc.AffinityReactions;
-import pinacolada.misc.ConjurerUseInfo;
 import pinacolada.resources.conjurer.ConjurerEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;
@@ -16,7 +16,6 @@ import pinacolada.skills.PSkillData;
 import pinacolada.skills.PSkillSaveData;
 import pinacolada.skills.fields.PField_Affinity;
 import pinacolada.skills.skills.PPassiveCond;
-import pinacolada.skills.skills.PTrigger;
 
 @VisibleSkill
 public class PCond_React extends PPassiveCond<PField_Affinity> implements OnElementReactSubscriber {
@@ -48,8 +47,8 @@ public class PCond_React extends PPassiveCond<PField_Affinity> implements OnElem
 
     @Override
     public String getSubText(PCLCardTarget perpsective) {
-        if (hasParentType(PTrigger.class)) {
-            return TEXT.cond_whenAObject(TEXT.subjects_card, fields.affinities.isEmpty() ? ConjurerResources.conjurer.tooltips.reaction.present() : TEXT.subjects_withX(ConjurerResources.conjurer.tooltips.reaction.past(), fields.getAffinityOrString()));
+        if (isWhenClause()) {
+            return TEXT.cond_aObject(TEXT.subjects_card, fields.affinities.isEmpty() ? ConjurerResources.conjurer.tooltips.reaction.present() : TEXT.subjects_withX(ConjurerResources.conjurer.tooltips.reaction.past(), fields.getAffinityOrString()));
         }
         String base = fields.affinities.isEmpty() ? ConjurerResources.conjurer.tooltips.reaction.past() : TEXT.subjects_withX(ConjurerResources.conjurer.tooltips.reaction.past(), fields.getAffinityOrString());
         return TEXT.cond_ifTargetHas(TEXT.subjects_this, PCLCardTarget.Single.ordinal(), fields.not ? TEXT.cond_not(base) : base);

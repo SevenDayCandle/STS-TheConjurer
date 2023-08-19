@@ -20,7 +20,7 @@ public class AyakaKamisato extends PCLCard {
     public static final PCLCardData DATA = register(AyakaKamisato.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE, PCLAttackType.Brutal)
             .setRTags(PCLCardTag.Ethereal)
-            .setDamage(7, 0, 2)
+            .setDamage(8, 0, 2)
             .setHp(4, 1)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.genshinImpact);

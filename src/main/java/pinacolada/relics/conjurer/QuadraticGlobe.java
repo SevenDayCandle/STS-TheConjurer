@@ -45,17 +45,12 @@ public class QuadraticGlobe extends PCLRelic implements OnCardCreatedSubscriber 
         });
     }
 
-    public int getValue() {
-        return 50;
-    }
-
     public float getMultiplier() {
         return (100 + getValue()) / 100f;
     }
 
-    @Override
-    public void onCardCreated(AbstractCard card, boolean b) {
-        modify(card);
+    public int getValue() {
+        return 50;
     }
 
     protected void modify(AbstractCard card) {
@@ -66,5 +61,10 @@ public class QuadraticGlobe extends PCLRelic implements OnCardCreatedSubscriber 
                 }
             }));
         }
+    }
+
+    @Override
+    public void onCardCreated(AbstractCard card, boolean b) {
+        modify(card);
     }
 }

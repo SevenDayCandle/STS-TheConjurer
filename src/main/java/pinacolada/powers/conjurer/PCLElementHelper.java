@@ -29,12 +29,12 @@ public class PCLElementHelper extends PCLPowerHelper {
     public static final PCLElementHelper Petra = new PCLElementHelper(PetraPower.POWER_ID, ConjurerResources.conjurer.tooltips.petra, PetraPower::new, PetraPower.AFFINITY);
     public static final PCLElementHelper Ventus = new PCLElementHelper(VentusPower.POWER_ID, ConjurerResources.conjurer.tooltips.ventus, VentusPower::new, VentusPower.AFFINITY);
     public static final PCLPowerHelper Blasted = new PCLPowerHelper(BlastedPower.POWER_ID, ConjurerResources.conjurer.tooltips.blasted, BlastedPower::new, Behavior.TurnBased, false, true, false, false);
-    public static final PCLPowerHelper Cooled = new PCLPowerHelper(CooledPower.POWER_ID, ConjurerResources.conjurer.tooltips.cooled, (o, s, a) -> new CooledPower(o, a), Behavior.TurnBased, false, true, false,false);
-    public static final PCLPowerHelper Flow = new PCLPowerHelper(FlowPower.POWER_ID, ConjurerResources.conjurer.tooltips.flow, FlowPower::new, Behavior.Permanent, false, false, false,false);
+    public static final PCLPowerHelper Cooled = new PCLPowerHelper(CooledPower.POWER_ID, ConjurerResources.conjurer.tooltips.cooled, (o, s, a) -> new CooledPower(o, a), Behavior.TurnBased, false, true, false, false);
+    public static final PCLPowerHelper Flow = new PCLPowerHelper(FlowPower.POWER_ID, ConjurerResources.conjurer.tooltips.flow, FlowPower::new, Behavior.Permanent, false, false, false, false);
     public final PCLAffinity affinity;
 
     public PCLElementHelper(String id, EUIKeywordTooltip tooltip, FuncT3<AbstractPower, AbstractCreature, AbstractCreature, Integer> constructor, PCLAffinity affinity) {
-        super(id, tooltip, constructor, Behavior.SingleTurn, false, true, false,true);
+        super(id, tooltip, constructor, Behavior.SingleTurn, false, true, false, true);
         this.affinity = affinity;
 
         registerHelper(id, affinity);

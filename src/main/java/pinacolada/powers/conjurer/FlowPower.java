@@ -31,6 +31,16 @@ public class FlowPower extends PCLPower implements DrawPileCardPreviewProvider {
     }
 
     @Override
+    protected ColoredString getPrimaryAmount(Color c) {
+        return new ColoredString(amount, amount >= PER_STACK ? Color.GREEN : Color.WHITE, c.a);
+    }
+
+    @Override
+    public String getUpdatedDescription() {
+        return formatDescription(0, PER_STACK);
+    }
+
+    @Override
     public void onClick(AbstractCard highlighted) {
         if (amount >= PER_STACK) {
             amount -= PER_STACK;
@@ -41,13 +51,28 @@ public class FlowPower extends PCLPower implements DrawPileCardPreviewProvider {
     }
 
     @Override
-    protected ColoredString getPrimaryAmount(Color c) {
-        return new ColoredString(amount, amount >= PER_STACK ? Color.GREEN : Color.WHITE, c.a);
+    public void onDrawOrDiscard() {
+        super.onDrawOrDiscard();
+        refreshCard();
     }
 
     @Override
-    public String getUpdatedDescription() {
-        return formatDescription(0, PER_STACK);
+    public void onInitialApplication() {
+        super.onInitialApplication();
+
+        preview = subscribe();
+    }
+
+    @Override
+    public void onRemove() {
+        super.onRemove();
+
+        unsubscribe();
+    }
+
+    @Override
+    public void playApplyPowerSfx() {
+        PCLSFX.play(PCLSFX.WIND, 0.95f, 1.05f);
     }
 
     @Override
@@ -63,31 +88,6 @@ public class FlowPower extends PCLPower implements DrawPileCardPreviewProvider {
     public void stackPower(int amount, boolean updateBase) {
         super.stackPower(amount, updateBase);
 
-        refreshCard();
-    }
-
-    @Override
-    public void onRemove() {
-        super.onRemove();
-
-        unsubscribe();
-    }
-
-    @Override
-    public void onInitialApplication() {
-        super.onInitialApplication();
-
-        preview = subscribe();
-    }
-
-    @Override
-    public void playApplyPowerSfx() {
-        PCLSFX.play(PCLSFX.WIND, 0.95f, 1.05f);
-    }
-
-    @Override
-    public void onDrawOrDiscard() {
-        super.onDrawOrDiscard();
         refreshCard();
     }
 }

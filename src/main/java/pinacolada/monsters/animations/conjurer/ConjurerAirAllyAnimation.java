@@ -23,7 +23,7 @@ public class ConjurerAirAllyAnimation extends PCLAllyAnimation {
     }
 
     public void playActAnimation(float x, float y) {
-        PCLEffects.TopLevelQueue.add(VFX.circularWave(x, y).setScale(0.25f, 12f).setColors(Color.WHITE, Color.GREEN));
+        PCLEffects.Queue.add(VFX.circularWave(x, y).setScale(0.25f, 10f).setColors(Color.WHITE, Color.GREEN));
     }
 
     public void renderSprite(SpriteBatch sb, float x, float y) {
@@ -56,6 +56,6 @@ public class ConjurerAirAllyAnimation extends PCLAllyAnimation {
                 .setScale(MathUtils.random(0.1f, 0.35f))
                 .setRotation(0f, MathUtils.random(450f, 650f))
                 .setTargetPosition(x + RADIUS * MathUtils.cos(angle), y + RADIUS * MathUtils.sin(angle), 100f
-        ).setDuration(1f, false).renderBehind = true;
+                ).setDuration(1f, false).renderBehind = true;
     }
 }

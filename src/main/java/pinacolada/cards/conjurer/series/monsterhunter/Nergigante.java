@@ -8,7 +8,6 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -21,7 +20,7 @@ public class Nergigante extends PCLCard {
     public static final PCLCardData DATA = register(Nergigante.class, ConjurerResources.conjurer)
             .setSummon(3, CardRarity.RARE, PCLAttackType.Normal, PCLCardTarget.AllEnemy, DelayTiming.EndOfTurnFirst)
             .setDamage(10, array(2, 0), 1, array(0, 0))
-            .setHp(18, 0)
+            .setHp(25, array(0, 3))
             .setAffinities(PCLAffinity.Orange, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 
@@ -31,6 +30,6 @@ public class Nergigante extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.EARTH);
-        addUseMove(PCond.cooldown(1), PMove.dealDamage(3, PCLEnum.AttackEffect.EARTH, PCLCardTarget.AllAlly), PMove.gain(3, PCLPowerHelper.Strength).setUpgrade(0, 2));
+        addUseMove(PCond.onDeath(), PMove.dealDamage(45, PCLEnum.AttackEffect.EARTH, PCLCardTarget.AllEnemy).setUpgrade(0, 12));
     }
 }

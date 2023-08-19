@@ -42,33 +42,20 @@ public class DisguisePropBox extends PCLRelic {
         }
     }
 
-    @Override
-    public void onLoad(PCLCollectibleSaveData data) {
-        super.onLoad(data);
-        if (this.auxiliaryData != null && this.auxiliaryData.additionalData != null && this.auxiliaryData.additionalData.size() > 0) {
-            currentForm = this.auxiliaryData.additionalData.get(0);
-        }
+    public String getDescriptionImpl() {
+        String desc = super.getDescriptionImpl();
+        return monsterSkill != null ? EUIUtils.joinStrings(EUIUtils.SPLIT_LINE, desc, formatDescription(1, monsterSkill.getPowerText())) : desc;
     }
 
     public int getValue() {
         return 2;
     }
 
-    public String getDescriptionImpl() {
-        String desc = super.getDescriptionImpl();
-        return monsterSkill != null ? EUIUtils.joinStrings(EUIUtils.SPLIT_LINE, desc, formatDescription(1, monsterSkill.getPowerText())) : desc;
-    }
-
     @Override
-    public void update() {
-        super.update();
-
-        if (GameUtilities.inBattle()
-                && this.hb.hovered
-                && EUIInputManager.rightClick.isJustPressed()) {
-            selectCreatureForTransform().addCallback(() -> {
-                monsterSkill = ConjurerPlayerData.getSkillForMonster(currentForm);
-            });
+    public void onLoad(PCLCollectibleSaveData data) {
+        super.onLoad(data);
+        if (this.auxiliaryData != null && this.auxiliaryData.additionalData != null && this.auxiliaryData.additionalData.size() > 0) {
+            currentForm = this.auxiliaryData.additionalData.get(0);
         }
     }
 
@@ -79,7 +66,8 @@ public class DisguisePropBox extends PCLRelic {
                 if (p != null) {
                     setCreature(p);
                 }
-            } else {
+            }
+            else {
                 setCreature(CreatureAnimationInfo.getIdentifierString(c));
             }
 
@@ -102,6 +90,19 @@ public class DisguisePropBox extends PCLRelic {
         }
         else {
             auxiliaryData.additionalData.set(0, currentForm);
+        }
+    }
+
+    @Override
+    public void update() {
+        super.update();
+
+        if (GameUtilities.inBattle()
+                && this.hb.hovered
+                && EUIInputManager.rightClick.isJustPressed()) {
+            selectCreatureForTransform().addCallback(() -> {
+                monsterSkill = ConjurerPlayerData.getSkillForMonster(currentForm);
+            });
         }
     }
 }

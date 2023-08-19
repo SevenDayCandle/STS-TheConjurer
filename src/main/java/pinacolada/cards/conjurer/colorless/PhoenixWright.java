@@ -107,6 +107,30 @@ public class PhoenixWright extends PCLCard {
             return null;
         }
 
+        @Override
+        public String getText(PCLCardTarget perpsective, boolean addPeriod) {
+            if (actualMove != null) {
+                return actualMove.getText(perpsective, addPeriod);
+            }
+            return super.getText(perpsective, addPeriod);
+        }
+
+        @Override
+        public void onDrag(AbstractMonster m) {
+            super.onDrag(m);
+            tryChangeEffect(m);
+
+            if (actualMove != null) {
+                actualMove.onDrag(m);
+            }
+        }
+
+        @Override
+        public void refresh(PCLUseInfo info, boolean conditionMet) {
+            super.refresh(info, conditionMet);
+            tryChangeEffect(info.target);
+        }
+
         protected void tryChangeEffect(AbstractCreature target) {
             if (lastTarget != target || (lastTarget instanceof AbstractMonster && ((AbstractMonster) lastTarget).intent != lastIntent)) {
                 lastTarget = target;
@@ -128,36 +152,6 @@ public class PhoenixWright extends PCLCard {
             if (actualMove != null) {
                 actualMove.use(info, order);
             }
-        }
-
-        @Override
-        public String getText(PCLCardTarget perpsective, boolean addPeriod)
-        {
-            if (actualMove != null)
-            {
-                return actualMove.getText(perpsective, addPeriod);
-            }
-            return super.getText(perpsective, addPeriod);
-        }
-
-
-        @Override
-        public void onDrag(AbstractMonster m)
-        {
-            super.onDrag(m);
-            tryChangeEffect(m);
-
-            if (actualMove != null)
-            {
-                actualMove.onDrag(m);
-            }
-        }
-
-        @Override
-        public void refresh(PCLUseInfo info, boolean conditionMet)
-        {
-            super.refresh(info, conditionMet);
-            tryChangeEffect(info.target);
         }
     }
 }

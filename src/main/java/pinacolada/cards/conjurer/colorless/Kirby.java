@@ -22,12 +22,12 @@ public class Kirby extends PCLMultiCard {
     }
 
     @Override
-    protected PCLMultiCardMove createMulticardMove() {
-        return new PCLMultiCardMove(DATA, this, 2);
+    public PField_CardCategory createFilterFields() {
+        return new PField_CardCategory().setType(PCLEnum.CardType.SUMMON).setRarity(CardRarity.COMMON);
     }
 
     @Override
-    public PField_CardCategory createFilterFields() {
-        return new PField_CardCategory().setType(PCLEnum.CardType.SUMMON).setRarity(CardRarity.COMMON);
+    protected PCLMultiCardMove createMulticardMove() {
+        return new PCLMultiCardMove(DATA, this, 2);
     }
 }

@@ -17,7 +17,7 @@ import pinacolada.utilities.GameUtilities;
 @VisibleCard
 public class Enervate extends PCLCard {
     public static final PCLCardData DATA = register(Enervate.class, ConjurerResources.conjurer)
-            .setSkill(1, CardRarity.UNCOMMON)
+            .setSkill(1, CardRarity.RARE)
             .setTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Blue)
             .setCore(true);

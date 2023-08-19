@@ -25,6 +25,6 @@ public class ExothermicCannon extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(EffekseerEFK.BLOW04);
-        addUseMove(new PMod_PerMatter(4).setExtra(6).setUpgrade(0, -1).setUpgradeExtra(0, 2), PMove.applyToSingle(1, PCLElementHelper.Ignis));
+        addUseMove(new PMod_PerMatter(4).setExtra(8).setUpgrade(0, -1).setUpgradeExtra(0, 2), PMove.applyToSingle(1, PCLElementHelper.Ignis));
     }
 }

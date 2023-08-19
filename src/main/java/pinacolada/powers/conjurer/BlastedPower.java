@@ -43,6 +43,11 @@ public class BlastedPower extends PCLPower implements HealthBarRenderPower {
         removePower();
     }
 
+    @Override
+    public Color getColor() {
+        return healthBarColor;
+    }
+
     public DamageInfo getExpandedDamageInfo() {
         float multiplier = 100;
         for (AbstractPower p : owner.powers) {
@@ -65,10 +70,5 @@ public class BlastedPower extends PCLPower implements HealthBarRenderPower {
             return GameUtilities.getHealthBarAmount(owner, info.output, true, true);
         }
         return GameUtilities.getHealthBarAmount(owner, amount, true, true);
-    }
-
-    @Override
-    public Color getColor() {
-        return healthBarColor;
     }
 }

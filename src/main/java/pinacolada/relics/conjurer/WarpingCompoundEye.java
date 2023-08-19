@@ -28,17 +28,17 @@ public class WarpingCompoundEye extends PCLPointerRelic {
 
     public void specialMove(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
         order.callback(() -> {
-           for (AbstractCard c : player.hand.group) {
-               GameUtilities.modifyDamage(c, MathUtils.random(-move.amount, move.amount), false, false);
-               GameUtilities.modifyBlock(c, MathUtils.random(-move.amount, move.amount), false, false);
-               if (c instanceof PointerProvider) {
-                   ((PointerProvider) c).doEffects(effect -> {
-                       if (effect.getChild() == null) {
-                           effect.setAmount(MathUtils.random(-move.amount, move.amount) + effect.baseAmount);
-                       }
-                   });
-               }
-           }
+            for (AbstractCard c : player.hand.group) {
+                GameUtilities.modifyDamage(c, MathUtils.random(-move.amount, move.amount), false, false);
+                GameUtilities.modifyBlock(c, MathUtils.random(-move.amount, move.amount), false, false);
+                if (c instanceof PointerProvider) {
+                    ((PointerProvider) c).doEffects(effect -> {
+                        if (effect.getChild() == null) {
+                            effect.setAmount(MathUtils.random(-move.amount, move.amount) + effect.baseAmount);
+                        }
+                    });
+                }
+            }
         });
     }
 }

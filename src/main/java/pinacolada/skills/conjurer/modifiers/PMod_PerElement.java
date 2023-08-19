@@ -38,13 +38,13 @@ public class PMod_PerElement extends PMod_Per<PField_Affinity> {
     }
 
     @Override
-    public String getSubSampleText() {
-        return ConjurerResources.conjurer.tooltips.elementalDebuff.title;
+    public int getMultiplier(PCLUseInfo info, boolean isUsing) {
+        return EUIUtils.sumInt(getTargetList(info), t -> t.powers != null ? EUIUtils.sumInt(t.powers, po -> isPowerElemental(po.ID) ? po.amount : 0) : 0) / Math.max(1, this.amount);
     }
 
     @Override
-    public int getMultiplier(PCLUseInfo info, boolean isUsing) {
-        return EUIUtils.sumInt(getTargetList(info), t -> t.powers != null ? EUIUtils.sumInt(t.powers, po -> isPowerElemental(po.ID) ? po.amount : 0) : 0) / Math.max(1, this.amount);
+    public String getSubSampleText() {
+        return ConjurerResources.conjurer.tooltips.elementalDebuff.title;
     }
 
     @Override

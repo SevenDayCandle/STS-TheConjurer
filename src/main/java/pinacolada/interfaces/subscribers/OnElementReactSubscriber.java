@@ -2,7 +2,7 @@ package pinacolada.interfaces.subscribers;
 
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import pinacolada.annotations.CombatSubscriber;
-import pinacolada.misc.AffinityReactions;
+import pinacolada.dungeon.AffinityReactions;
 
 @CombatSubscriber
 public interface OnElementReactSubscriber extends PCLCombatSubscriber {

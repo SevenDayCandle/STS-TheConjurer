@@ -17,11 +17,6 @@ public class FortuneGlue extends PCLRelic {
     }
 
     @Override
-    public int getValue() {
-        return 3;
-    }
-
-    @Override
     public int changeRareCardRewardChance(int rareCardChance) {
         return rareCardChance * MULT;
     }
@@ -29,6 +24,11 @@ public class FortuneGlue extends PCLRelic {
     @Override
     public int changeUncommonCardRewardChance(int rareCardChance) {
         return rareCardChance * MULT;
+    }
+
+    @Override
+    public int getValue() {
+        return 3;
     }
 
     @Override

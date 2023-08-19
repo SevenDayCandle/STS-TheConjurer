@@ -20,13 +20,13 @@ public class LuxPower extends AbstractPCLElementalPower implements OnTryElementR
     }
 
     @Override
-    public AbstractGameAction.AttackEffect getAttackEffect() {
-        return PCLEnum.AttackEffect.ELECTRIC;
+    public float calculateValue(int amount, float multiplier) {
+        return amount + MathUtils.ceil(amount * (multiplier / 100f));
     }
 
     @Override
-    public float calculateValue(int amount, float multiplier) {
-        return amount + MathUtils.ceil(amount * (multiplier / 100f));
+    public AbstractGameAction.AttackEffect getAttackEffect() {
+        return PCLEnum.AttackEffect.ELECTRIC;
     }
 
     @Override

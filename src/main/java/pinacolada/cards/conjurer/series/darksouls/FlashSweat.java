@@ -10,7 +10,6 @@ import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
-import pinacolada.skills.PMove;
 
 @VisibleCard
 public class FlashSweat extends PCLCard {
@@ -25,7 +24,6 @@ public class FlashSweat extends PCLCard {
     }
 
     public void setup(Object input) {
-        addBlockMove().setBonus(PCond.checkPowerSelf(1, PCLElementHelper.Ignis, PCLElementHelper.Aqua), 4);
-        addUseMove(PMove.remove(PCLCardTarget.Self, PCLElementHelper.Ignis, PCLElementHelper.Aqua));
+        addBlockMove().setBonus(PCond.checkPowerSelf(1, PCLElementHelper.Ignis, PCLElementHelper.Aqua).edit(f -> f.setDebuff(true)), 4);
     }
 }

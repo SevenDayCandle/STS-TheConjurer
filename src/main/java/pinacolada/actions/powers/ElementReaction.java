@@ -7,10 +7,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import pinacolada.actions.PCLAction;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.dungeon.AffinityReactions;
 import pinacolada.dungeon.CombatManager;
 import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.interfaces.subscribers.OnElementReactSubscriber;
-import pinacolada.misc.AffinityReactions;
 import pinacolada.powers.conjurer.AbstractPCLElementalPower;
 import pinacolada.utilities.GameUtilities;
 
@@ -63,17 +63,17 @@ public class ElementReaction extends PCLAction<AffinityReactions> {
         }
     }
 
+    public ElementReaction showEffect(boolean showEffect) {
+        this.showEffect = showEffect;
+
+        return this;
+    }
+
     @Override
     protected void updateInternal(float deltaTime) {
         if (tickDuration(deltaTime)) {
             complete(reactions);
         }
-    }
-
-    public ElementReaction showEffect(boolean showEffect) {
-        this.showEffect = showEffect;
-
-        return this;
     }
 
 }

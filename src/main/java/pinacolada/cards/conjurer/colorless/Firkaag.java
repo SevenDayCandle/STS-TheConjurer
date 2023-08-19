@@ -11,8 +11,8 @@ import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMod;
-import pinacolada.skills.delay.DelayTiming;
 import pinacolada.skills.PTrait;
+import pinacolada.skills.delay.DelayTiming;
 
 @VisibleCard
 public class Firkaag extends PCLCard {

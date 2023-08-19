@@ -9,6 +9,7 @@ public class ConjurerImages extends AbstractImages {
     }
 
     public static class Core {
+        public static final TextureCache affix = new TextureCache("images/conjurer/ui/core/Affix.png");
         public static final TextureCache elementAir = new TextureCache("images/conjurer/ui/core/Element_Air.png");
         public static final TextureCache elementDark = new TextureCache("images/conjurer/ui/core/Element_Dark.png");
         public static final TextureCache elementEarth = new TextureCache("images/conjurer/ui/core/Element_Earth.png");

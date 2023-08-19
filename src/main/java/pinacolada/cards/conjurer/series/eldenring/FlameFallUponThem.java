@@ -17,7 +17,7 @@ import pinacolada.skills.PMove;
 public class FlameFallUponThem extends PCLCard {
     public static final PCLCardData DATA = register(FlameFallUponThem.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.COMMON, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
-            .setDamage(12, 2)
+            .setDamage(13, 2)
             .setAffinities(PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.eldenRing);
 

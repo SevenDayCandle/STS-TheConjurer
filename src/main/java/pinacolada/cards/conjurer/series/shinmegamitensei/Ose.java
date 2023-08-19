@@ -30,6 +30,6 @@ public class Ose extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_HEAVY);
-        addUseMove(PCond.onWithdraw(), PMove.applyTemporary(PCLCardTarget.Team, 7, PCLPowerHelper.Vigor).setUpgrade(1));
+        addUseMove(PCond.onWithdraw(), PMove.apply(PCLCardTarget.Team, 5, PCLPowerHelper.Vigor).setUpgrade(1));
     }
 }

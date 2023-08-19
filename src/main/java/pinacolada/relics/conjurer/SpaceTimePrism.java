@@ -18,6 +18,6 @@ public class SpaceTimePrism extends PCLPointerRelic {
     }
 
     public void setup() {
-        addUseMove(new PRoot(), PMove.discard(3, PCLCardGroupHelper.DrawPile), PMove.upgrade(3).useParentForce());
+        addUseMove(new PRoot(), PMove.discardRandom(3, PCLCardGroupHelper.DrawPile), PMove.upgrade(3).useParentForce());
     }
 }

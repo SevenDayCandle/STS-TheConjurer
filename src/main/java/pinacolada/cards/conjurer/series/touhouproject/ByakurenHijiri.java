@@ -13,13 +13,12 @@ import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
-import pinacolada.skills.delay.DelayTiming;
 
 @VisibleCard
 public class ByakurenHijiri extends PCLCard {
     public static final PCLCardData DATA = register(ByakurenHijiri.class, ConjurerResources.conjurer)
-            .setSummon(2, CardRarity.RARE, PCLAttackType.Piercing, PCLCardTarget.AllEnemy, DelayTiming.EndOfTurnFirst)
-            .setDamage(3, 0)
+            .setSummon(2, CardRarity.RARE, PCLAttackType.Piercing, PCLCardTarget.AllEnemy)
+            .setDamage(4, 0)
             .setHp(8, 2)
             .setAffinities(1, PCLAffinity.Blue, PCLAffinity.Orange, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.touhouProject);
@@ -30,6 +29,6 @@ public class ByakurenHijiri extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.EARTH);
-        addUseMove(PCond.cooldown(4), PMove.applyTemporaryToEveryone(10, PCLPowerHelper.Resistance));
+        addUseMove(PCond.cooldown(4), PCond.checkPower(PCLCardTarget.Self, 0, PCLPowerHelper.Resistance).edit(f -> f.setNot(true)), PMove.applyTemporaryToEveryone(6, PCLPowerHelper.Resistance));
     }
 }

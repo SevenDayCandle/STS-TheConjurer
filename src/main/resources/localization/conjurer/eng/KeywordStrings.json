@@ -1,19 +1,11 @@
 {
-	"conjurer:Affix": {
-		"DESCRIPTION": "Activates when a #ySummon in front of or behind this #ySummon that meets this condition's requirements is #yTriggered.",
-		"NAME": "Affix",
-		"PAST": "Affixed",
-		"PLURAL": "${0}@>1:Affixes@:Affix$",
-		"PRESENT": "Affixes",
-		"PROGRESSIVE": "Affixing"
-	},
 	"conjurer:Aqua": {
 		"DESCRIPTION": "Playing [A-G] cards on targets with [conjurer:Aqua] increases damage they take and decreases damage they deal.",
 		"NAME": "Aqua"
 	},
-	"conjurer:Back Affix": {
+	"conjurer:Back Link": {
 		"DESCRIPTION": "Activates when a #ySummon behind this #ySummon that meets this condition's requirements is #yTriggered.",
-		"NAME": "Back Affix"
+		"NAME": "Back Link"
 	},
 	"conjurer:Blasted": {
 		"DESCRIPTION": "Take damage at the start of turn. Removed at round end.",
@@ -44,13 +36,21 @@
 		"DESCRIPTION": "During your turn, spend #b{0} [conjurer:Flow] to draw a card.",
 		"NAME": "Flow"
 	},
-	"conjurer:Front Affix": {
+	"conjurer:Front Link": {
 		"DESCRIPTION": "Activates when a #ySummon in front of this #ySummon that meets this condition's requirements is #yTriggered.",
-		"NAME": "Front Affix"
+		"NAME": "Front Link"
 	},
 	"conjurer:Ignis": {
 		"DESCRIPTION": "Playing [A-B] cards on targets with [conjurer:Ignis] damages them at the start of their turn.",
 		"NAME": "Ignis"
+	},
+	"conjurer:Link": {
+		"DESCRIPTION": "Activates when a #ySummon in front of or behind this #ySummon that meets this condition's requirements is #yTriggered.",
+		"NAME": "Link",
+		"PAST": "Linked",
+		"PLURAL": "${0}@>1:Links@:Link$",
+		"PRESENT": "Links",
+		"PROGRESSIVE": "Linking"
 	},
 	"conjurer:Lux": {
 		"DESCRIPTION": "[A-Y] #yElemental #yDebuff. Reactions on the target are multiplied.",

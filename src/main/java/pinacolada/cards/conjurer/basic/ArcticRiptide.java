@@ -17,7 +17,7 @@ import pinacolada.skills.PMove;
 public class ArcticRiptide extends PCLCard {
     public static final PCLCardData DATA = register(ArcticRiptide.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.UNCOMMON, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
-            .setDamage(7, 1)
+            .setDamage(8, 1)
             .setAffinities(2, PCLAffinity.Blue)
             .setCore();
 

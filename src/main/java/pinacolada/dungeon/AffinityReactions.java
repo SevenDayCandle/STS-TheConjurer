@@ -1,4 +1,4 @@
-package pinacolada.misc;
+package pinacolada.dungeon;
 
 import pinacolada.cards.base.fields.PCLAffinity;
 

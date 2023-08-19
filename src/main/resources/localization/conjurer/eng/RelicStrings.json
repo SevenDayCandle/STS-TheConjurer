@@ -98,7 +98,7 @@
 	},
 	"conjurer:GalacticBigLotto":
 	{
-		"DESCRIPTIONS": ["Whenever you enter a room, there is a #b{0}% chance to obtain a random relic. If this activates, there is a #b{0}% chance for you to lose #b{1}% of your current HP and to disable this relic."],
+		"DESCRIPTIONS": ["Whenever you enter a room, there is a #b{0}% chance to obtain a random relic. If this activates, there is a #b{1}% chance for you to lose #b{2}% of your current HP, and disable this relic."],
 		"FLAVOR": "You just need one galactic currency to bet on your luck and become a trader in the experience of making dreams.",
 		"NAME": "Galactic Big Lotto"
 	},

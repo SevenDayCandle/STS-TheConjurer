@@ -18,7 +18,7 @@ import pinacolada.skills.skills.PTrigger;
 public class Wildfire extends PCLCard {
     public static final PCLCardData DATA = register(Wildfire.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.UNCOMMON, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
-            .setDamage(12, 1)
+            .setDamage(13, 1)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
             .setCore();
 

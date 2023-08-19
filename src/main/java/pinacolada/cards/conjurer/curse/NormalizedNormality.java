@@ -6,7 +6,6 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import extendedui.EUIUtils;
 import pinacolada.actions.PCLActions;
-import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLCardTarget;
@@ -24,13 +23,12 @@ import pinacolada.utilities.GameUtilities;
 import java.util.HashMap;
 import java.util.UUID;
 
-@VisibleCard
-public class Curse_Normality2 extends PCLCard {
-    public static final PCLCardData DATA = register(Curse_Normality2.class, ConjurerResources.conjurer)
+public class NormalizedNormality extends PCLCard {
+    public static final PCLCardData DATA = register(NormalizedNormality.class, ConjurerResources.conjurer)
             .setCurse(-2, PCLCardTarget.None, true)
             .setTags(PCLCardTag.Unplayable);
 
-    public Curse_Normality2() {
+    public NormalizedNormality() {
         super(DATA);
     }
 

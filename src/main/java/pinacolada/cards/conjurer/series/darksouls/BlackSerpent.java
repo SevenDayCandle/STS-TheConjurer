@@ -18,7 +18,7 @@ import pinacolada.skills.PMove;
 public class BlackSerpent extends PCLCard {
     public static final PCLCardData DATA = register(BlackSerpent.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.RARE, PCLAttackType.Immaterial, PCLCardTarget.RandomEnemy)
-            .setDamage(7,1)
+            .setDamage(7, 1)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Green, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.darkSouls);
 

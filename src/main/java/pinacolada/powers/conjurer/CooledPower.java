@@ -23,25 +23,6 @@ public class CooledPower extends PCLPower {
         initialize(amount, PowerType.DEBUFF, true);
     }
 
-    public float getPotency() {
-        return this.amount / POTENCY;
-    }
-
-    @Override
-    public String getUpdatedDescription() {
-        return formatDescription(0, PCLRenderHelpers.decimalFormat(getPotency()));
-    }
-
-    @Override
-    public float modifyOrbIncoming(float inital) {
-        return super.modifyOrbIncoming(inital) + getPotency();
-    }
-
-    @Override
-    public void playApplyPowerSfx() {
-        PCLSFX.play(PCLSFX.ORB_FROST_DEFEND_1, 0.95f, 1.05f);
-    }
-
     @Override
     public float atDamageGive(float damage, DamageInfo.DamageType type) {
         return super.atDamageGive(type == DamageInfo.DamageType.NORMAL ? damage - getPotency() : damage, type);
@@ -61,5 +42,24 @@ public class CooledPower extends PCLPower {
     public void atEndOfRound() {
         super.atEndOfRound();
         removePower();
+    }
+
+    public float getPotency() {
+        return this.amount / POTENCY;
+    }
+
+    @Override
+    public String getUpdatedDescription() {
+        return formatDescription(0, PCLRenderHelpers.decimalFormat(getPotency()));
+    }
+
+    @Override
+    public float modifyOrbIncoming(float inital) {
+        return super.modifyOrbIncoming(inital) + getPotency();
+    }
+
+    @Override
+    public void playApplyPowerSfx() {
+        PCLSFX.play(PCLSFX.ORB_FROST_DEFEND_1, 0.95f, 1.05f);
     }
 }

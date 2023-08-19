@@ -30,8 +30,8 @@ public class Zagreus extends PCLCard {
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_DIAGONAL);
         addUseMove(PCond.onSummon(), PMultiSkill.choose(
-                PMove.gain(3, PCLPowerHelper.Strength),
-                PMove.gain(1, PCLPowerHelper.Ritual)
+                PMove.gain(4, PCLPowerHelper.Strength),
+                PMove.gain(2, PCLPowerHelper.Ritual)
         ));
     }
 }

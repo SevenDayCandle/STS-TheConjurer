@@ -14,8 +14,8 @@ import pinacolada.utilities.PCLRenderHelpers;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class ConjurerScreenAnimationEffect extends PCLEffect {
-    public final ConcurrentLinkedQueue<PCLEffect> subEffects = new ConcurrentLinkedQueue<>();
     private final ShapeRenderer renderer;
+    public final ConcurrentLinkedQueue<PCLEffect> subEffects = new ConcurrentLinkedQueue<>();
 
     public ConjurerScreenAnimationEffect() {
         super(0.14f);

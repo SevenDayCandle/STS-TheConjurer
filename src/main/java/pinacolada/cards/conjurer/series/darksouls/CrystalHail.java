@@ -26,6 +26,6 @@ public class CrystalHail extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(ConjurerEFK.MGC_W2_Shield_Break).setChain(PMod.perLevel(1, PCLAffinity.Blue), PTrait.hitCount(1));
+        addDamageMove(ConjurerEFK.MGC_W2_Shield_Break).setChain(PMod.perLevel(1, PCLAffinity.Blue), PTrait.damage(2));
     }
 }

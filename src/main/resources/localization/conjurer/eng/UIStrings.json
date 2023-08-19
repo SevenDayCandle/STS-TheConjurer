@@ -12,7 +12,7 @@
 			"Play cards on enemies with #yElemental #yDebuffs to trigger #yReactions, granting #yMatter. Click the buttons to spend #yMatter to improve #yElemental #yDebuffs.",
 			"Each #yElemental #yDebuff is associated with the #yAffinity that it shares an icon with. [conjurer:Ignis] is associated with [A-R], [conjurer:Ventus] with [A-G], [conjurer:Aqua] with [A-B], and [conjurer:Petra] with [A-O].",
 			"The arrows signify that a #yReaction will occur when a card with the former #yDebuff's #yAffinity targets a creature with the latter's #yElemental #yDebuff.",
-			"When you drag a card over a target, arrows for #yReactions that will occur will be highlighted, and the target's debuffs will show how powerful its effects will be.",
+			"When you drag a card over a target, arrows for #yReactions that will occur will be highlighted. #yElemental #yDebuffs on the target's debuffs will also display a #ggreen number signifying how much of an effect they will have.",
 			"#yReactions grant a damage and #yBlock bonus to the card being played and grant #yMatter. Spend #yMatter by clicking on a #yDebuff's button to increase its #yLevel. #yLevels increase a #yDebuff's passive effect and damage bonuses. Each #yLevel costs more than the last.",
 			"This button represents an #yElemental #yDebuff. Hover over it to view the current effects of this debuff.",
 			"I have given you a card that applies [conjurer:Petra]. Play it on me.",

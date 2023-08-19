@@ -35,21 +35,6 @@ public class ShootingStarsEffect extends PCLEffect {
         }
     }
 
-    @Override
-    protected void updateInternal(float deltaTime) {
-        vfxTimer -= deltaTime;
-        if (vfxTimer < 0f) {
-            final float x = this.x + random(-spreadX, spreadX);
-            final float y = this.y + random(-spreadY, spreadY);
-            final float h_speed = random(horizontalSpeedMin, horizontalSpeedMax);
-            final float v_speed = random(verticalSpeedMin, verticalSpeedMax);
-            PCLEffects.Queue.add(new StarEffect(x, y, h_speed, v_speed));
-            vfxTimer = vfxFrequency;
-        }
-
-        super.updateInternal(deltaTime);
-    }
-
     public ShootingStarsEffect flipHorizontally(boolean flip) {
         this.flipHorizontally = flip;
 
@@ -81,5 +66,20 @@ public class ShootingStarsEffect extends PCLEffect {
         this.horizontalSpeedMax = max;
 
         return this;
+    }
+
+    @Override
+    protected void updateInternal(float deltaTime) {
+        vfxTimer -= deltaTime;
+        if (vfxTimer < 0f) {
+            final float x = this.x + random(-spreadX, spreadX);
+            final float y = this.y + random(-spreadY, spreadY);
+            final float h_speed = random(horizontalSpeedMin, horizontalSpeedMax);
+            final float v_speed = random(verticalSpeedMin, verticalSpeedMax);
+            PCLEffects.Queue.add(new StarEffect(x, y, h_speed, v_speed));
+            vfxTimer = vfxFrequency;
+        }
+
+        super.updateInternal(deltaTime);
     }
 }

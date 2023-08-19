@@ -7,8 +7,8 @@ import com.megacrit.cardcrawl.powers.MinionPower;
 import pinacolada.actions.PCLActions;
 import pinacolada.actions.special.DieAction;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.dungeon.AffinityReactions;
 import pinacolada.effects.PCLSFX;
-import pinacolada.misc.AffinityReactions;
 import pinacolada.monsters.PCLCardAlly;
 import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -24,6 +24,11 @@ public class UmbraPower extends AbstractPCLElementalPower {
     }
 
     @Override
+    public float calculateValue(int amount, float multiplier) {
+        return amount > 0 ? MathUtils.ceil(amount * (multiplier / (100f + 5 * owner.currentHealth))) : 0;
+    }
+
+    @Override
     public AbstractGameAction.AttackEffect getAttackEffect() {
         return PCLEnum.AttackEffect.DARKNESS;
     }
@@ -34,11 +39,6 @@ public class UmbraPower extends AbstractPCLElementalPower {
             PCLActions.bottom.add(new DieAction(owner));
         }
         super.onReact(source, reactions);
-    }
-
-    @Override
-    public float calculateValue(int amount, float multiplier) {
-        return amount > 0 ? MathUtils.ceil(amount * (multiplier / (100f + 5 * owner.currentHealth))) : 0;
     }
 
     @Override

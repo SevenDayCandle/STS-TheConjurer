@@ -31,6 +31,6 @@ public class SuikaIbuki extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_HEAVY);
-        addUseMove(CCond.react(), PMultiSkill.join(PMove.retain(1), PMove.gainPlayer(1, PCLPowerHelper.DrawMinus)));
+        addUseMove(CCond.react(), PMultiSkill.join(PMove.retain(2), PMove.gainPlayer(1, PCLPowerHelper.DrawMinus)));
     }
 }

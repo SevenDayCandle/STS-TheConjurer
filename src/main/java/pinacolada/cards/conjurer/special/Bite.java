@@ -27,6 +27,6 @@ public class Bite extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BITE);
-        addUseMove(PCond.fatal().setTarget(PCLCardTarget.Single).edit(f -> f.setRandom(true)), PMultiSkill.join(PMove.gainTempHP(9).setUpgrade(1)));
+        addUseMove(PCond.fatal().setTarget(PCLCardTarget.Single).edit(f -> f.setRandom(true)), PMultiSkill.join(PMove.heal(4).setUpgrade(1), PMove.selfPurge()));
     }
 }

@@ -23,6 +23,6 @@ public class Desiccation extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMod.discardPer(2), PMove.apply(PCLCardTarget.Any, 2, PCLElementHelper.Ventus, PCLElementHelper.Petra).setUpgrade(2));
+        addUseMove(PMod.discardPer(2), PMove.apply(PCLCardTarget.Any, 3, PCLElementHelper.Ventus, PCLElementHelper.Petra).setUpgrade(2));
     }
 }

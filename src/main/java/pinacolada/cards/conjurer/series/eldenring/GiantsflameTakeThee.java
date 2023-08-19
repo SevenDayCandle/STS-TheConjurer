@@ -19,7 +19,7 @@ import pinacolada.skills.PTrait;
 public class GiantsflameTakeThee extends PCLCard {
     public static final PCLCardData DATA = register(GiantsflameTakeThee.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.UNCOMMON, PCLAttackType.Ranged)
-            .setDamage(12, 2)
+            .setDamage(14, 2)
             .setAffinities(2, PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.eldenRing);
 

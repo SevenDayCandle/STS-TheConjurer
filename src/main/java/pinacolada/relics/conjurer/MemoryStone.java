@@ -19,7 +19,7 @@ public class MemoryStone extends PCLRelic {
     @Override
     protected void activateBattleEffect() {
         PCLActions.bottom.callback(() -> {
-            CombatManager.summons.add(1);
+            CombatManager.summons.addSummon(1);
         });
     }
 

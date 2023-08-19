@@ -23,7 +23,7 @@ public class ConjurerEarthAllyAnimation extends PCLAllyAnimation {
     }
 
     public void playActAnimation(float x, float y) {
-        PCLEffects.TopLevelQueue.add(VFX.circularWave(x, y).setScale(0.25f, 12f).setColors(Color.WHITE, Color.ORANGE));
+        PCLEffects.Queue.add(VFX.circularWave(x, y).setScale(0.25f, 12f).setColors(Color.WHITE, Color.ORANGE));
     }
 
     public void renderSprite(SpriteBatch sb, float x, float y) {

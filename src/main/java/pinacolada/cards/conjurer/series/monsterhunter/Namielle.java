@@ -20,8 +20,8 @@ import pinacolada.skills.skills.PTrigger;
 public class Namielle extends PCLCard {
     public static final PCLCardData DATA = register(Namielle.class, ConjurerResources.conjurer)
             .setSummon(3, CardRarity.RARE, PCLAttackType.Immaterial, PCLCardTarget.AllEnemy, DelayTiming.EndOfTurnFirst)
-            .setDamage(4, array(1, 0))
-            .setHp(14, 2)
+            .setDamage(6, array(2, 0))
+            .setHp(18, 1)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 
@@ -31,6 +31,6 @@ public class Namielle extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.WATER);
-        addGainPower(PTrigger.when(CCond.react(), PMove.applyToRandom(2, PCLElementHelper.Aqua).setUpgrade(0, 1)));
+        addGainPower(PTrigger.when(CCond.react(), PMove.applyToEnemies(1, PCLElementHelper.Aqua).setUpgrade(0, 1)));
     }
 }

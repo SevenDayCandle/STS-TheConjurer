@@ -20,23 +20,6 @@ public class ElementalMasteryPower extends PCLSubscribingPower {
     }
 
     @Override
-    public void playApplyPowerSfx() {
-        PCLActions.top.playSFX(PCLSFX.HEAL_3);
-    }
-
-    @Override
-    public void stackPower(int stackAmount) {
-        super.stackPower(stackAmount);
-        updateDescription();
-    }
-
-    @Override
-    public void reducePower(int reduceAmount) {
-        super.reducePower(reduceAmount);
-        updateDescription();
-    }
-
-    @Override
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
         super.onApplyPower(power, target, source);
 
@@ -51,5 +34,22 @@ public class ElementalMasteryPower extends PCLSubscribingPower {
                 EUIUtils.logWarning(this, "Unknown action type: " + action.getClass().getName());
             }
         }
+    }
+
+    @Override
+    public void playApplyPowerSfx() {
+        PCLActions.top.playSFX(PCLSFX.HEAL_3);
+    }
+
+    @Override
+    public void reducePower(int reduceAmount) {
+        super.reducePower(reduceAmount);
+        updateDescription();
+    }
+
+    @Override
+    public void stackPower(int stackAmount) {
+        super.stackPower(stackAmount);
+        updateDescription();
     }
 }

@@ -1,9 +1,11 @@
-package pinacolada.misc;
+package pinacolada.dungeon;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import pinacolada.dungeon.ConjurerReactionMeter;
-import pinacolada.dungeon.PCLUseInfo;
+import pinacolada.monsters.PCLCardAlly;
+import pinacolada.resources.PCLEnum;
+
+import java.util.Collections;
 
 public class ConjurerUseInfo extends PCLUseInfo {
     public AffinityReactions reactions;
@@ -23,7 +25,13 @@ public class ConjurerUseInfo extends PCLUseInfo {
             reactions = new AffinityReactions();
         }
         if (card != null) {
-            ConjurerReactionMeter.meter.updateReactions(reactions, card, targets);
+            // If the card is a summon that is played, it can only target a single slot
+            if (card.type == PCLEnum.CardType.SUMMON && !(source instanceof PCLCardAlly && ((PCLCardAlly) source).card == card)) {
+                ConjurerReactionMeter.meter.updateReactions(reactions, card, target != null ? Collections.singleton(target) : Collections.emptyList());
+            }
+            else {
+                ConjurerReactionMeter.meter.updateReactions(reactions, card, targets);
+            }
         }
         return this;
     }

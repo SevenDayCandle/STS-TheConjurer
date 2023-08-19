@@ -5,7 +5,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.colorless.Apparition;
 import com.megacrit.cardcrawl.cards.colorless.Bite;
-import com.megacrit.cardcrawl.cards.colorless.JAX;
 import com.megacrit.cardcrawl.cards.colorless.RitualDagger;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import extendedui.EUIUtils;
@@ -50,26 +49,65 @@ public class ConjurerResources extends PCLResources<ConjurerPlayerData, Conjurer
         return card instanceof PCLCard && ((PCLCard) card).cardData.resources == this;
     }
 
+    protected PCLAllyAnimation getAnimation(PCLCardAlly ally) {
+        HashSet<PCLAffinity> available = new HashSet<>(PCLAffinity.getAvailableAffinitiesAsList());
+        available.add(PCLAffinity.Star);
+
+        PCLCardAffinity highest = ally.hasCard() ? ally.card.affinities.getHighest(cAff -> available.contains(cAff.type)) : null;
+        if (highest != null) {
+            switch (highest.type) {
+                case Star:
+                    return new ConjurerStarAllyAnimation(ally);
+                case Red:
+                    return new ConjurerFireAllyAnimation(ally);
+                case Green:
+                    return new ConjurerAirAllyAnimation(ally);
+                case Blue:
+                    return new ConjurerWaterAllyAnimation(ally);
+                case Orange:
+                    return new ConjurerEarthAllyAnimation(ally);
+            }
+        }
+        return new PCLGeneralAllyAnimation(ally);
+    }
+
     @Override
     public PCLCardData getAscendersBane() {
         return Curse_AscendersBane.DATA;
     }
 
     @Override
-    public String getReplacement(String cardID) {
+    public ConjurerPlayerData getData() {
+        return new ConjurerPlayerData(this);
+    }
+
+    @Override
+    public String getEventReplacement(String cardID) {
         switch (cardID) {
             case Apparition.ID:
-                return pinacolada.cards.conjurer.special.Apparition.DATA.ID;
+                return pinacolada.cards.conjurer.colorless.Whisper.DATA.ID;
             case Bite.ID:
                 return pinacolada.cards.conjurer.special.Bite.DATA.ID;
-            case JAX.ID:
-                return pinacolada.cards.conjurer.special.JAX.DATA.ID;
             case RitualDagger.ID:
                 return pinacolada.cards.conjurer.special.RitualDagger.DATA.ID;
-            default:
-                TemplateCardData data = TemplateCardData.getTemplate(cardID);
-                return data != null ? data.ID : null;
         }
+        return null;
+    }
+
+    @Override
+    public String getReplacement(String cardID) {
+        TemplateCardData data = TemplateCardData.getTemplate(cardID);
+        return data != null ? data.ID : null;
+    }
+
+    @Override
+    public ConjurerStrings getStrings() {
+        return new ConjurerStrings(this);
+    }
+
+    @Override
+    public ConjurerTooltips getTooltips() {
+        return new ConjurerTooltips();
     }
 
     @Override
@@ -94,43 +132,6 @@ public class ConjurerResources extends PCLResources<ConjurerPlayerData, Conjurer
     @Override
     public void receiveEditCharacters() {
         BaseMod.addCharacter(new ConjurerCharacter(), images.charButton, "", playerClass); // No portrait
-    }
-
-    @Override
-    public ConjurerPlayerData getData() {
-        return new ConjurerPlayerData(this);
-    }
-
-    @Override
-    public ConjurerStrings getStrings() {
-        return new ConjurerStrings(this);
-    }
-
-    @Override
-    public ConjurerTooltips getTooltips() {
-        return new ConjurerTooltips();
-    }
-
-    protected PCLAllyAnimation getAnimation(PCLCardAlly ally) {
-        HashSet<PCLAffinity> available = new HashSet<>(PCLAffinity.getAvailableAffinitiesAsList());
-        available.add(PCLAffinity.Star);
-
-        PCLCardAffinity highest = ally.hasCard() ? ally.card.affinities.getHighest(cAff -> available.contains(cAff.type)) : null;
-        if (highest != null) {
-            switch (highest.type) {
-                case Star:
-                    return new ConjurerStarAllyAnimation(ally);
-                case Red:
-                    return new ConjurerFireAllyAnimation(ally);
-                case Green:
-                    return new ConjurerAirAllyAnimation(ally);
-                case Blue:
-                    return new ConjurerWaterAllyAnimation(ally);
-                case Orange:
-                    return new ConjurerEarthAllyAnimation(ally);
-            }
-        }
-        return new PCLGeneralAllyAnimation(ally);
     }
 
 }

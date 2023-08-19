@@ -39,6 +39,12 @@ public class RazorWindEffect extends VisualEffect {
         renderImage(sb, image.texture(), x, y, false, false);
     }
 
+    public RazorWindEffect setFrequency(float frequency) {
+        this.vfxFrequency = MathUtils.clamp(frequency, 0.01f, startingDuration / 5f);
+
+        return this;
+    }
+
     @Override
     protected void updateInternal(float deltaTime) {
         x += vX * deltaTime;
@@ -73,11 +79,5 @@ public class RazorWindEffect extends VisualEffect {
         }
 
         super.updateInternal(deltaTime);
-    }
-
-    public RazorWindEffect setFrequency(float frequency) {
-        this.vfxFrequency = MathUtils.clamp(frequency, 0.01f, startingDuration / 5f);
-
-        return this;
     }
 }

@@ -24,7 +24,7 @@ import java.util.ArrayList;
 public class GeneticEngineering extends PCLCard {
     public static final PCLCardData DATA = register(GeneticEngineering.class, ConjurerResources.conjurer)
             .setPower(0, CardRarity.UNCOMMON)
-            .setUTags(PCLCardTag.Haste, PCLCardTag.Retain)
+            .setUTags(PCLCardTag.Innate)
             .setAffinities(PCLAffinity.Blue.make(2), PCLAffinity.Silver.make())
             .setCore(true);
 

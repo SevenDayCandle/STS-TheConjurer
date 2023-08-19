@@ -47,6 +47,10 @@ public class ThousandFloatingDreams extends PCLRelic {
                 });
     }
 
+    public int getValue() {
+        return 3;
+    }
+
     public void onVictory() {
         super.onVictory();
 
@@ -62,9 +66,5 @@ public class ThousandFloatingDreams extends PCLRelic {
         }
 
         card = null;
-    }
-
-    public int getValue() {
-        return 3;
     }
 }

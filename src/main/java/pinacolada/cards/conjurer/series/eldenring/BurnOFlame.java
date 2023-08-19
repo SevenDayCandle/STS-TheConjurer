@@ -26,6 +26,6 @@ public class BurnOFlame extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(ConjurerEFK.FIRE07);
-        addUseMove(PMove.applyToSingle(2, PCLElementHelper.Ignis));
+        addUseMove(PMove.applyToSingle(3, PCLElementHelper.Ignis));
     }
 }

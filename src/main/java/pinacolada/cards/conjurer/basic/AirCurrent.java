@@ -25,6 +25,6 @@ public class AirCurrent extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.WIND);
-        addUseMove(PMove.applyToSingle(2, PCLElementHelper.Ventus).setUpgrade(1));
+        addUseMove(PMove.applyToSingle(3, PCLElementHelper.Ventus).setUpgrade(1));
     }
 }

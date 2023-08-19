@@ -38,15 +38,15 @@ public class Triquetra extends PCLRelic implements OnTryApplyPowerSubscriber {
         });
     }
 
-    public int getValue() {
-        return 2;
-    }
-
     @Override
     public void atBattleStart() {
         super.atBattleStart();
 
         CombatManager.subscribe(this);
+    }
+
+    public int getValue() {
+        return 2;
     }
 
     @Override

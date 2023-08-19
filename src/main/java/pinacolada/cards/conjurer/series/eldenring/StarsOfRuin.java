@@ -19,7 +19,7 @@ import pinacolada.skills.PTrait;
 public class StarsOfRuin extends PCLCard {
     public static final PCLCardData DATA = register(StarsOfRuin.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.RARE, PCLAttackType.Immaterial, PCLCardTarget.RandomEnemy)
-            .setDamage(2, 1, 8)
+            .setDamage(3, 1, 5)
             .setAffinities(1, PCLAffinity.Blue, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.eldenRing);
 

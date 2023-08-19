@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.vfx.BorderLongFlashEffect;
 import com.megacrit.cardcrawl.vfx.combat.LightFlareParticleEffect;
 import extendedui.EUIUtils;
-import extendedui.interfaces.delegates.ActionT1;
 import pinacolada.effects.PCLEffect;
 import pinacolada.effects.PCLEffects;
 import pinacolada.effects.PCLSFX;
@@ -22,6 +21,18 @@ public class ScreenFreezingEffect extends PCLEffect {
         this.color = Color.SKY.cpy();
         this.duration = 3.0F;
         this.startingDuration = this.duration;
+    }
+
+    public void dispose() {
+    }
+
+    protected void onTrail(TrailingParticleEffect trail) {
+        if (MathUtils.randomBoolean()) {
+            PCLEffects.Queue.add(new LightFlareParticleEffect(trail.x, trail.y, color));
+        }
+    }
+
+    public void render(SpriteBatch sb) {
     }
 
     public void update() {
@@ -49,17 +60,5 @@ public class ScreenFreezingEffect extends PCLEffect {
             this.isDone = true;
         }
 
-    }
-
-    public void render(SpriteBatch sb) {
-    }
-
-    public void dispose() {
-    }
-
-    protected void onTrail(TrailingParticleEffect trail) {
-        if (MathUtils.randomBoolean()) {
-            PCLEffects.Queue.add(new LightFlareParticleEffect(trail.x, trail.y, color));
-        }
     }
 }

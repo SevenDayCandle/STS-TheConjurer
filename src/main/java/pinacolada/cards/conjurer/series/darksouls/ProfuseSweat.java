@@ -9,9 +9,8 @@ import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.CMove;
 import pinacolada.skills.PCond;
-import pinacolada.skills.PMove;
-import pinacolada.skills.PTrait;
 
 @VisibleCard
 public class ProfuseSweat extends PCLCard {
@@ -26,7 +25,7 @@ public class ProfuseSweat extends PCLCard {
     }
 
     public void setup(Object input) {
-        addBlockMove().setChain(PCond.checkPowerSelf(1, PCLElementHelper.Ignis, PCLElementHelper.Aqua).edit(f -> f.setDebuff(true)), PTrait.blockCount(2));
-        addUseMove(PMove.remove(PCLCardTarget.Self, PCLElementHelper.Ignis, PCLElementHelper.Aqua));
+        addBlockMove();
+        addUseMove(PCond.payPower(0, PCLElementHelper.Ignis, PCLElementHelper.Aqua), CMove.gainMatter(10));
     }
 }

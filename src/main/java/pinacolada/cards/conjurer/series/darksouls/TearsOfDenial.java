@@ -53,6 +53,22 @@ public class TearsOfDenial extends PCLCard {
             initialize(move.amount, PowerType.DEBUFF, true);
         }
 
+        protected static String[] getAffectedPowers() {
+            return EUIUtils.array(FrailPower.POWER_ID, VulnerablePower.POWER_ID, WeakPower.POWER_ID);
+        }
+
+        protected static int getBaseForPower(String id) {
+            switch (id) {
+                case FrailPower.POWER_ID:
+                    return FrailPowerPatches.BASE_POWER;
+                case VulnerablePower.POWER_ID:
+                    return VulnerablePowerPatches.BASE_POWER;
+                case WeakPower.POWER_ID:
+                    return WeakPowerPatches.BASE_POWER;
+            }
+            return 0;
+        }
+
         @Override
         public void atStartOfTurn() {
             super.atStartOfTurn();
@@ -76,22 +92,6 @@ public class TearsOfDenial extends PCLCard {
                 float existing = recordedBonuses.getOrDefault(id, 0f);
                 CombatManager.addPlayerEffectBonus(id, (getBaseForPower(id) + existing) * 2);
             }
-        }
-
-        protected static String[] getAffectedPowers() {
-            return EUIUtils.array(FrailPower.POWER_ID, VulnerablePower.POWER_ID, WeakPower.POWER_ID);
-        }
-
-        protected static int getBaseForPower(String id) {
-            switch (id) {
-                case FrailPower.POWER_ID:
-                    return FrailPowerPatches.BASE_POWER;
-                case VulnerablePower.POWER_ID:
-                    return VulnerablePowerPatches.BASE_POWER;
-                case WeakPower.POWER_ID:
-                    return WeakPowerPatches.BASE_POWER;
-            }
-            return 0;
         }
 
     }

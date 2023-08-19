@@ -31,6 +31,18 @@ public class ElementalExposurePower extends PCLPower implements OnElementalDebuf
     }
 
     @Override
+    public void atEndOfRound() {
+        super.atEndOfRound();
+
+        if (this.secondaryAmount <= 0) {
+            PCLActions.bottom.removePower(owner, owner, this);
+        }
+        else {
+            this.secondaryAmount -= 1;
+        }
+    }
+
+    @Override
     public float getPercentage(float initial, AbstractPCLElementalPower element, AbstractCreature owner) {
         return initial + calculatePercentage(amount);
     }
@@ -46,9 +58,9 @@ public class ElementalExposurePower extends PCLPower implements OnElementalDebuf
     }
 
     @Override
-    public void stackPower(int stackAmount) {
-        super.stackPower(stackAmount);
-        this.secondaryAmount = DECAY_TURNS;
+    public void playApplyPowerSfx() {
+        PCLSFX.play(PCLSFX.ATTACK_FIRE, 0.3f, 1.3f, 0.93f);
+        PCLSFX.play(PCLSFX.ORB_FROST_CHANNEL, 0.3f, 1.3f, 0.93f);
     }
 
     @Override
@@ -57,20 +69,8 @@ public class ElementalExposurePower extends PCLPower implements OnElementalDebuf
     }
 
     @Override
-    public void playApplyPowerSfx() {
-        PCLSFX.play(PCLSFX.ATTACK_FIRE, 0.3f, 1.3f, 0.93f);
-        PCLSFX.play(PCLSFX.ORB_FROST_CHANNEL, 0.3f, 1.3f, 0.93f);
-    }
-
-    @Override
-    public void atEndOfRound() {
-        super.atEndOfRound();
-
-        if (this.secondaryAmount <= 0) {
-            PCLActions.bottom.removePower(owner, owner, this);
-        }
-        else {
-            this.secondaryAmount -= 1;
-        }
+    public void stackPower(int stackAmount) {
+        super.stackPower(stackAmount);
+        this.secondaryAmount = DECAY_TURNS;
     }
 }

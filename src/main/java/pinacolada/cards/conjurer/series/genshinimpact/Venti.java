@@ -20,7 +20,7 @@ import pinacolada.skills.PMove;
 public class Venti extends PCLCard {
     public static final PCLCardData DATA = register(Venti.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
-            .setDamage(2,  array(0, 0), 2, array(0, 1))
+            .setDamage(2, array(0, 0), 2, array(0, 1))
             .setTags(PCLCardTag.Ethereal.make(1, array(0, 1)))
             .setHp(4, 1)
             .setAffinities(PCLAffinity.Green.make(2), PCLAffinity.Yellow.make(1))

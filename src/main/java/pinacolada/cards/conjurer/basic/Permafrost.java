@@ -14,6 +14,7 @@ import pinacolada.skills.skills.PTrigger;
 public class Permafrost extends PCLCard {
     public static final PCLCardData DATA = register(Permafrost.class, ConjurerResources.conjurer)
             .setPower(1, CardRarity.UNCOMMON)
+            .setCostUpgrades(-1)
             .setAffinities(2, PCLAffinity.Blue)
             .setCore();
 
@@ -22,6 +23,6 @@ public class Permafrost extends PCLCard {
     }
 
     public void setup(Object input) {
-        addGainPower(PTrigger.when(3, PCond.onOtherCardPlayed(PCLAffinity.Blue), PMove.applyToRandom(1, PCLElementHelper.Aqua)).setUpgrade(2));
+        addGainPower(PTrigger.when(PCond.onOtherCardPlayed(PCLAffinity.Blue), PMove.applyToRandom(1, PCLElementHelper.Aqua)));
     }
 }

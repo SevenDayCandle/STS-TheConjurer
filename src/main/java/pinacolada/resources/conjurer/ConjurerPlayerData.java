@@ -23,7 +23,6 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.PSkill;
 import pinacolada.skills.skills.PMultiSkill;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -33,6 +32,7 @@ public class ConjurerPlayerData extends AbstractPlayerData<ConjurerResources, Co
     public static ConjurerLoadout darkSouls = PCLLoadout.register(new DarkSouls());
     public static ConjurerLoadout eldenRing = PCLLoadout.register(new EldenRing());
     public static ConjurerLoadout genshinImpact = PCLLoadout.register(new GenshinImpact());
+    public static ConjurerLoadout honkai = PCLLoadout.register(new Honkai());
     public static ConjurerLoadout monsterHunter = PCLLoadout.register(new MonsterHunter());
     public static ConjurerLoadout shinMegamiTensei = PCLLoadout.register(new ShinMegamiTensei());
     public static ConjurerLoadout touhouProject = PCLLoadout.register(new TouhouProject());
@@ -41,8 +41,8 @@ public class ConjurerPlayerData extends AbstractPlayerData<ConjurerResources, Co
     public static ConjurerLoadout baldursGate = ConjurerLoadout.generate("BaldursGate", 6);
     public static ConjurerLoadout finalFantasy = ConjurerLoadout.generate("FinalFantasy", 4);
     public static ConjurerLoadout hades = ConjurerLoadout.generate("Hades", 2);
-    public static ConjurerLoadout honkai = ConjurerLoadout.generate("Honkai", 5);
     public static ConjurerLoadout megaman = ConjurerLoadout.generate("MegaMan", 6);
+    public static ConjurerLoadout mobileSuitGundam = ConjurerLoadout.generate("MobileSuitGundam", 6);
     public static ConjurerLoadout phoenixWright = ConjurerLoadout.generate("PhoenixWright", 3);
     public static ConjurerLoadout ragnarok = ConjurerLoadout.generate("RagnarokOnline", 4);
     public static ConjurerLoadout slayTheSpire = ConjurerLoadout.generate("SlayTheSpire", 1);
@@ -217,18 +217,6 @@ public class ConjurerPlayerData extends AbstractPlayerData<ConjurerResources, Co
                 Tingsha.ID,
                 TwistedFunnel.ID,
                 UsefulBox.DATA.ID
-        );
-    }
-
-    @Override
-    public List<PCLLoadout> getAvailableLoadouts() {
-        return Arrays.asList(
-                eldenRing,
-                genshinImpact,
-                shinMegamiTensei,
-                darkSouls,
-                touhouProject,
-                monsterHunter
         );
     }
 

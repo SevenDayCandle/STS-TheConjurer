@@ -17,7 +17,7 @@ public class MayumiJoutouguu extends PCLCard {
     public static final PCLCardData DATA = register(MayumiJoutouguu.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Normal)
             .setDamage(3, 0)
-            .setHp(5, 2)
+            .setHp(6, 2)
             .setAffinities(PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.touhouProject);
 
@@ -27,6 +27,6 @@ public class MayumiJoutouguu extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
-        addUseMove(CCond.react(), PMove.gainBlockPlayer(3).setUpgrade(1));
+        addUseMove(CCond.react(), PMove.gainBlockPlayer(4).setUpgrade(1));
     }
 }

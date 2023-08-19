@@ -21,12 +21,12 @@ public class Polymerization extends PCLMultiCard {
     }
 
     @Override
-    protected PCLMultiCardMove createMulticardMove() {
-        return new PCLMultiCardMove(DATA, this, 2);
+    public PField_CardCategory createFilterFields() {
+        return new PField_CardCategory().setType(CardType.ATTACK, CardType.SKILL);
     }
 
     @Override
-    public PField_CardCategory createFilterFields() {
-        return new PField_CardCategory().setType(CardType.ATTACK, CardType.SKILL);
+    protected PCLMultiCardMove createMulticardMove() {
+        return new PCLMultiCardMove(DATA, this, 2);
     }
 }
