@@ -8,7 +8,6 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -20,6 +19,7 @@ import pinacolada.skills.skills.PTrigger;
 public class AuralDecoy extends PCLCard {
     public static final PCLCardData DATA = register(AuralDecoy.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.RARE, PCLCardTarget.Single)
+            .setBlock(9, 3)
             .setAffinities(PCLAffinity.Green)
             .setTags(PCLCardTag.Exhaust)
             .setLoadout(ConjurerPlayerData.darkSouls);
@@ -29,7 +29,7 @@ public class AuralDecoy extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.applyToSingle(4, PCLElementHelper.Ventus).setUpgrade(3));
+        addBlockMove();
         addApplyPower(PCLCardTarget.Single, 2, PTrigger.when(PCond.haveTakenDamage().setTarget(PCLCardTarget.None), PMod.perParentAmount(), PMove.dealDamage(1, PCLAttackVFX.WAVE.key, PCLCardTarget.Self)));
     }
 }

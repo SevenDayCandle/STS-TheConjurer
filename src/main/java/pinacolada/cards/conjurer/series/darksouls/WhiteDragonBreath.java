@@ -28,7 +28,7 @@ public class WhiteDragonBreath extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(ConjurerEFK.MGC_W2_SuperSphereAttack).setBonus(PMod.perLevel(1, PCLAffinity.Blue), 5, 2);
+        addDamageMove(ConjurerEFK.MGC_W2_SuperSphereAttack).setBonus(PMod.perLevel(1, PCLAffinity.Blue), 8, 3);
         addUseMove(PMove.applyToSingle(12, PCLElementHelper.Cooled));
     }
 }

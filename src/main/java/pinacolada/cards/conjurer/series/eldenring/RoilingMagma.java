@@ -4,21 +4,19 @@ package pinacolada.cards.conjurer.series.eldenring;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
-import pinacolada.cards.base.PCLCardGroupHelper;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.cards.base.fields.PCLAttackType;
-import pinacolada.effects.EffekseerEFK;
+import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PCond;
+import pinacolada.skills.CMod;
 import pinacolada.skills.PMove;
 
 @VisibleCard
 public class RoilingMagma extends PCLCard {
     public static final PCLCardData DATA = register(RoilingMagma.class, ConjurerResources.conjurer)
-            .setAttack(1, CardRarity.UNCOMMON, PCLAttackType.Ranged)
-            .setDamage(9, 2)
+            .setSkill(1, CardRarity.COMMON, PCLCardTarget.Single)
+            .setBlock(6, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
@@ -27,7 +25,7 @@ public class RoilingMagma extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(EffekseerEFK.FIRE10);
-        addUseMove(PCond.exhaust(1, PCLCardGroupHelper.DiscardPile), PMove.applyToEnemies(4, PCLElementHelper.Ignis).setUpgrade(1));
+        addBlockMove();
+        addUseMove(CMod.bonusOnReact(3), PMove.applyToSingle(5, PCLElementHelper.Blasted).setUpgrade(1));
     }
 }

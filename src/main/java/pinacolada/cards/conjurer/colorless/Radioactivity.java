@@ -39,7 +39,7 @@ public class Radioactivity extends PCLCard {
         }
 
         public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-            if (power.type == PowerType.DEBUFF
+            if (GameUtilities.isPCLPower(power)
                     && (source == owner || source instanceof PCLCardAlly)
                     && (move.target == PCLCardTarget.Self ^ !(owner == target))) {
                 int applyAmount = Math.max(1, Math.abs(power.amount));

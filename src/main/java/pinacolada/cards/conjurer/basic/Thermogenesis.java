@@ -10,6 +10,7 @@ import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
+import pinacolada.skills.skills.PMultiCond;
 
 @VisibleCard
 public class Thermogenesis extends PCLCard {
@@ -25,6 +26,6 @@ public class Thermogenesis extends PCLCard {
 
     public void setup(Object input) {
         addBlockMove();
-        addUseMove(PCond.onDraw(), PMove.applyToRandom(2, PCLElementHelper.Ignis).setUpgrade(1));
+        addUseMove(PMultiCond.or(PCond.onDraw(), PCond.onDiscard()), PMove.applyToRandom(3, PCLElementHelper.Ignis).setUpgrade(1));
     }
 }

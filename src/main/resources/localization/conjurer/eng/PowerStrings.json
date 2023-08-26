@@ -3,7 +3,7 @@
 	"conjurer:AbstractPCLElementalPower":
 	{
 		"DESCRIPTIONS": ["Cards deal #b+{0}% damage and give #b+{0}% [Block] per {1}.", "Removed at the end of round.", "Lasts for {0} turns."],
-		"NAME": "Elemental Debuff"
+		"NAME": "Elemental Power"
 	},
 	"conjurer:AquaPower":
 	{
@@ -12,7 +12,7 @@
 	},
 	"conjurer:BlastedPower":
 	{
-		"DESCRIPTIONS": ["At the start of its turn, takes #b{0} damage, then loses this power."],
+		"DESCRIPTIONS": ["At the end of your turn, takes #b{0} damage, then loses this power."],
 		"NAME": "Blasted"
 	},
 	"conjurer:CooledPower":
@@ -37,7 +37,7 @@
 	},
 	"conjurer:ElementalMasteryPower":
 	{
-		"DESCRIPTIONS": ["When you apply an #yElemental #yDebuff, gain an #yAura, or gain #yResolve: Increase the amount by #b{0}."],
+		"DESCRIPTIONS": ["When you apply an #yElement, gain an #yAura, or gain #yResolve: Increase the amount by #b{0}."],
 		"NAME": "Elemental Mastery"
 	},
 	"conjurer:FlowPower":
@@ -62,7 +62,7 @@
 	},
 	"conjurer:PetrifiedPower":
 	{
-		"DESCRIPTIONS": ["For #b{0} turns: #yElemental #yDebuffs cannot be reduced."],
+		"DESCRIPTIONS": ["For #b{0} turns: #yElements cannot be reduced."],
 		"NAME": "Petrified"
 	},
 	"conjurer:StabilizingPower":

@@ -27,8 +27,8 @@ import pinacolada.utilities.GameUtilities;
 public class Kafka extends PCLCard {
     public static final PCLCardData DATA = register(Kafka.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.RARE, PCLAttackType.Piercing, PCLCardTarget.AllEnemy, DelayTiming.EndOfTurnFirst)
-            .setDamage(4, 1)
-            .setHp(7, 2)
+            .setDamage(4, 0)
+            .setHp(8, 2)
             .setAffinities(PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.honkai);
 
@@ -37,7 +37,7 @@ public class Kafka extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.DARKNESS).setBonus(PMod.perPowerAny(1, PCLPowerHelper.Weak, PCLPowerHelper.Vulnerable), 1);
+        addDamageMove(PCLAttackVFX.DARKNESS).setBonus(PMod.perPowerAny(1, PCLPowerHelper.Weak, PCLPowerHelper.Vulnerable), 1, 1);
         addSpecialPower(0, (s, i) -> new KafkaPower(i.source, s), 1, 1);
     }
 
@@ -56,9 +56,8 @@ public class Kafka extends PCLCard {
                         PCLActions.bottom.applyPower(null, creature, power);
                     }
                 }
+                flash();
             }
-
-            flash();
         }
     }
 }

@@ -86,7 +86,7 @@
 	},
 	"conjurer:Everamber":
 	{
-		"DESCRIPTIONS": ["[A-R] now #yReacts with [A-G]. [Malleable] is treated as [conjurer:Ventus]. Start each battle with {0} [Malleable]."],
+		"DESCRIPTIONS": ["[Malleable] is treated as [conjurer:Ventus] and [conjurer:Petra]. Start each battle with {0} [Malleable]."],
 		"FLAVOR": "Inside the amber, a small, long-extinct insect remains frozen in time.",
 		"NAME": "Everamber"
 	},
@@ -158,7 +158,7 @@
 	},
 	"conjurer:PeriodicTable":
 	{
-		"DESCRIPTIONS": ["At the start of turn, apply #b{0} stacks of an #yElemental #yDebuff to a random enemy, rotating between [conjurer:Ignis], [conjurer:Aqua], [conjurer:Ventus], and [conjurer:Petra].", "#gNext #gDebuff: {0}"],
+		"DESCRIPTIONS": [],
 		"FLAVOR": "A table that repeats itself every so often.",
 		"NAME": "Periodic Table"
 	},
@@ -170,13 +170,13 @@
 	},
 	"conjurer:PunitiveEnergy":
 	{
-		"DESCRIPTIONS": ["Gain [E] at the start of your turn. You can only #yLevel #b1 #yElemental #yDebuff each combat."],
+		"DESCRIPTIONS": ["Gain [E] at the start of your turn. You can only #yLevel #b1 #yElement each combat."],
 		"FLAVOR": "You feel a surge of courage just by looking at it.",
 		"NAME": "Punitive Energy"
 	},
 	"conjurer:QuadraticGlobe":
 	{
-		"DESCRIPTIONS": ["#yReactions are now two-way. #yElemental #yDebuffs are #b{0}% less effective. Matter prices are increased by #b{0}%."],
+		"DESCRIPTIONS": [],
 		"FLAVOR": "The globe can spin any way you want it to.",
 		"NAME": "Quadratic Globe"
 	},
@@ -206,7 +206,7 @@
 	},
 	"conjurer:StochasticTable":
 	{
-		"DESCRIPTIONS": ["At the start of each turn, apply #b{0} stacks of a random #yElemental #yDebuff to a random enemy."],
+		"DESCRIPTIONS": ["At the start of each turn, apply #b{0} stacks of a random #yElement to a random enemy."],
 		"FLAVOR": "A table that is very, very unpredictable.",
 		"NAME": "Stochastic Table"
 	},

@@ -1,4 +1,4 @@
-package pinacolada.cards.conjurer.series.eldenring;
+package pinacolada.cards.conjurer.series.darksouls;
 
 
 import pinacolada.annotations.VisibleCard;
@@ -16,15 +16,15 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class RykardsRancor extends PCLCard {
-    public static final PCLCardData DATA = register(RykardsRancor.class, ConjurerResources.conjurer)
+public class SeethingChaos extends PCLCard {
+    public static final PCLCardData DATA = register(SeethingChaos.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.RARE, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
             .setRTags(PCLCardTag.Ethereal)
             .setDamage(23, 0)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Purple)
-            .setLoadout(ConjurerPlayerData.eldenRing);
+            .setLoadout(ConjurerPlayerData.darkSouls);
 
-    public RykardsRancor() {
+    public SeethingChaos() {
         super(DATA);
     }
 

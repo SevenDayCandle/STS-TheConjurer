@@ -16,6 +16,7 @@ import pinacolada.skills.PMove;
 public class Erosion extends PCLCard {
     public static final PCLCardData DATA = register(Erosion.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.AllEnemy)
+            .setBlock(8, 2)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Orange)
             .setCore();
 
@@ -24,6 +25,7 @@ public class Erosion extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PCond.discardRandom(2, PCLCardGroupHelper.DrawPile), PMove.applyToEnemies(3, PCLElementHelper.Aqua, PCLElementHelper.Petra).setUpgrade(2));
+        addBlockMove();
+        addUseMove(PCond.exhaust(1, PCLCardGroupHelper.Hand), PMove.applyToEnemies(3, PCLElementHelper.Aqua, PCLElementHelper.Petra).setUpgrade(1));
     }
 }

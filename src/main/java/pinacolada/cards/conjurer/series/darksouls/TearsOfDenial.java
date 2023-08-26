@@ -50,7 +50,7 @@ public class TearsOfDenial extends PCLCard {
 
         public TearsOfDenialPower(AbstractCreature owner, PSkill<?> move) {
             super(DATA, owner, move);
-            initialize(move.amount, PowerType.DEBUFF, true);
+            initialize(move.amount, PowerType.BUFF, true);
         }
 
         protected static String[] getAffectedPowers() {

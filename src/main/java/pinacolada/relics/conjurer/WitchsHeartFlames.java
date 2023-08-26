@@ -22,6 +22,6 @@ public class WitchsHeartFlames extends PCLPointerRelic {
 
     public void setup() {
         addUseMove(PTrigger.when(PCond.onDraw(AbstractCard.CardType.STATUS),
-                PMultiSkill.join(PMove.applyToEnemies(1, PCLElementHelper.Ignis, PCLElementHelper.Blasted))));
+                PMultiSkill.join(PMove.applyToEnemies(2, PCLElementHelper.Ignis, PCLElementHelper.Blasted))));
     }
 }

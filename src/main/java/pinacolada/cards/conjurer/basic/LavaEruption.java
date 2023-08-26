@@ -19,7 +19,7 @@ import pinacolada.skills.skills.PCustomMod;
 public class LavaEruption extends PCLCard {
     public static final PCLCardData DATA = register(LavaEruption.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.RARE, PCLAttackType.Normal, PCLCardTarget.AllEnemy)
-            .setDamage(5, 1)
+            .setDamage(8, 1)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Orange)
             .setCore();
 

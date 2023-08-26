@@ -82,7 +82,10 @@ public class ConjurerSummonTutorialMonster extends PCLTutorialMonster {
                 .setCanDismiss(true));
         EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(targetHb, PGR.core.tooltips.summon.title, PGR.core.strings.tutorial_summonTutorial4)
                 .setCanDismiss(true));
-        return new EUITourTooltip(SelectCreature.class, PGR.core.tooltips.summon.title, PGR.core.strings.tutorial_summonTutorial5)
+        EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(targetHb, PGR.core.tooltips.summon.title, PGR.core.strings.tutorial_summonTutorial5)
+                .setPosition(targetHb.x, targetHb.y)
+                .setCanDismiss(true));
+        return new EUITourTooltip(SelectCreature.class, PGR.core.tooltips.summon.title, ConjurerResources.conjurer.strings.conjurerSummonInteractive2)
                 .setPosition(targetHb.x, targetHb.y)
                 .setCanDismiss(false);
     }
@@ -106,9 +109,9 @@ public class ConjurerSummonTutorialMonster extends PCLTutorialMonster {
 
         EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(targetHb, PGR.core.tooltips.summon.title, PGR.core.strings.tutorial_summonTutorial5)
                 .setCanDismiss(true));
-        EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(button, PGR.core.tooltips.summon.title, ConjurerResources.conjurer.strings.conjurerSummonInteractive2)
+        EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(button, PGR.core.tooltips.summon.title, ConjurerResources.conjurer.strings.conjurerSummonInteractive3)
                 .setCanDismiss(true));
-        return new EUITourTooltip(ElementReaction.class, PGR.core.tooltips.summon.title, ConjurerResources.conjurer.strings.conjurerSummonInteractive3)
+        return new EUITourTooltip(ElementReaction.class, PGR.core.tooltips.summon.title, ConjurerResources.conjurer.strings.conjurerSummonInteractive4)
                 .setPosition(hb.x - hb.width * 3, hb.y + hb.height)
                 .setCanDismiss(false);
     }
@@ -129,7 +132,7 @@ public class ConjurerSummonTutorialMonster extends PCLTutorialMonster {
                 .setCanDismiss(true));
         EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(targetHb, PGR.core.tooltips.summon.title, PGR.core.strings.tutorial_summonTutorial7)
                 .setCanDismiss(true));
-        return new EUITourTooltip(UseCardAction.class, PGR.core.tooltips.summon.title, ConjurerResources.conjurer.strings.conjurerSummonInteractive4)
+        return new EUITourTooltip(UseCardAction.class, PGR.core.tooltips.summon.title, ConjurerResources.conjurer.strings.conjurerSummonInteractive5)
                 .setPosition(hb.x - hb.width * 3, hb.y + hb.height)
                 .setCanDismiss(false);
     }

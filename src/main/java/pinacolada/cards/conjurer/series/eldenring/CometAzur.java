@@ -18,7 +18,7 @@ public class CometAzur extends PCLCard {
     public static final PCLCardData DATA = register(CometAzur.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.RARE, PCLAttackType.Piercing)
             .setTags(PCLCardTag.Exhaust)
-            .setDamage(36, 4)
+            .setDamage(40, 8)
             .setAffinities(1, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.eldenRing);
 

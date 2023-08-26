@@ -16,7 +16,7 @@ import pinacolada.skills.PMove;
 public class BestialVitality extends PCLCard {
     public static final PCLCardData DATA = register(BestialVitality.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.COMMON, PCLCardTarget.Self)
-            .setBlock(12, 3)
+            .setBlock(15, 3)
             .setAffinities(PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.eldenRing);
 

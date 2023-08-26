@@ -26,21 +26,17 @@ public class BlastedPower extends PCLPower implements HealthBarRenderPower {
     }
 
     @Override
+    public void atEndOfTurn(boolean isPlayer) {
+        super.atEndOfTurn(isPlayer);
+
+        if (isPlayer) {
+            doEffect();
+        }
+    }
+
+    @Override
     public void atStartOfTurn() {
-        this.flashWithoutSound();
-
-        if (expanded) {
-            for (AbstractCreature enemy : GameUtilities.getEnemies(true)) {
-                DamageInfo info = getExpandedDamageInfo();
-                PCLActions.bottom.dealDamage(owner, info, PCLAttackVFX.FIRE).setPiercing(true, false);
-            }
-        }
-        else {
-            PCLActions.bottom.dealDamage(source, owner, amount, DamageInfo.DamageType.THORNS, PCLAttackVFX.FIRE)
-                    .canKill(owner == null || !owner.isPlayer);
-        }
-
-        removePower();
+        doEffect();
     }
 
     @Override
@@ -70,5 +66,22 @@ public class BlastedPower extends PCLPower implements HealthBarRenderPower {
             return GameUtilities.getHealthBarAmount(owner, info.output, true, true);
         }
         return GameUtilities.getHealthBarAmount(owner, amount, true, true);
+    }
+
+    protected void doEffect() {
+        this.flashWithoutSound();
+
+        if (expanded) {
+            for (AbstractCreature enemy : GameUtilities.getEnemies(true)) {
+                DamageInfo info = getExpandedDamageInfo();
+                PCLActions.bottom.dealDamage(owner, info, PCLAttackVFX.FIRE).setPiercing(true, false);
+            }
+        }
+        else {
+            PCLActions.bottom.dealDamage(source, owner, amount, DamageInfo.DamageType.THORNS, PCLAttackVFX.FIRE)
+                    .canKill(owner == null || !owner.isPlayer);
+        }
+
+        removePower();
     }
 }

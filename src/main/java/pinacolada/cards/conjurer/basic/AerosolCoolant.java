@@ -22,7 +22,7 @@ public class AerosolCoolant extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.apply(PCLCardTarget.SelfSingle, 2, PCLElementHelper.Ventus).setUpgrade(1));
+        addUseMove(PMove.apply(PCLCardTarget.SelfSingle, 3, PCLElementHelper.Ventus).setUpgrade(2));
         addUseMove(PMove.withdrawAlly(PCLCardTarget.AllAlly, 2));
     }
 }

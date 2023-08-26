@@ -16,7 +16,7 @@ import pinacolada.skills.skills.PTrigger;
 @VisibleCard
 public class PoisonArmament extends PCLCard {
     public static final PCLCardData DATA = register(PoisonArmament.class, ConjurerResources.conjurer)
-            .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.Self)
+            .setSkill(0, CardRarity.UNCOMMON, PCLCardTarget.Self)
             .setAffinities(1, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.eldenRing);
 

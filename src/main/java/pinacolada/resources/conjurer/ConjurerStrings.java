@@ -24,6 +24,7 @@ public class ConjurerStrings extends AbstractStrings {
     public final String conjurerSummonInteractive2 = tutorial.TEXT[10];
     public final String conjurerSummonInteractive3 = tutorial.TEXT[11];
     public final String conjurerSummonInteractive4 = tutorial.TEXT[12];
+    public final String conjurerSummonInteractive5 = tutorial.TEXT[12];
 
     public ConjurerStrings(PCLResources<?, ?, ?, ?> resources) {
         super(resources);

@@ -16,6 +16,7 @@ import pinacolada.relics.pcl.GenericDice;
 import pinacolada.resources.PCLEnum;
 import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.ui.cardReward.PCLCardRewardScreen;
 import pinacolada.utilities.GameUtilities;
 
 @VisibleRelic
@@ -34,9 +35,10 @@ public class EntropicDie extends PCLRelic implements CardRewardActionProvider {
         return counter > 0;
     }
 
-    public AbstractCard doAction(AbstractCard card, RewardItem rewardItem, int cardIndex) {
+    public boolean doAction(AbstractCard card, RewardItem rewardItem, int cardIndex) {
         setCounter(counter - 1);
-        return getReward(card, rewardItem);
+        rerollCard(card, getReward(card, rewardItem), rewardItem, cardIndex);
+        return false;
     }
 
     protected int getBonus() {
@@ -71,7 +73,10 @@ public class EntropicDie extends PCLRelic implements CardRewardActionProvider {
     }
 
     public AbstractCard getReward(AbstractCard card, RewardItem rewardItem) {
-        AbstractCard reward = PGR.dungeon.getRandomRewardReplacementCard(getRarity(card), rewardItem.cards, AbstractDungeon.cardRng, true);
+        for (AbstractCard c : rewardItem.cards) {
+            PCLCardRewardScreen.seenCards.add(c.cardID);
+        }
+        AbstractCard reward = PGR.dungeon.getRandomRewardReplacementCard(getRarity(card), c -> !(PCLCardRewardScreen.seenCards.contains(c.cardID)), AbstractDungeon.cardRng, true);
         if (reward instanceof PCLCard) {
             int factor = 2 + rerolls / 7;
             int change = MathUtils.random(0, factor) - factor / 2;
@@ -88,9 +93,10 @@ public class EntropicDie extends PCLRelic implements CardRewardActionProvider {
 
             if (GameUtilities.chance(5 + rerolls)) {
                 int costChange = MathUtils.random(-1, 1);
-
             }
-
+        }
+        if (reward != null) {
+            PCLCardRewardScreen.seenCards.add(reward.cardID);
         }
         rerolls += 1;
         return reward;

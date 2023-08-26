@@ -14,7 +14,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 @VisibleRelic
 public class Everamber extends PCLRelic {
     public static final PCLRelicData DATA = register(Everamber.class, ConjurerResources.conjurer)
-            .setProps(RelicTier.RARE, LandingSound.FLAT);
+            .setProps(RelicTier.BOSS, LandingSound.FLAT);
 
     public Everamber() {
         super(DATA);
@@ -24,12 +24,12 @@ public class Everamber extends PCLRelic {
     protected void activateBattleEffect() {
         PCLActions.bottom.callback(() -> {
             ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Green).addAdditionalPower(MalleablePower.POWER_ID);
-            ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Green).addReaction(ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Red));
+            ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Orange).addAdditionalPower(MalleablePower.POWER_ID);
             PCLActions.bottom.applyPower(AbstractDungeon.player, PCLPowerHelper.Malleable, getValue());
         });
     }
 
     public int getValue() {
-        return 1;
+        return 2;
     }
 }

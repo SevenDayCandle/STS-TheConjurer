@@ -6,7 +6,6 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.powers.conjurer.PCLElementHelper;
-import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
@@ -16,6 +15,7 @@ import pinacolada.skills.skills.PTrigger;
 public class Geomorphology extends PCLCard {
     public static final PCLCardData DATA = register(Geomorphology.class, ConjurerResources.conjurer)
             .setPower(1, CardRarity.UNCOMMON)
+            .setCostUpgrades(-1)
             .setAffinities(2, PCLAffinity.Orange)
             .setCore();
 
@@ -24,6 +24,6 @@ public class Geomorphology extends PCLCard {
     }
 
     public void setup(Object input) {
-        addGainPower(PTrigger.when(2, PCond.onOtherCardPlayed(CardType.POWER, PCLEnum.CardType.SUMMON), PMove.apply(PCLCardTarget.AllEnemy, 1, PCLElementHelper.Petra)).setUpgrade(1));
+        addGainPower(PTrigger.when(PCond.block(1), PMove.apply(PCLCardTarget.AllEnemy, 1, PCLElementHelper.Petra)));
     }
 }

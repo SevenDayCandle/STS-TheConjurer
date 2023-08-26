@@ -17,7 +17,7 @@ import pinacolada.skills.skills.PMultiSkill;
 public class Smokescreen extends PCLCard {
     public static final PCLCardData DATA = register(Smokescreen.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.Self)
-            .setBlock(3, 2, 2)
+            .setBlock(4, 2, 2)
             .setAffinities(PCLAffinity.Green)
             .setCore();
 

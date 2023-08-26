@@ -71,7 +71,7 @@ public class GeneticEngineering extends PCLCard {
                         newSkills.add(bottom);
                     }
 
-                    if (pc.cost < 0) {
+                    if (pc.cost < -1) {
                         GameUtilities.modifyCostForCombat(pc, 0, false);
                     }
 

@@ -15,7 +15,7 @@ import pinacolada.skills.PCond;
 public class FlashSweat extends PCLCard {
     public static final PCLCardData DATA = register(FlashSweat.class, ConjurerResources.conjurer)
             .setSkill(0, CardRarity.COMMON, PCLCardTarget.Self)
-            .setBlock(4, 3)
+            .setBlock(4, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.darkSouls);
 
@@ -24,6 +24,6 @@ public class FlashSweat extends PCLCard {
     }
 
     public void setup(Object input) {
-        addBlockMove().setBonus(PCond.checkPowerSelf(1, PCLElementHelper.Ignis, PCLElementHelper.Aqua).edit(f -> f.setDebuff(true)), 4);
+        addBlockMove().setBonus(PCond.checkPowerSelf(1, PCLElementHelper.Ignis, PCLElementHelper.Weak).edit(f -> f.setRandom(true)), 3).setUpgrade(2);
     }
 }

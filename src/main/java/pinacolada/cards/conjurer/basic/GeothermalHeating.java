@@ -13,7 +13,7 @@ import pinacolada.skills.PMod;
 public class GeothermalHeating extends PCLCard {
     public static final PCLCardData DATA = register(GeothermalHeating.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.COMMON, PCLCardTarget.Self)
-            .setBlock(5, 1)
+            .setBlock(6, 1)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Orange)
             .setCore();
 
@@ -22,6 +22,6 @@ public class GeothermalHeating extends PCLCard {
     }
 
     public void setup(Object input) {
-        addBlockMove().setBonus(PMod.perDistinctDebuff(PCLCardTarget.Self, 1), 3, 1);
+        addBlockMove().setBonus(PMod.perDistinctDebuff(PCLCardTarget.Self, 1), 4, 1);
     }
 }

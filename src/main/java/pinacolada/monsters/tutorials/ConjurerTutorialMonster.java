@@ -45,14 +45,14 @@ public class ConjurerTutorialMonster extends PCLTutorialMonster {
         AbstractCard card = new Lithosphere();
         replaceHandWith(card);
         ConjurerElementButton button = ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Red);
-        EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(button, ConjurerResources.conjurer.tooltips.elementalDebuff.title, ConjurerResources.conjurer.strings.conjurerInteractive1)
+        EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(button, ConjurerResources.conjurer.tooltips.element.title, ConjurerResources.conjurer.strings.conjurerInteractive1)
                 .setCanDismiss(true));
-        EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(button, ConjurerResources.conjurer.tooltips.elementalDebuff.title, ConjurerResources.conjurer.strings.conjurerTutorial1)
+        EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(button, ConjurerResources.conjurer.tooltips.element.title, ConjurerResources.conjurer.strings.conjurerTutorial1)
                 .setCanDismiss(true));
-        EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(card.hb, ConjurerResources.conjurer.tooltips.elementalDebuff.title, PGR.core.strings.tutorial_affinityTutorial)
+        EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(card.hb, ConjurerResources.conjurer.tooltips.element.title, PGR.core.strings.tutorial_affinityTutorial)
                 .setPosition(hb.x - hb.width * 3, hb.y + hb.height)
                 .setCanDismiss(true));
-        return new EUITourTooltip(UseCardAction.class, ConjurerResources.conjurer.tooltips.elementalDebuff.title, ConjurerResources.conjurer.strings.conjurerInteractive2)
+        return new EUITourTooltip(UseCardAction.class, ConjurerResources.conjurer.tooltips.element.title, ConjurerResources.conjurer.strings.conjurerInteractive2)
                 .setPosition(hb.x - hb.width * 3, hb.y + hb.height)
                 .setCanDismiss(false);
     }
@@ -63,9 +63,9 @@ public class ConjurerTutorialMonster extends PCLTutorialMonster {
         p.stabilize(1);
         powers.add(p);
         ConjurerReactionButton button = ConjurerReactionMeter.meter.getReactionButton(PCLAffinity.Orange, PCLAffinity.Red);
-        EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(button, ConjurerResources.conjurer.tooltips.elementalDebuff.title, ConjurerResources.conjurer.strings.conjurerTutorial2).setCanDismiss(true));
-        EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(button, ConjurerResources.conjurer.tooltips.elementalDebuff.title, ConjurerResources.conjurer.strings.conjurerTutorial3).setCanDismiss(true));
-        return new EUITourTooltip(ElementReaction.class, ConjurerResources.conjurer.tooltips.elementalDebuff.title, ConjurerResources.conjurer.strings.conjurerInteractive3)
+        EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(button, ConjurerResources.conjurer.tooltips.element.title, ConjurerResources.conjurer.strings.conjurerTutorial2).setCanDismiss(true));
+        EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(button, ConjurerResources.conjurer.tooltips.element.title, ConjurerResources.conjurer.strings.conjurerTutorial3).setCanDismiss(true));
+        return new EUITourTooltip(ElementReaction.class, ConjurerResources.conjurer.tooltips.element.title, ConjurerResources.conjurer.strings.conjurerInteractive3)
                 .setPosition(hb.x - hb.width * 3, hb.y + hb.height)
                 .setCanDismiss(false);
     }
@@ -77,8 +77,8 @@ public class ConjurerTutorialMonster extends PCLTutorialMonster {
         ConjurerReactionMeter.meter.disableAffinity(PCLAffinity.Orange);
         ConjurerReactionMeter.meter.addCount(15, true);
         ConjurerElementButton button = ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Red);
-        EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(button, ConjurerResources.conjurer.tooltips.elementalDebuff.title, ConjurerResources.conjurer.strings.conjurerTutorial4).setCanDismiss(true));
-        return new EUITourTooltip(button.hb, ConjurerResources.conjurer.tooltips.elementalDebuff.title, ConjurerResources.conjurer.strings.conjurerInteractive4)
+        EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(button, ConjurerResources.conjurer.tooltips.element.title, ConjurerResources.conjurer.strings.conjurerTutorial4).setCanDismiss(true));
+        return new EUITourTooltip(button.hb, ConjurerResources.conjurer.tooltips.element.title, ConjurerResources.conjurer.strings.conjurerInteractive4)
                 .setPosition(hb.x - hb.width * 3, hb.y + hb.height)
                 .setCanDismiss(false);
     }

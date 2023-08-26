@@ -108,7 +108,7 @@ public class ConjurerCharacter extends PCLCharacter {
                     .setScaleTarget(0.2f + MathUtils.random(0, 0.1f), 0.75F + MathUtils.random(0, 0.15f), 5f)
                     .setRotation(rotation, MathUtils.random(-180.0F, 180.0F))
                     .setTargetPosition(hb.cX + EUIBase.scale(180) * MathUtils.cos(rotation), hb.cY + EUIBase.scale(180) * MathUtils.sin(rotation), MathUtils.random(30f, 80f))
-                    .setDuration(1f, false)
+                    .setDuration(2f, false)
             );
         }
     }

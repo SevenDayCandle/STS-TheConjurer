@@ -22,6 +22,6 @@ public class MudFissure extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.EARTH).setBonus(PCond.checkDistinctPowerSingle(2).edit(f -> f.setDebuff(true)), 6, 2);
+        addDamageMove(PCLAttackVFX.EARTH).setBonus(PCond.checkDistinctPowerSingle(1).edit(f -> f.setDebuff(true)), 6, 2);
     }
 }

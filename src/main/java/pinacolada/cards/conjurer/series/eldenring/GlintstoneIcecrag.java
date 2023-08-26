@@ -16,7 +16,7 @@ import pinacolada.skills.PMove;
 public class GlintstoneIcecrag extends PCLCard {
     public static final PCLCardData DATA = register(GlintstoneIcecrag.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.COMMON, PCLAttackType.Ranged)
-            .setDamage(3, 2)
+            .setDamage(4, 2)
             .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.eldenRing);
 

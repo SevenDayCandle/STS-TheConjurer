@@ -44,12 +44,12 @@ public class PMod_PerElement extends PMod_Per<PField_Affinity> {
 
     @Override
     public String getSubSampleText() {
-        return ConjurerResources.conjurer.tooltips.elementalDebuff.title;
+        return ConjurerResources.conjurer.tooltips.element.title;
     }
 
     @Override
     public String getSubText(PCLCardTarget perpsective) {
-        String baseString = fields.affinities.isEmpty() ? plural(ConjurerResources.conjurer.tooltips.elementalDebuff) : PCLElementHelper.getPowerAndString(fields.affinities);
+        String baseString = fields.affinities.isEmpty() ? plural(ConjurerResources.conjurer.tooltips.element) : PCLElementHelper.getPowerAndString(fields.affinities);
         if (amount > 1) {
             baseString = EUIRM.strings.numNoun(getAmountRawString(), baseString);
         }

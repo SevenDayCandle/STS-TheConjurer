@@ -18,6 +18,6 @@ public class PearlCage extends PCLPointerRelic {
     }
 
     public void setup() {
-        addUseMove(PTrigger.when(2, PCond.onWithdraw(), PMove.gainTempHP(1)));
+        addUseMove(PTrigger.when(PCond.onWithdraw(), PMove.gainTempHP(2)));
     }
 }

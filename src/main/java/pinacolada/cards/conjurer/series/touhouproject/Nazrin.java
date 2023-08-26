@@ -4,7 +4,6 @@ package pinacolada.cards.conjurer.series.touhouproject;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
-import pinacolada.cards.base.PCLCardGroupHelper;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.PCLAttackVFX;
@@ -12,6 +11,7 @@ import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
+import pinacolada.skills.fields.PField_CardGeneric;
 
 @VisibleCard
 public class Nazrin extends PCLCard {
@@ -28,6 +28,6 @@ public class Nazrin extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
-        addUseMove(PCond.cooldown(2), PMove.fetch(1, PCLCardGroupHelper.DiscardPile).edit(f -> f.setType(CardType.SKILL)));
+        addUseMove(PCond.cooldown(2), PMove.retain(2).edit(PField_CardGeneric::setRandom));
     }
 }

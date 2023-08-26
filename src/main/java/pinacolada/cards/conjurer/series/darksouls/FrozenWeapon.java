@@ -1,4 +1,4 @@
-package pinacolada.cards.conjurer.series.eldenring;
+package pinacolada.cards.conjurer.series.darksouls;
 
 
 import pinacolada.annotations.VisibleCard;
@@ -14,13 +14,13 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
-public class FrozenArmament extends PCLCard {
-    public static final PCLCardData DATA = register(FrozenArmament.class, ConjurerResources.conjurer)
-            .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.Self)
+public class FrozenWeapon extends PCLCard {
+    public static final PCLCardData DATA = register(FrozenWeapon.class, ConjurerResources.conjurer)
+            .setSkill(0, CardRarity.UNCOMMON, PCLCardTarget.Self)
             .setAffinities(1, PCLAffinity.Blue)
-            .setLoadout(ConjurerPlayerData.eldenRing);
+            .setLoadout(ConjurerPlayerData.darkSouls);
 
-    public FrozenArmament() {
+    public FrozenWeapon() {
         super(DATA);
     }
 

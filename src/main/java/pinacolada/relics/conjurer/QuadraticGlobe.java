@@ -1,70 +1,25 @@
 package pinacolada.relics.conjurer;
 
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleRelic;
-import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.dungeon.CombatManager;
-import pinacolada.dungeon.ConjurerElementButton;
-import pinacolada.dungeon.ConjurerReactionMeter;
-import pinacolada.interfaces.providers.PointerProvider;
-import pinacolada.interfaces.subscribers.OnCardCreatedSubscriber;
-import pinacolada.powers.conjurer.AbstractPCLElementalPower;
-import pinacolada.relics.PCLRelic;
+import pinacolada.cards.base.PCLCardGroupHelper;
+import pinacolada.relics.PCLPointerRelic;
 import pinacolada.relics.PCLRelicData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.conjurer.conditions.PCond_PayMatter;
-import pinacolada.utilities.GameUtilities;
+import pinacolada.skills.CMove;
+import pinacolada.skills.PCond;
+import pinacolada.skills.PMod;
+import pinacolada.skills.skills.PTrigger;
 
 @VisibleRelic
-public class QuadraticGlobe extends PCLRelic implements OnCardCreatedSubscriber {
+public class QuadraticGlobe extends PCLPointerRelic {
     public static final PCLRelicData DATA = register(QuadraticGlobe.class, ConjurerResources.conjurer)
-            .setProps(RelicTier.BOSS, LandingSound.CLINK);
+            .setProps(RelicTier.COMMON, LandingSound.CLINK);
 
     public QuadraticGlobe() {
         super(DATA);
     }
 
-    @Override
-    protected void activateBattleEffect() {
-        PCLActions.bottom.callback(() -> {
-            ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Blue).addReaction(PCLAffinity.Red);
-            ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Red).addReaction(PCLAffinity.Orange);
-            ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Orange).addReaction(PCLAffinity.Green);
-            ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Green).addReaction(PCLAffinity.Blue);
-            for (ConjurerElementButton element : ConjurerReactionMeter.meter.getElementButtons()) {
-                element.currentAmplifyOffset = AbstractPCLElementalPower.BASE_DAMAGE_MULTIPLIER * -getValue() / 100;
-                element.setCurrentCostMultiplier(getMultiplier());
-                CombatManager.addEffectBonus(element.elementID(), -getValue());
-            }
-
-            for (AbstractCard c : GameUtilities.getCardsInAnyPile()) {
-                modify(c);
-            }
-            CombatManager.subscribe(this);
-        });
-    }
-
-    public float getMultiplier() {
-        return (100 + getValue()) / 100f;
-    }
-
-    public int getValue() {
-        return 50;
-    }
-
-    protected void modify(AbstractCard card) {
-        if (card instanceof PointerProvider) {
-            ((PointerProvider) card).doAll(ef -> ef.recurse(subEf -> {
-                if (subEf instanceof PCond_PayMatter) {
-                    subEf.setAmount((int) (subEf.amount * getMultiplier()));
-                }
-            }));
-        }
-    }
-
-    @Override
-    public void onCardCreated(AbstractCard card, boolean b) {
-        modify(card);
+    public void setup() {
+        addUseMove(PTrigger.when(PCond.shuffle(), PMod.perCard(PCLCardGroupHelper.MasterDeck), CMove.gainMatter(2)));
     }
 }

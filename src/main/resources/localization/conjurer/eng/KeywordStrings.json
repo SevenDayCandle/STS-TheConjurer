@@ -8,28 +8,28 @@
 		"NAME": "Back Link"
 	},
 	"conjurer:Blasted": {
-		"DESCRIPTION": "Take damage at the start of turn. Removed at round end.",
+		"DESCRIPTION": "Take damage at the end of the player turn, then lose this debuff.",
 		"NAME": "Blasted"
 	},
 	"conjurer:Charge": {
-		"DESCRIPTION": "Apply the last #yElemental #yDebuff you manually leveled up to an enemy. The first time each turn you level up an #yElemental #yDebuff manually, gain #b1 #yCharge.",
+		"DESCRIPTION": "Apply the last #yElement you manually leveled up to an enemy. The first time each turn you level up an #yElement manually, gain #b1 #yCharge.",
 		"NAME": "Charge"
 	},
 	"conjurer:Cooled": {
 		"DESCRIPTION": "Every #b{0} stacks increases damage taken from #yAttacks and #yOrbs by #b1, and reduces damage dealt by #b1. Removed at round end.",
 		"NAME": "Cooled"
 	},
-	"conjurer:Elemental Debuff": {
-		"DESCRIPTION": "[conjurer:Ignis], [conjurer:Aqua], [conjurer:Ventus], [conjurer:Petra]. Playing cards on targets with these debuffs triggers #yReactions. Removed at the end of the round.",
-		"NAME": "Elemental Debuff",
-		"PLURAL": "${0}@>1:Elemental Debuffs@:Elemental Debuff$"
+	"conjurer:Element": {
+		"DESCRIPTION": "[conjurer:Ignis], [conjurer:Aqua], [conjurer:Ventus], [conjurer:Petra]. Playing cards on targets with #yElements triggers #yReactions. Removed at the end of the round.",
+		"NAME": "Element",
+		"PLURAL": "${0}@>1:Elements@:Element$"
 	},
 	"conjurer:Elemental Exposure": {
-		"DESCRIPTION": "Increases the effectiveness of #yElemental #yDebuffs.",
+		"DESCRIPTION": "Increases the effectiveness of #yElements.",
 		"NAME": "Elemental Exposure"
 	},
 	"conjurer:Elemental Mastery": {
-		"DESCRIPTION": "Whenever you apply #yElemental #yDebuffs, increase their stacks.",
+		"DESCRIPTION": "Whenever you apply #yElements, increase their stacks.",
 		"NAME": "Elemental Mastery"
 	},
 	"conjurer:Flow": {
@@ -53,11 +53,11 @@
 		"PROGRESSIVE": "Linking"
 	},
 	"conjurer:Lux": {
-		"DESCRIPTION": "[A-Y] #yElemental #yDebuff. Reactions on the target are multiplied.",
+		"DESCRIPTION": "[A-Y] #yElement. Reactions on the target are multiplied.",
 		"NAME": "Lux"
 	},
 	"conjurer:Matter": {
-		"DESCRIPTION": "#yReactions grant #yMatter. Can be spent to level #yElemental #yDebuffs.",
+		"DESCRIPTION": "#yReactions grant #yMatter. Can be spent to level #yElements.",
 		"NAME": "Matter"
 	},
 	"conjurer:Petra": {
@@ -65,7 +65,7 @@
 		"NAME": "Petra"
 	},
 	"conjurer:Reaction": {
-		"DESCRIPTION": "Occurs upon playing a card with an #yAffinity that activates the target's #yElemental #yDebuff. This also grants #yMatter.",
+		"DESCRIPTION": "Occurs upon playing a card with an #yAffinity that activates the target's #yElement. This also grants #yMatter.",
 		"NAME": "Reaction",
 		"PAST": "Reacted",
 		"PLURAL": "${0}@>1:Reactions@:Reaction$",
@@ -80,7 +80,7 @@
 		"PROGRESSIVE": "Stabilizing"
 	},
 	"conjurer:Umbra": {
-		"DESCRIPTION": "[A-P] #yElemental #yDebuff. Reactions on a non-#ySummon, non-boss target have a chance to instantly kill it.",
+		"DESCRIPTION": "[A-P] #yElement. Reactions on a non-#ySummon, non-boss target have a chance to instantly kill it.",
 		"NAME": "Umbra"
 	},
 	"conjurer:Ventus": {

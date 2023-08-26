@@ -31,7 +31,6 @@ import pinacolada.skills.fields.PField;
 import pinacolada.skills.fields.PField_CardCategory;
 import pinacolada.skills.skills.PBranchCond;
 import pinacolada.skills.skills.PDelegateCardCond;
-import pinacolada.skills.skills.base.conditions.PCond_OnAllyTrigger;
 import pinacolada.utilities.GameUtilities;
 import pinacolada.utilities.PCLRenderHelpers;
 
@@ -42,7 +41,7 @@ public class PCond_AllyLink extends PDelegateCardCond
         implements OnAllyTriggerSubscriber, OnModifyBlockLastSubscriber, OnModifyBlockFirstSubscriber, OnModifyDamageGiveFirstSubscriber, OnModifyDamageGiveLastSubscriber {
     protected static final float ARROW_SIZE = Settings.scale * 48;
     protected static final float ICON_SIZE = Settings.scale * 29;
-    public static final PSkillData<PField_CardCategory> DATA = register(PCond_OnAllyTrigger.class, PField_CardCategory.class, -1, 1)
+    public static final PSkillData<PField_CardCategory> DATA = register(PCond_AllyLink.class, PField_CardCategory.class, -1, 1)
             .pclOnly()
             .selfTarget();
     protected float flashTimerBack;

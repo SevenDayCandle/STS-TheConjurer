@@ -17,7 +17,7 @@ import pinacolada.skills.skills.base.conditions.PCond_OnAllyDeath;
 public class BarbaraPegg extends PCLCard {
     public static final PCLCardData DATA = register(BarbaraPegg.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Immaterial, PCLCardTarget.AllEnemy)
-            .setDamage(1, array(2, 0))
+            .setDamage(2, array(2, 0))
             .setHp(2, array(1, 0))
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.genshinImpact);

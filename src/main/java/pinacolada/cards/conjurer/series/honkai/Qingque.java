@@ -17,7 +17,7 @@ import pinacolada.skills.skills.PTrigger;
 public class Qingque extends PCLCard {
     public static final PCLCardData DATA = register(Qingque.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy)
-            .setDamage(3, array(2, 0))
+            .setDamage(4, array(1, 0))
             .setHp(5, 1)
             .setAffinities(PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.honkai);
@@ -28,6 +28,6 @@ public class Qingque extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
-        addGainPower((PTrigger) PTrigger.interactable(2, PMove.cycleRandom(1)).setUpgrade(0, 1));
+        addGainPower((PTrigger) PTrigger.interactable(1, PMove.cycleRandom(1)).setUpgrade(0, 1));
     }
 }

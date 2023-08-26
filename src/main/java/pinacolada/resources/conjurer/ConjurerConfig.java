@@ -5,20 +5,13 @@ import pinacolada.resources.PCLCharacterConfig;
 import pinacolada.resources.PCLMainConfig;
 
 public class ConjurerConfig extends PCLCharacterConfig {
-    private static final String MOD_ID = "Conjurer";
-    private static final String BANNED_CARDS_CONJURER = PCLMainConfig.createFullID("BannedCardsConjurer");
-    private static final String BANNED_RELICS_CONJURER = PCLMainConfig.createFullID("BannedRelicsConjurer");
-    private static final String CARDS_COUNT_CONJURER = PCLMainConfig.createFullID("CardsCountConjurer");
-    private static final String LAST_LOADOUT_CONJURER = PCLMainConfig.createFullID("LastLoadoutConjurer");
-    private static final String METER_POSITION_CONJURER = PCLMainConfig.createFullID("MeterPositionConjurer");
-    private static final String SEEN_TUTORIAL_CONJURER = PCLMainConfig.createFullID("SeenTutorialConjurer");
+    private static final String MOD_ID = "CONJURER";
     private static final String SEEN_SUMMON_TUTORIAL_CONJURER = PCLMainConfig.createFullID("SeenSummonTutorialConjurer");
-    private static final String TROPHIES_CONJURER = PCLMainConfig.createFullID("TrophiesConjurer");
 
     public STSConfigItem<Boolean> seenSummonTutorial;
 
     public ConjurerConfig() {
-        super(MOD_ID, BANNED_CARDS_CONJURER, BANNED_RELICS_CONJURER, CARDS_COUNT_CONJURER, METER_POSITION_CONJURER, SEEN_TUTORIAL_CONJURER, LAST_LOADOUT_CONJURER, TROPHIES_CONJURER);
+        super(MOD_ID);
         this.seenSummonTutorial = new STSConfigItem<Boolean>(SEEN_SUMMON_TUTORIAL_CONJURER, false);
     }
 

@@ -1,0 +1,13 @@
+
+{
+	"conjurer:KnotTheory":
+	{
+		"NAME": "Knot Theory",
+		"DESCRIPTION": ["#yReactions are two-way. #yElements are #b{0}% less effective."]
+	},
+	"conjurer:MolecularDiffusion":
+	{
+	  "NAME": "Molecular Diffusion",
+	  "DESCRIPTION": ["Playing a card applies its corresponding #yElements to enemy targets. If it didn't target enemies, a random enemy is targeted instead."]
+	}
+}

@@ -22,7 +22,7 @@ public class Rapport extends PCLCard {
     public static final PCLCardData DATA = register(Rapport.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.Team)
             .setAffinities(PCLAffinity.Yellow)
-            .setLoadout(ConjurerPlayerData.darkSouls, true);
+            .setLoadout(ConjurerPlayerData.darkSouls);
 
     public Rapport() {
         super(DATA);

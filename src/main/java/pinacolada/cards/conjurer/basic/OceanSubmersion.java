@@ -15,7 +15,7 @@ import pinacolada.skills.PMove;
 public class OceanSubmersion extends PCLCard {
     public static final PCLCardData DATA = register(OceanSubmersion.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.Team)
-            .setBlock(4, 2)
+            .setBlock(5, 2)
             .setAffinities(2, PCLAffinity.Blue)
             .setCore();
 

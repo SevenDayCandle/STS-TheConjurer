@@ -11,7 +11,7 @@ public class ConjurerTooltips extends AbstractTooltips {
     public EUIKeywordTooltip blasted = EUIKeywordTooltip.findByID("conjurer:Blasted");
     public EUIKeywordTooltip cooled = EUIKeywordTooltip.findByID("conjurer:Cooled");
     public EUIKeywordTooltip charge = EUIKeywordTooltip.findByID("conjurer:Charge");
-    public EUIKeywordTooltip elementalDebuff = EUIKeywordTooltip.findByID("conjurer:Elemental Debuff");
+    public EUIKeywordTooltip element = EUIKeywordTooltip.findByID("conjurer:Element");
     public EUIKeywordTooltip elementalExposure = EUIKeywordTooltip.findByID("conjurer:Elemental Exposure");
     public EUIKeywordTooltip elementalMastery = EUIKeywordTooltip.findByID("conjurer:Elemental Mastery");
     public EUIKeywordTooltip flow = EUIKeywordTooltip.findByID("conjurer:Flow");

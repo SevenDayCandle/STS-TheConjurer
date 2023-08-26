@@ -15,8 +15,8 @@ import pinacolada.skills.skills.PTrigger;
 public class IronFlesh extends PCLCard {
     public static final PCLCardData DATA = register(IronFlesh.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.RARE, PCLCardTarget.Self)
-            .setBlock(4, 3)
-            .setAffinities(PCLAffinity.Orange)
+            .setBlock(5, 3)
+            .setAffinities(2, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.darkSouls);
 
     public IronFlesh() {

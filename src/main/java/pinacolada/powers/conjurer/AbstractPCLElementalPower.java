@@ -3,6 +3,7 @@ package pinacolada.powers.conjurer;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
+import com.evacipated.cardcrawl.mod.stslib.patches.NeutralPowertypePatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -48,7 +49,7 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Stab
 
         this.source = source;
         this.priority = 4;
-        initialize(amount, PowerType.DEBUFF, false);
+        initialize(amount, NeutralPowertypePatch.NEUTRAL, false);
     }
 
     public static float getAmplifyMultiplier(PCLAffinity affinity) {
@@ -151,7 +152,7 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Stab
                 return new ColoredString((int) calculateValue(reactions), Color.GREEN, c.a);
             }
         }
-        return new ColoredString((int) getIntensifyMultiplier(), Color.GOLDENROD, c.a);
+        return null;
     }
 
     @Override
@@ -162,7 +163,7 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Stab
             Set<PCLAffinity> affs = ConjurerReactionMeter.meter.getElementButton(getAffinity()).getReactAffinities();
             return EUIUtils.joinStrings(" ",
                     EUIUtils.format(strings.DESCRIPTIONS[0]
-                            , getIntensifyMultiplier()
+                            , getAmplifyMultiplier(getAffinity())
                             , PCLCoreStrings.joinWithAnd(EUIUtils.map(affs, a -> a.getTooltip().getTitleOrIcon()))),
                     sub,
                     stabilizeTurns > 0 ? EUIUtils.format(strings.DESCRIPTIONS[2], stabilizeTurns + 1) : strings.DESCRIPTIONS[1]

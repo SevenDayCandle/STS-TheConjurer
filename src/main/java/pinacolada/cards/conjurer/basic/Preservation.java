@@ -13,7 +13,7 @@ import pinacolada.skills.PMove;
 public class Preservation extends PCLCard {
     public static final PCLCardData DATA = register(Preservation.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.COMMON, PCLCardTarget.Team)
-            .setBlock(5, 0)
+            .setBlock(6, 0)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Orange)
             .setCore();
 
