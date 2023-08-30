@@ -10,7 +10,7 @@ import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.ConjurerEFK;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PMod;
+import pinacolada.skills.CMod;
 import pinacolada.skills.PTrait;
 
 @VisibleCard
@@ -26,6 +26,6 @@ public class CrystalHail extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(ConjurerEFK.MGC_W2_Shield_Break).setChain(PMod.perLevel(1, PCLAffinity.Blue), PTrait.damage(2));
+        addDamageMove(ConjurerEFK.MGC_W2_Shield_Break).setChain(CMod.perLevel(1, PCLAffinity.Blue), PTrait.damage(2));
     }
 }

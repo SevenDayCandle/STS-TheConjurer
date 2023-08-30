@@ -38,7 +38,8 @@ import java.util.Collections;
 
 @VisibleSkill
 public class PCond_AllyLink extends PDelegateCardCond
-        implements OnAllyTriggerSubscriber, OnModifyBlockLastSubscriber, OnModifyBlockFirstSubscriber, OnModifyDamageGiveFirstSubscriber, OnModifyDamageGiveLastSubscriber {
+        implements OnAllySummonSubscriber, OnAllyTriggerSubscriber, OnAllyWithdrawSubscriber,
+                   OnModifyBlockLastSubscriber, OnModifyBlockFirstSubscriber, OnModifyDamageGiveFirstSubscriber, OnModifyDamageGiveLastSubscriber, OnModifyDamageReceiveFirstSubscriber, OnModifyDamageReceiveLastSubscriber  {
     protected static final float ARROW_SIZE = Settings.scale * 48;
     protected static final float ICON_SIZE = Settings.scale * 29;
     public static final PSkillData<PField_CardCategory> DATA = register(PCond_AllyLink.class, PField_CardCategory.class, -1, 1)
@@ -132,11 +133,26 @@ public class PCond_AllyLink extends PDelegateCardCond
     }
 
     @Override
+    public void onAllySummon(PCLCardAlly pclCardAlly, PCLCard pclCard, PCLCard pclCard1) {
+        CombatManager.subscribe(OnModifyBlockFirstSubscriber.class, this);
+        CombatManager.subscribe(OnModifyBlockLastSubscriber.class, this);
+        CombatManager.subscribe(OnModifyDamageGiveFirstSubscriber.class, this);
+        CombatManager.subscribe(OnModifyDamageGiveLastSubscriber.class, this);
+        CombatManager.subscribe(OnModifyDamageReceiveFirstSubscriber.class, this);
+        CombatManager.subscribe(OnModifyDamageReceiveLastSubscriber.class, this);
+    }
+
+    @Override
     public void onAllyTrigger(PCLCard card, AbstractCreature target, PCLCardAlly ally, PCLCardAlly caller) {
         if (canLinkAlly(caller, ally)) {
             useFromTrigger(generateInfo(target).setData(Collections.singletonList(ally.card)));
             flash(caller, ally.index > caller.index);
         }
+    }
+
+    @Override
+    public void onAllyWithdraw(PCLCard pclCard, PCLCardAlly pclCardAlly) {
+        unsubscribeFromAll();
     }
 
     // Skip cond checks on self
@@ -168,6 +184,22 @@ public class PCond_AllyLink extends PDelegateCardCond
     public float onModifyDamageGiveLast(float v, DamageInfo.DamageType damageType, AbstractCreature source, AbstractCreature target, AbstractCard card) {
         if (canAffixCard(card) && this.childEffect != null) {
             return this.childEffect.modifyDamageGiveLast(getInfo(target), v);
+        }
+        return v;
+    }
+
+    @Override
+    public float onModifyDamageReceiveFirst(float v, DamageInfo.DamageType type, AbstractCreature source, AbstractCreature target, AbstractCard card) {
+        if (canAffixCard(card) && this.childEffect != null) {
+            return this.childEffect.modifyDamageReceiveFirst(getInfo(target), v, type);
+        }
+        return v;
+    }
+
+    @Override
+    public float onModifyDamageReceiveLast(float v, DamageInfo.DamageType type, AbstractCreature source, AbstractCreature target, AbstractCard card) {
+        if (canAffixCard(card) && this.childEffect != null) {
+            return this.childEffect.modifyDamageReceiveLast(getInfo(target), v, type);
         }
         return v;
     }

@@ -17,7 +17,7 @@ public class DanHeng extends PCLCard {
     public static final PCLCardData DATA = register(DanHeng.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Piercing)
             .setDamage(3, 1)
-            .setHp(6, 1)
+            .setHp(6, 2)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.honkai);
 

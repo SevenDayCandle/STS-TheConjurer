@@ -8,7 +8,7 @@
 		"NAME": "Back Link"
 	},
 	"conjurer:Blasted": {
-		"DESCRIPTION": "Take damage at the end of the player turn, then lose this debuff.",
+		"DESCRIPTION": "Take damage at the end of the player turn, then reduce stacks by #b{0}%.",
 		"NAME": "Blasted"
 	},
 	"conjurer:Charge": {

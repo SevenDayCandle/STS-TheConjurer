@@ -21,7 +21,7 @@ public class Rathalos extends PCLCard {
     public static final PCLCardData DATA = register(Rathalos.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.Single, DelayTiming.EndOfTurnFirst)
             .setDamage(5, 1, 0)
-            .setHp(9, 1)
+            .setHp(10, 1)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 
@@ -31,6 +31,6 @@ public class Rathalos extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BITE);
-        addGainPower(PTrigger.when(PCond.haveTakenDamage(), PMove.applyToEnemies(6, PCLElementHelper.Blasted).setUpgrade(1)));
+        addGainPower(PTrigger.when(PCond.haveTakenDamage(), PMove.applyToEnemies(5, PCLElementHelper.Blasted).setUpgrade(1)));
     }
 }

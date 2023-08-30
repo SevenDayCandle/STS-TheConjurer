@@ -30,6 +30,6 @@ public class March7th extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.ICE);
-        addUseMove(CCond.link(PCLAffinity.Green), PMultiSkill.join(PMove.gainBlock(PCLCardTarget.Single, 1), PMove.applyToSingle(2, PCLElementHelper.Aqua)));
+        addUseMove(CCond.link(PCLAffinity.Green, PCLAffinity.Blue), PMultiSkill.join(PMove.gainBlock(PCLCardTarget.Single, 1), PMove.applyToSingle(2, PCLElementHelper.Aqua)));
     }
 }

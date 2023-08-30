@@ -19,7 +19,7 @@ public class ConjurerFireAllyAnimation extends PCLAllyAnimation {
     public static final float RADIUS = 320;
 
     public ConjurerFireAllyAnimation(PCLCreature creature) {
-        super(creature);
+        super(creature,0.3f, 0.4f);
     }
 
     public void playActAnimation(float x, float y) {
@@ -28,21 +28,22 @@ public class ConjurerFireAllyAnimation extends PCLAllyAnimation {
 
     public void renderSprite(SpriteBatch sb, float x, float y) {
         sb.setColor(this.renderColor);
+        int size = ConjurerImages.Monsters.fire1.texture().getHeight();
         float scaleExt = owner.getBobEffect().y / (Settings.scale * 455f);
         float scaleInt = -(owner.getBobEffect().y / (Settings.scale * 550f));
         float angleExt = this.angle;
         float angleInt = -(this.angle);
-        int size = ConjurerImages.Monsters.fire1.texture().getHeight();
-        int hSize = size / 2;
+        float rSize = Settings.scale * size;
+        float hSize = rSize / 2;
 
-        sb.draw(ConjurerImages.Monsters.fire1.texture(), x - hSize, y - hSize / 2f, hSize, hSize, size, size, this.scale + scaleExt, this.scale + scaleExt, angleExt, 0, 0, size, size, hFlip, vFlip);
+        sb.draw(ConjurerImages.Monsters.fire1.texture(), x - hSize, y - hSize * 0.6f, hSize, hSize, rSize, rSize, this.scale + scaleExt, this.scale + scaleExt, angleExt, 0, 0, size, size, hFlip, vFlip);
         PCLRenderHelpers.BlendingMode.Glowing.apply(sb);
         this.shineColor.a = Interpolation.sine.apply(0.1f, 0.42f, angleExt / 185) * this.transitionAlpha;
         sb.setColor(this.shineColor);
-        sb.draw(ConjurerImages.Monsters.fire2.texture(), x - hSize, y - hSize / 2f, hSize, hSize, size, size, this.scale + scaleInt, this.scale + scaleInt, angleInt, 0, 0, size, size, hFlip, vFlip);
+        sb.draw(ConjurerImages.Monsters.fire2.texture(), x - hSize, y - hSize * 0.6f, hSize, hSize, rSize, rSize, this.scale + scaleInt, this.scale + scaleInt, angleInt, 0, 0, size, size, hFlip, vFlip);
         this.shineColor.a = Interpolation.sine.apply(0.42f, 0.7f, angleInt / 185) * this.transitionAlpha;
         sb.setColor(this.shineColor);
-        sb.draw(ConjurerImages.Monsters.fire3.texture(), x - hSize, y - hSize / 2f, hSize, hSize, size, size, this.scale + scaleInt, this.scale + scaleInt, angleInt * 2, 0, 0, size, size, hFlip, vFlip);
+        sb.draw(ConjurerImages.Monsters.fire3.texture(), x - hSize, y - hSize * 0.6f, hSize, hSize, rSize, rSize, this.scale + scaleInt, this.scale + scaleInt, angleInt * 2, 0, 0, size, size, hFlip, vFlip);
         sb.setColor(this.renderColor);
         PCLRenderHelpers.BlendingMode.Normal.apply(sb);
 

@@ -9,9 +9,9 @@ import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.CMod;
 import pinacolada.skills.CMove;
 import pinacolada.skills.PCond;
-import pinacolada.skills.PMod;
 
 @VisibleCard
 public class Mothman extends PCLCard {
@@ -28,6 +28,6 @@ public class Mothman extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.WIND);
-        addUseMove(PCond.cooldown(1), PMod.bonusPerLevel(6, PCLAffinity.Green), CMove.gainMatter(10));
+        addUseMove(PCond.cooldown(1), CMod.bonusPerLevel(6, PCLAffinity.Green), CMove.gainMatter(10));
     }
 }

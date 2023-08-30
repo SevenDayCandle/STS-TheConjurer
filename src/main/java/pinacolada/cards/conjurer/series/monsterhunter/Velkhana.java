@@ -19,9 +19,9 @@ import pinacolada.skills.skills.PTrigger;
 @VisibleCard
 public class Velkhana extends PCLCard {
     public static final PCLCardData DATA = register(Velkhana.class, ConjurerResources.conjurer)
-            .setSummon(3, CardRarity.RARE, PCLAttackType.Piercing, PCLCardTarget.Single, DelayTiming.EndOfTurnFirst)
-            .setDamage(5, 1)
-            .setHp(10, 1)
+            .setSummon(3, CardRarity.RARE, PCLAttackType.Piercing, PCLCardTarget.AllEnemy, DelayTiming.EndOfTurnFirst)
+            .setDamage(4, 1)
+            .setHp(12, 1)
             .setAffinities(2, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 

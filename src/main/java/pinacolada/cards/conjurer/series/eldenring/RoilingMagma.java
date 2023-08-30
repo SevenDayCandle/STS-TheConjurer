@@ -26,6 +26,6 @@ public class RoilingMagma extends PCLCard {
 
     public void setup(Object input) {
         addBlockMove();
-        addUseMove(CMod.bonusOnReact(3), PMove.applyToSingle(5, PCLElementHelper.Blasted).setUpgrade(1));
+        addUseMove(CMod.bonusOnReact(3), PMove.applyToSingle(4, PCLElementHelper.Blasted).setUpgrade(1));
     }
 }

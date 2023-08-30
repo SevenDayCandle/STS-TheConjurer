@@ -26,6 +26,6 @@ public class Tingyun extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
-        addUseMove(CCond.link(), CMove.gainMatter(5).setUpgrade(1));
+        addUseMove(CCond.link(), CMove.gainMatter(4).setUpgrade(1));
     }
 }

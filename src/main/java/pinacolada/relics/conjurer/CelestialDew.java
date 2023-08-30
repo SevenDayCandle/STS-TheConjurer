@@ -5,6 +5,7 @@ import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.relics.PCLPointerRelic;
 import pinacolada.relics.PCLRelicData;
+import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
@@ -13,7 +14,8 @@ import pinacolada.skills.skills.PTrigger;
 @VisibleRelic
 public class CelestialDew extends PCLPointerRelic {
     public static final PCLRelicData DATA = register(CelestialDew.class, ConjurerResources.conjurer)
-            .setProps(RelicTier.RARE, LandingSound.MAGICAL);
+            .setProps(RelicTier.RARE, LandingSound.MAGICAL)
+            .setLoadout(ConjurerPlayerData.eldenRing);
 
     public CelestialDew() {
         super(DATA);

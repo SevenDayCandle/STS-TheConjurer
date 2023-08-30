@@ -17,9 +17,9 @@ import pinacolada.skills.PMove;
 @VisibleCard
 public class BlackSerpent extends PCLCard {
     public static final PCLCardData DATA = register(BlackSerpent.class, ConjurerResources.conjurer)
-            .setAttack(2, CardRarity.RARE, PCLAttackType.Immaterial, PCLCardTarget.RandomEnemy)
-            .setDamage(7, 1)
-            .setAffinities(PCLAffinity.Red, PCLAffinity.Green, PCLAffinity.Purple)
+            .setAttack(2, CardRarity.RARE, PCLAttackType.Immaterial, PCLCardTarget.AllEnemy)
+            .setDamage(12, 1)
+            .setAffinities(PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.darkSouls);
 
     public BlackSerpent() {
@@ -27,7 +27,7 @@ public class BlackSerpent extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(EffekseerEFK.SWORD25).setBonus(PMod.perCreature(PCLCardTarget.AllAlly, 1), 7, 1);
+        addDamageMove(EffekseerEFK.SWORD25).setBonus(PMod.perCreature(PCLCardTarget.AllAlly, 1), 4, 1);
         addUseMove(PMove.applyToEveryone(2, PCLPowerHelper.Weak));
     }
 }

@@ -25,6 +25,7 @@ import pinacolada.cards.base.fields.PCLCardAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.characters.ConjurerCharacter;
 import pinacolada.interfaces.providers.ClickableProvider;
+import pinacolada.monsters.PCLCardAlly;
 import pinacolada.orbs.PCLOrb;
 import pinacolada.powers.PCLClickableUse;
 import pinacolada.powers.conjurer.AbstractPCLElementalPower;
@@ -45,7 +46,7 @@ import static extendedui.EUIUtils.array;
 
 public class ConjurerReactionMeter extends PCLPlayerMeter implements ClickableProvider {
     private static final HashMap<String, Set<PCLAffinity>> CARD_AFFINITIES = new HashMap<>();
-    public static final String ID = createFullID(ConjurerResources.conjurer, PCLEmptyMeter.class);
+    public static final String ID = createFullID(ConjurerResources.conjurer, ConjurerReactionMeter.class);
     public static final Color ACTIVE_COLOR = new Color(0.5f, 1f, 0.5f, 1f);
     public static final float ICON_SIZE = scale(48);
     public static final float BASE_AMOUNT_SCALE = 1f;
@@ -258,13 +259,8 @@ public class ConjurerReactionMeter extends PCLPlayerMeter implements ClickablePr
     }
 
     @Override
-    public ConjurerUseInfo generateInfo(AbstractCard card, AbstractCreature source, AbstractCreature target) {
-        return new ConjurerUseInfo(card, source, target);
-    }
-
-    @Override
     public PCLAffinity get(int target) {
-        return getCurrentAffinity();
+        return lastUpgrade;
     }
 
     public int getAmplifyOffset(PCLAffinity affinity) {
@@ -275,11 +271,6 @@ public class ConjurerReactionMeter extends PCLPlayerMeter implements ClickablePr
     @Override
     public PCLClickableUse getClickable() {
         return skips;
-    }
-
-    @Override
-    public PCLAffinity getCurrentAffinity() {
-        return lastUpgrade;
     }
 
     public ConjurerElementButton getElementButton(PCLAffinity affinity) {
@@ -328,7 +319,6 @@ public class ConjurerReactionMeter extends PCLPlayerMeter implements ClickablePr
         return ConjurerCharacter.NAMES[0];
     }
 
-    @Override
     public int getLevel(PCLAffinity affinity) {
         if (affinity == PCLAffinity.General) {
             return EUIUtils.max(elements, r -> r.level);
@@ -366,11 +356,6 @@ public class ConjurerReactionMeter extends PCLPlayerMeter implements ClickablePr
         AffinityReactions reactions = new AffinityReactions();
         fillReactions(reactions, affs, mo);
         return reactions;
-    }
-
-    @Override
-    public Object getRerollDescription() {
-        return ConjurerResources.conjurer.tooltips.matter.title;
     }
 
     public EUITooltip getTooltip() {
@@ -497,9 +482,9 @@ public class ConjurerReactionMeter extends PCLPlayerMeter implements ClickablePr
 
     @Override
     public void onCardPlayed(PCLCard card, PCLUseInfo info, boolean fromSummon) {
-        ConjurerUseInfo cInfo = EUIUtils.safeCast(info, ConjurerUseInfo.class);
-        if (cInfo != null && !cInfo.reactions.isEmpty()) {
-            PCLActions.last.add(new ElementReaction(cInfo.reactions, card, info.source, info.target));
+        AffinityReactions reactions = info.getAux(this, AffinityReactions.class);
+        if (reactions != null && !reactions.isEmpty()) {
+            PCLActions.last.add(new ElementReaction(reactions, card, info.source, info.target));
         }
     }
 
@@ -535,7 +520,21 @@ public class ConjurerReactionMeter extends PCLPlayerMeter implements ClickablePr
         lastUpgrade = affinity;
         EUIKeywordTooltip helper = PCLElementHelper.get(lastUpgrade).getTooltip();
         chargeImage.setBackground(helper.icon.getTexture()).setTooltip(helper);
-        return getCurrentAffinity();
+        return lastUpgrade;
+    }
+
+    @Override
+    public void setupInfo(PCLUseInfo info) {
+        AffinityReactions reactions = info.getAuxOrCreate(this, AffinityReactions.class);
+        if (info.card != null && reactions != null) {
+            // If the card is a summon that is played, it can only target a single slot
+            if (info.card.type == PCLEnum.CardType.SUMMON && !(info.source instanceof PCLCardAlly && ((PCLCardAlly) info.source).card == info.card)) {
+                ConjurerReactionMeter.meter.updateReactions(reactions, info.card, info.target != null ? Collections.singleton(info.target) : Collections.emptyList());
+            }
+            else {
+                ConjurerReactionMeter.meter.updateReactions(reactions, info.card, info.targets);
+            }
+        }
     }
 
     public boolean trySpendMatter(int amount) {

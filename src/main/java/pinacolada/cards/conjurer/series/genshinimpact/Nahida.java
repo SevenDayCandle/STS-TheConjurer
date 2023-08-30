@@ -10,7 +10,7 @@ import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PCond;
+import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PBranchCond;
 import pinacolada.skills.skills.PTrigger;
@@ -31,7 +31,7 @@ public class Nahida extends PCLCard {
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.WIND);
         addGainPower(PTrigger.when(PBranchCond.branch
-                (PCond.checkLevel(1, PCLAffinity.Blue, PCLAffinity.Green, PCLAffinity.Orange),
+                (CCond.checkLevel(1, PCLAffinity.Blue, PCLAffinity.Green, PCLAffinity.Orange),
                         PMove.gainPlayer(2, PCLPowerHelper.Energized),
                         PMove.gainPlayer(3, PCLPowerHelper.NextTurnDraw),
                         PMove.gainPlayer(9, PCLPowerHelper.NextTurnBlock)

@@ -14,6 +14,7 @@ import pinacolada.cards.conjurer.series.genshinimpact.Nilou;
 import pinacolada.cards.conjurer.series.genshinimpact.Tighnari;
 import pinacolada.relics.PCLRelic;
 import pinacolada.relics.PCLRelicData;
+import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.utilities.GameUtilities;
 import pinacolada.utilities.RandomizedList;
@@ -21,7 +22,8 @@ import pinacolada.utilities.RandomizedList;
 @VisibleRelic
 public class ThousandFloatingDreams extends PCLRelic {
     public static final PCLRelicData DATA = register(ThousandFloatingDreams.class, ConjurerResources.conjurer)
-            .setProps(RelicTier.RARE, LandingSound.MAGICAL);
+            .setProps(RelicTier.RARE, LandingSound.MAGICAL)
+            .setLoadout(ConjurerPlayerData.genshinImpact);
     protected AbstractCard card;
 
     public ThousandFloatingDreams() {

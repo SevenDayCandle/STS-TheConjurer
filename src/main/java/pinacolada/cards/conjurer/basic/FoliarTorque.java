@@ -25,6 +25,6 @@ public class FoliarTorque extends PCLCard {
 
     public void setup(Object input) {
         addBlockMove();
-        addUseMove(PCond.cycle(1), PMove.applyToSingle(4, PCLElementHelper.Ventus));
+        addUseMove(PCond.cycle(1), PMove.applyToSingle(3, PCLElementHelper.Ventus));
     }
 }

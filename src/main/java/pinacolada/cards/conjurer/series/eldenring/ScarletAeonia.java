@@ -37,7 +37,7 @@ public class ScarletAeonia extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.applyToEveryone(6, PCLElementHelper.Ventus).setUpgrade(2));
+        addUseMove(PMove.applyToEveryone(5, PCLElementHelper.Ventus).setUpgrade(2));
         addApplyPower(PCLCardTarget.Single, -1, PTrigger.when(PCond.onTurnEnd(), getSpecialMove(0, this::specialMove, 1, 3))).setVFX(ConjurerEFK.EVFXForge02_08_BloomforgeWard);
     }
 

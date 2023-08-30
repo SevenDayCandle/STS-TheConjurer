@@ -6,7 +6,7 @@ import pinacolada.annotations.VisibleSkill;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.dungeon.AffinityReactions;
-import pinacolada.dungeon.ConjurerUseInfo;
+import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.interfaces.subscribers.OnElementReactSubscriber;
 import pinacolada.resources.conjurer.ConjurerEnum;
@@ -19,8 +19,7 @@ import pinacolada.skills.skills.PPassiveCond;
 
 @VisibleSkill
 public class PCond_React extends PPassiveCond<PField_Affinity> implements OnElementReactSubscriber {
-    public static final PSkillData<PField_Affinity> DATA = register(PCond_React.class, PField_Affinity.class, 1, 1)
-            .setColors(ConjurerEnum.Cards.THE_CONJURER)
+    public static final PSkillData<PField_Affinity> DATA = register(PCond_React.class, PField_Affinity.class, 1, 1, ConjurerEnum.Cards.THE_CONJURER)
             .selfTarget();
 
     public PCond_React() {
@@ -38,11 +37,11 @@ public class PCond_React extends PPassiveCond<PField_Affinity> implements OnElem
 
     @Override
     public boolean checkCondition(PCLUseInfo info, boolean isUsing, PSkill<?> triggerSource) {
-        ConjurerUseInfo cInfo = EUIUtils.safeCast(info, ConjurerUseInfo.class);
-        if (cInfo == null) {
+        AffinityReactions reactions = info.getAux(ConjurerReactionMeter.meter, AffinityReactions.class);
+        if (reactions == null) {
             return false;
         }
-        return fields.not ^ (fields.affinities.isEmpty() ? cInfo.reactions.hasReaction() : EUIUtils.all(fields.affinities, cInfo.reactions::hasReaction));
+        return fields.not ^ (fields.affinities.isEmpty() ? reactions.hasReaction() : EUIUtils.all(fields.affinities, reactions::hasReaction));
     }
 
     @Override

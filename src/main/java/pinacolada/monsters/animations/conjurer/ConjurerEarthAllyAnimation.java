@@ -19,7 +19,7 @@ public class ConjurerEarthAllyAnimation extends PCLAllyAnimation {
     public static final float RADIUS = Settings.scale * 55;
 
     public ConjurerEarthAllyAnimation(PCLCreature creature) {
-        super(creature);
+        super(creature,0.3f, 0.4f);
     }
 
     public void playActAnimation(float x, float y) {
@@ -28,11 +28,12 @@ public class ConjurerEarthAllyAnimation extends PCLAllyAnimation {
 
     public void renderSprite(SpriteBatch sb, float x, float y) {
         sb.setColor(this.renderColor);
-        float angleExt = this.angle / 8f;
         int size = ConjurerImages.Monsters.earth1.texture().getHeight();
-        int hSize = size / 2;
+        float angleExt = this.angle / 8f;
+        float rSize = Settings.scale * size;
+        float hSize = rSize / 2;
 
-        sb.draw(ConjurerImages.Monsters.earth1.texture(), x - hSize, y - hSize / 2f, hSize, hSize, size, size, this.scale, this.scale, angleExt, 0, 0, size, size, hFlip, vFlip);
+        sb.draw(ConjurerImages.Monsters.earth1.texture(), x - hSize, y - hSize * 0.6f, hSize, hSize, rSize, rSize, this.scale, this.scale, angleExt, 0, 0, size, size, hFlip, vFlip);
 
         sb.setColor(Color.WHITE);
     }

@@ -13,7 +13,7 @@ import pinacolada.skills.PMove;
 public class PowderSnow extends PCLCard {
     public static final PCLCardData DATA = register(PowderSnow.class, ConjurerResources.conjurer)
             .setSkill(0, CardRarity.COMMON)
-            .setBlock(3, 2)
+            .setBlock(4, 2)
             .setAffinities(PCLAffinity.Blue)
             .setCore();
 

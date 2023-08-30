@@ -8,7 +8,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
-import pinacolada.effects.PCLAttackVFX;
+import pinacolada.effects.ConjurerEFK;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -29,7 +29,7 @@ public class SeethingChaos extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.SMALL_EXPLOSION);
+        addDamageMove(ConjurerEFK.FIRE16);
         addUseMove(PCond.exhaustRandom(1), PMove.applyToEnemies(1, PCLPowerHelper.Vulnerable));
     }
 }

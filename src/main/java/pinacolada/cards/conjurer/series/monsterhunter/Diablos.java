@@ -18,8 +18,8 @@ import pinacolada.skills.delay.DelayTiming;
 public class Diablos extends PCLCard {
     public static final PCLCardData DATA = register(Diablos.class, ConjurerResources.conjurer)
             .setSummon(3, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.Single, DelayTiming.EndOfTurnFirst)
-            .setDamage(6, 1, 0)
-            .setHp(17, 0)
+            .setDamage(8, 0, 0)
+            .setHp(17, 2)
             .setAffinities(2, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 
@@ -29,6 +29,6 @@ public class Diablos extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.EARTH);
-        addUseMove(PCond.cooldown(2), PMove.discardRandom(3), PMove.gainBlockPlayer(17));
+        addUseMove(PCond.cooldown(2), PMove.discardRandom(3), PMove.gainBlockPlayer(17).setUpgrade(5));
     }
 }

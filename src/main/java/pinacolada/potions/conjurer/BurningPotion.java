@@ -22,6 +22,6 @@ public class BurningPotion extends PCLPotion {
     }
 
     public void setup() {
-        addUseMove(PMultiSkill.join(PMove.applyToEnemies(6, PCLElementHelper.Ignis), CMove.stabilize(PCLCardTarget.All, PCLElementHelper.Ignis)));
+        addUseMove(PMultiSkill.join(PMove.applyToEnemies(3, PCLElementHelper.Ignis), CMove.stabilize(PCLCardTarget.All, PCLElementHelper.Ignis)));
     }
 }

@@ -13,7 +13,7 @@ import pinacolada.utilities.PCLRenderHelpers;
 
 public class CooledPower extends PCLPower {
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, CooledPower.class);
-    public static final float POTENCY = 5;
+    public static final int POTENCY = 5;
     public static final Color healthBarColor = Color.SKY.cpy();
     public boolean expanded;
 
@@ -45,7 +45,7 @@ public class CooledPower extends PCLPower {
     }
 
     public float getPotency() {
-        return this.amount / POTENCY;
+        return this.amount / (float) POTENCY;
     }
 
     @Override

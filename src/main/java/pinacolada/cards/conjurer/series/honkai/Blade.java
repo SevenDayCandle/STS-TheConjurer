@@ -14,13 +14,12 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 import pinacolada.skills.delay.DelayTiming;
-import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
 public class Blade extends PCLCard {
     public static final PCLCardData DATA = register(Blade.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.RARE, PCLAttackType.Piercing, PCLCardTarget.Single, DelayTiming.EndOfTurnFirst)
-            .setDamage(6, 1)
+            .setDamage(8, 3)
             .setHp(12, 1)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Green, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.honkai);
@@ -31,6 +30,6 @@ public class Blade extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL);
-        addGainPower(PTrigger.when(PCond.haveTakenDamage(), PMove.applyToAllies(2, PCLPowerHelper.Vigor)));
+        addUseMove(PCond.onDeath(), PMove.applyToTeam(1, PCLPowerHelper.Strength, PCLPowerHelper.Dexterity));
     }
 }

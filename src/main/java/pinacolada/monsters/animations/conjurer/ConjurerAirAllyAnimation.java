@@ -19,7 +19,7 @@ public class ConjurerAirAllyAnimation extends PCLAllyAnimation {
     public static final float RADIUS = Settings.scale * 240;
 
     public ConjurerAirAllyAnimation(PCLCreature creature) {
-        super(creature);
+        super(creature,0.3f, 0.4f);
     }
 
     public void playActAnimation(float x, float y) {
@@ -28,23 +28,24 @@ public class ConjurerAirAllyAnimation extends PCLAllyAnimation {
 
     public void renderSprite(SpriteBatch sb, float x, float y) {
         sb.setColor(this.renderColor);
+        int size = ConjurerImages.Monsters.air1.texture().getHeight();
         float scaleExt1 = owner.getBobEffect().y / (Settings.scale * 557f);
         float scaleExt2 = owner.getBobEffect().y / (Settings.scale * 300f);
         float angleExt1 = this.angle * 5f;
         float angleExt2 = this.angle * 7f;
-        int size = ConjurerImages.Monsters.air1.texture().getHeight();
-        int hSize = size / 2;
+        float rSize = Settings.scale * size;
+        float hSize = rSize / 2;
 
-        sb.draw(ConjurerImages.Monsters.air1.texture(), x - hSize, y - hSize / 2f, hSize, hSize, size, size, this.scale + scaleExt1, this.scale + scaleExt1, angleExt1, 0, 0, size, size, hFlip, vFlip);
-        sb.draw(ConjurerImages.Monsters.air2.texture(), x - hSize, y - hSize / 2f, hSize, hSize, size, size, this.scale + scaleExt2, this.scale + scaleExt2, angleExt2, 0, 0, size, size, !hFlip, vFlip);
+        sb.draw(ConjurerImages.Monsters.air1.texture(), x - hSize, y - hSize * 0.6f, hSize, hSize, rSize, rSize, this.scale + scaleExt1, this.scale + scaleExt1, angleExt1, 0, 0, size, size, hFlip, vFlip);
+        sb.draw(ConjurerImages.Monsters.air2.texture(), x - hSize, y - hSize * 0.6f, hSize, hSize, rSize, rSize, this.scale + scaleExt2, this.scale + scaleExt2, angleExt2, 0, 0, size, size, !hFlip, vFlip);
 
         this.shineColor.a = Interpolation.sine.apply(0.1f, 0.33f, angleExt2 / 185) * this.transitionAlpha;
         sb.setColor(this.shineColor);
-        sb.draw(ConjurerImages.Monsters.air1.texture(), x - hSize, y - hSize / 2f, hSize, hSize, size, size, this.scale + scaleExt1, this.scale + scaleExt1, this.angle * 1.8f, 0, 0, size, size, hFlip, vFlip);
+        sb.draw(ConjurerImages.Monsters.air1.texture(), x - hSize, y - hSize * 0.6f, hSize, hSize, rSize, rSize, this.scale + scaleExt1, this.scale + scaleExt1, this.angle * 1.8f, 0, 0, size, size, hFlip, vFlip);
 
         this.shineColor.a = Interpolation.sine.apply(0.1f, 0.33f, angleExt1 / 135) * this.transitionAlpha;
         sb.setColor(this.shineColor);
-        sb.draw(ConjurerImages.Monsters.air3.texture(), x - hSize, y - hSize / 2f, hSize, hSize, size, size, this.scale + scaleExt2, this.scale + scaleExt2, this.angle * 1.2f, 0, 0, size, size, hFlip, vFlip);
+        sb.draw(ConjurerImages.Monsters.air3.texture(), x - hSize, y - hSize * 0.6f, hSize, hSize, rSize, rSize, this.scale + scaleExt2, this.scale + scaleExt2, this.angle * 1.2f, 0, 0, size, size, hFlip, vFlip);
 
         sb.setColor(Color.WHITE);
     }

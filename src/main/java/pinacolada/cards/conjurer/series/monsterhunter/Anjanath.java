@@ -19,7 +19,7 @@ public class Anjanath extends PCLCard {
     public static final PCLCardData DATA = register(Anjanath.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.Single, DelayTiming.EndOfTurnFirst)
             .setDamage(6, 1)
-            .setHp(8, 0)
+            .setHp(9, 0)
             .setAffinities(2, PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 

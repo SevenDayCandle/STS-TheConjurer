@@ -31,6 +31,6 @@ public class FlameOfTheFellGod extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(EffekseerEFK.FIRE03).setBonus(PMod.perPowerSingle(PCLElementHelper.Cooled), 2,1);
-        addUseMove(PMultiCond.or(PCond.onDiscard(), PCond.onReshuffle()), PMove.applyToEveryone(4, PCLElementHelper.Ignis).setUpgrade(1));
+        addUseMove(PMultiCond.or(PCond.onDiscard(), PCond.onReshuffle()), PMove.applyToEveryone(3, PCLElementHelper.Ignis).setUpgrade(1));
     }
 }

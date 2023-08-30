@@ -3,12 +3,14 @@ package pinacolada.relics.conjurer;
 import pinacolada.annotations.VisibleRelic;
 import pinacolada.relics.PCLRelic;
 import pinacolada.relics.PCLRelicData;
+import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 
 @VisibleRelic
 public class FortuneGlue extends PCLRelic {
     public static final PCLRelicData DATA = register(FortuneGlue.class, ConjurerResources.conjurer)
-            .setProps(RelicTier.SHOP, LandingSound.MAGICAL);
+            .setProps(RelicTier.SHOP, LandingSound.MAGICAL)
+            .setLoadout(ConjurerPlayerData.honkai);
     public static final int MULT = 12;
 
     public FortuneGlue() {

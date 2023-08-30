@@ -11,7 +11,7 @@ import pinacolada.effects.EffekseerEFK;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PCond;
+import pinacolada.skills.CCond;
 import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PMultiSkill;
@@ -30,6 +30,6 @@ public class CrystalSoulSpear extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(EffekseerEFK.SPEAR02);
-        addUseMove(PCond.checkLevel(3, PCLAffinity.Blue), PMultiSkill.join(PMove.selfExhaust(), PMod.perCard(1, PCLCardGroupHelper.DiscardPile).setChain(PMove.applyToSingle(2, PCLElementHelper.Aqua))));
+        addUseMove(CCond.checkLevel(3, PCLAffinity.Blue), PMultiSkill.join(PMove.selfExhaust(), PMod.perCard(1, PCLCardGroupHelper.DiscardPile).setChain(PMove.applyToSingle(2, PCLElementHelper.Aqua))));
     }
 }

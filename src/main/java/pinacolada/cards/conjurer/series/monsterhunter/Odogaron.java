@@ -19,7 +19,7 @@ public class Odogaron extends PCLCard {
     public static final PCLCardData DATA = register(Odogaron.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Piercing, PCLCardTarget.Single)
             .setDamage(5, array(2, 0))
-            .setHp(5, 1)
+            .setHp(6, 1)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 

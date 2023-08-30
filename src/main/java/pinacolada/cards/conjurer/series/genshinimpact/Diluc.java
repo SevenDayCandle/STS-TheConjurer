@@ -11,8 +11,8 @@ import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.CMod;
 import pinacolada.skills.PCond;
-import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
 import pinacolada.skills.delay.DelayTiming;
 
@@ -31,6 +31,6 @@ public class Diluc extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_HEAVY);
-        addUseMove(PCond.cooldown(2), PMod.bonusPerLevel(5, PCLAffinity.Red), PMove.dealDamageToAll(10, AbstractGameAction.AttackEffect.FIRE));
+        addUseMove(PCond.cooldown(2), CMod.bonusPerLevel(5, PCLAffinity.Red), PMove.dealDamageToAll(10, AbstractGameAction.AttackEffect.FIRE));
     }
 }

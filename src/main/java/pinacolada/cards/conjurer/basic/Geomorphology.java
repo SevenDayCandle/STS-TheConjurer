@@ -14,7 +14,7 @@ import pinacolada.skills.skills.PTrigger;
 @VisibleCard
 public class Geomorphology extends PCLCard {
     public static final PCLCardData DATA = register(Geomorphology.class, ConjurerResources.conjurer)
-            .setPower(1, CardRarity.UNCOMMON)
+            .setPower(2, CardRarity.UNCOMMON)
             .setCostUpgrades(-1)
             .setAffinities(2, PCLAffinity.Orange)
             .setCore();

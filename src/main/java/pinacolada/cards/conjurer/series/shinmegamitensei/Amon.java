@@ -11,7 +11,7 @@ import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
-import pinacolada.skills.PMod;
+import pinacolada.skills.CMod;
 import pinacolada.skills.PMove;
 import pinacolada.skills.delay.DelayTiming;
 import pinacolada.skills.skills.PTrigger;
@@ -33,7 +33,7 @@ public class Amon extends PCLCard {
         addDamageMove(PCLEnum.AttackEffect.CLAW);
         addGainPower(PTrigger.interactable(
                 CCond.payMatter(9),
-                PMod.bonusPerLevel(4, PCLAffinity.Red).setUpgrade(1), PMove.dealDamage(6, PCLEnum.AttackEffect.CLAW).setUpgrade(1)
+                CMod.bonusPerLevel(4, PCLAffinity.Red).setUpgrade(1), PMove.dealDamage(6, PCLEnum.AttackEffect.CLAW).setUpgrade(1)
         ));
     }
 }

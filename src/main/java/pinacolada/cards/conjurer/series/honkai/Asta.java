@@ -8,27 +8,27 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PCond;
+import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class SeeleVollerei extends PCLCard {
-    public static final PCLCardData DATA = register(SeeleVollerei.class, ConjurerResources.conjurer)
-            .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Brutal)
-            .setDamage(4, 1)
-            .setHp(4, 0)
-            .setAffinities(PCLAffinity.Green, PCLAffinity.Purple)
+public class Asta extends PCLCard {
+    public static final PCLCardData DATA = register(Asta.class, ConjurerResources.conjurer)
+            .setSummon(1, CardRarity.COMMON, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy)
+            .setDamage(2, 1, 2)
+            .setHp(4, 1)
+            .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.honkai);
 
-    public SeeleVollerei() {
+    public Asta() {
         super(DATA);
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL);
-        addUseMove(PCond.blockBreak(PCLCardTarget.Single), PMove.applyToSingle(2, PCLPowerHelper.Vulnerable, PCLPowerHelper.Bruised).setUpgrade(1));
+        addDamageMove(PCLAttackVFX.FIRE);
+        addUseMove(CCond.link(PCLAffinity.Blue, PCLAffinity.Orange), PMove.applyToSingle(1, PCLElementHelper.Ignis));
     }
 }

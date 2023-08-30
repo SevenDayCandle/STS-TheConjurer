@@ -29,6 +29,6 @@ public class MonaMegistus extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.WATER);
-        addUseMove(PCond.cooldown(0), PMod.scryPer(1).setUpgrade(1), PMove.applyToEnemies(2, PCLElementHelper.Aqua));
+        addUseMove(PCond.cooldown(3), PMod.scryPer(3).setUpgrade(1), PMove.applyToEnemies(3, PCLElementHelper.Aqua));
     }
 }

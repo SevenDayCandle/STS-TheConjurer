@@ -5,12 +5,14 @@ import pinacolada.annotations.VisibleRelic;
 import pinacolada.dungeon.CombatManager;
 import pinacolada.relics.PCLRelic;
 import pinacolada.relics.PCLRelicData;
+import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 
 @VisibleRelic
 public class MemoryStone extends PCLRelic {
     public static final PCLRelicData DATA = register(MemoryStone.class, ConjurerResources.conjurer)
-            .setProps(RelicTier.BOSS, LandingSound.CLINK);
+            .setProps(RelicTier.BOSS, LandingSound.CLINK)
+            .setLoadout(ConjurerPlayerData.eldenRing);
 
     public MemoryStone() {
         super(DATA);

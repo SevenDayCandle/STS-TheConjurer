@@ -8,6 +8,7 @@ import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.interfaces.providers.PointerProvider;
 import pinacolada.relics.PCLPointerRelic;
 import pinacolada.relics.PCLRelicData;
+import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.skills.PSpecialSkill;
 import pinacolada.skills.skills.special.primary.PRoot;
@@ -16,7 +17,8 @@ import pinacolada.utilities.GameUtilities;
 @VisibleRelic
 public class WarpingCompoundEye extends PCLPointerRelic {
     public static final PCLRelicData DATA = register(WarpingCompoundEye.class, ConjurerResources.conjurer)
-            .setProps(RelicTier.SHOP, LandingSound.MAGICAL);
+            .setProps(RelicTier.SHOP, LandingSound.MAGICAL)
+            .setLoadout(ConjurerPlayerData.honkai);
 
     public WarpingCompoundEye() {
         super(DATA);

@@ -1,12 +1,13 @@
 package pinacolada.skills;
 
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.skills.conjurer.conditions.PCond_AllyLink;
-import pinacolada.skills.conjurer.conditions.PCond_CheckMatter;
-import pinacolada.skills.conjurer.conditions.PCond_PayMatter;
-import pinacolada.skills.conjurer.conditions.PCond_React;
+import pinacolada.skills.conjurer.conditions.*;
 
 public abstract class CCond {
+
+    public static PCond_CheckLevel checkLevel(int amount, PCLAffinity... aff) {
+        return new PCond_CheckLevel(amount, aff);
+    }
 
     public static PCond_CheckMatter checkMatter(int amount) {
         return new PCond_CheckMatter(amount);

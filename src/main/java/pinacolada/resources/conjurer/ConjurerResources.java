@@ -3,7 +3,6 @@ package pinacolada.resources.conjurer;
 import basemod.BaseMod;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.colorless.Apparition;
 import com.megacrit.cardcrawl.cards.colorless.Bite;
 import com.megacrit.cardcrawl.cards.colorless.RitualDagger;
 import com.megacrit.cardcrawl.helpers.CardHelper;
@@ -13,6 +12,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.TemplateCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardAffinity;
+import pinacolada.cards.conjurer.series.darksouls.DorhysGnawing;
 import pinacolada.cards.pcl.curse.Curse_AscendersBane;
 import pinacolada.characters.ConjurerCharacter;
 import pinacolada.dungeon.CombatManager;
@@ -84,10 +84,8 @@ public class ConjurerResources extends PCLResources<ConjurerPlayerData, Conjurer
     @Override
     public String getEventReplacement(String cardID) {
         switch (cardID) {
-            case Apparition.ID:
-                return pinacolada.cards.conjurer.colorless.Whisper.DATA.ID;
             case Bite.ID:
-                return pinacolada.cards.conjurer.special.Bite.DATA.ID;
+                return DorhysGnawing.DATA.ID;
             case RitualDagger.ID:
                 return pinacolada.cards.conjurer.special.RitualDagger.DATA.ID;
         }

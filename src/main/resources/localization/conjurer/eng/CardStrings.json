@@ -163,6 +163,9 @@
 		"conjurer:CrystalHail": {"NAME": "Crystal Hail"},
 		"conjurer:CrystalSoulSpear": {"NAME": "Crystal Soul Spear"},
 		"conjurer:DarkEdge": {"NAME": "Dark Edge"},
+		"conjurer:DorhysGnawing": {
+			"NAME": "Dorhys' Gnawing"
+		},
 		"conjurer:EmitForce": {"NAME": "Emit Force"},
 		"conjurer:Firestorm": {"NAME": "Firestorm"},
 		"conjurer:FireSurge": {"NAME": "Fire Surge"},
@@ -268,7 +271,7 @@
 		"conjurer:Klee": {"NAME": "Klee"},
 		"conjurer:Klee_JumpyDumpty": {"NAME": "Jumpy Dumpty"},
 		"conjurer:KokomiSangonomiya": {
-			"EXTENDED_DESCRIPTION": ["Whenever any creature would gain [Block], this gains that much [THP] instead"],
+			"EXTENDED_DESCRIPTION": ["Whenever an ally or enemy would heal or gain [Block], this gains that much [THP] instead"],
 			"NAME": "Kokomi Sangonomiya"
 		},
 		"conjurer:KujouSara": {"NAME": "Kujou Sara"},
@@ -305,10 +308,11 @@
 	},
 	"SERIES:HONKAI":
 	{
+		"conjurer:Asta": {"NAME": "Asta"},
 		"conjurer:Aponia": {"NAME": "Aponia"},
 		"conjurer:Bailu": {"NAME": "Bailu"},
 		"conjurer:Blade": {"NAME": "Blade"},
-		"conjurer:BronyaZaychik": {"NAME": "Bronya Zaychik"},
+		"conjurer:BronyaZaychik": {"EXTENDED_DESCRIPTION": ["Reacts with Elements twice"], "NAME": "Bronya Zaychik"},
 		"conjurer:Caelus": {"NAME": "Caelus"},
 		"conjurer:DanHeng": {"NAME": "Dan Heng"},
 		"conjurer:Elysia": {"NAME": "Elysia"},
@@ -320,6 +324,7 @@
 		"conjurer:March7th": {"NAME": "March 7th"},
 		"conjurer:NatashaCeobe": {"NAME": "Natasha Ceobe"},
 		"conjurer:Qingque": {"NAME": "Qingque"},
+		"conjurer:RaidenMei": {"EXTENDED_DESCRIPTION": ["per Link on this card"], "NAME": "Raiden Mei"},
 		"conjurer:SampoKoski": {"NAME": "Sampo Koski"},
 		"conjurer:SeeleVollerei": {"NAME": "Seele Vollerei"},
 		"conjurer:SilverWolf": {"NAME": "Silver Wolf"},
@@ -453,6 +458,7 @@
 		"conjurer:LilyWhite": {"NAME": "Lily White"},
 		"conjurer:MarisaKirisame": {"FLAVOR": "Kure~pu", "NAME": "Marisa Kirisame"},
 		"conjurer:MayumiJoutouguu": {"FLAVOR": "Kyouda Suzuka", "NAME": "Mayumi Joutouguu"},
+		"conjurer:MiraculousOfuda": {"FLAVOR": "NextNinja", "NAME": "Miraculous Ofuda"},
 		"conjurer:MomijiInubashiri": {"NAME": "Momiji Inubashiri"},
 		"conjurer:Nazrin": {"NAME": "Nazrin"},
 		"conjurer:NitoriKawashiro": {"FLAVOR": "NextNinja", "NAME": "Nitori Kawashiro"},
@@ -473,9 +479,6 @@
 	"SPECIAL":
 	{
 		"conjurer:AquaBenedicta": {"NAME": "Aqua Benedicta"},
-		"conjurer:Bite": {
-			"NAME": "Bite"
-		},
 		"conjurer:Electrocution": {"NAME": "Electrocution"},
 		"conjurer:ElectromagneticWave": {"NAME": "Electromagnetic Wave"},
 		"conjurer:LexAeterna": {"NAME": "Lex Aeterna"},

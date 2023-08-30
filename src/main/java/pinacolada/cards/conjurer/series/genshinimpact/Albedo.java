@@ -7,8 +7,10 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.PCLAttackVFX;
+import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.CMod;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
@@ -17,7 +19,7 @@ public class Albedo extends PCLCard {
     public static final PCLCardData DATA = register(Albedo.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Immaterial)
             .setDamage(3, 1)
-            .setHp(7, 2)
+            .setHp(6, 2)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Orange, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
@@ -27,6 +29,6 @@ public class Albedo extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.EARTH);
-        addUseMove(PCond.cooldown(2), PMove.retain(3));
+        addUseMove(PCond.cooldown(1), CMod.bonusPerLevel(1, PCLAffinity.Orange).setUpgrade(1), PMove.applyToEnemies(2, PCLElementHelper.Petra).setUpgrade(1));
     }
 }

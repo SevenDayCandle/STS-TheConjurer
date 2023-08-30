@@ -4,6 +4,7 @@ import pinacolada.annotations.VisibleRelic;
 import pinacolada.cards.base.PCLCardGroupHelper;
 import pinacolada.relics.PCLPointerRelic;
 import pinacolada.relics.PCLRelicData;
+import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CMove;
 import pinacolada.skills.PCond;
@@ -13,7 +14,8 @@ import pinacolada.skills.skills.PTrigger;
 @VisibleRelic
 public class ConcertsFinalHour extends PCLPointerRelic {
     public static final PCLRelicData DATA = register(ConcertsFinalHour.class, ConjurerResources.conjurer)
-            .setProps(RelicTier.RARE, LandingSound.CLINK);
+            .setProps(RelicTier.RARE, LandingSound.CLINK)
+            .setLoadout(ConjurerPlayerData.genshinImpact);
 
     public ConcertsFinalHour() {
         super(DATA);

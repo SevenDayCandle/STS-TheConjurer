@@ -15,6 +15,7 @@ import pinacolada.relics.PCLRelicData;
 import pinacolada.relics.pcl.GenericDice;
 import pinacolada.resources.PCLEnum;
 import pinacolada.resources.PGR;
+import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.ui.cardReward.PCLCardRewardScreen;
 import pinacolada.utilities.GameUtilities;
@@ -23,6 +24,7 @@ import pinacolada.utilities.GameUtilities;
 public class EntropicDie extends PCLRelic implements CardRewardActionProvider {
     public static final PCLRelicData DATA = register(EntropicDie.class, ConjurerResources.conjurer)
             .setProps(RelicTier.SHOP, LandingSound.SOLID)
+            .setLoadout(ConjurerPlayerData.honkai)
             .setUnique(true);
     public static final int BONUS_PER_CARDS = 25;
     protected int rerolls;

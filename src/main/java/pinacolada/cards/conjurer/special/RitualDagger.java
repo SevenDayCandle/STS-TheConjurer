@@ -19,7 +19,7 @@ import pinacolada.skills.skills.base.moves.PMove_PermanentUpgrade;
 public class RitualDagger extends PCLCard {
     public static final PCLCardData DATA = register(RitualDagger.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.SPECIAL, PCLAttackType.Piercing, PCLCardTarget.Single)
-            .setDamage(14, 3)
+            .setDamage(15, 3)
             .setAffinities(PCLAffinity.Purple)
             .setTags(PCLCardTag.Exhaust)
             .setUnique(true, -1)

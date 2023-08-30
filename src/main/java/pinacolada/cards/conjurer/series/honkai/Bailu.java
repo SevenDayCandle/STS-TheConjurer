@@ -1,4 +1,4 @@
-package pinacolada.cards.conjurer.series.genshinimpact;
+package pinacolada.cards.conjurer.series.honkai;
 
 
 import pinacolada.annotations.VisibleCard;
@@ -14,20 +14,20 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class YaoYao extends PCLCard {
-    public static final PCLCardData DATA = register(YaoYao.class, ConjurerResources.conjurer)
-            .setSummon(0, CardRarity.COMMON, PCLAttackType.Ranged)
+public class Bailu extends PCLCard {
+    public static final PCLCardData DATA = register(Bailu.class, ConjurerResources.conjurer)
+            .setSummon(0, CardRarity.COMMON, PCLAttackType.Immaterial)
             .setDamage(1, 2)
-            .setHp(3, 1)
-            .setAffinities(PCLAffinity.Green, PCLAffinity.Orange)
-            .setLoadout(ConjurerPlayerData.genshinImpact);
+            .setHp(5, 1)
+            .setAffinities(2, PCLAffinity.Blue)
+            .setLoadout(ConjurerPlayerData.honkai);
 
-    public YaoYao() {
+    public Bailu() {
         super(DATA);
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.WIND);
-        addUseMove(PCond.isAttacking(PCLCardTarget.Single), PMove.gainTempHP(2));
+        addDamageMove(PCLAttackVFX.WATER);
+        addUseMove(PCond.isAttacking(PCLCardTarget.Single), PMove.gainTempHP(3));
     }
 }

@@ -11,7 +11,7 @@ import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
-import pinacolada.skills.PMod;
+import pinacolada.skills.CMod;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PTrigger;
 
@@ -32,7 +32,7 @@ public class NitoriKawashiro extends PCLCard {
         addDamageMove(PCLAttackVFX.WATER);
         addGainPower(PTrigger.interactable(
                 CCond.payMatter(11),
-                PMod.bonusPerLevel(3, PCLAffinity.Blue), PMove.gainBlock(PCLCardTarget.None, 7).setUpgrade(1)
+                CMod.bonusPerLevel(3, PCLAffinity.Blue), PMove.gainBlock(PCLCardTarget.None, 7).setUpgrade(1)
         ));
     }
 }

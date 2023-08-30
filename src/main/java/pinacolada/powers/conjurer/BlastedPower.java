@@ -18,6 +18,7 @@ import pinacolada.utilities.GameUtilities;
 public class BlastedPower extends PCLPower implements HealthBarRenderPower {
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, BlastedPower.class);
     public static final Color healthBarColor = Color.ORANGE.cpy();
+    public static final int DECAY = 50;
     public boolean expanded;
 
     public BlastedPower(AbstractCreature owner, AbstractCreature source, int amount) {
@@ -44,6 +45,10 @@ public class BlastedPower extends PCLPower implements HealthBarRenderPower {
         return healthBarColor;
     }
 
+    public int getDecrease() {
+        return MathUtils.ceil(amount * DECAY / 100f);
+    }
+
     public DamageInfo getExpandedDamageInfo() {
         float multiplier = 100;
         for (AbstractPower p : owner.powers) {
@@ -68,6 +73,11 @@ public class BlastedPower extends PCLPower implements HealthBarRenderPower {
         return GameUtilities.getHealthBarAmount(owner, amount, true, true);
     }
 
+    @Override
+    public String getUpdatedDescription() {
+        return formatDescription(0, amount, getDecrease());
+    }
+
     protected void doEffect() {
         this.flashWithoutSound();
 
@@ -82,6 +92,9 @@ public class BlastedPower extends PCLPower implements HealthBarRenderPower {
                     .canKill(owner == null || !owner.isPlayer);
         }
 
-        removePower();
+        reducePower(getDecrease());
+        if (amount <= 0) {
+            removePower();
+        }
     }
 }

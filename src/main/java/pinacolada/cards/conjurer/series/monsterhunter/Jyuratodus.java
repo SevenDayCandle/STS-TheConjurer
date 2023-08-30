@@ -19,9 +19,9 @@ import pinacolada.skills.skills.PMultiCond;
 @VisibleCard
 public class Jyuratodus extends PCLCard {
     public static final PCLCardData DATA = register(Jyuratodus.class, ConjurerResources.conjurer)
-            .setSummon(2, CardRarity.COMMON, PCLAttackType.Normal, PCLCardTarget.Single, DelayTiming.EndOfTurnFirst)
+            .setSummon(2, CardRarity.COMMON, PCLAttackType.Normal, PCLCardTarget.AllEnemy, DelayTiming.EndOfTurnFirst)
             .setDamage(4, 2, 0)
-            .setHp(8, 0)
+            .setHp(11, 0)
             .setAffinities(PCLAffinity.Orange, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 

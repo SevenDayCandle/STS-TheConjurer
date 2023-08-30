@@ -16,7 +16,7 @@ import pinacolada.skills.PMove;
 public class SampoKoski extends PCLCard {
     public static final PCLCardData DATA = register(SampoKoski.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON)
-            .setDamage(2, 1)
+            .setDamage(3, 2)
             .setHp(6, 1)
             .setAffinities(PCLAffinity.Green, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.honkai);

@@ -9,8 +9,8 @@ import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.CMod;
 import pinacolada.skills.PCond;
-import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
 import pinacolada.skills.PTrait;
 
@@ -28,7 +28,7 @@ public class Yelan extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.WATER).setChain(PMod.perLevel(1, PCLAffinity.Blue), PTrait.damage(1).setUpgrade(1));
+        addDamageMove(PCLAttackVFX.WATER).setChain(CMod.perLevel(1, PCLAffinity.Blue), PTrait.damage(1).setUpgrade(1));
         addUseMove(PCond.onSummon(), PMove.draw(1));
     }
 }

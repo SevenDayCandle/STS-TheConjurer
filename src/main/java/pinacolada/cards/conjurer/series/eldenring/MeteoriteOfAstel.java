@@ -31,6 +31,6 @@ public class MeteoriteOfAstel extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.EARTH);
-        addUseMove(PDelay.turnStart(3), PMultiSkill.join(PMove.dealDamageToAll(40, PCLAttackVFX.EARTH.key).setUpgrade(8), PMove.applyToEnemies(7, PCLElementHelper.Petra)));
+        addUseMove(PDelay.turnStart(3), PMultiSkill.join(PMove.dealDamageToAll(40, PCLAttackVFX.EARTH.key).setUpgrade(8), PMove.applyToEnemies(6, PCLElementHelper.Petra)));
     }
 }

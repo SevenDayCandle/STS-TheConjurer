@@ -11,7 +11,7 @@ import pinacolada.effects.ConjurerEFK;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PMod;
+import pinacolada.skills.CMod;
 import pinacolada.skills.PMove;
 
 @VisibleCard
@@ -28,7 +28,7 @@ public class WhiteDragonBreath extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(ConjurerEFK.MGC_W2_SuperSphereAttack).setBonus(PMod.perLevel(1, PCLAffinity.Blue), 8, 3);
+        addDamageMove(ConjurerEFK.MGC_W2_SuperSphereAttack).setBonus(CMod.perLevel(1, PCLAffinity.Blue), 8, 3);
         addUseMove(PMove.applyToSingle(12, PCLElementHelper.Cooled));
     }
 }

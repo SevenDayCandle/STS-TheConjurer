@@ -21,7 +21,7 @@ public class KushalaDaora extends PCLCard {
     public static final PCLCardData DATA = register(KushalaDaora.class, ConjurerResources.conjurer)
             .setSummon(3, CardRarity.RARE, PCLAttackType.Piercing, PCLCardTarget.AllEnemy, DelayTiming.EndOfTurnFirst)
             .setDamage(3, 1, 2)
-            .setHp(11, 1)
+            .setHp(12, 1)
             .setAffinities(2, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 

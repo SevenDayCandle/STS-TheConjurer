@@ -20,8 +20,8 @@ import pinacolada.skills.skills.PTrigger;
 public class Bazelgeuse extends PCLCard {
     public static final PCLCardData DATA = register(Bazelgeuse.class, ConjurerResources.conjurer)
             .setSummon(3, CardRarity.RARE, PCLAttackType.Ranged, PCLCardTarget.AllEnemy, DelayTiming.EndOfTurnFirst)
-            .setDamage(4, 1)
-            .setHp(10, 1)
+            .setDamage(4, 0)
+            .setHp(12, 2)
             .setAffinities(2, PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 
@@ -31,6 +31,6 @@ public class Bazelgeuse extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SMALL_EXPLOSION);
-        addGainPower(PTrigger.when(PCond.onAllyTrigger(), PMove.applyToEnemies(1, PCLElementHelper.Blasted)));
+        addGainPower(PTrigger.when(PCond.onAllyTrigger(), PMove.applyToEnemies(2, PCLElementHelper.Blasted).setUpgrade(1)));
     }
 }

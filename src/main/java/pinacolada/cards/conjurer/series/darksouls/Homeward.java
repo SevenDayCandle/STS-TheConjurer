@@ -24,6 +24,6 @@ public class Homeward extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.withdrawAlly(), PMultiSkill.join(new PMove_RestoreCardHP(4).useParentForce().setUpgrade(6), PMove.modifyCostExact(0).useParentForce().edit(f -> f.setOr(true))));
+        addUseMove(PMove.withdrawAlly(), PMultiSkill.join(new PMove_RestoreCardHP(5).useParentForce().setUpgrade(6), PMove.modifyCostExact(0).useParentForce().edit(f -> f.setOr(true))));
     }
 }

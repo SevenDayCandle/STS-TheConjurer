@@ -8,12 +8,14 @@ import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.interfaces.subscribers.OnIntensifySubscriber;
 import pinacolada.relics.PCLRelic;
 import pinacolada.relics.PCLRelicData;
+import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 
 @VisibleRelic
 public class PunitiveEnergy extends PCLRelic implements OnIntensifySubscriber {
     public static final PCLRelicData DATA = register(PunitiveEnergy.class, ConjurerResources.conjurer)
-            .setProps(RelicTier.BOSS, LandingSound.MAGICAL);
+            .setProps(RelicTier.BOSS, LandingSound.MAGICAL)
+            .setLoadout(ConjurerPlayerData.honkai);
 
     public PunitiveEnergy() {
         super(DATA);

@@ -20,7 +20,7 @@ public class Tigrex extends PCLCard {
     public static final PCLCardData DATA = register(Tigrex.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
             .setDamage(4, 1, 0)
-            .setHp(12, 0)
+            .setHp(12, 3)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 

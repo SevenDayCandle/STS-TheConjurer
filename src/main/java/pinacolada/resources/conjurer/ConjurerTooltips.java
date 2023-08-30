@@ -40,7 +40,8 @@ public class ConjurerTooltips extends AbstractTooltips {
         umbra.setIconFromPath(PGR.getPowerImage(UmbraPower.POWER_ID));
         ventus.setIconFromPath(PGR.getPowerImage(VentusPower.POWER_ID));
 
-        cooled.formatDescription((int) CooledPower.POTENCY);
+        blasted.formatDescription(BlastedPower.DECAY);
+        cooled.formatDescription(CooledPower.POTENCY);
         flow.formatDescription(FlowPower.PER_STACK);
     }
 }

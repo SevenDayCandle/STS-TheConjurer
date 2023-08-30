@@ -17,8 +17,8 @@ import pinacolada.skills.PMove;
 public class Legiana extends PCLCard {
     public static final PCLCardData DATA = register(Legiana.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Piercing)
-            .setDamage(3, 0, 0)
-            .setHp(6, 0)
+            .setDamage(3, 0, 1)
+            .setHp(6, 2)
             .setAffinities(PCLAffinity.Green, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 
@@ -28,6 +28,6 @@ public class Legiana extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.CLAW);
-        addUseMove(PCond.onSummon(), PMove.applyToEnemies(4, PCLElementHelper.Aqua));
+        addUseMove(PCond.onSummon(), PMove.applyToEnemies(3, PCLElementHelper.Aqua).setUpgrade(1));
     }
 }

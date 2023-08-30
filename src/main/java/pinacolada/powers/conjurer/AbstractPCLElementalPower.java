@@ -53,7 +53,7 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Stab
     }
 
     public static float getAmplifyMultiplier(PCLAffinity affinity) {
-        return getAmplifyMultiplier(CombatManager.playerSystem.getLevel(affinity), ConjurerReactionMeter.meter.getAmplifyOffset(affinity));
+        return getAmplifyMultiplier(ConjurerReactionMeter.meter.getLevel(affinity), ConjurerReactionMeter.meter.getAmplifyOffset(affinity));
     }
 
     public static float getAmplifyMultiplier(int level, int modifier) {
@@ -61,7 +61,7 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Stab
     }
 
     public static float getIntensifyMultiplier(String powerID) {
-        return getIntensifyMultiplier(powerID, CombatManager.playerSystem.getLevel(AFFINITIES.get(powerID)), 1);
+        return getIntensifyMultiplier(powerID, ConjurerReactionMeter.meter.getLevel(AFFINITIES.get(powerID)), 1);
     }
 
     public static float getIntensifyMultiplier(String powerID, int level, float modifier) {
@@ -73,7 +73,7 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Stab
     }
 
     public static float getIntensifyMultiplier(String powerID, float modifier) {
-        return getIntensifyMultiplier(powerID, CombatManager.playerSystem.getLevel(AFFINITIES.get(powerID)), modifier);
+        return getIntensifyMultiplier(powerID, ConjurerReactionMeter.meter.getLevel(AFFINITIES.get(powerID)), modifier);
     }
 
     public static float getIntensifyMultiplierForLevel(String powerID, int level) {

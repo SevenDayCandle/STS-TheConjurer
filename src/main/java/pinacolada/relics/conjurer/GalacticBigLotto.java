@@ -10,13 +10,15 @@ import pinacolada.annotations.VisibleRelic;
 import pinacolada.effects.PCLEffects;
 import pinacolada.relics.PCLRelic;
 import pinacolada.relics.PCLRelicData;
+import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.utilities.GameUtilities;
 
 @VisibleRelic
 public class GalacticBigLotto extends PCLRelic {
     public static final PCLRelicData DATA = register(GalacticBigLotto.class, ConjurerResources.conjurer)
-            .setProps(RelicTier.SHOP, LandingSound.MAGICAL);
+            .setProps(RelicTier.SHOP, LandingSound.MAGICAL)
+            .setLoadout(ConjurerPlayerData.honkai);
 
     public GalacticBigLotto() {
         super(DATA);
@@ -37,7 +39,7 @@ public class GalacticBigLotto extends PCLRelic {
 
     @Override
     public int getValue() {
-        return 10;
+        return 15;
     }
 
     @Override
@@ -48,14 +50,13 @@ public class GalacticBigLotto extends PCLRelic {
             AbstractRelic relic = AbstractDungeon.returnRandomNonCampfireRelic(AbstractDungeon.returnRandomRelicTier());
             if (relic != null && !(relic instanceof Circlet)) {
                 PCLEffects.Queue.obtainRelic(relic);
+                flash();
             }
 
             if (GameUtilities.chance(getValue())) {
                 AbstractDungeon.player.damage(new DamageInfo(AbstractDungeon.player, MathUtils.floor(AbstractDungeon.player.currentHealth * getLossPercent() / 100f)));
                 usedUp();
             }
-
-            flash();
         }
 
     }

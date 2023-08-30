@@ -4,8 +4,10 @@ import extendedui.EUIRM;
 import extendedui.EUIUtils;
 import pinacolada.annotations.VisibleSkill;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.dungeon.ConjurerUseInfo;
+import pinacolada.dungeon.AffinityReactions;
+import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.dungeon.PCLUseInfo;
+import pinacolada.resources.conjurer.ConjurerEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;
 import pinacolada.skills.PSkillData;
@@ -13,11 +15,10 @@ import pinacolada.skills.PSkillSaveData;
 import pinacolada.skills.fields.PField_Affinity;
 import pinacolada.skills.skills.base.modifiers.PMod_BonusOn;
 
-import static pinacolada.resources.conjurer.ConjurerEnum.Cards.THE_CONJURER;
-
 @VisibleSkill
 public class PMod_BonusOnReact extends PMod_BonusOn<PField_Affinity> {
-    public static final PSkillData<PField_Affinity> DATA = register(PMod_BonusOnReact.class, PField_Affinity.class).setColors(THE_CONJURER).selfTarget();
+    public static final PSkillData<PField_Affinity> DATA = register(PMod_BonusOnReact.class, PField_Affinity.class, ConjurerEnum.Cards.THE_CONJURER)
+            .selfTarget();
 
     public PMod_BonusOnReact(PSkillSaveData content) {
         super(DATA, content);
@@ -48,10 +49,10 @@ public class PMod_BonusOnReact extends PMod_BonusOn<PField_Affinity> {
 
     @Override
     public boolean meetsCondition(PCLUseInfo info) {
-        ConjurerUseInfo cInfo = EUIUtils.safeCast(info, ConjurerUseInfo.class);
-        if (cInfo == null) {
+        AffinityReactions reactions = info.getAux(ConjurerReactionMeter.meter, AffinityReactions.class);
+        if (reactions == null) {
             return false;
         }
-        return fields.affinities.isEmpty() ? cInfo.reactions.hasReaction() : EUIUtils.all(fields.affinities, cInfo.reactions::hasReaction);
+        return fields.affinities.isEmpty() ? reactions.hasReaction() : EUIUtils.all(fields.affinities, reactions::hasReaction);
     }
 }

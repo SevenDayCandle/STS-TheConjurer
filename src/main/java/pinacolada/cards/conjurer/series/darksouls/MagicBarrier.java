@@ -16,7 +16,7 @@ import pinacolada.skills.PMove;
 public class MagicBarrier extends PCLCard {
     public static final PCLCardData DATA = register(MagicBarrier.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.COMMON, PCLCardTarget.Single)
-            .setBlock(5, 3)
+            .setBlock(3, 2, 2)
             .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.darkSouls);
 

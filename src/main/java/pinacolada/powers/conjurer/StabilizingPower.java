@@ -21,8 +21,8 @@ public class StabilizingPower extends PCLSubscribingPower implements OnTryReduce
         super(owner, POWER_ID);
         this.originalPower = originalPower;
         this.img = originalPower.img;
-        this.region48 = originalPower.region128;
-        mainTip.icon = this.region48 != null ? this.region48 : img != null ? new TextureRegion(img) : null;
+        this.region128 = originalPower.region128;
+        mainTip.icon = this.region128 != null ? this.region128 : img != null ? new TextureRegion(img) : null;
         initialize(amount, NeutralPowertypePatch.NEUTRAL, true);
         updateDescription();
     }

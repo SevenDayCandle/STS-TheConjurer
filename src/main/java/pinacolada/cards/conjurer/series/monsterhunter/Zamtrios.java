@@ -19,7 +19,7 @@ public class Zamtrios extends PCLCard {
     public static final PCLCardData DATA = register(Zamtrios.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.Single, DelayTiming.EndOfTurnFirst)
             .setDamage(4, 2)
-            .setHp(5, 0)
+            .setHp(5, 1)
             .setAffinities(2, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 

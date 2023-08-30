@@ -7,12 +7,12 @@
 	},
 	"conjurer:AquaPower":
 	{
-		"DESCRIPTIONS": ["#b{0}% of Matter gained from this power are applied to this target as [conjurer:Cooled].", "#b{0}% of Reaction gained from [conjurer:Aqua] are applied to its owner as [conjurer:Cooled]."],
+		"DESCRIPTIONS": ["#b{0}% of Matter gained from this power are applied to this target as [conjurer:Cooled].", "#b{0}% of Reaction gained from [conjurer:Aqua] is applied to its owner as [conjurer:Cooled]."],
 		"NAME": "Aqua"
 	},
 	"conjurer:BlastedPower":
 	{
-		"DESCRIPTIONS": ["At the end of your turn, takes #b{0} damage, then loses this power."],
+		"DESCRIPTIONS": ["At the start of its turn, takes #b{0} damage, then reduces stacks by #b{1}."],
 		"NAME": "Blasted"
 	},
 	"conjurer:CooledPower":
@@ -47,7 +47,7 @@
 	},
 	"conjurer:IgnisPower":
 	{
-		"DESCRIPTIONS": ["#b{0}% of Matter gained from this power are applied to this target as [conjurer:Blasted].", "#b{0}% of Reaction gained from [conjurer:Ignis] is dealt as damage to its owner at the start of its turn."],
+		"DESCRIPTIONS": ["#b{0}% of Matter gained from this power are applied to this target as [conjurer:Blasted].", "#b{0}% of Reaction gained from [conjurer:Ignis] is applied to its owner as [conjurer:Blasted]."],
 		"NAME": "Ignis"
 	},
 	"conjurer:LuxPower":

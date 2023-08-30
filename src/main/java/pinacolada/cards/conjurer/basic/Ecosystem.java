@@ -6,11 +6,11 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.dungeon.CombatManager;
+import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PCond;
+import pinacolada.skills.CCond;
 import pinacolada.skills.skills.PSpecialSkill;
 import pinacolada.skills.skills.PTrigger;
 import pinacolada.utilities.GameUtilities;
@@ -28,7 +28,7 @@ public class Ecosystem extends PCLCard {
     }
 
     public void setup(Object input) {
-        addGainPower(PTrigger.when(PCond.checkLevel(1),
+        addGainPower(PTrigger.when(CCond.checkLevel(1),
                 getSpecialMove(0, this::specialMove, 4, 1).setUpgrade(1)
         ));
     }
@@ -39,7 +39,7 @@ public class Ecosystem extends PCLCard {
             PCLElementHelper debuff = PCLElementHelper.get(aff);
             if (debuff != null) {
                 for (AbstractCreature target : GameUtilities.getAllCharacters(true)) {
-                    order.applyPower(info.source, target, debuff, move.amount + move.extra * CombatManager.playerSystem.getLevel(aff));
+                    order.applyPower(info.source, target, debuff, move.amount + move.extra * ConjurerReactionMeter.meter.getLevel(aff));
                 }
             }
         }

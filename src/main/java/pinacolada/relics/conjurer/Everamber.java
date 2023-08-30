@@ -9,12 +9,14 @@ import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.powers.PCLPowerHelper;
 import pinacolada.relics.PCLRelic;
 import pinacolada.relics.PCLRelicData;
+import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 
 @VisibleRelic
 public class Everamber extends PCLRelic {
     public static final PCLRelicData DATA = register(Everamber.class, ConjurerResources.conjurer)
-            .setProps(RelicTier.BOSS, LandingSound.FLAT);
+            .setProps(RelicTier.BOSS, LandingSound.FLAT)
+            .setLoadout(ConjurerPlayerData.genshinImpact);
 
     public Everamber() {
         super(DATA);
@@ -30,6 +32,6 @@ public class Everamber extends PCLRelic {
     }
 
     public int getValue() {
-        return 2;
+        return 3;
     }
 }

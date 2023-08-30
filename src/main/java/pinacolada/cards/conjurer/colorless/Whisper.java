@@ -16,8 +16,8 @@ import pinacolada.skills.PMove;
 @VisibleCard
 public class Whisper extends PCLCard {
     public static final PCLCardData DATA = register(Whisper.class, ConjurerResources.conjurer)
-            .setSummon(1, CardRarity.SPECIAL, PCLAttackType.Immaterial)
-            .setDamage(1, 2)
+            .setSummon(1, CardRarity.RARE, PCLAttackType.Immaterial)
+            .setDamage(2, 2)
             .setHp(1, 0)
             .setAffinities(PCLAffinity.Purple)
             .setTags(PCLCardTag.Ethereal)
@@ -30,6 +30,6 @@ public class Whisper extends PCLCard {
     @Override
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.GHOST);
-        addUseMove(PCond.onDeath(), PMove.gainPlayer(1, PCLPowerHelper.Intangible));
+        addUseMove(PCond.onDeath(), PMove.applyToTeam(1, PCLPowerHelper.Intangible));
     }
 }

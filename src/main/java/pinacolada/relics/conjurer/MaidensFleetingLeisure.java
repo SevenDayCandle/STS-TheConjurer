@@ -3,6 +3,7 @@ package pinacolada.relics.conjurer;
 import pinacolada.annotations.VisibleRelic;
 import pinacolada.relics.PCLPointerRelic;
 import pinacolada.relics.PCLRelicData;
+import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
@@ -13,7 +14,8 @@ import pinacolada.skills.skills.special.moves.PMove_RestoreCardHP;
 @VisibleRelic
 public class MaidensFleetingLeisure extends PCLPointerRelic {
     public static final PCLRelicData DATA = register(MaidensFleetingLeisure.class, ConjurerResources.conjurer)
-            .setProps(RelicTier.UNCOMMON, LandingSound.MAGICAL);
+            .setProps(RelicTier.UNCOMMON, LandingSound.MAGICAL)
+            .setLoadout(ConjurerPlayerData.genshinImpact);
 
     public MaidensFleetingLeisure() {
         super(DATA);

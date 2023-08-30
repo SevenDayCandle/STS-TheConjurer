@@ -30,6 +30,6 @@ public class Cyno extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_HEAVY);
-        addGainPower(PTrigger.when(PCond.fatal().setTarget(PCLCardTarget.Any), PMultiSkill.join(PMove.modifyDamage(3).setUpgrade(1), PMove.gainPlayer(1, PCLPowerHelper.Energized))));
+        addGainPower(PTrigger.when(PCond.fatalMinion().setTarget(PCLCardTarget.Any), PMultiSkill.join(PMove.modifyDamage(3).setUpgrade(1), PMove.gainPlayer(1, PCLPowerHelper.Energized))));
     }
 }

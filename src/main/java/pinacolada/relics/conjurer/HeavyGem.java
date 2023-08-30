@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import pinacolada.annotations.VisibleRelic;
 import pinacolada.relics.PCLPointerRelic;
 import pinacolada.relics.PCLRelicData;
+import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
@@ -13,7 +14,8 @@ import pinacolada.skills.skills.PTrigger;
 @VisibleRelic
 public class HeavyGem extends PCLPointerRelic {
     public static final PCLRelicData DATA = register(HeavyGem.class, ConjurerResources.conjurer)
-            .setProps(RelicTier.UNCOMMON, LandingSound.SOLID);
+            .setProps(RelicTier.UNCOMMON, LandingSound.SOLID)
+            .setLoadout(ConjurerPlayerData.darkSouls);
 
     public HeavyGem() {
         super(DATA);

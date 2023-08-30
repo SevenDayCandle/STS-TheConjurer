@@ -11,11 +11,11 @@ import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PMod;
+import pinacolada.skills.CMod;
 import pinacolada.skills.PMove;
+import pinacolada.skills.conjurer.conditions.PCond_PayLevel;
 import pinacolada.skills.delay.DelayTiming;
 import pinacolada.skills.skills.PTrigger;
-import pinacolada.skills.skills.base.conditions.PCond_PayLevel;
 
 @VisibleCard
 public class ZorahMagdaros extends PCLCard {
@@ -32,6 +32,6 @@ public class ZorahMagdaros extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.EARTH);
-        addGainPower(PTrigger.interactable(new PCond_PayLevel(1, PCLAffinity.Orange), PMod.bonusPerLevel(3, PCLAffinity.Orange), PMove.applyToEnemies(7, PCLElementHelper.Petra, PCLElementHelper.Ignis)));
+        addGainPower(PTrigger.interactable(new PCond_PayLevel(1, PCLAffinity.Orange), CMod.bonusPerLevel(3, PCLAffinity.Orange), PMove.applyToEnemies(7, PCLElementHelper.Petra, PCLElementHelper.Ignis)));
     }
 }
