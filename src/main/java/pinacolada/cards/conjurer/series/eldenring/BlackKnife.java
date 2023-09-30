@@ -1,4 +1,4 @@
-package pinacolada.cards.conjurer.special;
+package pinacolada.cards.conjurer.series.eldenring;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import pinacolada.annotations.VisibleCard;
@@ -16,8 +16,8 @@ import pinacolada.skills.skills.PLimit;
 import pinacolada.skills.skills.base.moves.PMove_PermanentUpgrade;
 
 @VisibleCard
-public class RitualDagger extends PCLCard {
-    public static final PCLCardData DATA = register(RitualDagger.class, ConjurerResources.conjurer)
+public class BlackKnife extends PCLCard {
+    public static final PCLCardData DATA = register(BlackKnife.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.SPECIAL, PCLAttackType.Piercing, PCLCardTarget.Single)
             .setDamage(15, 3)
             .setAffinities(PCLAffinity.Purple)
@@ -25,7 +25,7 @@ public class RitualDagger extends PCLCard {
             .setUnique(true, -1)
             .setLoadout(ConjurerPlayerData.eldenRing, true);
 
-    public RitualDagger() {
+    public BlackKnife() {
         super(DATA);
     }
 

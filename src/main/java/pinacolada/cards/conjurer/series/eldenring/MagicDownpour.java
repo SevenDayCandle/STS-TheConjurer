@@ -7,7 +7,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.ConjurerEFK;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.AquaPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CMod;
@@ -27,6 +27,6 @@ public class MagicDownpour extends PCLCard {
 
     public void setup(Object input) {
         addUseMove(CMod.bonusPerLevel(3, PCLAffinity.Blue), PMove.gainTempHP(12).setVFX(ConjurerEFK.CURE02).setUpgrade(2));
-        addUseMove(PDelay.turnStart(1), PMove.applyToEveryone(5, PCLElementHelper.Aqua).setUpgrade(1));
+        addUseMove(PDelay.turnStart(1), PMove.applyToEveryone(5, AquaPower.DATA).setUpgrade(1));
     }
 }

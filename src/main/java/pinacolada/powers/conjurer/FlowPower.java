@@ -6,23 +6,27 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import extendedui.utilities.ColoredString;
 import pinacolada.actions.PCLActions;
+import pinacolada.annotations.VisiblePower;
 import pinacolada.dungeon.CombatManager;
 import pinacolada.dungeon.DrawPileCardPreview;
 import pinacolada.effects.PCLSFX;
 import pinacolada.interfaces.providers.DrawPileCardPreviewProvider;
 import pinacolada.powers.PCLPower;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.utilities.PCLRenderHelpers;
 
+@VisiblePower
 public class FlowPower extends PCLPower implements DrawPileCardPreviewProvider {
-    public static final String POWER_ID = createFullID(ConjurerResources.conjurer, FlowPower.class);
+    public static final PCLPowerData DATA = register(FlowPower.class, ConjurerResources.conjurer)
+            .setType(PowerType.BUFF)
+            .setEndTurnBehavior(PCLPowerData.Behavior.Permanent)
+            .setTooltip(ConjurerResources.conjurer.tooltips.flow);
     public static final int PER_STACK = 7;
     private DrawPileCardPreview preview;
 
-    public FlowPower(AbstractCreature owner, int amount) {
-        super(owner, POWER_ID);
-
-        initialize(amount, PowerType.BUFF, false);
+    public FlowPower(AbstractCreature owner, AbstractCreature source, int amount) {
+        super(DATA, owner, source, amount);
     }
 
     @Override

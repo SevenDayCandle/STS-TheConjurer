@@ -3,7 +3,6 @@ package pinacolada.powers.conjurer;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
-import com.evacipated.cardcrawl.mod.stslib.patches.NeutralPowertypePatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -29,7 +28,6 @@ import pinacolada.resources.pcl.PCLCoreStrings;
 import pinacolada.utilities.GameUtilities;
 import pinacolada.utilities.PCLRenderHelpers;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
@@ -39,17 +37,11 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Stab
     public static final int BASE_DAMAGE_MULTIPLIER = 40;
     public static final int DEFAULT_COMBUST_INCREASE = BASE_DAMAGE_MULTIPLIER / 2;
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, AbstractPCLElementalPower.class);
-    public static final HashMap<String, PCLAffinity> AFFINITIES = new HashMap<>();
-    public static final HashMap<String, Integer> MULTIPLIERS = new HashMap<>();
     public int stabilizeTurns;
     protected float flashTimer;
 
-    public AbstractPCLElementalPower(AbstractCreature owner, AbstractCreature source, String id, int amount) {
-        super(owner, id);
-
-        this.source = source;
-        this.priority = 4;
-        initialize(amount, NeutralPowertypePatch.NEUTRAL, false);
+    public AbstractPCLElementalPower(ElementPowerData data, AbstractCreature owner, AbstractCreature source, int amount) {
+        super(data, owner, source, amount);
     }
 
     public static float getAmplifyMultiplier(PCLAffinity affinity) {
@@ -60,36 +52,30 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Stab
         return (BASE_DAMAGE_MULTIPLIER + modifier + (DEFAULT_COMBUST_INCREASE + modifier / 2f) * level);
     }
 
-    public static float getIntensifyMultiplier(String powerID) {
-        return getIntensifyMultiplier(powerID, ConjurerReactionMeter.meter.getLevel(AFFINITIES.get(powerID)), 1);
+    public static float getIntensifyMultiplier(ElementPowerData powerID) {
+        return getIntensifyMultiplier(powerID, ConjurerReactionMeter.meter.getLevel(powerID.affinity), 1);
     }
 
-    public static float getIntensifyMultiplier(String powerID, int level, float modifier) {
+    public static float getIntensifyMultiplier(ElementPowerData powerID, int level, float modifier) {
         return (getIntensifyMultiplierForLevel(powerID, level)) * modifier;
     }
 
-    public static float getIntensifyMultiplier(String powerID, int level) {
+    public static float getIntensifyMultiplier(ElementPowerData powerID, int level) {
         return getIntensifyMultiplier(powerID, level, 1);
     }
 
-    public static float getIntensifyMultiplier(String powerID, float modifier) {
-        return getIntensifyMultiplier(powerID, ConjurerReactionMeter.meter.getLevel(AFFINITIES.get(powerID)), modifier);
+    public static float getIntensifyMultiplier(ElementPowerData powerID, float modifier) {
+        return getIntensifyMultiplier(powerID, ConjurerReactionMeter.meter.getLevel(powerID.affinity), modifier);
     }
 
-    public static float getIntensifyMultiplierForLevel(String powerID, int level) {
-        float base = MULTIPLIERS.getOrDefault(powerID, 100) + CombatManager.getEffectBonus(powerID);
+    public static float getIntensifyMultiplierForLevel(ElementPowerData powerID, int level) {
+        float base = powerID.multiplier + CombatManager.getEffectBonus(powerID.ID);
         float increase = level * base / 2f;
         return base + increase;
     }
 
-    public static PCLAffinity setAffinity(String id, PCLAffinity affinity) {
-        AFFINITIES.put(id, affinity);
-        return affinity;
-    }
-
-    public static int setMultiplier(String id, int multiplier) {
-        MULTIPLIERS.put(id, multiplier);
-        return multiplier;
+    public static ElementPowerData registerElement(Class<? extends AbstractPCLElementalPower> powerClass, PCLAffinity affinity) {
+        return registerPowerData(new ElementPowerData(powerClass, affinity));
     }
 
     @Override
@@ -112,7 +98,7 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Stab
     }
 
     public PCLAffinity getAffinity() {
-        return AFFINITIES.get(ID);
+        return ((ElementPowerData) data).affinity;
     }
 
     protected float getElementalMultiplier() {
@@ -134,9 +120,9 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Stab
 
     public float getIntensifyMultiplier() {
         if (GameUtilities.isPlayer(owner)) {
-            return MULTIPLIERS.get(ID);
+            return ((ElementPowerData) data).multiplier;
         }
-        return getIntensifyMultiplier(ID, getElementalMultiplier());
+        return getIntensifyMultiplier(((ElementPowerData) data), getElementalMultiplier());
     }
 
     @Override

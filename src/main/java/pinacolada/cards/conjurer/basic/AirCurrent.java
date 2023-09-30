@@ -7,7 +7,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.VentusPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 
@@ -25,6 +25,6 @@ public class AirCurrent extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.WIND);
-        addUseMove(PMove.applyToSingle(2, PCLElementHelper.Ventus).setUpgrade(1));
+        addUseMove(PMove.applyToSingle(2, VentusPower.DATA).setUpgrade(1));
     }
 }

@@ -5,17 +5,17 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
-import pinacolada.skills.skills.PMultiSkill;
-import pinacolada.skills.skills.special.moves.PMove_RestoreCardHP;
+import pinacolada.skills.skills.PMultiCond;
+import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
 public class Homeward extends PCLCard {
     public static final PCLCardData DATA = register(Homeward.class, ConjurerResources.conjurer)
-            .setSkill(0, CardRarity.COMMON, PCLCardTarget.SingleAlly)
+            .setPower(0, CardRarity.UNCOMMON)
             .setAffinities(PCLAffinity.Green, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.darkSouls);
 
@@ -24,6 +24,8 @@ public class Homeward extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.withdrawAlly(), PMultiSkill.join(new PMove_RestoreCardHP(5).useParentForce().setUpgrade(6), PMove.modifyCostExact(0).useParentForce().edit(f -> f.setOr(true))));
+        addGainPower(PTrigger.when(1,
+                PMultiCond.or(PCond.onWithdraw(), PCond.onDiscard()),
+                PMove.modifyCostExact(0).useParentForce().edit(f -> f.setOr(true))).setUpgrade(1));
     }
 }

@@ -19,8 +19,8 @@ import pinacolada.skills.skills.PMultiSkill;
 public class Beidou extends PCLCard {
     public static final PCLCardData DATA = register(Beidou.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.COMMON, PCLAttackType.Normal, PCLCardTarget.Single, DelayTiming.EndOfTurnFirst)
-            .setDamage(4, 1)
-            .setHp(10, 2)
+            .setDamage(5, 1)
+            .setHp(11, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 

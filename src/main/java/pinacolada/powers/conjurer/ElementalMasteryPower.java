@@ -7,16 +7,21 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import extendedui.EUIUtils;
 import pinacolada.actions.PCLActions;
+import pinacolada.annotations.VisiblePower;
 import pinacolada.effects.PCLSFX;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.PCLSubscribingPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 
+@VisiblePower
 public class ElementalMasteryPower extends PCLSubscribingPower {
-    public static final String POWER_ID = createFullID(ConjurerResources.conjurer, ElementalMasteryPower.class);
+    public static final PCLPowerData DATA = register(ElementalMasteryPower.class, ConjurerResources.conjurer)
+            .setType(PowerType.BUFF)
+            .setEndTurnBehavior(PCLPowerData.Behavior.Permanent)
+            .setTooltip(ConjurerResources.conjurer.tooltips.elementalMastery);
 
-    public ElementalMasteryPower(AbstractCreature owner, int amount) {
-        super(owner, POWER_ID);
-        initialize(amount);
+    public ElementalMasteryPower(AbstractCreature owner, AbstractCreature source, int amount) {
+        super(DATA, owner, source, amount);
     }
 
     @Override

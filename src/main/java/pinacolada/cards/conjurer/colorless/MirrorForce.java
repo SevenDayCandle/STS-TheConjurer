@@ -12,6 +12,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.effects.ConjurerEFK;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.PSpecialCardPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -32,13 +33,15 @@ public class MirrorForce extends PCLCard {
 
     public void setup(Object input) {
         addBlockMove();
-        addSpecialPower(0, (s, i) -> new MirrorForcePower(i.source, s), 3).setUpgrade(1);
+        addSpecialPower(0, (s, i) -> new MirrorForcePower(i.source, i.source, s), 3).setUpgrade(1);
     }
 
     public static class MirrorForcePower extends PSpecialCardPower {
-        public MirrorForcePower(AbstractCreature owner, PSkill<?> move) {
-            super(DATA, owner, move);
-            initialize(move.amount);
+        public static final PCLPowerData PDATA = createFromCard(MirrorForcePower.class, DATA)
+                .setEndTurnBehavior(PCLPowerData.Behavior.SingleTurn);
+
+        public MirrorForcePower(AbstractCreature owner, AbstractCreature source, PSkill<?> move) {
+            super(PDATA, owner, source, move);
         }
 
         @Override

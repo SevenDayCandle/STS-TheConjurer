@@ -17,7 +17,7 @@ import pinacolada.skills.skills.base.modifiers.PMod_Per;
 @VisibleSkill
 public class PMod_PerLevel extends PMod_Per<PField_Affinity> {
     public static final PSkillData<PField_Affinity> DATA = register(PMod_PerLevel.class, PField_Affinity.class, ConjurerEnum.Cards.THE_CONJURER)
-            .selfTarget();
+            .noTarget();
 
     public PMod_PerLevel(PSkillSaveData content) {
         super(DATA, content);

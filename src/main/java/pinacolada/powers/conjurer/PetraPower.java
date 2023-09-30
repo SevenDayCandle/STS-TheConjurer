@@ -3,19 +3,20 @@ package pinacolada.powers.conjurer;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import pinacolada.actions.PCLActions;
+import pinacolada.annotations.VisiblePower;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.dungeon.AffinityReactions;
 import pinacolada.effects.PCLSFX;
 import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 
+@VisiblePower
 public class PetraPower extends AbstractPCLElementalPower {
-    public static final String POWER_ID = createFullID(ConjurerResources.conjurer, PetraPower.class);
-    public static final PCLAffinity AFFINITY = setAffinity(POWER_ID, PCLAffinity.Orange);
-    public static final int MULTIPLIER = setMultiplier(POWER_ID, 100);
+    public static final ElementPowerData DATA = registerElement(PetraPower.class, PCLAffinity.Orange)
+            .setTooltip(ConjurerResources.conjurer.tooltips.petra);
 
     public PetraPower(AbstractCreature owner, AbstractCreature source, int amount) {
-        super(owner, source, POWER_ID, amount);
+        super(DATA, owner, source, amount);
     }
 
     @Override

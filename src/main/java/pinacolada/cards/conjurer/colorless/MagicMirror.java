@@ -13,6 +13,7 @@ import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.effects.ConjurerEFK;
 import pinacolada.effects.PCLEffects;
 import pinacolada.interfaces.subscribers.OnTryApplyPowerSubscriber;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.PSpecialCardPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;
@@ -33,13 +34,14 @@ public class MagicMirror extends PCLCard {
 
     public void setup(Object input) {
         addBlockMove();
-        addSpecialPower(0, (s, i) -> new MagicMirrorPower(i.source, s), 2).setUpgrade(1);
+        addSpecialPower(0, (s, i) -> new MagicMirrorPower(i.source, i.source, s), 2).setUpgrade(1);
     }
 
     public static class MagicMirrorPower extends PSpecialCardPower implements OnTryApplyPowerSubscriber {
-        public MagicMirrorPower(AbstractCreature owner, PSkill<?> move) {
-            super(DATA, owner, move);
-            initialize(move.amount);
+        public static final PCLPowerData PDATA = createFromCard(MagicMirrorPower.class, DATA);
+
+        public MagicMirrorPower(AbstractCreature owner, AbstractCreature source, PSkill<?> move) {
+            super(PDATA, owner, source, move);
         }
 
         @Override

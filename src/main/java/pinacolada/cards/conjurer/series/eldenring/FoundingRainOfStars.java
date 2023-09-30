@@ -5,7 +5,7 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.AquaPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CMod;
@@ -25,6 +25,6 @@ public class FoundingRainOfStars extends PCLCard {
     }
 
     public void setup(Object input) {
-        addGainPower(PTrigger.when(PCond.onTurnStart(), CMod.bonusPerLevel(1, PCLAffinity.Blue), PMove.applyToEnemies(1, PCLElementHelper.Aqua).setUpgrade(1)));
+        addGainPower(PTrigger.when(PCond.onTurnStart(), CMod.bonusPerLevel(1, PCLAffinity.Blue), PMove.applyToEnemies(1, AquaPower.DATA).setUpgrade(1)));
     }
 }

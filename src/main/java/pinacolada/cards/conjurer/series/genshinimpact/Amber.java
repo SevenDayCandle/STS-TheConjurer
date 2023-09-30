@@ -16,8 +16,8 @@ import pinacolada.skills.PMove;
 public class Amber extends PCLCard {
     public static final PCLCardData DATA = register(Amber.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Ranged)
-            .setDamage(2, 0)
-            .setHp(5, 1)
+            .setDamage(2, 1)
+            .setHp(5, 0)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 
@@ -27,6 +27,6 @@ public class Amber extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
-        addUseMove(PCond.cooldown(0), PMove.scout(1).setUpgrade(1));
+        addUseMove(PCond.cooldown(1), PMove.scout(2).setUpgrade(1));
     }
 }

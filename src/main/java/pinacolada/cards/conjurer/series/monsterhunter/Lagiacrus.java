@@ -7,7 +7,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -31,7 +31,7 @@ public class Lagiacrus extends PCLCard {
         addDamageMove(PCLAttackVFX.BITE);
         addGainPower(PTrigger.interactable(
                 PCond.exhaustRandom(1),
-                PMove.applyToEnemies(3, PCLPowerHelper.Constricted))
+                PMove.applyToEnemies(3, PCLPowerData.Constricted))
         );
     }
 }

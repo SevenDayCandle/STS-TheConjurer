@@ -17,7 +17,7 @@ public class SushangLi extends PCLCard {
             .setSummon(1, CardRarity.COMMON)
             .setDamage(3, 0)
             .setHp(5, 1)
-            .setAffinities(PCLAffinity.Green, PCLAffinity.Orange)
+            .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.honkai);
 
     public SushangLi() {

@@ -6,8 +6,8 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.powers.PCLPowerHelper;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.PCLPowerData;
+import pinacolada.powers.conjurer.IgnisPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMod;
@@ -25,7 +25,7 @@ public class FlameGrantMeStrength extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.gain(4, PCLElementHelper.Ignis));
-        addUseMove(PMod.bonusPerPowerSelf(1, PCLElementHelper.Ignis), PMove.gainTemporary(1, PCLPowerHelper.Strength).setUpgrade(2));
+        addUseMove(PMove.gain(4, IgnisPower.DATA));
+        addUseMove(PMod.bonusPerPowerSelf(1, IgnisPower.DATA), PMove.gainTemporary(1, PCLPowerData.Strength).setUpgrade(2));
     }
 }

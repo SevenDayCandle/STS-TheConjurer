@@ -7,7 +7,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.AquaPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -28,6 +28,6 @@ public class Legiana extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.CLAW);
-        addUseMove(PCond.onSummon(), PMove.applyToEnemies(3, PCLElementHelper.Aqua).setUpgrade(1));
+        addUseMove(PCond.onSummon(), PMove.applyToEnemies(3, AquaPower.DATA).setUpgrade(1));
     }
 }

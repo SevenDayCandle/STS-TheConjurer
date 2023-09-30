@@ -7,11 +7,12 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
+import pinacolada.skills.skills.PMultiCond;
 import pinacolada.skills.skills.PMultiSkill;
 import pinacolada.skills.skills.PTrigger;
 
@@ -30,6 +31,6 @@ public class Cyno extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_HEAVY);
-        addGainPower(PTrigger.when(PCond.fatalMinion().setTarget(PCLCardTarget.Any), PMultiSkill.join(PMove.modifyDamage(3).setUpgrade(1), PMove.gainPlayer(1, PCLPowerHelper.Energized))));
+        addGainPower(PTrigger.when(PMultiCond.or(PCond.onDeath(), (PCond<?>) PCond.fatalMinion().setTarget(PCLCardTarget.Any)), PMultiSkill.join(PMove.modifyDamage(3).setUpgrade(1), PMove.gainPlayer(1, PCLPowerData.Energized))));
     }
 }

@@ -21,7 +21,7 @@ import static pinacolada.resources.conjurer.ConjurerEnum.Cards.THE_CONJURER;
 public class PCond_PayMatter extends PActiveCond<PField_Not> {
     public static final PSkillData<PField_Not> DATA = register(PCond_PayMatter.class, PField_Not.class)
             .setColors(THE_CONJURER)
-            .selfTarget();
+            .noTarget();
 
     public PCond_PayMatter(PSkillSaveData content) {
         super(DATA, content);

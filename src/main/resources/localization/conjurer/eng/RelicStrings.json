@@ -1,10 +1,22 @@
 
 {
+	"conjurer:AeonianButterfly":
+	{
+		"DESCRIPTIONS": [],
+		"FLAVOR": "According to myth, these butterflies were once the wings of the Goddess of Rot herself.",
+		"NAME": "Aeonian Butterfly"
+	},
 	"conjurer:BeastEye":
 	{
 		"DESCRIPTIONS": [],
 		"FLAVOR": "The murky violet iris writhes as if alive.",
 		"NAME": "Beast Eye"
+	},
+	"conjurer:Bloodrose":
+	{
+		"DESCRIPTIONS": [],
+		"FLAVOR": "Blood-slick roses that bloom in festering blood.",
+		"NAME": "Bloodrose"
 	},
 	"conjurer:BreakGauge":
 	{
@@ -54,12 +66,6 @@
 		"FLAVOR": "A crystal tear formed slowly over the ages where the Erdtree's bounty falls to the ground.",
 		"NAME": "Crimsonwhorl Bubbletear"
 	},
-	"conjurer:CuriousCube":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "It resembles an intricately-made cube.",
-		"NAME": "Curious Cube"
-	},
 	"conjurer:DarkMoonRing":
 	{
 		"DESCRIPTIONS": [],
@@ -86,7 +92,7 @@
 	},
 	"conjurer:Everamber":
 	{
-		"DESCRIPTIONS": ["[Malleable] is treated as [conjurer:Ventus] and [conjurer:Petra]. Start each battle with {0} [Malleable]."],
+		"DESCRIPTIONS": ["[Malleable] is treated as [conjurer:Ventus] and [conjurer:Petra]. All characters start battle with {0} [Malleable]."],
 		"FLAVOR": "Inside the amber, a small, long-extinct insect remains frozen in time.",
 		"NAME": "Everamber"
 	},
@@ -131,12 +137,6 @@
 		"DESCRIPTIONS": [],
 		"FLAVOR": "This flower shall be my medal. That is all I need.",
 		"NAME": "Maiden's Fleeting Leisure"
-	},
-	"conjurer:MemoryStone":
-	{
-		"DESCRIPTIONS": ["Start each battle with an additional #ySummon #ySlot."],
-		"FLAVOR": "A black, lightly beguiling stone.",
-		"NAME": "Memory Stone"
 	},
 	"conjurer:MusketeersFeltHat":
 	{
@@ -234,6 +234,12 @@
 		"FLAVOR": "Reminds one of the great honor of a shared victory.",
 		"NAME": "Sunlight Medal"
 	},
+	"conjurer:SuppressingEdict":
+	{
+		"DESCRIPTIONS": ["You may reroll cards from card rewards into cards with altered stats. | Entering #yRest rooms gives #b1 use per #b{0} cards in the pool."],
+		"FLAVOR": "What on earth did you do to make this fellow go mad?",
+		"NAME": "Suppressing Edict"
+	},
 	"conjurer:Thermostat":
 	{
 		"DESCRIPTIONS": ["[A-R] now #yReacts with [A-B]."],
@@ -278,7 +284,6 @@
 	},
 	"conjurer:WitchsHeartFlames":
 	{
-		"DESCRIPTIONS": [],
 		"FLAVOR": "A clear bottle containing liquid fire.",
 		"NAME": "Witch's Heart Flames"
 	},

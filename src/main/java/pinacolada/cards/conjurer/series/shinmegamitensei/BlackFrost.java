@@ -8,7 +8,8 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.AquaPower;
+import pinacolada.powers.conjurer.IgnisPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -29,6 +30,6 @@ public class BlackFrost extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(AbstractGameAction.AttackEffect.FIRE);
-        addUseMove(PCond.cooldown(0), PMove.applyToEveryone(1, PCLElementHelper.Ignis, PCLElementHelper.Aqua).edit(f -> f.setRandom(true)));
+        addUseMove(PCond.cooldown(0), PMove.applyToEveryone(1, IgnisPower.DATA, AquaPower.DATA).edit(f -> f.setRandom(true)));
     }
 }

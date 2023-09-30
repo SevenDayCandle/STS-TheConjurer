@@ -6,7 +6,7 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.IgnisPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.base.modifiers.PMod_PerCreatureDamage;
@@ -25,6 +25,6 @@ public class SolarFlare extends PCLCard {
 
     public void setup(Object input) {
         addBlockMove();
-        addUseMove(new PMod_PerCreatureDamage(PCLCardTarget.Single, 4).setExtra(7), PMove.applyToSingle(1, PCLElementHelper.Ignis));
+        addUseMove(new PMod_PerCreatureDamage(PCLCardTarget.Single, 4).setExtra(7), PMove.applyToSingle(1, IgnisPower.DATA));
     }
 }

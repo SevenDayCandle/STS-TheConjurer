@@ -20,7 +20,7 @@ import java.util.ArrayList;
 @VisibleSkill
 public class PCond_CheckLevel extends PPassiveCond<PField_Affinity> implements OnIntensifySubscriber {
     public static final PSkillData<PField_Affinity> DATA = register(PCond_CheckLevel.class, PField_Affinity.class, ConjurerEnum.Cards.THE_CONJURER)
-            .selfTarget();
+            .noTarget();
 
     public PCond_CheckLevel() {
         this(1);
@@ -70,10 +70,10 @@ public class PCond_CheckLevel extends PPassiveCond<PField_Affinity> implements O
     @Override
     public String getSubText(PCLCardTarget perspective) {
         if (isBranch()) {
-            return getWheneverYouString(PGR.core.tooltips.level.title);
+            return EUIRM.strings.nounVerb(TEXT.subjects_you, PGR.core.tooltips.level.title);
         }
         if (isWhenClause()) {
-            return getWheneverYouString(EUIRM.strings.verbNoun(PGR.core.tooltips.level.title, fields.getAffinityChoiceString()));
+            return EUIRM.strings.nounVerb(TEXT.subjects_you, EUIRM.strings.verbNoun(PGR.core.tooltips.level.title, fields.getAffinityChoiceString()));
         }
         return TEXT.cond_ifX(TEXT.cond_levelItem(getAmountRawString(), fields.getAffinityChoiceString()));
     }

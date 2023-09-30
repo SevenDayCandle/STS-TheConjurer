@@ -11,8 +11,11 @@ import pinacolada.cards.pcl.status.Status_Wound;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.effects.PCLEffect;
 import pinacolada.effects.vfx.ConjurerScreenAnimationEffect;
-import pinacolada.powers.PCLPowerHelper;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.PCLPowerData;
+import pinacolada.powers.common.SorceryPower;
+import pinacolada.powers.conjurer.BlastedPower;
+import pinacolada.powers.conjurer.IgnisPower;
+import pinacolada.powers.replacement.PCLLockOnPower;
 import pinacolada.relics.conjurer.PeriodicTable;
 import pinacolada.relics.pcl.UsefulBox;
 import pinacolada.resources.AbstractPlayerData;
@@ -94,108 +97,108 @@ public class ConjurerPlayerData extends AbstractPlayerData<ConjurerResources, Co
             case AcidSlime_L.ID:
             case AcidSlime_M.ID:
             case AcidSlime_S.ID:
-                return PMove.applyToEnemies(1, PCLPowerHelper.Weak);
+                return PMove.applyToEnemies(1, PCLPowerData.Weak);
             case AwakenedOne.ID:
             case Cultist.ID:
-                return PMove.gainPlayer(1, PCLPowerHelper.Ritual);
+                return PMove.gainPlayer(1, PCLPowerData.Ritual);
             case BanditBear.ID:
-                return PMove.applyToEnemies(3, PCLPowerHelper.Bruised);
+                return PMove.applyToEnemies(3, PCLPowerData.Bruised);
             case BanditLeader.ID:
-                return PMove.applyToRandom(3, PCLPowerHelper.Weak);
+                return PMove.applyToRandom(3, PCLPowerData.Weak);
             case BanditPointy.ID:
             case GremlinLeader.ID:
                 return PMove.dealDamageToRandom(10, PCLAttackVFX.SLASH_DIAGONAL.key);
             case BookOfStabbing.ID:
                 return PMultiSkill.join(PMove.dealDamageToAll(12, PCLAttackVFX.SLASH_DIAGONAL.key), PMove.createDrawPile(1, Status_Wound.DATA.ID));
             case BronzeAutomaton.ID:
-                return PDelay.turnStart(4).setChild(PMultiSkill.join(PMove.dealDamageToAll(40, PCLAttackVFX.LIGHTNING.key), PMove.applyToEveryone(2, PCLPowerHelper.Vulnerable)));
+                return PDelay.turnStart(4).setChild(PMultiSkill.join(PMove.dealDamageToAll(40, PCLAttackVFX.LIGHTNING.key), PMove.applyToEveryone(2, PCLPowerData.Vulnerable)));
             case Byrd.ID:
-                return PMove.gainTemporaryPlayer(2, PCLPowerHelper.Flight);
+                return PMove.gainTemporaryPlayer(2, PCLPowerData.Flight);
             case Centurion.ID:
                 return PMove.gainBlock(PCLCardTarget.None, 10);
             case Champ.ID:
             case ShelledParasite.ID:
-                return PMove.gainPlayer(4, PCLPowerHelper.PlatedArmor);
+                return PMove.gainPlayer(4, PCLPowerData.PlatedArmor);
             case Chosen.ID:
             case GremlinFat.ID:
-                return PMove.applyToRandom(4, PCLPowerHelper.Weak);
+                return PMove.applyToRandom(4, PCLPowerData.Weak);
             case Deca.ID:
                 return PMove.gainBlock(PCLCardTarget.Team, 4);
             case Donu.ID:
-                return PMove.applyToTeam(1, PCLPowerHelper.Strength);
+                return PMove.applyToTeam(1, PCLPowerData.Strength);
             case Exploder.ID:
-                return PDelay.turnStart(2).setChild(PMove.applyToEnemies(14, PCLElementHelper.Blasted));
+                return PDelay.turnStart(2).setChild(PMove.applyToEnemies(14, BlastedPower.DATA));
             case FungiBeast.ID:
-                return PMove.applyToEnemies(1, PCLPowerHelper.Vulnerable);
+                return PMove.applyToEnemies(1, PCLPowerData.Vulnerable);
             case GiantHead.ID:
-                return PMove.applyToRandom(1, PCLPowerHelper.Slow);
+                return PMove.applyToRandom(1, PCLPowerData.Slow);
             case GremlinNob.ID:
-                return PMove.gainPlayer(2, PCLPowerHelper.Strength);
+                return PMove.gainPlayer(2, PCLPowerData.Strength);
             case GremlinThief.ID:
             case TorchHead.ID:
                 return PMove.dealDamage(9, PCLAttackVFX.SLASH_HORIZONTAL.key);
             case GremlinTsundere.ID:
                 return PDelay.turnStart(1).setChild(PMove.gainBlock(PCLCardTarget.Team, 7));
             case GremlinWarrior.ID:
-                return PMove.gainPlayer(5, PCLPowerHelper.Vigor);
+                return PMove.gainPlayer(5, PCLPowerData.Vigor);
             case GremlinWizard.ID:
-                return PDelay.turnStart(2).setChain(PMove.applyToTeam(2, PCLPowerHelper.Sorcery));
+                return PDelay.turnStart(2).setChain(PMove.applyToTeam(2, SorceryPower.DATA));
             case Healer.ID:
-                return PMove.gainPlayer(1, PCLPowerHelper.Regen);
+                return PMove.gainPlayer(1, PCLPowerData.Regen);
             case Hexaghost.ID:
-                return PMove.applyToEnemies(7, PCLElementHelper.Ignis);
+                return PMove.applyToEnemies(7, IgnisPower.DATA);
             case JawWorm.ID:
                 return PMultiSkill.join(PMove.gainBlockPlayer(3), PMove.dealDamage(3, PCLAttackVFX.BLUNT_LIGHT.key));
             case Lagavulin.ID:
-                return PMove.gainPlayer(2, PCLPowerHelper.Metallicize);
+                return PMove.gainPlayer(2, PCLPowerData.Metallicize);
             case Looter.ID:
             case Mugger.ID:
                 return PMove.gainGold(4);
             case LouseDefensive.ID:
             case LouseNormal.ID:
-                return PMove.gainPlayer(6, PCLPowerHelper.CurlUp);
+                return PMove.gainPlayer(6, PCLPowerData.CurlUp);
             case Nemesis.ID:
-                return PMove.gainPlayer(1, PCLPowerHelper.Intangible);
+                return PMove.gainPlayer(1, PCLPowerData.Intangible);
             case OrbWalker.ID:
-                return PMove.applyToRandom(2, PCLPowerHelper.LockOn);
+                return PMove.applyToRandom(2, PCLLockOnPower.DATA);
             case Repulsor.ID:
                 return PMove.draw(1);
             case Reptomancer.ID:
-                return PMove.applyToRandom(10, PCLPowerHelper.Poison);
+                return PMove.applyToRandom(10, PCLPowerData.Poison);
             case Sentry.ID:
-                return PMove.gainPlayer(1, PCLPowerHelper.Artifact);
+                return PMove.gainPlayer(1, PCLPowerData.Artifact);
             case SlaverBlue.ID:
-                return PMove.applyToRandom(3, PCLPowerHelper.Shackles);
+                return PMove.applyToRandom(3, PCLPowerData.Shackles);
             case SlaverRed.ID:
-                return PMove.applyToRandom(3, PCLPowerHelper.Vulnerable);
+                return PMove.applyToRandom(3, PCLPowerData.Vulnerable);
             case SlimeBoss.ID:
-                return PMove.applyToRandom(38, PCLPowerHelper.DelayedDamage);
+                return PMove.applyToRandom(38, PCLPowerData.DelayedDamage);
             case SnakeDagger.ID:
-                return PMove.applyToEnemies(3, PCLPowerHelper.Poison);
+                return PMove.applyToEnemies(3, PCLPowerData.Poison);
             case SnakePlant.ID:
-                return PMove.gainPlayer(3, PCLPowerHelper.Malleable);
+                return PMove.gainPlayer(3, PCLPowerData.Malleable);
             case Snecko.ID:
                 return PMove.create(Iridescence.DATA.ID);
             case SphericGuardian.ID:
-                return PMove.gainPlayer(1, PCLPowerHelper.Blur);
+                return PMove.gainPlayer(1, PCLPowerData.Blur);
             case SpikeSlime_L.ID:
             case SpikeSlime_M.ID:
             case SpikeSlime_S.ID:
-                return PMove.applyToEnemies(2, PCLPowerHelper.Blinded);
+                return PMove.applyToEnemies(2, PCLPowerData.Blinded);
             case Spiker.ID:
-                return PMove.gainPlayer(3, PCLPowerHelper.Thorns);
+                return PMove.gainPlayer(3, PCLPowerData.Thorns);
             case Taskmaster.ID:
-                return PMultiSkill.join(PMove.dealDamage(9, PCLAttackVFX.SLASH_DIAGONAL.key), PMove.applyToRandom(1, PCLPowerHelper.Vulnerable));
+                return PMultiSkill.join(PMove.dealDamage(9, PCLAttackVFX.SLASH_DIAGONAL.key), PMove.applyToRandom(1, PCLPowerData.Vulnerable));
             case TimeEater.ID:
-                return PMove.applyToEveryone(1, PCLPowerHelper.Silenced);
+                return PMove.applyToEveryone(1, PCLPowerData.Silenced);
             case TheCollector.ID:
-                return PMove.applyToRandom(3, PCLPowerHelper.Vulnerable, PCLPowerHelper.Weak, PCLPowerHelper.Frail);
+                return PMove.applyToRandom(3, PCLPowerData.Vulnerable, PCLPowerData.Weak, PCLPowerData.Frail);
             case TheGuardian.ID:
-                return PMultiSkill.join(PMove.gainPlayer(3, PCLPowerHelper.Thorns), PMove.gainPlayer(10, PCLPowerHelper.CurlUp));
+                return PMultiSkill.join(PMove.gainPlayer(3, PCLPowerData.Thorns), PMove.gainPlayer(10, PCLPowerData.CurlUp));
             case Transient.ID:
-                return PMove.applyToRandom(15, PCLPowerHelper.Shackles);
+                return PMove.applyToRandom(15, PCLPowerData.Shackles);
             case WrithingMass.ID:
-                return PMultiSkill.join(PMove.gainPlayer(1, PCLPowerHelper.Malleable), PMove.applyToRandom(1, PCLPowerHelper.Weak, PCLPowerHelper.Vulnerable));
+                return PMultiSkill.join(PMove.gainPlayer(1, PCLPowerData.Malleable), PMove.applyToRandom(1, PCLPowerData.Weak, PCLPowerData.Vulnerable));
         }
         return PMove.gainEnergy(1);
     }

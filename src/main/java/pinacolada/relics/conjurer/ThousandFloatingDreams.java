@@ -7,13 +7,10 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleRelic;
 import pinacolada.cards.base.PCLCard;
-import pinacolada.cards.conjurer.colorless.Cactuar;
-import pinacolada.cards.conjurer.series.genshinimpact.Cyno;
-import pinacolada.cards.conjurer.series.genshinimpact.Nahida;
-import pinacolada.cards.conjurer.series.genshinimpact.Nilou;
-import pinacolada.cards.conjurer.series.genshinimpact.Tighnari;
+import pinacolada.cards.base.PCLCardData;
 import pinacolada.relics.PCLRelic;
 import pinacolada.relics.PCLRelicData;
+import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.utilities.GameUtilities;
@@ -32,11 +29,7 @@ public class ThousandFloatingDreams extends PCLRelic {
 
     @Override
     protected void activateBattleEffect() {
-        RandomizedList<AbstractCard> possible = new RandomizedList<>(new Cyno(), new Nilou(), new Nahida(), new Tighnari(), new Cactuar());
-        CardGroup choices = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-        while (choices.size() < getValue() && !possible.isEmpty()) {
-            choices.addToBottom(possible.retrieve(rng, true));
-        }
+        CardGroup choices = possibleChoices();
 
         PCLActions.bottom.selectFromPile(name, 1, choices)
                 .addCallback((cards) -> {
@@ -68,5 +61,26 @@ public class ThousandFloatingDreams extends PCLRelic {
         }
 
         card = null;
+    }
+
+    protected CardGroup possibleChoices() {
+        RandomizedList<PCLCardData> possible = new RandomizedList<>();
+        for (PCLCardData data : ConjurerPlayerData.genshinImpact.cardDatas) {
+            if (data.cardRarity == AbstractCard.CardRarity.SPECIAL && data.obtainableInCombat && data.cardType == PCLEnum.CardType.SUMMON) {
+                possible.add(data);
+            }
+        }
+        for (PCLCardData data : ConjurerPlayerData.genshinImpact.colorlessData) {
+            if (data.obtainableInCombat && data.cardType == PCLEnum.CardType.SUMMON) {
+                possible.add(data);
+            }
+        }
+
+        CardGroup choices = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+        while (choices.size() < getValue() && !possible.isEmpty()) {
+            choices.addToBottom(possible.retrieve(rng, true).create());
+        }
+
+        return choices;
     }
 }

@@ -2,7 +2,7 @@ package pinacolada.relics.conjurer;
 
 import pinacolada.annotations.VisibleRelic;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.relics.PCLPointerRelic;
 import pinacolada.relics.PCLRelicData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
@@ -22,6 +22,6 @@ public class CelestialDew extends PCLPointerRelic {
     }
 
     public void setup() {
-        addUseMove(PTrigger.when(PCond.checkPower(PCLCardTarget.Any, 1).edit(f -> f.setDebuff(true)), PMove.gain(2, PCLPowerHelper.Warding)));
+        addUseMove(PTrigger.when(PCond.checkPower(PCLCardTarget.Any, 1).edit(f -> f.setDebuff(true)), PMove.gain(2, PCLPowerData.Warding)));
     }
 }

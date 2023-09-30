@@ -18,7 +18,7 @@ import static pinacolada.resources.conjurer.ConjurerEnum.Cards.THE_CONJURER;
 public class PCond_CheckMatter extends PPassiveCond<PField_Not> {
     public static final PSkillData<PField_Not> DATA = register(PCond_CheckMatter.class, PField_Not.class)
             .setColors(THE_CONJURER)
-            .selfTarget();
+            .noTarget();
 
     public PCond_CheckMatter(PSkillSaveData content) {
         super(DATA, content);

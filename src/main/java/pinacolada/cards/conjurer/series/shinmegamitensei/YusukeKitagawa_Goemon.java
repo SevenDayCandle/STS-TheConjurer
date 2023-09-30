@@ -8,11 +8,11 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.AquaPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
-import pinacolada.skills.skills.special.moves.PMove_ExhaustAlly;
+import pinacolada.skills.skills.base.moves.PMove_KillAlly;
 
 @VisibleCard
 public class YusukeKitagawa_Goemon extends PCLCard {
@@ -29,6 +29,6 @@ public class YusukeKitagawa_Goemon extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
-        addUseMove(PMove.applyToEnemies(6, PCLElementHelper.Aqua), new PMove_ExhaustAlly(PCLCardTarget.Self, 1));
+        addUseMove(PMove.applyToEnemies(6, AquaPower.DATA), new PMove_KillAlly(PCLCardTarget.Self, 1));
     }
 }

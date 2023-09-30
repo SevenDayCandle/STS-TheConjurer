@@ -13,6 +13,7 @@ import pinacolada.cards.base.TemplateCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardAffinity;
 import pinacolada.cards.conjurer.series.darksouls.DorhysGnawing;
+import pinacolada.cards.conjurer.series.eldenring.BlackKnife;
 import pinacolada.cards.pcl.curse.Curse_AscendersBane;
 import pinacolada.characters.ConjurerCharacter;
 import pinacolada.dungeon.CombatManager;
@@ -33,7 +34,6 @@ import java.util.HashSet;
 public class ConjurerResources extends PCLResources<ConjurerPlayerData, ConjurerImages, ConjurerTooltips, ConjurerStrings> {
     public static final String ID = "conjurer";
     public static final ConjurerResources conjurer = new ConjurerResources();
-    public static final PCLAffinity[] affinities = EUIUtils.array(PCLAffinity.Red, PCLAffinity.Green, PCLAffinity.Blue, PCLAffinity.Orange);
 
     public ConjurerResources() {
         super(ID, ConjurerEnum.Cards.THE_CONJURER, ConjurerEnum.Characters.THE_CONJURER, new ConjurerImages(ID));
@@ -55,16 +55,16 @@ public class ConjurerResources extends PCLResources<ConjurerPlayerData, Conjurer
 
         PCLCardAffinity highest = ally.hasCard() ? ally.card.affinities.getHighest(cAff -> available.contains(cAff.type)) : null;
         if (highest != null) {
-            switch (highest.type) {
-                case Star:
+            switch (highest.type.ID) {
+                case PCLAffinity.ID_STAR:
                     return new ConjurerStarAllyAnimation(ally);
-                case Red:
+                case PCLAffinity.ID_RED:
                     return new ConjurerFireAllyAnimation(ally);
-                case Green:
-                    return new ConjurerAirAllyAnimation(ally);
-                case Blue:
+                case PCLAffinity.ID_BLUE:
                     return new ConjurerWaterAllyAnimation(ally);
-                case Orange:
+                case PCLAffinity.ID_GREEN:
+                    return new ConjurerAirAllyAnimation(ally);
+                case PCLAffinity.ID_ORANGE:
                     return new ConjurerEarthAllyAnimation(ally);
             }
         }
@@ -87,7 +87,7 @@ public class ConjurerResources extends PCLResources<ConjurerPlayerData, Conjurer
             case Bite.ID:
                 return DorhysGnawing.DATA.ID;
             case RitualDagger.ID:
-                return pinacolada.cards.conjurer.special.RitualDagger.DATA.ID;
+                return BlackKnife.DATA.ID;
         }
         return null;
     }
@@ -120,7 +120,7 @@ public class ConjurerResources extends PCLResources<ConjurerPlayerData, Conjurer
     protected void postInitialize() {
         super.postInitialize();
         CombatManager.playerSystem.registerMeter(playerClass, ConjurerReactionMeter.meter);
-        PCLAffinity.registerAvailableAffinities(cardColor, affinities);
+        PCLAffinity.registerAvailableAffinities(cardColor, PCLAffinity.Red, PCLAffinity.Blue, PCLAffinity.Green, PCLAffinity.Orange);
         PCLAffinity.registerAffinityBorder(cardColor, PCLCoreImages.Core.borderSpecial2);
         PCLCardAlly.registerAnimation(cardColor, this::getAnimation);
         data.addTutorial(ConjurerTutorialMonster.DATA);

@@ -8,7 +8,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.CooledPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -31,6 +31,6 @@ public class Velkhana extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.ICE);
-        addGainPower(PTrigger.when(PCond.onWithdraw(), PMove.applyToEnemies(4, PCLElementHelper.Cooled).setUpgrade(1)));
+        addGainPower(PTrigger.when(PCond.onWithdraw(), PMove.applyToEnemies(4, CooledPower.DATA).setUpgrade(1)));
     }
 }

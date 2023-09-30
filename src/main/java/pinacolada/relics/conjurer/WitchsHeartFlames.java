@@ -2,7 +2,8 @@ package pinacolada.relics.conjurer;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import pinacolada.annotations.VisibleRelic;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.BlastedPower;
+import pinacolada.powers.conjurer.IgnisPower;
 import pinacolada.relics.PCLPointerRelic;
 import pinacolada.relics.PCLRelicData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
@@ -24,6 +25,6 @@ public class WitchsHeartFlames extends PCLPointerRelic {
 
     public void setup() {
         addUseMove(PTrigger.when(PCond.onDraw(AbstractCard.CardType.STATUS),
-                PMultiSkill.join(PMove.applyToEnemies(2, PCLElementHelper.Ignis, PCLElementHelper.Blasted))));
+                PMultiSkill.join(PMove.applyToEnemies(2, IgnisPower.DATA, BlastedPower.DATA))));
     }
 }

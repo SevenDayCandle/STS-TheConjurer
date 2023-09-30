@@ -12,7 +12,7 @@ import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
-import pinacolada.skills.skills.special.moves.PMove_ExhaustAlly;
+import pinacolada.skills.skills.base.moves.PMove_KillAlly;
 
 @VisibleCard
 public class HaruOkumura_Milady extends PCLCard {
@@ -29,6 +29,6 @@ public class HaruOkumura_Milady extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.PSYCHOKINESIS);
-        addUseMove(new PMove_ExhaustAlly(PCLCardTarget.Self, 1), PMod.scryPer(5).setChild(PMove.gainTempHP(2).setUpgrade(1)));
+        addUseMove(new PMove_KillAlly(PCLCardTarget.Self, 1), PMod.scryPer(5).setChild(PMove.gainTempHP(2).setUpgrade(1)));
     }
 }

@@ -10,11 +10,11 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
+import pinacolada.cards.conjurer.special.Biohazard;
 import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.effects.ConjurerEFK;
-import pinacolada.powers.PCLPowerHelper;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.conjurer.VentusPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -28,6 +28,7 @@ import pinacolada.utilities.GameUtilities;
 public class ScarletAeonia extends PCLCard {
     public static final PCLCardData DATA = register(ScarletAeonia.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.RARE)
+            .setCostUpgrades(-1)
             .setTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Green, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.eldenRing);
@@ -37,7 +38,7 @@ public class ScarletAeonia extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.applyToEveryone(5, PCLElementHelper.Ventus).setUpgrade(2));
+        addUseMove(PMove.obtainCard(2, Biohazard.DATA.ID));
         addApplyPower(PCLCardTarget.Single, -1, PTrigger.when(PCond.onTurnEnd(), getSpecialMove(0, this::specialMove, 1, 3))).setVFX(ConjurerEFK.EVFXForge02_08_BloomforgeWard);
     }
 
@@ -46,7 +47,7 @@ public class ScarletAeonia extends PCLCard {
         if (!GameUtilities.isDeadOrEscaped(owner)) {
             int poisonAmount = EUIUtils.sumInt(EUIUtils.filter(owner.powers, po -> ConjurerReactionMeter.meter.isPowerElemental(po.ID, PCLAffinity.Green)), po -> po.amount);
             if (poisonAmount > 0) {
-                order.applyPower(owner, PCLPowerHelper.Poison, poisonAmount);
+                order.applyPower(owner, PCLPowerData.Poison, poisonAmount);
                 order.removePower(owner, owner, VentusPower.POWER_ID);
             }
         }

@@ -11,6 +11,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.interfaces.subscribers.OnCardCreatedSubscriber;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.PSpecialCardPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
@@ -33,12 +34,14 @@ public class GeneticEngineering extends PCLCard {
     }
 
     public void setup(Object input) {
-        addSpecialPower(0, (s, i) -> new GeneticEngineeringPower(i.source, s), 2);
+        addSpecialPower(0, (s, i) -> new GeneticEngineeringPower(i.source, i.source, s), 2);
     }
 
     public static class GeneticEngineeringPower extends PSpecialCardPower implements OnCardCreatedSubscriber {
-        public GeneticEngineeringPower(AbstractCreature owner, PSkill move) {
-            super(DATA, owner, move);
+        public static final PCLPowerData PDATA = createFromCard(GeneticEngineeringPower.class, DATA);
+
+        public GeneticEngineeringPower(AbstractCreature owner, AbstractCreature source, PSkill<?> move) {
+            super(PDATA, owner, source, move);
         }
 
         protected void applyToCard(AbstractCard c) {
@@ -60,7 +63,7 @@ public class GeneticEngineering extends PCLCard {
                             else {
                                 bottom.setAmount(bottom.amount * move.amount);
                                 if (bottom.target.targetsSelf()) {
-                                    bottom.setTarget(PCLCardTarget.RandomEnemy);
+                                    bottom.setTarget(bottom.target.targetsMulti() ? PCLCardTarget.AllEnemy : PCLCardTarget.RandomEnemy);
                                 }
                                 else {
                                     bottom.setTarget(PCLCardTarget.Self);
@@ -76,7 +79,7 @@ public class GeneticEngineering extends PCLCard {
                     }
 
                     if (newSkills.size() == 0) {
-                        newSkills.add(PMove.gainBlock(move.amount * (pc.cost + 1)));
+                        newSkills.add(PMove.gainBlock(move.amount * (pc.cost * 2 + 1)));
                     }
 
                     pc.getEffects().clear();

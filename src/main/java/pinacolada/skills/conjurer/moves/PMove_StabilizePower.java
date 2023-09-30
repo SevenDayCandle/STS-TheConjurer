@@ -1,14 +1,12 @@
 package pinacolada.skills.conjurer.moves;
 
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.powers.IntangiblePower;
-import com.megacrit.cardcrawl.powers.LockOnPower;
 import pinacolada.actions.PCLActions;
 import pinacolada.actions.powers.StabilizePowerAction;
 import pinacolada.annotations.VisibleSkill;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.dungeon.PCLUseInfo;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 import pinacolada.skills.PSkill;
@@ -27,7 +25,7 @@ public class PMove_StabilizePower extends PMove<PField_Power> {
         this(PCLCardTarget.Self, 1);
     }
 
-    public PMove_StabilizePower(PCLCardTarget target, int amount, PCLPowerHelper... powers) {
+    public PMove_StabilizePower(PCLCardTarget target, int amount, PCLPowerData... powers) {
         super(DATA, target, amount);
         fields.setPower(powers);
     }
@@ -36,7 +34,7 @@ public class PMove_StabilizePower extends PMove<PField_Power> {
         super(DATA, content);
     }
 
-    public PMove_StabilizePower(PCLCardTarget target, PCLPowerHelper... powers) {
+    public PMove_StabilizePower(PCLCardTarget target, PCLPowerData... powers) {
         this(target, 1, powers);
     }
 
@@ -55,19 +53,10 @@ public class PMove_StabilizePower extends PMove<PField_Power> {
         return fields.random ? TEXT.subjects_randomly(mainString) : mainString;
     }
 
-    protected void stabilizePower(AbstractCreature p, List<? extends AbstractCreature> targets, PCLPowerHelper power, PCLActions order) {
-        for (AbstractCreature t : targets) {
-            order.add(new StabilizePowerAction(p, t, power.ID, amount));
-        }
-        // Handle powers that are equivalent in terms of what the player sees but that have different IDs
-        if (power == PCLPowerHelper.Intangible) {
+    protected void stabilizePower(AbstractCreature p, List<? extends AbstractCreature> targets, PCLPowerData power, PCLActions order) {
+        if (power != null) {
             for (AbstractCreature t : targets) {
-                order.add(new StabilizePowerAction(p, t, IntangiblePower.POWER_ID, amount));
-            }
-        }
-        else if (power == PCLPowerHelper.LockOn) {
-            for (AbstractCreature t : targets) {
-                order.add(new StabilizePowerAction(p, t, LockOnPower.POWER_ID, amount));
+                power.doFor(po -> order.add(new StabilizePowerAction(p, t, po, amount)));
             }
         }
     }
@@ -76,18 +65,18 @@ public class PMove_StabilizePower extends PMove<PField_Power> {
     public void use(PCLUseInfo info, PCLActions order) {
         List<? extends AbstractCreature> targets = getTargetList(info);
         if (fields.powers.isEmpty()) {
-            for (PCLPowerHelper power : PCLPowerHelper.commonDebuffs()) {
+            for (PCLPowerData power : PCLPowerData.getAllData(false, c -> c.isCommon && c.isDebuff())) {
                 stabilizePower(info.source, targets, power, order);
             }
         }
         else if (fields.random) {
-            PCLPowerHelper power = GameUtilities.getRandomElement(fields.powers);
-            if (power != null) {
-                stabilizePower(info.source, targets, power, order);
-            }
+            String powerID = GameUtilities.getRandomElement(fields.powers);
+            PCLPowerData power = PCLPowerData.getStaticDataOrCustom(powerID);
+            stabilizePower(info.source, targets, power, order);
         }
         else {
-            for (PCLPowerHelper power : fields.powers) {
+            for (String powerID : fields.powers) {
+                PCLPowerData power = PCLPowerData.getStaticDataOrCustom(powerID);
                 stabilizePower(info.source, targets, power, order);
             }
         }

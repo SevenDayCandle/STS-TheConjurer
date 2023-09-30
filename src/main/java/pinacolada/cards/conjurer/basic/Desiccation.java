@@ -6,7 +6,8 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.PetraPower;
+import pinacolada.powers.conjurer.VentusPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 
@@ -23,6 +24,6 @@ public class Desiccation extends PCLCard {
 
     public void setup(Object input) {
         addUseMove(PMove.retain(1).setUpgrade(1));
-        addUseMove(PMove.apply(PCLCardTarget.Any, 2, PCLElementHelper.Ventus, PCLElementHelper.Petra).setUpgrade(1));
+        addUseMove(PMove.apply(PCLCardTarget.Any, 2, VentusPower.DATA, PetraPower.DATA).setUpgrade(1));
     }
 }

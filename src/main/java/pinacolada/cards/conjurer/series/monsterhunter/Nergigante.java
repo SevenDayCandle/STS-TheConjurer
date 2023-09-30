@@ -30,6 +30,6 @@ public class Nergigante extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.EARTH);
-        addUseMove(PCond.onDeath(), PMove.dealDamage(45, PCLEnum.AttackEffect.EARTH, PCLCardTarget.AllEnemy).setUpgrade(0, 12));
+        addUseMove(PCond.onDeath(), PMove.dealDamage(42, PCLEnum.AttackEffect.EARTH, PCLCardTarget.AllEnemy).setUpgrade(0, 12));
     }
 }

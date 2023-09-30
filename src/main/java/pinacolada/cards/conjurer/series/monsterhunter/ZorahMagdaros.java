@@ -8,7 +8,8 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.IgnisPower;
+import pinacolada.powers.conjurer.PetraPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CMod;
@@ -32,6 +33,6 @@ public class ZorahMagdaros extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.EARTH);
-        addGainPower(PTrigger.interactable(new PCond_PayLevel(1, PCLAffinity.Orange), CMod.bonusPerLevel(3, PCLAffinity.Orange), PMove.applyToEnemies(7, PCLElementHelper.Petra, PCLElementHelper.Ignis)));
+        addGainPower(PTrigger.interactable(new PCond_PayLevel(1, PCLAffinity.Orange), CMod.bonusPerLevel(3, PCLAffinity.Orange), PMove.applyToEnemies(7, PetraPower.DATA, IgnisPower.DATA)));
     }
 }

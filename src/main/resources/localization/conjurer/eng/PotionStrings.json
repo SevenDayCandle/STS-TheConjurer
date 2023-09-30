@@ -21,16 +21,16 @@
 		[
 		]
 	},
-	"conjurer:FlowingPotion":
+	"conjurer:CrudeOil":
 	{
-		"NAME": "Flowing Potion",
+		"NAME": "Crude Oil",
 		"DESCRIPTIONS":
 		[
 		]
 	},
-	"conjurer:MidnightOil":
+	"conjurer:FlowingPotion":
 	{
-		"NAME": "Midnight Oil",
+		"NAME": "Flowing Potion",
 		"DESCRIPTIONS":
 		[
 		]

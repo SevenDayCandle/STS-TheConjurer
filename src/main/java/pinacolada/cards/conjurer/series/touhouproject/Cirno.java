@@ -8,8 +8,8 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.PCLPowerHelper;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.PCLPowerData;
+import pinacolada.powers.conjurer.AquaPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -30,6 +30,6 @@ public class Cirno extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.ICE);
-        addUseMove(PCond.cooldown(2), PMove.applyToEnemies(3, PCLElementHelper.Aqua, PCLPowerHelper.Shackles));
+        addUseMove(PCond.cooldown(2), PMove.applyToEnemies(3, AquaPower.DATA, PCLPowerData.Shackles));
     }
 }

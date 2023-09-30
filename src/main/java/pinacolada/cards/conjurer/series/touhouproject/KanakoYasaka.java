@@ -8,7 +8,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.VentusPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
@@ -30,6 +30,6 @@ public class KanakoYasaka extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.IRON);
-        addGainPower(PTrigger.when(CCond.react(), PMove.applyToRandom(2, PCLElementHelper.Ventus)));
+        addGainPower(PTrigger.when(CCond.react(), PMove.applyToRandom(2, VentusPower.DATA)));
     }
 }

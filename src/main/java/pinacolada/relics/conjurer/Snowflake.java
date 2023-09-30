@@ -1,7 +1,7 @@
 package pinacolada.relics.conjurer;
 
 import pinacolada.annotations.VisibleRelic;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.CooledPower;
 import pinacolada.relics.PCLPointerRelic;
 import pinacolada.relics.PCLRelicData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -18,6 +18,6 @@ public class Snowflake extends PCLPointerRelic {
     }
 
     public void setup() {
-        addUseMove(new PRoot(), PMove.applyToEnemies(10, PCLElementHelper.Cooled));
+        addUseMove(new PRoot(), PMove.applyToEnemies(10, CooledPower.DATA));
     }
 }

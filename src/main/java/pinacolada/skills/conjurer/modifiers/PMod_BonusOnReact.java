@@ -18,7 +18,7 @@ import pinacolada.skills.skills.base.modifiers.PMod_BonusOn;
 @VisibleSkill
 public class PMod_BonusOnReact extends PMod_BonusOn<PField_Affinity> {
     public static final PSkillData<PField_Affinity> DATA = register(PMod_BonusOnReact.class, PField_Affinity.class, ConjurerEnum.Cards.THE_CONJURER)
-            .selfTarget();
+            .noTarget();
 
     public PMod_BonusOnReact(PSkillSaveData content) {
         super(DATA, content);
@@ -48,7 +48,7 @@ public class PMod_BonusOnReact extends PMod_BonusOn<PField_Affinity> {
     }
 
     @Override
-    public boolean meetsCondition(PCLUseInfo info) {
+    public boolean meetsCondition(PCLUseInfo info, boolean isUsing) {
         AffinityReactions reactions = info.getAux(ConjurerReactionMeter.meter, AffinityReactions.class);
         if (reactions == null) {
             return false;

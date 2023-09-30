@@ -5,7 +5,7 @@ import pinacolada.annotations.VisiblePotion;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.potions.PCLPotion;
 import pinacolada.potions.PCLPotionData;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.VentusPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CMove;
 import pinacolada.skills.PMove;
@@ -22,6 +22,6 @@ public class FlowingPotion extends PCLPotion {
     }
 
     public void setup() {
-        addUseMove(PMultiSkill.join(PMove.applyToEnemies(3, PCLElementHelper.Ventus), CMove.stabilize(PCLCardTarget.All, PCLElementHelper.Ventus)));
+        addUseMove(PMultiSkill.join(PMove.applyToEnemies(3, VentusPower.DATA), CMove.stabilize(PCLCardTarget.All, VentusPower.DATA)));
     }
 }

@@ -14,7 +14,7 @@ import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.interfaces.subscribers.OnApplyPowerSubscriber;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.PSpecialCardPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -37,13 +37,15 @@ public class Kafka extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.DARKNESS).setBonus(PMod.perPowerAny(1, PCLPowerHelper.Weak, PCLPowerHelper.Vulnerable), 1, 1);
-        addSpecialPower(0, (s, i) -> new KafkaPower(i.source, s), 1, 1);
+        addDamageMove(PCLAttackVFX.DARKNESS).setBonus(PMod.perPowerAny(1, PCLPowerData.Weak, PCLPowerData.Vulnerable), 1, 1);
+        addSpecialPower(0, (s, i) -> new KafkaPower(i.source, i.source, s), 1, 1);
     }
 
     public static class KafkaPower extends PSpecialCardPower implements OnApplyPowerSubscriber {
-        public KafkaPower(AbstractCreature owner, PSkill<?> move) {
-            super(DATA, owner, move);
+        public static final PCLPowerData PDATA = createFromCard(KafkaPower.class, DATA);
+
+        public KafkaPower(AbstractCreature owner, AbstractCreature source, PSkill<?> move) {
+            super(PDATA, owner, source, move);
         }
 
         @Override

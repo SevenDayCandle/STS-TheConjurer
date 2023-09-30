@@ -1,7 +1,7 @@
 package pinacolada.relics.conjurer;
 
 import pinacolada.annotations.VisibleRelic;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.relics.PCLPointerRelic;
 import pinacolada.relics.PCLRelicData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
@@ -21,6 +21,6 @@ public class BeastEye extends PCLPointerRelic {
     }
 
     public void setup() {
-        addUseMove(PTrigger.when(1, PCond.fatalMinion(), PMove.gain(2, PCLPowerHelper.Strength)));
+        addUseMove(PTrigger.when(1, PCond.fatalMinion(), PMove.gain(2, PCLPowerData.Strength)));
     }
 }

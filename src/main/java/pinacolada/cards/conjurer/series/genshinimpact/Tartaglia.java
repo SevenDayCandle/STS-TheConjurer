@@ -8,7 +8,8 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.AquaPower;
+import pinacolada.powers.conjurer.IgnisPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMod;
@@ -17,7 +18,7 @@ import pinacolada.skills.PTrait;
 @VisibleCard
 public class Tartaglia extends PCLCard {
     public static final PCLCardData DATA = register(Tartaglia.class, ConjurerResources.conjurer)
-            .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.AllEnemy)
+            .setSummon(2, CardRarity.SPECIAL, PCLAttackType.Normal, PCLCardTarget.AllEnemy)
             .setDamage(2, 0)
             .setHp(7, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue, PCLAffinity.Purple)
@@ -28,6 +29,6 @@ public class Tartaglia extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL).setChain(PMod.perCreatureWith(1, PCLElementHelper.Ignis, PCLElementHelper.Aqua), PTrait.damage(1).setUpgrade(1));
+        addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL).setChain(PMod.perCreatureWith(1, IgnisPower.DATA, AquaPower.DATA), PTrait.damage(1).setUpgrade(1));
     }
 }

@@ -7,7 +7,9 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.AquaPower;
+import pinacolada.powers.conjurer.PetraPower;
+import pinacolada.powers.conjurer.VentusPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CMove;
 import pinacolada.skills.PMove;
@@ -26,6 +28,6 @@ public class AtmosphericPressure extends PCLCard {
 
     public void setup(Object input) {
         addUseMove(PMove.draw(1).setUpgrade(1));
-        addUseMove(CMove.stabilize(PCLCardTarget.AllEnemy, PCLElementHelper.Aqua, PCLElementHelper.Ventus, PCLElementHelper.Petra));
+        addUseMove(CMove.stabilize(PCLCardTarget.AllEnemy, AquaPower.DATA, VentusPower.DATA, PetraPower.DATA));
     }
 }

@@ -17,7 +17,7 @@ import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.interfaces.markers.EditorCard;
 import pinacolada.interfaces.subscribers.OnCardCreatedSubscriber;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.PSpecialCardPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
@@ -46,14 +46,15 @@ public class GraffitiForm extends PCLCard {
     }
 
     public void setup(Object input) {
-        addSpecialPower(0, (s, i) -> new GraffitiFormPower(i.source, s), 1, 3).setUpgradeExtra(1);
+        addSpecialPower(0, (s, i) -> new GraffitiFormPower(i.source, i.source, s), 1, 3).setUpgradeExtra(1);
     }
 
     public static class GraffitiFormPower extends PSpecialCardPower implements OnCardCreatedSubscriber {
+        public static final PCLPowerData PDATA = createFromCard(GraffitiFormPower.class, DATA);
         protected SkillModifier override;
 
-        public GraffitiFormPower(AbstractCreature owner, PSkill move) {
-            super(DATA, owner, move);
+        public GraffitiFormPower(AbstractCreature owner, AbstractCreature source, PSkill<?> move) {
+            super(PDATA, owner, source, move);
         }
 
         protected void chooseSkill() {
@@ -92,13 +93,13 @@ public class GraffitiForm extends PCLCard {
             }
 
             if (skills.size() < move.extra * 2) {
-                skills.add(PMove.applyToRandom(2, PCLPowerHelper.Bruised));
-                skills.add(PMove.applyToRandom(2, PCLPowerHelper.Weak));
-                skills.add(PMove.applyToRandom(2, PCLPowerHelper.Vulnerable));
+                skills.add(PMove.applyToRandom(2, PCLPowerData.Bruised));
+                skills.add(PMove.applyToRandom(2, PCLPowerData.Weak));
+                skills.add(PMove.applyToRandom(2, PCLPowerData.Vulnerable));
                 skills.add(PMove.scry(3));
                 skills.add(PMove.retain(2));
-                skills.add(PMove.gain(2, PCLPowerHelper.NextTurnDraw));
-                skills.add(PMove.gain(5, PCLPowerHelper.NextTurnBlock));
+                skills.add(PMove.gain(2, PCLPowerData.NextTurnDraw));
+                skills.add(PMove.gain(5, PCLPowerData.NextTurnBlock));
             }
             return skills;
         }

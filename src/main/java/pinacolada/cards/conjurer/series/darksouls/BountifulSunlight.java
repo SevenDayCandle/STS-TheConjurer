@@ -24,7 +24,7 @@ public class BountifulSunlight extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.gainTempHP(7).setUpgrade(3));
-        addGainPower(2, PTrigger.when(PCond.onTurnStart(), PMove.gainTempHP(PCLCardTarget.Team, 3)));
+        addUseMove(PMove.gainTempHP(8).setUpgrade(3));
+        addGainPower(2, PTrigger.when(PCond.onTurnStart(), PMove.gainTempHP(PCLCardTarget.Team, 4)));
     }
 }

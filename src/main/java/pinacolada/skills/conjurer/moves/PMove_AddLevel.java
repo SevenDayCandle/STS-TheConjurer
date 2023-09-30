@@ -15,7 +15,7 @@ import pinacolada.skills.fields.PField_Affinity;
 @VisibleSkill
 public class PMove_AddLevel extends PMove<PField_Affinity> {
     public static final PSkillData<PField_Affinity> DATA = register(PMove_AddLevel.class, PField_Affinity.class, ConjurerEnum.Cards.THE_CONJURER)
-            .selfTarget();
+            .noTarget();
 
     public PMove_AddLevel(PSkillSaveData content) {
         super(DATA, content);

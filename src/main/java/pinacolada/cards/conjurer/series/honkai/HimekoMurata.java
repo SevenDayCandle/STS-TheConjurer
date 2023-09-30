@@ -8,7 +8,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -31,6 +31,6 @@ public class HimekoMurata extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.FIRE);
-        addGainPower(PTrigger.when(PCond.haveTakenDamage(), PMove.applyToAllies(2, PCLPowerHelper.Vigor)));
+        addGainPower(PTrigger.when(PCond.haveTakenDamage(), PMove.applyToAllies(2, PCLPowerData.Vigor)));
     }
 }

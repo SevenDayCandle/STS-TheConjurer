@@ -1,7 +1,7 @@
 package pinacolada.relics.conjurer;
 
 import pinacolada.annotations.VisibleRelic;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.IgnisPower;
 import pinacolada.relics.PCLPointerRelic;
 import pinacolada.relics.PCLRelicData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -20,6 +20,6 @@ public class ChiliPepper extends PCLPointerRelic {
     }
 
     public void setup() {
-        addUseMove(PTrigger.when(PCond.onTurnStart(), PMultiSkill.join(PMove.applyToRandom(2, PCLElementHelper.Ignis))));
+        addUseMove(PTrigger.when(PCond.onTurnStart(), PMultiSkill.join(PMove.applyToRandom(2, IgnisPower.DATA))));
     }
 }

@@ -28,6 +28,6 @@ public class Qingque extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
-        addGainPower((PTrigger) PTrigger.interactable(1, PMove.cycleRandom(1)).setUpgrade(0, 1));
+        addGainPower((PTrigger) PTrigger.interactable(2, PMove.cycleRandom(1)).setUpgrade(0, 1));
     }
 }

@@ -7,7 +7,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.EffekseerEFK;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.IgnisPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 
@@ -25,6 +25,6 @@ public class Ignite extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(EffekseerEFK.FIRE04);
-        addUseMove(PMove.applyToSingle(3, PCLElementHelper.Ignis).setUpgrade(1));
+        addUseMove(PMove.applyToSingle(3, IgnisPower.DATA).setUpgrade(1));
     }
 }

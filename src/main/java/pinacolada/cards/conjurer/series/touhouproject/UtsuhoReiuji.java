@@ -14,7 +14,7 @@ import pinacolada.cards.base.fields.PCLCardAffinities;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.ElementPowerData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -46,7 +46,7 @@ public class UtsuhoReiuji extends PCLCard {
                         PCLCardAffinities cardAffinities = GameUtilities.getPCLCardAffinities(c);
                         if (cardAffinities != null) {
                             for (PCLAffinity aff : cardAffinities.getAffinities(true, true)) {
-                                PCLElementHelper debuff = PCLElementHelper.get(aff);
+                                ElementPowerData debuff = ElementPowerData.get(aff);
                                 if (debuff != null) {
                                     for (AbstractCreature target : move.getTargetList(info)) {
                                         order.applyPower(info.source, target, debuff, move.amount);

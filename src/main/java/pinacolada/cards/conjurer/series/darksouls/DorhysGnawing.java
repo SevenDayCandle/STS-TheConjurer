@@ -15,7 +15,7 @@ import pinacolada.skills.PMove;
 public class DorhysGnawing extends PCLCard {
     public static final PCLCardData DATA = register(DorhysGnawing.class, ConjurerResources.conjurer)
             .setAttack(0, CardRarity.SPECIAL, PCLAttackType.Normal, PCLCardTarget.Single)
-            .setDamage(6, 3)
+            .setDamage(7, 3)
             .setAffinities(PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.darkSouls, true);
 

@@ -9,7 +9,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PMultiSkill;
 import pinacolada.skills.skills.PTrigger;
-import pinacolada.skills.skills.special.moves.PMove_RestoreCardHP;
+import pinacolada.skills.skills.base.moves.PMove_RestoreCardHP;
 
 @VisibleRelic
 public class MaidensFleetingLeisure extends PCLPointerRelic {

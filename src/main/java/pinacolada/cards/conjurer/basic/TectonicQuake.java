@@ -9,8 +9,8 @@ import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.effects.ConjurerEFK;
-import pinacolada.powers.PCLPowerHelper;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.PCLPowerData;
+import pinacolada.powers.conjurer.PetraPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 
@@ -29,6 +29,6 @@ public class TectonicQuake extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove().setDamageEffect(ConjurerEFK.MGC_EarthSpell_LV3);
-        addUseMove(PMove.applyToEnemies(3, PCLElementHelper.Petra, PCLPowerHelper.Weak));
+        addUseMove(PMove.applyToEnemies(3, PetraPower.DATA, PCLPowerData.Weak));
     }
 }

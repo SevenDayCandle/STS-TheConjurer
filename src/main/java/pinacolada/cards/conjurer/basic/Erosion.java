@@ -7,7 +7,8 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.PCLCardGroupHelper;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.AquaPower;
+import pinacolada.powers.conjurer.PetraPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
@@ -26,6 +27,6 @@ public class Erosion extends PCLCard {
 
     public void setup(Object input) {
         addBlockMove();
-        addUseMove(PCond.exhaust(1, PCLCardGroupHelper.Hand), PMove.applyToEnemies(3, PCLElementHelper.Aqua, PCLElementHelper.Petra).setUpgrade(1));
+        addUseMove(PCond.exhaust(1, PCLCardGroupHelper.Hand), PMove.applyToEnemies(3, AquaPower.DATA, PetraPower.DATA).setUpgrade(1));
     }
 }

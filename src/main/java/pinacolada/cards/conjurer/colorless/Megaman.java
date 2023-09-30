@@ -13,7 +13,7 @@ import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.characters.ConjurerCharacter;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.PCLClickableUse;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.PSpecialCardPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -39,21 +39,22 @@ public class Megaman extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.ELECTRIC);
-        addSpecialPower(0, (s, i) -> new MegamanPower(i.source, s), 1, 1);
+        addSpecialPower(0, (s, i) -> new MegamanPower(i.source, i.source, s), 1, 1);
     }
 
     public static class MegamanPower extends PSpecialCardPower {
+        public static final PCLPowerData PDATA = createFromCard(MegamanPower.class, DATA);
         protected static PCLClickableUse use;
 
-        public MegamanPower(AbstractCreature owner, PSkill<?> move) {
-            super(DATA, owner, move);
+        public MegamanPower(AbstractCreature owner, AbstractCreature source, PSkill<?> move) {
+            super(PDATA, owner, source, move);
 
             AbstractMonster enemy = GameUtilities.getRandomEnemy(false);
             if (enemy != null) {
                 PSkill<?> monsterSkill = ConjurerPlayerData.getSkillForMonster(enemy.id);
                 int cost = ConjurerPlayerData.getCostForMonster(enemy.id);
                 boolean metaScaling = monsterSkill.isMetascaling() ||
-                        (monsterSkill.fields instanceof PField_Power && EUIUtils.any(((PField_Power) monsterSkill.fields).powers, p -> p == PCLPowerHelper.Intangible || p == PCLPowerHelper.Ritual));
+                        (monsterSkill.fields instanceof PField_Power && EUIUtils.any(((PField_Power) monsterSkill.fields).powers, PCLPowerData::isMetascaling));
                 PSkill<?> costSkill = AbstractDungeon.player instanceof ConjurerCharacter ? new PCond_PayMatter(cost * 10) : new PCond_PayEnergy(cost);
                 costSkill.setChild(monsterSkill);
                 if (metaScaling) {

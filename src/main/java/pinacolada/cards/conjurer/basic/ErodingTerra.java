@@ -7,8 +7,8 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.PSpecialCardPower;
-import pinacolada.powers.conjurer.PCLElementHelper;
 import pinacolada.powers.conjurer.PetraPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;
@@ -30,12 +30,14 @@ public class ErodingTerra extends PCLCard {
     }
 
     public void setup(Object input) {
-        addSpecialPower(0, (s, i) -> new ErodingTerraPower(i.source, s), 25);
+        addSpecialPower(0, (s, i) -> new ErodingTerraPower(i.source, i.source,  s), 50);
     }
 
     public static class ErodingTerraPower extends PSpecialCardPower {
-        public ErodingTerraPower(AbstractCreature owner, PSkill<?> move) {
-            super(ErodingTerra.DATA, owner, move);
+        public static final PCLPowerData PDATA = createFromCard(ErodingTerraPower.class, DATA);
+
+        public ErodingTerraPower(AbstractCreature owner, AbstractCreature source, PSkill<?> move) {
+            super(PDATA, owner, source, move);
         }
 
         @Override
@@ -49,7 +51,7 @@ public class ErodingTerra extends PCLCard {
                 }
                 else {
                     int apply = MathUtils.ceil(po.amount * amount / 100f);
-                    PCLActions.last.applyPower(po.owner, PCLElementHelper.Petra, apply);
+                    PCLActions.last.applyPower(po.owner, PetraPower.DATA, apply);
                     stacks += apply;
                 }
             }

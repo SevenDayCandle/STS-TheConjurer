@@ -6,7 +6,8 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.AquaPower;
+import pinacolada.powers.conjurer.CooledPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CMod;
@@ -24,6 +25,6 @@ public class FreezingMist extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(CMod.bonusOnReact(1), PMove.applyToEnemies(3, PCLElementHelper.Aqua, PCLElementHelper.Cooled).setUpgrade(2));
+        addUseMove(CMod.bonusOnReact(1), PMove.applyToEnemies(3, AquaPower.DATA, CooledPower.DATA).setUpgrade(2));
     }
 }

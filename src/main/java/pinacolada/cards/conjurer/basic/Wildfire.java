@@ -8,7 +8,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.ConjurerEFK;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.IgnisPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
@@ -28,6 +28,6 @@ public class Wildfire extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(ConjurerEFK.FIRE01);
-        addGainPower(3, PTrigger.when(PCond.onTurnStart(), PMove.applyToEnemies(3, PCLElementHelper.Ignis).setUpgrade(1)));
+        addGainPower(3, PTrigger.when(PCond.onTurnStart(), PMove.applyToEnemies(3, IgnisPower.DATA).setUpgrade(1)));
     }
 }

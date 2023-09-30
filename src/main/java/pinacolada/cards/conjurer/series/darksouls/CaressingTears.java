@@ -17,8 +17,9 @@ import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.effects.ConjurerEFK;
 import pinacolada.effects.PCLEffects;
 import pinacolada.interfaces.subscribers.OnTryApplyPowerSubscriber;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.PSpecialCardPower;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.AquaPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
@@ -37,20 +38,16 @@ public class CaressingTears extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.gain(5, PCLElementHelper.Aqua));
-        addSpecialPower(0, (s, i) -> new CaressingTearsPower(i.source, s), 1, 3).setUpgradeExtra(1);
+        addUseMove(PMove.gain(5, AquaPower.DATA));
+        addSpecialPower(0, (s, i) -> new CaressingTearsPower(i.source, i.source, s), 1, 3).setUpgradeExtra(1);
     }
 
     public static class CaressingTearsPower extends PSpecialCardPower implements OnTryApplyPowerSubscriber {
-        public CaressingTearsPower(AbstractCreature owner, PSkill<?> move) {
-            super(DATA, owner, move);
-            initialize(move.amount, PowerType.BUFF, true);
-        }
+        public static final PCLPowerData PDATA = createFromCard(CaressingTearsPower.class, DATA)
+                .setEndTurnBehavior(PCLPowerData.Behavior.TurnBased);
 
-        @Override
-        public void atStartOfTurn() {
-            super.atStartOfTurn();
-            reducePower(1);
+        public CaressingTearsPower(AbstractCreature owner, AbstractCreature source, PSkill<?> move) {
+            super(PDATA, owner, source, move);
         }
 
         @Override

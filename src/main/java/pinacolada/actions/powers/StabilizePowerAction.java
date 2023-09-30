@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import pinacolada.actions.PCLAction;
 import pinacolada.interfaces.markers.StablizingPower;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.TemporaryPower;
 import pinacolada.powers.conjurer.StabilizingPower;
 import pinacolada.utilities.GameUtilities;
@@ -15,7 +15,7 @@ public class StabilizePowerAction extends PCLAction<AbstractPower> {
     public boolean showEffect = true;
     public boolean isFast = true;
 
-    public StabilizePowerAction(AbstractCreature source, AbstractCreature target, PCLPowerHelper ph, int amount) {
+    public StabilizePowerAction(AbstractCreature source, AbstractCreature target, PCLPowerData ph, int amount) {
         this(source, target, ph.ID, amount);
     }
 
@@ -36,7 +36,7 @@ public class StabilizePowerAction extends PCLAction<AbstractPower> {
             ((TemporaryPower) sourcePower).stabilize(amount);
         }
         else if (sourcePower != null && GameUtilities.isTurnBasedPower(sourcePower)) {
-            GameUtilities.applyPowerInstantly(target, new StabilizingPower(target, sourcePower, amount));
+            GameUtilities.applyPowerInstantly(target, new StabilizingPower(sourcePower, target, source, amount));
         }
 
         complete(sourcePower);

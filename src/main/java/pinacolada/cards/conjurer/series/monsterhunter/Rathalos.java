@@ -8,7 +8,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.BlastedPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -31,6 +31,6 @@ public class Rathalos extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BITE);
-        addGainPower(PTrigger.when(PCond.haveTakenDamage(), PMove.applyToEnemies(5, PCLElementHelper.Blasted).setUpgrade(1)));
+        addGainPower(PTrigger.when(PCond.haveTakenDamage(), PMove.applyToEnemies(6, BlastedPower.DATA).setUpgrade(1)));
     }
 }

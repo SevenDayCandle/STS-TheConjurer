@@ -9,7 +9,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.CooledPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -30,6 +30,6 @@ public class YaeSakura extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.ICE);
-        addUseMove(PCond.pileHas(2, PCLCardGroupHelper.Hand).edit(f -> f.setAffinity(PCLAffinity.Blue)), PMove.applyToSingle(5, PCLElementHelper.Cooled));
+        addUseMove(PCond.pileHas(2, PCLCardGroupHelper.Hand).edit(f -> f.setAffinity(PCLAffinity.Blue)), PMove.applyToSingle(5, CooledPower.DATA));
     }
 }

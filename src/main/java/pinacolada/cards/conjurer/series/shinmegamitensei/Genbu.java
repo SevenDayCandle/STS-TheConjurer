@@ -7,7 +7,8 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.AquaPower;
+import pinacolada.powers.conjurer.PetraPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
@@ -32,8 +33,8 @@ public class Genbu extends PCLCard {
         addDamageMove(PCLAttackVFX.CLAW);
         addGainPower(PTrigger.interactable(CCond.payMatter(8),
                 PMultiSkill.choose(
-                        PMove.applyToEnemies(6, PCLElementHelper.Aqua).setUpgrade(0, 2),
-                        PMove.applyToEnemies(6, PCLElementHelper.Petra).setUpgrade(0, 2)
+                        PMove.applyToEnemies(6, AquaPower.DATA).setUpgrade(0, 2),
+                        PMove.applyToEnemies(6, PetraPower.DATA).setUpgrade(0, 2)
                 )
         ));
     }

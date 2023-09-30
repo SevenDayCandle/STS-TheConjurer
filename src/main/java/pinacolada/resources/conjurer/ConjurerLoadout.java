@@ -1,22 +1,22 @@
 package pinacolada.resources.conjurer;
 
+import extendedui.EUIUtils;
 import pinacolada.blights.conjurer.KnotTheory;
 import pinacolada.blights.conjurer.MolecularDiffusion;
 import pinacolada.relics.conjurer.DisguisePropBox;
 import pinacolada.resources.PGR;
-import pinacolada.resources.loadout.LoadoutBlightSlot;
-import pinacolada.resources.loadout.LoadoutRelicSlot;
 import pinacolada.resources.loadout.PCLLoadout;
+import pinacolada.resources.loadout.PCLLoadoutData;
+
+import java.util.ArrayList;
 
 public class ConjurerLoadout extends PCLLoadout {
-    protected static final int MAX_VALUE = 15;
-
     public ConjurerLoadout() {
         this(createID(ConjurerLoadout.class), -1);
     }
 
     public ConjurerLoadout(String id, int unlockLevel) {
-        super(ConjurerEnum.Cards.THE_CONJURER, id, unlockLevel, MAX_VALUE, MIN_CARDS);
+        super(ConjurerEnum.Cards.THE_CONJURER, id, unlockLevel, MAX_VALUE, MIN_CARDS, MAX_LIMIT);
     }
 
     public ConjurerLoadout(String id) {
@@ -35,19 +35,17 @@ public class ConjurerLoadout extends PCLLoadout {
         return register(new ConjurerLoadout(PGR.createID(ConjurerResources.ID, prefix), unlockLevel));
     }
 
-    public void addLoadoutBlights(LoadoutBlightSlot r1) {
-        super.addLoadoutBlights(r1);
-        r1.addItem(new MolecularDiffusion(), 0);
-        r1.addItem(new KnotTheory(), 0);
+    public ArrayList<String> getAvailableBlightIDs() {
+        return EUIUtils.arrayList(MolecularDiffusion.DATA.ID, KnotTheory.DATA.ID);
     }
 
-    public void addLoadoutRelics(LoadoutRelicSlot r1) {
-        super.addLoadoutRelics(r1);
-        r1.addItem(new DisguisePropBox(), 12);
+    public ArrayList<String> getAvailableRelicIDs() {
+        ArrayList<String> list = super.getAvailableRelicIDs();
+        list.add(DisguisePropBox.DATA.ID);
+        return list;
     }
 
-    @Override
-    public int getSlotsForAbility() {
-        return 1;
+    protected void setDefaultBlightsForData(PCLLoadoutData data) {
+        data.addBlightSlot(MolecularDiffusion.DATA.ID);
     }
 }

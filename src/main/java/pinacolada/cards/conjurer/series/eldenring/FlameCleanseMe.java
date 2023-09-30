@@ -6,8 +6,8 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.powers.PCLPowerHelper;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.PCLPowerData;
+import pinacolada.powers.conjurer.IgnisPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
@@ -24,7 +24,7 @@ public class FlameCleanseMe extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.applyToTeam(-1, PCLPowerHelper.Vulnerable, PCLPowerHelper.Weak).setUpgrade(-1));
-        addUseMove(PMove.applyToEveryone(4, PCLElementHelper.Ignis).setUpgrade(1));
+        addUseMove(PMove.applyToTeam(-1, PCLPowerData.Vulnerable, PCLPowerData.Weak).setUpgrade(-1));
+        addUseMove(PMove.applyToEveryone(4, IgnisPower.DATA).setUpgrade(1));
     }
 }

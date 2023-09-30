@@ -7,7 +7,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -28,6 +28,6 @@ public class MarisaKirisame extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.ELECTRIC);
-        addUseMove(PCond.cooldown(3).setUpgrade(-1), PMove.gainPlayer(1, PCLPowerHelper.Critical));
+        addUseMove(PCond.cooldown(3).setUpgrade(-1), PMove.gainPlayer(1, PCLPowerData.Critical));
     }
 }

@@ -6,10 +6,10 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
-import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.EffekseerEFK;
+import pinacolada.powers.conjurer.IgnisPower;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CMod;
+import pinacolada.skills.PMod;
 
 @VisibleCard
 public class Vaporize extends PCLCard {
@@ -25,6 +25,6 @@ public class Vaporize extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(EffekseerEFK.SWORD18)
-                .setBonus(CMod.perElement(PCLCardTarget.Single, 1, PCLAffinity.Red), 1);
+                .setBonus(PMod.perPowerSingle(1, IgnisPower.DATA), 1);
     }
 }

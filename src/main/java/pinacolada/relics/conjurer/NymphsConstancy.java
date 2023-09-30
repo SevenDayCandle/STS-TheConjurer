@@ -1,7 +1,7 @@
 package pinacolada.relics.conjurer;
 
 import pinacolada.annotations.VisibleRelic;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.AquaPower;
 import pinacolada.relics.PCLPointerRelic;
 import pinacolada.relics.PCLRelicData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
@@ -21,6 +21,6 @@ public class NymphsConstancy extends PCLPointerRelic {
     }
 
     public void setup() {
-        addUseMove(PTrigger.when(2, PCond.onDiscard(), PMove.applyToEnemies(1, PCLElementHelper.Aqua)));
+        addUseMove(PTrigger.when(2, PCond.onDiscard(), PMove.applyToEnemies(1, AquaPower.DATA)));
     }
 }

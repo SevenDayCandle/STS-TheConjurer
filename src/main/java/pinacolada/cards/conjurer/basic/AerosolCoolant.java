@@ -6,7 +6,7 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.VentusPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 
@@ -22,7 +22,7 @@ public class AerosolCoolant extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.apply(PCLCardTarget.SelfSingle, 3, PCLElementHelper.Ventus).setUpgrade(2));
+        addUseMove(PMove.apply(PCLCardTarget.SelfSingle, 3, VentusPower.DATA).setUpgrade(2));
         addUseMove(PMove.withdrawAlly(PCLCardTarget.AllAlly, 2));
     }
 }

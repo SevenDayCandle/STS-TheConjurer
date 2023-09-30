@@ -16,6 +16,7 @@ import pinacolada.skills.skills.PMultiSkill;
 public class NaturalSelection extends PCLCard {
     public static final PCLCardData DATA = register(NaturalSelection.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.RARE, PCLCardTarget.Self)
+            .setCostUpgrades(-1)
             .setTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Green, PCLAffinity.Orange)
             .setCore();
@@ -25,10 +26,10 @@ public class NaturalSelection extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.fetch(1, PCLCardGroupHelper.DiscardPile).edit(f -> f.setType(CardType.ATTACK, CardType.SKILL))
+        addUseMove(PMove.fetch(1, PCLCardGroupHelper.DiscardPile)
                 , PMultiSkill.join(
                         PMove.modifyAffinity(1, PCLAffinity.Green).useParent(true),
-                        PMove.modifyTag(2, 1, PCLCardTag.Bounce).setUpgrade(1).useParent(true)
+                        PMove.modifyTag(1, 1, PCLCardTag.Bounce).useParent(true)
                 )
         );
     }

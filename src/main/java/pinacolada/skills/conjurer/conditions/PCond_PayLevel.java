@@ -23,7 +23,7 @@ import pinacolada.skills.skills.PActiveCond;
 @VisibleSkill
 public class PCond_PayLevel extends PActiveCond<PField_Affinity> {
     public static final PSkillData<PField_Affinity> DATA = register(PCond_PayLevel.class, PField_Affinity.class, ConjurerEnum.Cards.THE_CONJURER)
-            .selfTarget();
+            .noTarget();
 
     public PCond_PayLevel(PSkillSaveData content) {
         super(DATA, content);

@@ -20,6 +20,6 @@ public class HellBull extends PCLPointerRelic {
     }
 
     public void setup() {
-        addUseMove(PTrigger.when(new PCond_OnAllyDeath(), PMove.gainTempHP(2)));
+        addUseMove(PTrigger.when(new PCond_OnAllyDeath(), PMove.gainTempHP(3)));
     }
 }

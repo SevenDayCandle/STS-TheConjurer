@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
-import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import extendedui.EUIRenderHelpers;
 import extendedui.EUIUtils;
@@ -22,7 +21,7 @@ import pinacolada.effects.PCLEffects;
 import pinacolada.effects.affinity.GenericFlashEffect;
 import pinacolada.interfaces.subscribers.OnTryElementReactSubscriber;
 import pinacolada.powers.conjurer.AbstractPCLElementalPower;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.ElementPowerData;
 import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerImages;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -36,14 +35,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class ConjurerElementButton extends EUIButton {
-    public static final String INCREASE_ID = ConjurerResources.conjurer.createID(ConjurerElementButton.class.getSimpleName());
     public static final Color ACTIVE_COLOR = new Color(0.5f, 1f, 0.5f, 1f);
     public static final int BASE_COST = 20;
     public static final int BASE_COST_RATE = 10;
     public static final float BASE_AMOUNT_SCALE = 1f;
     protected final HashMap<PCLAffinity, ConjurerReactionButton> reactions = new HashMap<>();
-    protected final PowerStrings reactionStrings;
-    public final PCLAffinity affinity;
+    public final ElementPowerData power;
     public final ArrayList<String> additionalPowers = new ArrayList<>();
     public final ConjurerReactionMeter meter;
     private boolean busy;
@@ -57,13 +54,12 @@ public class ConjurerElementButton extends EUIButton {
     public int currentCost;
     public int currentAmplifyOffset;
 
-    public ConjurerElementButton(ConjurerReactionMeter meter, PCLAffinity affinity, Texture texture, EUIHitbox hb) {
+    public ConjurerElementButton(ConjurerReactionMeter meter, ElementPowerData power, Texture texture, EUIHitbox hb) {
         super(ConjurerImages.Core.squareBg.texture(), hb);
         this.meter = meter;
-        this.affinity = affinity;
-        reactionStrings = PGR.getPowerStrings(elementID());
+        this.power = power;
         elementImage = new EUIImage(texture, hb).setColor(Color.GRAY).setScale(0.625f, 0.625f);
-        keyword = new EUIKeywordTooltip(reactionStrings.NAME);
+        keyword = new EUIKeywordTooltip(power.strings.NAME);
 
         setOnClick(this::manualAddLevel);
         setTooltip(keyword);
@@ -83,7 +79,7 @@ public class ConjurerElementButton extends EUIButton {
     }
 
     public ConjurerElementButton addReaction(ConjurerElementButton reactor) {
-        reactions.put(reactor.affinity, new ConjurerReactionButton(this, reactor));
+        reactions.put(reactor.power.affinity, new ConjurerReactionButton(this, reactor));
         return this;
     }
 
@@ -99,14 +95,6 @@ public class ConjurerElementButton extends EUIButton {
         return hasReact(affinity) && matchesPower(powerID);
     }
 
-    public String elementID() {
-        return elementPower().ID;
-    }
-
-    public PCLElementHelper elementPower() {
-        return PCLElementHelper.get(affinity);
-    }
-
     public void flash() {
         intensifyFontScale = 8.0f;
         //ElementImage.SetColor(Color.WHITE);
@@ -120,7 +108,7 @@ public class ConjurerElementButton extends EUIButton {
     public Set<PCLAffinity> getReactAffinities() {
         Set<PCLAffinity> affinities = new HashSet<>();
         for (ConjurerReactionButton button : reactions.values()) {
-            affinities.add(button.source.affinity);
+            affinities.add(button.source.power.affinity);
         }
         return affinities;
     }
@@ -150,10 +138,7 @@ public class ConjurerElementButton extends EUIButton {
         if (!busy && reactionEnabled && canInteract) {
             busy = true;
             PCLActions.bottom.callback(() -> {
-                meter.set(affinity, 0);
-                if (CombatManager.tryActivateSemiLimited(INCREASE_ID)) {
-                    meter.addSkip(1);
-                }
+                meter.set(power.affinity, 0);
                 tryAddLevel();
                 busy = false;
             });
@@ -161,11 +146,11 @@ public class ConjurerElementButton extends EUIButton {
     }
 
     public boolean matchesPower(String id) {
-        return elementID().equals(id) || EUIUtils.any(additionalPowers, s -> s.equals(id));
+        return power.ID.equals(id) || EUIUtils.any(additionalPowers, s -> s.equals(id));
     }
 
     public int reactionGain(AbstractPower po, PCLCardAffinity cAff) {
-        return CombatManager.subscriberInout(OnTryElementReactSubscriber.class, po.amount * cAff.level, (s, d) -> s.onTryElementReact(d, affinity, cAff.type));
+        return CombatManager.subscriberInout(OnTryElementReactSubscriber.class, po.amount * cAff.level, (s, d) -> s.onTryElementReact(d, power.affinity, cAff.type));
     }
 
     public void renderForTutorial(SpriteBatch sb, float x, float y) {
@@ -212,7 +197,7 @@ public class ConjurerElementButton extends EUIButton {
         if (meter.trySpendMatter(currentCost)) {
             addLevel(1);
             PCLEffects.Queue.add(new GenericFlashEffect(elementImage.texture, this.hb.cX, this.hb.cY, true).setScale(Settings.scale * 0.5f));
-            CombatManager.onIncreaseAffinityLevel(affinity);
+            CombatManager.onIncreaseAffinityLevel(power.affinity);
         }
     }
 
@@ -226,17 +211,15 @@ public class ConjurerElementButton extends EUIButton {
 
     public void updateDescription() {
         if (PGR.isLoaded()) {
-            PCLElementHelper power = elementPower();
-
             ArrayList<String> strings = new ArrayList<>();
             strings.add(PCLCoreStrings.headerString(PGR.core.tooltips.level.title, level));
             strings.add(PCLCoreStrings.headerString(ConjurerResources.conjurer.strings.combat_conjurerMeterCost, currentCost));
-            strings.add(PGR.core.strings.combat_effect(EUIUtils.format(reactionStrings.DESCRIPTIONS[1], PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getIntensifyMultiplier(elementID())))
-                    + " " + EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterBonus, affinity.getTooltip(), PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(level, currentAmplifyOffset)))));
+            strings.add(PGR.core.strings.combat_effect(EUIUtils.format(power.strings.DESCRIPTIONS[1], PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getIntensifyMultiplier(power)))
+                    + " " + EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterBonus, power.affinity.getTooltip(), PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(level, currentAmplifyOffset)))));
             strings.add(EUIUtils.SPLIT_LINE + PCLCoreStrings.colorString("p", PGR.core.strings.combat_nextLevelEffect));
             strings.add(PCLCoreStrings.headerString(PGR.core.tooltips.level.title, level + 1));
-            strings.add(PGR.core.strings.combat_effect(EUIUtils.format(reactionStrings.DESCRIPTIONS[1], PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getIntensifyMultiplier(elementID(), level + 1)))
-                    + " " + EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterBonus, affinity.getTooltip(), PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(level + 1, currentAmplifyOffset))))
+            strings.add(PGR.core.strings.combat_effect(EUIUtils.format(power.strings.DESCRIPTIONS[1], PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getIntensifyMultiplier(power, level + 1)))
+                    + " " + EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterBonus, power.affinity.getTooltip(), PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(level + 1, currentAmplifyOffset))))
             );
             if (canIntensify()) {
                 strings.add(EUIUtils.SPLIT_LINE + EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterNextIntensity, currentCost, power));
@@ -246,7 +229,7 @@ public class ConjurerElementButton extends EUIButton {
             keyword.setDescription(EUIUtils.joinStrings(EUIUtils.SPLIT_LINE, strings));
             if (keyword.children == null) {
                 keyword.setChildrenFromDescription();
-                keyword.children.removeIf(tip -> tip == PCLElementHelper.get(affinity).getTooltip());
+                keyword.children.removeIf(tip -> tip == power.tooltip);
             }
 
         }
@@ -258,7 +241,7 @@ public class ConjurerElementButton extends EUIButton {
         elementImage.setTargetColor(canIntensify() ? Color.WHITE : Color.GRAY).updateImpl();
         if (hb.hovered) {
             updateDescription();
-            GameUtilities.highlightMatchingCards(affinity);
+            GameUtilities.highlightMatchingCards(power.affinity);
         }
         for (ConjurerReactionButton button : reactions.values()) {
             button.tryUpdate();
@@ -270,8 +253,8 @@ public class ConjurerElementButton extends EUIButton {
     public void updatePreview(AffinityReactions afs) {
         unsetPreview();
 
-        if (afs.hasReaction(affinity)) {
-            for (PCLAffinity reactor : afs.reactions.get(affinity).keySet()) {
+        if (afs.hasReaction(power.affinity)) {
+            for (PCLAffinity reactor : afs.reactions.get(power.affinity).keySet()) {
                 ConjurerReactionButton button = reactions.get(reactor);
                 if (button != null) {
                     button.highlight();
@@ -281,6 +264,6 @@ public class ConjurerElementButton extends EUIButton {
     }
 
     public boolean willReact(AbstractCreature m) {
-        return m.hasPower(elementID()) || EUIUtils.any(additionalPowers, m::hasPower);
+        return m.hasPower(power.ID) || EUIUtils.any(additionalPowers, m::hasPower);
     }
 }

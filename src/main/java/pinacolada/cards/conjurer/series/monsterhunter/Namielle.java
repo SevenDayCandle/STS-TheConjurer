@@ -8,7 +8,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.AquaPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
@@ -31,6 +31,6 @@ public class Namielle extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.WATER);
-        addGainPower(PTrigger.when(CCond.react(), PMove.applyToEnemies(1, PCLElementHelper.Aqua).setUpgrade(0, 1)));
+        addGainPower(PTrigger.when(CCond.react(), PMove.applyToEnemies(1, AquaPower.DATA).setUpgrade(0, 1)));
     }
 }

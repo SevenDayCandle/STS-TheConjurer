@@ -8,7 +8,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.pcl.colorless.Miracle;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.FlowPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -30,6 +30,6 @@ public class SanaeKochiya extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.WIND);
-        addGainPower(PTrigger.interactable(PCond.payPower(11, PCLElementHelper.Flow), PMove.obtainCard(Miracle.DATA.ID)));
+        addGainPower(PTrigger.interactable(PCond.payPower(8, FlowPower.DATA), PMove.obtainCard(Miracle.DATA.ID)));
     }
 }

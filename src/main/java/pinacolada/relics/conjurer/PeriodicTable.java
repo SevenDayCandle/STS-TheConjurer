@@ -1,7 +1,10 @@
 package pinacolada.relics.conjurer;
 
 import pinacolada.annotations.VisibleRelic;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.AquaPower;
+import pinacolada.powers.conjurer.IgnisPower;
+import pinacolada.powers.conjurer.PetraPower;
+import pinacolada.powers.conjurer.VentusPower;
 import pinacolada.relics.PCLPointerRelic;
 import pinacolada.relics.PCLRelicData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -18,6 +21,6 @@ public class PeriodicTable extends PCLPointerRelic {
     }
 
     public void setup() {
-        addUseMove(new PRoot(), PMove.applyToEnemies(1, PCLElementHelper.Ignis, PCLElementHelper.Aqua, PCLElementHelper.Ventus, PCLElementHelper.Petra));
+        addUseMove(new PRoot(), PMove.applyToEnemies(1, IgnisPower.DATA, AquaPower.DATA, VentusPower.DATA, PetraPower.DATA));
     }
 }

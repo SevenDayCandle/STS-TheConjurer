@@ -8,7 +8,7 @@ import pinacolada.cards.base.PCLCardGroupHelper;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.cards.pcl.status.Status_Slimed;
+import pinacolada.cards.conjurer.special.Biohazard;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -31,6 +31,6 @@ public class Nilou extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.POISON).setBonus(PMod.perCard(1, PCLCardGroupHelper.ExhaustPile).edit(f -> f.setType(CardType.STATUS)), 3);
-        addUseMove(PCond.cooldown(1), PMove.createDrawPile(2, Status_Slimed.DATA.ID));
+        addUseMove(PCond.cooldown(1), PMove.createDrawPile(2, Biohazard.DATA.ID));
     }
 }

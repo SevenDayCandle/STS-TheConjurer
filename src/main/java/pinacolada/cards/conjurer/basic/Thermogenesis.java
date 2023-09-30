@@ -6,7 +6,7 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.IgnisPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
@@ -26,6 +26,6 @@ public class Thermogenesis extends PCLCard {
 
     public void setup(Object input) {
         addBlockMove();
-        addUseMove(PMultiCond.or(PCond.onDraw(), PCond.onDiscard()), PMove.applyToRandom(3, PCLElementHelper.Ignis).setUpgrade(1));
+        addUseMove(PMultiCond.or(PCond.onDraw(), PCond.onDiscard()), PMove.applyToRandom(3, IgnisPower.DATA).setUpgrade(1));
     }
 }

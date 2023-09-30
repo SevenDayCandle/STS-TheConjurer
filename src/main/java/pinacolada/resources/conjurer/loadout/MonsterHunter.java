@@ -1,6 +1,8 @@
 package pinacolada.resources.conjurer.loadout;
 
+import pinacolada.cards.conjurer.basic.DefendG;
 import pinacolada.cards.conjurer.basic.Ignite;
+import pinacolada.cards.conjurer.basic.StrikeO;
 import pinacolada.cards.conjurer.series.monsterhunter.PukeiPukei;
 import pinacolada.resources.conjurer.ConjurerLoadout;
 import pinacolada.resources.loadout.PCLLoadoutData;
@@ -13,11 +15,9 @@ public class MonsterHunter extends ConjurerLoadout {
     }
 
     protected void setDefaultCardsForData(PCLLoadoutData data) {
-        data.getCardSlot(0).select(0, 4).markAllSeen();
-        data.getCardSlot(1).select(1, 4).markAllSeen();
-        data.getCardSlot(2).select(PukeiPukei.DATA, 1).markCurrentSeen();
-        data.getCardSlot(3).select(Ignite.DATA, 1).markCurrentSeen();
-        data.getCardSlot(4).clear();
-        data.getCardSlot(5).clear();
+        data.addCardSlot(StrikeO.DATA.ID, 4);
+        data.addCardSlot(DefendG.DATA.ID, 4);
+        data.addCardSlot(PukeiPukei.DATA.ID, 1);
+        data.addCardSlot(Ignite.DATA.ID, 1);
     }
 }

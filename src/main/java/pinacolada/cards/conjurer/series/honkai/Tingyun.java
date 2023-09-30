@@ -17,7 +17,7 @@ public class Tingyun extends PCLCard {
             .setSummon(1, CardRarity.COMMON)
             .setDamage(4, 1)
             .setHp(3, 1)
-            .setAffinities(PCLAffinity.Orange, PCLAffinity.Yellow)
+            .setAffinities(PCLAffinity.Orange, PCLAffinity.Yellow, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.honkai);
 
     public Tingyun() {

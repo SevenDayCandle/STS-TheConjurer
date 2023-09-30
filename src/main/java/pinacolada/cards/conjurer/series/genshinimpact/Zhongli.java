@@ -8,7 +8,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.PetraPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CMove;
@@ -32,6 +32,6 @@ public class Zhongli extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.EARTH);
-        addUseMove(PCond.cooldown(2), PMultiSkill.choose(PMove.gainBlockPlayer(11), CMove.stabilize(PCLCardTarget.AllEnemy, PCLElementHelper.Petra)));
+        addUseMove(PCond.cooldown(2), PMultiSkill.choose(PMove.gainBlockPlayer(11), CMove.stabilize(PCLCardTarget.AllEnemy, PetraPower.DATA)));
     }
 }

@@ -8,7 +8,8 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.AquaPower;
+import pinacolada.powers.conjurer.VentusPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -29,6 +30,6 @@ public class YuukaKazami extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.WATER);
-        addUseMove(PCond.cooldown(2), PMove.applyToEnemies(5, PCLElementHelper.Aqua, PCLElementHelper.Ventus));
+        addUseMove(PCond.cooldown(2), PMove.applyToEnemies(5, AquaPower.DATA, VentusPower.DATA));
     }
 }

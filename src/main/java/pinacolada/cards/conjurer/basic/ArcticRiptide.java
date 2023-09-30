@@ -8,8 +8,8 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.ConjurerEFK;
-import pinacolada.powers.PCLPowerHelper;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.PCLPowerData;
+import pinacolada.powers.conjurer.AquaPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 
@@ -27,6 +27,6 @@ public class ArcticRiptide extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(ConjurerEFK.MGC_W2_BlueBall);
-        addUseMove(PMove.applyToEnemies(2, PCLElementHelper.Aqua, PCLPowerHelper.Vulnerable).setUpgrade(1));
+        addUseMove(PMove.applyToEnemies(2, AquaPower.DATA, PCLPowerData.Vulnerable).setUpgrade(1));
     }
 }

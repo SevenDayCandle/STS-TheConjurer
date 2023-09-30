@@ -6,7 +6,8 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.IgnisPower;
+import pinacolada.powers.conjurer.VentusPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
@@ -23,7 +24,7 @@ public class FlameFan extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.applyToSingle(2, PCLElementHelper.Ignis, PCLElementHelper.Ventus).setUpgrade(1));
-        addUseMove(PMove.spreadPower(PCLCardTarget.Single, PCLElementHelper.Ignis));
+        addUseMove(PMove.applyToSingle(2, IgnisPower.DATA, VentusPower.DATA).setUpgrade(1));
+        addUseMove(PMove.spreadPower(PCLCardTarget.Single, IgnisPower.DATA));
     }
 }

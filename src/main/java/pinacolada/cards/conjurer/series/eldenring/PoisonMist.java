@@ -6,8 +6,8 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.powers.PCLPowerHelper;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.PCLPowerData;
+import pinacolada.powers.conjurer.VentusPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CMod;
@@ -25,6 +25,6 @@ public class PoisonMist extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(CMod.bonusOnReact(2), PMove.applyToEnemies(3, PCLElementHelper.Ventus, PCLPowerHelper.Poison).setUpgrade(2));
+        addUseMove(CMod.bonusOnReact(2), PMove.applyToEnemies(3, VentusPower.DATA, PCLPowerData.Poison).setUpgrade(2));
     }
 }

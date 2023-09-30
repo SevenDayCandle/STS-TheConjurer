@@ -12,7 +12,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PMultiSkill;
-import pinacolada.skills.skills.special.moves.PMove_ExhaustAlly;
+import pinacolada.skills.skills.base.moves.PMove_KillAlly;
 
 @VisibleCard
 public class YuNarukami extends PCLCard {
@@ -30,7 +30,7 @@ public class YuNarukami extends PCLCard {
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_DIAGONAL);
         addUseMove(PCond.cooldown(4),
-                new PMove_ExhaustAlly(PCLCardTarget.Self, 1),
+                new PMove_KillAlly(PCLCardTarget.Self, 1),
                 PMultiSkill.choose(PMove.create(YuNarukami_Izanagi.DATA.ID), PMove.create(YuNarukami_MagatsuIzanagi.DATA.ID))
         );
     }

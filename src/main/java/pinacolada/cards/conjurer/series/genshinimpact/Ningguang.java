@@ -7,7 +7,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.PetraPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -29,6 +29,6 @@ public class Ningguang extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.EARTH);
-        addUseMove(PCond.cooldown(2), PMultiSkill.join(PMove.applyToEnemies(2, PCLElementHelper.Petra), PMove.retain(2)));
+        addUseMove(PCond.cooldown(2), PMultiSkill.join(PMove.applyToEnemies(2, PetraPower.DATA), PMove.retain(2)));
     }
 }

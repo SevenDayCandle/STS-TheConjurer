@@ -11,7 +11,7 @@ import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
-import pinacolada.skills.skills.special.moves.PMove_ExhaustAlly;
+import pinacolada.skills.skills.base.moves.PMove_KillAlly;
 
 @VisibleCard
 public class MakotoNijima_Johanna extends PCLCard {
@@ -28,6 +28,6 @@ public class MakotoNijima_Johanna extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
-        addUseMove(PMove.draw(3).setUpgrade(1).edit(f -> f.setAffinity(PCLAffinity.Orange)), new PMove_ExhaustAlly(PCLCardTarget.Self, 1));
+        addUseMove(PMove.draw(3).setUpgrade(1).edit(f -> f.setAffinity(PCLAffinity.Orange)), new PMove_KillAlly(PCLCardTarget.Self, 1));
     }
 }

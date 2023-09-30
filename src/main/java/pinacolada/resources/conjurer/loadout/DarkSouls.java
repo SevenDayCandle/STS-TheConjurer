@@ -1,7 +1,9 @@
 package pinacolada.resources.conjurer.loadout;
 
-import pinacolada.cards.conjurer.basic.PowderSnow;
-import pinacolada.cards.conjurer.series.darksouls.AcidSurge;
+import pinacolada.cards.conjurer.basic.DefendO;
+import pinacolada.cards.conjurer.basic.Ignite;
+import pinacolada.cards.conjurer.basic.StrikeR;
+import pinacolada.cards.conjurer.series.darksouls.FlashSweat;
 import pinacolada.resources.conjurer.ConjurerLoadout;
 import pinacolada.resources.loadout.PCLLoadoutData;
 
@@ -13,11 +15,9 @@ public class DarkSouls extends ConjurerLoadout {
     }
 
     protected void setDefaultCardsForData(PCLLoadoutData data) {
-        data.getCardSlot(0).select(1, 4).markAllSeen();
-        data.getCardSlot(1).select(1, 4).markAllSeen();
-        data.getCardSlot(2).select(AcidSurge.DATA, 1).markCurrentSeen();
-        data.getCardSlot(3).select(PowderSnow.DATA, 1).markCurrentSeen();
-        data.getCardSlot(4).clear();
-        data.getCardSlot(5).clear();
+        data.addCardSlot(StrikeR.DATA.ID, 4);
+        data.addCardSlot(DefendO.DATA.ID, 4);
+        data.addCardSlot(FlashSweat.DATA.ID, 1);
+        data.addCardSlot(Ignite.DATA.ID, 1);
     }
 }

@@ -7,7 +7,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.ConjurerEFK;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.IgnisPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
@@ -26,6 +26,6 @@ public class BurnOFlame extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(ConjurerEFK.FIRE07);
-        addUseMove(PMove.applyToSingle(2, PCLElementHelper.Ignis));
+        addUseMove(PMove.applyToSingle(2, IgnisPower.DATA));
     }
 }

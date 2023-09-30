@@ -23,7 +23,7 @@ public class AyakaKamisato extends PCLCard {
             .setDamage(8, 0, 2)
             .setHp(4, 1)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Purple)
-            .setLoadout(ConjurerPlayerData.genshinImpact);
+            .setLoadout(ConjurerPlayerData.genshinImpact, true);
 
     public AyakaKamisato() {
         super(DATA);

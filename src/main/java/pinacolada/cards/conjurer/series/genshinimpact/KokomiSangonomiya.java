@@ -12,6 +12,7 @@ import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.interfaces.subscribers.OnBlockGainedSubscriber;
 import pinacolada.interfaces.subscribers.OnCreatureHealSubscriber;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.PSpecialCardPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -33,12 +34,14 @@ public class KokomiSangonomiya extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.WATER).setBonus(PMod.perCreatureHP(PCLCardTarget.Self, 2), 1);
-        addSpecialPower(0, (s, i) -> new KokomiSangonomiyaPower(i.source, s), 3, 1);
+        addSpecialPower(0, (s, i) -> new KokomiSangonomiyaPower(i.source, i.source, s), 3, 1);
     }
 
     public static class KokomiSangonomiyaPower extends PSpecialCardPower implements OnBlockGainedSubscriber, OnCreatureHealSubscriber {
-        public KokomiSangonomiyaPower(AbstractCreature owner, PSkill<?> move) {
-            super(DATA, owner, move);
+        public static final PCLPowerData PDATA = createFromCard(KokomiSangonomiyaPower.class, DATA);
+
+        public KokomiSangonomiyaPower(AbstractCreature owner, AbstractCreature source, PSkill<?> move) {
+            super(PDATA, owner, source, move);
         }
 
         @Override

@@ -17,7 +17,7 @@ import pinacolada.effects.ConjurerEFK;
 import pinacolada.patches.power.FrailPowerPatches;
 import pinacolada.patches.power.VulnerablePowerPatches;
 import pinacolada.patches.power.WeakPowerPatches;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.PSpecialCardPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -40,17 +40,18 @@ public class TearsOfDenial extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.gain(3, PCLPowerHelper.Frail, PCLPowerHelper.Vulnerable, PCLPowerHelper.Weak).setVFX(ConjurerEFK.MGC_HealingSpell_LV2));
-        addSpecialPower(0, (s, i) -> new TearsOfDenialPower(i.source, s), 2, 1);
+        addUseMove(PMove.gain(3, PCLPowerData.Frail, PCLPowerData.Vulnerable, PCLPowerData.Weak).setVFX(ConjurerEFK.MGC_HealingSpell_LV2));
+        addSpecialPower(0, (s, i) -> new TearsOfDenialPower(i.source, i.source, s), 2, 1);
     }
 
     // TODO implement effect bonus subscriber to apply updates to this power
     public static class TearsOfDenialPower extends PSpecialCardPower {
+        public static final PCLPowerData PDATA = createFromCard(TearsOfDenialPower.class, DATA)
+                .setEndTurnBehavior(PCLPowerData.Behavior.TurnBased);
         protected HashMap<String, Float> recordedBonuses = new HashMap<>();
 
-        public TearsOfDenialPower(AbstractCreature owner, PSkill<?> move) {
-            super(DATA, owner, move);
-            initialize(move.amount, PowerType.BUFF, true);
+        public TearsOfDenialPower(AbstractCreature owner, AbstractCreature source, PSkill<?> move) {
+            super(PDATA, owner, source, move);
         }
 
         protected static String[] getAffectedPowers() {
@@ -67,12 +68,6 @@ public class TearsOfDenial extends PCLCard {
                     return WeakPowerPatches.BASE_POWER;
             }
             return 0;
-        }
-
-        @Override
-        public void atStartOfTurn() {
-            super.atStartOfTurn();
-            reducePower(1);
         }
 
         public void onInitialApplication() {

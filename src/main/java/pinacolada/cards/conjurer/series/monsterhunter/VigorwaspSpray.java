@@ -6,7 +6,7 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMod;
@@ -24,7 +24,7 @@ public class VigorwaspSpray extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.heal(PCLCardTarget.Single, 3).setUpgrade(2));
-        addUseMove(PMod.perDistinctDebuff(PCLCardTarget.Single, 1), PMove.gain(2, PCLPowerHelper.Vigor).setUpgrade(1));
+        addUseMove(PMod.perDistinctDebuff(PCLCardTarget.Single, 1), PMove.gain(3, PCLPowerData.Vigor).setUpgrade(1));
+        addUseMove(PMove.heal(PCLCardTarget.Single, 4));
     }
 }

@@ -8,7 +8,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.AquaPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -31,6 +31,6 @@ public class Ganyu extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.ICE);
-        addUseMove(PCond.cooldown(1), PMod.bonusPerPowerSingle(1, PCLElementHelper.Aqua), PMove.applyToSingle(2, PCLElementHelper.Aqua));
+        addUseMove(PCond.cooldown(1), PMod.bonusPerPowerSingle(1, AquaPower.DATA), PMove.applyToSingle(2, AquaPower.DATA));
     }
 }

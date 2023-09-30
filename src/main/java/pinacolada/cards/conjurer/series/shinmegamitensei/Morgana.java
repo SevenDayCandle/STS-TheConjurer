@@ -27,7 +27,7 @@ public class Morgana extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
-        addUseMove(PCond.cooldown(1),
-                PMove.scout(1).edit(f -> f.setType(PCLEnum.CardType.SUMMON)));
+        addUseMove(PCond.cooldown(2),
+                PMove.scout(2).edit(f -> f.setType(PCLEnum.CardType.SUMMON)));
     }
 }

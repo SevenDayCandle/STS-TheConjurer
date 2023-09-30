@@ -8,7 +8,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.BlastedPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -19,10 +19,10 @@ import pinacolada.skills.skills.PTrigger;
 @VisibleCard
 public class Bazelgeuse extends PCLCard {
     public static final PCLCardData DATA = register(Bazelgeuse.class, ConjurerResources.conjurer)
-            .setSummon(3, CardRarity.RARE, PCLAttackType.Ranged, PCLCardTarget.AllEnemy, DelayTiming.EndOfTurnFirst)
+            .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Ranged, PCLCardTarget.AllEnemy, DelayTiming.EndOfTurnFirst)
             .setDamage(4, 0)
-            .setHp(12, 2)
-            .setAffinities(2, PCLAffinity.Red)
+            .setHp(10, 2)
+            .setAffinities(1, PCLAffinity.Red, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 
     public Bazelgeuse() {
@@ -31,6 +31,6 @@ public class Bazelgeuse extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SMALL_EXPLOSION);
-        addGainPower(PTrigger.when(PCond.onAllyTrigger(), PMove.applyToEnemies(2, PCLElementHelper.Blasted).setUpgrade(1)));
+        addGainPower(PTrigger.when(PCond.checkDamage(PCLCardTarget.None, 1), PMove.applyToRandom(2, BlastedPower.DATA).setUpgrade(1)));
     }
 }

@@ -7,7 +7,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -30,6 +30,6 @@ public class Whisper extends PCLCard {
     @Override
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.GHOST);
-        addUseMove(PCond.onDeath(), PMove.applyToTeam(1, PCLPowerHelper.Intangible));
+        addUseMove(PCond.onDeath(), PMove.applyToEveryone(2, PCLPowerData.Intangible));
     }
 }

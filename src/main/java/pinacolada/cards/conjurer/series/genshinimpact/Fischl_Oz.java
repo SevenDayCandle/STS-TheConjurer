@@ -8,12 +8,12 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
-import pinacolada.skills.skills.special.moves.PMove_ExhaustAlly;
+import pinacolada.skills.skills.base.moves.PMove_KillAlly;
 
 @VisibleCard
 public class Fischl_Oz extends PCLCard {
@@ -30,6 +30,6 @@ public class Fischl_Oz extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.GHOST);
-        addUseMove(PCond.onWithdraw(), PMove.applyToEnemies(3, PCLPowerHelper.Blinded), new PMove_ExhaustAlly(PCLCardTarget.Self, 1));
+        addUseMove(PCond.onWithdraw(), PMove.applyToEnemies(3, PCLPowerData.Blinded), new PMove_KillAlly(PCLCardTarget.Self, 1));
     }
 }

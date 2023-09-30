@@ -14,7 +14,7 @@ import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.dungeon.CombatManager;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -73,12 +73,12 @@ public class Geralt extends PCLCard {
 
             RandomizedList<PSkill<?>>[] rewards = EUIUtils.array(new RandomizedList<>(), new RandomizedList<>());
             rewards[1].add(PMove.draw(4));
-            rewards[1].add(PMove.gainPlayer(3, PCLPowerHelper.Energized));
-            rewards[1].add(PMove.gainPlayer(3, PCLPowerHelper.Strength));
+            rewards[1].add(PMove.gainPlayer(3, PCLPowerData.Energized));
+            rewards[1].add(PMove.gainPlayer(3, PCLPowerData.Strength));
             rewards[1].add(PMove.gainGold(15));
             rewards[1].add(PMove.modifyDamage(5));
-            rewards[0].add(PMove.gainPlayer(2, PCLPowerHelper.Energized));
-            rewards[0].add(PMove.gainPlayer(2, PCLPowerHelper.Thorns));
+            rewards[0].add(PMove.gainPlayer(2, PCLPowerData.Energized));
+            rewards[0].add(PMove.gainPlayer(2, PCLPowerData.Thorns));
             rewards[0].add(PMove.modifyDamage(2));
             rewards[0].add(PMove.draw(2));
 

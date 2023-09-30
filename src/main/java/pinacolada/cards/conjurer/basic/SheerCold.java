@@ -1,5 +1,6 @@
 package pinacolada.cards.conjurer.basic;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import pinacolada.actions.PCLActions;
@@ -7,13 +8,15 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.effects.vfx.ScreenFreezingEffect;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.PSpecialCardPower;
 import pinacolada.powers.conjurer.CooledPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;
 import pinacolada.utilities.GameUtilities;
+
+import java.util.ArrayList;
 
 @VisibleCard
 public class SheerCold extends PCLCard {
@@ -29,12 +32,14 @@ public class SheerCold extends PCLCard {
     }
 
     public void setup(Object input) {
-        addSpecialPower(0, (s, i) -> new SheerColdPower(i.source, s), 25);
+        addSpecialPower(0, (s, i) -> new SheerColdPower(i.source, i.source, s), 20);
     }
 
     public static class SheerColdPower extends PSpecialCardPower {
-        public SheerColdPower(AbstractCreature owner, PSkill<?> move) {
-            super(SheerCold.DATA, owner, move);
+        public static final PCLPowerData PDATA = createFromCard(SheerColdPower.class, DATA);
+
+        public SheerColdPower(AbstractCreature owner, AbstractCreature source, PSkill<?> move) {
+            super(PDATA, owner, source, move);
         }
 
         @Override
@@ -51,13 +56,23 @@ public class SheerCold extends PCLCard {
 
             PCLActions.bottom.playVFX(new ScreenFreezingEffect());
             PCLActions.bottom.callback(() -> {
-                ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Blue).addAdditionalPower(CooledPower.POWER_ID);
-                for (AbstractPower po : GameUtilities.getPowers(CooledPower.POWER_ID)) {
+                for (AbstractPower po : GameUtilities.getPowers(CooledPower.DATA.ID)) {
                     if (po instanceof CooledPower) {
                         ((CooledPower) po).expanded = true;
                     }
                 }
             });
+        }
+
+        @Override
+        public void atEndOfRound() {
+            super.atEndOfRound();
+            ArrayList<CooledPower> powers = GameUtilities.getPowers(CooledPower.class);
+            int stacks = 0;
+            for (CooledPower po : powers) {
+                int apply = MathUtils.ceil(po.amount * amount / 100f);
+                PCLActions.last.applyPower(po.owner, CooledPower.DATA, apply);
+            }
         }
     }
 }

@@ -7,8 +7,8 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.ConjurerEFK;
-import pinacolada.powers.PCLPowerHelper;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.PCLPowerData;
+import pinacolada.powers.conjurer.AquaPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CMod;
@@ -28,6 +28,6 @@ public class GlintstoneArc extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(ConjurerEFK.SWORD01);
-        addUseMove(CMod.bonusOnReact(1), PMove.applyToSingle(1, PCLElementHelper.Aqua, PCLPowerHelper.Weak).setUpgrade(1));
+        addUseMove(CMod.bonusOnReact(1), PMove.applyToSingle(1, AquaPower.DATA, PCLPowerData.Weak).setUpgrade(1));
     }
 }

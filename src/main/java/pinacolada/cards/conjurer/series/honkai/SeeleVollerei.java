@@ -8,7 +8,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -29,6 +29,6 @@ public class SeeleVollerei extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL);
-        addUseMove(PCond.blockBreak(PCLCardTarget.Single), PMove.applyToSingle(2, PCLPowerHelper.Vulnerable, PCLPowerHelper.Bruised).setUpgrade(1));
+        addUseMove(PCond.blockBreak(PCLCardTarget.Single), PMove.applyToSingle(2, PCLPowerData.Vulnerable, PCLPowerData.Bruised).setUpgrade(1));
     }
 }

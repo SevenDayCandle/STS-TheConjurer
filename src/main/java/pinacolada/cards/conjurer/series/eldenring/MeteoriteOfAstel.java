@@ -9,7 +9,7 @@ import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.PetraPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PDelay;
@@ -31,6 +31,6 @@ public class MeteoriteOfAstel extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.EARTH);
-        addUseMove(PDelay.turnStart(3), PMultiSkill.join(PMove.dealDamageToAll(40, PCLAttackVFX.EARTH.key).setUpgrade(8), PMove.applyToEnemies(6, PCLElementHelper.Petra)));
+        addUseMove(PDelay.turnStart(3), PMultiSkill.join(PMove.dealDamageToAll(40, PCLAttackVFX.EARTH.key).setUpgrade(8), PMove.applyToEnemies(6, PetraPower.DATA)));
     }
 }

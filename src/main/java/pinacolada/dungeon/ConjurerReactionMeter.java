@@ -3,6 +3,10 @@ package pinacolada.dungeon;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.blue.*;
+import com.megacrit.cardcrawl.cards.green.*;
+import com.megacrit.cardcrawl.cards.purple.*;
+import com.megacrit.cardcrawl.cards.red.*;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -10,10 +14,12 @@ import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import extendedui.EUIRM;
 import extendedui.EUIUtils;
-import extendedui.ui.controls.*;
+import extendedui.ui.controls.EUILabel;
+import extendedui.ui.controls.EUITextBox;
+import extendedui.ui.controls.EUITutorialImagePage;
+import extendedui.ui.controls.EUITutorialPage;
 import extendedui.ui.hitboxes.RelativeHitbox;
 import extendedui.ui.tooltips.EUIKeywordTooltip;
-import extendedui.ui.tooltips.EUITooltip;
 import extendedui.utilities.EUIColors;
 import extendedui.utilities.EUIFontHelper;
 import pinacolada.actions.PCLActions;
@@ -22,21 +28,14 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardAffinities;
 import pinacolada.cards.base.fields.PCLCardAffinity;
-import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.characters.ConjurerCharacter;
-import pinacolada.interfaces.providers.ClickableProvider;
 import pinacolada.monsters.PCLCardAlly;
 import pinacolada.orbs.PCLOrb;
-import pinacolada.powers.PCLClickableUse;
-import pinacolada.powers.conjurer.AbstractPCLElementalPower;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.*;
 import pinacolada.resources.PCLEnum;
 import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerImages;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.resources.pcl.PCLCoreImages;
-import pinacolada.resources.pcl.PCLCoreStrings;
-import pinacolada.skills.PSkill;
 import pinacolada.utilities.GameUtilities;
 import pinacolada.utilities.PCLRenderHelpers;
 
@@ -44,7 +43,7 @@ import java.util.*;
 
 import static extendedui.EUIUtils.array;
 
-public class ConjurerReactionMeter extends PCLPlayerMeter implements ClickableProvider {
+public class ConjurerReactionMeter extends PCLPlayerMeter {
     private static final HashMap<String, Set<PCLAffinity>> CARD_AFFINITIES = new HashMap<>();
     public static final String ID = createFullID(ConjurerResources.conjurer, ConjurerReactionMeter.class);
     public static final Color ACTIVE_COLOR = new Color(0.5f, 1f, 0.5f, 1f);
@@ -54,43 +53,35 @@ public class ConjurerReactionMeter extends PCLPlayerMeter implements ClickablePr
     public static final float BUTTON_SCALE = 1.5f;
     public static final float OFFSET_SCALE_X = 2.5f * BUTTON_SCALE;
     public static final float OFFSET_SCALE_Y = -0.5f * BUTTON_SCALE;
-    public static final int STARTING_CHARGE = 2;
-    public static final int MAX_CHARGE = 5;
     public static final ConjurerReactionMeter meter = new ConjurerReactionMeter();
     private AffinityReactions previewReactions;
     private int matterPreview;
     protected ArrayList<ConjurerElementButton> elements = new ArrayList<>();
     protected ConjurerElementButton fire;
-    protected ConjurerElementButton air;
     protected ConjurerElementButton water;
+    protected ConjurerElementButton air;
     protected ConjurerElementButton earth;
     protected ConjurerElementButton light;
     protected ConjurerElementButton dark;
-    protected EUIButton chargeImage;
-    protected EUILabel chargeHeader;
     protected EUILabel reactionHeader;
-    protected EUITextBox chargeText;
     protected EUITextBox reactionCountText;
-    protected EUITooltip chargeTooltip;
-    protected PCLClickableUse charges;
     protected int matterCount;
     protected int totalReactions;
     protected PCLAffinity lastUpgrade = PCLAffinity.General;
-    protected PCLClickableUse skips;
 
 
     public ConjurerReactionMeter() {
         super(ID, ConjurerResources.conjurer.data.config.meterPosition, ICON_SIZE);
 
-        fire = new ConjurerElementButton(this, PCLAffinity.Red, ConjurerImages.Core.elementFire.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X, OFFSET_SCALE_Y + BUTTON_SCALE));
-        air = new ConjurerElementButton(this, PCLAffinity.Green, ConjurerImages.Core.elementAir.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X, OFFSET_SCALE_Y - BUTTON_SCALE));
-        water = new ConjurerElementButton(this, PCLAffinity.Blue, ConjurerImages.Core.elementWater.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X + BUTTON_SCALE, OFFSET_SCALE_Y));
-        earth = new ConjurerElementButton(this, PCLAffinity.Orange, ConjurerImages.Core.elementEarth.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X - BUTTON_SCALE, OFFSET_SCALE_Y));
-        light = new ConjurerElementButton(this, PCLAffinity.Yellow, ConjurerImages.Core.elementLight.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X, OFFSET_SCALE_Y));
-        dark = new ConjurerElementButton(this, PCLAffinity.Purple, ConjurerImages.Core.elementDark.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X, OFFSET_SCALE_Y));
+        fire = new ConjurerElementButton(this, IgnisPower.DATA, ConjurerImages.Core.elementFire.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X, OFFSET_SCALE_Y + BUTTON_SCALE));
+        water = new ConjurerElementButton(this, AquaPower.DATA, ConjurerImages.Core.elementWater.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X + BUTTON_SCALE, OFFSET_SCALE_Y));
+        air = new ConjurerElementButton(this, VentusPower.DATA, ConjurerImages.Core.elementAir.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X, OFFSET_SCALE_Y - BUTTON_SCALE));
+        earth = new ConjurerElementButton(this, PetraPower.DATA, ConjurerImages.Core.elementEarth.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X - BUTTON_SCALE, OFFSET_SCALE_Y));
+        light = new ConjurerElementButton(this, LuxPower.DATA, ConjurerImages.Core.elementLight.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X, OFFSET_SCALE_Y));
+        dark = new ConjurerElementButton(this, UmbraPower.DATA, ConjurerImages.Core.elementDark.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X, OFFSET_SCALE_Y));
         elements.add(fire);
-        elements.add(air);
         elements.add(water);
+        elements.add(air);
         elements.add(earth);
         elements.add(light);
         elements.add(dark);
@@ -98,8 +89,6 @@ public class ConjurerReactionMeter extends PCLPlayerMeter implements ClickablePr
         // Light/Dark are hidden
         light.setActive(false);
         dark.setActive(false);
-
-        skips = new PCLClickableUse(this, (a, b, c) -> tryUseCharge(lastUpgrade, b, c), PCLCardTarget.Single, MAX_CHARGE, false, true);
 
         reactionHeader = new EUILabel(EUIFontHelper.cardTitleFontSmall,
                 RelativeHitbox.fromPercentages(hb, 2, 2, 8f, 0.1f)).setLabel(ConjurerResources.conjurer.tooltips.matter.title)
@@ -110,23 +99,6 @@ public class ConjurerReactionMeter extends PCLPlayerMeter implements ClickablePr
                 .setColors(EUIColors.black(0.6f), Settings.CREAM_COLOR)
                 .setAlignment(0.5f, 0.5f)
                 .setFont(EUIFontHelper.cardTitleFontNormal, BASE_AMOUNT_SCALE);
-
-        chargeTooltip = new EUITooltip(ConjurerResources.conjurer.tooltips.charge.title, ConjurerResources.conjurer.tooltips.charge.description);
-
-        chargeHeader = new EUILabel(EUIFontHelper.cardTitleFontSmall,
-                RelativeHitbox.fromPercentages(hb, 2, 2, 10f, 0.1f)).setLabel(ConjurerResources.conjurer.tooltips.charge.title)
-                .setFontScale(0.75f)
-                .setAlignment(0.85f, 0.5f)
-                .setTooltip(chargeTooltip);
-        chargeImage = new EUIButton(PCLCoreImages.CardAffinity.unknown.texture(), new RelativeHitbox(chargeHeader.hb, ICON_SIZE * 0.75f, ICON_SIZE * 0.75f, chargeHeader.hb.width * 0.5f, chargeHeader.hb.height * 0.25f))
-                .setTooltip(chargeTooltip)
-                .setOnClick(() -> skips.targetToUse(1))
-                .setOnRightClick(() -> skips.targetToUse(skips.getCurrentUses()));
-        chargeText = new EUITextBox(EUIRM.images.panelEllipticalHalfH.texture(), RelativeHitbox.fromPercentages(chargeImage.hb, 1, 1, 0.5f, -0.25f))
-                .setColors(EUIColors.black(0.6f), Settings.CREAM_COLOR)
-                .setAlignment(0.5f, 0.5f)
-                .setFont(EUIFontHelper.cardTitleFontNormal, 0.6f);
-        enableCharges(false);
     }
 
     public void addCount(int amount) {
@@ -154,13 +126,172 @@ public class ConjurerReactionMeter extends PCLPlayerMeter implements ClickablePr
         }
     }
 
-    public void addSkip(int amount) {
-        skips.addUses(amount);
-        chargeText.label.setFontScale(4.8f);
+    public void applyAffinities(AbstractCard card) {
+        for (PCLAffinity af : getAffinitiesForNonPCL(card)) {
+            GameUtilities.modifyAffinityLevel(card, af, 1, true);
+        }
     }
 
-    public void applyAffinities(AbstractCard card) {
+    public void disableAffinity(PCLAffinity affinity) {
+        ConjurerElementButton button = getElementButton(affinity);
+        if (button != null) {
+            button.setEnabled(false);
+        }
+    }
 
+    protected void fillReactions(AffinityReactions reactions, ArrayList<PCLCardAffinity> affs, Collection<? extends AbstractCreature> mo) {
+        for (AbstractCreature m : mo) {
+            if (m.powers != null) {
+                for (AbstractPower po : m.powers) {
+                    for (ConjurerElementButton button : getElementButtons()) {
+                        if (button.matchesPower(po.ID)) {
+                            for (PCLCardAffinity af : affs) {
+                                if (button.hasReact(af.type)) {
+                                    reactions.addReaction(button.power.affinity, af.type, button.reactionGain(po, af));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void flash(PCLAffinity affinity) {
+        ConjurerElementButton button = getElementButton(affinity);
+        if (button != null) {
+            button.flash();
+        }
+    }
+
+    @Override
+    public PCLAffinity get(int target) {
+        return lastUpgrade;
+    }
+
+    public Set<PCLAffinity> getAffinitiesForNonPCL(AbstractCard card) {
+        switch (card.cardID) {
+            case AllOutAttack.ID:
+            case Anger.ID:
+            case Bludgeon.ID:
+            case Combust.ID:
+            case Eruption.ID:
+            case Flex.ID:
+            case Immolate.ID:
+            case Inflame.ID:
+            case LimitBreak.ID:
+            case Rage.ID:
+            case RecklessCharge.ID:
+            case Rushdown.ID:
+            case Tantrum.ID:
+            case Warcry.ID:
+            case WreathOfFlame.ID:
+                return EUIUtils.set(PCLAffinity.Red);
+            case Accuracy.ID:
+            case Acrobatics.ID:
+            case Backflip.ID:
+            case Backstab.ID:
+            case Blur.ID:
+            case BouncingFlask.ID:
+            case BulletTime.ID:
+            case Burst.ID:
+            case DaggerSpray.ID:
+            case DaggerThrow.ID:
+            case Dash.ID:
+            case EscapePlan.ID:
+            case Flechettes.ID:
+            case FlyingKnee.ID:
+            case Footwork.ID:
+            case Outmaneuver.ID:
+            case Overclock.ID:
+            case QuickSlash.ID:
+            case Shockwave.ID:
+            case SneakyStrike.ID:
+            case Tempest.ID:
+            case Turbo.ID:
+            case Whirlwind.ID:
+                return EUIUtils.set(PCLAffinity.Green);
+            case Blizzard.ID:
+            case Chill.ID:
+            case ColdSnap.ID:
+            case Glacier.ID:
+            case LikeWater.ID:
+            case Study.ID:
+            case Tranquility.ID:
+                return EUIUtils.set(PCLAffinity.Blue);
+            case Armaments.ID:
+            case Barricade.ID:
+            case BodySlam.ID:
+            case Clothesline.ID:
+            case Discipline.ID:
+            case Entrench.ID:
+            case Establishment.ID:
+            case Headbutt.ID:
+            case Impervious.ID:
+            case Juggernaut.ID:
+            case MeteorStrike.ID:
+            case Protect.ID:
+            case SandsOfTime.ID:
+            case Sentinel.ID:
+            case ShrugItOff.ID:
+            case Survivor.ID:
+                return EUIUtils.set(PCLAffinity.Orange);
+            case DualWield.ID:
+            case SwordBoomerang.ID:
+                return EUIUtils.set(PCLAffinity.Red, PCLAffinity.Green);
+            case Adrenaline.ID:
+            case FeelNoPain.ID:
+            case TrueGrit.ID:
+                return EUIUtils.set(PCLAffinity.Red, PCLAffinity.Orange);
+            case Carnage.ID:
+            case DemonForm.ID:
+                return EUIUtils.set(PCLAffinity.Red, PCLAffinity.Purple);
+            case BallLightning.ID:
+            case Brilliance.ID:
+            case Consecrate.ID:
+            case Electrodynamics.ID:
+            case Nirvana.ID:
+            case Pray.ID:
+            case ReachHeaven.ID:
+            case Sanctity.ID:
+            case StaticDischarge.ID:
+            case ThunderStrike.ID:
+            case Wish.ID:
+            case Worship.ID:
+            case Zap.ID:
+                return EUIUtils.set(PCLAffinity.Yellow);
+            case Blasphemy.ID:
+            case DarkEmbrace.ID:
+            case Darkness.ID:
+            case DoomAndGloom.ID:
+            case EndlessAgony.ID:
+            case GhostlyArmor.ID:
+            case Exhume.ID:
+            case Nightmare.ID:
+            case Offering.ID:
+            case PhantasmalKiller.ID:
+            case PiercingWail.ID:
+            case Reaper.ID:
+            case SeverSoul.ID:
+            case Terror.ID:
+            case WraithForm.ID:
+                return EUIUtils.set(PCLAffinity.Purple);
+            case CreativeAI.ID:
+            case DeusExMachina.ID:
+            case FTL.ID:
+            case MasterReality.ID:
+            case Metallicize.ID:
+            case SpotWeakness.ID:
+                return EUIUtils.set(PCLAffinity.Silver);
+            case Chaos.ID:
+            case Rainbow.ID:
+                return EUIUtils.set(PCLAffinity.Star);
+        }
+        return getAffinitiesFallbackForNonPCL(card);
+    }
+
+    // TODO use trie so we don't have to do a bajillion hardcoded string checks
+    protected Set<PCLAffinity> getAffinitiesFallbackForNonPCL(AbstractCard card) {
         Set<PCLAffinity> affinities = CARD_AFFINITIES.get(card.cardID);
         if (affinities == null) {
             affinities = new HashSet<>();
@@ -208,59 +339,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter implements ClickablePr
 
             CARD_AFFINITIES.put(card.cardID, affinities);
         }
-
-        for (PCLAffinity af : affinities) {
-            GameUtilities.modifyAffinityLevel(card, af, 1, true);
-        }
-
-    }
-
-    public boolean canGlow(AbstractCard c) {
-        return chargeImage.isActive;
-    }
-
-    public void disableAffinity(PCLAffinity affinity) {
-        ConjurerElementButton button = getElementButton(affinity);
-        if (button != null) {
-            button.setEnabled(false);
-        }
-    }
-
-    // TODO use this in a relic
-    public void enableCharges(boolean value) {
-        chargeHeader.setActive(value);
-        chargeImage.setActive(value);
-        chargeText.setActive(value);
-    }
-
-    protected void fillReactions(AffinityReactions reactions, ArrayList<PCLCardAffinity> affs, Collection<? extends AbstractCreature> mo) {
-        for (AbstractCreature m : mo) {
-            if (m.powers != null) {
-                for (AbstractPower po : m.powers) {
-                    for (ConjurerElementButton button : getElementButtons()) {
-                        if (button.matchesPower(po.ID)) {
-                            for (PCLCardAffinity af : affs) {
-                                if (button.hasReact(af.type)) {
-                                    reactions.addReaction(button.affinity, af.type, button.reactionGain(po, af));
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public void flash(PCLAffinity affinity) {
-        ConjurerElementButton button = getElementButton(affinity);
-        if (button != null) {
-            button.flash();
-        }
-    }
-
-    @Override
-    public PCLAffinity get(int target) {
-        return lastUpgrade;
+        return affinities;
     }
 
     public int getAmplifyOffset(PCLAffinity affinity) {
@@ -268,13 +347,8 @@ public class ConjurerReactionMeter extends PCLPlayerMeter implements ClickablePr
         return destButton != null ? destButton.currentAmplifyOffset : 0;
     }
 
-    @Override
-    public PCLClickableUse getClickable() {
-        return skips;
-    }
-
     public ConjurerElementButton getElementButton(PCLAffinity affinity) {
-        return affinity.id >= 0 && affinity.id < elements.size() ? elements.get(affinity.id) : null;
+        return affinity.ID >= 0 && affinity.ID < elements.size() ? elements.get(affinity.ID) : null;
     }
 
     public ArrayList<ConjurerElementButton> getElementButtons() {
@@ -283,11 +357,6 @@ public class ConjurerReactionMeter extends PCLPlayerMeter implements ClickablePr
 
     private ArrayList<AbstractPCLElementalPower> getElementalPowers(AbstractCreature c) {
         return c != null && c.powers != null ? EUIUtils.mapAsNonnull(c.powers, po -> EUIUtils.safeCast(po, AbstractPCLElementalPower.class)) : new ArrayList<>();
-    }
-
-    @Override
-    public String getID() {
-        return ID;
     }
 
     @Override
@@ -358,10 +427,6 @@ public class ConjurerReactionMeter extends PCLPlayerMeter implements ClickablePr
         return reactions;
     }
 
-    public EUITooltip getTooltip() {
-        return chargeTooltip;
-    }
-
     public int getTotalReactionsMade() {
         return totalReactions;
     }
@@ -384,14 +449,12 @@ public class ConjurerReactionMeter extends PCLPlayerMeter implements ClickablePr
             b.initialize();
         }
         matterPreview = matterCount = 0;
-        skips.setUses(STARTING_CHARGE, MAX_CHARGE, false, true);
         set(GameUtilities.getRandomElement(PCLAffinity.getAvailableAffinities()), 0);
         if (lastUpgrade == null) {
             set(PCLAffinity.General, 0);
         }
         previewReactions = null;
         totalReactions = 0;
-        enableCharges(false);
 
         addDefaultReactions();
     }
@@ -510,16 +573,12 @@ public class ConjurerReactionMeter extends PCLPlayerMeter implements ClickablePr
 
         reactionCountText.tryRender(sb);
         reactionHeader.tryRender(sb);
-        chargeHeader.tryRender(sb);
-        chargeImage.tryRender(sb);
-        chargeText.tryRender(sb);
     }
 
     @Override
     public PCLAffinity set(PCLAffinity affinity, int target) {
         lastUpgrade = affinity;
-        EUIKeywordTooltip helper = PCLElementHelper.get(lastUpgrade).getTooltip();
-        chargeImage.setBackground(helper.icon.getTexture()).setTooltip(helper);
+        EUIKeywordTooltip helper = ElementPowerData.get(lastUpgrade).getTooltip();
         return lastUpgrade;
     }
 
@@ -551,7 +610,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter implements ClickablePr
             value = 1;
         }
         if (affinity != null && info.target != null) {
-            PCLElementHelper helper = PCLElementHelper.get(affinity);
+            ElementPowerData helper = ElementPowerData.get(affinity);
             order.applyPower(info.target, helper, value);
             return true;
         }
@@ -561,7 +620,6 @@ public class ConjurerReactionMeter extends PCLPlayerMeter implements ClickablePr
     @Override
     public void updateImpl(PCLCard card, PCLCard originalCard, AbstractCreature target, AbstractCreature originalTarget, boolean isDraggingCard, boolean shouldUpdateForCard, boolean shouldUpdateForTarget) {
         super.updateImpl(card, originalCard, target, originalTarget, isDraggingCard, shouldUpdateForCard, shouldUpdateForTarget);
-        boolean interactable = skips.interactable();
 
         for (ConjurerElementButton element : elements) {
             element.tryUpdate();
@@ -591,26 +649,6 @@ public class ConjurerReactionMeter extends PCLPlayerMeter implements ClickablePr
         reactionHeader.tryUpdate();
         reactionCountText.label.setFontScale(PCLRenderHelpers.lerpScale(reactionCountText.label.fontScale, BASE_AMOUNT_SCALE));
         reactionCountText.setLabel(matterPreview).setFontColor(isHighlighted() ? ACTIVE_COLOR : EUIColors.blue(1f)).tryUpdate();
-
-        if (chargeHeader.isActive) {
-            chargeHeader.update();
-            chargeImage.setInteractable(interactable).tryUpdate();
-            chargeText.setLabel(skips.getCurrentUses())
-                    .setFontColor(interactable ? (CombatManager.canActivateSemiLimited(ConjurerElementButton.INCREASE_ID) ? Settings.GREEN_TEXT_COLOR : Settings.BLUE_TEXT_COLOR) : EUIColors.cream(0.6f))
-                    .tryUpdate();
-            chargeText.label.setFontScale(PCLRenderHelpers.lerpScale(chargeText.label.fontScale, BASE_CHARGE_SCALE));
-        }
-
-        boolean updateCharge = chargeImage.hb.justHovered || chargeHeader.hb.justHovered;
-        skips.refresh(false, updateCharge);
-        if (updateCharge) {
-            EUITooltip helper = PCLElementHelper.get(lastUpgrade).getTooltip();
-            chargeTooltip.setDescription(
-                    EUIUtils.joinStrings(EUIUtils.SPLIT_LINE,
-                            ConjurerResources.conjurer.tooltips.charge.description,
-                            PCLCoreStrings.leftClick(PSkill.capital(PGR.core.strings.act_applyAmountX(1, helper.getTitleOrIcon()), true)),
-                            PCLCoreStrings.rightClick(PSkill.capital(PGR.core.strings.act_applyAmountX(skips.getCurrentUses(), helper.getTitleOrIcon()), true))));
-        }
     }
 
     public AffinityReactions updateReactions(AffinityReactions reactions, AbstractCard card, Collection<? extends AbstractCreature> mo) {

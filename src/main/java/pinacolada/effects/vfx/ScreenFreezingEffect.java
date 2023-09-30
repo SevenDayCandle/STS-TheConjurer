@@ -46,9 +46,9 @@ public class ScreenFreezingEffect extends PCLEffect {
         if (this.timer < 0.0F) {
             for (int i = 0; i < TIMES; i++) {
                 PCLEffects.Queue.trail(EUIUtils.random(SnowballImpactEffect.images).texture(), this::onTrail, MathUtils.random(0.0F, (float) Settings.WIDTH), MathUtils.random(900.0F, 1100.0F) * Settings.scale)
-                        .setSpeed(MathUtils.random(-70.0F, 70.0F) * Settings.scale, MathUtils.random(-1100.0F, -450.0F) * Settings.scale)
+                        .setSpeed(MathUtils.random(-70.0F, 70.0F) * Settings.scale, MathUtils.random(-500.0F, -250.0F) * Settings.scale)
                         .setRotation(random(-100f, 100f), random(-600f, 600f))
-                        .setScale(random(0.2f, 1.5f) * Settings.scale)
+                        .setScale(random(0.1f, 0.9f) * Settings.scale)
                         .setFlip(randomBoolean(0.5f), false)
                         .setColor(color)
                         .setDuration(0.75f, isRealtime);

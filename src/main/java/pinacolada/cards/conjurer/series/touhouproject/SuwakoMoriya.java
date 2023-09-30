@@ -7,7 +7,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
@@ -28,6 +28,6 @@ public class SuwakoMoriya extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BITE);
-        addUseMove(CCond.react(), PMove.applyToSingle(3, PCLPowerHelper.Poison).setUpgrade(1));
+        addUseMove(CCond.react(), PMove.applyToSingle(3, PCLPowerData.Poison).setUpgrade(1));
     }
 }

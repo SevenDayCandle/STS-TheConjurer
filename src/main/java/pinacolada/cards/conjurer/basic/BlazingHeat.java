@@ -8,6 +8,7 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.effects.vfx.ScreenOnFireEffect3;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.PSpecialCardPower;
 import pinacolada.powers.conjurer.BlastedPower;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -28,12 +29,14 @@ public class BlazingHeat extends PCLCard {
     }
 
     public void setup(Object input) {
-        addSpecialPower(0, (s, i) -> new BlazingHeatPower(i.source, s), 1);
+        addSpecialPower(0, (s, i) -> new BlazingHeatPower(i.source, i.source, s), 1);
     }
 
     public static class BlazingHeatPower extends PSpecialCardPower {
-        public BlazingHeatPower(AbstractCreature owner, PSkill<?> move) {
-            super(BlazingHeat.DATA, owner, move);
+        public static final PCLPowerData PDATA = createFromCard(BlazingHeatPower.class, DATA);
+
+        public BlazingHeatPower(AbstractCreature owner, AbstractCreature source, PSkill<?> move) {
+            super(PDATA, owner, source, move);
         }
 
         @Override
@@ -48,7 +51,7 @@ public class BlazingHeat extends PCLCard {
             super.onInitialApplication();
             PCLActions.bottom.playVFX(new ScreenOnFireEffect3());
             PCLActions.bottom.callback(() -> {
-                for (AbstractPower po : GameUtilities.getPowers(BlastedPower.POWER_ID)) {
+                for (AbstractPower po : GameUtilities.getPowers(BlastedPower.DATA.ID)) {
                     if (po instanceof BlastedPower) {
                         ((BlastedPower) po).expanded = true;
                     }

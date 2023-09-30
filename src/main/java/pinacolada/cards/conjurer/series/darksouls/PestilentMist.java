@@ -7,7 +7,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
@@ -26,7 +26,7 @@ public class PestilentMist extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.applyToEnemies(3, PCLPowerHelper.Weak));
-        addUseMove(CCond.react(), PMove.gain(1, PCLPowerHelper.Blur));
+        addUseMove(PMove.applyToEnemies(3, PCLPowerData.Weak));
+        addUseMove(CCond.react(), PMove.gain(1, PCLPowerData.Blur));
     }
 }

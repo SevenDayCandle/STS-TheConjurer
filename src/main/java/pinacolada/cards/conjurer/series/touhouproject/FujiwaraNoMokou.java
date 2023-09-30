@@ -6,7 +6,7 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.BlastedPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -28,6 +28,6 @@ public class FujiwaraNoMokou extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BURN);
-        addUseMove(PCond.onDeath(), PMultiSkill.join(PMove.obtainCard(1, FujiwaraNoMokou.DATA.ID), PMove.applyToEnemies(3, PCLElementHelper.Blasted)));
+        addUseMove(PCond.onDeath(), PMultiSkill.join(PMove.createCopy(1), PMove.applyToEnemies(3, BlastedPower.DATA)));
     }
 }

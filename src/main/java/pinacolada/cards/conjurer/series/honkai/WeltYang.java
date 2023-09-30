@@ -8,7 +8,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
@@ -31,6 +31,6 @@ public class WeltYang extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SMALL_LASER);
-        addUseMove(CCond.linkFront(), PCond.checkPower(PCLCardTarget.Single, 2, PCLPowerHelper.Blinded).edit(f -> f.setNot(true)), PMove.applyToSingle(1, PCLPowerHelper.Blinded));
+        addUseMove(CCond.linkFront(), PCond.checkPower(PCLCardTarget.Single, 2, PCLPowerData.Blinded).edit(f -> f.setNot(true)), PMove.applyToSingle(1, PCLPowerData.Blinded));
     }
 }

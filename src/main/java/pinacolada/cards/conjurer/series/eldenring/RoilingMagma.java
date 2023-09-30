@@ -6,7 +6,7 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.BlastedPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CMod;
@@ -26,6 +26,6 @@ public class RoilingMagma extends PCLCard {
 
     public void setup(Object input) {
         addBlockMove();
-        addUseMove(CMod.bonusOnReact(3), PMove.applyToSingle(4, PCLElementHelper.Blasted).setUpgrade(1));
+        addUseMove(CMod.bonusOnReact(3), PMove.applyToSingle(4, BlastedPower.DATA).setUpgrade(1));
     }
 }

@@ -3,7 +3,6 @@ package pinacolada.blights.conjurer;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import extendedui.EUIUtils;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleBlight;
@@ -15,7 +14,7 @@ import pinacolada.cards.base.fields.PCLCardAffinities;
 import pinacolada.cards.base.fields.PCLCardAffinity;
 import pinacolada.dungeon.CombatManager;
 import pinacolada.interfaces.subscribers.OnCardUsingSubscriber;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.ElementPowerData;
 import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.utilities.GameUtilities;
@@ -37,7 +36,7 @@ public class MolecularDiffusion extends PCLBlight implements OnCardUsingSubscrib
     }
 
     @Override
-    public void onUse(AbstractCard card, AbstractPlayer p, AbstractMonster m) {
+    public void onUse(AbstractCard card, AbstractPlayer p, AbstractCreature m) {
         if (card != null) {
             PCLCardAffinities affs = GameUtilities.getPCLCardAffinities(card);
             if (affs != null) {
@@ -60,7 +59,7 @@ public class MolecularDiffusion extends PCLBlight implements OnCardUsingSubscrib
                 for (PCLCardAffinity aff : affs.getCardAffinities(true)) {
                     if (EUIUtils.any(available, a -> a == aff.type)) {
                         for (AbstractCreature creature : creatures) {
-                            PCLActions.delayed.applyPower(p, creature, PCLElementHelper.get(aff.type), aff.level);
+                            PCLActions.delayed.applyPower(p, creature, ElementPowerData.get(aff.type), aff.level);
                         }
                     }
                 }

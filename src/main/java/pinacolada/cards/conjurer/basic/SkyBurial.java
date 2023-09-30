@@ -8,7 +8,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.ConjurerEFK;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
@@ -27,6 +27,6 @@ public class SkyBurial extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(ConjurerEFK.EVFXForge05_06_LiftingGust);
-        addUseMove(PMod.discardPer(0).edit(f -> f.setForced(true)), PMove.gainTemporary(4, PCLPowerHelper.Thorns));
+        addUseMove(PMod.discardPer(0).edit(f -> f.setForced(true)), PMove.gainTemporary(4, PCLPowerData.Thorns));
     }
 }

@@ -1,6 +1,8 @@
 package pinacolada.resources.conjurer.loadout;
 
 import pinacolada.cards.conjurer.basic.Condensation;
+import pinacolada.cards.conjurer.basic.DefendR;
+import pinacolada.cards.conjurer.basic.StrikeB;
 import pinacolada.cards.conjurer.series.shinmegamitensei.PyroJack;
 import pinacolada.resources.conjurer.ConjurerLoadout;
 import pinacolada.resources.loadout.PCLLoadoutData;
@@ -13,11 +15,9 @@ public class ShinMegamiTensei extends ConjurerLoadout {
     }
 
     protected void setDefaultCardsForData(PCLLoadoutData data) {
-        data.getCardSlot(0).select(0, 4).markAllSeen();
-        data.getCardSlot(1).select(1, 4).markAllSeen();
-        data.getCardSlot(2).select(PyroJack.DATA, 1).markCurrentSeen();
-        data.getCardSlot(3).select(Condensation.DATA, 1).markCurrentSeen();
-        data.getCardSlot(4).clear();
-        data.getCardSlot(5).clear();
+        data.addCardSlot(StrikeB.DATA.ID, 4);
+        data.addCardSlot(DefendR.DATA.ID, 4);
+        data.addCardSlot(PyroJack.DATA.ID, 1);
+        data.addCardSlot(Condensation.DATA.ID, 1);
     }
 }

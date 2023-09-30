@@ -44,7 +44,7 @@ public class PCond_AllyLink extends PDelegateCardCond
     protected static final float ICON_SIZE = Settings.scale * 29;
     public static final PSkillData<PField_CardCategory> DATA = register(PCond_AllyLink.class, PField_CardCategory.class, -1, 1)
             .pclOnly()
-            .selfTarget();
+            .noTarget();
     protected float flashTimerBack;
     protected float flashTimerFront;
 
@@ -190,7 +190,7 @@ public class PCond_AllyLink extends PDelegateCardCond
 
     @Override
     public float onModifyDamageReceiveFirst(float v, DamageInfo.DamageType type, AbstractCreature source, AbstractCreature target, AbstractCard card) {
-        if (canAffixCard(card) && this.childEffect != null) {
+        if (target instanceof PCLCardAlly && canAffixCard(((PCLCardAlly) target).card) && this.childEffect != null) {
             return this.childEffect.modifyDamageReceiveFirst(getInfo(target), v, type);
         }
         return v;
@@ -198,7 +198,7 @@ public class PCond_AllyLink extends PDelegateCardCond
 
     @Override
     public float onModifyDamageReceiveLast(float v, DamageInfo.DamageType type, AbstractCreature source, AbstractCreature target, AbstractCard card) {
-        if (canAffixCard(card) && this.childEffect != null) {
+        if (target instanceof PCLCardAlly && canAffixCard(((PCLCardAlly) target).card) && this.childEffect != null) {
             return this.childEffect.modifyDamageReceiveLast(getInfo(target), v, type);
         }
         return v;

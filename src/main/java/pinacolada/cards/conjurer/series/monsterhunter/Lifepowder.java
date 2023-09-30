@@ -22,7 +22,7 @@ public class Lifepowder extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.gainTempHP(2).setUpgrade(1));
-        addUseMove(PMove.heal(PCLCardTarget.AllAlly, 2).setUpgrade(2));
+        addUseMove(PMove.gainTempHP(4).setUpgrade(2));
+        addUseMove(PMove.heal(PCLCardTarget.AllAlly, 3).setUpgrade(1));
     }
 }

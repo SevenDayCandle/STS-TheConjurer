@@ -42,7 +42,7 @@ public class ConjurerReactionButton extends EUIImage {
     }
 
     public boolean hasReverse() {
-        return ConjurerReactionMeter.meter.getReactionButton(source.affinity, target.affinity) != null;
+        return ConjurerReactionMeter.meter.getReactionButton(source.power.affinity, target.power.affinity) != null;
     }
 
     public void highlight() {
@@ -65,9 +65,9 @@ public class ConjurerReactionButton extends EUIImage {
 
     public void updateDescription() {
         if (PGR.isLoaded()) {
-            keyword.setIcon(target.elementPower().tooltip.icon);
+            keyword.setIcon(target.power.tooltip.icon);
             keyword.setDescription(
-                    EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterReact, source.affinity.getTooltip(), target.elementPower().tooltip, PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(source.affinity))));
+                    EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterReact, source.power.affinity.getTooltip(), target.power.tooltip, PCLRenderHelpers.decimalFormat(AbstractPCLElementalPower.getAmplifyMultiplier(source.power.affinity))));
         }
     }
 

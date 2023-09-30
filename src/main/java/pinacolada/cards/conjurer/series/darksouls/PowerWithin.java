@@ -9,7 +9,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.effects.ConjurerEFK;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMod;
@@ -28,7 +28,7 @@ public class PowerWithin extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMod.bonusPerCreature(PCLCardTarget.AllAlly, 2), PMove.gain(1, PCLPowerHelper.Strength).setVFX(ConjurerEFK.MGC_PowerUp).setUpgrade(1));
+        addUseMove(PMod.bonusPerCreature(PCLCardTarget.AllAlly, 2), PMove.gain(1, PCLPowerData.Strength).setVFX(ConjurerEFK.MGC_PowerUp).setUpgrade(1));
         addUseMove(PMove.dealDamage(10, AbstractGameAction.AttackEffect.SMASH, PCLCardTarget.AllAlly));
     }
 }

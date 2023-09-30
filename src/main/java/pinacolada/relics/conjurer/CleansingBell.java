@@ -2,7 +2,7 @@ package pinacolada.relics.conjurer;
 
 import pinacolada.annotations.VisibleRelic;
 import pinacolada.cards.base.PCLCardGroupHelper;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.relics.PCLPointerRelic;
 import pinacolada.relics.PCLRelicData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
@@ -22,6 +22,6 @@ public class CleansingBell extends PCLPointerRelic {
     }
 
     public void setup() {
-        addUseMove(PTrigger.interactablePerCombat(2, PCond.exhaust(1, PCLCardGroupHelper.Hand), PMove.removeSelf(PCLPowerHelper.Weak, PCLPowerHelper.Vulnerable)));
+        addUseMove(PTrigger.interactablePerCombat(2, PCond.exhaust(1, PCLCardGroupHelper.Hand), PMove.removeSelf(PCLPowerData.Weak, PCLPowerData.Vulnerable)));
     }
 }

@@ -8,7 +8,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
@@ -31,6 +31,6 @@ public class SuikaIbuki extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_HEAVY);
-        addUseMove(CCond.react(), PMultiSkill.join(PMove.gainBlock(PCLCardTarget.Team, 8), PMove.gainPlayer(1, PCLPowerHelper.DrawMinus)));
+        addUseMove(CCond.react(), PMultiSkill.join(PMove.gainBlock(PCLCardTarget.Team, 8), PMove.gainPlayer(1, PCLPowerData.DrawMinus)));
     }
 }

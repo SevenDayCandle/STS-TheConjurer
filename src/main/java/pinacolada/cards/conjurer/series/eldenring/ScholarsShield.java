@@ -6,7 +6,7 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
@@ -26,6 +26,6 @@ public class ScholarsShield extends PCLCard {
 
     public void setup(Object input) {
         addBlockMove();
-        addUseMove(CCond.react(), PMove.gain(5, PCLPowerHelper.Warding).setUpgrade(1));
+        addUseMove(CCond.react(), PMove.gain(5, PCLPowerData.Warding).setUpgrade(1));
     }
 }

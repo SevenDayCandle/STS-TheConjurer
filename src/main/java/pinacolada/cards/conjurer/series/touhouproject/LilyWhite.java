@@ -18,8 +18,8 @@ import pinacolada.skills.PMove;
 @VisibleCard
 public class LilyWhite extends PCLCard {
     public static final PCLCardData DATA = register(LilyWhite.class, ConjurerResources.conjurer)
-            .setSummon(0, CardRarity.UNCOMMON, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy)
-            .setDamage(3, 1)
+            .setSummon(0, CardRarity.RARE, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy)
+            .setDamage(2, 1)
             .setHp(2, 1)
             .setAffinities(PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.touhouProject);
@@ -30,6 +30,6 @@ public class LilyWhite extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.WIND);
-        addUseMove(PCond.onWithdraw(), PMod.reshufflePer(0, PCLCardGroupHelper.DiscardPile).edit(f -> f.setAffinity(PCLAffinity.Green)), PMove.gainBlock(2));
+        addUseMove(PCond.onWithdraw(), PMod.reshufflePer(0, PCLCardGroupHelper.DiscardPile).edit(f -> f.setAffinity(PCLAffinity.Green).setForced(true)), PMove.gainBlockPlayer(2));
     }
 }

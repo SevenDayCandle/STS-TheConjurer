@@ -7,7 +7,8 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.AquaPower;
+import pinacolada.powers.conjurer.VentusPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
@@ -31,8 +32,8 @@ public class Seiryu extends PCLCard {
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.CLAW);
         addGainPower(PTrigger.interactable(CCond.payMatter(10), PMultiSkill.choose(
-                PMove.applyToEnemies(8, PCLElementHelper.Aqua).setUpgrade(0, 2),
-                PMove.applyToEnemies(8, PCLElementHelper.Ventus).setUpgrade(0, 2)
+                PMove.applyToEnemies(8, AquaPower.DATA).setUpgrade(0, 2),
+                PMove.applyToEnemies(8, VentusPower.DATA).setUpgrade(0, 2)
         )));
     }
 }

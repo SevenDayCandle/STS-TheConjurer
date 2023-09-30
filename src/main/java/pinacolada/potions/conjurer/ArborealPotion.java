@@ -4,8 +4,9 @@ import com.badlogic.gdx.graphics.Color;
 import pinacolada.annotations.VisiblePotion;
 import pinacolada.potions.PCLPotion;
 import pinacolada.potions.PCLPotionData;
-import pinacolada.powers.PCLPowerHelper;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.PCLPowerData;
+import pinacolada.powers.conjurer.PetraPower;
+import pinacolada.powers.conjurer.VentusPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 
@@ -20,6 +21,6 @@ public class ArborealPotion extends PCLPotion {
     }
 
     public void setup() {
-        addUseMove(PMove.applyToSingle(2, PCLElementHelper.Ventus, PCLElementHelper.Petra, PCLPowerHelper.Poison));
+        addUseMove(PMove.applyToSingle(2, VentusPower.DATA, PetraPower.DATA, PCLPowerData.Poison));
     }
 }

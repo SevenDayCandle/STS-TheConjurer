@@ -8,7 +8,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.dungeon.PCLUseInfo;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.ElementPowerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
 import pinacolada.skills.skills.PSpecialSkill;
@@ -36,7 +36,7 @@ public class Ecosystem extends PCLCard {
     public void specialMove(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
         PCLAffinity aff = info.getData(PCLAffinity.class);
         if (aff != null) {
-            PCLElementHelper debuff = PCLElementHelper.get(aff);
+            ElementPowerData debuff = ElementPowerData.get(aff);
             if (debuff != null) {
                 for (AbstractCreature target : GameUtilities.getAllCharacters(true)) {
                     order.applyPower(info.source, target, debuff, move.amount + move.extra * ConjurerReactionMeter.meter.getLevel(aff));

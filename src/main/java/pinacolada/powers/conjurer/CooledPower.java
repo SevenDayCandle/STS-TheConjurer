@@ -4,23 +4,28 @@ import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import pinacolada.annotations.VisiblePower;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.effects.PCLSFX;
 import pinacolada.powers.PCLPower;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.utilities.GameUtilities;
 import pinacolada.utilities.PCLRenderHelpers;
 
+@VisiblePower
 public class CooledPower extends PCLPower {
-    public static final String POWER_ID = createFullID(ConjurerResources.conjurer, CooledPower.class);
+    public static final PCLPowerData DATA = register(CooledPower.class, ConjurerResources.conjurer)
+            .setType(PowerType.DEBUFF)
+            .setEndTurnBehavior(PCLPowerData.Behavior.SingleTurn)
+            .setTooltip(ConjurerResources.conjurer.tooltips.cooled)
+            .setPriority(3);
     public static final int POTENCY = 5;
     public static final Color healthBarColor = Color.SKY.cpy();
     public boolean expanded;
 
-    public CooledPower(AbstractCreature owner, int amount) {
-        super(owner, POWER_ID);
-        this.priority = 0;
-        initialize(amount, PowerType.DEBUFF, true);
+    public CooledPower(AbstractCreature owner, AbstractCreature source, int amount) {
+        super(DATA, owner, source, amount);
     }
 
     @Override
@@ -33,7 +38,7 @@ public class CooledPower extends PCLPower {
         if (expanded) {
             int red = GameUtilities.getPCLCardAffinityLevel(card, PCLAffinity.Red, true);
             damage += damage * red * AbstractPCLElementalPower.getAmplifyMultiplier(PCLAffinity.Red);
-            return super.atDamageReceive((!GameUtilities.isPlayer(owner) || type == DamageInfo.DamageType.NORMAL) ? damage + getPotency() : damage, type, card);
+            return super.atDamageReceive(type == DamageInfo.DamageType.NORMAL ? damage + getPotency() : damage, type, card);
         }
         return super.atDamageReceive(type == DamageInfo.DamageType.NORMAL ? damage + getPotency() : damage, type, card);
     }

@@ -8,7 +8,8 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.CooledPower;
+import pinacolada.powers.conjurer.IgnisPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -28,7 +29,7 @@ public class GiantsflameTakeThee extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.SMALL_EXPLOSION).setChain(PCond.checkPower(PCLCardTarget.Single, 1, PCLElementHelper.Cooled), PTrait.damage(6).setUpgrade(3));
-        addUseMove(PMove.applyToSingle(4, PCLElementHelper.Ignis));
+        addDamageMove(PCLAttackVFX.SMALL_EXPLOSION).setChain(PCond.checkPower(PCLCardTarget.Single, 1, CooledPower.DATA), PTrait.damage(6).setUpgrade(3));
+        addUseMove(PMove.applyToSingle(4, IgnisPower.DATA));
     }
 }

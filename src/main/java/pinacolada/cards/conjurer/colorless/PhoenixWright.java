@@ -12,7 +12,8 @@ import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.interfaces.markers.OutOfCombatMove;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.PCLPowerData;
+import pinacolada.powers.common.SorceryPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
@@ -59,12 +60,12 @@ public class PhoenixWright extends PCLCard {
                     case ATTACK_BUFF:
                         return PMultiSkill.join(
                                 PMove.gainBlockPlayer(amount - extra),
-                                PMove.gain(extra, PCLPowerHelper.Vigor)
+                                PMove.gain(extra, PCLPowerData.Vigor)
                         );
                     case ATTACK_DEBUFF:
                         return PMultiSkill.join(
                                 PMove.gainBlockPlayer(amount - extra),
-                                PMove.applyToSingle(extra, PCLPowerHelper.Weak)
+                                PMove.applyToSingle(extra, PCLPowerData.Weak)
                         );
                     case ATTACK_DEFEND:
                         return PMultiSkill.join(
@@ -72,22 +73,22 @@ public class PhoenixWright extends PCLCard {
                                 PMove.gainBlockPlayer(amount - extra)
                         );
                     case BUFF:
-                        return PMove.gain(amount, PCLPowerHelper.Vigor);
+                        return PMove.gain(amount, PCLPowerData.Vigor);
                     case DEBUFF:
-                        return PMove.applyToSingle(extra, PCLPowerHelper.Weak, PCLPowerHelper.Vulnerable);
+                        return PMove.applyToSingle(extra, PCLPowerData.Weak, PCLPowerData.Vulnerable);
                     case STRONG_DEBUFF:
-                        return PMove.applyToSingle(extra, PCLPowerHelper.Weak, PCLPowerHelper.Vulnerable, PCLPowerHelper.Blinded);
+                        return PMove.applyToSingle(extra, PCLPowerData.Weak, PCLPowerData.Vulnerable, PCLPowerData.Blinded);
                     case DEFEND:
                         return PMove.dealDamage(amount + extra);
                     case DEFEND_DEBUFF:
                         return PMultiSkill.join(
                                 PMove.dealDamage(amount),
-                                PMove.applyToSingle(extra, PCLPowerHelper.Vulnerable)
+                                PMove.applyToSingle(extra, PCLPowerData.Vulnerable)
                         );
                     case DEFEND_BUFF:
                         return PMultiSkill.join(
                                 PMove.dealDamage(amount),
-                                PMove.gain(extra, PCLPowerHelper.PlatedArmor)
+                                PMove.gain(extra, PCLPowerData.PlatedArmor)
                         );
                     case ESCAPE:
                         return PMultiSkill.join(
@@ -95,13 +96,13 @@ public class PhoenixWright extends PCLCard {
                         );
                     case SLEEP:
                     case STUN:
-                        return PMove.gainPlayer(extra, PCLPowerHelper.Energized);
+                        return PMove.gainPlayer(extra, PCLPowerData.Energized);
                     case UNKNOWN:
                         return PMove.gainTempHP(extra);
                     case MAGIC:
-                        return PMove.gain(extra, PCLPowerHelper.Sorcery);
+                        return PMove.gain(extra, SorceryPower.DATA);
                     default:
-                        return PMove.gain(extra, PCLPowerHelper.Malleable);
+                        return PMove.gain(extra, PCLPowerData.Malleable);
                 }
             }
             return null;
@@ -126,8 +127,8 @@ public class PhoenixWright extends PCLCard {
         }
 
         @Override
-        public void refresh(PCLUseInfo info, boolean conditionMet) {
-            super.refresh(info, conditionMet);
+        public void refresh(PCLUseInfo info, boolean conditionMet, boolean isUsing) {
+            super.refresh(info, conditionMet, isUsing);
             tryChangeEffect(info.target);
         }
 

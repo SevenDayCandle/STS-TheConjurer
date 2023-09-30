@@ -7,7 +7,6 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.Circlet;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import pinacolada.annotations.VisibleRelic;
-import pinacolada.effects.PCLEffects;
 import pinacolada.relics.PCLRelic;
 import pinacolada.relics.PCLRelicData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
@@ -49,7 +48,7 @@ public class GalacticBigLotto extends PCLRelic {
         if (!usedUp && GameUtilities.chance(getValue())) {
             AbstractRelic relic = AbstractDungeon.returnRandomNonCampfireRelic(AbstractDungeon.returnRandomRelicTier());
             if (relic != null && !(relic instanceof Circlet)) {
-                PCLEffects.Queue.obtainRelic(relic);
+                GameUtilities.obtainRelicFromEvent(relic);
                 flash();
             }
 

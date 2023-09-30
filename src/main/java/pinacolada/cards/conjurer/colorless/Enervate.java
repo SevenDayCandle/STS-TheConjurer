@@ -9,7 +9,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.dungeon.PCLUseInfo;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.skills.PSpecialSkill;
 import pinacolada.utilities.GameUtilities;
@@ -28,7 +28,7 @@ public class Enervate extends PCLCard {
 
     public void action(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
         int strength = GameUtilities.getPowerAmount(info.target, StrengthPower.POWER_ID) / 2;
-        order.applyPower(info.source, info.target, PCLPowerHelper.Strength, -(strength > 0 ? strength + move.amount : move.amount));
+        order.applyPower(info.source, info.target, PCLPowerData.Strength, -(strength > 0 ? strength + move.amount : move.amount));
     }
 
     public void setup(Object input) {

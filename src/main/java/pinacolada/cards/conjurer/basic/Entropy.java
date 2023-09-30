@@ -12,7 +12,7 @@ import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.effects.EffekseerEFK;
 import pinacolada.effects.PCLEffects;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.ElementPowerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PSpecialSkill;
@@ -44,7 +44,7 @@ public class Entropy extends PCLCard {
                 PCLCardAffinities cardAffinities = GameUtilities.getPCLCardAffinities(c);
                 if (cardAffinities != null) {
                     for (PCLAffinity aff : cardAffinities.getAffinities(true, true)) {
-                        PCLElementHelper debuff = PCLElementHelper.get(aff);
+                        ElementPowerData debuff = ElementPowerData.get(aff);
                         if (debuff != null) {
                             order.applyPower(info.source, info.target, debuff, move.amount);
                         }

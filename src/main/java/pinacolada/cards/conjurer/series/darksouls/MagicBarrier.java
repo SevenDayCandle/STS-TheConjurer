@@ -6,7 +6,7 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -26,6 +26,6 @@ public class MagicBarrier extends PCLCard {
 
     public void setup(Object input) {
         addBlockMove();
-        addUseMove(PCond.isDebuffing(PCLCardTarget.Single), PMove.gainTemporary(1, PCLPowerHelper.Artifact));
+        addUseMove(PCond.isDebuffing(PCLCardTarget.Single), PMove.gainTemporary(1, PCLPowerData.Artifact));
     }
 }

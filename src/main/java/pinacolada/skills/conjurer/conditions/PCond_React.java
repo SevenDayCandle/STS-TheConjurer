@@ -20,7 +20,7 @@ import pinacolada.skills.skills.PPassiveCond;
 @VisibleSkill
 public class PCond_React extends PPassiveCond<PField_Affinity> implements OnElementReactSubscriber {
     public static final PSkillData<PField_Affinity> DATA = register(PCond_React.class, PField_Affinity.class, 1, 1, ConjurerEnum.Cards.THE_CONJURER)
-            .selfTarget();
+            .noTarget();
 
     public PCond_React() {
         super(DATA, PCLCardTarget.None, 0);

@@ -6,7 +6,8 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.PCLPowerData;
+import pinacolada.powers.common.BruisedPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
@@ -24,7 +25,7 @@ public class HowlOfShabriri extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMultiSkill.join(PMove.applyToEveryone(3, PCLPowerHelper.Vigor),
-                PMove.applyToEnemies(2, PCLPowerHelper.Bruised).setUpgrade(1)));
+        addUseMove(PMultiSkill.join(PMove.applyToEveryone(3, PCLPowerData.Vigor),
+                PMove.applyToEnemies(2, PCLPowerData.Bruised).setUpgrade(1)));
     }
 }

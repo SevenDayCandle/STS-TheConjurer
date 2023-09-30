@@ -7,7 +7,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.PCLPowerHelper;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -30,8 +30,8 @@ public class Zagreus extends PCLCard {
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_DIAGONAL);
         addUseMove(PCond.onSummon(), PMultiSkill.choose(
-                PMove.gain(4, PCLPowerHelper.Strength),
-                PMove.gain(2, PCLPowerHelper.Ritual)
+                PMove.gain(4, PCLPowerData.Strength),
+                PMove.gain(2, PCLPowerData.Ritual)
         ));
     }
 }

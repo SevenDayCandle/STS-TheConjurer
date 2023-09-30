@@ -2,8 +2,7 @@ package pinacolada.relics.conjurer;
 
 import pinacolada.annotations.VisibleRelic;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.powers.PCLPowerHelper;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.relics.PCLPointerRelic;
 import pinacolada.relics.PCLRelicData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
@@ -23,6 +22,6 @@ public class InsectWeb extends PCLPointerRelic {
     }
 
     public void setup() {
-        addUseMove(PTrigger.when(PCond.onTurnStart(), PMove.apply(PCLCardTarget.RandomAlly, 2, PCLPowerHelper.Envenom, PCLElementHelper.Poison)));
+        addUseMove(PTrigger.when(PCond.onTurnStart(), PMove.apply(PCLCardTarget.RandomAlly, 2, PCLPowerData.Envenom, PCLPowerData.Poison)));
     }
 }

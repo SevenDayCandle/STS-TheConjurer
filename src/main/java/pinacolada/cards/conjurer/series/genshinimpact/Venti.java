@@ -9,7 +9,7 @@ import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.VentusPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -32,6 +32,6 @@ public class Venti extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.WIND);
-        addUseMove(PCond.cooldown(1), PMod.cyclePer(2).edit(f -> f.setType(CardType.ATTACK)), PMove.applyToEnemies(2, PCLElementHelper.Ventus).setUpgrade(0, 1));
+        addUseMove(PCond.cooldown(1), PMod.cyclePer(2).edit(f -> f.setType(CardType.ATTACK)), PMove.applyToEnemies(2, VentusPower.DATA).setUpgrade(0, 1));
     }
 }

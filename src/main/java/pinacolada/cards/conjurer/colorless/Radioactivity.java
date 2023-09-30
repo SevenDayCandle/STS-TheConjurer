@@ -1,21 +1,17 @@
 package pinacolada.cards.conjurer.colorless;
 
 
-import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.monsters.PCLCardAlly;
-import pinacolada.powers.PSpecialCardPower;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PSkill;
-import pinacolada.utilities.GameUtilities;
+import pinacolada.skills.PCond;
+import pinacolada.skills.PMod;
+import pinacolada.skills.PMove;
+import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
 public class Radioactivity extends PCLCard {
@@ -30,24 +26,6 @@ public class Radioactivity extends PCLCard {
     }
 
     public void setup(Object input) {
-        addSpecialPower(0, (s, i) -> new RadioactivityPower(i.source, s), 1);
-    }
-
-    public static class RadioactivityPower extends PSpecialCardPower {
-        public RadioactivityPower(AbstractCreature owner, PSkill move) {
-            super(DATA, owner, move);
-        }
-
-        public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-            if (GameUtilities.isPCLPower(power)
-                    && (source == owner || source instanceof PCLCardAlly)
-                    && (move.target == PCLCardTarget.Self ^ !(owner == target))) {
-                int applyAmount = Math.max(1, Math.abs(power.amount));
-                for (AbstractMonster mo : GameUtilities.getEnemies(true)) {
-                    PCLActions.bottom.loseHP(source, mo, applyAmount, PCLAttackVFX.WAVE).setDuration(0.15f, true);
-                }
-                flash();
-            }
-        }
+        addGainPower(PTrigger.when(PCond.checkPower(PCLCardTarget.Any, 1), PMod.perParentAmount(), PMove.loseHp(PCLCardTarget.AllEnemy, 1, PCLAttackVFX.WAVE.key)));
     }
 }

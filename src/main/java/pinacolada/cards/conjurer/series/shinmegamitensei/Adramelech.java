@@ -8,7 +8,9 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.IgnisPower;
+import pinacolada.powers.conjurer.PetraPower;
+import pinacolada.powers.conjurer.VentusPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -30,7 +32,7 @@ public class Adramelech extends PCLCard {
     public void setup(Object input) {
         addDamageMove(AbstractGameAction.AttackEffect.FIRE);
         addUseMove(PCond.cooldown(0),
-                PMove.applyToRandom(2, PCLElementHelper.Ignis, PCLElementHelper.Ventus, PCLElementHelper.Petra)
+                PMove.applyToRandom(2, IgnisPower.DATA, VentusPower.DATA, PetraPower.DATA)
                         .setUpgrade(0, 1)
                         .edit(f -> f.setRandom(true)));
     }

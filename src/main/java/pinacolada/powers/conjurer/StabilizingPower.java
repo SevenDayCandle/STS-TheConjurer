@@ -3,27 +3,27 @@ package pinacolada.powers.conjurer;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.evacipated.cardcrawl.mod.stslib.patches.NeutralPowertypePatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import pinacolada.interfaces.subscribers.OnTryReducePowerSubscriber;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.PCLSubscribingPower;
 import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.utilities.PCLRenderHelpers;
 
 public class StabilizingPower extends PCLSubscribingPower implements OnTryReducePowerSubscriber {
-    public static final String POWER_ID = createFullID(ConjurerResources.conjurer, StabilizingPower.class);
+    public static final PCLPowerData DATA = new PCLPowerData(StabilizingPower.class, ConjurerResources.conjurer)
+            .setEndTurnBehavior(PCLPowerData.Behavior.Special);
     protected AbstractPower originalPower;
 
-    public StabilizingPower(AbstractCreature owner, AbstractPower originalPower, int amount) {
-        super(owner, POWER_ID);
+    public StabilizingPower(AbstractPower originalPower, AbstractCreature owner, AbstractCreature source, int amount) {
+        super(DATA, owner, source, amount);
         this.originalPower = originalPower;
         this.img = originalPower.img;
         this.region128 = originalPower.region128;
         mainTip.icon = this.region128 != null ? this.region128 : img != null ? new TextureRegion(img) : null;
-        initialize(amount, NeutralPowertypePatch.NEUTRAL, true);
         updateDescription();
     }
 

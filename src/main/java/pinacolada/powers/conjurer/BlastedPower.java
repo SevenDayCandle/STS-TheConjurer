@@ -7,23 +7,29 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import pinacolada.actions.PCLActions;
+import pinacolada.annotations.VisiblePower;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.dungeon.ConjurerElementButton;
 import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.PCLPower;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.utilities.GameUtilities;
 
+@VisiblePower
 public class BlastedPower extends PCLPower implements HealthBarRenderPower {
-    public static final String POWER_ID = createFullID(ConjurerResources.conjurer, BlastedPower.class);
+    public static final PCLPowerData DATA = register(BlastedPower.class, ConjurerResources.conjurer)
+            .setType(PowerType.DEBUFF)
+            .setEndTurnBehavior(PCLPowerData.Behavior.Permanent)
+            .setTooltip(ConjurerResources.conjurer.tooltips.blasted)
+            .setPriority(3);
     public static final Color healthBarColor = Color.ORANGE.cpy();
     public static final int DECAY = 50;
     public boolean expanded;
 
     public BlastedPower(AbstractCreature owner, AbstractCreature source, int amount) {
-        super(owner, source, POWER_ID);
-        initialize(amount, PowerType.DEBUFF, true);
+        super(DATA, owner, source, amount);
     }
 
     @Override
@@ -37,7 +43,9 @@ public class BlastedPower extends PCLPower implements HealthBarRenderPower {
 
     @Override
     public void atStartOfTurn() {
-        doEffect();
+        if (!owner.isPlayer) {
+            doEffect();
+        }
     }
 
     @Override

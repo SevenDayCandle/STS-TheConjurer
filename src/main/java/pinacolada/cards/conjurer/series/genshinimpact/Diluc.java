@@ -1,7 +1,6 @@
 package pinacolada.cards.conjurer.series.genshinimpact;
 
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
@@ -11,7 +10,6 @@ import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CMod;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 import pinacolada.skills.delay.DelayTiming;
@@ -20,7 +18,7 @@ import pinacolada.skills.delay.DelayTiming;
 public class Diluc extends PCLCard {
     public static final PCLCardData DATA = register(Diluc.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.Single, DelayTiming.EndOfTurnFirst)
-            .setDamage(5, 1)
+            .setDamage(6, 1)
             .setHp(10, 2)
             .setAffinities(2, PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.genshinImpact);
@@ -31,6 +29,6 @@ public class Diluc extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_HEAVY);
-        addUseMove(PCond.cooldown(2), CMod.bonusPerLevel(5, PCLAffinity.Red), PMove.dealDamageToAll(10, AbstractGameAction.AttackEffect.FIRE));
+        addUseMove(PCond.cooldown(2), PMove.modifyDamage(2, 0).edit(f -> f.setOr(true).setForced(true)));
     }
 }

@@ -8,7 +8,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.BlastedPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -28,6 +28,6 @@ public class Zamtrios extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.BITE).setBonus(PCond.checkPower(PCLCardTarget.Single, 1, PCLElementHelper.Blasted), 3, 1);
+        addDamageMove(PCLAttackVFX.BITE).setBonus(PCond.checkPower(PCLCardTarget.Single, 1, BlastedPower.DATA), 3, 1);
     }
 }

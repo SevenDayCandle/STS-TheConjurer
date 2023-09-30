@@ -8,7 +8,8 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.AquaPower;
+import pinacolada.powers.conjurer.IgnisPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
@@ -33,7 +34,7 @@ public class Decarabia extends PCLCard {
         addDamageMove(AbstractGameAction.AttackEffect.FIRE);
         addGainPower(PTrigger.interactable(
                 CCond.payMatter(9).setUpgrade(0, -2),
-                PMove.applyToEnemies(3, PCLElementHelper.Ignis, PCLElementHelper.Aqua)
+                PMove.applyToEnemies(3, IgnisPower.DATA, AquaPower.DATA)
         ));
     }
 }

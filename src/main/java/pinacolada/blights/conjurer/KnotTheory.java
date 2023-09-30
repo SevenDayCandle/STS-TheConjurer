@@ -30,7 +30,7 @@ public class KnotTheory extends PCLBlight {
             ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Green).addReaction(PCLAffinity.Blue);
             for (ConjurerElementButton element : ConjurerReactionMeter.meter.getElementButtons()) {
                 element.currentAmplifyOffset = AbstractPCLElementalPower.BASE_DAMAGE_MULTIPLIER * -getValue() / 100;
-                CombatManager.addEffectBonus(element.elementID(), -getValue());
+                CombatManager.addEffectBonus(element.power.ID, -getValue());
             }
         });
     }

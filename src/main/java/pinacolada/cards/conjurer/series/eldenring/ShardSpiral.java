@@ -7,7 +7,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.ConjurerEFK;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.FlowPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMod;
@@ -25,6 +25,6 @@ public class ShardSpiral extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(ConjurerEFK.BLOW03).setBonus(PMod.perPowerSelf(1, PCLElementHelper.Flow).setExtra(14).setUpgradeExtra(6), 2);
+        addDamageMove(ConjurerEFK.BLOW03).setBonus(PMod.perPowerSelf(1, FlowPower.DATA).setExtra(14).setUpgradeExtra(6), 2);
     }
 }

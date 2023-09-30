@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.MinionPower;
 import pinacolada.actions.PCLActions;
 import pinacolada.actions.special.DieAction;
+import pinacolada.annotations.VisiblePower;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.dungeon.AffinityReactions;
 import pinacolada.effects.PCLSFX;
@@ -14,13 +15,13 @@ import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.utilities.GameUtilities;
 
+@VisiblePower
 public class UmbraPower extends AbstractPCLElementalPower {
-    public static final String POWER_ID = createFullID(ConjurerResources.conjurer, UmbraPower.class);
-    public static final PCLAffinity AFFINITY = setAffinity(POWER_ID, PCLAffinity.Purple);
-    public static final int MULTIPLIER = setMultiplier(POWER_ID, 5);
+    public static final ElementPowerData DATA = registerElement(UmbraPower.class, PCLAffinity.Purple)
+            .setTooltip(ConjurerResources.conjurer.tooltips.umbra);
 
     public UmbraPower(AbstractCreature owner, AbstractCreature source, int amount) {
-        super(owner, source, POWER_ID, amount);
+        super(DATA, owner, source, amount);
     }
 
     @Override

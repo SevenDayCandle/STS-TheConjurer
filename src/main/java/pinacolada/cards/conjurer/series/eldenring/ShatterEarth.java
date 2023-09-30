@@ -8,7 +8,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.conjurer.PetraPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -29,6 +29,6 @@ public class ShatterEarth extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.EARTH);
-        addUseMove(PBranchCond.branch(PCond.block(PCLCardTarget.Single, 1), PMove.applyToSingle(4, PCLElementHelper.Petra).setUpgrade(1), PMove.gainBlock(6).setUpgrade(1)));
+        addUseMove(PBranchCond.branch(PCond.block(PCLCardTarget.Single, 1), PMove.applyToSingle(4, PetraPower.DATA), PMove.gainBlock(6).setUpgrade(1)));
     }
 }

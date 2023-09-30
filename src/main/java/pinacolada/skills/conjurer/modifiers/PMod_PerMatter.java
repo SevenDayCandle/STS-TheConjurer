@@ -14,7 +14,7 @@ import pinacolada.skills.skills.base.modifiers.PMod_Per;
 @VisibleSkill
 public class PMod_PerMatter extends PMod_Per<PField_Not> {
 
-    public static final PSkillData<PField_Not> DATA = register(PMod_PerMatter.class, PField_Not.class, ConjurerEnum.Cards.THE_CONJURER).selfTarget();
+    public static final PSkillData<PField_Not> DATA = register(PMod_PerMatter.class, PField_Not.class, ConjurerEnum.Cards.THE_CONJURER).noTarget();
 
     public PMod_PerMatter(PSkillSaveData content) {
         super(DATA, content);

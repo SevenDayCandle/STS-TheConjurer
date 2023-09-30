@@ -9,8 +9,9 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.PCLPowerHelper;
-import pinacolada.powers.conjurer.PCLElementHelper;
+import pinacolada.powers.PCLPowerData;
+import pinacolada.powers.conjurer.BlastedPower;
+import pinacolada.powers.conjurer.CooledPower;
 import pinacolada.resources.conjurer.ConjurerEnum;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -42,7 +43,7 @@ public class Patchouli extends PCLCard {
     }
 
     protected static class PatchouliCond extends PCustomCond {
-        public ArrayList<PSkill<?>> debuffs;
+        protected ArrayList<PSkill<?>> debuffs;
 
         public PatchouliCond(PCustomCond other) {
             super(other);
@@ -55,18 +56,16 @@ public class Patchouli extends PCLCard {
         protected ArrayList<PSkill<?>> getDebuffs() {
             if (debuffs == null) {
                 debuffs = new ArrayList<>();
-                debuffs.add(PMove.applyToSingle(2, PCLPowerHelper.Vulnerable));
-                debuffs.add(PMove.applyToSingle(2, PCLPowerHelper.Weak));
-                debuffs.add(PMove.applyToSingle(3, PCLPowerHelper.Shackles));
-                debuffs.add(PMove.applyToSingle(3, PCLPowerHelper.Poison));
-                debuffs.add(PMove.applyToSingle(2, PCLPowerHelper.Blinded));
-                debuffs.add(PMove.applyToSingle(2, PCLPowerHelper.Bruised));
+                debuffs.add(PMove.applyToSingle(2, PCLPowerData.Vulnerable));
+                debuffs.add(PMove.applyToSingle(2, PCLPowerData.Weak));
+                debuffs.add(PMove.applyToSingle(3, PCLPowerData.Shackles));
+                debuffs.add(PMove.applyToSingle(3, PCLPowerData.Poison));
+                debuffs.add(PMove.applyToSingle(2, PCLPowerData.Blinded));
+                debuffs.add(PMove.applyToSingle(2, PCLPowerData.Bruised));
 
                 if (GameUtilities.getPlayerClass() == ConjurerEnum.Characters.THE_CONJURER) {
-                    debuffs.add(PMove.applyToSingle(2, PCLElementHelper.Ignis));
-                    debuffs.add(PMove.applyToSingle(2, PCLElementHelper.Aqua));
-                    debuffs.add(PMove.applyToSingle(2, PCLElementHelper.Ventus));
-                    debuffs.add(PMove.applyToSingle(2, PCLElementHelper.Petra));
+                    debuffs.add(PMove.applyToSingle(2, BlastedPower.DATA));
+                    debuffs.add(PMove.applyToSingle(2, CooledPower.DATA));
                 }
             }
             return debuffs;
