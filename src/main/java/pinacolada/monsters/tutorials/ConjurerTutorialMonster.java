@@ -60,7 +60,7 @@ public class ConjurerTutorialMonster extends PCLTutorialMonster {
     public EUITourTooltip step2() {
         replaceHandWith(new Ignite(), new Condensation());
         PetraPower p = new PetraPower(this, this, 5);
-        p.stabilize(1);
+        p.addTurns(1);
         powers.add(p);
         ConjurerReactionButton button = ConjurerReactionMeter.meter.getReactionButton(PCLAffinity.Orange, PCLAffinity.Red);
         EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(button, ConjurerResources.conjurer.tooltips.element.title, ConjurerResources.conjurer.strings.conjurerTutorial2).setCanDismiss(true));

@@ -4,6 +4,7 @@ import extendedui.EUIUtils;
 import pinacolada.blights.conjurer.KnotTheory;
 import pinacolada.blights.conjurer.MolecularDiffusion;
 import pinacolada.relics.conjurer.DisguisePropBox;
+import pinacolada.relics.conjurer.QuadraticGlobe;
 import pinacolada.resources.PGR;
 import pinacolada.resources.loadout.PCLLoadout;
 import pinacolada.resources.loadout.PCLLoadoutData;
@@ -47,5 +48,10 @@ public class ConjurerLoadout extends PCLLoadout {
 
     protected void setDefaultBlightsForData(PCLLoadoutData data) {
         data.addBlightSlot(MolecularDiffusion.DATA.ID);
+    }
+
+    @Override
+    public ArrayList<String> getBaseStartingRelics() {
+        return EUIUtils.arrayList(QuadraticGlobe.DATA.ID);
     }
 }

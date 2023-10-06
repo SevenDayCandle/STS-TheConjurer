@@ -1,25 +1,26 @@
 package pinacolada.relics.conjurer;
 
 import pinacolada.annotations.VisibleRelic;
-import pinacolada.cards.base.PCLCardGroupHelper;
+import pinacolada.powers.conjurer.AquaPower;
+import pinacolada.powers.conjurer.IgnisPower;
+import pinacolada.powers.conjurer.PetraPower;
+import pinacolada.powers.conjurer.VentusPower;
 import pinacolada.relics.PCLPointerRelic;
 import pinacolada.relics.PCLRelicData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CMove;
-import pinacolada.skills.PCond;
-import pinacolada.skills.PMod;
-import pinacolada.skills.skills.PTrigger;
+import pinacolada.skills.PMove;
+import pinacolada.skills.skills.special.primary.PRoot;
 
 @VisibleRelic
 public class QuadraticGlobe extends PCLPointerRelic {
     public static final PCLRelicData DATA = register(QuadraticGlobe.class, ConjurerResources.conjurer)
-            .setProps(RelicTier.COMMON, LandingSound.CLINK);
+            .setProps(RelicTier.STARTER, LandingSound.CLINK);
 
     public QuadraticGlobe() {
         super(DATA);
     }
 
     public void setup() {
-        addUseMove(PTrigger.when(PCond.shuffle(), PMod.perCard(PCLCardGroupHelper.MasterDeck), CMove.gainMatter(2)));
+        addUseMove(new PRoot(), PMove.applyToEnemies(1, IgnisPower.DATA, AquaPower.DATA, VentusPower.DATA, PetraPower.DATA));
     }
 }

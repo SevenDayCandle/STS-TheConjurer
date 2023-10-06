@@ -16,7 +16,6 @@ import pinacolada.powers.common.SorceryPower;
 import pinacolada.powers.conjurer.BlastedPower;
 import pinacolada.powers.conjurer.IgnisPower;
 import pinacolada.powers.replacement.PCLLockOnPower;
-import pinacolada.relics.conjurer.PeriodicTable;
 import pinacolada.relics.pcl.UsefulBox;
 import pinacolada.resources.AbstractPlayerData;
 import pinacolada.resources.conjurer.loadout.*;
@@ -25,9 +24,6 @@ import pinacolada.skills.PDelay;
 import pinacolada.skills.PMove;
 import pinacolada.skills.PSkill;
 import pinacolada.skills.skills.PMultiSkill;
-
-import java.util.Collections;
-import java.util.List;
 
 public class ConjurerPlayerData extends AbstractPlayerData<ConjurerResources, ConjurerConfig> {
     public static ConjurerLoadout core = new ConjurerLoadout();
@@ -236,10 +232,5 @@ public class ConjurerPlayerData extends AbstractPlayerData<ConjurerResources, Co
     @Override
     public PCLLoadout getCoreLoadout() {
         return core;
-    }
-
-    @Override
-    public List<String> getStartingRelics() {
-        return Collections.singletonList(PeriodicTable.DATA.ID);
     }
 }

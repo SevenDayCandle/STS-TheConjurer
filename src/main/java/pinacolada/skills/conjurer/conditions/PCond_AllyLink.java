@@ -145,7 +145,7 @@ public class PCond_AllyLink extends PDelegateCardCond
     @Override
     public void onAllyTrigger(PCLCard card, AbstractCreature target, PCLCardAlly ally, PCLCardAlly caller) {
         if (canLinkAlly(caller, ally)) {
-            useFromTrigger(generateInfo(target).setData(Collections.singletonList(ally.card)));
+            useFromTrigger(generateInfo(ally, target).setData(Collections.singletonList(ally.card)));
             flash(caller, ally.index > caller.index);
         }
     }

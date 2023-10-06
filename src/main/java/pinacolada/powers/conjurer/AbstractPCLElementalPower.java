@@ -20,7 +20,6 @@ import pinacolada.dungeon.CombatManager;
 import pinacolada.dungeon.ConjurerElementButton;
 import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.interfaces.listeners.OnElementalDebuffListener;
-import pinacolada.interfaces.markers.StablizingPower;
 import pinacolada.powers.PCLPower;
 import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -31,13 +30,12 @@ import pinacolada.utilities.PCLRenderHelpers;
 import java.util.List;
 import java.util.Set;
 
-public abstract class AbstractPCLElementalPower extends PCLPower implements StablizingPower {
+public abstract class AbstractPCLElementalPower extends PCLPower {
     private static List<PCLAffinity> hovered;
     private static AbstractCard last;
     public static final int BASE_DAMAGE_MULTIPLIER = 40;
     public static final int DEFAULT_COMBUST_INCREASE = BASE_DAMAGE_MULTIPLIER / 2;
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, AbstractPCLElementalPower.class);
-    public int stabilizeTurns;
     protected float flashTimer;
 
     public AbstractPCLElementalPower(ElementPowerData data, AbstractCreature owner, AbstractCreature source, int amount) {
@@ -81,11 +79,9 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Stab
     @Override
     public void atEndOfRound() {
         super.atEndOfRound();
-        if (stabilizeTurns > 0) {
-            stabilizeTurns -= 1;
-        }
-        else {
-            removePower(PCLActions.instant);
+        this.turns = turns - 1;
+        if (this.turns <= 0) {
+            this.removePower(PCLActions.instant);
         }
     }
 
@@ -127,7 +123,7 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Stab
 
     @Override
     protected ColoredString getPrimaryAmount(Color c) {
-        return new ColoredString(amount, stabilizeTurns > 0 ? Settings.BLUE_TEXT_COLOR : Color.WHITE, c.a);
+        return new ColoredString(amount, turns > 1 ? Settings.BLUE_TEXT_COLOR : Color.WHITE, c.a);
     }
 
     @Override
@@ -152,7 +148,7 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Stab
                             , getAmplifyMultiplier(getAffinity())
                             , PCLCoreStrings.joinWithAnd(EUIUtils.map(affs, a -> a.getTooltip().getTitleOrIcon()))),
                     sub,
-                    stabilizeTurns > 0 ? EUIUtils.format(strings.DESCRIPTIONS[2], stabilizeTurns + 1) : strings.DESCRIPTIONS[1]
+                    turns > 1 ? EUIUtils.format(strings.DESCRIPTIONS[2], turns) : strings.DESCRIPTIONS[1]
             );
         }
         return sub;
@@ -181,11 +177,6 @@ public abstract class AbstractPCLElementalPower extends PCLPower implements Stab
                 PCLRenderHelpers.drawCentered(s, flashColor, this.img, x, y, 32.0F, 32.0F, 1f, 0.0F);
             });
         }
-    }
-
-    public void stabilize(int turns) {
-        stabilizeTurns += turns;
-        flash();
     }
 
     @Override

@@ -6,6 +6,7 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.PCLCardGroupHelper;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.cards.base.fields.PCLCardSelection;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.resources.PCLEnum;
@@ -28,6 +29,6 @@ public class TextureOfMemories extends PCLCard {
 
     public void setup(Object input) {
         addUseMove(PMove.gainSummonSlots(1));
-        addUseMove(PMove.play(1, PCLCardTarget.Single, PCLCardGroupHelper.DiscardPile).edit(f -> f.setType(PCLEnum.CardType.SUMMON).setRandom()));
+        addUseMove(PMove.play(1, PCLCardTarget.Single, PCLCardGroupHelper.DiscardPile).edit(f -> f.setType(PCLEnum.CardType.SUMMON).setOrigin(PCLCardSelection.Random)));
     }
 }

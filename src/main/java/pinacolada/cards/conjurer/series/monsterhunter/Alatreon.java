@@ -6,13 +6,13 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
+import pinacolada.cards.base.fields.PCLCardSelection;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
-import pinacolada.skills.fields.PField_CardGeneric;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
@@ -32,7 +32,7 @@ public class Alatreon extends PCLCard {
         addDamageMove(PCLAttackVFX.LIGHTNING);
         addGainPower(PTrigger.interactable(
                 PCond.payEnergy(1),
-                PMove.modifyAffinity(1, 2).edit(PField_CardGeneric::setRandom))
+                PMove.modifyAffinity(1, 2).edit(f -> f.setOrigin(PCLCardSelection.Random)))
         );
     }
 }

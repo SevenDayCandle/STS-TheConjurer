@@ -95,7 +95,7 @@ public class ConjurerSummonTutorialMonster extends PCLTutorialMonster {
         replaceHandWith(pyro, new KaeyaAlberich(), new JackFrost());
 
         PetraPower p = new PetraPower(this, this, 5);
-        p.stabilize(1);
+        p.addTurns(1);
         powers.add(p);
 
         Hitbox targetHb = AbstractDungeon.player.hb;

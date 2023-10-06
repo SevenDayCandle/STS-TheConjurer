@@ -18,7 +18,7 @@ import pinacolada.skills.PMove;
 public class Klee_JumpyDumpty extends PCLCard {
     public static final PCLCardData DATA = register(Klee_JumpyDumpty.class, ConjurerResources.conjurer)
             .setAttack(0, CardRarity.SPECIAL, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy)
-            .setDamage(11, 4)
+            .setDamage(15, 4)
             .setTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.genshinImpact);

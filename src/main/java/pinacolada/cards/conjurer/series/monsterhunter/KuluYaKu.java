@@ -7,6 +7,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.PCLCardGroupHelper;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
+import pinacolada.cards.base.fields.PCLCardSelection;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.PCLEnum;
@@ -30,6 +31,6 @@ public class KuluYaKu extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.CLAW);
-        addUseMove(PCond.onDeath(), PMove.play(1, PCLCardTarget.RandomAlly, PCLCardGroupHelper.DiscardPile).edit(f -> f.setType(PCLEnum.CardType.SUMMON).setRandom()));
+        addUseMove(PCond.onDeath(), PMove.play(1, PCLCardTarget.RandomAlly, PCLCardGroupHelper.DiscardPile).edit(f -> f.setType(PCLEnum.CardType.SUMMON).setOrigin(PCLCardSelection.Random)));
     }
 }

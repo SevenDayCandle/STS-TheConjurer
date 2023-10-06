@@ -8,6 +8,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.PCLCardGroupHelper;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
+import pinacolada.cards.base.fields.PCLCardSelection;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
@@ -16,7 +17,6 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 import pinacolada.skills.PSkill;
 import pinacolada.skills.PTrait;
-import pinacolada.skills.fields.PField_CardGeneric;
 import pinacolada.skills.skills.PCustomMod;
 
 @VisibleCard
@@ -34,7 +34,7 @@ public class ForceImpulseGundam extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.VERTICAL_IMPACT).setChain(new ForceImpulseGundamMod(DATA, 1), PTrait.damage(4).setUpgrade(1));
-        addUseMove(PCond.onWithdraw(), PMove.upgrade(0, PCLCardGroupHelper.Hand).edit(PField_CardGeneric::setRandom));
+        addUseMove(PCond.onWithdraw(), PMove.upgrade(0, PCLCardGroupHelper.Hand).edit(f -> f.setOrigin(PCLCardSelection.Random)));
     }
 
     protected static class ForceImpulseGundamMod extends PCustomMod {

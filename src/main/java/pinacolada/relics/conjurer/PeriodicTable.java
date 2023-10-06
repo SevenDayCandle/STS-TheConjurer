@@ -1,15 +1,14 @@
 package pinacolada.relics.conjurer;
 
 import pinacolada.annotations.VisibleRelic;
-import pinacolada.powers.conjurer.AquaPower;
-import pinacolada.powers.conjurer.IgnisPower;
-import pinacolada.powers.conjurer.PetraPower;
-import pinacolada.powers.conjurer.VentusPower;
+import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.relics.PCLPointerRelic;
 import pinacolada.relics.PCLRelicData;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
-import pinacolada.skills.skills.special.primary.PRoot;
+import pinacolada.skills.skills.PMultiSkill;
+import pinacolada.skills.skills.PTrigger;
 
 @VisibleRelic
 public class PeriodicTable extends PCLPointerRelic {
@@ -21,6 +20,6 @@ public class PeriodicTable extends PCLPointerRelic {
     }
 
     public void setup() {
-        addUseMove(new PRoot(), PMove.applyToEnemies(1, IgnisPower.DATA, AquaPower.DATA, VentusPower.DATA, PetraPower.DATA));
+        addUseMove(PTrigger.whenPerCombat(1, PCond.onSummon(), PMultiSkill.join(PMove.gainEnergy(1), PMove.gainBlock(PCLCardTarget.Team,1))));
     }
 }

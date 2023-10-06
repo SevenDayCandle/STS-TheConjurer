@@ -8,6 +8,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.PCLCardGroupHelper;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
+import pinacolada.cards.base.fields.PCLCardSelection;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.PCLPowerData;
@@ -32,7 +33,7 @@ public class Clownpiece extends PCLCard {
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.ELECTRIC);
         addUseMove(PCond.cooldown(1),
-                PMove.play(1, PCLCardTarget.Single, PCLCardGroupHelper.Hand, PCLCardGroupHelper.DiscardPile, PCLCardGroupHelper.DrawPile).edit(f -> f.setCost(CostFilter.Cost0).setRandom())
+                PMove.play(1, PCLCardTarget.Single, PCLCardGroupHelper.Hand, PCLCardGroupHelper.DiscardPile, PCLCardGroupHelper.DrawPile).edit(f -> f.setCost(CostFilter.Cost0).setOrigin(PCLCardSelection.Random))
                 , PMove.applyToSingle(1, PCLPowerData.Provoked).useParent(true));
     }
 }

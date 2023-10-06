@@ -24,6 +24,12 @@
 		"FLAVOR": "Pass the power.",
 		"NAME": "Cleansing Bell"
 	},
+	"conjurer:CarpenterBug":
+	{
+		"DESCRIPTIONS": [],
+		"FLAVOR": "Despite the name, it'll probably destroy your furniture, not repair them.",
+		"NAME": "Carpenter Bug"
+	},
 	"conjurer:CelestialDew":
 	{
 		"DESCRIPTIONS": [],
@@ -138,6 +144,12 @@
 		"FLAVOR": "This flower shall be my medal. That is all I need.",
 		"NAME": "Maiden's Fleeting Leisure"
 	},
+	"conjurer:MonsterBone":
+	{
+		"DESCRIPTIONS": [],
+		"FLAVOR": "Bone home.",
+		"NAME": "Monster Bone"
+	},
 	"conjurer:MusketeersFeltHat":
 	{
 		"DESCRIPTIONS": [],
@@ -186,6 +198,12 @@
 		"FLAVOR": "Pass the power.",
 		"NAME": "Scorpion Stinger"
 	},
+	"conjurer:SharpClaw":
+	{
+		"DESCRIPTIONS": [],
+		"FLAVOR": "It's sharp, what else could you ask for?",
+		"NAME": "Sharp Claw"
+	},
 	"conjurer:ShrivingStone":
 	{
 		"DESCRIPTIONS": ["[A-B] now #yReacts with [A-O]."],
@@ -206,7 +224,7 @@
 	},
 	"conjurer:StochasticTable":
 	{
-		"DESCRIPTIONS": ["At the start of each turn, apply #b{0} stacks of a random #yElement to a random enemy."],
+		"DESCRIPTIONS": [],
 		"FLAVOR": "A table that is very, very unpredictable.",
 		"NAME": "Stochastic Table"
 	},
@@ -275,6 +293,12 @@
 		"DESCRIPTIONS": [],
 		"FLAVOR": "A glossy and shining feather of a falcon.",
 		"NAME": "Viridescent Arrow Feather"
+	},
+	"conjurer:WanderDroplet":
+	{
+		"DESCRIPTIONS": [],
+		"FLAVOR": "Wander the seas.",
+		"NAME": "Wander Droplet"
 	},
 	"conjurer:WarpingCompoundEye":
 	{
