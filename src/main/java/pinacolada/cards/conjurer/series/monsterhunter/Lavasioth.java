@@ -22,8 +22,8 @@ import pinacolada.skills.skills.PTrigger;
 public class Lavasioth extends PCLCard {
     public static final PCLCardData DATA = register(Lavasioth.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.Single, DelayTiming.EndOfTurnFirst)
-            .setDamage(5, 2, 0)
-            .setHp(8, 0)
+            .setDamage(5, 1)
+            .setHp(13, 3)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 

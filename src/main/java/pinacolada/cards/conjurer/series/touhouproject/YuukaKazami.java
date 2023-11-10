@@ -19,7 +19,7 @@ import pinacolada.skills.PMove;
 public class YuukaKazami extends PCLCard {
     public static final PCLCardData DATA = register(YuukaKazami.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.COMMON, PCLAttackType.Immaterial, PCLCardTarget.AllEnemy)
-            .setDamage(1, 1, 2)
+            .setDamage(2, 1, 2)
             .setHp(7, 1)
             .setAffinities(1, PCLAffinity.Blue, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.touhouProject);
@@ -30,6 +30,6 @@ public class YuukaKazami extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.WATER);
-        addUseMove(PCond.cooldown(2), PMove.applyToEnemies(5, AquaPower.DATA, VentusPower.DATA));
+        addUseMove(PCond.cooldown(2), PMove.applyToEnemies(4, AquaPower.DATA, VentusPower.DATA));
     }
 }

@@ -21,7 +21,7 @@ public class Teostra extends PCLCard {
     public static final PCLCardData DATA = register(Teostra.class, ConjurerResources.conjurer)
             .setSummon(3, CardRarity.RARE, PCLAttackType.Normal, PCLCardTarget.AllEnemy, DelayTiming.EndOfTurnFirst)
             .setDamage(4, 0)
-            .setHp(12, 2)
+            .setHp(14, 2)
             .setAffinities(2, PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 

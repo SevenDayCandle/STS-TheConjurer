@@ -96,11 +96,11 @@ public class KianaKaslana extends PCLCard {
         }
 
         @Override
-        public String getText(PCLCardTarget perpsective, boolean addPeriod) {
+        public String getText(PCLCardTarget perpsective, Object requestor, boolean addPeriod) {
             if (current != null && current.getSubEffects().size() > 0) {
-                return current.getText(perpsective, addPeriod);
+                return current.getText(perpsective, requestor, addPeriod);
             }
-            return super.getText(perpsective, addPeriod);
+            return super.getText(perpsective, requestor, addPeriod);
         }
 
         @Override

@@ -20,8 +20,8 @@ import pinacolada.skills.skills.PTrigger;
 public class Seiryu extends PCLCard {
     public static final PCLCardData DATA = register(Seiryu.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.RARE, PCLAttackType.Piercing)
-            .setDamage(6, array(1, 0))
-            .setHp(10, array(2, 0))
+            .setDamage(7, array(1, 0))
+            .setHp(12, array(2, 1))
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
@@ -31,9 +31,9 @@ public class Seiryu extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.CLAW);
-        addGainPower(PTrigger.interactable(CCond.payMatter(10), PMultiSkill.choose(
-                PMove.applyToEnemies(8, AquaPower.DATA).setUpgrade(0, 2),
-                PMove.applyToEnemies(8, VentusPower.DATA).setUpgrade(0, 2)
+        addGainPower(PTrigger.interactable(CCond.payMatter(9).setUpgrade(0, -2), PMultiSkill.choose(
+                PMove.applyToEnemies(4, AquaPower.DATA),
+                PMove.applyToEnemies(4, VentusPower.DATA)
         )));
     }
 }

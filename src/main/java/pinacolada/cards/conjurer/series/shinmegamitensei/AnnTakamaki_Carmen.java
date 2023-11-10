@@ -29,6 +29,6 @@ public class AnnTakamaki_Carmen extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
-        addUseMove(PMove.applyToEnemies(6, IgnisPower.DATA), new PMove_KillAlly(PCLCardTarget.Self, 1));
+        addUseMove(PMove.applyToEnemies(4, IgnisPower.DATA), new PMove_KillAlly(PCLCardTarget.Self, 1));
     }
 }

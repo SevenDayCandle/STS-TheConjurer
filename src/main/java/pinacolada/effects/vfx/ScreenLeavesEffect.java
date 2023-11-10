@@ -38,7 +38,7 @@ public class ScreenLeavesEffect extends PCLEffect {
     public void update() {
         if (this.duration == this.startingDuration) {
             PCLSFX.play(PCLSFX.HEAL_3);
-            PCLEffects.Queue.add(new BorderLongFlashEffect(Color.NAVY));
+            PCLEffects.Queue.add(new BorderLongFlashEffect(color));
         }
 
         this.duration -= Gdx.graphics.getDeltaTime();
@@ -46,11 +46,10 @@ public class ScreenLeavesEffect extends PCLEffect {
         if (this.timer < 0.0F) {
             for (int i = 0; i < TIMES; i++) {
                 PCLEffects.Queue.trail(EUIUtils.random(TornadoEffect.IMAGES_AIR).texture(), this::onTrail, MathUtils.random(-50 * Settings.scale, -100 * Settings.scale), MathUtils.random(0.0F, (float) Settings.HEIGHT))
-                        .setSpeed(MathUtils.random(350.0F, 750.0F) * Settings.scale, MathUtils.random(-70.0F, 70.0F) * Settings.scale)
+                        .setSpeed(MathUtils.random(850.0F, 1750.0F) * Settings.scale, MathUtils.random(-70.0F, 70.0F) * Settings.scale)
                         .setRotation(random(-100f, 100f), random(-600f, 600f))
-                        .setScale(random(0.2f, 1f) * Settings.scale)
+                        .setScale(random(0.1f, 0.8f) * Settings.scale)
                         .setFlip(randomBoolean(0.5f), false)
-                        .setColor(color)
                         .setDuration(0.75f, isRealtime);
             }
             this.timer = 0.05F;

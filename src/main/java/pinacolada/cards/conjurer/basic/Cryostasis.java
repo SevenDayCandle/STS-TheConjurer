@@ -15,7 +15,7 @@ import pinacolada.skills.CMove;
 @VisibleCard
 public class Cryostasis extends PCLCard {
     public static final PCLCardData DATA = register(Cryostasis.class, ConjurerResources.conjurer)
-            .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.Self)
+            .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.SelfSingle)
             .setBlock(11, 3)
             .setTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Blue)
@@ -27,6 +27,6 @@ public class Cryostasis extends PCLCard {
 
     public void setup(Object input) {
         addBlockMove();
-        addUseMove(CMove.stabilize(PCLCardTarget.All, IgnisPower.DATA, AquaPower.DATA));
+        addUseMove(CMove.stabilize(PCLCardTarget.SelfSingle, IgnisPower.DATA, AquaPower.DATA));
     }
 }

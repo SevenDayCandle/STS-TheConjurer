@@ -16,14 +16,15 @@ public class Rapport extends PCLCard {
     public static final PCLCardData DATA = register(Rapport.class, ConjurerResources.conjurer)
             .setSkill(0, CardRarity.UNCOMMON, PCLCardTarget.Single)
             .setAffinities(PCLAffinity.Yellow)
-            .setLoadout(ConjurerPlayerData.darkSouls);
+            .setLoadout(ConjurerPlayerData.darkSouls)
+            .setMultiformData(2);
 
     public Rapport() {
         super(DATA);
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.apply(PCLCardTarget.Single, 2, PCLPowerData.Strength));
-        addUseMove(PMove.apply(PCLCardTarget.Single, 7, PCLPowerData.Shackles).setUpgrade(2));
+        addUseMove(PMove.apply(PCLCardTarget.Single, 2, PCLPowerData.Strength).setUpgrade(0, 2));
+        addUseMove(PMove.apply(PCLCardTarget.Single, 8, PCLPowerData.Shackles).setUpgrade(2, 6));
     }
 }

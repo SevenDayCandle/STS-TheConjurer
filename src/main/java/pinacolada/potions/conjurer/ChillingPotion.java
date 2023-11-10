@@ -22,6 +22,6 @@ public class ChillingPotion extends PCLPotion {
     }
 
     public void setup() {
-        addUseMove(PMultiSkill.join(PMove.applyToEnemies(3, AquaPower.DATA), CMove.stabilize(PCLCardTarget.All, AquaPower.DATA)));
+        addUseMove(PMultiSkill.join(PMove.applyToEnemies(2, AquaPower.DATA).setUpgrade(2), CMove.stabilize(PCLCardTarget.All, AquaPower.DATA)));
     }
 }

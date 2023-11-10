@@ -4,6 +4,7 @@ package pinacolada.cards.conjurer.colorless;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
+import pinacolada.cardmods.PermanentDamagePercentModifier;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
@@ -15,7 +16,6 @@ import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.skills.PSpecialSkill;
-import pinacolada.utilities.GameUtilities;
 
 @VisibleCard
 public class MonsterReborn extends PCLCard {
@@ -35,7 +35,7 @@ public class MonsterReborn extends PCLCard {
                 .addCallback(cards -> {
                     for (AbstractCard c : cards) {
                         if (c.type == PCLEnum.CardType.SUMMON && c instanceof PCLCard) {
-                            GameUtilities.modifyDamage(c, c.baseDamage + c.baseDamage * move.extra / 100, false, false);
+                            PermanentDamagePercentModifier.apply(c, move.extra);
                             ((PCLCard) c).updateHeal(c.baseHeal + c.baseHeal * move.extra / 100);
                         }
                     }

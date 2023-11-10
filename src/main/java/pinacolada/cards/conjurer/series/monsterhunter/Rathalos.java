@@ -20,8 +20,8 @@ import pinacolada.skills.skills.PTrigger;
 public class Rathalos extends PCLCard {
     public static final PCLCardData DATA = register(Rathalos.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.Single, DelayTiming.EndOfTurnFirst)
-            .setDamage(5, 1, 0)
-            .setHp(10, 1)
+            .setDamage(5, 1)
+            .setHp(12, 1)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 

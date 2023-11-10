@@ -38,7 +38,7 @@ public class CaressingTears extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.gain(5, AquaPower.DATA));
+        addUseMove(PMove.applyToTeam(5, AquaPower.DATA));
         addSpecialPower(0, (s, i) -> new CaressingTearsPower(i.source, i.source, s), 1, 3).setUpgradeExtra(1);
     }
 

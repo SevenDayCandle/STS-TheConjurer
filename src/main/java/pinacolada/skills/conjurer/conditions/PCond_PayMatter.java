@@ -46,7 +46,7 @@ public class PCond_PayMatter extends PActiveCond<PField_Not> {
     }
 
     @Override
-    public String getSubText(PCLCardTarget perpsective) {
+    public String getSubText(PCLCardTarget perpsective, Object requestor) {
         return capital(TEXT.act_pay(getAmountRawString(), ConjurerResources.conjurer.tooltips.matter.title), true);
     }
 

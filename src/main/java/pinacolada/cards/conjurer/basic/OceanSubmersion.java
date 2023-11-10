@@ -15,7 +15,7 @@ import pinacolada.skills.PMove;
 public class OceanSubmersion extends PCLCard {
     public static final PCLCardData DATA = register(OceanSubmersion.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.Team)
-            .setBlock(5, 2)
+            .setBlock(6, 2)
             .setAffinities(2, PCLAffinity.Blue)
             .setCore();
 
@@ -24,7 +24,7 @@ public class OceanSubmersion extends PCLCard {
     }
 
     public void setup(Object input) {
-        addBlockMove(PCLCardTarget.Team).setBonus(CMod.perLevel(1, PCLAffinity.Blue), 3);
-        addUseMove(PMove.applyToEveryone(3, AquaPower.DATA).setUpgrade(1));
+        addBlockMove(PCLCardTarget.Team).setBonus(CMod.perLevel(1, PCLAffinity.Blue), 2, 1);
+        addUseMove(PMove.applyToEveryone(1, AquaPower.DATA));
     }
 }

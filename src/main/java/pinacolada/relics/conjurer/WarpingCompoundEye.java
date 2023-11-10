@@ -2,8 +2,11 @@ package pinacolada.relics.conjurer;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleRelic;
+import pinacolada.cardmods.PermanentBlockModifier;
+import pinacolada.cardmods.PermanentDamageModifier;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.interfaces.providers.PointerProvider;
 import pinacolada.relics.PCLPointerRelic;
@@ -12,7 +15,6 @@ import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.skills.PSpecialSkill;
 import pinacolada.skills.skills.special.primary.PRoot;
-import pinacolada.utilities.GameUtilities;
 
 @VisibleRelic
 public class WarpingCompoundEye extends PCLPointerRelic {
@@ -30,9 +32,9 @@ public class WarpingCompoundEye extends PCLPointerRelic {
 
     public void specialMove(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
         order.callback(() -> {
-            for (AbstractCard c : player.hand.group) {
-                GameUtilities.modifyDamage(c, MathUtils.random(-move.amount, move.amount), false, false);
-                GameUtilities.modifyBlock(c, MathUtils.random(-move.amount, move.amount), false, false);
+            for (AbstractCard c : AbstractDungeon.player.hand.group) {
+                PermanentDamageModifier.apply(c, MathUtils.random(-move.amount, move.amount));
+                PermanentBlockModifier.apply(c, MathUtils.random(-move.amount, move.amount));
                 if (c instanceof PointerProvider) {
                     ((PointerProvider) c).doEffects(effect -> {
                         if (effect.getChild() == null) {

@@ -20,7 +20,7 @@ public class Barioth extends PCLCard {
     public static final PCLCardData DATA = register(Barioth.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.Single, DelayTiming.EndOfTurnFirst)
             .setDamage(7, 1)
-            .setHp(10, 0)
+            .setHp(11, 0)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 

@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.colorless.Bite;
 import com.megacrit.cardcrawl.cards.colorless.RitualDagger;
 import com.megacrit.cardcrawl.helpers.CardHelper;
+import extendedui.EUI;
 import extendedui.EUIUtils;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
@@ -15,7 +16,6 @@ import pinacolada.cards.base.fields.PCLCardAffinity;
 import pinacolada.cards.conjurer.series.darksouls.DorhysGnawing;
 import pinacolada.cards.conjurer.series.eldenring.BlackKnife;
 import pinacolada.cards.pcl.curse.Curse_AscendersBane;
-import pinacolada.characters.ConjurerCharacter;
 import pinacolada.dungeon.CombatManager;
 import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.monsters.PCLCardAlly;
@@ -27,7 +27,9 @@ import pinacolada.monsters.tutorials.ConjurerSummonTutorialMonster;
 import pinacolada.monsters.tutorials.ConjurerTutorialMonster;
 import pinacolada.resources.PCLEnum;
 import pinacolada.resources.PCLResources;
+import pinacolada.resources.loadout.PCLLoadout;
 import pinacolada.resources.pcl.PCLCoreImages;
+import pinacolada.utilities.GameUtilities;
 
 import java.util.HashSet;
 
@@ -41,7 +43,11 @@ public class ConjurerResources extends PCLResources<ConjurerPlayerData, Conjurer
 
     @Override
     public boolean containsColorless(AbstractCard card) {
-        return card instanceof PCLCard;
+        if (card instanceof PCLCard) {
+            PCLLoadout loadout = ((PCLCard) card).cardData.loadout;
+            return loadout == null || loadout.isCore() || !loadout.isLocked();
+        }
+        return false;
     }
 
     @Override
@@ -120,16 +126,11 @@ public class ConjurerResources extends PCLResources<ConjurerPlayerData, Conjurer
     protected void postInitialize() {
         super.postInitialize();
         CombatManager.playerSystem.registerMeter(playerClass, ConjurerReactionMeter.meter);
+        EUI.addCardSetFilter(cardColor, GameUtilities::getLoadoutNameForCard);
         PCLAffinity.registerAvailableAffinities(cardColor, PCLAffinity.Red, PCLAffinity.Blue, PCLAffinity.Green, PCLAffinity.Orange);
         PCLAffinity.registerAffinityBorder(cardColor, PCLCoreImages.Core.borderSpecial2);
         PCLCardAlly.registerAnimation(cardColor, this::getAnimation);
         data.addTutorial(ConjurerTutorialMonster.DATA);
         PCLTutorialMonster.register(ConjurerSummonTutorialMonster.DATA, data.config.seenSummonTutorial, p -> p.chosenClass == data.resources.playerClass && EUIUtils.any(p.masterDeck.group, card -> card.type == PCLEnum.CardType.SUMMON));
     }
-
-    @Override
-    public void receiveEditCharacters() {
-        BaseMod.addCharacter(new ConjurerCharacter(), images.charButton, "", playerClass); // No portrait
-    }
-
 }

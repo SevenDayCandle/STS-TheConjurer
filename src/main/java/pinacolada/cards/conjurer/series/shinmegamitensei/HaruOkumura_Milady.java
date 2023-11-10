@@ -29,6 +29,6 @@ public class HaruOkumura_Milady extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.PSYCHOKINESIS);
-        addUseMove(new PMove_KillAlly(PCLCardTarget.Self, 1), PMod.scryPer(5).setChild(PMove.gainTempHP(2).setUpgrade(1)));
+        addUseMove(new PMove_KillAlly(PCLCardTarget.Self, 1), PMod.scryPer(5).setChild(PMove.gainTempHP(3).setUpgrade(1)));
     }
 }

@@ -9,6 +9,7 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
+import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.dungeon.CombatManager;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.monsters.PCLCardAlly;
@@ -20,6 +21,7 @@ import pinacolada.skills.skills.PSpecialSkill;
 public class MiracleMallet extends PCLCard {
     public static final PCLCardData DATA = register(MiracleMallet.class, ConjurerResources.conjurer)
             .setSkill(0, CardRarity.RARE, PCLCardTarget.SingleAlly)
+            .setTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Star)
             .setLoadout(ConjurerPlayerData.touhouProject);
 
@@ -28,9 +30,8 @@ public class MiracleMallet extends PCLCard {
     }
 
     public void action(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
-        order.withdrawAlly(EUIUtils.safeCast(info.target, PCLCardAlly.class))
+        order.withdrawAlly(EUIUtils.safeCast(info.target, PCLCardAlly.class), 0)
                 .setDestination(CombatManager.PURGED_CARDS)
-                .setTriggerTimes(0)
                 .showEffect(true)
                 .addCallback(cards ->
                 {
@@ -43,6 +44,6 @@ public class MiracleMallet extends PCLCard {
     }
 
     public void setup(Object input) {
-        addSpecialMove(0, this::action, 0).setUpgrade(1);
+        addSpecialMove(0, this::action, 2).setUpgrade(1);
     }
 }

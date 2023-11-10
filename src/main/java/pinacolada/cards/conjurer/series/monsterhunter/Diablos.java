@@ -18,7 +18,7 @@ import pinacolada.skills.delay.DelayTiming;
 public class Diablos extends PCLCard {
     public static final PCLCardData DATA = register(Diablos.class, ConjurerResources.conjurer)
             .setSummon(3, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.Single, DelayTiming.EndOfTurnFirst)
-            .setDamage(8, 0, 0)
+            .setDamage(8, 0)
             .setHp(17, 2)
             .setAffinities(2, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.monsterHunter);

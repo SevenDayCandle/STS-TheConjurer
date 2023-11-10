@@ -103,7 +103,7 @@ public class PCond_AllyLink extends PDelegateCardCond
     }
 
     @Override
-    public String getSubText(PCLCardTarget perspective) {
+    public String getSubText(PCLCardTarget perspective, Object requestor) {
         if (isWhenClause()) {
             return TEXT.cond_aObjectIs(fields.getFullSummonStringSingular(), getDelegatePastText());
         }
@@ -127,9 +127,9 @@ public class PCond_AllyLink extends PDelegateCardCond
     }
 
     @Override
-    public String getText(PCLCardTarget perspective, boolean addPeriod) {
+    public String getText(PCLCardTarget perspective, Object requestor, boolean addPeriod) {
         // Perspective is from a single ally
-        return getCapitalSubText(perspective, addPeriod) + (childEffect != null ? ((childEffect instanceof PCond && !(childEffect instanceof PBranchCond) ? EFFECT_SEPARATOR : ": ") + childEffect.getText(PCLCardTarget.SingleAlly, addPeriod)) : "");
+        return getCapitalSubText(perspective, requestor, addPeriod) + (childEffect != null ? ((childEffect instanceof PCond && !(childEffect instanceof PBranchCond) ? EFFECT_SEPARATOR : ": ") + childEffect.getText(PCLCardTarget.SingleAlly, requestor, addPeriod)) : "");
     }
 
     @Override
@@ -205,7 +205,7 @@ public class PCond_AllyLink extends PDelegateCardCond
     }
 
     @Override
-    public float renderIntentIcon(SpriteBatch sb, PCLCardAlly ally, float startY) {
+    public float renderIntentIcon(SpriteBatch sb, PCLCardAlly ally, float startY, boolean forPreview) {
         float delta = EUI.delta();
         // Front
         if (amount >= 0) {

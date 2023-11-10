@@ -68,7 +68,7 @@ public class PCond_CheckLevel extends PPassiveCond<PField_Affinity> implements O
     }
 
     @Override
-    public String getSubText(PCLCardTarget perspective) {
+    public String getSubText(PCLCardTarget perspective, Object requestor) {
         if (isBranch()) {
             return EUIRM.strings.nounVerb(TEXT.subjects_you, PGR.core.tooltips.level.title);
         }

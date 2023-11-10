@@ -18,7 +18,7 @@ public class Gorou extends PCLCard {
     public static final PCLCardData DATA = register(Gorou.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Ranged)
             .setDamage(3, 1)
-            .setHp(6, 0)
+            .setHp(6, 1)
             .setAffinities(PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 

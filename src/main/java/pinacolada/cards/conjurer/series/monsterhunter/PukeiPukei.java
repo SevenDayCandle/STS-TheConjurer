@@ -20,8 +20,8 @@ import pinacolada.skills.skills.PTrigger;
 public class PukeiPukei extends PCLCard {
     public static final PCLCardData DATA = register(PukeiPukei.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy, DelayTiming.EndOfTurnFirst)
-            .setDamage(3, 1, 0)
-            .setHp(6, 2)
+            .setDamage(2, 1)
+            .setHp(8, 2)
             .setAffinities(PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 

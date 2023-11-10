@@ -20,7 +20,7 @@ import pinacolada.skills.skills.PTrigger;
 public class Radobaan extends PCLCard {
     public static final PCLCardData DATA = register(Radobaan.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.COMMON, PCLAttackType.Normal, PCLCardTarget.Single, DelayTiming.EndOfTurnFirst)
-            .setDamage(3, 1, 0)
+            .setDamage(4, 0, 1)
             .setHp(15, 2)
             .setAffinities(2, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.monsterHunter);
@@ -31,6 +31,6 @@ public class Radobaan extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BITE);
-        addGainPower(PTrigger.when(PCond.haveTakenDamage(), PMove.gain(3, PCLPowerData.Thorns)));
+        addGainPower(PTrigger.when(PCond.haveTakenDamage(), PMove.gain(4, PCLPowerData.Thorns).setUpgrade(1)));
     }
 }

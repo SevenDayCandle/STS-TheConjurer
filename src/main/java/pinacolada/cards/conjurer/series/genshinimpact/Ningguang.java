@@ -18,8 +18,8 @@ import pinacolada.skills.skills.PMultiSkill;
 public class Ningguang extends PCLCard {
     public static final PCLCardData DATA = register(Ningguang.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Ranged)
-            .setDamage(3, 0)
-            .setHp(6, 0)
+            .setDamage(3, 2)
+            .setHp(6, 1)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.genshinImpact);
 

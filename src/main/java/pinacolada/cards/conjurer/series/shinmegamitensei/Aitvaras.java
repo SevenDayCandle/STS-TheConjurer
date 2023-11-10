@@ -19,7 +19,7 @@ public class Aitvaras extends PCLCard {
     public static final PCLCardData DATA = register(Aitvaras.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Piercing)
             .setDamage(4, 1)
-            .setHp(4, 2)
+            .setHp(5, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
@@ -29,6 +29,6 @@ public class Aitvaras extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.CLAW);
-        addUseMove(PCond.cooldown(1), CMod.perMatter(5).setExtra(5, 2), PMove.applyToSingle(1, IgnisPower.DATA));
+        addUseMove(PCond.cooldown(1), CMod.perMatter(5).setExtra(4, 2), PMove.applyToSingle(1, IgnisPower.DATA));
     }
 }

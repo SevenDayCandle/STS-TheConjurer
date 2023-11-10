@@ -34,7 +34,7 @@ public class PMod_PerMatter extends PMod_Per<PField_Not> {
     }
 
     @Override
-    public String getSubText(PCLCardTarget perpsective) {
+    public String getSubText(PCLCardTarget perspective, Object requestor) {
         return ConjurerResources.conjurer.tooltips.matter.title;
     }
 }

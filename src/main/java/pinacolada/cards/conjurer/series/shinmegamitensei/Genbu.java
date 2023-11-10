@@ -20,7 +20,7 @@ import pinacolada.skills.skills.PTrigger;
 public class Genbu extends PCLCard {
     public static final PCLCardData DATA = register(Genbu.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Immaterial)
-            .setDamage(2, array(1, 0), 2, array(0, 0))
+            .setDamage(3, array(1, 0), 2, array(0, 0))
             .setHp(13, 2)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
@@ -31,10 +31,10 @@ public class Genbu extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.CLAW);
-        addGainPower(PTrigger.interactable(CCond.payMatter(8),
+        addGainPower(PTrigger.interactable(CCond.payMatter(11),
                 PMultiSkill.choose(
-                        PMove.applyToEnemies(6, AquaPower.DATA).setUpgrade(0, 2),
-                        PMove.applyToEnemies(6, PetraPower.DATA).setUpgrade(0, 2)
+                        PMove.applyToEnemies(4, AquaPower.DATA).setUpgrade(0, 2),
+                        PMove.applyToEnemies(4, PetraPower.DATA).setUpgrade(0, 2)
                 )
         ));
     }

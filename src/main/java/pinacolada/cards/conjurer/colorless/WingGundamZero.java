@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.colorless;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import extendedui.EUIUtils;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
@@ -37,13 +38,13 @@ public class WingGundamZero extends PCLCard {
     }
 
     public void specialMove(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
-        PCLActions.bottom.selectFromPile(name, move.amount, player.hand)
+        PCLActions.bottom.selectFromPile(name, move.amount, AbstractDungeon.player.hand)
                 .setOrigin(PCLCardSelection.Top)
                 .addCallback((cards) -> {
                     for (AbstractCard c : cards) {
                         PCLCard pC = EUIUtils.safeCast(c, PCLCard.class);
-                        if (pC != null && pC.maxUpgradeLevel > 0) {
-                            pC.maxUpgradeLevel += move.extra;
+                        if (pC != null && pC.maxUpgrades() > 0) {
+                            pC.upgradeLevelIncrease += move.extra;
                         }
                         c.upgrade();
                     }

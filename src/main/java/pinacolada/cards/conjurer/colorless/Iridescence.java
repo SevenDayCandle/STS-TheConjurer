@@ -2,6 +2,7 @@ package pinacolada.cards.conjurer.colorless;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
@@ -29,19 +30,12 @@ public class Iridescence extends PCLCard {
     }
 
     public void action(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
-        order.selectFromPile(name, player.hand.size(), player.hand)
+        order.selectFromPile(name, AbstractDungeon.player.hand.size(), AbstractDungeon.player.hand)
                 .setOrigin(PCLCardSelection.Random)
                 .addCallback(cards -> {
-                    int totalCost = 0;
                     for (AbstractCard card : cards) {
                         if (card.costForTurn >= 0) {
-                            totalCost += card.costForTurn;
-                        }
-                    }
-                    for (AbstractCard card : cards) {
-                        if (card.costForTurn >= 0) {
-                            int newCost = MathUtils.random(0, Math.min(totalCost, 3));
-                            totalCost -= newCost;
+                            int newCost = MathUtils.random(0, 3);
                             GameUtilities.modifyCostForCombat(card, newCost, false);
                             card.flash();
                         }

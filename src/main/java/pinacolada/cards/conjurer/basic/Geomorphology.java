@@ -24,6 +24,6 @@ public class Geomorphology extends PCLCard {
     }
 
     public void setup(Object input) {
-        addGainPower(PTrigger.when(PCond.block(1), PMove.apply(PCLCardTarget.AllEnemy, 1, PetraPower.DATA)));
+        addGainPower(PTrigger.when(PCond.onDiscard(), PMove.apply(PCLCardTarget.AllEnemy, 1, PetraPower.DATA)));
     }
 }

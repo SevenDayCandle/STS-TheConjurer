@@ -16,7 +16,7 @@ import pinacolada.skills.PMove;
 public class RoilingMagma extends PCLCard {
     public static final PCLCardData DATA = register(RoilingMagma.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.COMMON, PCLCardTarget.Single)
-            .setBlock(6, 2)
+            .setBlock(5, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
@@ -26,6 +26,6 @@ public class RoilingMagma extends PCLCard {
 
     public void setup(Object input) {
         addBlockMove();
-        addUseMove(CMod.bonusOnReact(3), PMove.applyToSingle(4, BlastedPower.DATA).setUpgrade(1));
+        addUseMove(CMod.bonusOnReact(2), PMove.applyToSingle(4, BlastedPower.DATA).setUpgrade(1));
     }
 }

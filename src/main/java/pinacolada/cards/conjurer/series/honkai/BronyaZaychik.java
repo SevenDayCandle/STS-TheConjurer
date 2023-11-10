@@ -33,7 +33,7 @@ public class BronyaZaychik extends PCLCard {
     public void action(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
         AffinityReactions reactions = info.getAux(ConjurerReactionMeter.meter, AffinityReactions.class);
         if (reactions != null && !reactions.isEmpty()) {
-            order.add(new ElementReaction(reactions, info.card, info.source, info.target));
+            order.add(new ElementReaction(reactions, info.card, info));
         }
     }
 

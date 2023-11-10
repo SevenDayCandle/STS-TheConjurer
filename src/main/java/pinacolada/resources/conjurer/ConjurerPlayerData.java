@@ -8,6 +8,7 @@ import extendedui.EUIUtils;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.conjurer.colorless.Iridescence;
 import pinacolada.cards.pcl.status.Status_Wound;
+import pinacolada.characters.ConjurerCharacter;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.effects.PCLEffect;
 import pinacolada.effects.vfx.ConjurerScreenAnimationEffect;
@@ -17,7 +18,7 @@ import pinacolada.powers.conjurer.BlastedPower;
 import pinacolada.powers.conjurer.IgnisPower;
 import pinacolada.powers.replacement.PCLLockOnPower;
 import pinacolada.relics.pcl.UsefulBox;
-import pinacolada.resources.AbstractPlayerData;
+import pinacolada.resources.PCLPlayerData;
 import pinacolada.resources.conjurer.loadout.*;
 import pinacolada.resources.loadout.PCLLoadout;
 import pinacolada.skills.PDelay;
@@ -25,8 +26,8 @@ import pinacolada.skills.PMove;
 import pinacolada.skills.PSkill;
 import pinacolada.skills.skills.PMultiSkill;
 
-public class ConjurerPlayerData extends AbstractPlayerData<ConjurerResources, ConjurerConfig> {
-    public static ConjurerLoadout core = new ConjurerLoadout();
+public class ConjurerPlayerData extends PCLPlayerData<ConjurerResources, ConjurerConfig, ConjurerCharacter> {
+    public static ConjurerLoadout core = PCLLoadout.register(new ConjurerLoadout());
 
     public static ConjurerLoadout darkSouls = PCLLoadout.register(new DarkSouls());
     public static ConjurerLoadout eldenRing = PCLLoadout.register(new EldenRing());
@@ -40,6 +41,7 @@ public class ConjurerPlayerData extends AbstractPlayerData<ConjurerResources, Co
     public static ConjurerLoadout baldursGate = ConjurerLoadout.generate("BaldursGate", 6);
     public static ConjurerLoadout finalFantasy = ConjurerLoadout.generate("FinalFantasy", 4);
     public static ConjurerLoadout hades = ConjurerLoadout.generate("Hades", 2);
+    public static ConjurerLoadout kirby = ConjurerLoadout.generate("Kirby", 4);
     public static ConjurerLoadout megaman = ConjurerLoadout.generate("MegaMan", 6);
     public static ConjurerLoadout mobileSuitGundam = ConjurerLoadout.generate("MobileSuitGundam", 6);
     public static ConjurerLoadout phoenixWright = ConjurerLoadout.generate("PhoenixWright", 3);
@@ -200,7 +202,7 @@ public class ConjurerPlayerData extends AbstractPlayerData<ConjurerResources, Co
     }
 
     @Override
-    public String[] getAdditionalRelicIDs() {
+    public String[] getAdditionalRelicIDs(boolean customEnabled) {
         return EUIUtils.array(
                 Brimstone.ID,
                 CharonsAshes.ID,
@@ -222,6 +224,16 @@ public class ConjurerPlayerData extends AbstractPlayerData<ConjurerResources, Co
     @Override
     public PCLEffect getCharSelectScreenAnimation() {
         return new ConjurerScreenAnimationEffect();
+    }
+
+    @Override
+    public Class<ConjurerCharacter> getCharacterClass() {
+        return ConjurerCharacter.class;
+    }
+
+    @Override
+    public ConjurerCharacter createCharacter() {
+        return new ConjurerCharacter();
     }
 
     @Override

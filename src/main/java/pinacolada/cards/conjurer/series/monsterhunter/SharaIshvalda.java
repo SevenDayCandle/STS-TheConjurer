@@ -21,7 +21,7 @@ public class SharaIshvalda extends PCLCard {
     public static final PCLCardData DATA = register(SharaIshvalda.class, ConjurerResources.conjurer)
             .setSummon(3, CardRarity.RARE, PCLAttackType.Piercing, PCLCardTarget.AllEnemy, DelayTiming.EndOfTurnFirst)
             .setDamage(5, 1)
-            .setHp(15, 1)
+            .setHp(17, 1)
             .setAffinities(2, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 

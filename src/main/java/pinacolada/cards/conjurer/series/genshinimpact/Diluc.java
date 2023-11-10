@@ -29,6 +29,6 @@ public class Diluc extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_HEAVY);
-        addUseMove(PCond.cooldown(2), PMove.modifyDamage(2, 0).edit(f -> f.setOr(true).setForced(true)));
+        addUseMove(PCond.cooldown(2), PMove.modifyDamage(3, 0).edit(f -> f.setOr(true).setForced(true)));
     }
 }

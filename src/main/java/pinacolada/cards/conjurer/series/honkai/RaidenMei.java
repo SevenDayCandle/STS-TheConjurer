@@ -29,6 +29,6 @@ public class RaidenMei extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.LIGHTNING).setBonus(PMod.perDistinctPower(PCLCardTarget.Single,1), 4, 1);
-        addUseMove(PCond.onDeath(), PMove.draw(1));
+        addUseMove(PCond.onDeath(), PMove.draw(2));
     }
 }

@@ -18,7 +18,7 @@ import pinacolada.skills.skills.PTrigger;
 public class Lagiacrus extends PCLCard {
     public static final PCLCardData DATA = register(Lagiacrus.class, ConjurerResources.conjurer)
             .setSummon(3, CardRarity.UNCOMMON, PCLAttackType.Normal)
-            .setDamage(3, 1, 0)
+            .setDamage(3, 1)
             .setHp(14, 2)
             .setAffinities(2, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.monsterHunter, true);

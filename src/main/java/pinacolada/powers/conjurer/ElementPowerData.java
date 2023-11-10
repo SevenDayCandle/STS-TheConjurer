@@ -20,7 +20,7 @@ public class ElementPowerData extends PCLPowerData {
 
     public ElementPowerData(Class<? extends AbstractPower> invokeClass, PCLResources<?, ?, ?, ?> resources, PCLAffinity affinity) {
         super(invokeClass, resources);
-        this.endTurnBehavior = PCLPowerData.Behavior.SingleTurn;
+        this.endTurnBehavior = Behavior.Special;
         this.priority = 4;
         this.affinity = affinity;
         AFFINITY_TO_ELEMENT.put(affinity, this);

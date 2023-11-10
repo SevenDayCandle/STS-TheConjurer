@@ -15,8 +15,8 @@ import pinacolada.skills.PMove;
 public class FoliarTorque extends PCLCard {
     public static final PCLCardData DATA = register(FoliarTorque.class, ConjurerResources.conjurer)
             .setSkill(0, CardRarity.COMMON, PCLCardTarget.Single)
-            .setBlock(3, 2)
-            .setAffinities(PCLAffinity.Green.make(1, 1))
+            .setBlock(4, 3)
+            .setAffinities(PCLAffinity.Green)
             .setCore();
 
     public FoliarTorque() {
@@ -25,6 +25,6 @@ public class FoliarTorque extends PCLCard {
 
     public void setup(Object input) {
         addBlockMove();
-        addUseMove(PCond.cycle(1), PMove.applyToSingle(3, VentusPower.DATA));
+        addUseMove(PCond.cycle(1), PMove.applyToSingle(2, VentusPower.DATA));
     }
 }

@@ -25,6 +25,6 @@ public class PoisonMist extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(CMod.bonusOnReact(2), PMove.applyToEnemies(3, VentusPower.DATA, PCLPowerData.Poison).setUpgrade(2));
+        addUseMove(CMod.bonusOnReact(1).setUpgrade(1), PMove.applyToEnemies(3, VentusPower.DATA, PCLPowerData.Poison).setUpgrade(1));
     }
 }

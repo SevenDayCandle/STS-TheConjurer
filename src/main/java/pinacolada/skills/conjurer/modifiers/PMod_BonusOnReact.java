@@ -33,8 +33,8 @@ public class PMod_BonusOnReact extends PMod_BonusOn<PField_Affinity> {
     }
 
     @Override
-    public String getConditionText(PCLCardTarget perpsective) {
-        return EUIRM.strings.generic2(getAmountRawString(), TEXT.cond_ifTargetHas(TEXT.subjects_this, PCLCardTarget.Single.ordinal(), fields.not ? TEXT.cond_not(getSubText(perpsective)) : getSubText(perpsective)));
+    public String getConditionText(PCLCardTarget perpsective, Object requestor) {
+        return EUIRM.strings.generic2(getAmountRawString(), TEXT.cond_ifTargetHas(TEXT.subjects_this, PCLCardTarget.Single.ordinal(), fields.not ? TEXT.cond_not(getSubText(perpsective, requestor)) : getSubText(perpsective, requestor)));
     }
 
     @Override
@@ -43,7 +43,7 @@ public class PMod_BonusOnReact extends PMod_BonusOn<PField_Affinity> {
     }
 
     @Override
-    public String getSubText(PCLCardTarget perpsective) {
+    public String getSubText(PCLCardTarget perspective, Object requestor) {
         return fields.affinities.isEmpty() ? ConjurerResources.conjurer.tooltips.reaction.past() : TEXT.subjects_withX(ConjurerResources.conjurer.tooltips.reaction.past(), fields.getAffinityOrString());
     }
 

@@ -36,6 +36,7 @@
 		"conjurer:Hail": {"NAME": "Hail"},
 		"conjurer:HeatAcceleration": {"NAME": "Heat Acceleration"},
 		"conjurer:Ignite": {"NAME": "Ignite"},
+		"conjurer:Incineration": {"NAME": "Incineration"},
 		"conjurer:LavaEruption": {"EXTENDED_DESCRIPTION": ["Reaction made this combat"], "NAME": "Lava Eruption"},
 		"conjurer:Liquefaction": {"NAME": "Liquefaction"},
 		"conjurer:Lithosphere": {"NAME": "Lithosphere"},
@@ -44,12 +45,12 @@
 		"conjurer:MudFissure": {"NAME": "Mud Fissure"},
 		"conjurer:NaturalSelection": {"NAME": "Natural Selection"},
 		"conjurer:OceanSubmersion": {"NAME": "Ocean Submersion"},
-		"conjurer:Overheat": {"NAME": "Overheat"},
 		"conjurer:Paleontology": {"NAME": "Paleontology"},
 		"conjurer:Permafrost": {"NAME": "Permafrost"},
 		"conjurer:Phytogenesis": {"NAME": "Phytogenesis"},
 		"conjurer:PowderSnow": {"NAME": "Powder Snow"},
 		"conjurer:Preservation": {"NAME": "Preservation"},
+		"conjurer:Pyrolysis": {"NAME": "Pyrolysis"},
 		"conjurer:RagingInferno": {"NAME": "Raging Inferno"},
 		"conjurer:RazorTurbine": {"NAME": "Razor Turbine"},
 		"conjurer:SeismicShift": {"NAME": "Seismic Shift"},
@@ -71,7 +72,7 @@
 		"conjurer:TropicalMonsoon": {"NAME": "Tropical Monsoon"},
 		"conjurer:Vaporize": {"NAME": "Vaporize"},
 		"conjurer:VerdantGale": {
-			"EXTENDED_DESCRIPTION": ["Using [conjurer:Flow] applies {0} [Poison] to all enemies and activates their [Poison]"],
+			"EXTENDED_DESCRIPTION": ["Using [conjurer:Flow] recovers {0} HP lost since your last turn"],
 			"NAME": "Verdant Gale"
 		},
 		"conjurer:Wildfire": {"NAME": "Wildfire"},
@@ -88,7 +89,6 @@
 		"conjurer:CovalentBond": {"EXTENDED_DESCRIPTION": ["Combine {0} Attacks or Skills in hand. Reduce the combined cost by {1}"], "NAME": "Covalent Bond"},
 		"conjurer:Crystallize": {"NAME": "Crystallize"},
 		"conjurer:DiamondDazzle": {"EXTENDED_DESCRIPTION": ["+{0} damage per Augment on any card in hand", "While in your deck, you have a higher chance of finding Augments"], "NAME": "Diamond Dazzle"},
-		"conjurer:Discovery": {"EXTENDED_DESCRIPTION": ["Obtain {0} of {1} cards that you haven't unlocked yet. It costs 0 this turn"], "NAME": "Discovery"},
 		"conjurer:Egg": {"EXTENDED_DESCRIPTION": ["Transforms into a random Summon"], "NAME": "Egg"},
 		"conjurer:Enervate": {"EXTENDED_DESCRIPTION": ["Cut the target's [Strength] in half if it is positive, then reduce it by {0}"], "NAME": "Enervate"},
 		"conjurer:Firkaag": {"NAME": "Firkaag"},
@@ -100,7 +100,7 @@
 		"conjurer:HydraulicGeneration": {"NAME": "Hydraulic Generation"},
 		"conjurer:Ifrit": {"NAME": "Ifrit"},
 		"conjurer:Iridescence": {
-			"EXTENDED_DESCRIPTION": ["Randomly redistribute the total cost of the cards in hand"],
+			"EXTENDED_DESCRIPTION": ["Randomize the costs of the cards in hand"],
 			"NAME": "Iridescence"
 		},
 		"conjurer:Jakk": {"NAME": "Jakk"},
@@ -510,6 +510,7 @@
 	},
 	"SPECIAL":
 	{
-		"conjurer:Biohazard": {"NAME": "Biohazard"}
+		"conjurer:Biohazard": {"NAME": "Biohazard"},
+		"conjurer:Overheat": {"NAME": "Overheat"}
 	}
 }

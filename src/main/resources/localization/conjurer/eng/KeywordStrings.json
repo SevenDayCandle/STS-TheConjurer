@@ -24,10 +24,6 @@
 		"NAME": "Element",
 		"PLURAL": "${0}@>1:Elements@:Element$"
 	},
-	"conjurer:Elemental Exposure": {
-		"DESCRIPTION": "Increases the effectiveness of #yElements.",
-		"NAME": "Elemental Exposure"
-	},
 	"conjurer:Elemental Mastery": {
 		"DESCRIPTION": "Whenever you apply #yElements, increase their stacks.",
 		"NAME": "Elemental Mastery"
@@ -39,6 +35,10 @@
 	"conjurer:Front Link": {
 		"DESCRIPTION": "Activates when a #ySummon in front of this #ySummon that meets this condition's requirements is #yTriggered.",
 		"NAME": "Front Link"
+	},
+	"conjurer:Frozen": {
+		"DESCRIPTION": "Take #b+{0}% damage from [A-R] cards per stack. On the turn this is first applied, the target is #yStunned.",
+		"NAME": "Frozen"
 	},
 	"conjurer:Ignis": {
 		"DESCRIPTION": "Playing [A-B] cards on targets with [conjurer:Ignis] damages them at the start of their turn.",
@@ -63,6 +63,10 @@
 	"conjurer:Petra": {
 		"DESCRIPTION": "Playing [A-R] cards on targets with [conjurer:Petra] grant you [Block].",
 		"NAME": "Petra"
+	},
+	"conjurer:Petrified": {
+		"DESCRIPTION": "Receive and deal #b{0}% less damage. Reduced by #b1 each turn.",
+		"NAME": "Petrified"
 	},
 	"conjurer:Reaction": {
 		"DESCRIPTION": "Occurs upon playing a card with an #yAffinity that activates the target's #yElement. This also grants #yMatter.",

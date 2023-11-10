@@ -15,7 +15,7 @@ import pinacolada.skills.PMove;
 public class OpenCage extends PCLCard {
     public static final PCLCardData DATA = register(OpenCage.class, ConjurerResources.conjurer)
             .setSkill(2, CardRarity.UNCOMMON)
-            .setTags(PCLCardTag.Exhaust)
+            .setRTags(PCLCardTag.Ethereal)
             .setAffinities(PCLAffinity.Silver)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 
@@ -24,7 +24,7 @@ public class OpenCage extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.triggerAlly(PCLCardTarget.AllAlly, 2).setUpgrade(1));
-        addUseMove(PMove.withdrawAlly(PCLCardTarget.AllAlly, 2));
+        addUseMove(PMove.triggerAlly(PCLCardTarget.AllAlly, 2));
+        addUseMove(PMove.withdrawAlly(PCLCardTarget.AllAlly));
     }
 }

@@ -44,7 +44,7 @@ public class PMove_StabilizePower extends PMove<PField_Power> {
     }
 
     @Override
-    public String getSubText(PCLCardTarget perspective) {
+    public String getSubText(PCLCardTarget perspective, Object requestor) {
         String powerString = fields.getPowerSubjectString();
         String mainString = TEXT.act_zOn(ConjurerResources.conjurer.tooltips.stabilize.title, powerString, getTargetStringPerspective(perspective));
         if (amount != 1) {

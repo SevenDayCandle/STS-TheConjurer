@@ -6,14 +6,15 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.RestRoom;
-import extendedui.EUIUtils;
 import pinacolada.annotations.VisibleRelic;
+import pinacolada.cardmods.TemporaryBlockModifier;
+import pinacolada.cardmods.TemporaryCostModifier;
+import pinacolada.cardmods.TemporaryDamageModifier;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.interfaces.providers.CardRewardActionProvider;
 import pinacolada.relics.PCLRelic;
 import pinacolada.relics.PCLRelicData;
 import pinacolada.relics.pcl.GenericDice;
-import pinacolada.resources.PCLEnum;
 import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -25,7 +26,8 @@ public class EntropicDie extends PCLRelic implements CardRewardActionProvider {
     public static final PCLRelicData DATA = register(EntropicDie.class, ConjurerResources.conjurer)
             .setProps(RelicTier.SHOP, LandingSound.SOLID)
             .setLoadout(ConjurerPlayerData.honkai)
-            .setUnique(true);
+            .setUnique(true)
+            .setReplacementIDs(GenericDice.DATA.ID);
     public static final int BONUS_PER_CARDS = 25;
     protected int rerolls;
 
@@ -53,7 +55,7 @@ public class EntropicDie extends PCLRelic implements CardRewardActionProvider {
     }
 
     protected AbstractCard.CardRarity getRarity(AbstractCard card) {
-        int roll = rng.random(100);
+        int roll = AbstractDungeon.cardRng.random(100);
         if (roll < 2) {
             return null; // Colorless
         }
@@ -69,11 +71,6 @@ public class EntropicDie extends PCLRelic implements CardRewardActionProvider {
         return AbstractCard.CardRarity.COMMON;
     }
 
-    @Override
-    public PCLRelicData[] getReplacementIDs() {
-        return EUIUtils.array(GenericDice.DATA);
-    }
-
     public AbstractCard getReward(AbstractCard card, RewardItem rewardItem) {
         for (AbstractCard c : rewardItem.cards) {
             PCLCardRewardScreen.seenCards.add(c.cardID);
@@ -82,19 +79,13 @@ public class EntropicDie extends PCLRelic implements CardRewardActionProvider {
         if (reward instanceof PCLCard) {
             int factor = 2 + rerolls / 7;
             int change = MathUtils.random(0, factor) - factor / 2;
-            GameUtilities.modifyDamage(reward, reward.baseDamage + change, false, false);
-            ((PCLCard) reward).auxiliaryData.modifiedDamage = change;
+            TemporaryDamageModifier.apply(reward, change, false, false);
             change = MathUtils.random(0, factor) - factor / 2;
-            GameUtilities.modifyBlock(reward, reward.baseBlock + change, false, false);
-            ((PCLCard) reward).auxiliaryData.modifiedBlock = change;
-            if (reward.type == PCLEnum.CardType.SUMMON) {
-                change = MathUtils.random(0, factor) - factor / 2;
-                ((PCLCard) reward).updateHeal(reward.baseHeal + change);
-                ((PCLCard) reward).auxiliaryData.modifiedHeal = change;
-            }
+            TemporaryBlockModifier.apply(reward, change, false, false);
 
             if (GameUtilities.chance(5 + rerolls)) {
                 int costChange = MathUtils.random(-1, 1);
+                TemporaryCostModifier.apply(reward, costChange, false, false);
             }
         }
         if (reward != null) {

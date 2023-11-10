@@ -59,7 +59,7 @@ public class PCond_PayLevel extends PActiveCond<PField_Affinity> {
     }
 
     @Override
-    public String getSubText(PCLCardTarget perspective) {
+    public String getSubText(PCLCardTarget perspective, Object requestor) {
         return capital(TEXT.act_pay(getAmountRawString(), EUIRM.strings.adjNoun(fields.getAffinityAndString(), PGR.core.tooltips.level.title)), true);
     }
 

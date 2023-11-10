@@ -25,6 +25,6 @@ public class CollapsingSky extends PCLCard {
     }
 
     public void setup(Object input) {
-        addGainPower(PTrigger.when(2, PCond.blockBreak(PCLCardTarget.Any), PMove.applyToAllies(2, PCLPowerData.Vigor)).setUpgrade(1));
+        addGainPower(PTrigger.when(2, PCond.blockBreak(PCLCardTarget.Any), PMove.applyToTeam(2, PCLPowerData.Vigor)).setUpgrade(1));
     }
 }

@@ -23,6 +23,6 @@ public class HoshigumaDish extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.withdrawAlly(PCLCardTarget.SingleAlly, 2), PMove.reshuffle(1).useParentForce(), PMove.modifyDamage(2).useParentForce());
+        addUseMove(PMove.withdrawAlly(PCLCardTarget.SingleAlly), PMove.reshuffle(1).useParentForce(), PMove.modifyDamage(2).useParentForce());
     }
 }

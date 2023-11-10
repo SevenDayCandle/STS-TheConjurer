@@ -6,7 +6,6 @@ import pinacolada.cards.base.PCLMultiCard;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.fields.PField_CardCategory;
 
 @VisibleCard
 public class Polymerization extends PCLMultiCard {
@@ -21,12 +20,8 @@ public class Polymerization extends PCLMultiCard {
     }
 
     @Override
-    public PField_CardCategory createFilterFields() {
-        return new PField_CardCategory().setType(CardType.ATTACK, CardType.SKILL);
-    }
-
-    @Override
     protected PCLMultiCardMove createMulticardMove() {
-        return new PCLMultiCardMove(DATA, this, 2);
+        return new PCLMultiCardMove(DATA, this, 2)
+                .edit(f -> f.setType(CardType.ATTACK, CardType.SKILL));
     }
 }

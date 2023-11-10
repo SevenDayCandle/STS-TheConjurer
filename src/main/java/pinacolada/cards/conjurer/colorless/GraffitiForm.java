@@ -5,6 +5,7 @@ import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import extendedui.EUIUtils;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
@@ -80,8 +81,8 @@ public class GraffitiForm extends PCLCard {
 
         protected RandomizedList<PSkill<?>> getSkills() {
             RandomizedList<PSkill<?>> skills = new RandomizedList<>();
-            if (player != null) {
-                for (AbstractCard c : player.hand.group) {
+            if (AbstractDungeon.player != null) {
+                for (AbstractCard c : AbstractDungeon.player.hand.group) {
                     if (c instanceof EditorCard) {
                         skills.addAll(EUIUtils.filter(((EditorCard) c).getEffects(), e -> !(
                                 e instanceof PCustomCond || e instanceof PSpecialSkill || e instanceof PSpecialPowerSkill || e instanceof PCustomMod
@@ -105,7 +106,7 @@ public class GraffitiForm extends PCLCard {
         }
 
         protected AbstractCard makeCard(RandomizedList<PSkill<?>> skills) {
-            PSkill<?> skill = skills.retrieve(rng, true);
+            PSkill<?> skill = skills.retrieve(AbstractDungeon.cardRandomRng, true);
             if (skill == null) {
                 skill = PMove.draw(1);
             }

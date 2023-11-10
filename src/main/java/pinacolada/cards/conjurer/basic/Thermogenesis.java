@@ -26,6 +26,6 @@ public class Thermogenesis extends PCLCard {
 
     public void setup(Object input) {
         addBlockMove();
-        addUseMove(PMultiCond.or(PCond.onDraw(), PCond.onDiscard()), PMove.applyToRandom(3, IgnisPower.DATA).setUpgrade(1));
+        addUseMove(PMultiCond.or(PCond.onDraw(), PCond.onDiscard()), PMove.applyToRandom(2, IgnisPower.DATA).setUpgrade(1));
     }
 }

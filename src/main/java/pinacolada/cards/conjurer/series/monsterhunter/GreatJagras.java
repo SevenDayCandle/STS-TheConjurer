@@ -18,7 +18,7 @@ import pinacolada.skills.delay.DelayTiming;
 public class GreatJagras extends PCLCard {
     public static final PCLCardData DATA = register(GreatJagras.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.COMMON, PCLAttackType.Normal, PCLCardTarget.Single, DelayTiming.EndOfTurnFirst)
-            .setDamage(5, 2, 0)
+            .setDamage(5, 2)
             .setHp(6, 0)
             .setAffinities(PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.monsterHunter);

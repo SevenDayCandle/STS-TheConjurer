@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.colorless;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
@@ -27,21 +28,20 @@ public class CovalentBond extends PCLCard {
     }
 
     public void action(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
-        order.selectFromPile(getName(), move.amount, player.hand)
+        order.selectFromPile(getName(), move.amount, AbstractDungeon.player.hand)
                 .setFilter(c -> c.type == CardType.ATTACK || c.type == CardType.SKILL)
                 .addCallback((cards) -> {
                     if (cards.size() > 0) {
                         Polymerization result = new Polymerization();
                         for (AbstractCard c : cards) {
-                            player.hand.removeCard(c);
+                            AbstractDungeon.player.hand.removeCard(c);
                             c.resetAttributes();
                             GameUtilities.resetVisualProperties(c);
                             result.addInheritedCard(c);
                         }
+                        GameUtilities.modifyCostForCombat(result, -move.extra, true);
 
-                        order.makeCardInHand(result).addCallback(c -> {
-                            GameUtilities.modifyCostForCombat(result, -move.extra, true);
-                        });
+                        order.makeCardInHand(result);
                     }
                 });
     }

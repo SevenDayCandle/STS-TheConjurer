@@ -17,7 +17,7 @@ import pinacolada.skills.PTrait;
 public class CrystalHail extends PCLCard {
     public static final PCLCardData DATA = register(CrystalHail.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.COMMON, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
-            .setDamage(4, 1, 3)
+            .setDamage(10, 3)
             .setAffinities(2, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.darkSouls);
 
@@ -26,6 +26,6 @@ public class CrystalHail extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(ConjurerEFK.MGC_W2_Shield_Break).setChain(CMod.perLevel(1, PCLAffinity.Blue), PTrait.damage(2));
+        addDamageMove(ConjurerEFK.MGC_W2_Shield_Break).setChain(CMod.perLevel(1, PCLAffinity.Blue), PTrait.damage(3));
     }
 }

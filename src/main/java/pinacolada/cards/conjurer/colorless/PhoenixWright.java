@@ -109,11 +109,11 @@ public class PhoenixWright extends PCLCard {
         }
 
         @Override
-        public String getText(PCLCardTarget perpsective, boolean addPeriod) {
+        public String getText(PCLCardTarget perpsective, Object requestor, boolean addPeriod) {
             if (actualMove != null) {
-                return actualMove.getText(perpsective, addPeriod);
+                return actualMove.getText(perpsective, requestor, addPeriod);
             }
-            return super.getText(perpsective, addPeriod);
+            return super.getText(perpsective, requestor, addPeriod);
         }
 
         @Override

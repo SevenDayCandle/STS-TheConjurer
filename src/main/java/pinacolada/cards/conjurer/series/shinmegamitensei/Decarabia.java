@@ -22,7 +22,7 @@ public class Decarabia extends PCLCard {
     public static final PCLCardData DATA = register(Decarabia.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Immaterial, PCLCardTarget.AllEnemy, DelayTiming.EndOfTurnFirst)
             .setDamage(3, array(1, 0))
-            .setHp(5, 2)
+            .setHp(6, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 
@@ -33,8 +33,8 @@ public class Decarabia extends PCLCard {
     public void setup(Object input) {
         addDamageMove(AbstractGameAction.AttackEffect.FIRE);
         addGainPower(PTrigger.interactable(
-                CCond.payMatter(9).setUpgrade(0, -2),
-                PMove.applyToEnemies(3, IgnisPower.DATA, AquaPower.DATA)
+                CCond.payMatter(7).setUpgrade(0, -2),
+                PMove.applyToEnemies(1, IgnisPower.DATA, AquaPower.DATA)
         ));
     }
 }

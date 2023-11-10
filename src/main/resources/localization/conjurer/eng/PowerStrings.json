@@ -30,14 +30,9 @@
 		"DESCRIPTIONS": ["#b{0}% of outgoing damage is dealt to itself. At the end of turn, has a #b{1}% chance to die."],
 		"NAME": "Death"
 	},
-	"conjurer:ElementalExposurePower":
-	{
-		"DESCRIPTIONS": ["The effects of #yElemntal #yDebuffs are multiplied by #b{0}%."],
-		"NAME": "Elemental Exposure"
-	},
 	"conjurer:ElementalMasteryPower":
 	{
-		"DESCRIPTIONS": ["When you apply an #yElement, gain an #yAura, or gain #yResolve: Increase the amount by #b{0}."],
+		"DESCRIPTIONS": ["When you apply an #yElement, apply #b{0} more of it."],
 		"NAME": "Elemental Mastery"
 	},
 	"conjurer:FlowPower":

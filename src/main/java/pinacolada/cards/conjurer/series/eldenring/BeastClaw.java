@@ -17,7 +17,7 @@ import pinacolada.skills.PMove;
 public class BeastClaw extends PCLCard {
     public static final PCLCardData DATA = register(BeastClaw.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.COMMON, PCLAttackType.Normal)
-            .setDamage(7, 2)
+            .setDamage(6, 2)
             .setAffinities(PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.eldenRing);
 

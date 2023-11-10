@@ -1,5 +1,6 @@
 package pinacolada.resources.conjurer;
 
+import extendedui.EUIUtils;
 import extendedui.ui.TextureCache;
 import pinacolada.resources.AbstractImages;
 
@@ -70,4 +71,9 @@ public class ConjurerImages extends AbstractImages {
         public static final TextureCache ctut06 = new TextureCache("images/conjurer/ui/tutorial/ctut06.png");
     }
 
+    // No background
+    @Override
+    public String getCharBackgroundPath() {
+        return EUIUtils.EMPTY_STRING;
+    }
 }

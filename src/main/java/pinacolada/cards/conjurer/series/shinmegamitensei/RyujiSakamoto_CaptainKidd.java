@@ -17,8 +17,8 @@ import pinacolada.skills.skills.base.moves.PMove_KillAlly;
 public class RyujiSakamoto_CaptainKidd extends PCLCard {
     public static final PCLCardData DATA = register(RyujiSakamoto_CaptainKidd.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.SPECIAL)
-            .setDamage(9, 3)
-            .setHp(7, 1)
+            .setDamage(11, 3)
+            .setHp(10, 1)
             .setAffinities(PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
 

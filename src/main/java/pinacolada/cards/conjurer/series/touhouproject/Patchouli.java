@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.series.touhouproject;
 
 
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
@@ -75,9 +76,9 @@ public class Patchouli extends PCLCard {
         protected void useImpl(PCLUseInfo info, PCLActions order) {
             RandomizedList<PSkill<?>> choices = new RandomizedList<>(getDebuffs());
             while (choices.size() > extra) {
-                choices.retrieve(rng, true);
+                choices.retrieve(AbstractDungeon.cardRandomRng, true);
             }
-            order.tryChooseSkill(getPCLSource().cardData, amount, info.source, info.target, choices);
+            chooseEffect(info, order, choices);
         }
     }
 }

@@ -2,6 +2,7 @@ package pinacolada.cards.conjurer.series.touhouproject;
 
 
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import pinacolada.actions.PCLActions;
@@ -46,9 +47,9 @@ public class EirinYagokoro extends PCLCard {
 
         @Override
         public void onUsePotion(AbstractPotion potion) {
-            for (AbstractPower po : player.powers) {
+            for (AbstractPower po : AbstractDungeon.player.powers) {
                 if (po.type == PowerType.DEBUFF) {
-                    PCLActions.bottom.removePower(player, po);
+                    PCLActions.bottom.removePower(AbstractDungeon.player, po);
                     flash();
                     return;
                 }

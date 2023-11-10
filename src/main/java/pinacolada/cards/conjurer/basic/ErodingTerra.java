@@ -30,7 +30,7 @@ public class ErodingTerra extends PCLCard {
     }
 
     public void setup(Object input) {
-        addSpecialPower(0, (s, i) -> new ErodingTerraPower(i.source, i.source,  s), 50);
+        addSpecialPower(0, (s, i) -> new ErodingTerraPower(i.source, i.source,  s), 33);
     }
 
     public static class ErodingTerraPower extends PSpecialCardPower {

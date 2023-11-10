@@ -27,6 +27,6 @@ public class DartingArrow extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.WIND).setBonus(PCond.checkCreature(PCLCardTarget.AllAlly, 1), 4, 1);
-        addUseMove(PMove.withdrawAlly(PCLCardTarget.RandomAlly, 2));
+        addUseMove(PMove.withdrawAlly(PCLCardTarget.RandomAlly));
     }
 }

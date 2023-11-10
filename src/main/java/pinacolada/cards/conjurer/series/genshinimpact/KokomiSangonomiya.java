@@ -2,6 +2,7 @@ package pinacolada.cards.conjurer.series.genshinimpact;
 
 
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
@@ -46,7 +47,7 @@ public class KokomiSangonomiya extends PCLCard {
 
         @Override
         public int onBlockGained(AbstractCreature c, int block) {
-            if (block > 0 && c != player) {
+            if (block > 0 && c != AbstractDungeon.player) {
                 PCLActions.bottom.gainTemporaryHP(owner, owner, block);
             }
             return 0;
@@ -54,7 +55,7 @@ public class KokomiSangonomiya extends PCLCard {
 
         @Override
         public int onHeal(AbstractCreature c, int heal) {
-            if (heal > 0 && c != player) {
+            if (heal > 0 && c != AbstractDungeon.player) {
                 PCLActions.bottom.gainTemporaryHP(owner, owner, heal);
             }
             return 0;

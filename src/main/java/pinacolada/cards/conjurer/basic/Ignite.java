@@ -15,7 +15,7 @@ import pinacolada.skills.PMove;
 public class Ignite extends PCLCard {
     public static final PCLCardData DATA = register(Ignite.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.COMMON, PCLAttackType.Ranged)
-            .setDamage(9, 2)
+            .setDamage(10, 2)
             .setAffinities(PCLAffinity.Red)
             .setCore();
 
@@ -25,6 +25,6 @@ public class Ignite extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(EffekseerEFK.FIRE04);
-        addUseMove(PMove.applyToSingle(3, IgnisPower.DATA).setUpgrade(1));
+        addUseMove(PMove.applyToSingle(2, IgnisPower.DATA).setUpgrade(1));
     }
 }

@@ -43,7 +43,7 @@ public class PMod_PerLevel extends PMod_Per<PField_Affinity> {
     }
 
     @Override
-    public String getSubText(PCLCardTarget perspective) {
+    public String getSubText(PCLCardTarget perspective, Object requestor) {
         return EUIRM.strings.adjNoun(fields.getAffinityAndOrString(), PGR.core.tooltips.level.title);
     }
 }

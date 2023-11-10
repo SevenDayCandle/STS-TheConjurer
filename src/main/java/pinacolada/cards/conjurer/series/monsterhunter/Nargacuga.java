@@ -18,9 +18,9 @@ import pinacolada.skills.skills.PMultiCond;
 @VisibleCard
 public class Nargacuga extends PCLCard {
     public static final PCLCardData DATA = register(Nargacuga.class, ConjurerResources.conjurer)
-            .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.Single, DelayTiming.EndOfTurnFirst)
-            .setDamage(2, 1, 2)
-            .setHp(7, 0)
+            .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy, DelayTiming.EndOfTurnFirst)
+            .setDamage(3, 1, 2)
+            .setHp(8, 1)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Green, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 

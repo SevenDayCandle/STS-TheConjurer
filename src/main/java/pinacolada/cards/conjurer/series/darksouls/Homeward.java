@@ -26,6 +26,6 @@ public class Homeward extends PCLCard {
     public void setup(Object input) {
         addGainPower(PTrigger.when(1,
                 PMultiCond.or(PCond.onWithdraw(), PCond.onDiscard()),
-                PMove.modifyCostExact(0).useParentForce().edit(f -> f.setOr(true))).setUpgrade(1));
+                PMove.modifyCost(-1).useParentForce().edit(f -> f.setOr(true))).setUpgrade(1));
     }
 }

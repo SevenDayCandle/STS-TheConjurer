@@ -30,6 +30,6 @@ public class IttoArataki extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(AbstractGameAction.AttackEffect.BLUNT_HEAVY);
-        addUseMove(PCond.isAttacking(PCLCardTarget.RandomEnemy), PMove.gainPlayer(5, PCLPowerData.NextTurnBlock));
+        addUseMove(PCond.isAttacking(PCLCardTarget.Single), PMove.gainPlayer(5, PCLPowerData.NextTurnBlock));
     }
 }

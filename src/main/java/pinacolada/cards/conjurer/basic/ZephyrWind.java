@@ -23,6 +23,6 @@ public class ZephyrWind extends PCLCard {
 
     public void setup(Object input) {
         addUseMove(PMove.draw(2).setUpgrade(1));
-        addUseMove(PMove.applyToEnemies(3, VentusPower.DATA).setUpgrade(1));
+        addUseMove(PMove.applyToEnemies(2, VentusPower.DATA).setUpgrade(1));
     }
 }

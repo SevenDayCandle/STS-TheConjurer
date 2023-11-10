@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.colorless;
 
 
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import extendedui.EUIUtils;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
@@ -83,12 +84,12 @@ public class Geralt extends PCLCard {
             rewards[0].add(PMove.draw(2));
 
             while (requests.size() < extra && !choices.isEmpty()) {
-                WeightedList<PSkill<?>>.Item option = choices.retrieveWithWeight(rng, true);
+                WeightedList<PSkill<?>>.Item option = choices.retrieveWithWeight(AbstractDungeon.cardRandomRng, true);
                 if (option != null) {
                     PSkill<?> request = option.object;
                     int index = option.weight;
                     if (index < rewards.length) {
-                        PSkill<?> reward = rewards[index].retrieve(rng, true);
+                        PSkill<?> reward = rewards[index].retrieve(AbstractDungeon.cardRandomRng, true);
                         request.setChild(reward);
                         requests.add(request);
                     }

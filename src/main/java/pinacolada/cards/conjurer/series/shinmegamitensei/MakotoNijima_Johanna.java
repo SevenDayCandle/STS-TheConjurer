@@ -17,7 +17,7 @@ import pinacolada.skills.skills.base.moves.PMove_KillAlly;
 public class MakotoNijima_Johanna extends PCLCard {
     public static final PCLCardData DATA = register(MakotoNijima_Johanna.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.SPECIAL, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
-            .setDamage(7, 1)
+            .setDamage(8, 1)
             .setHp(8, 1)
             .setAffinities(PCLAffinity.Green, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);

@@ -21,7 +21,7 @@ public class Bazelgeuse extends PCLCard {
     public static final PCLCardData DATA = register(Bazelgeuse.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Ranged, PCLCardTarget.AllEnemy, DelayTiming.EndOfTurnFirst)
             .setDamage(4, 0)
-            .setHp(10, 2)
+            .setHp(12, 2)
             .setAffinities(1, PCLAffinity.Red, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 

@@ -6,14 +6,11 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.red.Strike_Red;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
-import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import extendedui.EUIUtils;
 import extendedui.ui.EUIBase;
@@ -21,24 +18,20 @@ import pinacolada.effects.PCLSFX;
 import pinacolada.effects.vfx.FadingParticleEffect;
 import pinacolada.effects.vfx.SmokeEffect;
 import pinacolada.resources.PCLEnum;
+import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.ui.PCLEnergyOrb;
+import pinacolada.utilities.GameUtilities;
 import pinacolada.utilities.PCLRenderHelpers;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ConjurerCharacter extends PCLCharacter {
-    public static final CharacterStrings characterStrings = ConjurerResources.conjurer.getCharacterStrings();
     public static final Color MAIN_COLOR = CardHelper.getColor(106, 210, 177);
-    public static final String[] NAMES = characterStrings.NAMES;
-    public static final String[] TEXT = characterStrings.TEXT;
     private ArrayList<AbstractGameEffect> deathEffects;
 
     public ConjurerCharacter() {
-        super(NAMES[0], ConjurerResources.conjurer.playerClass, new PCLEnergyOrb(ConjurerResources.conjurer.images.getOrbTextures(), ConjurerResources.conjurer.images.orbFlash),
-                ConjurerResources.conjurer.images.skeletonAtlas, ConjurerResources.conjurer.images.skeletonJson,
-                ConjurerResources.conjurer.images.shoulder2, ConjurerResources.conjurer.images.shoulder1, ConjurerResources.conjurer.images.corpse, TEXT[0]);
+        super(ConjurerResources.conjurer.data, ConjurerResources.conjurer.images.createSpineAnimation(0.5f));
     }
 
     @Override
@@ -89,12 +82,7 @@ public class ConjurerCharacter extends PCLCharacter {
 
     @Override
     public AbstractCard getStartCardForEvent() {
-        return new Strike_Red();
-    }
-
-    @Override
-    public AbstractPlayer newInstance() {
-        return new ConjurerCharacter();
+        return GameUtilities.getRandomElement(ConjurerPlayerData.core.strikes).create();
     }
 
     @Override
@@ -111,11 +99,6 @@ public class ConjurerCharacter extends PCLCharacter {
                     .setDuration(2f, false)
             );
         }
-    }
-
-    @Override
-    public void reloadDefaultAnimation() {
-        reloadAnimation(0.5f);
     }
 
     @Override

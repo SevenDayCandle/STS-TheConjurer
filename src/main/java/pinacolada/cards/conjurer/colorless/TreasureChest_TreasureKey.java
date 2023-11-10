@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.colorless;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
@@ -24,7 +25,7 @@ public class TreasureChest_TreasureKey extends PCLCard {
     }
 
     public void action(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
-        order.selectFromPile(move.getName(), 1, player.hand)
+        order.selectFromPile(move.getName(), 1, AbstractDungeon.player.hand)
                 .setFilter(c -> TreasureChest.DATA.ID.equals(c.cardID))
                 .addCallback(cards -> {
                     for (AbstractCard c : cards) {

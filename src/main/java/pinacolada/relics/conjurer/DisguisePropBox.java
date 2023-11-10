@@ -1,13 +1,14 @@
 package pinacolada.relics.conjurer;
 
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import extendedui.EUIInputManager;
 import extendedui.EUIUtils;
 import pinacolada.actions.PCLAction;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleRelic;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.characters.CreatureAnimationInfo;
+import pinacolada.characters.PCLCharacterAnimation;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.effects.PCLEffects;
 import pinacolada.effects.vfx.SmokeEffect;
@@ -33,18 +34,18 @@ public class DisguisePropBox extends PCLRelic {
     @Override
     protected void activateBattleEffect() {
         if (currentForm != null) {
-            GameUtilities.setCreatureAnimation(player, currentForm);
+            GameUtilities.setCreatureAnimation(AbstractDungeon.player, currentForm);
         }
 
         monsterSkill = ConjurerPlayerData.getSkillForMonster(currentForm);
         if (monsterSkill != null) {
-            monsterSkill.use(new PCLUseInfo(null, player, null), PCLActions.bottom);
+            monsterSkill.use(new PCLUseInfo(null, AbstractDungeon.player, null), PCLActions.bottom);
         }
     }
 
     public String getDescriptionImpl() {
         String desc = super.getDescriptionImpl();
-        return monsterSkill != null ? EUIUtils.joinStrings(EUIUtils.SPLIT_LINE, desc, formatDescription(1, monsterSkill.getPowerText())) : desc;
+        return monsterSkill != null ? EUIUtils.joinStrings(EUIUtils.SPLIT_LINE, desc, formatDescription(1, monsterSkill.getPowerText(null))) : desc;
     }
 
     public int getValue() {
@@ -62,13 +63,13 @@ public class DisguisePropBox extends PCLRelic {
     protected PCLAction<AbstractCreature> selectCreatureForTransform() {
         return PCLActions.bottom.selectCreature(PCLCardTarget.Any, name).addCallback((c) -> {
             if (c.id == null) {
-                String p = CreatureAnimationInfo.getRandomKey();
+                String p = PCLCharacterAnimation.getRandomKey();
                 if (p != null) {
                     setCreature(p);
                 }
             }
             else {
-                setCreature(CreatureAnimationInfo.getIdentifierString(c));
+                setCreature(PCLCharacterAnimation.getIdentifierString(c));
             }
 
         });
@@ -78,9 +79,9 @@ public class DisguisePropBox extends PCLRelic {
         currentForm = id;
         if (currentForm != null) {
             if (GameUtilities.inBattle()) {
-                PCLEffects.Queue.add(new SmokeEffect(player.hb.cX, player.hb.cY, player.getCardRenderColor()));
+                PCLEffects.Queue.add(new SmokeEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, AbstractDungeon.player.getCardRenderColor()));
             }
-            GameUtilities.setCreatureAnimation(player, currentForm);
+            GameUtilities.setCreatureAnimation(AbstractDungeon.player, currentForm);
         }
         if (auxiliaryData == null) {
             auxiliaryData = new PCLCollectibleSaveData();

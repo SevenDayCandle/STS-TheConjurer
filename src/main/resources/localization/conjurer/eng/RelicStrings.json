@@ -18,6 +18,12 @@
 		"FLAVOR": "Blood-slick roses that bloom in festering blood.",
 		"NAME": "Bloodrose"
 	},
+	"conjurer:BloodthirstyYingYangOrb":
+	{
+		"DESCRIPTIONS": [],
+		"FLAVOR": "Either blood or thirst.",
+		"NAME": "Bloodthirsty Ying-Yang Orb"
+	},
 	"conjurer:BreakGauge":
 	{
 		"DESCRIPTIONS": ["Enemies have {0}% less HP but start battle with [Metallicize] equal to {1}% of their HP. Whenever you break an enemy's [Block], apply {2} [Bruised] and [Blinded] to it."],
@@ -114,6 +120,18 @@
 		"FLAVOR": "You just need one galactic currency to bet on your luck and become a trader in the experience of making dreams.",
 		"NAME": "Galactic Big Lotto"
 	},
+	"conjurer:GapFoldingUmbrella":
+	{
+		"DESCRIPTIONS": [],
+		"FLAVOR": "Covers everything from tears to torrents.",
+		"NAME": "Gap Folding Umbrella"
+	},
+	"conjurer:GhastlySendOffLantern":
+	{
+		"DESCRIPTIONS": [],
+		"FLAVOR": "It scares things off a bit too well.",
+		"NAME": "Ghastly Send-Off Lantern"
+	},
 	"conjurer:HeavyGem":
 	{
 		"DESCRIPTIONS": [],
@@ -131,6 +149,12 @@
 		"DESCRIPTIONS": [],
 		"FLAVOR": "Touching this web carries a high risk of becoming infected by the parasitic larvae.",
 		"NAME": "Insect Web"
+	},
+	"conjurer:JumpyDumptyPartyPopper":
+	{
+		"DESCRIPTIONS": [],
+		"FLAVOR": "It jumps and it dumps. What more can be said?",
+		"NAME": "Jumpy Dumpty Party Popper"
 	},
 	"conjurer:KeyOfTheMoonBathedDeep":
 	{
@@ -156,6 +180,12 @@
 		"FLAVOR": "Yee. Haw.",
 		"NAME": "Musketeer's Felt Hat"
 	},
+	"conjurer:NimbleFabric":
+	{
+		"DESCRIPTIONS": [],
+		"FLAVOR": "It moves too fast for you to wear it.",
+		"NAME": "Nimble Fabric"
+	},
 	"conjurer:NymphsConstancy":
 	{
 		"DESCRIPTIONS": [],
@@ -179,6 +209,12 @@
 		"DESCRIPTIONS": [],
 		"FLAVOR": "Spiky like a Spiker.",
 		"NAME": "Portable Cactus"
+	},
+	"conjurer:PowerItem":
+	{
+		"DESCRIPTIONS": [],
+		"FLAVOR": "Watch the power.",
+		"NAME": "Power Item"
 	},
 	"conjurer:PunitiveEnergy":
 	{
@@ -233,6 +269,12 @@
 		"DESCRIPTIONS": [],
 		"FLAVOR": "It's pretty straightforward.",
 		"NAME": "Straight Shooter"
+	},
+	"conjurer:SubstituteJizo":
+	{
+		"DESCRIPTIONS": [],
+		"FLAVOR": "A statue (not from Mario).",
+		"NAME": "Substitute Jizo"
 	},
 	"conjurer:SummonFile":
 	{

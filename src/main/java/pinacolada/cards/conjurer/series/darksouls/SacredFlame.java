@@ -26,6 +26,6 @@ public class SacredFlame extends PCLCard {
 
     public void setup(Object input) {
         addUseMove(PMove.modifyAffinity(2, 1, PCLAffinity.Red).edit(f -> f.setCardGroup(PCLCardGroupHelper.Hand)));
-        addUseMove(PMove.takeDamage(6).setUpgrade(-3));
+        addUseMove(PMove.takeDamage(5).setUpgrade(-3));
     }
 }

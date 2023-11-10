@@ -2,6 +2,7 @@ package pinacolada.relics.conjurer;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import pinacolada.actions.PCLActions;
@@ -78,7 +79,7 @@ public class ThousandFloatingDreams extends PCLRelic {
 
         CardGroup choices = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         while (choices.size() < getValue() && !possible.isEmpty()) {
-            choices.addToBottom(possible.retrieve(rng, true).create());
+            choices.addToBottom(possible.retrieve(AbstractDungeon.cardRandomRng, true).create());
         }
 
         return choices;

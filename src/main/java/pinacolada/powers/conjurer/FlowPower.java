@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import extendedui.utilities.ColoredString;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisiblePower;
@@ -31,7 +32,7 @@ public class FlowPower extends PCLPower implements DrawPileCardPreviewProvider {
 
     @Override
     public AbstractCard findCard() {
-        return amount >= PER_STACK ? player.drawPile.getTopCard() : null;
+        return amount >= PER_STACK ? AbstractDungeon.player.drawPile.getTopCard() : null;
     }
 
     @Override

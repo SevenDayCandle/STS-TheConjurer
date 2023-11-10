@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.colorless;
 
 
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import extendedui.EUIUtils;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
@@ -44,7 +45,7 @@ public class ForceImpulseGundam extends PCLCard {
 
         @Override
         public int getModifiedAmount(PSkill<?> be, PCLUseInfo info, boolean isUsing) {
-            return player != null ? EUIUtils.sumInt(player.hand.group, c -> c.timesUpgraded) : 0;
+            return AbstractDungeon.player != null ? EUIUtils.sumInt(AbstractDungeon.player.hand.group, c -> c.timesUpgraded) : 0;
         }
     }
 }

@@ -17,8 +17,8 @@ import pinacolada.skills.PMove;
 public class Bailu extends PCLCard {
     public static final PCLCardData DATA = register(Bailu.class, ConjurerResources.conjurer)
             .setSummon(0, CardRarity.COMMON, PCLAttackType.Immaterial)
-            .setDamage(1, 2)
-            .setHp(5, 1)
+            .setDamage(2, 1)
+            .setHp(4, 2)
             .setAffinities(2, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.honkai);
 
@@ -28,6 +28,6 @@ public class Bailu extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.WATER);
-        addUseMove(PCond.isAttacking(PCLCardTarget.Single), PMove.gainTempHP(3));
+        addUseMove(PCond.isAttacking(PCLCardTarget.Single).edit(f -> f.setNot(true)), PMove.gainTempHP(2));
     }
 }

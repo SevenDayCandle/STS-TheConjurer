@@ -8,14 +8,14 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PCond;
+import pinacolada.skills.PDelay;
 import pinacolada.skills.PMove;
 
 @VisibleCard
 public class MeshingCogs extends PCLCard {
     public static final PCLCardData DATA = register(MeshingCogs.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.COMMON, PCLCardTarget.Self)
-            .setBlock(7, 3)
+            .setBlock(12, 3)
             .setAffinities(PCLAffinity.Silver)
             .setLoadout(ConjurerPlayerData.honkai);
 
@@ -25,6 +25,6 @@ public class MeshingCogs extends PCLCard {
 
     public void setup(Object input) {
         addBlockMove();
-        addUseMove(PCond.checkEnergy(3), PMove.gainBlock(PCLCardTarget.All, 7));
+        addUseMove(PDelay.turnStart(1), PMove.gainBlock(PCLCardTarget.AllAllyEnemy, 6));
     }
 }

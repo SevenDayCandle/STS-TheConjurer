@@ -3,7 +3,6 @@ package pinacolada.blights.conjurer;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import extendedui.EUIUtils;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleBlight;
 import pinacolada.blights.PCLBlight;
@@ -11,7 +10,6 @@ import pinacolada.blights.PCLBlightData;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardAffinities;
-import pinacolada.cards.base.fields.PCLCardAffinity;
 import pinacolada.dungeon.CombatManager;
 import pinacolada.interfaces.subscribers.OnCardUsingSubscriber;
 import pinacolada.powers.conjurer.ElementPowerData;
@@ -56,10 +54,11 @@ public class MolecularDiffusion extends PCLBlight implements OnCardUsingSubscrib
                     creatures.add(GameUtilities.getRandomEnemy(true));
                 }
 
-                for (PCLCardAffinity aff : affs.getCardAffinities(true)) {
-                    if (EUIUtils.any(available, a -> a == aff.type)) {
+                for (PCLAffinity av : available) {
+                    int lvl = affs.getLevel(av);
+                    if (lvl > 0) {
                         for (AbstractCreature creature : creatures) {
-                            PCLActions.delayed.applyPower(p, creature, ElementPowerData.get(aff.type), aff.level);
+                            PCLActions.last.applyPower(p, creature, ElementPowerData.get(av), lvl);
                         }
                     }
                 }

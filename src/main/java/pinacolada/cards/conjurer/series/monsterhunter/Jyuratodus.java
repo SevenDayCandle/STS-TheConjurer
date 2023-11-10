@@ -20,7 +20,7 @@ import pinacolada.skills.skills.PMultiCond;
 public class Jyuratodus extends PCLCard {
     public static final PCLCardData DATA = register(Jyuratodus.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.COMMON, PCLAttackType.Normal, PCLCardTarget.AllEnemy, DelayTiming.EndOfTurnFirst)
-            .setDamage(4, 2, 0)
+            .setDamage(4, 2)
             .setHp(11, 0)
             .setAffinities(PCLAffinity.Orange, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.monsterHunter);

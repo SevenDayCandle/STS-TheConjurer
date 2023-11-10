@@ -50,7 +50,7 @@ public class PCond_React extends PPassiveCond<PField_Affinity> implements OnElem
     }
 
     @Override
-    public String getSubText(PCLCardTarget perpsective) {
+    public String getSubText(PCLCardTarget perpsective, Object requestor) {
         if (isWhenClause()) {
             return TEXT.cond_aObject(TEXT.subjects_card, fields.affinities.isEmpty() ? ConjurerResources.conjurer.tooltips.reaction.present() : TEXT.subjects_withX(ConjurerResources.conjurer.tooltips.reaction.past(), fields.getAffinityOrString()));
         }

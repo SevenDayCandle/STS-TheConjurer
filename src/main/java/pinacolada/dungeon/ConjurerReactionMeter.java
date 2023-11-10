@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.cards.red.*;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import extendedui.EUIRM;
 import extendedui.EUIUtils;
@@ -22,15 +21,14 @@ import extendedui.ui.hitboxes.RelativeHitbox;
 import extendedui.ui.tooltips.EUIKeywordTooltip;
 import extendedui.utilities.EUIColors;
 import extendedui.utilities.EUIFontHelper;
+import extendedui.utilities.SeparableTrie;
 import pinacolada.actions.PCLActions;
 import pinacolada.actions.powers.ElementReaction;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardAffinities;
 import pinacolada.cards.base.fields.PCLCardAffinity;
-import pinacolada.characters.ConjurerCharacter;
 import pinacolada.monsters.PCLCardAlly;
-import pinacolada.orbs.PCLOrb;
 import pinacolada.powers.conjurer.*;
 import pinacolada.resources.PCLEnum;
 import pinacolada.resources.PGR;
@@ -39,12 +37,14 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.utilities.GameUtilities;
 import pinacolada.utilities.PCLRenderHelpers;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 import static extendedui.EUIUtils.array;
 
 public class ConjurerReactionMeter extends PCLPlayerMeter {
-    private static final HashMap<String, Set<PCLAffinity>> CARD_AFFINITIES = new HashMap<>();
+    private static final SeparableTrie<PCLAffinity[]> AFFINITY_TREE = new SeparableTrie<>();
     public static final String ID = createFullID(ConjurerResources.conjurer, ConjurerReactionMeter.class);
     public static final Color ACTIVE_COLOR = new Color(0.5f, 1f, 0.5f, 1f);
     public static final float ICON_SIZE = scale(48);
@@ -68,7 +68,6 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
     protected int matterCount;
     protected int totalReactions;
     protected PCLAffinity lastUpgrade = PCLAffinity.General;
-
 
     public ConjurerReactionMeter() {
         super(ID, ConjurerResources.conjurer.data.config.meterPosition, ICON_SIZE);
@@ -99,6 +98,23 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
                 .setColors(EUIColors.black(0.6f), Settings.CREAM_COLOR)
                 .setAlignment(0.5f, 0.5f)
                 .setFont(EUIFontHelper.cardTitleFontNormal, BASE_AMOUNT_SCALE);
+
+        initializeTrie();
+    }
+
+    private static void initializeTrie() {
+        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Red),"Fire", "Flame", "Burn", "Scorch", "Heat", "Solar");
+        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Red, PCLAffinity.Orange),"Lava", "Magma", "Volcan");
+        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Blue),"Water", "Ice", "Icicle", "Snow", "Frost", "Chill", "Cold", "Freeze", "Aqua", "Ocean", "Bubble", "Liquid", "Cool");
+        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Blue, PCLAffinity.Green),"Storm", "Mist", "Fog", "Cloud");
+        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Blue, PCLAffinity.Orange),"Mud", "Swamp", "Sludge");
+        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Green),"Wind", "Sky", "Poison", "Toxic", "Air", "Smoke", "Breeze", "Tornado", "Leaf", "Blossom", "Flower");
+        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Green, PCLAffinity.Orange),"Nature", "Wood", "Forest", "Grass", "Bloom", "Plant", "Tree");
+        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Orange),"Earth", "Rock", "Stone", "Ground", "Land");
+        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Yellow),"Electric", "Thunder", "Lightning", "Shock", "Volt", "Holy", "Bless", "Sacred");
+        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Purple),"Dark", "Shadow", "Evil", "Night", "Curse", "Void", "Corrupt", "infinitespire");
+        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Silver),"Metal", "Steel");
+        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Star),"Rainbow");
     }
 
     public void addCount(int amount) {
@@ -127,8 +143,11 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
     }
 
     public void applyAffinities(AbstractCard card) {
-        for (PCLAffinity af : getAffinitiesForNonPCL(card)) {
-            GameUtilities.modifyAffinityLevel(card, af, 1, true);
+        PCLAffinity[] res = getAffinitiesForNonPCL(card);
+        if (res != null) {
+            for (PCLAffinity af : res) {
+                GameUtilities.modifyAffinityLevel(card, af, 1, true);
+            }
         }
     }
 
@@ -169,7 +188,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
         return lastUpgrade;
     }
 
-    public Set<PCLAffinity> getAffinitiesForNonPCL(AbstractCard card) {
+    public PCLAffinity[] getAffinitiesForNonPCL(AbstractCard card) {
         switch (card.cardID) {
             case AllOutAttack.ID:
             case Anger.ID:
@@ -186,7 +205,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
             case Tantrum.ID:
             case Warcry.ID:
             case WreathOfFlame.ID:
-                return EUIUtils.set(PCLAffinity.Red);
+                return EUIUtils.array(PCLAffinity.Red);
             case Accuracy.ID:
             case Acrobatics.ID:
             case Backflip.ID:
@@ -210,7 +229,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
             case Tempest.ID:
             case Turbo.ID:
             case Whirlwind.ID:
-                return EUIUtils.set(PCLAffinity.Green);
+                return EUIUtils.array(PCLAffinity.Green);
             case Blizzard.ID:
             case Chill.ID:
             case ColdSnap.ID:
@@ -218,7 +237,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
             case LikeWater.ID:
             case Study.ID:
             case Tranquility.ID:
-                return EUIUtils.set(PCLAffinity.Blue);
+                return EUIUtils.array(PCLAffinity.Blue);
             case Armaments.ID:
             case Barricade.ID:
             case BodySlam.ID:
@@ -235,17 +254,17 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
             case Sentinel.ID:
             case ShrugItOff.ID:
             case Survivor.ID:
-                return EUIUtils.set(PCLAffinity.Orange);
+                return EUIUtils.array(PCLAffinity.Orange);
             case DualWield.ID:
             case SwordBoomerang.ID:
-                return EUIUtils.set(PCLAffinity.Red, PCLAffinity.Green);
+                return EUIUtils.array(PCLAffinity.Red, PCLAffinity.Green);
             case Adrenaline.ID:
             case FeelNoPain.ID:
             case TrueGrit.ID:
-                return EUIUtils.set(PCLAffinity.Red, PCLAffinity.Orange);
+                return EUIUtils.array(PCLAffinity.Red, PCLAffinity.Orange);
             case Carnage.ID:
             case DemonForm.ID:
-                return EUIUtils.set(PCLAffinity.Red, PCLAffinity.Purple);
+                return EUIUtils.array(PCLAffinity.Red, PCLAffinity.Purple);
             case BallLightning.ID:
             case Brilliance.ID:
             case Consecrate.ID:
@@ -259,7 +278,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
             case Wish.ID:
             case Worship.ID:
             case Zap.ID:
-                return EUIUtils.set(PCLAffinity.Yellow);
+                return EUIUtils.array(PCLAffinity.Yellow);
             case Blasphemy.ID:
             case DarkEmbrace.ID:
             case Darkness.ID:
@@ -275,71 +294,20 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
             case SeverSoul.ID:
             case Terror.ID:
             case WraithForm.ID:
-                return EUIUtils.set(PCLAffinity.Purple);
+                return EUIUtils.array(PCLAffinity.Purple);
             case CreativeAI.ID:
             case DeusExMachina.ID:
             case FTL.ID:
             case MasterReality.ID:
             case Metallicize.ID:
             case SpotWeakness.ID:
-                return EUIUtils.set(PCLAffinity.Silver);
+                return EUIUtils.array(PCLAffinity.Silver);
             case Chaos.ID:
             case Rainbow.ID:
-                return EUIUtils.set(PCLAffinity.Star);
+                return EUIUtils.array(PCLAffinity.Star);
         }
-        return getAffinitiesFallbackForNonPCL(card);
-    }
 
-    // TODO use trie so we don't have to do a bajillion hardcoded string checks
-    protected Set<PCLAffinity> getAffinitiesFallbackForNonPCL(AbstractCard card) {
-        Set<PCLAffinity> affinities = CARD_AFFINITIES.get(card.cardID);
-        if (affinities == null) {
-            affinities = new HashSet<>();
-
-            if (idHas(card, "Fire", "Flame", "Burn", "Scorch", "Heat", "Solar")) {
-                affinities.add(PCLAffinity.Red);
-            }
-            if (idHas(card, "Lava", "Magma", "Volcan")) {
-                affinities.add(PCLAffinity.Red);
-                affinities.add(PCLAffinity.Orange);
-            }
-            if (idHas(card, "Water", "Ice", "Icicle", "Snow", "Frost", "Chill", "Cold", "Freeze", "Aqua", "Ocean", "Bubble", "Liquid")) {
-                affinities.add(PCLAffinity.Blue);
-            }
-            if (idHas(card, "Storm", "Mist", "Fog", "Cloud")) {
-                affinities.add(PCLAffinity.Blue);
-                affinities.add(PCLAffinity.Green);
-            }
-            if (idHas(card, "Mud", "Swamp")) {
-                affinities.add(PCLAffinity.Blue);
-                affinities.add(PCLAffinity.Orange);
-            }
-            if (idHas(card, "Wind", "Sky", "Poison", "Toxic", "Air", "Smoke", "Breeze", "Tornado")) {
-                affinities.add(PCLAffinity.Green);
-            }
-            if (idHas(card, "Leaf", "Nature", "Wood", "Forest", "Grass", "Blossom", "Bloom", "Plant", "Tree")) {
-                affinities.add(PCLAffinity.Green);
-                affinities.add(PCLAffinity.Orange);
-            }
-            if (idHas(card, "Earth", "Rock", "Stone", "Ground", "Land")) {
-                affinities.add(PCLAffinity.Orange);
-            }
-            if (idHas(card, "Electric", "Thunder", "Lightning", "Shock", "Volt", "Holy", "Bless", "Sacred")) {
-                affinities.add(PCLAffinity.Yellow);
-            }
-            if (idHas(card, "Dark", "Shadow", "Evil", "Night", "Curse", "Void", "Corrupt", "infinitespire")) {
-                affinities.add(PCLAffinity.Purple);
-            }
-            if (idHas(card, "Metal", "Steel")) {
-                affinities.add(PCLAffinity.Silver);
-            }
-            if (idHas(card, "Rainbow")) {
-                affinities.add(PCLAffinity.Star);
-            }
-
-            CARD_AFFINITIES.put(card.cardID, affinities);
-        }
-        return affinities;
+        return AFFINITY_TREE.get(card.cardID);
     }
 
     public int getAmplifyOffset(PCLAffinity affinity) {
@@ -376,16 +344,16 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
                 new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 6), PGR.core.strings.tutorial_summonTutorial6, ConjurerImages.Tutorial.ctut04.texture()),
                 new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 7), PGR.core.strings.tutorial_summonTutorial7, ConjurerImages.Tutorial.ctut05.texture()),
                 new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 8), PGR.core.strings.tutorial_summonTutorial8, ConjurerImages.Tutorial.ctut06.texture()),
-                new EUITutorialImagePage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.element.title), ConjurerResources.conjurer.strings.conjurerTutorial1, ConjurerImages.Tutorial.etut01.texture()),
-                new EUITutorialImagePage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.reaction.title, 1), ConjurerResources.conjurer.strings.conjurerTutorial2, ConjurerImages.Tutorial.etut02.texture()),
-                new EUITutorialImagePage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.reaction.title, 2), ConjurerResources.conjurer.strings.conjurerTutorial3, ConjurerImages.Tutorial.etut02.texture()),
-                new EUITutorialImagePage(makeTitle(ConjurerCharacter.NAMES[0], ConjurerResources.conjurer.tooltips.matter.title), ConjurerResources.conjurer.strings.conjurerTutorial4, ConjurerImages.Tutorial.etut03.texture())
+                new EUITutorialImagePage(makeTitle(getInfoTitle(), ConjurerResources.conjurer.tooltips.element.title), ConjurerResources.conjurer.strings.conjurerTutorial1, ConjurerImages.Tutorial.etut01.texture()),
+                new EUITutorialImagePage(makeTitle(getInfoTitle(), ConjurerResources.conjurer.tooltips.reaction.title, 1), ConjurerResources.conjurer.strings.conjurerTutorial2, ConjurerImages.Tutorial.etut02.texture()),
+                new EUITutorialImagePage(makeTitle(getInfoTitle(), ConjurerResources.conjurer.tooltips.reaction.title, 2), ConjurerResources.conjurer.strings.conjurerTutorial3, ConjurerImages.Tutorial.etut02.texture()),
+                new EUITutorialImagePage(makeTitle(getInfoTitle(), ConjurerResources.conjurer.tooltips.matter.title), ConjurerResources.conjurer.strings.conjurerTutorial4, ConjurerImages.Tutorial.etut03.texture())
         );
     }
 
     @Override
     public String getInfoTitle() {
-        return ConjurerCharacter.NAMES[0];
+        return ConjurerResources.conjurer.data.getCharacterStrings().NAMES[0];
     }
 
     public int getLevel(PCLAffinity affinity) {
@@ -439,20 +407,13 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
         }
     }
 
-    protected boolean idHas(AbstractCard card, String... matches) {
-        return EUIUtils.any(matches, card.cardID::contains);
-    }
-
     public void initialize() {
         super.initialize();
         for (ConjurerElementButton b : elements) {
             b.initialize();
         }
         matterPreview = matterCount = 0;
-        set(GameUtilities.getRandomElement(PCLAffinity.getAvailableAffinities()), 0);
-        if (lastUpgrade == null) {
-            set(PCLAffinity.General, 0);
-        }
+        set(PCLAffinity.General, 0);
         previewReactions = null;
         totalReactions = 0;
 
@@ -520,22 +481,6 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
         return damage;
     }
 
-    public float modifyOrbOutput(float initial, AbstractCreature target, AbstractOrb orb) {
-        if (orb instanceof PCLOrb) {
-            float multiplier = 100;
-            PCLAffinity aff = ((PCLOrb) orb).affinity;
-            for (AbstractPower p : target.powers) {
-                for (ConjurerElementButton element : getElementButtons()) {
-                    if (element.canReact(aff, p.ID)) {
-                        multiplier += AbstractPCLElementalPower.getAmplifyMultiplier(aff);
-                    }
-                }
-            }
-            initial *= multiplier / 100;
-        }
-        return initial;
-    }
-
     public void onCardCreated(AbstractCard card, boolean startOfBattle) {
         super.onCardCreated(card, startOfBattle);
         if (!(card instanceof PCLCard)) {
@@ -547,7 +492,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
     public void onCardPlayed(PCLCard card, PCLUseInfo info, boolean fromSummon) {
         AffinityReactions reactions = info.getAux(this, AffinityReactions.class);
         if (reactions != null && !reactions.isEmpty()) {
-            PCLActions.last.add(new ElementReaction(reactions, card, info.source, info.target));
+            PCLActions.last.add(new ElementReaction(reactions, card, info));
         }
     }
 

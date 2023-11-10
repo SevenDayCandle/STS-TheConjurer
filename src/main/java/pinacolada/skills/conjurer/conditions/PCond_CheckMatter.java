@@ -43,7 +43,7 @@ public class PCond_CheckMatter extends PPassiveCond<PField_Not> {
     }
 
     @Override
-    public String getSubText(PCLCardTarget perpsective) {
+    public String getSubText(PCLCardTarget perpsective, Object requestor) {
         return getTargetHasStringPerspective(perpsective, fields.getThresholdRawString(ConjurerResources.conjurer.tooltips.matter.title));
     }
 }

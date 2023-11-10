@@ -12,6 +12,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardAffinities;
 import pinacolada.cards.base.fields.PCLCardTarget;
+import pinacolada.dungeon.CombatManager;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.conjurer.ElementPowerData;
@@ -25,8 +26,8 @@ import pinacolada.utilities.GameUtilities;
 public class UtsuhoReiuji extends PCLCard {
     public static final PCLCardData DATA = register(UtsuhoReiuji.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE, PCLAttackType.Ranged, PCLCardTarget.Single)
-            .setDamage(4, 0)
-            .setHp(7, 2)
+            .setDamage(4, 1)
+            .setHp(6, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.touhouProject);
 
@@ -36,11 +37,11 @@ public class UtsuhoReiuji extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.FIRE);
-        addUseMove(PCond.onSummon(), getSpecialMove(0, this::specialMove, 4).setUpgrade(1).setTarget(PCLCardTarget.All));
+        addUseMove(PCond.onSummon(), getSpecialMove(0, this::specialMove, 1).setUpgrade(0).setTarget(PCLCardTarget.All));
     }
 
     public void specialMove(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
-        PCLActions.bottom.withdrawAlly(EUIUtils.filter(GameUtilities.getSummons(true), a -> a != move.getOwnerCreature()))
+        PCLActions.bottom.withdrawAlly(EUIUtils.filter(GameUtilities.getSummons(true), a -> a != move.getOwnerCreature()), CombatManager.summons.triggerTimes)
                 .addCallback(cards -> {
                     for (AbstractCard c : cards) {
                         PCLCardAffinities cardAffinities = GameUtilities.getPCLCardAffinities(c);

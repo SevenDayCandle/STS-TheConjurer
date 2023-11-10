@@ -4,7 +4,6 @@ package pinacolada.cards.conjurer.series.genshinimpact;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
-import pinacolada.cards.base.PCLCardGroupHelper;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.PCLAttackVFX;
@@ -29,6 +28,6 @@ public class KazuhaKaedehara extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL);
-        addUseMove(PMultiCond.or(PCond.onSummon(), PCond.onWithdraw()), PMove.fetchRandom(1, PCLCardGroupHelper.DrawPile).edit(f -> f.setAffinity(PCLAffinity.Green)));
+        addUseMove(PMultiCond.or(PCond.onSummon(), PCond.onWithdraw()), PMove.draw(1).edit(f -> f.setAffinity(PCLAffinity.Green)));
     }
 }

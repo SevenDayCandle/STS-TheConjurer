@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.colorless;
 
 
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
@@ -27,7 +28,7 @@ public class OracleSphere extends PCLCard {
     }
 
     public void action(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
-        PCLActions.last.reshuffleFromPile(name, move.amount, player.drawPile).setDestination(PCLCardSelection.Top);
+        PCLActions.last.reshuffleFromPile(name, move.amount, AbstractDungeon.player.drawPile).setDestination(PCLCardSelection.Top);
     }
 
     public void setup(Object input) {

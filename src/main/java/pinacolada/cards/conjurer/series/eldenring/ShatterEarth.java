@@ -13,13 +13,12 @@ import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
-import pinacolada.skills.skills.PBranchCond;
 
 @VisibleCard
 public class ShatterEarth extends PCLCard {
     public static final PCLCardData DATA = register(ShatterEarth.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.UNCOMMON, PCLAttackType.Normal)
-            .setDamage(14, 3)
+            .setDamage(17, 4)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
@@ -29,6 +28,6 @@ public class ShatterEarth extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.EARTH);
-        addUseMove(PBranchCond.branch(PCond.block(PCLCardTarget.Single, 1), PMove.applyToSingle(4, PetraPower.DATA), PMove.gainBlock(6).setUpgrade(1)));
+        addUseMove(PCond.blockBreak(PCLCardTarget.Single), PMove.applyToSingle(4, PetraPower.DATA));
     }
 }
