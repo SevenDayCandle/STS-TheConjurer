@@ -18,7 +18,7 @@ public class AtmosphericPressure extends PCLCard {
     public static final PCLCardData DATA = register(AtmosphericPressure.class, ConjurerResources.conjurer)
             .setSkill(0, CardRarity.UNCOMMON, PCLCardTarget.SelfSingle)
             .setTags(PCLCardTag.Exhaust)
-            .setAffinities(PCLAffinity.Green.make(1, 1))
+            .setAffinities(PCLAffinity.Green)
             .setCore();
 
     public AtmosphericPressure() {

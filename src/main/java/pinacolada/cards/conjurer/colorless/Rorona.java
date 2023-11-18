@@ -22,7 +22,7 @@ import pinacolada.skills.skills.PTrigger;
 public class Rorona extends PCLCard {
     public static final PCLCardData DATA = register(Rorona.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Immaterial)
-            .setDamage(3, 0)
+            .setDamage(3, 1)
             .setHp(3, 2)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Orange, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.atelier, true);

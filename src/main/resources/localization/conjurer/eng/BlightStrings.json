@@ -9,5 +9,10 @@
 	{
 	  "NAME": "Molecular Diffusion",
 	  "DESCRIPTION": ["Playing a card applies its corresponding #yElements to enemy targets. If it didn't target enemies, a random enemy is targeted instead."]
+	},
+	"conjurer:Singularity":
+	{
+		"NAME": "Singularity",
+		"DESCRIPTION": ["Playing a card applies its corresponding #yElements to enemy targets. If it didn't target enemies, a random enemy is targeted instead. | #yReactions are two-way. #yElements are #b{0}% less effective. All #yMatter costs are increased by #b+{1}%."]
 	}
 }

@@ -20,8 +20,8 @@ import pinacolada.skills.skills.PTrigger;
 public class KaguyaHouraisan extends PCLCard {
     public static final PCLCardData DATA = register(KaguyaHouraisan.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE, PCLAttackType.Immaterial)
-            .setDamage(2, 2)
-            .setHp(4, 0)
+            .setDamage(2, 1)
+            .setHp(4, 2)
             .setTags(PCLCardTag.Ethereal)
             .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.touhouProject);
@@ -31,7 +31,7 @@ public class KaguyaHouraisan extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.GHOST).setBonus(PCond.pileHas(0, PCLCardGroupHelper.DrawPile).edit(f -> f.setNot(true)), 23, 3);
+        addDamageMove(PCLAttackVFX.GHOST).setBonus(PCond.pileHas(0, PCLCardGroupHelper.DrawPile).edit(f -> f.setNot(true)), 13, 3);
         addGainPower(PTrigger.interactable(
                 CCond.payMatter(5),
                 PMove.scry(1)

@@ -19,7 +19,7 @@ import pinacolada.skills.skills.PMultiSkill;
 public class Firestorm extends PCLCard {
     public static final PCLCardData DATA = register(Firestorm.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.UNCOMMON, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
-            .setDamage(15, 2)
+            .setDamage(15, 3)
             .setAffinities(PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.darkSouls);
 
@@ -29,6 +29,6 @@ public class Firestorm extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(EffekseerEFK.SWORD04);
-        addUseMove(CCond.checkLevel(3, PCLAffinity.Red), PMultiSkill.join(PMove.selfExhaust(), PMove.applyToEnemies(11, IgnisPower.DATA)));
+        addUseMove(CCond.checkLevel(3, PCLAffinity.Red), PMultiSkill.join(PMove.selfExhaust(), PMove.applyToEnemies(7, IgnisPower.DATA)));
     }
 }

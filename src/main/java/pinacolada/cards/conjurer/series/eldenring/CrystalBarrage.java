@@ -16,8 +16,8 @@ import pinacolada.skills.PMod;
 public class CrystalBarrage extends PCLCard {
     public static final PCLCardData DATA = register(CrystalBarrage.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.UNCOMMON, PCLAttackType.Ranged)
-            .setDamage(10, 0)
-            .setAffinities(PCLAffinity.Blue)
+            .setDamage(10, 3)
+            .setAffinities(2, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
     public CrystalBarrage() {
@@ -25,6 +25,6 @@ public class CrystalBarrage extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(ConjurerEFK.EVFXForge01_12_FrostforgeShoot).setBonus(PMod.perPowerSingle(1, BlastedPower.DATA), 1, 1);
+        addDamageMove(ConjurerEFK.EVFXForge01_12_FrostforgeShoot).setBonus(PMod.perPowerSingle(2, BlastedPower.DATA), 1);
     }
 }

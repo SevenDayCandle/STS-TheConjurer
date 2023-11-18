@@ -28,7 +28,7 @@ public class IgnisPower extends AbstractPCLElementalPower {
     @Override
     public void onReact(AbstractCreature source, AffinityReactions reactions) {
         if (!(owner instanceof PCLCardAlly)) {
-            PCLActions.bottom.applyPower(source, owner, BlastedPower.DATA, (int) calculateValue(reactions));
+            PCLActions.bottom.applyPower(source, owner, BlastedPower.DATA, (int) calculateValue(reactions, owner));
         }
         super.onReact(source, reactions);
     }

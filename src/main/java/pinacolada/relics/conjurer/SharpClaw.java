@@ -1,26 +1,27 @@
 package pinacolada.relics.conjurer;
 
 import pinacolada.annotations.VisibleRelic;
+import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.powers.PCLPowerData;
 import pinacolada.relics.PCLPointerRelic;
 import pinacolada.relics.PCLRelicData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PTrigger;
-import pinacolada.skills.skills.base.conditions.PCond_OnAllyDeath;
 
 @VisibleRelic
-public class MonsterBone extends PCLPointerRelic {
-    public static final PCLRelicData DATA = register(MonsterBone.class, ConjurerResources.conjurer)
-            .setProps(RelicTier.UNCOMMON, LandingSound.SOLID)
+public class SharpClaw extends PCLPointerRelic {
+    public static final PCLRelicData DATA = register(SharpClaw.class, ConjurerResources.conjurer)
+            .setProps(RelicTier.COMMON, LandingSound.SOLID)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 
-    public MonsterBone() {
+    public SharpClaw() {
         super(DATA);
     }
 
     public void setup() {
-        addUseMove(PTrigger.when(new PCond_OnAllyDeath(), PMove.gain(5, PCLPowerData.NextTurnBlock)));
+        addUseMove(PTrigger.when(PCond.haveTakenDamage(PCLCardTarget.SingleAlly, 1), PMove.apply(PCLCardTarget.UseParent,2, PCLPowerData.Strength)));
     }
 }

@@ -7,20 +7,19 @@ import pinacolada.relics.PCLRelicData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
-import pinacolada.skills.skills.PTrigger;
-import pinacolada.skills.skills.base.conditions.PCond_OnAllyDeath;
+import pinacolada.skills.skills.special.primary.PRoot;
 
 @VisibleRelic
-public class MonsterBone extends PCLPointerRelic {
-    public static final PCLRelicData DATA = register(MonsterBone.class, ConjurerResources.conjurer)
-            .setProps(RelicTier.UNCOMMON, LandingSound.SOLID)
+public class Parashroom extends PCLPointerRelic {
+    public static final PCLRelicData DATA = register(Parashroom.class, ConjurerResources.conjurer)
+            .setProps(RelicTier.COMMON, LandingSound.FLAT)
             .setLoadout(ConjurerPlayerData.monsterHunter);
 
-    public MonsterBone() {
+    public Parashroom() {
         super(DATA);
     }
 
     public void setup() {
-        addUseMove(PTrigger.when(new PCond_OnAllyDeath(), PMove.gain(5, PCLPowerData.NextTurnBlock)));
+        addUseMove(new PRoot(), PMove.applyToEnemies(2, PCLPowerData.Shackles));
     }
 }

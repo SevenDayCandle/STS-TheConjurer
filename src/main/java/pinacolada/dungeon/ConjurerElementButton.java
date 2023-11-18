@@ -254,10 +254,12 @@ public class ConjurerElementButton extends EUIButton {
         unsetPreview();
 
         if (afs.hasReaction(power.affinity)) {
-            for (PCLAffinity reactor : afs.reactions.get(power.affinity).keySet()) {
-                ConjurerReactionButton button = reactions.get(reactor);
-                if (button != null) {
-                    button.highlight();
+            for (HashMap<PCLAffinity, Integer> targetMap : afs.reactions.get(power.affinity).values()) {
+                for (PCLAffinity reactor : targetMap.keySet()) {
+                    ConjurerReactionButton button = reactions.get(reactor);
+                    if (button != null) {
+                        button.highlight();
+                    }
                 }
             }
         }

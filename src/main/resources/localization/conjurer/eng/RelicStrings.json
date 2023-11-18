@@ -192,6 +192,18 @@
 		"FLAVOR": "A test piece created by piecing together the rejected components of various devices.",
 		"NAME": "Nymph's Constancy"
 	},
+	"conjurer:Paintball":
+	{
+		"DESCRIPTIONS": [],
+		"FLAVOR": "Splat is where it is at.",
+		"NAME": "Paintball"
+	},
+	"conjurer:Parashroom":
+	{
+		"DESCRIPTIONS": [],
+		"FLAVOR": "Has a rather shocking taste.",
+		"NAME": "Parashroom"
+	},
 	"conjurer:PearlCage":
 	{
 		"DESCRIPTIONS": [],
@@ -228,6 +240,12 @@
 		"FLAVOR": "The globe can spin any way you want it to.",
 		"NAME": "Quadratic Globe"
 	},
+	"conjurer:ScaleLikeObject":
+	{
+		"DESCRIPTIONS": [],
+		"FLAVOR": "Doesn't scale very well.",
+		"NAME": "Scale-Like Object"
+	},
 	"conjurer:ScorpionStinger":
 	{
 		"DESCRIPTIONS": ["[Poison] is treated as [conjurer:Ventus]. At the end of round, [Poison] triggers an additional time and is cut in half."],
@@ -237,7 +255,7 @@
 	"conjurer:SharpClaw":
 	{
 		"DESCRIPTIONS": [],
-		"FLAVOR": "It's sharp, what else could you ask for?",
+		"FLAVOR": "They dig it.",
 		"NAME": "Sharp Claw"
 	},
 	"conjurer:ShrivingStone":

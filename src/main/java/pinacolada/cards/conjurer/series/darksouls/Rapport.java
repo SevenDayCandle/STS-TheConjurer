@@ -25,6 +25,6 @@ public class Rapport extends PCLCard {
 
     public void setup(Object input) {
         addUseMove(PMove.apply(PCLCardTarget.Single, 2, PCLPowerData.Strength).setUpgrade(0, 2));
-        addUseMove(PMove.apply(PCLCardTarget.Single, 8, PCLPowerData.Shackles).setUpgrade(2, 6));
+        addUseMove(PMove.apply(PCLCardTarget.Single, 9, PCLPowerData.Shackles).setUpgrade(2, 6));
     }
 }

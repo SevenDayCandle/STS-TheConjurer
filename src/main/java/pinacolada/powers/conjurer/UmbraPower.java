@@ -36,7 +36,7 @@ public class UmbraPower extends AbstractPCLElementalPower {
 
     @Override
     public void onReact(AbstractCreature source, AffinityReactions reactions) {
-        if (!(owner instanceof PCLCardAlly) && (!GameUtilities.inBossRoom() || !owner.hasPower(MinionPower.POWER_ID)) && GameUtilities.chance(calculateValue(reactions))) {
+        if (!(owner instanceof PCLCardAlly) && (!GameUtilities.inBossRoom() || !owner.hasPower(MinionPower.POWER_ID)) && GameUtilities.chance(calculateValue(reactions, source))) {
             PCLActions.bottom.add(new DieAction(owner));
         }
         super.onReact(source, reactions);

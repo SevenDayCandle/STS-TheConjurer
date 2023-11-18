@@ -35,7 +35,7 @@ public class LettyWhiterock extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.ICE);
-        addSpecialPower(0, (s, i) -> new LettyWhiterockPower(i.source, i.source, s), 35);
+        addSpecialPower(0, (s, i) -> new LettyWhiterockPower(i.source, i.source, s), 40);
     }
 
     public static class LettyWhiterockPower extends PSpecialCardPower implements OnModifyDamageGiveFirstSubscriber {

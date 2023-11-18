@@ -166,7 +166,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
                         if (button.matchesPower(po.ID)) {
                             for (PCLCardAffinity af : affs) {
                                 if (button.hasReact(af.type)) {
-                                    reactions.addReaction(button.power.affinity, af.type, button.reactionGain(po, af));
+                                    reactions.addReaction(button.power.affinity, af.type, m, button.reactionGain(po, af));
                                 }
                             }
                         }

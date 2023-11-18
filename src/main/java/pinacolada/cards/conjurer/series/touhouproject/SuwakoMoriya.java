@@ -17,7 +17,7 @@ import pinacolada.skills.PMove;
 public class SuwakoMoriya extends PCLCard {
     public static final PCLCardData DATA = register(SuwakoMoriya.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Normal)
-            .setDamage(2, 0)
+            .setDamage(3, 0)
             .setHp(4, 2)
             .setAffinities(PCLAffinity.Orange, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.touhouProject);
@@ -28,6 +28,6 @@ public class SuwakoMoriya extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BITE);
-        addUseMove(CCond.react(), PMove.applyToSingle(3, PCLPowerData.Poison).setUpgrade(1));
+        addUseMove(CCond.react(), PMove.applyToSingle(2, PCLPowerData.Poison).setUpgrade(1));
     }
 }

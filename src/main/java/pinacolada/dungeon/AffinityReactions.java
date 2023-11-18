@@ -1,29 +1,33 @@
 package pinacolada.dungeon;
 
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import pinacolada.cards.base.fields.PCLAffinity;
 
 import java.util.HashMap;
 
 public class AffinityReactions {
-    public final HashMap<PCLAffinity, HashMap<PCLAffinity, Integer>> reactions = new HashMap<>();
+    public final HashMap<PCLAffinity, HashMap<AbstractCreature, HashMap<PCLAffinity, Integer>>> reactions = new HashMap<>();
 
     public AffinityReactions() {
     }
 
-    public void addReaction(PCLAffinity dest, PCLAffinity reactor, int amount) {
-        HashMap<PCLAffinity, Integer> amp = reactions.getOrDefault(dest, new HashMap<>());
+    public void addReaction(PCLAffinity dest, PCLAffinity reactor, AbstractCreature target, int amount) {
+        HashMap<AbstractCreature, HashMap<PCLAffinity, Integer>> targetMap = reactions.getOrDefault(dest, new HashMap<>());
+        HashMap<PCLAffinity, Integer> amp = targetMap.getOrDefault(target, new HashMap<>());
         amp.merge(reactor, amount, Integer::sum);
-        reactions.putIfAbsent(dest, amp);
+        targetMap.putIfAbsent(target, amp);
+        reactions.putIfAbsent(dest, targetMap);
     }
 
     public void clear() {
         reactions.clear();
     }
 
-    public int getValue(PCLAffinity affinity) {
+    public int getValue(PCLAffinity affinity, AbstractCreature target) {
         int sum = 0;
-        if (reactions.containsKey(affinity)) {
-            for (Integer value : reactions.get(affinity).values()) {
+        HashMap<AbstractCreature, HashMap<PCLAffinity, Integer>> targetMap = reactions.get(affinity);
+        if (targetMap != null && targetMap.containsKey(target)) {
+            for (Integer value : targetMap.get(target).values()) {
                 sum += value;
             }
         }
@@ -52,9 +56,11 @@ public class AffinityReactions {
 
     public int sum() {
         int sum = 0;
-        for (PCLAffinity affinity : reactions.keySet()) {
-            for (Integer value : reactions.get(affinity).values()) {
-                sum += value;
+        for (HashMap<AbstractCreature, HashMap<PCLAffinity, Integer>> targetMap : reactions.values()) {
+            for (HashMap<PCLAffinity, Integer> reactMap : targetMap.values()) {
+                for (Integer value : reactMap.values()) {
+                    sum += value;
+                }
             }
         }
         return sum;

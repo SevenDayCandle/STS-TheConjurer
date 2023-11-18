@@ -28,7 +28,7 @@ public class VentusPower extends AbstractPCLElementalPower {
 
     @Override
     public void onReact(AbstractCreature source, AffinityReactions reactions) {
-        PCLActions.bottom.applyPower(AbstractDungeon.player, FlowPower.DATA, MathUtils.ceil(calculateValue(reactions)));
+        PCLActions.bottom.applyPower(AbstractDungeon.player, FlowPower.DATA, MathUtils.ceil(calculateValue(reactions, owner)));
         super.onReact(source, reactions);
     }
 

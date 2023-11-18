@@ -85,8 +85,8 @@ public abstract class AbstractPCLElementalPower extends PCLPower {
         }
     }
 
-    public float calculateValue(AffinityReactions reactions) {
-        return calculateValue(reactions.getValue(getAffinity()), getIntensifyMultiplier());
+    public float calculateValue(AffinityReactions reactions, AbstractCreature target) {
+        return calculateValue(reactions.getValue(getAffinity(), target), getIntensifyMultiplier());
     }
 
     public float calculateValue(int amount, float multiplier) {
@@ -131,7 +131,7 @@ public abstract class AbstractPCLElementalPower extends PCLPower {
         if (ConjurerReactionMeter.meter.isHighlighted()) {
             AffinityReactions reactions = ConjurerReactionMeter.meter.getPreviewReactions();
             if (reactions != null) {
-                return new ColoredString((int) calculateValue(reactions), Color.GREEN, c.a);
+                return new ColoredString((int) calculateValue(reactions, source), Color.GREEN, c.a);
             }
         }
         return null;
