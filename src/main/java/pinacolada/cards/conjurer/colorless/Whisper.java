@@ -17,7 +17,7 @@ import pinacolada.skills.PMove;
 public class Whisper extends PCLCard {
     public static final PCLCardData DATA = register(Whisper.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE, PCLAttackType.Immaterial)
-            .setDamage(2, 2)
+            .setDamage(3, 2)
             .setHp(1, 0)
             .setAffinities(PCLAffinity.Purple)
             .setTags(PCLCardTag.Ethereal)

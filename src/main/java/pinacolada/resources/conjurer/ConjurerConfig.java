@@ -1,22 +1,42 @@
 package pinacolada.resources.conjurer;
 
+import basemod.BaseMod;
+import basemod.ModPanel;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
+import extendedui.EUIUtils;
+import extendedui.configuration.EUIConfiguration;
 import extendedui.configuration.STSConfigItem;
+import extendedui.ui.settings.BasemodSettingsPage;
 import pinacolada.resources.PCLCharacterConfig;
 import pinacolada.resources.PCLMainConfig;
+import pinacolada.resources.PGR;
 
 public class ConjurerConfig extends PCLCharacterConfig {
     private static final String MOD_ID = "CONJURER";
-    private static final String SEEN_SUMMON_TUTORIAL_CONJURER = PCLMainConfig.createFullID("SeenSummonTutorialConjurer");
-
+    public STSConfigItem<Boolean> allowColorlessForAll;
     public STSConfigItem<Boolean> seenSummonTutorial;
 
     public ConjurerConfig() {
         super(MOD_ID);
-        this.seenSummonTutorial = new STSConfigItem<Boolean>(SEEN_SUMMON_TUTORIAL_CONJURER, false);
+        this.allowColorlessForAll = new STSConfigItem<Boolean>(PGR.createID(id, "AllowColorlessForAll"), false);
+        this.seenSummonTutorial = new STSConfigItem<Boolean>(PGR.createID(id, "SeenSummonTutorialConjurer"), false);
+    }
+
+    public void initializeOptions() {
+        panel = new ModPanel();
+        settingsBlock = new BasemodSettingsPage();
+        panel.addUIElement(settingsBlock);
+
+        float yPos = BASE_OPTION_OFFSET_Y * Settings.scale;
+        yPos = addToggle(0, allowColorlessForAll, ConjurerResources.conjurer.strings.optionColorless, yPos, ConjurerResources.conjurer.strings.optionColorlessDesc);
+
+        BaseMod.registerModBadge(ImageMaster.loadImage("images/pcl/modBadge.png"), MOD_ID, "PinaColada", "", panel);
     }
 
     public void loadImpl() {
         super.loadImpl();
+        this.allowColorlessForAll.addConfig(this.config);
         this.seenSummonTutorial.addConfig(this.config);
     }
 

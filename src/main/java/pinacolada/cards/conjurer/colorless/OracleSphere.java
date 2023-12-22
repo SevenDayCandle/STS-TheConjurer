@@ -18,7 +18,7 @@ import pinacolada.skills.skills.base.moves.PMove_Shuffle;
 @VisibleCard
 public class OracleSphere extends PCLCard {
     public static final PCLCardData DATA = register(OracleSphere.class, ConjurerResources.conjurer)
-            .setSkill(0, CardRarity.RARE, PCLCardTarget.None)
+            .setSkill(0, CardRarity.UNCOMMON, PCLCardTarget.None)
             .setTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Blue)
             .setCore(true);

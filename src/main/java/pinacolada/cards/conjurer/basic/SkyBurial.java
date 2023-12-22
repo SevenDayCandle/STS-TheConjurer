@@ -17,7 +17,7 @@ import pinacolada.skills.PMove;
 public class SkyBurial extends PCLCard {
     public static final PCLCardData DATA = register(SkyBurial.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.RARE, PCLAttackType.Piercing, PCLCardTarget.AllEnemy)
-            .setDamage(4, 1, 3)
+            .setDamage(3, 1, 3)
             .setAffinities(1, PCLAffinity.Green)
             .setCore();
 

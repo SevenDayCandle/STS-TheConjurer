@@ -52,11 +52,11 @@ public class ConjurerResources extends PCLResources<ConjurerPlayerData, Conjurer
 
     @Override
     public boolean filterColorless(AbstractCard card) {
-        return card instanceof PCLCard && ((PCLCard) card).cardData.resources == this;
+        return (card instanceof PCLCard && ((PCLCard) card).cardData.resources == this) && !data.config.allowColorlessForAll.get();
     }
 
     protected PCLAllyAnimation getAnimation(PCLCardAlly ally) {
-        HashSet<PCLAffinity> available = new HashSet<>(PCLAffinity.getAvailableAffinitiesAsList());
+        HashSet<PCLAffinity> available = new HashSet<>(PCLAffinity.getAvailableAffinities());
         available.add(PCLAffinity.Star);
 
         PCLCardAffinity highest = ally.hasCard() ? ally.card.affinities.getHighest(cAff -> available.contains(cAff.type)) : null;

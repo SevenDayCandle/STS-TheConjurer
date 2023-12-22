@@ -72,7 +72,7 @@
 		"conjurer:TropicalMonsoon": {"NAME": "Tropical Monsoon"},
 		"conjurer:Vaporize": {"NAME": "Vaporize"},
 		"conjurer:VerdantGale": {
-			"EXTENDED_DESCRIPTION": ["Using [conjurer:Flow] recovers {0} HP lost since your last turn"],
+			"EXTENDED_DESCRIPTION": ["Cards drawn with [conjurer:Flow] gain +{0} damage and Block"],
 			"NAME": "Verdant Gale"
 		},
 		"conjurer:Wildfire": {"NAME": "Wildfire"},
@@ -141,7 +141,7 @@
 		"conjurer:TheSilent": {"EXTENDED_DESCRIPTION": ["Obtain {0} of {1} Silent cards. It costs 0 this turn"], "NAME": "The Silent"},
 		"conjurer:TheWatcher": {"EXTENDED_DESCRIPTION": ["Obtain {0} of {1} Watcher cards. It costs 0 this turn"], "NAME": "The Watcher"},
 		"conjurer:TreasureChest": {"EXTENDED_DESCRIPTION": ["There is a small chance to get a special reward"], "NAME": "Treasure Chest"},
-		"conjurer:TreasureChest_TreasureKey": {"EXTENDED_DESCRIPTION": ["Unlock a Treasure Chest in hand"], "NAME": "Treasure Key"},
+		"conjurer:TreasureChest_TreasureKey": {"NAME": "Treasure Key"},
 		"conjurer:Whisper": {"NAME": "Whisper"},
 		"conjurer:WingGundamZero": {"EXTENDED_DESCRIPTION": ["Increase the maximum Upgrade level of the {0} rightmost cards in hand by {0} and Upgrade them"], "NAME": "Wing Gundam Zero"},
 		"conjurer:Zagreus": {"NAME": "Zagreus"},

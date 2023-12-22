@@ -20,7 +20,7 @@ import pinacolada.skills.PTrait;
 public class GiantsflameTakeThee extends PCLCard {
     public static final PCLCardData DATA = register(GiantsflameTakeThee.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.UNCOMMON, PCLAttackType.Ranged)
-            .setDamage(14, 2)
+            .setDamage(14, 3)
             .setAffinities(2, PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
@@ -29,7 +29,7 @@ public class GiantsflameTakeThee extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.SMALL_EXPLOSION).setChain(PCond.checkPower(PCLCardTarget.Single, 1, CooledPower.DATA), PTrait.damage(8).setUpgrade(3));
+        addDamageMove(PCLAttackVFX.SMALL_EXPLOSION).setChain(PCond.checkPower(PCLCardTarget.Single, 1, CooledPower.DATA), PTrait.damage(8).setUpgrade(2));
         addUseMove(PMove.applyToSingle(4, IgnisPower.DATA));
     }
 }

@@ -10,7 +10,6 @@ import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.base.moves.PMove_KillAlly;
 
@@ -29,6 +28,6 @@ public class HaruOkumura_Milady extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.PSYCHOKINESIS);
-        addUseMove(new PMove_KillAlly(PCLCardTarget.Self, 1), PMod.scryPer(5).setChild(PMove.gainTempHP(3).setUpgrade(1)));
+        addUseMove(new PMove_KillAlly(PCLCardTarget.Self, 1), PMove.gainTempHP(7).setUpgrade(1));
     }
 }

@@ -17,7 +17,7 @@ import pinacolada.skills.PMod;
 public class BoulderHeave extends PCLCard {
     public static final PCLCardData DATA = register(BoulderHeave.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
-            .setDamage(8, 3)
+            .setDamage(8, 5)
             .setAffinities(2, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.darkSouls);
 

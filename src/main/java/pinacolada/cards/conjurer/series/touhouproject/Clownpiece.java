@@ -33,7 +33,7 @@ public class Clownpiece extends PCLCard {
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.ELECTRIC);
         addUseMove(PCond.cooldown(1),
-                PMove.play(1, PCLCardTarget.Single, PCLCardGroupHelper.Hand, PCLCardGroupHelper.DiscardPile, PCLCardGroupHelper.DrawPile).edit(f -> f.setCost(CostFilter.Cost0).setOrigin(PCLCardSelection.Random))
-                , PMove.applyToSingle(1, PCLPowerData.Provoked).useParent(true));
+                PMove.play(1, PCLCardTarget.Single, PCLCardGroupHelper.Hand, PCLCardGroupHelper.DiscardPile, PCLCardGroupHelper.DrawPile).edit(f -> f.setCost(CostFilter.Cost0, CostFilter.Cost1).setOrigin(PCLCardSelection.Random))
+                , PMove.applyToRandom(1, PCLPowerData.Provoked).useParent(true));
     }
 }

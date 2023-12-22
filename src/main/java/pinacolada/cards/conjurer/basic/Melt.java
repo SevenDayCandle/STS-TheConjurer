@@ -17,7 +17,7 @@ import pinacolada.skills.skills.PMultiSkill;
 public class Melt extends PCLCard {
     public static final PCLCardData DATA = register(Melt.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.RARE, PCLAttackType.Immaterial)
-            .setDamage(10, 3)
+            .setDamage(10, 4)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
             .setMaxCopies(2)
             .setCore();

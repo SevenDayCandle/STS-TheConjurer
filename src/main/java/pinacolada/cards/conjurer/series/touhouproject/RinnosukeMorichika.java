@@ -4,9 +4,9 @@ package pinacolada.cards.conjurer.series.touhouproject;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
-import pinacolada.cards.base.PCLCardGroupHelper;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
+import pinacolada.cards.pcl.colorless.Insight;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -30,8 +30,8 @@ public class RinnosukeMorichika extends PCLCard {
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
         addGainPower(PTrigger.interactable(
-                CCond.payMatter(10),
-                PMove.createRandom(1, 3, PCLCardGroupHelper.Hand).edit(f -> f.setAffinity(PCLAffinity.Blue))
+                CCond.payMatter(15),
+                PMove.create(Insight.DATA.ID)
         ));
     }
 }

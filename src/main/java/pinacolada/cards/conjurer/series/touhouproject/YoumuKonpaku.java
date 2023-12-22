@@ -10,6 +10,7 @@ import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
+import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
 
 @VisibleCard
@@ -27,6 +28,6 @@ public class YoumuKonpaku extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL);
-        addUseMove(PCond.cooldown(1), PCond.cycle(1), PMove.dealDamageToRandom(6));
+        addUseMove(PCond.cooldown(1), PMod.scryPer(2), PMove.dealDamageToRandom(4));
     }
 }

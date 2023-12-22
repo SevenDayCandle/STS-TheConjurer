@@ -78,7 +78,7 @@ public class GeneticEngineering extends PCLCard {
                         GameUtilities.modifyCostForCombat(pc, 0, false);
                     }
 
-                    if (newSkills.size() == 0) {
+                    if (newSkills.isEmpty()) {
                         newSkills.add(PMove.gainBlock(move.amount * (pc.cost * 2 + 1)));
                     }
 

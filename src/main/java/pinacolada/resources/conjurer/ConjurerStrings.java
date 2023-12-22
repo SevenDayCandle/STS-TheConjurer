@@ -6,6 +6,7 @@ import pinacolada.resources.PCLResources;
 
 public class ConjurerStrings extends AbstractStrings {
     private final UIStrings combat = getUIStrings("Combat");
+    private final UIStrings options = getUIStrings("Options");
     private final UIStrings tutorial = getUIStrings("Tutorial");
     public final String combat_conjurerMeterCost = combat.TEXT[0];
     public final String combat_conjurerMeterBonus = combat.TEXT[1];
@@ -25,6 +26,9 @@ public class ConjurerStrings extends AbstractStrings {
     public final String conjurerSummonInteractive3 = tutorial.TEXT[11];
     public final String conjurerSummonInteractive4 = tutorial.TEXT[12];
     public final String conjurerSummonInteractive5 = tutorial.TEXT[12];
+
+    public final String optionColorless = options.TEXT[0];
+    public final String optionColorlessDesc = options.TEXT[1];
 
     public ConjurerStrings(PCLResources<?, ?, ?, ?> resources) {
         super(resources);

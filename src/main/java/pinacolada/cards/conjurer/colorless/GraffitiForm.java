@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import extendedui.EUIUtils;
+import extendedui.ui.panelitems.CardPoolPanelItem;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cardmods.SkillModifier;
@@ -23,10 +24,7 @@ import pinacolada.powers.PSpecialCardPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 import pinacolada.skills.PSkill;
-import pinacolada.skills.skills.PCustomCond;
-import pinacolada.skills.skills.PCustomMod;
-import pinacolada.skills.skills.PSpecialPowerSkill;
-import pinacolada.skills.skills.PSpecialSkill;
+import pinacolada.skills.skills.*;
 import pinacolada.skills.skills.base.conditions.PCond_OnAllyDeath;
 import pinacolada.skills.skills.base.conditions.PCond_OnAllyTrigger;
 import pinacolada.skills.skills.base.conditions.PCond_OnSummon;
@@ -39,6 +37,7 @@ import pinacolada.utilities.RandomizedList;
 public class GraffitiForm extends PCLCard {
     public static final PCLCardData DATA = register(GraffitiForm.class, ConjurerResources.conjurer)
             .setPower(0, CardRarity.RARE)
+            .setUTags(PCLCardTag.Innate)
             .setAffinities(PCLAffinity.Star)
             .setCore(true);
 
@@ -47,7 +46,7 @@ public class GraffitiForm extends PCLCard {
     }
 
     public void setup(Object input) {
-        addSpecialPower(0, (s, i) -> new GraffitiFormPower(i.source, i.source, s), 1, 3).setUpgradeExtra(1);
+        addSpecialPower(0, (s, i) -> new GraffitiFormPower(i.source, i.source, s), 1, 3);
     }
 
     public static class GraffitiFormPower extends PSpecialCardPower implements OnCardCreatedSubscriber {
@@ -82,12 +81,12 @@ public class GraffitiForm extends PCLCard {
         protected RandomizedList<PSkill<?>> getSkills() {
             RandomizedList<PSkill<?>> skills = new RandomizedList<>();
             if (AbstractDungeon.player != null) {
-                for (AbstractCard c : AbstractDungeon.player.hand.group) {
+                for (AbstractCard c : CardPoolPanelItem.getAllCards().group) {
                     if (c instanceof EditorCard) {
                         skills.addAll(EUIUtils.filter(((EditorCard) c).getEffects(), e -> !(
                                 e instanceof PCustomCond || e instanceof PSpecialSkill || e instanceof PSpecialPowerSkill || e instanceof PCustomMod
-                                        || e instanceof PMove_StackCustomPower || e instanceof PCond_OnAllyDeath || e instanceof PCond_OnAllyTrigger
-                                || e instanceof PCond_OnSummon || e instanceof PCond_OnWithdraw || e.isMetascaling()
+                                        || e instanceof PMove_StackCustomPower || e instanceof PCardPrimary || e instanceof PShift || e instanceof PLimit || e instanceof PCond_OnAllyDeath || e instanceof PCond_OnAllyTrigger
+                                || e instanceof PCond_OnSummon || e instanceof PCond_OnWithdraw || e.isMetascaling() || e.isBlank()
                         )));
                     }
                 }

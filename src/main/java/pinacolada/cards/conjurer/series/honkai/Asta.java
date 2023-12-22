@@ -18,7 +18,7 @@ import pinacolada.skills.PMove;
 public class Asta extends PCLCard {
     public static final PCLCardData DATA = register(Asta.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy)
-            .setDamage(3, 2)
+            .setDamage(2, 2)
             .setHp(4, 1)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Silver)
             .setLoadout(ConjurerPlayerData.honkai);

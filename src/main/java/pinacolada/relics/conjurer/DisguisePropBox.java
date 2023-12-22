@@ -9,6 +9,7 @@ import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleRelic;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.characters.PCLCharacterAnimation;
+import pinacolada.dungeon.CombatManager;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.effects.PCLEffects;
 import pinacolada.effects.vfx.SmokeEffect;
@@ -78,7 +79,7 @@ public class DisguisePropBox extends PCLRelic {
     public void setCreature(String id) {
         currentForm = id;
         if (currentForm != null) {
-            if (GameUtilities.inBattle()) {
+            if (CombatManager.inBattle()) {
                 PCLEffects.Queue.add(new SmokeEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, AbstractDungeon.player.getCardRenderColor()));
             }
             GameUtilities.setCreatureAnimation(AbstractDungeon.player, currentForm);
@@ -98,7 +99,7 @@ public class DisguisePropBox extends PCLRelic {
     public void update() {
         super.update();
 
-        if (GameUtilities.inBattle()
+        if (CombatManager.inBattle()
                 && this.hb.hovered
                 && EUIInputManager.rightClick.isJustPressed()) {
             selectCreatureForTransform().addCallback(() -> {

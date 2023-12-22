@@ -17,7 +17,7 @@ import pinacolada.skills.PMove;
 public class TropicalMonsoon extends PCLCard {
     public static final PCLCardData DATA = register(TropicalMonsoon.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.COMMON, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
-            .setDamage(4, 1, 2)
+            .setDamage(4, 2, 2)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Green)
             .setCore();
 
@@ -27,6 +27,6 @@ public class TropicalMonsoon extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(ConjurerEFK.MGC_Nature03);
-        addUseMove(PMove.applyToEnemies(2, AquaPower.DATA, VentusPower.DATA).setUpgrade(1));
+        addUseMove(PMove.applyToEnemies(2, AquaPower.DATA, VentusPower.DATA));
     }
 }

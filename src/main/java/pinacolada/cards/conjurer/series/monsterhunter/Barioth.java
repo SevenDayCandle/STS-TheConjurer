@@ -19,7 +19,7 @@ import pinacolada.skills.delay.DelayTiming;
 public class Barioth extends PCLCard {
     public static final PCLCardData DATA = register(Barioth.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.Single, DelayTiming.EndOfTurnFirst)
-            .setDamage(7, 1)
+            .setDamage(7, 2)
             .setHp(11, 0)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.monsterHunter);
@@ -30,6 +30,6 @@ public class Barioth extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BITE);
-        addUseMove(PCond.onWithdraw(), PMove.applyToEnemies(9, CooledPower.DATA).setUpgrade(2));
+        addUseMove(PCond.onWithdraw(), PMove.applyToEnemies(10, CooledPower.DATA).setUpgrade(2));
     }
 }

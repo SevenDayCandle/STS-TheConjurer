@@ -4,6 +4,7 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
@@ -21,6 +22,6 @@ public class Sublimation extends PCLCard {
     }
 
     public void setup(Object input) {
-        addGainPower(PTrigger.when(CCond.react(), PMove.dealDamageToRandom(3).setUpgrade(1)));
+        addGainPower(PTrigger.when(4, CCond.react(), PMove.loseHp(PCLCardTarget.RandomEnemy, 3)).setUpgrade(1));
     }
 }

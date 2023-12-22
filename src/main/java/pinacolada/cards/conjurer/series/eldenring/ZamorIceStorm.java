@@ -28,7 +28,7 @@ public class ZamorIceStorm extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.applyToEnemies(7, AquaPower.DATA, CooledPower.DATA).setUpgrade(1));
+        addUseMove(PMove.applyToEnemies(11, CooledPower.DATA).setUpgrade(4));
         addGainPower(3, PTrigger.when(PCond.onTurnStart(), PMove.applyToEnemies(3, AquaPower.DATA, CooledPower.DATA).setUpgrade(1)));
     }
 }

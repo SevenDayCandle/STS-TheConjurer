@@ -9,19 +9,16 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
-import pinacolada.powers.PCLPowerData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CCond;
 import pinacolada.skills.PMod;
-import pinacolada.skills.PMove;
 import pinacolada.skills.PTrait;
 
 @VisibleCard
 public class CannonOfHaima extends PCLCard {
     public static final PCLCardData DATA = register(CannonOfHaima.class, ConjurerResources.conjurer)
-            .setAttack(2, CardRarity.RARE, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy)
-            .setDamage(6, 0)
+            .setAttack(2, CardRarity.UNCOMMON, PCLAttackType.Ranged, PCLCardTarget.RandomEnemy)
+            .setDamage(8, 1)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
@@ -30,7 +27,6 @@ public class CannonOfHaima extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.ICE).setChain(PMod.perCard(1, PCLCardGroupHelper.DiscardPile).edit(f -> f.setAffinity(PCLAffinity.Blue)), PTrait.damage(4).setUpgrade(1));
-        addUseMove(CCond.checkLevel(2, PCLAffinity.Blue), PMove.applyToRandom(2, PCLPowerData.Vulnerable));
+        addDamageMove(PCLAttackVFX.ICE).setChain(PMod.perCard(1, PCLCardGroupHelper.DiscardPile).edit(f -> f.setAffinity(PCLAffinity.Blue)), PTrait.damage(3).setUpgrade(1));
     }
 }

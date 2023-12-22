@@ -14,13 +14,12 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import extendedui.EUIUtils;
 import extendedui.ui.EUIBase;
+import pinacolada.cards.conjurer.basic.StrikeR;
 import pinacolada.effects.PCLSFX;
 import pinacolada.effects.vfx.FadingParticleEffect;
 import pinacolada.effects.vfx.SmokeEffect;
 import pinacolada.resources.PCLEnum;
-import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.utilities.GameUtilities;
 import pinacolada.utilities.PCLRenderHelpers;
 
 import java.util.ArrayList;
@@ -82,7 +81,7 @@ public class ConjurerCharacter extends PCLCharacter {
 
     @Override
     public AbstractCard getStartCardForEvent() {
-        return GameUtilities.getRandomElement(ConjurerPlayerData.core.strikes).create();
+        return StrikeR.DATA.create();
     }
 
     @Override

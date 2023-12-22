@@ -70,7 +70,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
     protected PCLAffinity lastUpgrade = PCLAffinity.General;
 
     public ConjurerReactionMeter() {
-        super(ID, ConjurerResources.conjurer.data.config.meterPosition, ICON_SIZE);
+        super(ID, ConjurerResources.conjurer.data.config.meterPosition, ConjurerResources.conjurer, ICON_SIZE);
 
         fire = new ConjurerElementButton(this, IgnisPower.DATA, ConjurerImages.Core.elementFire.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X, OFFSET_SCALE_Y + BUTTON_SCALE));
         water = new ConjurerElementButton(this, AquaPower.DATA, ConjurerImages.Core.elementWater.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X + BUTTON_SCALE, OFFSET_SCALE_Y));
@@ -103,16 +103,16 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
     }
 
     private static void initializeTrie() {
-        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Red),"Fire", "Flame", "Burn", "Scorch", "Heat", "Solar");
+        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Red),"Fire", "Flame", "Burn", "Scorch", "Heat", "Solar", "Explosion", "Blast", "Ignit");
         AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Red, PCLAffinity.Orange),"Lava", "Magma", "Volcan");
-        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Blue),"Water", "Ice", "Icicle", "Snow", "Frost", "Chill", "Cold", "Freeze", "Aqua", "Ocean", "Bubble", "Liquid", "Cool");
-        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Blue, PCLAffinity.Green),"Storm", "Mist", "Fog", "Cloud");
+        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Blue),"Water", "Ice", "Icicle", "Snow", "Frost", "Chill", "Cold", "Freeze", "Aqua", "Ocean", "Bubble", "Liquid", "Cool", "Crystal");
+        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Blue, PCLAffinity.Green),"Storm", "Mist", "Fog", "Cloud", "Weather");
         AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Blue, PCLAffinity.Orange),"Mud", "Swamp", "Sludge");
         AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Green),"Wind", "Sky", "Poison", "Toxic", "Air", "Smoke", "Breeze", "Tornado", "Leaf", "Blossom", "Flower");
         AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Green, PCLAffinity.Orange),"Nature", "Wood", "Forest", "Grass", "Bloom", "Plant", "Tree");
-        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Orange),"Earth", "Rock", "Stone", "Ground", "Land");
-        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Yellow),"Electric", "Thunder", "Lightning", "Shock", "Volt", "Holy", "Bless", "Sacred");
-        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Purple),"Dark", "Shadow", "Evil", "Night", "Curse", "Void", "Corrupt", "infinitespire");
+        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Orange),"Earth", "Rock", "Stone", "Ground", "Land", "Geo");
+        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Yellow),"Electr", "Thund", "Shock", "Volt", "Holy", "Bless", "Sacred", "Photo", "Light");
+        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Purple),"Dark", "Shadow", "Evil", "Night", "Curse", "Void", "Corrupt", "infinitespire", "Umbr");
         AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Silver),"Metal", "Steel");
         AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Star),"Rainbow");
     }

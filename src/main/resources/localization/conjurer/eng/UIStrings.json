@@ -7,6 +7,12 @@
 			"#gNext #gLevel #gAvailable"
 		]
 	},
+	"conjurer:Options": {
+		"TEXT": [
+			"Enable Colorless cards for other characters",
+			"Allow Colorless cards normally unique to the Conjurer to appear for other characters."
+		]
+	},
 	"conjurer:Tutorial": {
 		"TEXT": [
 			"Play cards on enemies with #yElements to trigger #yReactions, granting #yMatter. Click the buttons to spend #yMatter to improve #yElements.",

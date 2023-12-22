@@ -28,6 +28,6 @@ public class FujiwaraNoMokou extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BURN);
-        addUseMove(PCond.onDeath(), PMultiSkill.join(PMove.createCopy(1), PMove.applyToEnemies(3, BlastedPower.DATA)));
+        addUseMove(PCond.onDeath(), PMultiSkill.join(PMove.createCopy(1).edit(f -> f.setNot(true)), PMove.applyToEnemies(3, BlastedPower.DATA)));
     }
 }

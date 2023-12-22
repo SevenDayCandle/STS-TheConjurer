@@ -24,6 +24,7 @@ public class FlowPower extends PCLPower implements DrawPileCardPreviewProvider {
             .setEndTurnBehavior(PCLPowerData.Behavior.Permanent)
             .setTooltip(ConjurerResources.conjurer.tooltips.flow);
     public static final int PER_STACK = 7;
+    public static AbstractCard drawn;
     private DrawPileCardPreview preview;
 
     public FlowPower(AbstractCreature owner, AbstractCreature source, int amount) {
@@ -50,8 +51,11 @@ public class FlowPower extends PCLPower implements DrawPileCardPreviewProvider {
         if (amount >= PER_STACK) {
             amount -= PER_STACK;
             flash();
-            PCLActions.bottom.draw(highlighted).addCallback(this::refreshCard);
-            CombatManager.onSpecificPowerActivated(this, owner, false);
+            PCLActions.bottom.draw(highlighted).addCallback(c -> {
+                drawn = c;
+                CombatManager.onSpecificPowerActivated(this, owner, false);
+                this.refreshCard();
+            });
         }
     }
 

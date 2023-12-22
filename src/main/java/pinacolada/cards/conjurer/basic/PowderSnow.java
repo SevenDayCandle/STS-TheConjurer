@@ -23,6 +23,6 @@ public class PowderSnow extends PCLCard {
 
     public void setup(Object input) {
         addBlockMove();
-        addUseMove(PMove.applyToSingle(1, AquaPower.DATA).setUpgrade(1));
+        addUseMove(PMove.applyToSingle(1, AquaPower.DATA));
     }
 }

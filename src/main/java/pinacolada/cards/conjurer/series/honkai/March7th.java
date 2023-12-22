@@ -20,7 +20,7 @@ public class March7th extends PCLCard {
     public static final PCLCardData DATA = register(March7th.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.COMMON, PCLAttackType.Ranged)
             .setDamage(3, 1)
-            .setHp(5, 2)
+            .setHp(4, 2)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.honkai);
 
@@ -30,6 +30,6 @@ public class March7th extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.ICE);
-        addUseMove(CCond.link(PCLAffinity.Green, PCLAffinity.Blue), PMultiSkill.join(PMove.applyToSingle(2, AquaPower.DATA), PMove.applyToSingle(1, PCLPowerData.NextTurnBlock)));
+        addUseMove(CCond.link(PCLAffinity.Green, PCLAffinity.Blue), PMultiSkill.join(PMove.applyToSingle(2, AquaPower.DATA), PMove.applyToSingle(2, PCLPowerData.NextTurnBlock)));
     }
 }

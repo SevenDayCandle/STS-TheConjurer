@@ -30,6 +30,6 @@ public class SanaeKochiya extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.WIND);
-        addGainPower(PTrigger.interactable(PCond.payPower(8, FlowPower.DATA), PMove.obtainCard(Miracle.DATA.ID)));
+        addGainPower(PTrigger.interactable(PCond.payPower(8, FlowPower.DATA), PMove.create(Miracle.DATA.ID)));
     }
 }

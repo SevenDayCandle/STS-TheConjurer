@@ -20,7 +20,7 @@ import pinacolada.skills.skills.PMultiSkill;
 public class CrystalSoulSpear extends PCLCard {
     public static final PCLCardData DATA = register(CrystalSoulSpear.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.UNCOMMON, PCLAttackType.Piercing)
-            .setDamage(16, 3)
+            .setDamage(16, 5)
             .setAffinities(2, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.darkSouls);
 
@@ -30,6 +30,7 @@ public class CrystalSoulSpear extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(EffekseerEFK.SPEAR02);
-        addUseMove(CCond.checkLevel(3, PCLAffinity.Blue), PMultiSkill.join(PMove.selfExhaust(), PMod.perCard(1, PCLCardGroupHelper.DiscardPile).setChain(PMove.applyToSingle(2, CooledPower.DATA))));
+        addUseMove(CCond.checkLevel(3, PCLAffinity.Blue), PMultiSkill.join(PMove.selfExhaust(), PMod.perCard(1, PCLCardGroupHelper.DiscardPile)
+                .setChain(PMove.applyToSingle(2, CooledPower.DATA))));
     }
 }

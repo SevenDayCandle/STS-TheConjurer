@@ -9,7 +9,6 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.PCLCardGroupHelper;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
-import pinacolada.cards.base.fields.PCLCardSelection;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
@@ -23,9 +22,9 @@ import pinacolada.skills.skills.PCustomMod;
 @VisibleCard
 public class ForceImpulseGundam extends PCLCard {
     public static final PCLCardData DATA = register(ForceImpulseGundam.class, ConjurerResources.conjurer)
-            .setAttack(3, CardRarity.RARE, PCLAttackType.Normal)
-            .setDamage(7, 2)
-            .setHp(18, 2)
+            .setSummon(3, CardRarity.RARE, PCLAttackType.Normal)
+            .setDamage(9, 2)
+            .setHp(17, 2)
             .setAffinities(PCLAffinity.Yellow, PCLAffinity.Silver)
             .setLoadout(ConjurerPlayerData.mobileSuitGundam, true);
 
@@ -34,8 +33,8 @@ public class ForceImpulseGundam extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.VERTICAL_IMPACT).setChain(new ForceImpulseGundamMod(DATA, 1), PTrait.damage(4).setUpgrade(1));
-        addUseMove(PCond.onWithdraw(), PMove.upgrade(0, PCLCardGroupHelper.Hand).edit(f -> f.setOrigin(PCLCardSelection.Random)));
+        addDamageMove(PCLAttackVFX.VERTICAL_IMPACT).setChain(new ForceImpulseGundamMod(DATA, 1), PTrait.damage(3).setUpgrade(1));
+        addUseMove(PCond.onWithdraw(), PMove.upgrade(0, PCLCardGroupHelper.Hand));
     }
 
     protected static class ForceImpulseGundamMod extends PCustomMod {
@@ -45,7 +44,7 @@ public class ForceImpulseGundam extends PCLCard {
 
         @Override
         public int getModifiedAmount(PSkill<?> be, PCLUseInfo info, boolean isUsing) {
-            return AbstractDungeon.player != null ? EUIUtils.sumInt(AbstractDungeon.player.hand.group, c -> c.timesUpgraded) : 0;
+            return AbstractDungeon.player != null ? EUIUtils.sumInt(AbstractDungeon.player.hand.group, c -> c.timesUpgraded) * amount : 0;
         }
     }
 }

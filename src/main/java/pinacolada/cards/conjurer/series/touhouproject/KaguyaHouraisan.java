@@ -31,9 +31,9 @@ public class KaguyaHouraisan extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.GHOST).setBonus(PCond.pileHas(0, PCLCardGroupHelper.DrawPile).edit(f -> f.setNot(true)), 13, 3);
+        addDamageMove(PCLAttackVFX.GHOST).setBonus(PCond.pileHas(0, PCLCardGroupHelper.DrawPile).edit(f -> f.setNot(true)), 11, 3);
         addGainPower(PTrigger.interactable(
-                CCond.payMatter(5),
+                CCond.payMatter(4),
                 PMove.scry(1)
         ));
     }

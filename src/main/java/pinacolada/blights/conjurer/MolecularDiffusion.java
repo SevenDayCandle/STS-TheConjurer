@@ -38,7 +38,6 @@ public class MolecularDiffusion extends PCLBlight implements OnCardUsingSubscrib
         if (card != null) {
             PCLCardAffinities affs = GameUtilities.getPCLCardAffinities(card);
             if (affs != null) {
-                PCLAffinity[] available = PCLAffinity.getAvailableAffinities();
                 RandomizedList<AbstractCreature> creatures = new RandomizedList<>();
                 if (card instanceof PCLCard) {
                     if (card.type != PCLEnum.CardType.SUMMON) {
@@ -54,7 +53,7 @@ public class MolecularDiffusion extends PCLBlight implements OnCardUsingSubscrib
                     creatures.add(GameUtilities.getRandomEnemy(true));
                 }
 
-                for (PCLAffinity av : available) {
+                for (PCLAffinity av : PCLAffinity.getAvailableAffinities()) {
                     int lvl = affs.getLevel(av);
                     if (lvl > 0) {
                         for (AbstractCreature creature : creatures) {

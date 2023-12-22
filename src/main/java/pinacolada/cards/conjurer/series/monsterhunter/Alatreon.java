@@ -18,8 +18,8 @@ import pinacolada.skills.skills.PTrigger;
 @VisibleCard
 public class Alatreon extends PCLCard {
     public static final PCLCardData DATA = register(Alatreon.class, ConjurerResources.conjurer)
-            .setSummon(3, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
-            .setDamage(9, 1, 0)
+            .setSummon(3, CardRarity.RARE, PCLAttackType.Normal, PCLCardTarget.AllEnemy)
+            .setDamage(6, 1, 2)
             .setHp(20, 2)
             .setAffinities(PCLAffinity.Star)
             .setLoadout(ConjurerPlayerData.monsterHunter, true);

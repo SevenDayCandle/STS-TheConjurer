@@ -1,14 +1,14 @@
 package pinacolada.cards.conjurer.basic;
 
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
+import pinacolada.cardmods.PermanentBlockModifier;
+import pinacolada.cardmods.PermanentDamageModifier;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.dungeon.CombatManager;
 import pinacolada.effects.vfx.ScreenLeavesEffect;
 import pinacolada.interfaces.subscribers.OnSpecificPowerActivatedSubscriber;
 import pinacolada.powers.PCLPowerData;
@@ -31,7 +31,7 @@ public class VerdantGale extends PCLCard {
     }
 
     public void setup(Object input) {
-        addSpecialPower(0, (s, i) -> new VerdantGalePower(i.source, i.source, s), 5);
+        addSpecialPower(0, (s, i) -> new VerdantGalePower(i.source, i.source, s), 2);
     }
 
     public static class VerdantGalePower extends PSpecialCardPower implements OnSpecificPowerActivatedSubscriber {
@@ -50,12 +50,9 @@ public class VerdantGale extends PCLCard {
 
         @Override
         public boolean onPowerActivated(AbstractPower power, AbstractCreature source, boolean originalValue) {
-            if (power instanceof FlowPower) {
-                int healAmount = Math.min(Math.max(0, CombatManager.maxHPSinceLastTurn - AbstractDungeon.player.currentHealth), amount);
-                if (healAmount > 0) {
-                    PCLActions.bottom.heal(healAmount);
-                    flash();
-                }
+            if (power instanceof FlowPower && FlowPower.drawn != null) {
+                PermanentDamageModifier.apply(FlowPower.drawn, amount);
+                PermanentBlockModifier.apply(FlowPower.drawn, amount);
             }
             return originalValue;
         }

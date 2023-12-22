@@ -38,7 +38,7 @@ public class ScarletAeonia extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.obtainCard(2, Biohazard.DATA.ID));
+        addUseMove(PMove.create(2, Biohazard.DATA.ID));
         addApplyPower(PCLCardTarget.Single, -1, PTrigger.when(PCond.onTurnEnd(), getSpecialMove(0, this::specialMove, 1, 3))).setVFX(ConjurerEFK.EVFXForge02_08_BloomforgeWard);
     }
 

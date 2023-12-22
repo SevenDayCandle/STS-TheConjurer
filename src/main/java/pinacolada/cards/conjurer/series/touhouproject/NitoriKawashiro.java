@@ -4,14 +4,13 @@ package pinacolada.cards.conjurer.series.touhouproject;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
+import pinacolada.cards.base.PCLCardGroupHelper;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
-import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
-import pinacolada.skills.CMod;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PTrigger;
 
@@ -31,8 +30,8 @@ public class NitoriKawashiro extends PCLCard {
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.WATER);
         addGainPower(PTrigger.interactable(
-                CCond.payMatter(11),
-                CMod.bonusPerLevel(3, PCLAffinity.Blue), PMove.gainBlock(PCLCardTarget.None, 7).setUpgrade(1)
+                CCond.payMatter(10),
+                PMove.createRandom(1, 3, PCLCardGroupHelper.Hand).edit(f -> f.setAffinity(PCLAffinity.Blue))
         ));
     }
 }
