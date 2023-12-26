@@ -59,13 +59,6 @@ public class BlastedPower extends PCLPower implements HealthBarRenderPower {
 
     public DamageInfo getExpandedDamageInfo() {
         float multiplier = 100;
-        for (AbstractPower p : owner.powers) {
-            for (ConjurerElementButton element : ConjurerReactionMeter.meter.getElementButtons()) {
-                if (element.canReact(PCLAffinity.Red, p.ID)) {
-                    multiplier += AbstractPCLElementalPower.getAmplifyMultiplier(PCLAffinity.Red);
-                }
-            }
-        }
         int secondAmount = MathUtils.ceil(amount * multiplier / 100);
         DamageInfo estimated = new DamageInfo(owner, secondAmount, DamageInfo.DamageType.NORMAL);
         estimated.applyEnemyPowersOnly(owner);

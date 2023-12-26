@@ -32,7 +32,7 @@ public class Entropy extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.scry(3).setUpgrade(1, 0), getSpecialMove(0, this::specialMove, 2).setUpgrade(0, 1).setTarget(PCLCardTarget.Single));
+        addUseMove(PMove.scry(3).setUpgrade(1, 0), getSpecialMove(0, this::specialMove, 1).setUpgrade(0, 1).setTarget(PCLCardTarget.Single));
     }
 
     public void specialMove(PSpecialSkill move, PCLUseInfo info, PCLActions order) {

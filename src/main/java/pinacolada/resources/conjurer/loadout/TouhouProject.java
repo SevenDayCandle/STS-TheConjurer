@@ -24,9 +24,4 @@ public class TouhouProject extends ConjurerLoadout {
         data.addCardSlot(SuwakoMoriya.DATA.ID, 1);
         data.addCardSlot(Condensation.DATA.ID, 1);
     }
-
-    @Override
-    public ArrayList<String> getBaseStartingRelics() {
-        return EUIUtils.arrayList(PeriodicTable.DATA.ID);
-    }
 }

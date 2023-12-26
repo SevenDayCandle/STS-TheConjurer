@@ -25,21 +25,8 @@ public class UmbraPower extends AbstractPCLElementalPower {
     }
 
     @Override
-    public float calculateValue(int amount, float multiplier) {
-        return amount > 0 ? MathUtils.ceil(amount * (multiplier / (100f + 5 * owner.currentHealth))) : 0;
-    }
-
-    @Override
     public AbstractGameAction.AttackEffect getAttackEffect() {
         return PCLEnum.AttackEffect.DARKNESS;
-    }
-
-    @Override
-    public void onReact(AbstractCreature source, AffinityReactions reactions) {
-        if (!(owner instanceof PCLCardAlly) && (!GameUtilities.inBossRoom() || !owner.hasPower(MinionPower.POWER_ID)) && GameUtilities.chance(calculateValue(reactions, source))) {
-            PCLActions.bottom.add(new DieAction(owner));
-        }
-        super.onReact(source, reactions);
     }
 
     @Override

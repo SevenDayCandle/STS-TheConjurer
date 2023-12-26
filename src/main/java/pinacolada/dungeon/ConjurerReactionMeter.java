@@ -29,17 +29,21 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardAffinities;
 import pinacolada.cards.base.fields.PCLCardAffinity;
 import pinacolada.monsters.PCLCardAlly;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.conjurer.*;
+import pinacolada.powers.replacement.PCLLockOnPower;
 import pinacolada.resources.PCLEnum;
 import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerImages;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.PMove;
+import pinacolada.skills.PSkill;
+import pinacolada.skills.PTrait;
+import pinacolada.skills.skills.base.modifiers.PMod_PerCardDamage;
 import pinacolada.utilities.GameUtilities;
 import pinacolada.utilities.PCLRenderHelpers;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
+import java.util.*;
 
 import static extendedui.EUIUtils.array;
 
@@ -53,6 +57,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
     public static final float BUTTON_SCALE = 1.5f;
     public static final float OFFSET_SCALE_X = 2.5f * BUTTON_SCALE;
     public static final float OFFSET_SCALE_Y = -0.5f * BUTTON_SCALE;
+    public static final float OFFSET_SPACING = BUTTON_SCALE * 0.7f;
     public static final ConjurerReactionMeter meter = new ConjurerReactionMeter();
     private AffinityReactions previewReactions;
     private int matterPreview;
@@ -72,10 +77,10 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
     public ConjurerReactionMeter() {
         super(ID, ConjurerResources.conjurer.data.config.meterPosition, ConjurerResources.conjurer, ICON_SIZE);
 
-        fire = new ConjurerElementButton(this, IgnisPower.DATA, ConjurerImages.Core.elementFire.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X, OFFSET_SCALE_Y + BUTTON_SCALE));
-        water = new ConjurerElementButton(this, AquaPower.DATA, ConjurerImages.Core.elementWater.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X + BUTTON_SCALE, OFFSET_SCALE_Y));
-        air = new ConjurerElementButton(this, VentusPower.DATA, ConjurerImages.Core.elementAir.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X, OFFSET_SCALE_Y - BUTTON_SCALE));
-        earth = new ConjurerElementButton(this, PetraPower.DATA, ConjurerImages.Core.elementEarth.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X - BUTTON_SCALE, OFFSET_SCALE_Y));
+        fire = new ConjurerElementButton(this, IgnisPower.DATA, ConjurerImages.Core.elementFire.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X, OFFSET_SCALE_Y + OFFSET_SPACING));
+        water = new ConjurerElementButton(this, AquaPower.DATA, ConjurerImages.Core.elementWater.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X + OFFSET_SPACING, OFFSET_SCALE_Y));
+        air = new ConjurerElementButton(this, VentusPower.DATA, ConjurerImages.Core.elementAir.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X, OFFSET_SCALE_Y - OFFSET_SPACING));
+        earth = new ConjurerElementButton(this, PetraPower.DATA, ConjurerImages.Core.elementEarth.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X - OFFSET_SPACING, OFFSET_SCALE_Y));
         light = new ConjurerElementButton(this, LuxPower.DATA, ConjurerImages.Core.elementLight.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X, OFFSET_SCALE_Y));
         dark = new ConjurerElementButton(this, UmbraPower.DATA, ConjurerImages.Core.elementDark.texture(), RelativeHitbox.fromPercentages(hb, BUTTON_SCALE, BUTTON_SCALE, OFFSET_SCALE_X, OFFSET_SCALE_Y));
         elements.add(fire);
@@ -129,10 +134,27 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
     }
 
     public void addDefaultReactions() {
-        fire.addReaction(water);
-        water.addReaction(air);
-        air.addReaction(earth);
-        earth.addReaction(fire);
+        addReaction(fire, water, PTrait.damageMultiplier(60).setUpgrade(30))
+                .addUpgrade(PMove.applyToSingle(1, PCLPowerData.Vulnerable), 2);
+        addReaction(fire, air, PMove.applyToSingle(4, BlastedPower.DATA).setUpgrade(2))
+                .addUpgrade(PMove.dealDamageToAll(3), 1);
+        addReaction(fire, earth, PMove.gainBlock(4).setUpgrade(2))
+                .addUpgrade(PMove.upgrade(1).edit(f -> f.setRandom(true)), 2)
+                .addUpgrade(new PMod_PerCardDamage(2), 1);
+        addReaction(water, air, PMove.gain(4, FlowPower.DATA).setUpgrade(2))
+                .addUpgrade(PMove.draw(1), 1);
+        addReaction(water, earth, PMove.applyToSingle(5, CooledPower.DATA).setUpgrade(3))
+                .addUpgrade(PMove.applyToSingle(1, PCLPowerData.Weak), 1);
+        addReaction(air, earth, PMove.gainTempHP(3).setUpgrade(2))
+                .addUpgrade(PMove.gain(4, PCLPowerData.NextTurnBlock), 1)
+                .addUpgrade(PMove.applyToSingle(2, PCLPowerData.Poison), 1);
+    }
+
+    public ConjurerReactionGroup addReaction(ConjurerElementButton a1, ConjurerElementButton a2, PSkill<?>... skills) {
+        ConjurerReactionGroup group = new ConjurerReactionGroup(a1.power.affinity, a1.power.affinity, Arrays.asList(skills));
+        a1.reactions.put(a2.power.affinity, group);
+        a2.reactions.put(a1.power.affinity, group);
+        return group;
     }
 
     public void addLevel(PCLAffinity affinity, int amount) {
@@ -310,11 +332,6 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
         return AFFINITY_TREE.get(card.cardID);
     }
 
-    public int getAmplifyOffset(PCLAffinity affinity) {
-        ConjurerElementButton destButton = getElementButton(affinity);
-        return destButton != null ? destButton.currentAmplifyOffset : 0;
-    }
-
     public ConjurerElementButton getElementButton(PCLAffinity affinity) {
         return affinity.ID >= 0 && affinity.ID < elements.size() ? elements.get(affinity.ID) : null;
     }
@@ -374,11 +391,6 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
 
     public AffinityReactions getPreviewReactions() {
         return previewReactions;
-    }
-
-    public ConjurerReactionButton getReactionButton(PCLAffinity dest, PCLAffinity target) {
-        ConjurerElementButton destButton = getElementButton(dest);
-        return destButton != null ? destButton.reactions.get(target) : null;
     }
 
     public AffinityReactions getReactions(AbstractCard card, Collection<? extends AbstractCreature> mo) {
@@ -441,46 +453,56 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
         return EUIUtils.any(elements, e -> e.matchesPower(id));
     }
 
-    public float modifyBlock(float block, PCLCard source, PCLCard card, AbstractCreature target) {
-        if (target != null) {
-            float oldBlock = block;
-            float multiplier = 100;
+    // Block/Damage multipliers scale additively
+    @Override
+    public float modifyBlock(float block, PCLUseInfo info, PCLCard source, PCLCard card) {
+        if (info.target != null) {
+            float newBlock = 0;
             for (PCLCardAffinity aff : source.affinities.getCardAffinities(true)) {
-                for (AbstractPower p : target.powers) {
+                for (AbstractPower p : info.target.powers) {
                     for (ConjurerElementButton element : getElementButtons()) {
                         if (element.canReact(aff.type, p.ID)) {
-                            {
-                                multiplier += AbstractPCLElementalPower.getAmplifyMultiplier(aff.type) * aff.level;
+                            for (PSkill<?> sk : element.getReactEffects(aff.type)) {
+                                for (int i = 0; i < aff.level; i++) {
+                                    newBlock = newBlock + sk.modifyBlockFirst(info, block) - block;
+                                }
                             }
                         }
                     }
                 }
             }
-            block *= multiplier / 100;
-            card.addDefendDisplay(PCLAffinity.General, oldBlock, block);
+            newBlock += block;
+            card.addDefendDisplay(PCLAffinity.General, block, newBlock);
+            return newBlock;
         }
         return block;
     }
 
-    public float modifyDamage(float damage, PCLCard source, PCLCard card, AbstractCreature target) {
-        if (target != null) {
-            float oldDamage = damage;
-            float multiplier = 100;
+    @Override
+    public float modifyDamage(float damage, PCLUseInfo info, PCLCard source, PCLCard card) {
+        if (info.target != null) {
+            float newDamage = 0;
             for (PCLCardAffinity aff : source.affinities.getCardAffinities(true)) {
-                for (AbstractPower p : target.powers) {
+                for (AbstractPower p : info.target.powers) {
                     for (ConjurerElementButton element : getElementButtons()) {
                         if (element.canReact(aff.type, p.ID)) {
-                            multiplier += AbstractPCLElementalPower.getAmplifyMultiplier(aff.type) * aff.level;
+                            for (PSkill<?> sk : element.getReactEffects(aff.type)) {
+                                for (int i = 0; i < aff.level; i++) {
+                                    newDamage = newDamage + sk.modifyDamageGiveFirst(info, damage) - damage;
+                                }
+                            }
                         }
                     }
                 }
             }
-            damage *= multiplier / 100;
-            card.addAttackDisplay(PCLAffinity.General, oldDamage, damage);
+            newDamage += damage;
+            card.addAttackDisplay(PCLAffinity.General, damage, newDamage);
+            return newDamage;
         }
         return damage;
     }
 
+    @Override
     public void onCardCreated(AbstractCard card, boolean startOfBattle) {
         super.onCardCreated(card, startOfBattle);
         if (!(card instanceof PCLCard)) {

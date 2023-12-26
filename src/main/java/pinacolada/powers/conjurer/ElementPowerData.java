@@ -12,7 +12,6 @@ import java.util.HashMap;
 public class ElementPowerData extends PCLPowerData {
     private static final HashMap<PCLAffinity, ElementPowerData> AFFINITY_TO_ELEMENT = new HashMap<>();
     public PCLAffinity affinity;
-    public int multiplier = 100;
 
     public ElementPowerData(Class<? extends AbstractPower> invokeClass, PCLAffinity affinity) {
         this(invokeClass, ConjurerResources.conjurer, affinity);
@@ -28,11 +27,6 @@ public class ElementPowerData extends PCLPowerData {
 
     public static ElementPowerData get(PCLAffinity aff) {
         return AFFINITY_TO_ELEMENT.getOrDefault(aff, LuxPower.DATA);
-    }
-
-    public ElementPowerData setMultipler(int mult) {
-        this.multiplier = mult;
-        return this;
     }
 
     public ElementPowerData setTooltip(EUIKeywordTooltip tip) {

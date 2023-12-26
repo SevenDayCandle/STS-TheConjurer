@@ -37,7 +37,7 @@ public class CooledPower extends PCLPower {
     public float atDamageReceive(float damage, DamageInfo.DamageType type, AbstractCard card) {
         if (expanded) {
             int red = GameUtilities.getPCLCardAffinityLevel(card, PCLAffinity.Red, true);
-            damage += damage * red * AbstractPCLElementalPower.getAmplifyMultiplier(PCLAffinity.Red);
+            damage += damage * red * POTENCY * 10;
             return super.atDamageReceive(type == DamageInfo.DamageType.NORMAL ? damage + getPotency() : damage, type, card);
         }
         return super.atDamageReceive(type == DamageInfo.DamageType.NORMAL ? damage + getPotency() : damage, type, card);

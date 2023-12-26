@@ -12,7 +12,7 @@ import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 
 @VisiblePower
-public class LuxPower extends AbstractPCLElementalPower implements OnTryElementReactSubscriber {
+public class LuxPower extends AbstractPCLElementalPower{
     public static final ElementPowerData DATA = registerElement(LuxPower.class, PCLAffinity.Yellow)
             .setTooltip(ConjurerResources.conjurer.tooltips.lux);
 
@@ -21,32 +21,8 @@ public class LuxPower extends AbstractPCLElementalPower implements OnTryElementR
     }
 
     @Override
-    public float calculateValue(int amount, float multiplier) {
-        return amount + MathUtils.ceil(amount * (multiplier / 100f));
-    }
-
-    @Override
     public AbstractGameAction.AttackEffect getAttackEffect() {
         return PCLEnum.AttackEffect.ELECTRIC;
-    }
-
-    @Override
-    public void onInitialApplication() {
-        super.onInitialApplication();
-
-        CombatManager.subscribe(this);
-    }
-
-    @Override
-    public void onRemove() {
-        super.onRemove();
-
-        CombatManager.unsubscribe(this);
-    }
-
-    @Override
-    public int onTryElementReact(int amount, PCLAffinity button, PCLAffinity trigger) {
-        return (int) calculateValue(amount, getIntensifyMultiplier());
     }
 
     @Override

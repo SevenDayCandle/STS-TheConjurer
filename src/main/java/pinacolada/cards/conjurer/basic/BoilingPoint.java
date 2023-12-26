@@ -22,6 +22,6 @@ public class BoilingPoint extends PCLCard {
     }
 
     public void setup(Object input) {
-        addGainPower(PTrigger.when(4, CCond.react(), PMove.gainBlock(2)).setUpgrade(2));
+        addGainPower(PTrigger.when(CCond.react(), PMove.gainBlock(2).setUpgrade(1)));
     }
 }

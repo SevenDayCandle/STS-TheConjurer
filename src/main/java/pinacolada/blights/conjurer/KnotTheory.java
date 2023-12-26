@@ -22,17 +22,6 @@ public class KnotTheory extends PCLBlight {
     @Override
     public void atBattleStart() {
         super.atBattleStart();
-
-        PCLActions.top.callback(() -> {
-            ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Blue).addReaction(PCLAffinity.Red);
-            ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Red).addReaction(PCLAffinity.Orange);
-            ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Orange).addReaction(PCLAffinity.Green);
-            ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Green).addReaction(PCLAffinity.Blue);
-            for (ConjurerElementButton element : ConjurerReactionMeter.meter.getElementButtons()) {
-                element.currentAmplifyOffset = AbstractPCLElementalPower.BASE_DAMAGE_MULTIPLIER * -getValue() / 100;
-                CombatManager.addEffectBonus(element.power.ID, -getValue());
-            }
-        });
     }
 
     public float getMultiplier() {

@@ -19,49 +19,10 @@ import pinacolada.utilities.GameUtilities;
 import pinacolada.utilities.RandomizedList;
 
 @VisibleBlight
-public class MolecularDiffusion extends PCLBlight implements OnCardUsingSubscriber {
+public class MolecularDiffusion extends PCLBlight {
     public static final PCLBlightData DATA = register(MolecularDiffusion.class, ConjurerResources.conjurer);
 
     public MolecularDiffusion() {
         super(DATA);
-    }
-
-    @Override
-    public void atBattleStart() {
-        super.atBattleStart();
-
-        CombatManager.subscribe(this);
-    }
-
-    @Override
-    public void onUse(AbstractCard card, AbstractPlayer p, AbstractCreature m) {
-        if (card != null) {
-            PCLCardAffinities affs = GameUtilities.getPCLCardAffinities(card);
-            if (affs != null) {
-                RandomizedList<AbstractCreature> creatures = new RandomizedList<>();
-                if (card instanceof PCLCard) {
-                    if (card.type != PCLEnum.CardType.SUMMON) {
-                        ((PCLCard) card).pclTarget.getTargets(p, m, creatures);
-                        creatures.removeIf(c -> !GameUtilities.isEnemy(c));
-                    }
-                }
-                else if (m != null) {
-                    creatures.add(m);
-                }
-
-                if (creatures.isEmpty()) {
-                    creatures.add(GameUtilities.getRandomEnemy(true));
-                }
-
-                for (PCLAffinity av : PCLAffinity.getAvailableAffinities()) {
-                    int lvl = affs.getLevel(av);
-                    if (lvl > 0) {
-                        for (AbstractCreature creature : creatures) {
-                            PCLActions.last.applyPower(p, creature, ElementPowerData.get(av), lvl);
-                        }
-                    }
-                }
-            }
-        }
     }
 }

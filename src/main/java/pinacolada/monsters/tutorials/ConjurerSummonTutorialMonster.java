@@ -19,7 +19,6 @@ import pinacolada.cards.conjurer.series.genshinimpact.Bennett;
 import pinacolada.cards.conjurer.series.genshinimpact.KaeyaAlberich;
 import pinacolada.cards.conjurer.series.shinmegamitensei.JackFrost;
 import pinacolada.cards.conjurer.series.shinmegamitensei.PyroJack;
-import pinacolada.dungeon.ConjurerReactionButton;
 import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.monsters.PCLCardAlly;
 import pinacolada.monsters.PCLCreatureData;
@@ -105,12 +104,11 @@ public class ConjurerSummonTutorialMonster extends PCLTutorialMonster {
                 break;
             }
         }
-        ConjurerReactionButton button = ConjurerReactionMeter.meter.getReactionButton(PCLAffinity.Orange, PCLAffinity.Red);
+
 
         EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(targetHb, PGR.core.tooltips.summon.title, PGR.core.strings.tutorial_summonTutorial5)
                 .setCanDismiss(true));
-        EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(button, PGR.core.tooltips.summon.title, ConjurerResources.conjurer.strings.conjurerSummonInteractive3)
-                .setCanDismiss(true));
+
         return new EUITourTooltip(ElementReaction.class, PGR.core.tooltips.summon.title, ConjurerResources.conjurer.strings.conjurerSummonInteractive4)
                 .setPosition(hb.x - hb.width * 3, hb.y + hb.height)
                 .setCanDismiss(false);

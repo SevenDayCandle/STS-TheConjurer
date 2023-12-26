@@ -2,15 +2,17 @@
 	"conjurer:Combat": {
 		"TEXT": [
 			"Level Price",
-			"{0} cards have #b+{1}% damage and #yBlock on #yReact.",
-			"When {0} cards #yReact with {1}, they have #b+{2}% damage and #yBlock.",
+			"Cards played against targets with {0} consume #b1 stack to activate effects based on their #yAffinity.",
+			"Select the #yReaction effects for {0}.",
 			"#gNext #gLevel #gAvailable"
 		]
 	},
 	"conjurer:Options": {
 		"TEXT": [
-			"Enable Colorless cards for other characters",
-			"Allow Colorless cards normally unique to the Conjurer to appear for other characters."
+			"Enable Conjurer Colorless cards for other characters",
+			"Allow Colorless cards normally unique to the Conjurer to appear for other characters.",
+			"Enable Conjurer relics for other characters",
+			"Allow certain Conjurer relics to appear for other characters."
 		]
 	},
 	"conjurer:Tutorial": {

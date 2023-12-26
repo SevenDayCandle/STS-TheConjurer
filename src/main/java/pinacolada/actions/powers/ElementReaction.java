@@ -14,6 +14,7 @@ import pinacolada.interfaces.subscribers.OnElementReactSubscriber;
 import pinacolada.powers.conjurer.AbstractPCLElementalPower;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class ElementReaction extends PCLAction<AffinityReactions> {
@@ -23,12 +24,16 @@ public class ElementReaction extends PCLAction<AffinityReactions> {
     public boolean showEffect = true;
 
     public ElementReaction(AffinityReactions reactions, AbstractCard card, PCLUseInfo info) {
+        this(reactions, card, info.source, info.target, info.targets);
+    }
+
+    public ElementReaction(AffinityReactions reactions, AbstractCard card, AbstractCreature source, AbstractCreature target, List<? extends AbstractCreature> targets) {
         super(ActionType.POWER, Settings.ACTION_DUR_XFAST);
         this.reactions = reactions;
         this.card = card;
-        this.source = info.source;
-        this.target = info.target;
-        this.creatures = new ArrayList<>(info.targets);
+        this.source = source;
+        this.target = target;
+        this.creatures = new ArrayList<>(targets);
     }
 
     @Override
@@ -45,7 +50,7 @@ public class ElementReaction extends PCLAction<AffinityReactions> {
             CombatManager.subscriberDo(OnElementReactSubscriber.class, s -> s.onElementReact(reactions, mo));
             for (AbstractPower po : mo.powers) {
                 if (po instanceof AbstractPCLElementalPower) {
-                    ((AbstractPCLElementalPower) po).onReact(source, reactions);
+                    ((AbstractPCLElementalPower) po).onReact(CombatManager.playerSystem.generateInfo(card, source, mo), reactions);
                 }
             }
         }

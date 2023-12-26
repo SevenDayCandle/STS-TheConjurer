@@ -24,9 +24,4 @@ public class MonsterHunter extends ConjurerLoadout {
         data.addCardSlot(PukeiPukei.DATA.ID, 1);
         data.addCardSlot(Ignite.DATA.ID, 1);
     }
-
-    @Override
-    public ArrayList<String> getBaseStartingRelics() {
-        return EUIUtils.arrayList(PeriodicTable.DATA.ID);
-    }
 }

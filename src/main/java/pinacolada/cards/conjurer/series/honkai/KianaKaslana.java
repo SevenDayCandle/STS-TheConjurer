@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.series.honkai;
 
 
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
@@ -66,7 +67,7 @@ public class KianaKaslana extends PCLCard {
 
             HashMap<PCLAffinity, Integer> counts = new HashMap<>();
             for (PCLCardAlly summon : CombatManager.summons.summons) {
-                if (summon.card != null && summon.card != sourceCard) {
+                if (summon.card != null && summon.card != source) {
                     for (PCLCardAffinity affinity : summon.card.affinities.sorted) {
                         counts.merge(affinity.type, amount, Integer::sum);
                     }
@@ -136,7 +137,9 @@ public class KianaKaslana extends PCLCard {
         protected void tryChangeEffect() {
             if (current == null) {
                 current = getActualMove();
-                sourceCard.initializeDescription();
+                if (source instanceof AbstractCard) {
+                    ((AbstractCard) source).initializeDescription();
+                }
             }
         }
 

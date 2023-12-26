@@ -24,9 +24,4 @@ public class Honkai extends ConjurerLoadout {
         data.addCardSlot(DanHeng.DATA.ID, 1);
         data.addCardSlot(PowderSnow.DATA.ID, 1);
     }
-
-    @Override
-    public ArrayList<String> getBaseStartingRelics() {
-        return EUIUtils.arrayList(PeriodicTable.DATA.ID);
-    }
 }

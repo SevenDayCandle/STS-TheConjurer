@@ -15,39 +15,29 @@ import extendedui.EUIUtils;
 import extendedui.utilities.ColoredString;
 import pinacolada.actions.PCLActions;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.dungeon.AffinityReactions;
-import pinacolada.dungeon.CombatManager;
-import pinacolada.dungeon.ConjurerElementButton;
-import pinacolada.dungeon.ConjurerReactionMeter;
+import pinacolada.dungeon.*;
 import pinacolada.interfaces.listeners.OnElementalDebuffListener;
 import pinacolada.powers.PCLPower;
 import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.resources.pcl.PCLCoreStrings;
+import pinacolada.skills.PSkill;
 import pinacolada.utilities.GameUtilities;
 import pinacolada.utilities.PCLRenderHelpers;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public abstract class AbstractPCLElementalPower extends PCLPower {
     private static List<PCLAffinity> hovered;
     private static AbstractCard last;
-    public static final int BASE_DAMAGE_MULTIPLIER = 40;
-    public static final int DEFAULT_COMBUST_INCREASE = BASE_DAMAGE_MULTIPLIER / 2;
     public static final String POWER_ID = createFullID(ConjurerResources.conjurer, AbstractPCLElementalPower.class);
     protected float flashTimer;
 
     public AbstractPCLElementalPower(ElementPowerData data, AbstractCreature owner, AbstractCreature source, int amount) {
         super(data, owner, source, amount);
-    }
-
-    public static float getAmplifyMultiplier(PCLAffinity affinity) {
-        return getAmplifyMultiplier(ConjurerReactionMeter.meter.getLevel(affinity), ConjurerReactionMeter.meter.getAmplifyOffset(affinity));
-    }
-
-    public static float getAmplifyMultiplier(int level, int modifier) {
-        return (BASE_DAMAGE_MULTIPLIER + modifier + (DEFAULT_COMBUST_INCREASE + modifier / 2f) * level);
     }
 
     public static float getIntensifyMultiplier(ElementPowerData powerID) {
@@ -67,7 +57,7 @@ public abstract class AbstractPCLElementalPower extends PCLPower {
     }
 
     public static float getIntensifyMultiplierForLevel(ElementPowerData powerID, int level) {
-        float base = powerID.multiplier + CombatManager.getEffectBonus(powerID.ID);
+        float base = CombatManager.getEffectBonus(powerID.ID);
         float increase = level * base / 2f;
         return base + increase;
     }
@@ -79,46 +69,18 @@ public abstract class AbstractPCLElementalPower extends PCLPower {
     @Override
     public void atEndOfRound() {
         super.atEndOfRound();
-        this.turns = turns - 1;
-        if (this.turns <= 0) {
-            this.removePower(PCLActions.instant);
+        if (this.turns > 1) {
+            this.turns = turns - 1;
         }
-    }
-
-    public float calculateValue(AffinityReactions reactions, AbstractCreature target) {
-        return calculateValue(reactions.getValue(getAffinity(), target), getIntensifyMultiplier());
-    }
-
-    public float calculateValue(int amount, float multiplier) {
-        return amount > 0 ? MathUtils.ceil(amount * (multiplier / 100f)) : 0;
     }
 
     public PCLAffinity getAffinity() {
         return ((ElementPowerData) data).affinity;
     }
 
-    protected float getElementalMultiplier() {
-        float mult = 1;
-        if (owner != null && owner.powers != null) {
-            for (AbstractPower po : owner.powers) {
-                if (po instanceof OnElementalDebuffListener) {
-                    mult = ((OnElementalDebuffListener) po).getPercentage(mult, this, owner);
-                }
-            }
-        }
-        return mult;
-    }
-
     @Override
     protected Color getImageColor(Color c) {
         return (enabled) ? c : disabledColor;
-    }
-
-    public float getIntensifyMultiplier() {
-        if (GameUtilities.isPlayer(owner)) {
-            return ((ElementPowerData) data).multiplier;
-        }
-        return getIntensifyMultiplier(((ElementPowerData) data), getElementalMultiplier());
     }
 
     @Override
@@ -127,35 +89,12 @@ public abstract class AbstractPCLElementalPower extends PCLPower {
     }
 
     @Override
-    protected ColoredString getSecondaryAmount(Color c) {
-        if (ConjurerReactionMeter.meter.isHighlighted()) {
-            AffinityReactions reactions = ConjurerReactionMeter.meter.getPreviewReactions();
-            if (reactions != null) {
-                return new ColoredString((int) calculateValue(reactions, source), Color.GREEN, c.a);
-            }
-        }
-        return null;
-    }
-
-    @Override
     public String getUpdatedDescription() {
-        String sub = getUpdatedDescriptionImpl();
-        if (PGR.isLoaded()) {
-            final PowerStrings strings = PGR.getPowerStrings(POWER_ID);
-            Set<PCLAffinity> affs = ConjurerReactionMeter.meter.getElementButton(getAffinity()).getReactAffinities();
-            return EUIUtils.joinStrings(" ",
-                    EUIUtils.format(strings.DESCRIPTIONS[0]
-                            , getAmplifyMultiplier(getAffinity())
-                            , PCLCoreStrings.joinWithAnd(EUIUtils.map(affs, a -> a.getTooltip().getTitleOrIcon()))),
-                    sub,
-                    turns > 1 ? EUIUtils.format(strings.DESCRIPTIONS[2], turns) : strings.DESCRIPTIONS[1]
-            );
+        String base = EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterBonus, PGR.core.strings.subjects_this);
+        if (CombatManager.inBattle()) {
+            return EUIUtils.joinStrings(EUIUtils.SPLIT_LINE, base, ConjurerReactionMeter.meter.getElementButton(getAffinity()).getEffectsString());
         }
-        return sub;
-    }
-
-    protected String getUpdatedDescriptionImpl() {
-        return formatDescription(0, PCLRenderHelpers.decimalFormat(getIntensifyMultiplier()));
+        return super.getUpdatedDescription();
     }
 
     @Override
@@ -163,8 +102,22 @@ public abstract class AbstractPCLElementalPower extends PCLPower {
         super.onInitialApplication();
     }
 
-    public void onReact(AbstractCreature source, AffinityReactions reactions) {
-        flash();
+    public void onReact(PCLUseInfo info, AffinityReactions reactions) {
+        ConjurerElementButton button = ConjurerReactionMeter.meter.getElementButton(getAffinity());
+        HashMap<PCLAffinity, Integer> values = reactions.getReactants(getAffinity(), owner);
+        if (values != null && !values.isEmpty()) {
+            for (Map.Entry<PCLAffinity, Integer> entry : values.entrySet()) {
+                for (PSkill<?> skill : button.getReactEffects(entry.getKey())) {
+                    for (int i = 0; i < entry.getValue(); i++) {
+                        skill.use(info, PCLActions.bottom);
+                    }
+                }
+            }
+            flash();
+            if (turns <= 1) {
+                reducePower(1);
+            }
+        }
     }
 
     @Override

@@ -16,14 +16,14 @@ import pinacolada.skills.PTrait;
 import pinacolada.skills.skills.PCustomMod;
 
 @VisibleCard
-public class LavaEruption extends PCLCard {
-    public static final PCLCardData DATA = register(LavaEruption.class, ConjurerResources.conjurer)
+public class MeteoriteEruption extends PCLCard {
+    public static final PCLCardData DATA = register(MeteoriteEruption.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.RARE, PCLAttackType.Normal, PCLCardTarget.AllEnemy)
             .setDamage(8, 1)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Orange)
             .setCore();
 
-    public LavaEruption() {
+    public MeteoriteEruption() {
         super(DATA);
     }
 

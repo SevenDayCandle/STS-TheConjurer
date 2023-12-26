@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.colorless;
 
 
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import pinacolada.actions.PCLActions;
@@ -145,7 +146,9 @@ public class PhoenixWright extends PCLCard {
                     actualMove = null;
                 }
 
-                sourceCard.initializeDescription();
+                if (source instanceof AbstractCard) {
+                    ((AbstractCard) source).initializeDescription();
+                }
             }
         }
 

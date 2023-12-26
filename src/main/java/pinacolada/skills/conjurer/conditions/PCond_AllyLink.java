@@ -64,8 +64,8 @@ public class PCond_AllyLink extends PDelegateCardCond
 
     protected boolean canAffixCard(AbstractCard card) {
         PCLCardAlly other = EUIUtils.safeCast(GameUtilities.getCardOwner(card), PCLCardAlly.class);
-        if (other != null) {
-            PCLCardAlly self = EUIUtils.safeCast(GameUtilities.getCardOwner(sourceCard), PCLCardAlly.class);
+        if (other != null && source instanceof AbstractCard) {
+            PCLCardAlly self = EUIUtils.safeCast(GameUtilities.getCardOwner((AbstractCard) source), PCLCardAlly.class);
             if (self != null) {
                 return canLinkAlly(self, other);
             }
@@ -129,7 +129,7 @@ public class PCond_AllyLink extends PDelegateCardCond
     @Override
     public String getText(PCLCardTarget perspective, Object requestor, boolean addPeriod) {
         // Perspective is from a single ally
-        return getCapitalSubText(perspective, requestor, addPeriod) + (childEffect != null ? ((childEffect instanceof PCond && !(childEffect instanceof PBranchCond) ? EFFECT_SEPARATOR : ": ") + childEffect.getText(PCLCardTarget.SingleAlly, requestor, addPeriod)) : "");
+        return getCapitalSubText(perspective, requestor, addPeriod) + (childEffect != null ? ((childEffect instanceof PCond && !(childEffect instanceof PBranchCond) ? EFFECT_SEPARATOR : COLON_SEPARATOR) + childEffect.getText(PCLCardTarget.SingleAlly, requestor, addPeriod)) : "");
     }
 
     @Override

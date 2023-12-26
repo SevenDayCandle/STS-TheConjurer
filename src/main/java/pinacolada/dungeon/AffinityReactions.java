@@ -23,6 +23,14 @@ public class AffinityReactions {
         reactions.clear();
     }
 
+    public HashMap<PCLAffinity, Integer> getReactants(PCLAffinity affinity, AbstractCreature target) {
+        HashMap<AbstractCreature, HashMap<PCLAffinity, Integer>> targetMap = reactions.get(affinity);
+        if (targetMap != null && targetMap.containsKey(target)) {
+            return targetMap.get(target);
+        }
+        return null;
+    }
+
     public int getValue(PCLAffinity affinity, AbstractCreature target) {
         int sum = 0;
         HashMap<AbstractCreature, HashMap<PCLAffinity, Integer>> targetMap = reactions.get(affinity);

@@ -24,9 +24,4 @@ public class GenshinImpact extends ConjurerLoadout {
         data.addCardSlot(Noelle.DATA.ID, 1);
         data.addCardSlot(AirCurrent.DATA.ID, 1);
     }
-
-    @Override
-    public ArrayList<String> getBaseStartingRelics() {
-        return EUIUtils.arrayList(PeriodicTable.DATA.ID);
-    }
 }

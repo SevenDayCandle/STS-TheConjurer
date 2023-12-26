@@ -28,6 +28,6 @@ public class ShatterEarth extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.EARTH);
-        addUseMove(PCond.blockBreak(PCLCardTarget.Single), PMove.applyToSingle(4, PetraPower.DATA));
+        addUseMove(PCond.blockBreak(PCLCardTarget.Single), PMove.applyToSingle(3, PetraPower.DATA));
     }
 }

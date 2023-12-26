@@ -25,6 +25,6 @@ public class SolarFlare extends PCLCard {
 
     public void setup(Object input) {
         addBlockMove();
-        addUseMove(new PMod_PerCreatureDamage(PCLCardTarget.Single, 4).setExtra(6), PMove.applyToSingle(1, IgnisPower.DATA));
+        addUseMove(new PMod_PerCreatureDamage(PCLCardTarget.Single, 7).edit(f -> f.setNot(true)), PMove.applyToSingle(1, IgnisPower.DATA));
     }
 }

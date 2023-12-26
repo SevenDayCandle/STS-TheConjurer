@@ -25,15 +25,6 @@ public class PetraPower extends AbstractPCLElementalPower {
     }
 
     @Override
-    public void onReact(AbstractCreature source, AffinityReactions reactions) {
-        float val = calculateValue(reactions, owner);
-        if (val > 0) {
-            PCLActions.bottom.gainBlock((int) val);
-        }
-        super.onReact(source, reactions);
-    }
-
-    @Override
     public void playApplyPowerSfx() {
         PCLSFX.play(PCLSFX.PCL_ORB_EARTH_CHANNEL, 0.95f, 1.05f);
     }

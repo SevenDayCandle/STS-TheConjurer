@@ -14,7 +14,6 @@ import pinacolada.cards.conjurer.basic.Ignite;
 import pinacolada.cards.conjurer.basic.Lithosphere;
 import pinacolada.cards.conjurer.series.eldenring.Lucidity;
 import pinacolada.dungeon.ConjurerElementButton;
-import pinacolada.dungeon.ConjurerReactionButton;
 import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.monsters.PCLCreatureData;
 import pinacolada.monsters.PCLTutorialMonster;
@@ -62,9 +61,7 @@ public class ConjurerTutorialMonster extends PCLTutorialMonster {
         PetraPower p = new PetraPower(this, this, 5);
         p.addTurns(2);
         powers.add(p);
-        ConjurerReactionButton button = ConjurerReactionMeter.meter.getReactionButton(PCLAffinity.Orange, PCLAffinity.Red);
-        EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(button, ConjurerResources.conjurer.tooltips.element.title, ConjurerResources.conjurer.strings.conjurerTutorial2).setCanDismiss(true));
-        EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(button, ConjurerResources.conjurer.tooltips.element.title, ConjurerResources.conjurer.strings.conjurerTutorial3).setCanDismiss(true));
+
         return new EUITourTooltip(ElementReaction.class, ConjurerResources.conjurer.tooltips.element.title, ConjurerResources.conjurer.strings.conjurerInteractive3)
                 .setPosition(hb.x - hb.width * 3, hb.y + hb.height)
                 .setCanDismiss(false);

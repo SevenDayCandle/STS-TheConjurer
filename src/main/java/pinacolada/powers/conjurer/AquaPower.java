@@ -26,14 +26,6 @@ public class AquaPower extends AbstractPCLElementalPower {
     }
 
     @Override
-    public void onReact(AbstractCreature source, AffinityReactions reactions) {
-        if (!(owner instanceof PCLCardAlly)) {
-            PCLActions.bottom.applyPower(source, owner, CooledPower.DATA, (int) calculateValue(reactions, owner), false);
-        }
-        super.onReact(source, reactions);
-    }
-
-    @Override
     public void playApplyPowerSfx() {
         PCLSFX.play(PCLSFX.ORB_FROST_CHANNEL, 0.95f, 1.05f);
     }

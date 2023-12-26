@@ -1,9 +1,8 @@
 package pinacolada.resources.conjurer;
 
 import extendedui.EUIUtils;
-import pinacolada.blights.conjurer.KnotTheory;
-import pinacolada.blights.conjurer.MolecularDiffusion;
 import pinacolada.relics.conjurer.DisguisePropBox;
+import pinacolada.relics.conjurer.PeriodicTable;
 import pinacolada.relics.conjurer.QuadraticGlobe;
 import pinacolada.resources.PGR;
 import pinacolada.resources.loadout.PCLLoadout;
@@ -36,22 +35,14 @@ public class ConjurerLoadout extends PCLLoadout {
         return register(new ConjurerLoadout(PGR.createID(ConjurerResources.ID, prefix), unlockLevel));
     }
 
-    public ArrayList<String> getAvailableBlightIDs() {
-        return EUIUtils.arrayList(MolecularDiffusion.DATA.ID, KnotTheory.DATA.ID);
-    }
-
     public ArrayList<String> getAvailableRelicIDs() {
         ArrayList<String> list = super.getAvailableRelicIDs();
         list.add(DisguisePropBox.DATA.ID);
         return list;
     }
 
-    protected void setDefaultBlightsForData(PCLLoadoutData data) {
-        data.addBlightSlot(MolecularDiffusion.DATA.ID);
-    }
-
     @Override
     public ArrayList<String> getBaseStartingRelics() {
-        return EUIUtils.arrayList(QuadraticGlobe.DATA.ID);
+        return EUIUtils.arrayList(PeriodicTable.DATA.ID);
     }
 }

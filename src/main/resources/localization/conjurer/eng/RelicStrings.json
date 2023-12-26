@@ -212,7 +212,7 @@
 	},
 	"conjurer:PeriodicTable":
 	{
-		"DESCRIPTIONS": [],
+		"DESCRIPTIONS": ["The first card played each combat applies its corresponding #yElements to enemy targets. If it didn't target enemies, a random enemy is targeted instead."],
 		"FLAVOR": "A table that repeats itself every so often.",
 		"NAME": "Periodic Table"
 	},

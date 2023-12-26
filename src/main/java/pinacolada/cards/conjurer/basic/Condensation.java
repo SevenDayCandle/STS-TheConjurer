@@ -8,6 +8,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.ConjurerEFK;
 import pinacolada.powers.PCLPowerData;
+import pinacolada.powers.conjurer.AquaPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
@@ -24,7 +25,7 @@ public class Condensation extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.applyToSingle(1, PCLPowerData.Shackles, PCLPowerData.Weak).setVFX(ConjurerEFK.MGC_HealingSpell_LV1));
+        addUseMove(PMove.applyToSingle(1, AquaPower.DATA, PCLPowerData.Weak).setVFX(ConjurerEFK.MGC_HealingSpell_LV1));
         addUseMove(PCond.checkAlly(PCLCardTarget.Single), PMove.triggerAlly(PCLCardTarget.UseParent, 2).setUpgrade(1));
     }
 }
