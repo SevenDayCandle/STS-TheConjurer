@@ -18,7 +18,9 @@ import extendedui.ui.controls.EUITextBox;
 import extendedui.ui.controls.EUITutorialImagePage;
 import extendedui.ui.controls.EUITutorialPage;
 import extendedui.ui.hitboxes.RelativeHitbox;
+import extendedui.ui.tooltips.EUIHeaderlessTooltip;
 import extendedui.ui.tooltips.EUIKeywordTooltip;
+import extendedui.ui.tooltips.EUITooltip;
 import extendedui.utilities.EUIColors;
 import extendedui.utilities.EUIFontHelper;
 import extendedui.utilities.SeparableTrie;
@@ -70,6 +72,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
     protected ConjurerElementButton dark;
     protected EUILabel reactionHeader;
     protected EUITextBox reactionCountText;
+    protected EUIHeaderlessTooltip previewTip;
     protected int matterCount;
     protected int totalReactions;
     protected PCLAffinity lastUpgrade = PCLAffinity.General;
@@ -103,6 +106,8 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
                 .setColors(EUIColors.black(0.6f), Settings.CREAM_COLOR)
                 .setAlignment(0.5f, 0.5f)
                 .setFont(EUIFontHelper.cardTitleFontNormal, BASE_AMOUNT_SCALE);
+
+        previewTip = new EUIHeaderlessTooltip(EUIUtils.EMPTY_STRING);
 
         initializeTrie();
     }
@@ -540,6 +545,10 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
 
         reactionCountText.tryRender(sb);
         reactionHeader.tryRender(sb);
+
+        if (!previewTip.description.isEmpty()) {
+            previewTip.render(sb, hb.cX, hb.y - hb.height * 4, 0);
+        }
     }
 
     @Override
@@ -600,11 +609,22 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
 
             int sum = isSwapIntended(card, originalCard) ? previewReactions.sum() * CombatManager.summons.triggerTimes : previewReactions.sum();
             matterPreview = matterCount + sum;
-            for (ConjurerElementButton element : elements) {
-                element.updatePreview(previewReactions);
+
+            if (shouldUpdateForTarget) {
+                if (target != null) {
+                    StringJoiner sj = new StringJoiner(EUIUtils.SPLIT_LINE);
+                    for (ConjurerElementButton element : elements) {
+                        element.updatePreview(previewReactions, sj);
+                    }
+                    previewTip.setDescription(sj.toString());
+                }
+                else {
+                    previewTip.description = EUIUtils.EMPTY_STRING;
+                }
             }
         }
         else if (card == null) {
+            previewTip.description = EUIUtils.EMPTY_STRING;
             matterPreview = matterCount;
             for (ConjurerElementButton element : elements) {
                 element.unsetPreview();

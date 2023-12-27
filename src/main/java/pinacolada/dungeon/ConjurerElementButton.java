@@ -17,6 +17,7 @@ import extendedui.ui.controls.EUIImage;
 import extendedui.ui.hitboxes.EUIHitbox;
 import extendedui.ui.tooltips.EUIKeywordTooltip;
 import extendedui.utilities.EUIColors;
+import org.apache.commons.lang3.StringUtils;
 import pinacolada.actions.PCLActions;
 import pinacolada.actions.cards.TryChooseChoice;
 import pinacolada.cards.base.ChoiceCard;
@@ -285,16 +286,16 @@ public class ConjurerElementButton extends EUIButton {
         intensifyFontScale = PCLRenderHelpers.lerpScale(intensifyFontScale, BASE_AMOUNT_SCALE);
     }
 
-    public void updatePreview(AffinityReactions afs) {
+    protected void updatePreview(AffinityReactions afs, StringJoiner sj) {
         unsetPreview();
 
         if (afs.hasReaction(power.affinity)) {
-
-/*            for (HashMap<PCLAffinity, Integer> targetMap : afs.reactions.get(power.affinity).values()) {
-                for (PCLAffinity reactor : targetMap.keySet()) {
-                    // TODO display skill preview
-                }
-            }*/
+           for (HashMap<PCLAffinity, Integer> targetMap : afs.reactions.get(power.affinity).values()) {
+               String res = getEffectsString(targetMap.keySet());
+               if (!StringUtils.isEmpty(res)) {
+                   sj.add(res);
+               }
+            }
         }
     }
 
