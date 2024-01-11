@@ -6,29 +6,20 @@ import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import extendedui.EUI;
 import extendedui.EUIRenderHelpers;
 import extendedui.EUIUtils;
-import extendedui.utilities.ColoredString;
-import pinacolada.actions.PCLActions;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.dungeon.*;
-import pinacolada.interfaces.listeners.OnElementalDebuffListener;
+import pinacolada.dungeon.CombatManager;
+import pinacolada.dungeon.ConjurerElementButton;
+import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.powers.PCLPower;
 import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.resources.pcl.PCLCoreStrings;
-import pinacolada.skills.PSkill;
 import pinacolada.utilities.GameUtilities;
 import pinacolada.utilities.PCLRenderHelpers;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 public abstract class AbstractPCLElementalPower extends PCLPower {
     private static List<PCLAffinity> hovered;
@@ -84,11 +75,6 @@ public abstract class AbstractPCLElementalPower extends PCLPower {
     }
 
     @Override
-    protected ColoredString getPrimaryAmount(Color c) {
-        return new ColoredString(amount, turns > 1 ? Settings.BLUE_TEXT_COLOR : Color.WHITE, c.a);
-    }
-
-    @Override
     public String getUpdatedDescription() {
         String base = EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterBonus, PGR.core.strings.subjects_this);
         if (CombatManager.inBattle()) {
@@ -100,24 +86,6 @@ public abstract class AbstractPCLElementalPower extends PCLPower {
     @Override
     public void onInitialApplication() {
         super.onInitialApplication();
-    }
-
-    public void onReact(PCLUseInfo info, AffinityReactions reactions) {
-        ConjurerElementButton button = ConjurerReactionMeter.meter.getElementButton(getAffinity());
-        HashMap<PCLAffinity, Integer> values = reactions.getReactants(getAffinity(), owner);
-        if (values != null && !values.isEmpty()) {
-            for (Map.Entry<PCLAffinity, Integer> entry : values.entrySet()) {
-                for (PSkill<?> skill : button.getReactEffects(entry.getKey())) {
-                    for (int i = 0; i < entry.getValue(); i++) {
-                        skill.use(info, PCLActions.bottom);
-                    }
-                }
-            }
-            flash();
-            if (turns <= 1) {
-                reducePower(1);
-            }
-        }
     }
 
     @Override

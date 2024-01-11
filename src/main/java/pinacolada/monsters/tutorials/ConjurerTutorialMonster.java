@@ -6,6 +6,7 @@ import com.esotericsoftware.spine.AnimationState;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import extendedui.ui.hitboxes.DraggableHitbox;
 import extendedui.ui.tooltips.EUITourTooltip;
 import pinacolada.actions.powers.ElementReaction;
 import pinacolada.cards.base.fields.PCLAffinity;
@@ -33,7 +34,7 @@ public class ConjurerTutorialMonster extends PCLTutorialMonster {
         this.loadAnimation("images/monsters/theBottom/slimeS/skeleton.atlas", "images/monsters/theBottom/slimeS/skeleton.json", 1.0F);
         AnimationState.TrackEntry e = this.state.setAnimation(0, "idle", true);
         this.tint.color = Color.SALMON.cpy();
-        addSteps(this::step1, this::step2, this::step3);
+        addSteps(this::step1, this::step2);
     }
 
     public void renderAnimation(SpriteBatch sb) {
@@ -44,6 +45,8 @@ public class ConjurerTutorialMonster extends PCLTutorialMonster {
         AbstractCard card = new Lithosphere();
         replaceHandWith(card);
         ConjurerElementButton button = ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Red);
+        ConjurerReactionMeter.meter.hb.move(ConjurerReactionMeter.meter.hb.targetCx, ConjurerReactionMeter.meter.hb.targetCy);
+        button.hb.update();
         EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(button, ConjurerResources.conjurer.tooltips.element.title, ConjurerResources.conjurer.strings.conjurerInteractive1)
                 .setCanDismiss(true));
         EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(button, ConjurerResources.conjurer.tooltips.element.title, ConjurerResources.conjurer.strings.conjurerTutorial1)
@@ -63,19 +66,6 @@ public class ConjurerTutorialMonster extends PCLTutorialMonster {
         powers.add(p);
 
         return new EUITourTooltip(ElementReaction.class, ConjurerResources.conjurer.tooltips.element.title, ConjurerResources.conjurer.strings.conjurerInteractive3)
-                .setPosition(hb.x - hb.width * 3, hb.y + hb.height)
-                .setCanDismiss(false);
-    }
-
-    public EUITourTooltip step3() {
-        replaceHandWith(new Lucidity());
-        ConjurerReactionMeter.meter.disableAffinity(PCLAffinity.Blue);
-        ConjurerReactionMeter.meter.disableAffinity(PCLAffinity.Green);
-        ConjurerReactionMeter.meter.disableAffinity(PCLAffinity.Orange);
-        ConjurerReactionMeter.meter.addCount(15, true);
-        ConjurerElementButton button = ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Red);
-        EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(button, ConjurerResources.conjurer.tooltips.element.title, ConjurerResources.conjurer.strings.conjurerTutorial4).setCanDismiss(true));
-        return new EUITourTooltip(button.hb, ConjurerResources.conjurer.tooltips.element.title, ConjurerResources.conjurer.strings.conjurerInteractive4)
                 .setPosition(hb.x - hb.width * 3, hb.y + hb.height)
                 .setCanDismiss(false);
     }

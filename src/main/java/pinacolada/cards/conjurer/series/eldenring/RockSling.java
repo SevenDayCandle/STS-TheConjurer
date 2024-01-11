@@ -18,7 +18,7 @@ import pinacolada.skills.PTrait;
 public class RockSling extends PCLCard {
     public static final PCLCardData DATA = register(RockSling.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.COMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
-            .setDamage(5, 1, 3)
+            .setDamage(8, 2, 2)
             .setAffinities(PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.eldenRing);
 

@@ -13,13 +13,14 @@ import pinacolada.powers.conjurer.IgnisPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
+import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
 import pinacolada.skills.PTrait;
 
 @VisibleCard
 public class GiantsflameTakeThee extends PCLCard {
     public static final PCLCardData DATA = register(GiantsflameTakeThee.class, ConjurerResources.conjurer)
-            .setAttack(2, CardRarity.UNCOMMON, PCLAttackType.Ranged)
+            .setAttack(2, CardRarity.UNCOMMON)
             .setDamage(14, 3)
             .setAffinities(2, PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.eldenRing);
@@ -29,7 +30,7 @@ public class GiantsflameTakeThee extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.SMALL_EXPLOSION).setChain(PCond.checkPower(PCLCardTarget.Single, 1, CooledPower.DATA), PTrait.damage(8).setUpgrade(2));
-        addUseMove(PMove.applyToSingle(4, IgnisPower.DATA));
+        addDamageMove(PCLAttackVFX.SMALL_EXPLOSION).setBonus(PMod.perPowerSingle(CooledPower.DATA), 2,1);
+        addUseMove(PMove.applyToSingle(2, IgnisPower.DATA));
     }
 }

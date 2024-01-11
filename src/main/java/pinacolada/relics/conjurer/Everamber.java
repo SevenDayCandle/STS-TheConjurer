@@ -27,7 +27,6 @@ public class Everamber extends PCLRelic {
     protected void activateBattleEffect() {
         PCLActions.bottom.callback(() -> {
             ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Green).addAdditionalPower(MalleablePower.POWER_ID);
-            ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Orange).addAdditionalPower(MalleablePower.POWER_ID);
             for (AbstractCreature c : GameUtilities.getAllCharacters(true)) {
                 PCLActions.bottom.applyPower(c, PCLPowerData.Malleable, getValue());
             }
@@ -35,6 +34,6 @@ public class Everamber extends PCLRelic {
     }
 
     public int getValue() {
-        return 2;
+        return 3;
     }
 }

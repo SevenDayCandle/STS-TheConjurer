@@ -82,6 +82,9 @@ public class ConjurerReactionGroup implements ValueProvider {
         return upgrades.retrieveWithWeight(rng, true);
     }
 
+    public void refresh() {
+    }
+
     public void setSkills(List<PSkill<?>> skills) {
         this.skills = skills;
         for (PSkill<?> skill : skills) {

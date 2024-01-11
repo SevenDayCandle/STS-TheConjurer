@@ -50,7 +50,7 @@ public class UtsuhoReiuji extends PCLCard {
                                 ElementPowerData debuff = ElementPowerData.get(aff);
                                 if (debuff != null) {
                                     for (AbstractCreature target : move.getTargetList(info)) {
-                                        order.applyPower(info.source, target, debuff, move.amount);
+                                        order.applyPower(info.source, target, debuff, move.refreshAmount(info));
                                     }
                                 }
                             }

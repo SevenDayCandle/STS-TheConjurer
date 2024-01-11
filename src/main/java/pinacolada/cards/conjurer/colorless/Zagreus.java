@@ -18,7 +18,7 @@ import pinacolada.skills.skills.PMultiSkill;
 public class Zagreus extends PCLCard {
     public static final PCLCardData DATA = register(Zagreus.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.UNCOMMON, PCLAttackType.Normal)
-            .setDamage(2, 1)
+            .setDamage(3, 1)
             .setHp(6, 2)
             .setAffinities(PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.hades, true);

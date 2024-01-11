@@ -8,16 +8,17 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.ConjurerEFK;
+import pinacolada.powers.conjurer.CooledPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CMod;
-import pinacolada.skills.PTrait;
+import pinacolada.skills.*;
+import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
 public class CrystalHail extends PCLCard {
     public static final PCLCardData DATA = register(CrystalHail.class, ConjurerResources.conjurer)
-            .setAttack(2, CardRarity.COMMON, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
-            .setDamage(10, 3)
+            .setPower(2, CardRarity.UNCOMMON)
+            .setCostUpgrades(-1)
             .setAffinities(2, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.darkSouls);
 
@@ -26,6 +27,6 @@ public class CrystalHail extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(ConjurerEFK.MGC_W2_Shield_Break).setChain(CMod.perLevel(1, PCLAffinity.Blue), PTrait.damage(3));
+        addGainPower(PTrigger.when(PCond.onTurnEnd(), PMod.perPower(CooledPower.DATA).setTarget(PCLCardTarget.AllEnemy), PMove.loseHp(PCLCardTarget.UseParent, 1)));
     }
 }

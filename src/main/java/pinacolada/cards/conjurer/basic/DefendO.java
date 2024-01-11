@@ -13,7 +13,8 @@ public class DefendO extends PCLCard {
             .setSkill(1, CardRarity.BASIC, PCLCardTarget.Self)
             .setAffinities(PCLAffinity.Orange)
             .setBlock(5, 3)
-            .setDefend();
+            .setDefend()
+            .setCore();
 
     public DefendO() {
         super(DATA);

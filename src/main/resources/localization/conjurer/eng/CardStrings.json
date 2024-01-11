@@ -21,10 +21,10 @@
 		"conjurer:DeltaStream": {"NAME": "Delta Stream"},
 		"conjurer:Desiccation": {"NAME": "Desiccation"},
 		"conjurer:DustTornado": {"NAME": "Dust Tornado"},
-		"conjurer:Ecosystem": {"EXTENDED_DESCRIPTION": ["apply {0} + {1} per Level of its Element to all characters"], "NAME": "Ecosystem"},
+		"conjurer:Ecosystem": {"EXTENDED_DESCRIPTION": ["When you click on an Element's button, pay {0} of its Reaction to apply {1} of that element to all characters"], "NAME": "Ecosystem"},
 		"conjurer:Entropy": {"EXTENDED_DESCRIPTION": ["Apply {0} of the corresponding Elements of each discarded card"], "NAME": "Entropy"},
 		"conjurer:ErodingTerra": {
-			"EXTENDED_DESCRIPTION": ["At round end, Stabilize {0}% of everyone's [conjurer:Petra]. Gain [Block] equal to the total Stabilized amount"],
+			"EXTENDED_DESCRIPTION": ["Cards Upgraded with [conjurer:Forging] are Retained and gain [Recast]"],
 			"NAME": "Eroding Terra"
 		},
 		"conjurer:Erosion": {"NAME": "Erosion"},
@@ -41,7 +41,7 @@
 		"conjurer:Lithosphere": {"NAME": "Lithosphere"},
 		"conjurer:MagmaFlare": {"NAME": "Magma Flare"},
 		"conjurer:Melt": {"EXTENDED_DESCRIPTION": ["Whenever an Attack deals more than its base damage"], "NAME": "Melt"},
-		"conjurer:MeteoriteEruption": {"EXTENDED_DESCRIPTION": ["Reaction made this combat"], "NAME": "Meteorite Eruption"},
+		"conjurer:MeteoriteEruption": {"NAME": "Meteorite Eruption"},
 		"conjurer:MudFissure": {"NAME": "Mud Fissure"},
 		"conjurer:NaturalSelection": {"NAME": "Natural Selection"},
 		"conjurer:OceanSubmersion": {"NAME": "Ocean Submersion"},
@@ -55,7 +55,7 @@
 		"conjurer:RazorTurbine": {"NAME": "Razor Turbine"},
 		"conjurer:SeismicShift": {"NAME": "Seismic Shift"},
 		"conjurer:SheerCold": {
-			"EXTENDED_DESCRIPTION": ["{0}% of [conjurer:Cooled] is preserved at the end of round. [conjurer:Cooled] activates [A-R]'s Reaction damage bonus"],
+			"EXTENDED_DESCRIPTION": ["Cards can React with [conjurer:Cooled] as if it were [conjurer:Aqua]"],
 			"NAME": "Sheer Cold"
 		},
 		"conjurer:SkyBurial": {"NAME": "Sky Burial"},
@@ -160,7 +160,7 @@
 		"conjurer:AuralDecoy": {"NAME": "Aural Decoy"},
 		"conjurer:BoulderHeave": {"NAME": "Boulder Heave"},
 		"conjurer:BountifulSunlight": {"NAME": "Bountiful Sunlight"},
-		"conjurer:CaressingTears": {"EXTENDED_DESCRIPTION": ["For {0} turn, if any creature would gain [Frail], [Vulnerable], or [Weak], you gain {1} [THP] instead"], "NAME": "Caressing Tears"},
+		"conjurer:CaressingTears": {"EXTENDED_DESCRIPTION": ["For {0} turns, if any creature would gain [Weak], [Vulnerable], or [Cooled], you gain {1} [THP] instead"], "NAME": "Caressing Tears"},
 		"conjurer:CarthusBeacon": {"NAME": "Carthus Beacon"},
 		"conjurer:CrystalHail": {"NAME": "Crystal Hail"},
 		"conjurer:CrystalSoulSpear": {"NAME": "Crystal Soul Spear"},
@@ -193,7 +193,7 @@
 		"conjurer:TearsOfDenial": {"EXTENDED_DESCRIPTION": ["For {0} turns, invert the effects of [Frail], [Vulnerable], and [Weak] on you"], "NAME": "Tears Of Denial"},
 		"conjurer:ToxicMist": {"NAME": "Toxic Mist"},
 		"conjurer:Warmth": {"NAME": "Warmth"},
-		"conjurer:WhiteDragonBreath": {"NAME": "White Dragon Breath"}
+		"conjurer:WhiteDragonBreath": {"EXTENDED_DESCRIPTION": ["The next time the target gains [conjurer:Cooled], it is Stunned"], "NAME": "White Dragon Breath"}
 	},
 	"SERIES:ELDENRING":
 	{
@@ -242,6 +242,7 @@
 		"conjurer:StarsOfRuin": {"NAME": "Stars Of Ruin"},
 		"conjurer:StoneOfGurranq": {"NAME": "Stone Of Gurranq"},
 		"conjurer:SwarmOfFlies": {"NAME": "Swarm Of Flies"},
+		"conjurer:SwiftGlintstoneShard": {"NAME": "Swift Glintstone Shard"},
 		"conjurer:ZamorIceStorm": {"NAME": "Zamor Ice Storm"}
 	},
 	"SERIES:GENSHIN":

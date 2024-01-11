@@ -18,8 +18,8 @@ import pinacolada.skills.skills.PMultiCond;
 public class Elysia extends PCLCard {
     public static final PCLCardData DATA = register(Elysia.class, ConjurerResources.conjurer)
             .setSummon(1, CardRarity.RARE, PCLAttackType.Immaterial)
-            .setDamage(3, 1)
-            .setHp(4, 2)
+            .setDamage(3, 2)
+            .setHp(4, 1)
             .setAffinities(PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.honkai, true);
 

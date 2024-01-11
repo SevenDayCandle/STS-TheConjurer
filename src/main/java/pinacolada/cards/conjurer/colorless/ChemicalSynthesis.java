@@ -30,7 +30,7 @@ public class ChemicalSynthesis extends PCLCard {
     public void action(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
         for (AbstractPotion potion : AbstractDungeon.player.potions) {
             if (potion != null && potion.canUse()) {
-                order.usePotion(potion, info.target, move.amount);
+                order.usePotion(potion, info.target, move.refreshAmount(info));
                 return;
             }
         }

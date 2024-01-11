@@ -202,26 +202,6 @@ public class ConjurerPlayerData extends PCLPlayerData<ConjurerResources, Conjure
     }
 
     @Override
-    public String[] getAdditionalRelicIDs(boolean customEnabled) {
-        return EUIUtils.array(
-                Brimstone.ID,
-                CharonsAshes.ID,
-                ChampionsBelt.ID,
-                CloakClasp.ID,
-                HoveringKite.ID,
-                MarkOfPain.ID,
-                Melange.ID,
-                PaperCrane.ID,
-                PaperFrog.ID,
-                RedSkull.ID,
-                SneckoSkull.ID,
-                Tingsha.ID,
-                TwistedFunnel.ID,
-                UsefulBox.DATA.ID
-        );
-    }
-
-    @Override
     public PCLEffect getCharSelectScreenAnimation() {
         return new ConjurerScreenAnimationEffect();
     }

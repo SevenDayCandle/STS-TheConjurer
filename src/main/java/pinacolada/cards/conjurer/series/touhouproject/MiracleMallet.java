@@ -37,7 +37,7 @@ public class MiracleMallet extends PCLCard {
                 {
                     for (AbstractCard c : cards) {
                         if (c.costForTurn >= 0) {
-                            order.gainEnergy(c.costForTurn + move.amount);
+                            order.gainEnergy(c.costForTurn + move.refreshAmount(info));
                         }
                     }
                 });

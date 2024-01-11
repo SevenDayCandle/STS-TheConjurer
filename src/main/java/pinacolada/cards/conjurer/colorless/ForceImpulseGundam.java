@@ -43,7 +43,7 @@ public class ForceImpulseGundam extends PCLCard {
         }
 
         @Override
-        public int getModifiedAmount(PSkill<?> be, PCLUseInfo info, boolean isUsing) {
+        public int getModifiedAmount(PCLUseInfo info, int baseAmount, boolean isUsing) {
             return AbstractDungeon.player != null ? EUIUtils.sumInt(AbstractDungeon.player.hand.group, c -> c.timesUpgraded) * amount : 0;
         }
     }

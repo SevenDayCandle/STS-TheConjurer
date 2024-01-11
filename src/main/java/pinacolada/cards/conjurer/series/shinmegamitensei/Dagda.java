@@ -32,7 +32,7 @@ public class Dagda extends PCLCard {
     public void setup(Object input) {
         addDamageMove(AbstractGameAction.AttackEffect.BLUNT_HEAVY);
         addGainPower(PTrigger.interactable(
-                CCond.payMatter(12),
+                CCond.payLevel(3, PCLAffinity.Orange),
                 PMove.gainTemporaryPlayer(1, PCLPowerData.Artifact))
         );
     }

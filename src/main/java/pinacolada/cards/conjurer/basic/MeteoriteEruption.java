@@ -11,6 +11,7 @@ import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.effects.ConjurerEFK;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.CMod;
 import pinacolada.skills.PSkill;
 import pinacolada.skills.PTrait;
 import pinacolada.skills.skills.PCustomMod;
@@ -28,17 +29,6 @@ public class MeteoriteEruption extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(ConjurerEFK.SPEAR03).setChain(new LavaEruptionMod(DATA, 1), PTrait.damage(2).setUpgrade(1));
-    }
-
-    protected static class LavaEruptionMod extends PCustomMod {
-        public LavaEruptionMod(PCLCardData data, int amount) {
-            super(data, 0, amount);
-        }
-
-        @Override
-        public int getModifiedAmount(PSkill<?> be, PCLUseInfo info, boolean isUsing) {
-            return ConjurerReactionMeter.meter.getTotalReactionsMade();
-        }
+        addDamageMove(ConjurerEFK.SPEAR03).setBonus(CMod.perReaction(1), 2, 1);
     }
 }

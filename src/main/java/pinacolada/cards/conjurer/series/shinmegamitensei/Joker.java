@@ -43,7 +43,7 @@ public class Joker extends PCLCard {
     }
 
     public void specialMove(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
-        order.selectFromPile(name, move.amount, AbstractDungeon.player.discardPile)
+        order.selectFromPile(name, move.refreshAmount(info), AbstractDungeon.player.discardPile)
                 .setFilter(c -> c instanceof PointerProvider && c.type == PCLEnum.CardType.SUMMON && !(c instanceof Joker)) // Filter out other Jokers to avoid infinites
                 .setOrigin(PCLCardSelection.Random)
                 .addCallback(cards -> {

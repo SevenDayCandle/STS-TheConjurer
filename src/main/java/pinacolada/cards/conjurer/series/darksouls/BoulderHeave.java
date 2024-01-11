@@ -16,8 +16,8 @@ import pinacolada.skills.PMod;
 @VisibleCard
 public class BoulderHeave extends PCLCard {
     public static final PCLCardData DATA = register(BoulderHeave.class, ConjurerResources.conjurer)
-            .setAttack(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
-            .setDamage(8, 5)
+            .setAttack(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.Single)
+            .setDamage(11, 2)
             .setAffinities(2, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.darkSouls);
 
@@ -26,6 +26,6 @@ public class BoulderHeave extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(ConjurerEFK.MGC_EarthSpell_LV1_Impact).setBonus(PMod.perCard(PCLCardGroupHelper.Hand).edit(f -> f.setAffinity(PCLAffinity.Orange)), 4);
+        addDamageMove(ConjurerEFK.MGC_EarthSpell_LV1_Impact).setBonus(PMod.perCard(PCLCardGroupHelper.Hand).edit(f -> f.setAffinity(PCLAffinity.Orange)), 4, 2);
     }
 }

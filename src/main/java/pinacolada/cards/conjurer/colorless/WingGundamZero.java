@@ -38,7 +38,7 @@ public class WingGundamZero extends PCLCard {
     }
 
     public void specialMove(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
-        PCLActions.bottom.selectFromPile(name, move.amount, AbstractDungeon.player.hand)
+        PCLActions.bottom.selectFromPile(name, move.refreshAmount(info), AbstractDungeon.player.hand)
                 .setOrigin(PCLCardSelection.Top)
                 .addCallback((cards) -> {
                     for (AbstractCard c : cards) {

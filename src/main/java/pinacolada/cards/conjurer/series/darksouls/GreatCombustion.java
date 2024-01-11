@@ -24,7 +24,7 @@ public class GreatCombustion extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.applyToSingle(3, IgnisPower.DATA, BlastedPower.DATA).setUpgrade(1));
+        addUseMove(PMove.applyToSingle(3, BlastedPower.DATA).setUpgrade(1));
         addUseMove(PMod.perPowerSingle(BlastedPower.DATA), PMove.dealDamageToAll(1));
     }
 }

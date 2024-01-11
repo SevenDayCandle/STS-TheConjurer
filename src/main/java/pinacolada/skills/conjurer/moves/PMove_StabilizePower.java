@@ -53,31 +53,31 @@ public class PMove_StabilizePower extends PMove<PField_Power> {
         return fields.random ? TEXT.subjects_randomly(mainString) : mainString;
     }
 
-    protected void stabilizePower(AbstractCreature p, List<? extends AbstractCreature> targets, PCLPowerData power, PCLActions order) {
+    protected void stabilizePower(PCLUseInfo info, PCLPowerData power, PCLActions order) {
         if (power != null) {
+            List<? extends AbstractCreature> targets = getTargetList(info);
             for (AbstractCreature t : targets) {
-                power.doFor(po -> order.add(new StabilizePowerAction(p, t, po, amount)));
+                power.doFor(po -> order.add(new StabilizePowerAction(info.source, t, po, refreshAmount(info))));
             }
         }
     }
 
     @Override
     public void use(PCLUseInfo info, PCLActions order) {
-        List<? extends AbstractCreature> targets = getTargetList(info);
         if (fields.powers.isEmpty()) {
             for (PCLPowerData power : PCLPowerData.getAllData(false, c -> c.isCommon && c.isDebuff())) {
-                stabilizePower(info.source, targets, power, order);
+                stabilizePower(info, power, order);
             }
         }
         else if (fields.random) {
             String powerID = GameUtilities.getRandomElement(fields.powers);
             PCLPowerData power = PCLPowerData.getStaticDataOrCustom(powerID);
-            stabilizePower(info.source, targets, power, order);
+            stabilizePower(info, power, order);
         }
         else {
             for (String powerID : fields.powers) {
                 PCLPowerData power = PCLPowerData.getStaticDataOrCustom(powerID);
-                stabilizePower(info.source, targets, power, order);
+                stabilizePower(info, power, order);
             }
         }
         super.use(info, order);

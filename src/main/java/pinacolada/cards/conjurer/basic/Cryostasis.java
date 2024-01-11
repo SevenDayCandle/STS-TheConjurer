@@ -8,6 +8,8 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.powers.conjurer.AquaPower;
+import pinacolada.powers.conjurer.BlastedPower;
+import pinacolada.powers.conjurer.CooledPower;
 import pinacolada.powers.conjurer.IgnisPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CMove;
@@ -16,8 +18,7 @@ import pinacolada.skills.CMove;
 public class Cryostasis extends PCLCard {
     public static final PCLCardData DATA = register(Cryostasis.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.SelfSingle)
-            .setBlock(11, 3)
-            .setTags(PCLCardTag.Exhaust)
+            .setBlock(6, 3)
             .setAffinities(PCLAffinity.Blue)
             .setCore();
 
@@ -27,6 +28,6 @@ public class Cryostasis extends PCLCard {
 
     public void setup(Object input) {
         addBlockMove();
-        addUseMove(CMove.stabilize(PCLCardTarget.SelfSingle, IgnisPower.DATA, AquaPower.DATA));
+        addUseMove(CMove.stabilize(PCLCardTarget.SelfSingle, BlastedPower.DATA, CooledPower.DATA));
     }
 }

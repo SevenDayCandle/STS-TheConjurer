@@ -23,7 +23,7 @@ public class MiraculousOfuda extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.gain(4, PCLPowerData.Warding).setUpgrade(2));
-        addUseMove(PCond.exhaust(1), PMove.modifyCost(-1));
+        addUseMove(PMove.gain(4, PCLPowerData.Warding).setUpgrade(3));
+        addUseMove(PCond.exhaust(1), PMove.modifyCost(-1).edit(f -> f.setOr(true)));
     }
 }

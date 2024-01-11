@@ -28,6 +28,6 @@ public class Keqing extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.DAGGER);
-        addUseMove(PCond.cooldown(1), PMove.gainPlayer(4, FlowPower.DATA));
+        addUseMove(PCond.cooldown(1), PMove.gainPlayer(3, FlowPower.DATA));
     }
 }

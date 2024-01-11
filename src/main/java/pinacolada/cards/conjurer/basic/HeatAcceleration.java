@@ -23,7 +23,7 @@ public class HeatAcceleration extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMod.bonusPerCreature(PCLCardTarget.AllAlly, -1), PMove.draw(2).setUpgrade(1));
+        addUseMove(PMod.bonusPerCreature(PCLCardTarget.AllAlly, -1), PMove.draw(3).setUpgrade(1));
         addUseMove(PMove.triggerAlly(PCLCardTarget.AllAlly, 1));
     }
 }

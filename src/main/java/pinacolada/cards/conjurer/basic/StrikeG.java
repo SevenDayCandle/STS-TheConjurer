@@ -13,7 +13,8 @@ public class StrikeG extends PCLCard {
             .setAttack(1, CardRarity.BASIC)
             .setAffinities(PCLAffinity.Green)
             .setDamage(6, 3)
-            .setStrike();
+            .setStrike()
+            .setCore();
 
     public StrikeG() {
         super(DATA);

@@ -9,6 +9,7 @@ import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerEnum;
+import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkillData;
 import pinacolada.skills.PSkillSaveData;
 import pinacolada.skills.fields.PField_Affinity;
@@ -39,11 +40,11 @@ public class PMod_PerLevel extends PMod_Per<PField_Affinity> {
 
     @Override
     public String getSubSampleText() {
-        return PGR.core.tooltips.level.title;
+        return ConjurerResources.conjurer.tooltips.reaction.title;
     }
 
     @Override
     public String getSubText(PCLCardTarget perspective, Object requestor) {
-        return EUIRM.strings.adjNoun(fields.getAffinityAndOrString(), PGR.core.tooltips.level.title);
+        return EUIRM.strings.adjNoun(fields.getAffinityAndOrString(), ConjurerResources.conjurer.tooltips.reaction.title);
     }
 }

@@ -14,6 +14,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 @VisiblePower
 public class AquaPower extends AbstractPCLElementalPower {
     public static final ElementPowerData DATA = registerElement(AquaPower.class, PCLAffinity.Blue)
+            .setType(PowerType.DEBUFF)
             .setTooltip(ConjurerResources.conjurer.tooltips.aqua);
 
     public AquaPower(AbstractCreature owner, AbstractCreature source, int amount) {

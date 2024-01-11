@@ -13,7 +13,7 @@ import pinacolada.skills.PCond;
 public class MudFissure extends PCLCard {
     public static final PCLCardData DATA = register(MudFissure.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.COMMON)
-            .setDamage(5, 2)
+            .setDamage(6, 2)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Orange)
             .setCore();
 
@@ -22,6 +22,6 @@ public class MudFissure extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.EARTH).setBonus(PCond.checkPowerSingle(1).edit(f -> f.setDebuff(true)), 6, 2);
+        addDamageMove(PCLAttackVFX.EARTH).setBonus(PCond.checkDistinctPowerSingle(2).edit(f -> f.setDebuff(true)), 6, 2);
     }
 }

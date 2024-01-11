@@ -15,6 +15,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 @VisiblePower
 public class VentusPower extends AbstractPCLElementalPower {
     public static final ElementPowerData DATA = registerElement(VentusPower.class, PCLAffinity.Green)
+            .setType(PowerType.DEBUFF)
             .setTooltip(ConjurerResources.conjurer.tooltips.ventus);
 
     public VentusPower(AbstractCreature owner, AbstractCreature source, int amount) {

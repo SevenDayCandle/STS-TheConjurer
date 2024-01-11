@@ -41,11 +41,12 @@ public class PCond_PayLevel extends PActiveCond<PField_Affinity> {
     @Override
     public boolean checkCondition(PCLUseInfo info, boolean isUsing, PSkill<?> triggerSource) {
         if (fields.affinities.isEmpty()) {
-            return fields.not ^ ConjurerReactionMeter.meter.getLevel(PCLAffinity.General) >= amount;
+            return fields.not ^ ConjurerReactionMeter.meter.getLevel(PCLAffinity.General) >= refreshAmount(info);
         }
         else {
+            int am = refreshAmount(info);
             for (PCLAffinity affinity : fields.affinities) {
-                if (ConjurerReactionMeter.meter.getLevel(affinity) < amount) {
+                if (ConjurerReactionMeter.meter.getLevel(affinity) < am) {
                     return fields.not;
                 }
             }
@@ -65,7 +66,7 @@ public class PCond_PayLevel extends PActiveCond<PField_Affinity> {
 
     @Override
     protected PCLAction<?> useImpl(PCLUseInfo info, PCLActions order, ActionT1<PCLUseInfo> onComplete, ActionT1<PCLUseInfo> onFail) {
-        return order.callback(new SequentialAction(EUIUtils.map(fields.affinities, af -> new AddAffinityLevel(af, -amount))), () -> {
+        return order.callback(new SequentialAction(EUIUtils.map(fields.affinities, af -> new AddAffinityLevel(af, -refreshAmount(info)))), () -> {
             if (conditionMetCache) {
                 onComplete.invoke(info);
             }

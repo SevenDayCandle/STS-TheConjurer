@@ -20,6 +20,6 @@ public class NimbleFabric extends PCLPointerRelic {
     }
 
     public void setup() {
-        addUseMove(new PRoot(), PMove.gain(11, FlowPower.DATA));
+        addUseMove(new PRoot(), PMove.gain(8, FlowPower.DATA));
     }
 }

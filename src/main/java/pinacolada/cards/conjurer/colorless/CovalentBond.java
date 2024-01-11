@@ -28,10 +28,10 @@ public class CovalentBond extends PCLCard {
     }
 
     public void action(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
-        order.selectFromPile(getName(), move.amount, AbstractDungeon.player.hand)
+        order.selectFromPile(getName(), move.refreshAmount(info), AbstractDungeon.player.hand)
                 .setFilter(c -> c.type == CardType.ATTACK || c.type == CardType.SKILL)
                 .addCallback((cards) -> {
-                    if (cards.size() > 0) {
+                    if (!cards.isEmpty()) {
                         Polymerization result = new Polymerization();
                         for (AbstractCard c : cards) {
                             AbstractDungeon.player.hand.removeCard(c);

@@ -6,18 +6,18 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
+import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.powers.PCLPowerData;
+import pinacolada.powers.conjurer.FlowPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CCond;
-import pinacolada.skills.CMove;
-import pinacolada.skills.PMod;
-import pinacolada.skills.PMove;
+import pinacolada.skills.*;
 
 @VisibleCard
 public class ToxicMist extends PCLCard {
     public static final PCLCardData DATA = register(ToxicMist.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.AllEnemy)
+            .setRTags(PCLCardTag.Ethereal)
             .setAffinities(PCLAffinity.Green, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.darkSouls);
 
@@ -26,7 +26,6 @@ public class ToxicMist extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.applyToEnemies(5, PCLPowerData.Poison).setUpgrade(2));
-        addUseMove(CCond.react(), PMod.perPower(2, PCLPowerData.Poison).setTarget(PCLCardTarget.AllEnemy), CMove.gainMatter(1));
+        addUseMove(PMod.bonusPerPowerSelf(1, FlowPower.DATA), PMove.applyToEnemies(3, PCLPowerData.Poison));
     }
 }

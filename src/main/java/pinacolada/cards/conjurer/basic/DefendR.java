@@ -13,7 +13,8 @@ public class DefendR extends PCLCard {
             .setSkill(1, CardRarity.BASIC, PCLCardTarget.Self)
             .setAffinities(PCLAffinity.Red)
             .setBlock(5, 3)
-            .setDefend();
+            .setDefend()
+            .setCore();
 
     public DefendR() {
         super(DATA);

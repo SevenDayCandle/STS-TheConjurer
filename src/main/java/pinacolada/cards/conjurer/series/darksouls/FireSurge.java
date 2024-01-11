@@ -24,6 +24,6 @@ public class FireSurge extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(EffekseerEFK.FIRE04).setBonus(CMod.perLevel(1, PCLAffinity.Red), 5, 2);
+        addDamageMove(EffekseerEFK.FIRE04).setBonus(CMod.perLevel(1, PCLAffinity.Red), 1, 1);
     }
 }

@@ -14,6 +14,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 @VisiblePower
 public class IgnisPower extends AbstractPCLElementalPower {
     public static final ElementPowerData DATA = registerElement(IgnisPower.class, PCLAffinity.Red)
+            .setType(PowerType.DEBUFF)
             .setTooltip(ConjurerResources.conjurer.tooltips.ignis);
 
     public IgnisPower(AbstractCreature owner, AbstractCreature source, int amount) {

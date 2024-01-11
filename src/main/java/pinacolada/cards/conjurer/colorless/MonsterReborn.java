@@ -30,7 +30,7 @@ public class MonsterReborn extends PCLCard {
     }
 
     public void action(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
-        order.playFromPile(move.getName(), move.amount, move.target.getTarget(info, move.scope), CombatManager.PURGED_CARDS)
+        order.playFromPile(move.getName(), move.refreshAmount(info), move.target.getTarget(info, move.scope), CombatManager.PURGED_CARDS)
                 .setFilter(c -> c.type == PCLEnum.CardType.SUMMON && c instanceof PCLCard)
                 .addCallback(cards -> {
                     for (AbstractCard c : cards) {

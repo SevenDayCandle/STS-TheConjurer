@@ -53,7 +53,7 @@ public class AtomicDisplacement extends PCLCard {
         }
 
         int gained = enemyPowers.size() - playerPowers.size();
-        int thp = gained * move.amount;
+        int thp = gained * move.refreshAmount(info);
         if (thp > 0) {
             order.gainTemporaryHP(thp);
         }

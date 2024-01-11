@@ -104,7 +104,7 @@
 	},
 	"conjurer:Everamber":
 	{
-		"DESCRIPTIONS": ["[Malleable] is treated as [conjurer:Ventus] and [conjurer:Petra]. All characters start battle with {0} [Malleable]."],
+		"DESCRIPTIONS": ["[Malleable] is treated as [conjurer:Ventus]. All characters start battle with {0} [Malleable]."],
 		"FLAVOR": "Inside the amber, a small, long-extinct insect remains frozen in time.",
 		"NAME": "Everamber"
 	},

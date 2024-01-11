@@ -49,8 +49,8 @@ public class Rorona extends PCLCard {
             return AbstractDungeon.player != null;
         }
 
-        public void useOutsideOfBattle() {
-            super.useOutsideOfBattle();
+        public void useOutsideOfBattle(PCLUseInfo info) {
+            super.useOutsideOfBattle(info);
             AbstractPotion po = PotionHelper.getRandomPotion();
             if (po != null) {
                 AbstractDungeon.player.obtainPotion(po);

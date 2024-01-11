@@ -13,6 +13,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 @VisiblePower
 public class PetraPower extends AbstractPCLElementalPower {
     public static final ElementPowerData DATA = registerElement(PetraPower.class, PCLAffinity.Orange)
+            .setType(PowerType.DEBUFF)
             .setTooltip(ConjurerResources.conjurer.tooltips.petra);
 
     public PetraPower(AbstractCreature owner, AbstractCreature source, int amount) {

@@ -33,8 +33,8 @@ public class Decarabia extends PCLCard {
     public void setup(Object input) {
         addDamageMove(AbstractGameAction.AttackEffect.FIRE);
         addGainPower(PTrigger.interactable(
-                CCond.payMatter(7).setUpgrade(0, -2),
-                PMove.applyToEnemies(1, IgnisPower.DATA, AquaPower.DATA)
+                CCond.payLevel(2, PCLAffinity.Red).setUpgrade(0, 1),
+                PMove.applyToEnemies(1, IgnisPower.DATA, AquaPower.DATA).setUpgrade(0, 1)
         ));
     }
 }

@@ -30,7 +30,7 @@ public class RinnosukeMorichika extends PCLCard {
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BLUNT_LIGHT);
         addGainPower(PTrigger.interactable(
-                CCond.payMatter(15),
+                CCond.payLevel(3, PCLAffinity.Blue),
                 PMove.create(Insight.DATA.ID)
         ));
     }

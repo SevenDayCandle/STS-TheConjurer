@@ -12,6 +12,7 @@ import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CMove;
 import pinacolada.skills.PCond;
+import pinacolada.skills.PMove;
 
 @VisibleCard
 public class ProfuseSweat extends PCLCard {
@@ -27,6 +28,6 @@ public class ProfuseSweat extends PCLCard {
 
     public void setup(Object input) {
         addBlockMove();
-        addUseMove(PCond.payPower(0, BlastedPower.DATA, IgnisPower.DATA), CMove.gainMatter(11));
+        addUseMove(PMove.remove(PCLCardTarget.Self, BlastedPower.DATA, IgnisPower.DATA));
     }
 }

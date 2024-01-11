@@ -16,7 +16,7 @@ import pinacolada.skills.PMove;
 @VisibleCard
 public class AtmosphericPressure extends PCLCard {
     public static final PCLCardData DATA = register(AtmosphericPressure.class, ConjurerResources.conjurer)
-            .setSkill(0, CardRarity.UNCOMMON, PCLCardTarget.SelfSingle)
+            .setSkill(0, CardRarity.UNCOMMON, PCLCardTarget.Single)
             .setTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Green)
             .setCore();
@@ -27,6 +27,6 @@ public class AtmosphericPressure extends PCLCard {
 
     public void setup(Object input) {
         addUseMove(PMove.draw(1).setUpgrade(1));
-        addUseMove(CMove.stabilize(PCLCardTarget.SelfSingle, AquaPower.DATA, VentusPower.DATA));
+        addUseMove(CMove.stabilize(PCLCardTarget.Single, VentusPower.DATA));
     }
 }

@@ -22,6 +22,6 @@ public class Dendroculus extends PCLPointerRelic {
     }
 
     public void setup() {
-        addUseMove(PTrigger.when(PCond.onTurnStart(), CMod.bonusPerLevel(3, PCLAffinity.Green), CMove.gainMatter(6)));
+        addUseMove(PTrigger.when(PCond.onTurnStart(), CMove.addLevel(2, PCLAffinity.Green)));
     }
 }

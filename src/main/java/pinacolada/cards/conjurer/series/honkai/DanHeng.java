@@ -28,6 +28,6 @@ public class DanHeng extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL).setBonus(PMultiCond.or(PCond.block(PCLCardTarget.Single, 1), PCond.checkPower(PCLCardTarget.None, 7, FlowPower.DATA)), 3, 2);
+        addDamageMove(PCLAttackVFX.SLASH_HORIZONTAL).setBonus(PMultiCond.or(PCond.block(PCLCardTarget.Single, 1), PCond.checkPower(PCLCardTarget.None, 5, FlowPower.DATA)), 3, 2);
     }
 }

@@ -56,7 +56,7 @@ public class DisguisePropBox extends PCLRelic {
     @Override
     public void onLoad(PCLCollectibleSaveData data) {
         super.onLoad(data);
-        if (this.auxiliaryData != null && this.auxiliaryData.additionalData != null && this.auxiliaryData.additionalData.size() > 0) {
+        if (this.auxiliaryData != null && this.auxiliaryData.additionalData != null && !this.auxiliaryData.additionalData.isEmpty()) {
             currentForm = this.auxiliaryData.additionalData.get(0);
         }
     }

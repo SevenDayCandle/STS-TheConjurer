@@ -39,14 +39,15 @@ public class PMove_AddLevel extends PMove<PField_Affinity> {
 
     @Override
     public void use(PCLUseInfo info, PCLActions order) {
+        int actualAmount = refreshAmount(info);
         if (fields.affinities.isEmpty()) {
-            order.tryChooseAffinitySkill(getName(), amount, info.source, info.target, EUIUtils.map(PCLAffinity.getAvailableAffinities(), a -> CMove.addLevel(amount, a)));
+            order.tryChooseAffinitySkill(getName(), actualAmount, info.source, info.target, EUIUtils.map(PCLAffinity.getAvailableAffinities(), a -> CMove.addLevel(actualAmount, a)));
         }
         else if (fields.affinities.size() == 1) {
-            order.add(new AddAffinityLevel(fields.affinities.get(0), amount));
+            order.add(new AddAffinityLevel(fields.affinities.get(0), actualAmount));
         }
         else {
-            order.tryChooseAffinitySkill(getName(), amount, info.source, info.target, EUIUtils.map(fields.affinities, a -> CMove.addLevel(amount, a)));
+            order.tryChooseAffinitySkill(getName(), actualAmount, info.source, info.target, EUIUtils.map(fields.affinities, a -> CMove.addLevel(actualAmount, a)));
         }
         super.use(info, order);
     }

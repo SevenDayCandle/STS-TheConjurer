@@ -20,9 +20,8 @@ public class CooledPower extends PCLPower {
             .setEndTurnBehavior(PCLPowerData.Behavior.SingleTurn)
             .setTooltip(ConjurerResources.conjurer.tooltips.cooled)
             .setPriority(3);
-    public static final int POTENCY = 5;
+    public static final int POTENCY = 2;
     public static final Color healthBarColor = Color.SKY.cpy();
-    public boolean expanded;
 
     public CooledPower(AbstractCreature owner, AbstractCreature source, int amount) {
         super(DATA, owner, source, amount);
@@ -35,11 +34,6 @@ public class CooledPower extends PCLPower {
 
     @Override
     public float atDamageReceive(float damage, DamageInfo.DamageType type, AbstractCard card) {
-        if (expanded) {
-            int red = GameUtilities.getPCLCardAffinityLevel(card, PCLAffinity.Red, true);
-            damage += damage * red * POTENCY * 10;
-            return super.atDamageReceive(type == DamageInfo.DamageType.NORMAL ? damage + getPotency() : damage, type, card);
-        }
         return super.atDamageReceive(type == DamageInfo.DamageType.NORMAL ? damage + getPotency() : damage, type, card);
     }
 

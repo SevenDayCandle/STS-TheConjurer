@@ -31,10 +31,10 @@ public class Genbu extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.CLAW);
-        addGainPower(PTrigger.interactable(CCond.payMatter(11),
+        addGainPower(PTrigger.interactable(CCond.payLevel(3, PCLAffinity.Orange),
                 PMultiSkill.choose(
-                        PMove.applyToEnemies(4, AquaPower.DATA).setUpgrade(0, 2),
-                        PMove.applyToEnemies(4, PetraPower.DATA).setUpgrade(0, 2)
+                        PMove.applyToEnemies(2, AquaPower.DATA).setUpgrade(0, 2),
+                        PMove.applyToEnemies(2, PetraPower.DATA).setUpgrade(0, 2)
                 )
         ));
     }

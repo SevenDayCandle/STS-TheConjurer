@@ -10,6 +10,8 @@ import pinacolada.annotations.VisibleRelic;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardAffinities;
+import pinacolada.dungeon.CombatManager;
+import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.powers.conjurer.ElementPowerData;
 import pinacolada.relics.PCLPointerRelic;
 import pinacolada.relics.PCLRelic;
@@ -49,18 +51,21 @@ public class PeriodicTable extends PCLRelic {
             PCLCardAffinities affs = GameUtilities.getPCLCardAffinities(card);
             if (affs != null) {
                 RandomizedList<AbstractCreature> creatures = new RandomizedList<>();
-                if (card instanceof PCLCard) {
-                    if (card.type != PCLEnum.CardType.SUMMON) {
-                        ((PCLCard) card).pclTarget.getTargets(AbstractDungeon.player, m, creatures);
-                        creatures.removeIf(c -> !GameUtilities.isEnemy(c));
+                PCLUseInfo info = CombatManager.getLastInfo();
+                if (info != null) {
+                    for (AbstractCreature c : info.targets) {
+                        if (GameUtilities.isEnemy(c)) {
+                            creatures.add(c);
+                        }
                     }
                 }
-                else if (m != null) {
-                    creatures.add(m);
-                }
-
                 if (creatures.isEmpty()) {
-                    creatures.add(GameUtilities.getRandomEnemy(true));
+                    if (m != null) {
+                        creatures.add(m);
+                    }
+                    else {
+                        creatures.add(GameUtilities.getRandomEnemy(true));
+                    }
                 }
 
                 for (PCLAffinity av : PCLAffinity.getAvailableAffinities()) {

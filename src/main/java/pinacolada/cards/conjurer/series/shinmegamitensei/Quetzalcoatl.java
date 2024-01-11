@@ -19,7 +19,7 @@ import pinacolada.skills.skills.PTrigger;
 public class Quetzalcoatl extends PCLCard {
     public static final PCLCardData DATA = register(Quetzalcoatl.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.RARE, PCLAttackType.Immaterial)
-            .setDamage(4, 0)
+            .setDamage(8, 0)
             .setHp(12, 4)
             .setAffinities(PCLAffinity.Green, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.shinMegamiTensei);
@@ -31,8 +31,8 @@ public class Quetzalcoatl extends PCLCard {
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BITE);
         addGainPower(PTrigger.interactable(
-                CCond.payMatter(11).setUpgrade(-1),
-                PMove.fetch(1, PCLCardGroupHelper.DiscardPile).edit(f -> f.setAffinity(PCLAffinity.Red, PCLAffinity.Green).setOrigin(PCLCardSelection.Random)))
+                CCond.payLevel(4, PCLAffinity.Red).setUpgrade(-1),
+                PMove.fetch(3, PCLCardGroupHelper.DiscardPile).edit(f -> f.setOrigin(PCLCardSelection.Random)))
         );
     }
 }

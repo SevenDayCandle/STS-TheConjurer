@@ -6,7 +6,9 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
+import pinacolada.effects.ConjurerEFK;
 import pinacolada.powers.conjurer.BlastedPower;
+import pinacolada.powers.conjurer.ForgingPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CMod;
@@ -15,8 +17,8 @@ import pinacolada.skills.PMove;
 @VisibleCard
 public class RoilingMagma extends PCLCard {
     public static final PCLCardData DATA = register(RoilingMagma.class, ConjurerResources.conjurer)
-            .setSkill(1, CardRarity.COMMON, PCLCardTarget.Single)
-            .setBlock(5, 2)
+            .setAttack(1, CardRarity.COMMON)
+            .setDamage(7, 2)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
@@ -25,7 +27,7 @@ public class RoilingMagma extends PCLCard {
     }
 
     public void setup(Object input) {
-        addBlockMove();
-        addUseMove(CMod.bonusOnReact(2), PMove.applyToSingle(4, BlastedPower.DATA).setUpgrade(1));
+        addDamageMove(ConjurerEFK.FIRE06);
+        addUseMove(CMod.bonusOnReact(2), PMove.gain(2, ForgingPower.DATA));
     }
 }

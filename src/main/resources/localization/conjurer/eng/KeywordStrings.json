@@ -1,6 +1,6 @@
 {
 	"conjurer:Aqua": {
-		"DESCRIPTION": "Playing [A-G] cards on targets with [conjurer:Aqua] increases damage they take and decreases damage they deal.",
+		"DESCRIPTION": "[A-B] #yElement. Playing [A-R], [A-G], or [A-O] cards on targets with [conjurer:Aqua] triggers #yReactions.",
 		"NAME": "Aqua"
 	},
 	"conjurer:Back Link": {
@@ -20,7 +20,7 @@
 		"NAME": "Cooled"
 	},
 	"conjurer:Element": {
-		"DESCRIPTION": "[conjurer:Ignis], [conjurer:Aqua], [conjurer:Ventus], [conjurer:Petra]. Playing cards on targets with #yElements triggers #yReactions. Removed at the end of the round.",
+		"DESCRIPTION": "[conjurer:Ignis], [conjurer:Aqua], [conjurer:Ventus], [conjurer:Petra]. Playing cards on targets with #yElements consumes those #yElements to trigger #yReactions.",
 		"NAME": "Element",
 		"PLURAL": "${0}@>1:Elements@:Element$"
 	},
@@ -29,8 +29,12 @@
 		"NAME": "Elemental Mastery"
 	},
 	"conjurer:Flow": {
-		"DESCRIPTION": "During your turn, spend #b{0} [conjurer:Flow] to draw a card.",
+		"DESCRIPTION": "During your turn, spend #b{0} [conjurer:Flow] to fetch the top card of your draw pile.",
 		"NAME": "Flow"
+	},
+	"conjurer:Forging": {
+		"DESCRIPTION": "Right-click a card in hand to spend #b{0} [conjurer:Forging] and upgrade it.",
+		"NAME": "Forging"
 	},
 	"conjurer:Front Link": {
 		"DESCRIPTION": "Activates when a #ySummon in front of this #ySummon that meets this condition's requirements is #yTriggered.",
@@ -41,7 +45,7 @@
 		"NAME": "Frozen"
 	},
 	"conjurer:Ignis": {
-		"DESCRIPTION": "Playing [A-B] cards on targets with [conjurer:Ignis] damages them at the start of their turn.",
+		"DESCRIPTION": "[A-R] #yElement. Playing [A-B], [A-G], or [A-O] cards on targets with [conjurer:Ignis] triggers #yReactions.",
 		"NAME": "Ignis"
 	},
 	"conjurer:Link": {
@@ -61,7 +65,7 @@
 		"NAME": "Matter"
 	},
 	"conjurer:Petra": {
-		"DESCRIPTION": "Playing [A-R] cards on targets with [conjurer:Petra] grant you [Block].",
+		"DESCRIPTION": "[A-O] #yElement. Playing [A-R], [A-B], or [A-G] cards on targets with [conjurer:Petra] triggers #yReactions.",
 		"NAME": "Petra"
 	},
 	"conjurer:Petrified": {
@@ -69,7 +73,7 @@
 		"NAME": "Petrified"
 	},
 	"conjurer:Reaction": {
-		"DESCRIPTION": "Occurs upon playing a card with an #yAffinity that activates the target's #yElement. This also grants #yMatter.",
+		"DESCRIPTION": "Playing cards on targets with #yElements triggers #yReactions, activating effects based on the cards' #yAffinities.",
 		"NAME": "Reaction",
 		"PAST": "Reacted",
 		"PLURAL": "${0}@>1:Reactions@:Reaction$",
@@ -77,7 +81,7 @@
 		"PROGRESSIVE": "Reacting"
 	},
 	"conjurer:Stabilize":	{
-		"DESCRIPTION": "Prevent a turn-based power from being reduced at the start of turn.",
+		"DESCRIPTION": "Prevent a power from being reduced this turn.",
 		"NAME": "Stabilize",
 		"PAST": "Stabilized",
 		"PRESENT": "Stabilizes",
@@ -88,7 +92,7 @@
 		"NAME": "Umbra"
 	},
 	"conjurer:Ventus": {
-		"DESCRIPTION": "Playing [A-O] cards on targets with [conjurer:Ventus] grants charges to be used during your turn to draw cards.",
+		"DESCRIPTION": "[A-G] #yElement. Playing [A-R], [A-B], or [A-O] cards on targets with [conjurer:Ventus] triggers #yReactions.",
 		"NAME": "Ventus"
 	}
 }

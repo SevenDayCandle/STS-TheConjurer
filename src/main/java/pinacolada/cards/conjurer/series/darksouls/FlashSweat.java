@@ -8,6 +8,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.powers.conjurer.BlastedPower;
 import pinacolada.powers.conjurer.ElementPowerData;
+import pinacolada.powers.conjurer.IgnisPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
@@ -25,6 +26,6 @@ public class FlashSweat extends PCLCard {
     }
 
     public void setup(Object input) {
-        addBlockMove().setBonus(PCond.checkPowerSelf(1, BlastedPower.DATA, ElementPowerData.Weak).edit(f -> f.setRandom(true)), 3, 2);
+        addBlockMove().setBonus(PCond.checkPowerSelf(1, IgnisPower.DATA, ElementPowerData.Weak).edit(f -> f.setRandom(true)), 5, 2);
     }
 }

@@ -6,9 +6,11 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import pinacolada.actions.PCLActions;
 import pinacolada.interfaces.subscribers.OnTryReducePowerSubscriber;
 import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.PCLSubscribingPower;
+import pinacolada.powers.TemporaryPower;
 import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.utilities.PCLRenderHelpers;
@@ -21,15 +23,16 @@ public class StabilizingPower extends PCLSubscribingPower implements OnTryReduce
     public StabilizingPower(AbstractPower originalPower, AbstractCreature owner, AbstractCreature source, int amount) {
         super(DATA, owner, source, amount);
         this.originalPower = originalPower;
+        this.ID = DATA.ID + this.originalPower.ID;
         this.img = originalPower.img;
         this.region128 = originalPower.region128;
         mainTip.icon = this.region128 != null ? this.region128 : img != null ? new TextureRegion(img) : null;
         updateDescription();
     }
 
-    public void atStartOfTurnPostDraw() {
-        super.atStartOfTurnPostDraw();
-        reducePower(1);
+    public void atEndOfRound() {
+        super.atEndOfRound();
+        reducePowerAction(PCLActions.last, 1);
     }
 
     @Override

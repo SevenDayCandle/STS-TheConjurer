@@ -31,7 +31,7 @@ public class Cerberus extends PCLCard {
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.BITE);
         addGainPower(PTrigger.interactable(
-                CCond.payMatter(9),
+                CCond.payLevel(3, PCLAffinity.Red),
                 PMove.modifyDamage(2).setUpgrade(1)
         ));
     }

@@ -1,10 +1,10 @@
 {
 	"conjurer:Combat": {
 		"TEXT": [
-			"Level Price",
+			"{#p:Total Reactions:} #b{0}",
 			"Cards played against targets with {0} consume #b1 stack to activate effects based on their #yAffinity.",
 			"Select the #yReaction effects for {0}.",
-			"#gNext #gLevel #gAvailable"
+			"{#y:Reactions needed for upgrade:} {0}"
 		]
 	},
 	"conjurer:Options": {
@@ -17,14 +17,13 @@
 	},
 	"conjurer:Tutorial": {
 		"TEXT": [
-			"Play cards on enemies with #yElements to trigger #yReactions, granting #yMatter. Click the buttons to spend #yMatter to improve #yElements.",
-			"Each #yElement is associated with the #yAffinity that it shares an icon with. [conjurer:Ignis] is associated with [A-R], [conjurer:Ventus] with [A-G], [conjurer:Aqua] with [A-B], and [conjurer:Petra] with [A-O]. #yElements are not considered buffs or debuffs.",
-			"The arrows signify that a #yReaction will occur when a card with the former #yDebuff's #yAffinity targets a creature with the latter's #yElement.",
-			"When you drag a card over a target, arrows for #yReactions that will occur will be highlighted. #yElements on the target's debuffs will also display a #ggreen number signifying how much of an effect they will have.",
-			"#yReactions grant a damage and #yBlock bonus to the card being played and grant #yMatter. Spend #yMatter by clicking on a #yDebuff's button to increase its #yLevel. #yLevels increase a #yDebuff's passive effect and damage bonuses. Each #yLevel costs more than the last.",
+			"Playing cards on enemies with #yElements consume #b1 stack of them to trigger #yReactions, activating effects based on the #yElement and the #yAffinities on the card.",
+			"Each #yElement is associated with the #yAffinity that it shares an icon with. [conjurer:Ignis] is associated with [A-R], [conjurer:Ventus] with [A-G], [conjurer:Aqua] with [A-B], and [conjurer:Petra] with [A-O].",
+			"When you drag a card over a target, you will see a list of effects resulting from #yReactions that occur.",
+			"The counters on an #yElement's button denotes how many #yReactions you triggered from it this combat.",
 			"This button represents an #yElement. Hover over it to view the current effects of that #yElement.",
 			"I have given you a card that applies [conjurer:Petra]. Play it on me.",
-			"Play the card that #yReacts with [conjurer:Petra]. When you hover over that card, the arrow pointing from [conjurer:Ignis] to [conjurer:Petra] will glow.",
+			"Drag your cards over the creature with [conjurer:Petra] to see what effects will be triggered. Try to trigger the #yReaction that causes you to gain [Block].",
 			"I have just given you some #yMatter. Try spending it to #yLevel up the [conjurer:Ignis] power.",
 			"I have given you a #ySummon card. Try playing it on one of your open #ySummon slots (it will starting flashing when you click on your card).",
 			"Try #oRight-Clicking on the #ySummon you just played and have it target me.",

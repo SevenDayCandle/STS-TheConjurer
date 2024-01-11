@@ -13,7 +13,8 @@ public class StrikeO extends PCLCard {
             .setAttack(1, CardRarity.BASIC)
             .setAffinities(PCLAffinity.Orange)
             .setDamage(6, 3)
-            .setStrike();
+            .setStrike()
+            .setCore();
 
     public StrikeO() {
         super(DATA);

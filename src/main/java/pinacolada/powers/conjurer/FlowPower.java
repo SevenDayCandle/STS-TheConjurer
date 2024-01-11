@@ -5,7 +5,9 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import extendedui.utilities.ColoredString;
+import extendedui.utilities.EUIColors;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisiblePower;
 import pinacolada.dungeon.CombatManager;
@@ -23,7 +25,7 @@ public class FlowPower extends PCLPower implements DrawPileCardPreviewProvider {
             .setType(PowerType.BUFF)
             .setEndTurnBehavior(PCLPowerData.Behavior.Permanent)
             .setTooltip(ConjurerResources.conjurer.tooltips.flow);
-    public static final int PER_STACK = 7;
+    public static final int PER_STACK = 5;
     public static AbstractCard drawn;
     private DrawPileCardPreview preview;
 
@@ -34,11 +36,6 @@ public class FlowPower extends PCLPower implements DrawPileCardPreviewProvider {
     @Override
     public AbstractCard findCard() {
         return amount >= PER_STACK ? AbstractDungeon.player.drawPile.getTopCard() : null;
-    }
-
-    @Override
-    protected ColoredString getPrimaryAmount(Color c) {
-        return new ColoredString(amount, amount >= PER_STACK ? Color.GREEN : Color.WHITE, c.a);
     }
 
     @Override
@@ -90,7 +87,11 @@ public class FlowPower extends PCLPower implements DrawPileCardPreviewProvider {
         if (preview != null && preview.isHighlighted()) {
             PCLRenderHelpers.drawGlowing(sb, s -> PCLRenderHelpers.drawCentered(s, imageColor, this.img, x, y, 32.0F, 32.0F, 1f, 0.0F));
         }
+    }
 
+    @Override
+    protected void renderPrimaryAmount(SpriteBatch sb, float x, float y, Color c) {
+        FontHelper.renderFontRightTopAligned(sb, FontHelper.powerAmountFont, String.valueOf(amount), x, y, fontScale, amount >= PER_STACK ? EUIColors.green(c.a) : EUIColors.white(c.a) );
     }
 
     @Override

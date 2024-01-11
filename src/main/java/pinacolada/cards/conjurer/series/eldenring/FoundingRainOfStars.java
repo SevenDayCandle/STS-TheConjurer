@@ -25,6 +25,6 @@ public class FoundingRainOfStars extends PCLCard {
     }
 
     public void setup(Object input) {
-        addGainPower(PTrigger.when(PCond.onTurnStart(), CMod.bonusPerLevel(1, PCLAffinity.Blue), PMove.applyToEnemies(1, AquaPower.DATA).setUpgrade(1)));
+        addGainPower(PTrigger.when(PCond.onTurnStart(), PMove.applyToEnemies(1, AquaPower.DATA).setUpgrade(1)));
     }
 }

@@ -10,10 +10,12 @@ import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.effects.ConjurerEFK;
 import pinacolada.effects.PCLAttackVFX;
+import pinacolada.powers.conjurer.ForgingPower;
 import pinacolada.powers.conjurer.PetraPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PDelay;
+import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PMultiSkill;
 
@@ -21,7 +23,7 @@ import pinacolada.skills.skills.PMultiSkill;
 public class MeteoriteOfAstel extends PCLCard {
     public static final PCLCardData DATA = register(MeteoriteOfAstel.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.RARE, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
-            .setDamage(5, 2)
+            .setDamage(6, 2)
             .setAffinities(1, PCLAffinity.Orange, PCLAffinity.Purple)
             .setTags(PCLCardTag.Exhaust)
             .setLoadout(ConjurerPlayerData.eldenRing);
@@ -32,6 +34,6 @@ public class MeteoriteOfAstel extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.EARTH);
-        addUseMove(PDelay.turnStart(3), PMultiSkill.join(PMove.dealDamageToAll(40).setVFX(ConjurerEFK.BLOW02).setUpgrade(9), PMove.applyToEnemies(3, PetraPower.DATA)));
+        addUseMove(PDelay.turnStart(3), PMod.perPowerSelf(1, ForgingPower.DATA), PMove.dealDamageToAll(8).setVFX(ConjurerEFK.BLOW02).setUpgrade(3));
     }
 }

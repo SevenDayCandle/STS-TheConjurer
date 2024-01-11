@@ -6,17 +6,18 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CMove;
 import pinacolada.skills.PMod;
+import pinacolada.skills.PMove;
 
 @VisibleCard
 public class Lucidity extends PCLCard {
     public static final PCLCardData DATA = register(Lucidity.class, ConjurerResources.conjurer)
-            .setSkill(1, CardRarity.COMMON, PCLCardTarget.Team)
-            .setBlock(4, 2)
-            .setAffinities(PCLAffinity.Blue.make(2), PCLAffinity.Yellow.make())
+            .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.Team)
+            .setAffinities(PCLAffinity.Blue.make(1, 1), PCLAffinity.Yellow.make())
             .setLoadout(ConjurerPlayerData.eldenRing);
 
     public Lucidity() {
@@ -24,7 +25,7 @@ public class Lucidity extends PCLCard {
     }
 
     public void setup(Object input) {
-        addBlockMove();
-        addUseMove(PMod.increaseOnUse(5), CMove.gainMatter(15).setUpgrade(2));
+        addUseMove(PMove.gain(2, PCLPowerData.Warding).setUpgrade(2));
+        addUseMove(CMove.stabilize(PCLCardTarget.Team, PCLPowerData.Vigor, PCLPowerData.Warding));
     }
 }

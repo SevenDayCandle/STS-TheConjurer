@@ -6,6 +6,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 
 public class ConjurerEnum {
+
+
     public static class Library {
         @SpireEnum
         public static CardLibrary.LibraryType THE_CONJURER;

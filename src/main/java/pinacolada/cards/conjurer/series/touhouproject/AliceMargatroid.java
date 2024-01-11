@@ -17,8 +17,8 @@ import pinacolada.skills.skills.PTrigger;
 public class AliceMargatroid extends PCLCard {
     public static final PCLCardData DATA = register(AliceMargatroid.class, ConjurerResources.conjurer)
             .setSummon(2, CardRarity.UNCOMMON, PCLAttackType.Immaterial)
-            .setDamage(3, 0)
-            .setHp(7, 1)
+            .setDamage(3, 1)
+            .setHp(8, 0)
             .setAffinities(PCLAffinity.Blue.make(2), PCLAffinity.Yellow.make())
             .setLoadout(ConjurerPlayerData.touhouProject);
 
@@ -28,6 +28,6 @@ public class AliceMargatroid extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.WIND);
-        addGainPower(PTrigger.when(PCond.onCreate(), CMove.gainMatter(9).setUpgrade(2)));
+        addGainPower(PTrigger.when(PCond.onCreate(), CMove.addLevel(2, PCLAffinity.Blue).setUpgrade(1)));
     }
 }

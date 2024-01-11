@@ -31,7 +31,7 @@ public class Airavata extends PCLCard {
     public void setup(Object input) {
         addDamageMove(AbstractGameAction.AttackEffect.BLUNT_HEAVY);
         addGainPower(PTrigger.interactable(
-                CCond.payMatter(9).setUpgrade(-1),
+                CCond.payLevel(3, PCLAffinity.Orange).setUpgrade(-1),
                 PMove.retain(2)
         ));
     }

@@ -30,6 +30,6 @@ public class YaeSakura extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.ICE);
-        addUseMove(PCond.pileHas(2, PCLCardGroupHelper.Hand).edit(f -> f.setAffinity(PCLAffinity.Blue)), PMove.applyToSingle(5, CooledPower.DATA));
+        addUseMove(PCond.pileHas(2, PCLCardGroupHelper.Hand).edit(f -> f.setAffinity(PCLAffinity.Blue)), PMove.applyToSingle(8, CooledPower.DATA));
     }
 }

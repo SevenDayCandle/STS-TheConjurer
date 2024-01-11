@@ -31,6 +31,6 @@ public class JingYuan extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_HEAVY);
-        addUseMove(PCond.cooldown(3), CMod.bonusPerLevel(7, PCLAffinity.Red), PMove.dealDamageToAll(18, AbstractGameAction.AttackEffect.LIGHTNING).setUpgrade(5));
+        addUseMove(PCond.cooldown(3), PMove.dealDamageToAll(19, AbstractGameAction.AttackEffect.LIGHTNING).setUpgrade(5));
     }
 }

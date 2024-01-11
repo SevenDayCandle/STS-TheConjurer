@@ -13,6 +13,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CMove;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMod;
+import pinacolada.skills.PMove;
 
 @VisibleCard
 public class LisaMinci extends PCLCard {
@@ -29,6 +30,6 @@ public class LisaMinci extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.LIGHTNING);
-        addUseMove(PCond.cooldown(2), PMod.scryPer(5), CMove.gainMatter(7).setUpgrade(1));
+        addUseMove(PCond.cooldown(2), PMod.scryPer(5), PMove.gainBlock(2).setUpgrade(1));
     }
 }

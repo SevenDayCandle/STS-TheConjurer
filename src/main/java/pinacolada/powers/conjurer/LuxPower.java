@@ -14,6 +14,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 @VisiblePower
 public class LuxPower extends AbstractPCLElementalPower{
     public static final ElementPowerData DATA = registerElement(LuxPower.class, PCLAffinity.Yellow)
+            .setType(PowerType.DEBUFF)
             .setTooltip(ConjurerResources.conjurer.tooltips.lux);
 
     public LuxPower(AbstractCreature owner, AbstractCreature source, int amount) {

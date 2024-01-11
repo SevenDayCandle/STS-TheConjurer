@@ -26,6 +26,6 @@ public class Radioactivity extends PCLCard {
     }
 
     public void setup(Object input) {
-        addGainPower(PTrigger.when(PCond.checkPower(PCLCardTarget.Any, 1), PMod.perParentAmount(), PMove.loseHp(PCLCardTarget.AllEnemy, 1, PCLAttackVFX.WAVE.key)));
+        addGainPower(PTrigger.when(PCond.checkPower(PCLCardTarget.Any, 1).edit(f -> f.setDebuff(true)), PMod.perParentAmount(), PMove.loseHp(PCLCardTarget.AllEnemy, 1, PCLAttackVFX.WAVE.key)));
     }
 }

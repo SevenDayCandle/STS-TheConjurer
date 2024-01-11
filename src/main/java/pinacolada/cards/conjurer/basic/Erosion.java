@@ -27,6 +27,6 @@ public class Erosion extends PCLCard {
 
     public void setup(Object input) {
         addBlockMove();
-        addUseMove(PCond.exhaust(1, PCLCardGroupHelper.Hand), PMove.applyToEnemies(2, AquaPower.DATA, PetraPower.DATA).setUpgrade(1));
+        addUseMove(PCond.exhaust(1, PCLCardGroupHelper.Hand), PMove.applyToEnemies(1, AquaPower.DATA, PetraPower.DATA).setUpgrade(1));
     }
 }

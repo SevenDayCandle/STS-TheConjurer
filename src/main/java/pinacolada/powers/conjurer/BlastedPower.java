@@ -93,9 +93,6 @@ public class BlastedPower extends PCLPower implements HealthBarRenderPower {
                     .canKill(owner == null || !owner.isPlayer);
         }
 
-        reducePower(getDecrease());
-        if (amount <= 0) {
-            removePower();
-        }
+        reducePowerAction(getDecrease());
     }
 }

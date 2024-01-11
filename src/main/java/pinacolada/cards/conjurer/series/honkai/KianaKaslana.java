@@ -89,7 +89,7 @@ public class KianaKaslana extends PCLCard {
                         effects.add(PMove.gainBlockPlayer(entry.getValue() + extra));
                         break;
                     default:
-                        effects.add(CMove.gainMatter((entry.getValue() + extra) * 2));
+                        effects.add(PMove.gainTempHP(entry.getValue() + extra));
                 }
             }
 
@@ -98,7 +98,7 @@ public class KianaKaslana extends PCLCard {
 
         @Override
         public String getText(PCLCardTarget perpsective, Object requestor, boolean addPeriod) {
-            if (current != null && current.getSubEffects().size() > 0) {
+            if (current != null && !current.getSubEffects().isEmpty()) {
                 return current.getText(perpsective, requestor, addPeriod);
             }
             return super.getText(perpsective, requestor, addPeriod);

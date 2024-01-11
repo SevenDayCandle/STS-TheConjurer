@@ -53,7 +53,7 @@ public class MirrorForce extends PCLCard {
         public int onAttacked(DamageInfo info, int damageAmount) {
             if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != this.owner && amount > 0) {
                 this.flash();
-                reducePower(1);
+                reducePowerAction(1);
                 PCLActions.top.dealDamage(move.getSourceCreature(), info.owner, info.output, DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.NONE)
                         .setDamageEffect(ConjurerEFK.MGC_W2_Shield_OnHit);
                 return 0;

@@ -37,8 +37,13 @@
 	},
 	"conjurer:FlowPower":
 	{
-		"DESCRIPTIONS": ["When this power has at least #b{0} stacks, click its draw pile preview to spend #b{0} stacks and draw that card."],
+		"DESCRIPTIONS": ["When this power has at least #b{0} stacks, click the draw pile preview to spend #b{0} stacks and #yFetch that card."],
 		"NAME": "Flow"
+	},
+	"conjurer:ForgingPower":
+	{
+		"DESCRIPTIONS": ["When this power has at least #b{0} stacks, you may right-click a card in hand to spend #b{0} stacks and #yUpgrade that card."],
+		"NAME": "Forging"
 	},
 	"conjurer:IgnisPower":
 	{
@@ -54,11 +59,6 @@
 	{
 		"DESCRIPTIONS": ["#b{0}% of Reaction gained from this power are returned to you as [Block].", "#b{0}% of Reaction gained from [conjurer:Petra] are returned to you as [Block]."],
 		"NAME": "Petra"
-	},
-	"conjurer:PetrifiedPower":
-	{
-		"DESCRIPTIONS": ["For #b{0} turns: #yElements cannot be reduced."],
-		"NAME": "Petrified"
 	},
 	"conjurer:StabilizingPower":
 	{

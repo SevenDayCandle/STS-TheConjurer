@@ -28,10 +28,7 @@ public class StabilizePowerAction extends PCLAction<AbstractPower> {
     protected void firstUpdate() {
         final AbstractPower sourcePower = GameUtilities.getPower(target, powerID);
 
-        if (sourcePower instanceof PCLPower) {
-            ((PCLPower) sourcePower).addTurns(amount);
-        }
-        else if (sourcePower != null && GameUtilities.isTurnBasedPower(sourcePower)) {
+        if (sourcePower != null) {
             StabilizingPower spower = new StabilizingPower(sourcePower, target, source, amount);
             GameUtilities.applyPowerInstantly(target, spower);
             spower.subscribeToAll();

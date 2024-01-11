@@ -22,6 +22,6 @@ public class HeavyGem extends PCLPointerRelic {
     }
 
     public void setup() {
-        addUseMove(PTrigger.whenPerCombat(1, PCond.onDraw(AbstractCard.CardType.ATTACK), PMultiSkill.join(PMove.modifyDamage(8).useParent(true), PMove.modifyCost(1).useParent(true))));
+        addUseMove(PTrigger.whenPerCombat(1, PCond.onDraw(AbstractCard.CardType.ATTACK), PMove.modifyDamage(4).useParent(true)));
     }
 }

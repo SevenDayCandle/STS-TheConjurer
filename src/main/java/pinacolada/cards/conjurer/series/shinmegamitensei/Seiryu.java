@@ -31,9 +31,9 @@ public class Seiryu extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.CLAW);
-        addGainPower(PTrigger.interactable(CCond.payMatter(9).setUpgrade(0, -2), PMultiSkill.choose(
-                PMove.applyToEnemies(4, AquaPower.DATA),
-                PMove.applyToEnemies(4, VentusPower.DATA)
+        addGainPower(PTrigger.interactable(CCond.payLevel(3, PCLAffinity.Green).setUpgrade(0, 1), PMultiSkill.choose(
+                PMove.applyToEnemies(2, AquaPower.DATA).setUpgrade(1),
+                PMove.applyToEnemies(2, VentusPower.DATA).setUpgrade(1)
         )));
     }
 }

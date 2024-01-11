@@ -21,6 +21,6 @@ public class ArborealPotion extends PCLPotion {
     }
 
     public void setup() {
-        addUseMove(PMove.applyToSingle(2, VentusPower.DATA, PetraPower.DATA, PCLPowerData.Poison).setUpgrade(2));
+        addUseMove(PMove.applyToSingle(2, VentusPower.DATA, PetraPower.DATA).setUpgrade(2));
     }
 }

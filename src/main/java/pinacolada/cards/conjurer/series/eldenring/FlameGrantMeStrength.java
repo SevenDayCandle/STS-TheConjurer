@@ -17,6 +17,7 @@ import pinacolada.skills.PMove;
 public class FlameGrantMeStrength extends PCLCard {
     public static final PCLCardData DATA = register(FlameGrantMeStrength.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.Self)
+            .setCostUpgrades(-1)
             .setAffinities(PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
@@ -25,7 +26,7 @@ public class FlameGrantMeStrength extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.gain(4, IgnisPower.DATA));
-        addUseMove(PMod.bonusPerPowerSelf(1, IgnisPower.DATA), PMove.gainTemporary(1, PCLPowerData.Strength).setUpgrade(2));
+        addUseMove(PMove.gain(2, IgnisPower.DATA));
+        addUseMove(PMod.perPowerAny(2, IgnisPower.DATA), PMove.gainTemporary(1, PCLPowerData.Strength));
     }
 }

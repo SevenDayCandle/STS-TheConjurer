@@ -9,13 +9,15 @@ import pinacolada.powers.conjurer.PetraPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
+import pinacolada.skills.skills.PMultiCond;
 import pinacolada.skills.skills.PTrigger;
+import pinacolada.skills.skills.base.conditions.PCond_OnRetain;
+import pinacolada.skills.skills.base.conditions.PCond_OnUpgrade;
 
 @VisibleCard
 public class Geomorphology extends PCLCard {
     public static final PCLCardData DATA = register(Geomorphology.class, ConjurerResources.conjurer)
             .setPower(2, CardRarity.UNCOMMON)
-            .setCostUpgrades(-1)
             .setAffinities(2, PCLAffinity.Orange)
             .setCore();
 
@@ -24,6 +26,6 @@ public class Geomorphology extends PCLCard {
     }
 
     public void setup(Object input) {
-        addGainPower(PTrigger.when(PCond.onDiscard(), PMove.apply(PCLCardTarget.AllEnemy, 1, PetraPower.DATA)));
+        addGainPower(PTrigger.when(PMultiCond.or(new PCond_OnRetain(), new PCond_OnUpgrade()), PMove.gainBlock(3).setUpgrade(1)));
     }
 }

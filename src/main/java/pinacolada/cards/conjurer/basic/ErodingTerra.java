@@ -1,20 +1,22 @@
 package pinacolada.cards.conjurer.basic;
 
-import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import pinacolada.actions.PCLActions;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import pinacolada.annotations.VisibleCard;
+import pinacolada.cardmods.PermanentBlockModifier;
+import pinacolada.cardmods.PermanentDamageModifier;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.cards.base.tags.PCLCardTag;
+import pinacolada.interfaces.subscribers.OnSpecificPowerActivatedSubscriber;
 import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.PSpecialCardPower;
-import pinacolada.powers.conjurer.PetraPower;
+import pinacolada.powers.conjurer.FlowPower;
+import pinacolada.powers.conjurer.ForgingPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;
 import pinacolada.utilities.GameUtilities;
-
-import java.util.ArrayList;
 
 @VisibleCard
 public class ErodingTerra extends PCLCard {
@@ -30,10 +32,10 @@ public class ErodingTerra extends PCLCard {
     }
 
     public void setup(Object input) {
-        addSpecialPower(0, (s, i) -> new ErodingTerraPower(i.source, i.source,  s), 33);
+        addSpecialPower(0, (s, i) -> new ErodingTerraPower(i.source, i.source,  s), 1);
     }
 
-    public static class ErodingTerraPower extends PSpecialCardPower {
+    public static class ErodingTerraPower extends PSpecialCardPower implements OnSpecificPowerActivatedSubscriber {
         public static final PCLPowerData PDATA = createFromCard(ErodingTerraPower.class, DATA);
 
         public ErodingTerraPower(AbstractCreature owner, AbstractCreature source, PSkill<?> move) {
@@ -41,24 +43,12 @@ public class ErodingTerra extends PCLCard {
         }
 
         @Override
-        public void atEndOfRound() {
-            super.atEndOfRound();
-            ArrayList<PetraPower> powers = GameUtilities.getPowers(PetraPower.class);
-            int stacks = 0;
-            for (PetraPower po : powers) {
-                if (po.turns > 1) {
-                    stacks += po.amount;
-                }
-                else {
-                    int apply = MathUtils.ceil(po.amount * amount / 100f);
-                    PCLActions.last.applyPower(po.owner, PetraPower.DATA, apply);
-                    stacks += apply;
-                }
+        public boolean onPowerActivated(AbstractPower power, AbstractCreature abstractCreature, boolean originalValue) {
+            if (power instanceof ForgingPower && ForgingPower.targetCard != null) {
+                GameUtilities.retain(ForgingPower.targetCard);
+                GameUtilities.modifyTag(ForgingPower.targetCard, PCLCardTag.Recast, move.amount, true);
             }
-            if (stacks > 0) {
-                PCLActions.bottom.gainBlock(stacks);
-                flash();
-            }
+            return originalValue;
         }
     }
 }

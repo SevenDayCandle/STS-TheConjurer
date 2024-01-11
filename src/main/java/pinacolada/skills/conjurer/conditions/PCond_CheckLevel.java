@@ -18,7 +18,7 @@ import pinacolada.skills.skills.PPassiveCond;
 import java.util.ArrayList;
 
 @VisibleSkill
-public class PCond_CheckLevel extends PPassiveCond<PField_Affinity> implements OnIntensifySubscriber {
+public class PCond_CheckLevel extends PPassiveCond<PField_Affinity> {
     public static final PSkillData<PField_Affinity> DATA = register(PCond_CheckLevel.class, PField_Affinity.class, ConjurerEnum.Cards.THE_CONJURER)
             .noTarget();
 
@@ -72,16 +72,6 @@ public class PCond_CheckLevel extends PPassiveCond<PField_Affinity> implements O
         if (isBranch()) {
             return EUIRM.strings.nounVerb(TEXT.subjects_you, PGR.core.tooltips.level.title);
         }
-        if (isWhenClause()) {
-            return EUIRM.strings.nounVerb(TEXT.subjects_you, EUIRM.strings.verbNoun(PGR.core.tooltips.level.title, fields.getAffinityChoiceString()));
-        }
         return TEXT.cond_ifX(TEXT.cond_levelItem(getAmountRawString(), fields.getAffinityChoiceString()));
-    }
-
-    @Override
-    public void onIntensify(PCLAffinity aff) {
-        if (fields.affinities.isEmpty() || fields.affinities.contains(aff)) {
-            useFromTrigger(generateInfo(null).setData(aff));
-        }
     }
 }

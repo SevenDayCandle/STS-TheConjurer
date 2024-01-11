@@ -33,4 +33,9 @@ public class ElementPowerData extends PCLPowerData {
         super.setTooltip(tip);
         return this;
     }
+
+    public ElementPowerData setType(AbstractPower.PowerType tip) {
+        super.setType(tip);
+        return this;
+    }
 }

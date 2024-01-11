@@ -26,6 +26,6 @@ public class PoisonArmament extends PCLCard {
     }
 
     public void setup(Object input) {
-        addGainPower(2, PTrigger.when(PCond.damage(PCLCardTarget.Self, 1), PMove.applyToSingle(2, VentusPower.DATA, ElementPowerData.Poison).setUpgrade(1)));
+        addGainPower(2, PTrigger.when(PCond.damage(PCLCardTarget.Self, 1), PMove.applyToSingle(2, VentusPower.DATA, ElementPowerData.Poison))).setUpgrade(1);
     }
 }

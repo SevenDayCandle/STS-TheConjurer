@@ -25,6 +25,6 @@ public class Vaporize extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(EffekseerEFK.SWORD18)
-                .setBonus(PMod.perPowerSingle(1, IgnisPower.DATA), 1);
+                .setBonus(PMod.perPowerSingle(1, IgnisPower.DATA), 3);
     }
 }

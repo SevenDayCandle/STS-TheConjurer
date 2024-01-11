@@ -9,8 +9,8 @@ public abstract class CCond {
         return new PCond_CheckLevel(amount, aff);
     }
 
-    public static PCond_CheckMatter checkMatter(int amount) {
-        return new PCond_CheckMatter(amount);
+    public static PCond_CheckReaction checkReaction(int amount) {
+        return new PCond_CheckReaction(amount);
     }
 
     public static PCond_AllyLink link(PCLAffinity... affinities) {
@@ -25,8 +25,8 @@ public abstract class CCond {
         return new PCond_AllyLink(1, affinities);
     }
 
-    public static PCond_PayMatter payMatter(int amount) {
-        return new PCond_PayMatter(amount);
+    public static PCond_PayLevel payLevel(int amount, PCLAffinity... aff) {
+        return new PCond_PayLevel(amount, aff);
     }
 
     public static PCond_React react(PCLAffinity... affinities) {

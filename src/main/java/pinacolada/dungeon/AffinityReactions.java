@@ -31,6 +31,19 @@ public class AffinityReactions {
         return null;
     }
 
+    public int getValue(PCLAffinity affinity) {
+        int sum = 0;
+        HashMap<AbstractCreature, HashMap<PCLAffinity, Integer>> targetMap = reactions.get(affinity);
+        if (targetMap != null) {
+            for (HashMap<PCLAffinity, Integer> reactMap : targetMap.values()) {
+                for (Integer value : reactMap.values()) {
+                    sum += value;
+                }
+            }
+        }
+        return sum;
+    }
+
     public int getValue(PCLAffinity affinity, AbstractCreature target) {
         int sum = 0;
         HashMap<AbstractCreature, HashMap<PCLAffinity, Integer>> targetMap = reactions.get(affinity);

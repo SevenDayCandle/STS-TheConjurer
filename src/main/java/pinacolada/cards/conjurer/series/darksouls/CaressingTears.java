@@ -20,6 +20,7 @@ import pinacolada.interfaces.subscribers.OnTryApplyPowerSubscriber;
 import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.PSpecialCardPower;
 import pinacolada.powers.conjurer.AquaPower;
+import pinacolada.powers.conjurer.CooledPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
@@ -28,7 +29,7 @@ import pinacolada.skills.PSkill;
 @VisibleCard
 public class CaressingTears extends PCLCard {
     public static final PCLCardData DATA = register(CaressingTears.class, ConjurerResources.conjurer)
-            .setSkill(1, CardRarity.RARE, PCLCardTarget.Team)
+            .setSkill(1, CardRarity.RARE, PCLCardTarget.All)
             .setTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.darkSouls);
@@ -38,8 +39,8 @@ public class CaressingTears extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.applyToTeam(5, AquaPower.DATA));
-        addSpecialPower(0, (s, i) -> new CaressingTearsPower(i.source, i.source, s), 1, 3).setUpgradeExtra(1);
+        addUseMove(PMove.applyToEveryone(3, AquaPower.DATA));
+        addSpecialPower(0, (s, i) -> new CaressingTearsPower(i.source, i.source, s), 2, 3).setUpgradeExtra(1);
     }
 
     public static class CaressingTearsPower extends PSpecialCardPower implements OnTryApplyPowerSubscriber {
@@ -58,7 +59,7 @@ public class CaressingTears extends PCLCard {
 
         @Override
         public boolean tryApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source, AbstractGameAction action) {
-            if (VulnerablePower.POWER_ID.equals(power.ID) || WeakPower.POWER_ID.equals(power.ID) || FrailPower.POWER_ID.equals(power.ID)) {
+            if (VulnerablePower.POWER_ID.equals(power.ID) || WeakPower.POWER_ID.equals(power.ID) || CooledPower.DATA.ID.equals(power.ID)) {
                 PCLActions.bottom.gainTemporaryHP(move.extra);
                 flash();
                 return false;

@@ -15,8 +15,8 @@ import pinacolada.skills.PMove;
 @VisibleCard
 public class ScholarsShield extends PCLCard {
     public static final PCLCardData DATA = register(ScholarsShield.class, ConjurerResources.conjurer)
-            .setSkill(1, CardRarity.COMMON, PCLCardTarget.Single)
-            .setBlock(7, 2)
+            .setSkill(1, CardRarity.COMMON, PCLCardTarget.Self)
+            .setBlock(6, 2)
             .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
@@ -26,6 +26,6 @@ public class ScholarsShield extends PCLCard {
 
     public void setup(Object input) {
         addBlockMove();
-        addUseMove(CCond.react(), PMove.gain(5, PCLPowerData.Warding).setUpgrade(1));
+        addUseMove(PMove.gain(3, PCLPowerData.Warding).setUpgrade(1));
     }
 }

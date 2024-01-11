@@ -24,6 +24,6 @@ public class Biohazard extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PCond.onExhaust(), PMultiSkill.join(PMove.dealDamage(2, AbstractGameAction.AttackEffect.POISON, PCLCardTarget.SelfAllEnemy).setUpgrade(2)));
+        addUseMove(PCond.onExhaust(), PMove.dealDamage(2, AbstractGameAction.AttackEffect.POISON, PCLCardTarget.SelfAllEnemy).setUpgrade(2));
     }
 }

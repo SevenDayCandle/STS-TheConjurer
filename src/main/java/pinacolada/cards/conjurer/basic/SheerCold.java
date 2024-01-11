@@ -3,11 +3,13 @@ package pinacolada.cards.conjurer.basic;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.MalleablePower;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.effects.vfx.ScreenFreezingEffect;
 import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.PSpecialCardPower;
@@ -43,36 +45,13 @@ public class SheerCold extends PCLCard {
         }
 
         @Override
-        public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-            super.onApplyPower(power, target, source);
-            if (power instanceof CooledPower) {
-                ((CooledPower) power).expanded = true;
-            }
-        }
-
-        @Override
         public void onInitialApplication() {
             super.onInitialApplication();
 
             PCLActions.bottom.playVFX(new ScreenFreezingEffect());
             PCLActions.bottom.callback(() -> {
-                for (AbstractPower po : GameUtilities.getPowers(CooledPower.DATA.ID)) {
-                    if (po instanceof CooledPower) {
-                        ((CooledPower) po).expanded = true;
-                    }
-                }
+                ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Blue).addAdditionalPower(CooledPower.DATA.ID);
             });
-        }
-
-        @Override
-        public void atEndOfRound() {
-            super.atEndOfRound();
-            ArrayList<CooledPower> powers = GameUtilities.getPowers(CooledPower.class);
-            int stacks = 0;
-            for (CooledPower po : powers) {
-                int apply = MathUtils.ceil(po.amount * amount / 100f);
-                PCLActions.last.applyPower(po.owner, CooledPower.DATA, apply);
-            }
         }
     }
 }

@@ -18,7 +18,7 @@ import pinacolada.powers.PSpecialCardPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;
-import pinacolada.skills.conjurer.conditions.PCond_PayMatter;
+import pinacolada.skills.conjurer.conditions.PCond_PayLevel;
 import pinacolada.skills.fields.PField_Power;
 import pinacolada.skills.skills.base.conditions.PCond_PayEnergy;
 import pinacolada.skills.skills.base.primary.PLimit_Limited;
@@ -55,7 +55,7 @@ public class Megaman extends PCLCard {
                 int cost = ConjurerPlayerData.getCostForMonster(enemy.id);
                 boolean metaScaling = monsterSkill.isMetascaling() ||
                         (monsterSkill.fields instanceof PField_Power && EUIUtils.any(((PField_Power) monsterSkill.fields).powers, PCLPowerData::isMetascaling));
-                PSkill<?> costSkill = AbstractDungeon.player instanceof ConjurerCharacter ? new PCond_PayMatter(cost * 10) : new PCond_PayEnergy(cost);
+                PSkill<?> costSkill = AbstractDungeon.player instanceof ConjurerCharacter ? new PCond_PayLevel(cost * 2) : new PCond_PayEnergy(cost);
                 costSkill.setChild(monsterSkill);
                 if (metaScaling) {
                     PLimit_Limited limit = new PLimit_Limited();

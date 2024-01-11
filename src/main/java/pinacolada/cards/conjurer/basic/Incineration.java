@@ -25,7 +25,7 @@ public class Incineration extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.apply(PCLCardTarget.Team, 5, PCLPowerData.Vigor, IgnisPower.DATA).setUpgrade(2));
+        addUseMove(PMove.apply(PCLCardTarget.Team, 5, PCLPowerData.Vigor).setUpgrade(2));
         addUseMove(PMod.perCreature(PCLCardTarget.AllAlly, 1), PMove.createDrawPile(1, Overheat.DATA.ID));
     }
 }

@@ -31,7 +31,7 @@ public class VerdantGale extends PCLCard {
     }
 
     public void setup(Object input) {
-        addSpecialPower(0, (s, i) -> new VerdantGalePower(i.source, i.source, s), 2);
+        addSpecialPower(0, (s, i) -> new VerdantGalePower(i.source, i.source, s), 3);
     }
 
     public static class VerdantGalePower extends PSpecialCardPower implements OnSpecificPowerActivatedSubscriber {

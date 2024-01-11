@@ -35,7 +35,7 @@ public class AddAffinityLevel extends PCLAction<PCLAffinity> {
 
         ConjurerReactionMeter.meter.addLevel(affinity, amount);
         if (showEffect) {
-            CombatManager.playerSystem.flashAffinity(affinity);
+            ConjurerReactionMeter.meter.flash(affinity);
             PCLEffects.List.add(new PowerBuffEffect(target.hb.cX - target.animX, target.hb.cY + target.hb.height / 2f, "+" + amount + " " + affinity.getTooltip().title));
         }
     }

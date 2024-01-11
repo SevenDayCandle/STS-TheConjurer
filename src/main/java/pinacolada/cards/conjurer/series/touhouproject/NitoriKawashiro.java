@@ -30,7 +30,7 @@ public class NitoriKawashiro extends PCLCard {
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.WATER);
         addGainPower(PTrigger.interactable(
-                CCond.payMatter(10),
+                CCond.payLevel(3, PCLAffinity.Blue),
                 PMove.createRandom(1, 3, PCLCardGroupHelper.Hand).edit(f -> f.setAffinity(PCLAffinity.Blue))
         ));
     }

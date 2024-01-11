@@ -31,7 +31,7 @@ public class Odin extends PCLCard {
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.SLASH_HEAVY);
         addGainPower(PTrigger.interactable(
-                CCond.payMatter(10),
+                CCond.payLevel(4, PCLAffinity.Red),
                 PMove.fetch(1, PCLCardGroupHelper.DiscardPile).edit(f -> f.setAffinity(PCLAffinity.Red, PCLAffinity.Green).setOrigin(PCLCardSelection.Random)))
         );
     }

@@ -18,6 +18,7 @@ import pinacolada.utilities.GameUtilities;
 @VisiblePower
 public class UmbraPower extends AbstractPCLElementalPower {
     public static final ElementPowerData DATA = registerElement(UmbraPower.class, PCLAffinity.Purple)
+            .setType(PowerType.DEBUFF)
             .setTooltip(ConjurerResources.conjurer.tooltips.umbra);
 
     public UmbraPower(AbstractCreature owner, AbstractCreature source, int amount) {

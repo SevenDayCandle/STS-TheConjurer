@@ -55,11 +55,7 @@ public class MagicMirror extends PCLCard {
             if ((power.owner == owner || target == owner) && source != null) {
                 boolean isDebuff = GameUtilities.isDebuff(power);
                 if (isDebuff && amount > 0) {
-                    reducePower(1);
-                    if (amount <= 0) {
-                        removePower();
-                    }
-
+                    reducePowerAction(1);
                     flash();
                     // Only actually reflect basic debuffs because modded debuffs on enemies may cause crashes
                     if (GameUtilities.isPCLPower(power)) {
