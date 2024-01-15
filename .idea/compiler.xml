@@ -6,9 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="thedecider" />
         <module name="theconjurer" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="thedecider" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

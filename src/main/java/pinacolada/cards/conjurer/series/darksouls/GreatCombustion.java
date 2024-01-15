@@ -15,7 +15,7 @@ import pinacolada.skills.PMove;
 @VisibleCard
 public class GreatCombustion extends PCLCard {
     public static final PCLCardData DATA = register(GreatCombustion.class, ConjurerResources.conjurer)
-            .setSkill(1, CardRarity.UNCOMMON)
+            .setSkill(2, CardRarity.UNCOMMON)
             .setAffinities(PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.darkSouls);
 
@@ -24,7 +24,7 @@ public class GreatCombustion extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.applyToSingle(3, BlastedPower.DATA).setUpgrade(1));
         addUseMove(PMod.perPowerSingle(BlastedPower.DATA), PMove.dealDamageToAll(1));
+        addUseMove(PMove.applyToSingle(5, BlastedPower.DATA).setUpgrade(2));
     }
 }

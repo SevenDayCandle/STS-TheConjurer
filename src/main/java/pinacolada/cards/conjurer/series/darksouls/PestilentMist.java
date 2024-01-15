@@ -8,9 +8,11 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.powers.PCLPowerData;
+import pinacolada.powers.conjurer.CooledPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
+import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 
 @VisibleCard

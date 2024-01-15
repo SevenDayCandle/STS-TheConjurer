@@ -18,7 +18,7 @@ public class Radioactivity extends PCLCard {
     public static final PCLCardData DATA = register(Radioactivity.class, ConjurerResources.conjurer)
             .setPower(2, CardRarity.UNCOMMON)
             .setCostUpgrades(-1)
-            .setAffinities(PCLAffinity.Silver)
+            .setAffinities(PCLAffinity.Green, PCLAffinity.Silver)
             .setCore(true);
 
     public Radioactivity() {

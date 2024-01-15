@@ -15,11 +15,13 @@ import pinacolada.resources.PGR;
 public class ConjurerConfig extends PCLCharacterConfig {
     private static final String MOD_ID = "CONJURER";
     public STSConfigItem<Boolean> allowColorlessForAll;
+    public STSConfigItem<Boolean> allowCustom;
     public STSConfigItem<Boolean> seenSummonTutorial;
 
     public ConjurerConfig() {
         super(MOD_ID);
         this.allowColorlessForAll = new STSConfigItem<Boolean>(PGR.createID(id, "AllowColorlessForAll"), false);
+        this.allowCustom = new STSConfigItem<Boolean>(PGR.createID(id, "AllowCustom"), true);
         this.seenSummonTutorial = new STSConfigItem<Boolean>(PGR.createID(id, "SeenSummonTutorialConjurer"), false);
     }
 
@@ -30,6 +32,7 @@ public class ConjurerConfig extends PCLCharacterConfig {
 
         float yPos = BASE_OPTION_OFFSET_Y * Settings.scale;
         yPos = addToggle(0, allowColorlessForAll, ConjurerResources.conjurer.strings.optionColorless, yPos, ConjurerResources.conjurer.strings.optionColorlessDesc);
+        yPos = addToggle(0, allowCustom, PGR.core.strings.options_enableCustomCards, yPos, PGR.core.strings.csel_betaCardSet);
 
         BaseMod.registerModBadge(ImageMaster.loadImage("images/pcl/modBadge.png"), MOD_ID, "PinaColada", "", panel);
     }
@@ -37,6 +40,7 @@ public class ConjurerConfig extends PCLCharacterConfig {
     public void loadImpl() {
         super.loadImpl();
         this.allowColorlessForAll.addConfig(this.config);
+        this.allowCustom.addConfig(this.config);
         this.seenSummonTutorial.addConfig(this.config);
     }
 

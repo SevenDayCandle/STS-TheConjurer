@@ -18,24 +18,6 @@
 		"FLAVOR": "Blood-slick roses that bloom in festering blood.",
 		"NAME": "Bloodrose"
 	},
-	"conjurer:BloodthirstyYingYangOrb":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "Either blood or thirst.",
-		"NAME": "Bloodthirsty Ying-Yang Orb"
-	},
-	"conjurer:BreakGauge":
-	{
-		"DESCRIPTIONS": ["Enemies have {0}% less HP but start battle with [Metallicize] equal to {1}% of their HP. Whenever you break an enemy's [Block], apply {2} [Bruised] and [Blinded] to it."],
-		"FLAVOR": "Pass the power.",
-		"NAME": "Cleansing Bell"
-	},
-	"conjurer:CarpenterBug":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "Despite the name, it'll probably destroy your furniture, not repair them.",
-		"NAME": "Carpenter Bug"
-	},
 	"conjurer:CelestialDew":
 	{
 		"DESCRIPTIONS": [],
@@ -47,24 +29,6 @@
 		"DESCRIPTIONS": [],
 		"FLAVOR": "The opposite of chill.",
 		"NAME": "Chili Pepper"
-	},
-	"conjurer:CleansingBell":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "It seems to have a life of its own, even as you hold it in your hand...",
-		"NAME": "Cleansing Bell"
-	},
-	"conjurer:ComfortFood":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "Simple food that lacks character.",
-		"NAME": "Comfort Food"
-	},
-	"conjurer:ConcertsFinalHour":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "Everything has an end, and the troupe was no exception.",
-		"NAME": "Concert's Final Hour"
 	},
 	"conjurer:CrimsonMapleLeaf":
 	{
@@ -84,131 +48,17 @@
 		"FLAVOR": "Whoever thou mayest be, take not the ring from this place, the solitude beyond the night is better mine alone.",
 		"NAME": "Dark Moon Ring"
 	},
-	"conjurer:Dendroculus":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "A substance that has accumulated intense Dendro energy.",
-		"NAME": "Dendroculus"
-	},
 	"conjurer:DisguisePropBox":
 	{
 		"DESCRIPTIONS": ["{#o:Right-Click in battle}: Target a creature and take its form. | At combat start, trigger an effect dependent on your current form.","#pCurrent #pEffect: {0}"],
 		"FLAVOR": "You can be whoever you want to be.",
 		"NAME": "Disguise Prop Box"
 	},
-	"conjurer:EntropicDie":
-	{
-		"DESCRIPTIONS": ["You may reroll cards from card rewards into cards with altered stats. | Entering #yRest rooms gives #b1 use per #b{0} cards in the pool."],
-		"FLAVOR": "Think about the food you want to eat the most.",
-		"NAME": "Entropic Die"
-	},
-	"conjurer:Everamber":
-	{
-		"DESCRIPTIONS": ["[Malleable] is treated as [conjurer:Ventus]. All characters start battle with {0} [Malleable]."],
-		"FLAVOR": "Inside the amber, a small, long-extinct insect remains frozen in time.",
-		"NAME": "Everamber"
-	},
-	"conjurer:FortuneGlue":
-	{
-		"DESCRIPTIONS": ["Significantly boosts rare card reward chances from the next #b{0} monster rewards."],
-		"FLAVOR": "Is luck an ability? Maybe.",
-		"NAME": "Fortune Glue"
-	},
-	"conjurer:GalacticBigLotto":
-	{
-		"DESCRIPTIONS": ["Whenever you enter a room, there is a #b{0}% chance to obtain a random relic. If this activates, there is a #b{1}% chance for you to lose #b{2}% of your current HP, and disable this relic."],
-		"FLAVOR": "You just need one galactic currency to bet on your luck and become a trader in the experience of making dreams.",
-		"NAME": "Galactic Big Lotto"
-	},
-	"conjurer:GapFoldingUmbrella":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "Covers everything from tears to torrents.",
-		"NAME": "Gap Folding Umbrella"
-	},
-	"conjurer:GhastlySendOffLantern":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "It scares things off a bit too well.",
-		"NAME": "Ghastly Send-Off Lantern"
-	},
 	"conjurer:HeavyGem":
 	{
 		"DESCRIPTIONS": [],
 		"FLAVOR": "A warrior can appreciate a heavy weapon.",
 		"NAME": "Heavy Gem"
-	},
-	"conjurer:HellBull":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "A drink that oozes with hell.",
-		"NAME": "Hell Bull"
-	},
-	"conjurer:InsectWeb":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "Touching this web carries a high risk of becoming infected by the parasitic larvae.",
-		"NAME": "Insect Web"
-	},
-	"conjurer:JumpyDumptyPartyPopper":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "It jumps and it dumps. What more can be said?",
-		"NAME": "Jumpy Dumpty Party Popper"
-	},
-	"conjurer:KeyOfTheMoonBathedDeep":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "A strange treasure with an awkward name.",
-		"NAME": "Key of the Moon-Bathed Deep"
-	},
-	"conjurer:MaidensFleetingLeisure":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "This flower shall be my medal. That is all I need.",
-		"NAME": "Maiden's Fleeting Leisure"
-	},
-	"conjurer:MonsterBone":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "Bone home.",
-		"NAME": "Monster Bone"
-	},
-	"conjurer:MusketeersFeltHat":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "Yee. Haw.",
-		"NAME": "Musketeer's Felt Hat"
-	},
-	"conjurer:NimbleFabric":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "It moves too fast for you to wear it.",
-		"NAME": "Nimble Fabric"
-	},
-	"conjurer:NymphsConstancy":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "A test piece created by piecing together the rejected components of various devices.",
-		"NAME": "Nymph's Constancy"
-	},
-	"conjurer:Paintball":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "Splat is where it is at.",
-		"NAME": "Paintball"
-	},
-	"conjurer:Parashroom":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "Has a rather shocking taste.",
-		"NAME": "Parashroom"
-	},
-	"conjurer:PearlCage":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "Only this bright pearl was lost in the rippling tumult, returning to the silent solitude of the depths.",
-		"NAME": "Pearl Cage"
 	},
 	"conjurer:PeriodicTable":
 	{
@@ -222,29 +72,11 @@
 		"FLAVOR": "Spiky like a Spiker.",
 		"NAME": "Portable Cactus"
 	},
-	"conjurer:PowerItem":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "Watch the power.",
-		"NAME": "Power Item"
-	},
-	"conjurer:PunitiveEnergy":
-	{
-		"DESCRIPTIONS": ["Gain [E] at the start of your turn. You can only #yLevel #b1 #yElement each combat."],
-		"FLAVOR": "You feel a surge of courage just by looking at it.",
-		"NAME": "Punitive Energy"
-	},
 	"conjurer:QuadraticGlobe":
 	{
 		"DESCRIPTIONS": [],
 		"FLAVOR": "The globe can spin any way you want it to.",
 		"NAME": "Quadratic Globe"
-	},
-	"conjurer:ScaleLikeObject":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "Doesn't scale very well.",
-		"NAME": "Scale-Like Object"
 	},
 	"conjurer:ScorpionStinger":
 	{
@@ -270,71 +102,17 @@
 		"FLAVOR": "The definition of chill.",
 		"NAME": "Snowflake"
 	},
-	"conjurer:SpaceTimePrism":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "Every hole is an individual surface, and reflections from each prism surface produce a different effect.",
-		"NAME": "Space-Time Prism"
-	},
 	"conjurer:StochasticTable":
 	{
 		"DESCRIPTIONS": [],
 		"FLAVOR": "A table that is very, very unpredictable.",
 		"NAME": "Stochastic Table"
 	},
-	"conjurer:StraightShooter":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "It's pretty straightforward.",
-		"NAME": "Straight Shooter"
-	},
-	"conjurer:SubstituteJizo":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "A statue (not from Mario).",
-		"NAME": "Substitute Jizo"
-	},
-	"conjurer:SummonFile":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "We have all of your information.",
-		"NAME": "Summon File"
-	},
-	"conjurer:SundialOfEnduringJade":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "It silently pursues both time and tide.",
-		"NAME": "Sundial of Enduring Jade"
-	},
 	"conjurer:SunlightMedal":
 	{
 		"DESCRIPTIONS": [],
 		"FLAVOR": "Reminds one of the great honor of a shared victory.",
 		"NAME": "Sunlight Medal"
-	},
-	"conjurer:SuppressingEdict":
-	{
-		"DESCRIPTIONS": ["You may reroll cards from card rewards into cards with altered stats. | Entering #yRest rooms gives #b1 use per #b{0} cards in the pool."],
-		"FLAVOR": "What on earth did you do to make this fellow go mad?",
-		"NAME": "Suppressing Edict"
-	},
-	"conjurer:Thermostat":
-	{
-		"DESCRIPTIONS": ["[A-R] now #yReacts with [A-B]."],
-		"FLAVOR": "It's too hot in here.",
-		"NAME": "Thermostat"
-	},
-	"conjurer:ThousandFloatingDreams":
-	{
-	  "DESCRIPTIONS": ["At the start of battle, #ySummon #b1 of #b{0} special #ySummons. There is a small chance for the chosen #ySummon to appear in that room's card rewards."],
-	  "FLAVOR": "In the reflection of the serene moonlight, the verdant lamp told of the silhouette of the stars and an everlasting melody.",
-	  "NAME": "A Thousand Floating Dreams"
-	},
-	"conjurer:TinyCastle":
-	{
-		"DESCRIPTIONS": ["[A-R] now #yReacts with [A-G]. [Malleable] is treated as [conjurer:Ventus]. Start each battle with {0} [Malleable]."],
-		"FLAVOR": "Inside the amber, a small, long-extinct insect remains frozen in time.",
-		"NAME": "Tiny Castle"
 	},
 	"conjurer:Triquetra":
 	{
@@ -347,34 +125,5 @@
 		"DESCRIPTIONS": ["#yMist cards become more potent. | Upon pickup, obtain a random #yMist card."],
 		"FLAVOR": "Inside the amber, a small, long-extinct insect remains frozen in time.",
 		"NAME": "Uplifting Aromatic"
-	},
-	"conjurer:ViridescentArrowFeather":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "A glossy and shining feather of a falcon.",
-		"NAME": "Viridescent Arrow Feather"
-	},
-	"conjurer:WanderDroplet":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "Wander the seas.",
-		"NAME": "Wander Droplet"
-	},
-	"conjurer:WarpingCompoundEye":
-	{
-		"DESCRIPTIONS": ["randomize the values of the effects of cards in your hand"],
-		"FLAVOR": "The light of these gadgets can warp forward to the star system ahead of the user and bring back infromation from new worlds.",
-		"NAME": "Warping Compound Eye"
-	},
-	"conjurer:WitchsHeartFlames":
-	{
-		"FLAVOR": "A clear bottle containing liquid fire.",
-		"NAME": "Witch's Heart Flames"
-	},
-	"conjurer:YasakaMagatama":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "Everyone loves green and shiny objects.",
-		"NAME": "Yasaka Magatama"
 	}
 }

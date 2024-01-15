@@ -222,12 +222,15 @@ public class ConjurerElementButton extends EUIButton {
                 for (Map.Entry<PCLAffinity, Integer> entry : values.entrySet()) {
                     for (PSkill<?> skill : getReactEffects(entry.getKey())) {
                         for (int i = 0; i < entry.getValue(); i++) {
-                            skill.use(info, PCLActions.bottom);
+                            PCLActions.bottom.add(new ApplyOrReducePowerAction(po.owner, po.owner, po, -1))
+                                    .addCallback(p -> {
+                                        skill.use(info, PCLActions.bottom);
+                                    });
                         }
                     }
                 }
                 po.flash();
-                PCLActions.delayed.add(new ApplyOrReducePowerAction(po.owner, po.owner, po, -1));
+
             }
         }
     }
@@ -253,7 +256,7 @@ public class ConjurerElementButton extends EUIButton {
     public void renderImpl(SpriteBatch sb) {
         super.renderImpl(sb);
         PCLRenderHelpers.drawGrayscaleIf(sb, s -> elementImage.renderCentered(s, hb), busy || !canInteract);
-        FontHelper.renderFontCentered(sb, EUIFontHelper.cardTitleFontSmall, String.valueOf(previewLevel), hb.cX + scale(15), hb.cY - scale(13), previewLevel != level ? EUIColors.green(1f) : EUIColors.blue(1f), intensifyFontScale);
+        FontHelper.renderFontCentered(sb, FontHelper.tipHeaderFont, String.valueOf(previewLevel), hb.cX + scale(15), hb.cY - scale(13), previewLevel != level ? EUIColors.green(1f) : EUIColors.blue(1f), intensifyFontScale);
     }
 
     public void setCurrentCostMultiplier(float mult) {

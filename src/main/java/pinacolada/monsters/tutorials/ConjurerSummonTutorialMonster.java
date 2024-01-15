@@ -6,25 +6,27 @@ import com.esotericsoftware.spine.AnimationState;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.Hitbox;
+import extendedui.EUIUtils;
 import extendedui.ui.controls.EUIImage;
 import extendedui.ui.hitboxes.EUIHitbox;
+import extendedui.ui.screens.CustomCardLibraryScreen;
 import extendedui.ui.tooltips.EUITourTooltip;
 import pinacolada.actions.powers.ElementReaction;
 import pinacolada.actions.utility.SelectCreature;
+import pinacolada.cards.base.PCLDynamicCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.conjurer.basic.Condensation;
 import pinacolada.cards.conjurer.basic.Ignite;
-import pinacolada.cards.conjurer.series.genshinimpact.Bennett;
-import pinacolada.cards.conjurer.series.genshinimpact.KaeyaAlberich;
-import pinacolada.cards.conjurer.series.shinmegamitensei.JackFrost;
-import pinacolada.cards.conjurer.series.shinmegamitensei.PyroJack;
 import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.monsters.PCLCardAlly;
 import pinacolada.monsters.PCLCreatureData;
 import pinacolada.monsters.PCLTutorialMonster;
 import pinacolada.powers.conjurer.PetraPower;
+import pinacolada.resources.PCLEnum;
 import pinacolada.resources.PGR;
+import pinacolada.resources.conjurer.ConjurerEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.resources.pcl.PCLCoreImages;
 import pinacolada.utilities.GameUtilities;
@@ -48,7 +50,11 @@ public class ConjurerSummonTutorialMonster extends PCLTutorialMonster {
     }
 
     public EUITourTooltip step1() {
-        AbstractCard card = new Bennett();
+        AbstractCard card = EUIUtils.find(CustomCardLibraryScreen.getCards(ConjurerEnum.Cards.THE_CONJURER), f -> f.type == PCLEnum.CardType.SUMMON);
+        if (card == null) {
+            return null;
+        }
+        card = card.makeCopy();
         replaceHandWith(card);
 
         Hitbox targetHb = card.hb;
@@ -90,8 +96,12 @@ public class ConjurerSummonTutorialMonster extends PCLTutorialMonster {
     }
 
     public EUITourTooltip step3() {
-        AbstractCard pyro = new PyroJack();
-        replaceHandWith(pyro, new KaeyaAlberich(), new JackFrost());
+        AbstractCard card = EUIUtils.find(CustomCardLibraryScreen.getCards(ConjurerEnum.Cards.THE_CONJURER), f -> f.type == PCLEnum.CardType.SUMMON);
+        if (card == null) {
+            return null;
+        }
+        AbstractCard pyro = card.makeCopy();
+        replaceHandWith(pyro, pyro.makeCopy(), pyro.makeCopy());
 
         PetraPower p = new PetraPower(this, this, 5);
         p.addTurns(1);

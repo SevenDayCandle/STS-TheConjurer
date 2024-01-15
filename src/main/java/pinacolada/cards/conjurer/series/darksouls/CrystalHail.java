@@ -27,6 +27,6 @@ public class CrystalHail extends PCLCard {
     }
 
     public void setup(Object input) {
-        addGainPower(PTrigger.when(PCond.onTurnEnd(), PMod.perPower(CooledPower.DATA).setTarget(PCLCardTarget.AllEnemy), PMove.loseHp(PCLCardTarget.UseParent, 1)));
+        addGainPower(PTrigger.when(PCond.onTurnEnd(), PMod.perPower(CooledPower.DATA).setTarget(PCLCardTarget.UseParent), PMove.loseHp(PCLCardTarget.AllEnemy, 1)));
     }
 }

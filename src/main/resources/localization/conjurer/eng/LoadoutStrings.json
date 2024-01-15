@@ -1,25 +1,5 @@
 
 {
-				"conjurer:Atelier": {"AUTHOR": "Gust", "NAME": "Atelier"},
-				"conjurer:BaldursGate": {"AUTHOR": "Larian", "NAME": "Baldur's Gate"},
-				"conjurer:BlazBlue": {"AUTHOR": "Arc Systems Works", "NAME": "BlazBlue"},
 				"conjurer:DarkSouls": {"AUTHOR": "FromSoft", "NAME": "Dark Souls"},
-				"conjurer:EldenRing": {"AUTHOR": "FromSoft", "NAME": "Elden Ring"},
-				"conjurer:FinalFantasy": {"AUTHOR": "Square Enix", "NAME": "Final Fantasy"},
-				"conjurer:GenshinImpact": {"AUTHOR": "Cognosphere", "NAME": "Genshin Impact"},
-				"conjurer:Hades": {"AUTHOR": "Supergiant", "NAME": "Hades"},
-				"conjurer:Honkai": {"AUTHOR": "miHoYo", "NAME": "Honkai"},
-				"conjurer:Kirby": {"AUTHOR": "HAL Laboratory", "NAME": "Kirby"},
-				"conjurer:MegaMan": {"AUTHOR": "Capcom", "NAME": "Mega Man"},
-				"conjurer:MobileSuitGundam": {"AUTHOR": "Bandai Namco", "NAME": "Mobile Suit Gundam"},
-				"conjurer:MonsterHunter": {"AUTHOR": "Capcom", "NAME": "Monster Hunter"},
-				"conjurer:PhoenixWright": {"AUTHOR": "Capcom", "NAME": "Phoenix Wright Ace Attorney"},
-				"conjurer:RagnarokOnline": {"AUTHOR": "Gravity", "NAME": "Ragnarok"},
-				"conjurer:ShinMegamiTensei": {"AUTHOR": "Atlus", "NAME": "Shin Megami Tensei"},
-				"conjurer:SlayTheSpire": {"AUTHOR": "Mega Crit", "NAME": "Slay the Spire"},
-				"conjurer:Tales": {"AUTHOR": "Bandai Namco", "NAME": "Tales"},
-				"conjurer:TheWitcher": {"AUTHOR": "CD Projekt Red", "NAME": "The Witcher"},
-				"conjurer:TouhouProject": {"AUTHOR": "ZUN, Team Shanghai Alice", "NAME": "Touhou Project"},
-				"conjurer:Xeno": {"AUTHOR": "Monolith Soft", "NAME": "Xeno"},
-				"conjurer:YuGiOh": {"AUTHOR": "Konami", "NAME": "Yu-Gi-Oh"}
+				"conjurer:EldenRing": {"AUTHOR": "FromSoft", "NAME": "Elden Ring"}
 }

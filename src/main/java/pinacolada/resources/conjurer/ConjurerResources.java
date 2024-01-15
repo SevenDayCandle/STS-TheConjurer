@@ -123,6 +123,7 @@ public class ConjurerResources extends PCLResources<ConjurerPlayerData, Conjurer
                 images.powerL, images.orbB, images.orbC);
     }
 
+    @Override
     protected void postInitialize() {
         super.postInitialize();
         CombatManager.playerSystem.registerMeter(playerClass, ConjurerReactionMeter.meter);
@@ -132,5 +133,11 @@ public class ConjurerResources extends PCLResources<ConjurerPlayerData, Conjurer
         PCLCardAlly.registerAnimation(cardColor, this::getAnimation);
         data.addTutorial(ConjurerTutorialMonster.DATA);
         PCLTutorialMonster.register(ConjurerSummonTutorialMonster.DATA, data.config.seenSummonTutorial, p -> p.chosenClass == data.resources.playerClass && EUIUtils.any(p.masterDeck.group, card -> card.type == PCLEnum.CardType.SUMMON));
+    }
+
+    // Purposely added to allow patching
+    @Override
+    public void receiveEditStrings() {
+        super.receiveEditStrings();
     }
 }

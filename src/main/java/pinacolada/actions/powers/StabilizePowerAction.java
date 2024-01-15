@@ -10,7 +10,8 @@ import pinacolada.powers.conjurer.StabilizingPower;
 import pinacolada.utilities.GameUtilities;
 
 public class StabilizePowerAction extends PCLAction<AbstractPower> {
-    public String powerID;
+    private AbstractPower sourcePower;
+    public final String powerID;
     public boolean showEffect = true;
     public boolean isFast = true;
 
@@ -26,7 +27,9 @@ public class StabilizePowerAction extends PCLAction<AbstractPower> {
 
     @Override
     protected void firstUpdate() {
-        final AbstractPower sourcePower = GameUtilities.getPower(target, powerID);
+        if (sourcePower == null) {
+            sourcePower = GameUtilities.getPower(target, powerID);
+        }
 
         if (sourcePower != null) {
             StabilizingPower spower = new StabilizingPower(sourcePower, target, source, amount);
@@ -35,6 +38,11 @@ public class StabilizePowerAction extends PCLAction<AbstractPower> {
         }
 
         complete(sourcePower);
+    }
+
+    public StabilizePowerAction setPower(AbstractPower po) {
+        this.sourcePower = po;
+        return this;
     }
 
     public StabilizePowerAction showEffect(boolean showEffect, boolean isFast) {

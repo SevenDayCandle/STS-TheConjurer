@@ -31,25 +31,6 @@ public class ConjurerPlayerData extends PCLPlayerData<ConjurerResources, Conjure
 
     public static ConjurerLoadout darkSouls = PCLLoadout.register(new DarkSouls());
     public static ConjurerLoadout eldenRing = PCLLoadout.register(new EldenRing());
-    public static ConjurerLoadout genshinImpact = PCLLoadout.register(new GenshinImpact());
-    public static ConjurerLoadout honkai = PCLLoadout.register(new Honkai());
-    public static ConjurerLoadout monsterHunter = PCLLoadout.register(new MonsterHunter());
-    public static ConjurerLoadout shinMegamiTensei = PCLLoadout.register(new ShinMegamiTensei());
-    public static ConjurerLoadout touhouProject = PCLLoadout.register(new TouhouProject());
-
-    public static ConjurerLoadout atelier = ConjurerLoadout.generate("Atelier", 5);
-    public static ConjurerLoadout baldursGate = ConjurerLoadout.generate("BaldursGate", 6);
-    public static ConjurerLoadout finalFantasy = ConjurerLoadout.generate("FinalFantasy", 4);
-    public static ConjurerLoadout hades = ConjurerLoadout.generate("Hades", 2);
-    public static ConjurerLoadout kirby = ConjurerLoadout.generate("Kirby", 4);
-    public static ConjurerLoadout megaman = ConjurerLoadout.generate("MegaMan", 6);
-    public static ConjurerLoadout mobileSuitGundam = ConjurerLoadout.generate("MobileSuitGundam", 6);
-    public static ConjurerLoadout phoenixWright = ConjurerLoadout.generate("PhoenixWright", 3);
-    public static ConjurerLoadout ragnarok = ConjurerLoadout.generate("RagnarokOnline", 4);
-    public static ConjurerLoadout slayTheSpire = ConjurerLoadout.generate("SlayTheSpire", 1);
-    public static ConjurerLoadout tales = ConjurerLoadout.generate("Tales", 3);
-    public static ConjurerLoadout theWitcher = ConjurerLoadout.generate("TheWitcher", 5);
-    public static ConjurerLoadout yuGiOh = ConjurerLoadout.generate("YuGiOh", 2);
 
     public ConjurerPlayerData(ConjurerResources resources) {
         super(resources);
@@ -199,6 +180,16 @@ public class ConjurerPlayerData extends PCLPlayerData<ConjurerResources, Conjure
                 return PMultiSkill.join(PMove.gainPlayer(1, PCLPowerData.Malleable), PMove.applyToRandom(1, PCLPowerData.Weak, PCLPowerData.Vulnerable));
         }
         return PMove.gainEnergy(1);
+    }
+
+    @Override
+    public boolean canUseCustom() {
+        return config.allowCustom.get();
+    }
+
+    @Override
+    public boolean customDisablesProgression() {
+        return true;
     }
 
     @Override

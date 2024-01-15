@@ -55,7 +55,7 @@ public class PMove_StabilizePower extends PMove<PField_Power> {
 
     protected void stabilizePower(PCLUseInfo info, PCLPowerData power, PCLActions order) {
         if (power != null) {
-            List<? extends AbstractCreature> targets = getTargetList(info);
+            List<? extends AbstractCreature> targets = getTargetListAsNew(info);
             for (AbstractCreature t : targets) {
                 power.doFor(po -> order.add(new StabilizePowerAction(info.source, t, po, refreshAmount(info))));
             }
