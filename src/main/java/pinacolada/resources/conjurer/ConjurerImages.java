@@ -59,16 +59,9 @@ public class ConjurerImages extends AbstractImages {
     }
 
     public static class Tutorial {
-        public static final TextureCache afftut01 = new TextureCache("images/conjurer/ui/tutorial/afftut01.png");
         public static final TextureCache etut01 = new TextureCache("images/conjurer/ui/tutorial/etut01.png");
         public static final TextureCache etut02 = new TextureCache("images/conjurer/ui/tutorial/etut02.png");
         public static final TextureCache etut03 = new TextureCache("images/conjurer/ui/tutorial/etut03.png");
-        public static final TextureCache ctut01 = new TextureCache("images/conjurer/ui/tutorial/ctut01.png");
-        public static final TextureCache ctut02 = new TextureCache("images/conjurer/ui/tutorial/ctut02.png");
-        public static final TextureCache ctut03 = new TextureCache("images/conjurer/ui/tutorial/ctut03.png");
-        public static final TextureCache ctut04 = new TextureCache("images/conjurer/ui/tutorial/ctut04.png");
-        public static final TextureCache ctut05 = new TextureCache("images/conjurer/ui/tutorial/ctut05.png");
-        public static final TextureCache ctut06 = new TextureCache("images/conjurer/ui/tutorial/ctut06.png");
     }
 
     // No background

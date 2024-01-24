@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.series.eldenring;
 
 
+import basemod.abstracts.CustomPlayer;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
@@ -26,7 +27,7 @@ public class FlameGrantMeStrength extends PCLCard {
     }
 
     public void setup(Object input) {
+        addUseMove(PMod.perPowerAny(1, IgnisPower.DATA), PMove.gainTemporary(1, PCLPowerData.Strength));
         addUseMove(PMove.gain(2, IgnisPower.DATA));
-        addUseMove(PMod.perPowerAny(2, IgnisPower.DATA), PMove.gainTemporary(1, PCLPowerData.Strength));
     }
 }

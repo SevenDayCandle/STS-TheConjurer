@@ -17,7 +17,7 @@ import pinacolada.skills.PMove;
 @VisibleCard
 public class BurnOFlame extends PCLCard {
     public static final PCLCardData DATA = register(BurnOFlame.class, ConjurerResources.conjurer)
-            .setAttack(0, CardRarity.COMMON, PCLAttackType.Ranged)
+            .setAttack(0, CardRarity.COMMON)
             .setDamage(5, 2)
             .setAffinities(PCLAffinity.Red)
             .setLoadout(ConjurerPlayerData.eldenRing);

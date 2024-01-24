@@ -31,7 +31,7 @@ import pinacolada.utilities.GameUtilities;
 @VisibleCard
 public class Ecosystem extends PCLCard {
     public static final PCLCardData DATA = register(Ecosystem.class, ConjurerResources.conjurer)
-            .setPower(1, CardRarity.RARE)
+            .setPower(0, CardRarity.RARE)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Green, PCLAffinity.Orange)
             .setMaxCopies(1)
             .setCore();
@@ -41,7 +41,7 @@ public class Ecosystem extends PCLCard {
     }
 
     public void setup(Object input) {
-        addSpecialPower(0, (s, i) -> new EcosystemPower(i.source, i.source, s), 10, 1);
+        addSpecialPower(0, (s, i) -> new EcosystemPower(i.source, i.source, s), 5, 2).setUpgrade(0, 1);
     }
 
     public static class EcosystemPower extends PSpecialCardPower implements OnIntensifySubscriber {
@@ -58,7 +58,7 @@ public class Ecosystem extends PCLCard {
                 int actualAmount = move.refreshAmount(move.getInfo(null));
                 PCLActions.bottom.callback(new AddAffinityLevel(affinity, -actualAmount), __ -> {
                     for (AbstractCreature target : GameUtilities.getAllCharacters(true)) {
-                        PCLActions.bottom.applyPower(owner, target, button.power, move.extra);
+                        PCLActions.bottom.applyPower(owner, target, button.power, move.extra, true);
                     }
                 });
             }

@@ -6,6 +6,7 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.conjurer.BlastedPower;
 import pinacolada.powers.conjurer.IgnisPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
@@ -28,6 +29,6 @@ public class ProfuseSweat extends PCLCard {
 
     public void setup(Object input) {
         addBlockMove();
-        addUseMove(PMove.remove(PCLCardTarget.Self, BlastedPower.DATA, IgnisPower.DATA));
+        addUseMove(PMove.gain(-2, BlastedPower.DATA, PCLPowerData.Weak));
     }
 }

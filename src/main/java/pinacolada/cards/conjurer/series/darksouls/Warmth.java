@@ -22,6 +22,6 @@ public class Warmth extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.retain(2), PMove.modifyBlock(4).edit(f -> f.setOr(true).setForced(true)).setUpgrade(1).useParent(true));
+        addUseMove(PMove.retain(2), PMove.modifyBlock(4).edit(f -> f.setOr(true).setForced(true)).setUpgrade(2).useParent(true));
     }
 }

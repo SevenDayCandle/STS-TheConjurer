@@ -151,7 +151,7 @@ public class PCond_AllyLink extends PDelegateCardCond
     }
 
     @Override
-    public void onAllyWithdraw(PCLCard pclCard, PCLCardAlly pclCardAlly) {
+    public void onAllyWithdraw(PCLCard pclCard, PCLCardAlly pclCardAlly, boolean triggerEffects) {
         unsubscribeFromAll();
     }
 

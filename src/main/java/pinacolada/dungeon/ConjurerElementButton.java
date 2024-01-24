@@ -223,6 +223,7 @@ public class ConjurerElementButton extends EUIButton {
                     for (PSkill<?> skill : getReactEffects(entry.getKey())) {
                         for (int i = 0; i < entry.getValue(); i++) {
                             PCLActions.bottom.add(new ApplyOrReducePowerAction(po.owner, po.owner, po, -1))
+                                    .forceIfDead(true)
                                     .addCallback(p -> {
                                         skill.use(info, PCLActions.bottom);
                                     });

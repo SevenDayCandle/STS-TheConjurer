@@ -30,6 +30,7 @@ import pinacolada.resources.PCLEnum;
 import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerImages;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.resources.pcl.PCLCoreImages;
 import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
 import pinacolada.skills.PSkill;
@@ -88,17 +89,19 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
     }
 
     private static void initializeTrie() {
-        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Red),"Fire", "Flame", "Burn", "Scorch", "Heat", "Solar", "Explosion", "Blast", "Ignit");
+        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Red),"Fire", "Flame", "Burn", "Scorc", "Heat", "Solar", "Explod", "Explosion", "Blast", "Ignit", "Pyro");
+        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Red, PCLAffinity.Green),"Smoke");
+        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Red, PCLAffinity.Blue),"Steam", "Geyser", "Boil");
         AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Red, PCLAffinity.Orange),"Lava", "Magma", "Volcan");
-        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Blue),"Water", "Ice", "Icicle", "Snow", "Frost", "Chill", "Cold", "Freeze", "Aqua", "Ocean", "Bubble", "Liquid", "Cool", "Crystal");
-        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Blue, PCLAffinity.Green),"Storm", "Mist", "Fog", "Cloud", "Weather");
+        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Blue),"Water", "Ice", "Icicle", "Snow", "Frost", "Chill", "Cold", "Freeze", "Froze", "Aqua", "Ocean", "Bubble", "Liquid", "Cool", "Crystal", "Hydro", "Cryo", "Flood");
+        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Blue, PCLAffinity.Green),"Storm", "Mist", "Fog", "Cloud", "Weather", "Hurricane", "Vapor");
         AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Blue, PCLAffinity.Orange),"Mud", "Swamp", "Sludge");
-        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Green),"Wind", "Sky", "Poison", "Toxic", "Air", "Smoke", "Breeze", "Tornado", "Leaf", "Blossom", "Flower");
+        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Green),"Wind", "Sky", "Poison", "Toxic", "Air", "Smoke", "Breeze", "Tornado", "Leaf", "Blossom", "Flower", "Anemo");
         AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Green, PCLAffinity.Orange),"Nature", "Wood", "Forest", "Grass", "Bloom", "Plant", "Tree");
         AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Orange),"Earth", "Rock", "Stone", "Ground", "Land", "Geo");
-        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Yellow),"Electr", "Thund", "Shock", "Volt", "Holy", "Bless", "Sacred", "Photo", "Light");
-        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Purple),"Dark", "Shadow", "Evil", "Night", "Curse", "Void", "Corrupt", "infinitespire", "Umbr");
-        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Silver),"Metal", "Steel");
+        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Yellow),"Electr", "Thund", "Shock", "Volt", "Holy", "Bless", "Sacred", "Photo", "Light", "Plasm");
+        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Purple),"Dark", "Shado", "Evil", "Night", "Curs", "Void", "Corrupt", "infinitespire", "Umbr");
+        AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Silver),"Metal", "Steel", "Iron");
         AFFINITY_TREE.putAll(EUIUtils.array(PCLAffinity.Star),"Rainbow");
     }
 
@@ -315,15 +318,15 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
     @Override
     public EUITutorialPage[] getInfoPages() {
         return array(
-                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.affinityGeneral.title), PGR.core.strings.tutorial_affinityTutorial, ConjurerImages.Tutorial.afftut01.texture()),
-                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 1), PGR.core.strings.tutorial_summonTutorial1, ConjurerImages.Tutorial.ctut01.texture()),
-                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 2), PGR.core.strings.tutorial_summonTutorial2, ConjurerImages.Tutorial.ctut02.texture()),
-                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 3), PGR.core.strings.tutorial_summonTutorial3, ConjurerImages.Tutorial.ctut03.texture()),
-                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 4), PGR.core.strings.tutorial_summonTutorial4, ConjurerImages.Tutorial.ctut03.texture()),
-                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 5), PGR.core.strings.tutorial_summonTutorial5, ConjurerImages.Tutorial.ctut03.texture()),
-                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 6), PGR.core.strings.tutorial_summonTutorial6, ConjurerImages.Tutorial.ctut04.texture()),
-                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 7), PGR.core.strings.tutorial_summonTutorial7, ConjurerImages.Tutorial.ctut05.texture()),
-                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 8), PGR.core.strings.tutorial_summonTutorial8, ConjurerImages.Tutorial.ctut06.texture()),
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.affinityGeneral.title), PGR.core.strings.tutorial_affinityTutorial, PCLCoreImages.Tutorial.affTut01.texture()),
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 1), PGR.core.strings.tutorial_summonTutorial1, PCLCoreImages.Tutorial.sumTut01.texture()),
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 2), PGR.core.strings.tutorial_summonTutorial2, PCLCoreImages.Tutorial.sumTut02.texture()),
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 3), PGR.core.strings.tutorial_summonTutorial3, PCLCoreImages.Tutorial.sumTut03.texture()),
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 4), PGR.core.strings.tutorial_summonTutorial4, PCLCoreImages.Tutorial.sumTut03.texture()),
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 5), PGR.core.strings.tutorial_summonTutorial5, PCLCoreImages.Tutorial.sumTut03.texture()),
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 6), PGR.core.strings.tutorial_summonTutorial6, PCLCoreImages.Tutorial.sumTut04.texture()),
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 7), PGR.core.strings.tutorial_summonTutorial7, PCLCoreImages.Tutorial.sumTut05.texture()),
+                new EUITutorialImagePage(makeTitle(PGR.core.strings.misc_fabricate, PGR.core.tooltips.summon.title, 8), PGR.core.strings.tutorial_summonTutorial8, PCLCoreImages.Tutorial.sumTut06.texture()),
                 new EUITutorialImagePage(makeTitle(getInfoTitle(), ConjurerResources.conjurer.tooltips.element.title), ConjurerResources.conjurer.strings.conjurerTutorial1, ConjurerImages.Tutorial.etut01.texture()),
                 new EUITutorialImagePage(makeTitle(getInfoTitle(), ConjurerResources.conjurer.tooltips.reaction.title, 1), ConjurerResources.conjurer.strings.conjurerTutorial2, ConjurerImages.Tutorial.etut02.texture()),
                 new EUITutorialImagePage(makeTitle(getInfoTitle(), ConjurerResources.conjurer.tooltips.reaction.title, 2), ConjurerResources.conjurer.strings.conjurerTutorial3, ConjurerImages.Tutorial.etut03.texture())

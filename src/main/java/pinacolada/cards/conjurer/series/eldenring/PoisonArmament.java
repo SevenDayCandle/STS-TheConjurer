@@ -18,6 +18,7 @@ import pinacolada.skills.skills.PTrigger;
 public class PoisonArmament extends PCLCard {
     public static final PCLCardData DATA = register(PoisonArmament.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.Self)
+            .setCostUpgrades(-1)
             .setAffinities(1, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
@@ -26,6 +27,6 @@ public class PoisonArmament extends PCLCard {
     }
 
     public void setup(Object input) {
-        addGainPower(2, PTrigger.when(PCond.damage(PCLCardTarget.Self, 1), PMove.applyToSingle(2, VentusPower.DATA, ElementPowerData.Poison))).setUpgrade(1);
+        addGainPower(2, PTrigger.when(PCond.damage(PCLCardTarget.Self, 1), PMove.applyToSingle(1, VentusPower.DATA, ElementPowerData.Poison)));
     }
 }

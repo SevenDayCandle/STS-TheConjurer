@@ -18,6 +18,7 @@ import pinacolada.skills.skills.PTrigger;
 public class FrozenWeapon extends PCLCard {
     public static final PCLCardData DATA = register(FrozenWeapon.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.Self)
+            .setCostUpgrades(-1)
             .setAffinities(1, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.darkSouls);
 
@@ -26,6 +27,6 @@ public class FrozenWeapon extends PCLCard {
     }
 
     public void setup(Object input) {
-        addGainPower(2, PTrigger.when(PCond.damage(PCLCardTarget.Self, 1), PMove.applyToSingle(2, AquaPower.DATA, CooledPower.DATA).setUpgrade(1)));
+        addGainPower(2, PTrigger.when(PCond.damage(PCLCardTarget.Self, 1), PMove.applyToSingle(1, AquaPower.DATA, CooledPower.DATA)));
     }
 }

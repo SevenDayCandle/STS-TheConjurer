@@ -7,6 +7,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.powers.conjurer.AquaPower;
+import pinacolada.powers.conjurer.BlastedPower;
 import pinacolada.powers.conjurer.IgnisPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.CCond;
@@ -26,6 +27,6 @@ public class BoilingPoint extends PCLCard {
     }
 
     public void setup(Object input) {
-        addGainPower(PTrigger.when(PCond.checkPower(PCLCardTarget.Any, 1), PMove.applyToRandom(1, IgnisPower.DATA).setUpgrade(1)));
+        addGainPower(PTrigger.when(PCond.checkPower(PCLCardTarget.Any, 1), PMove.applyToRandom(2, BlastedPower.DATA).setUpgrade(1)));
     }
 }
