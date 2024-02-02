@@ -19,6 +19,7 @@ import pinacolada.powers.conjurer.VentusPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
+import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PSpecialSkill;
 import pinacolada.skills.skills.PTrigger;
@@ -28,7 +29,6 @@ import pinacolada.utilities.GameUtilities;
 public class ScarletAeonia extends PCLCard {
     public static final PCLCardData DATA = register(ScarletAeonia.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.RARE)
-            .setCostUpgrades(-1)
             .setTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Green, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.eldenRing);
@@ -39,17 +39,6 @@ public class ScarletAeonia extends PCLCard {
 
     public void setup(Object input) {
         addUseMove(PMove.create(2, Biohazard.DATA.ID));
-        addApplyPower(PCLCardTarget.Single, -1, PTrigger.when(PCond.onTurnEnd(), getSpecialMove(0, this::specialMove, 1, 3))).setVFX(ConjurerEFK.EVFXForge02_08_BloomforgeWard);
-    }
-
-    public void specialMove(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
-        AbstractCreature owner = move.getOwnerCreature();
-        if (!GameUtilities.isDeadOrEscaped(owner)) {
-            int poisonAmount = EUIUtils.sumInt(EUIUtils.filter(owner.powers, po -> ConjurerReactionMeter.meter.isPowerElemental(po.ID, PCLAffinity.Green)), po -> po.amount);
-            if (poisonAmount > 0) {
-                order.applyPower(owner, PCLPowerData.Poison, poisonAmount);
-                order.removePower(owner, owner, VentusPower.POWER_ID);
-            }
-        }
+        addApplyPower(PCLCardTarget.Single, -1, PTrigger.when(PCond.onTurnEnd(), PMod.perPowerSelf(PCLPowerData.Vulnerable), PMove.loseHp(PCLCardTarget.Self, 7).setUpgrade(2))).setVFX(ConjurerEFK.EVFXForge02_08_BloomforgeWard);
     }
 }

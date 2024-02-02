@@ -2,17 +2,14 @@ package pinacolada.powers.conjurer;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisiblePower;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.dungeon.AffinityReactions;
 import pinacolada.effects.PCLSFX;
-import pinacolada.monsters.PCLCardAlly;
 import pinacolada.resources.PCLEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
 
 @VisiblePower
-public class AquaPower extends AbstractPCLElementalPower {
+public class AquaPower extends AbstractElementPower {
     public static final ElementPowerData DATA = registerElement(AquaPower.class, PCLAffinity.Blue)
             .setType(PowerType.DEBUFF)
             .setTooltip(ConjurerResources.conjurer.tooltips.aqua);

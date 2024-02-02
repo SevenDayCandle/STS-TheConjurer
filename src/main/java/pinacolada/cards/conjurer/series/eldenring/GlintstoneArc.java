@@ -20,7 +20,7 @@ import pinacolada.skills.PMove;
 public class GlintstoneArc extends PCLCard {
     public static final PCLCardData DATA = register(GlintstoneArc.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.COMMON, PCLAttackType.Ranged)
-            .setDamage(3, 2)
+            .setDamage(6, 3)
             .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
@@ -29,6 +29,6 @@ public class GlintstoneArc extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(ConjurerEFK.SWORD01).setBonus(PMod.perPowerSelf(1, FlowPower.DATA).setExtra(14).setUpgradeExtra(6), 2);
+        addDamageMove(ConjurerEFK.SWORD01).setBonus(PMod.perPowerSelf(1, FlowPower.DATA), 1);
     }
 }

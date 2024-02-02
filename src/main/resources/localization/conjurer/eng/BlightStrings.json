@@ -3,7 +3,7 @@
 	"conjurer:Genesis":
 	{
 	  "NAME": "Genesis",
-	  "DESCRIPTION": ["Summon cards are relegated to the {Control Pile}, and can be played from this pile by paying HP equal to its cost. This HP is refunded when the Summon is Withdrawn or at the end of combat if the Summon is still alive. Summons intercept all damage that you would take."]
+	  "DESCRIPTION": ["Summon cards are relegated to the {Control Pile}, where they can be Summoned for free. The total cost of Summons current active cannot exceed your total Energy. If a Summon is killed, it is removed from your deck. If a Summon is Withdrawn, it will not be Triggered and will not go into your discard pile."]
 	},
 	"conjurer:Trinity":
 	{

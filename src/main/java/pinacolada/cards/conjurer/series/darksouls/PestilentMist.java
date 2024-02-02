@@ -29,6 +29,6 @@ public class PestilentMist extends PCLCard {
 
     public void setup(Object input) {
         addUseMove(PMove.applyToEnemies(3, PCLPowerData.Weak));
-        addUseMove(CCond.react(), PMove.gain(1, PCLPowerData.Blur));
+        addUseMove(CCond.react(PCLAffinity.Blue), PMove.gain(1, PCLPowerData.Blur));
     }
 }

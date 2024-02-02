@@ -1,8 +1,8 @@
 package pinacolada.interfaces.listeners;
 
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import pinacolada.powers.conjurer.AbstractPCLElementalPower;
+import pinacolada.powers.conjurer.AbstractElementPower;
 
 public interface OnElementalDebuffListener {
-    float getPercentage(float initial, AbstractPCLElementalPower element, AbstractCreature owner);
+    float getPercentage(float initial, AbstractElementPower element, AbstractCreature owner);
 }

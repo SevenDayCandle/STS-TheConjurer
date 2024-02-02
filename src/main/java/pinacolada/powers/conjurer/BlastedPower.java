@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisiblePower;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.dungeon.CombatManager;
 import pinacolada.dungeon.ConjurerElementButton;
 import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.effects.PCLAttackVFX;
@@ -93,6 +94,7 @@ public class BlastedPower extends PCLPower implements HealthBarRenderPower {
                     .canKill(owner == null || !owner.isPlayer);
         }
 
+        CombatManager.onSpecificPowerActivated(this, owner, false);
         reducePowerAction(getDecrease());
     }
 }

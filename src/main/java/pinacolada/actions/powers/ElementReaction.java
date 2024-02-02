@@ -8,7 +8,6 @@ import pinacolada.actions.PCLAction;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.dungeon.*;
 import pinacolada.interfaces.subscribers.OnElementReactSubscriber;
-import pinacolada.powers.conjurer.AbstractPCLElementalPower;
 
 import java.util.ArrayList;
 import java.util.List;

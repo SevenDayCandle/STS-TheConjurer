@@ -28,7 +28,7 @@ public class ElementalMasteryPower extends PCLSubscribingPower {
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
         super.onApplyPower(power, target, source);
 
-        if (power.amount > 0 && (power instanceof AbstractPCLElementalPower)) {
+        if (power.amount > 0 && (power instanceof AbstractElementPower)) {
             power.amount += this.amount;
 
             final AbstractGameAction action = AbstractDungeon.actionManager.currentAction;

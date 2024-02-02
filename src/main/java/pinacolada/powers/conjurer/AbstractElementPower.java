@@ -21,13 +21,13 @@ import pinacolada.utilities.PCLRenderHelpers;
 
 import java.util.List;
 
-public abstract class AbstractPCLElementalPower extends PCLPower {
+public abstract class AbstractElementPower extends PCLPower {
     private static List<PCLAffinity> hovered;
     private static AbstractCard last;
-    public static final String POWER_ID = createFullID(ConjurerResources.conjurer, AbstractPCLElementalPower.class);
+    public static final String POWER_ID = createFullID(ConjurerResources.conjurer, AbstractElementPower.class);
     protected float flashTimer;
 
-    public AbstractPCLElementalPower(ElementPowerData data, AbstractCreature owner, AbstractCreature source, int amount) {
+    public AbstractElementPower(ElementPowerData data, AbstractCreature owner, AbstractCreature source, int amount) {
         super(data, owner, source, amount);
     }
 
@@ -53,7 +53,7 @@ public abstract class AbstractPCLElementalPower extends PCLPower {
         return base + increase;
     }
 
-    public static ElementPowerData registerElement(Class<? extends AbstractPCLElementalPower> powerClass, PCLAffinity affinity) {
+    public static ElementPowerData registerElement(Class<? extends AbstractElementPower> powerClass, PCLAffinity affinity) {
         return registerPowerData(new ElementPowerData(powerClass, affinity));
     }
 

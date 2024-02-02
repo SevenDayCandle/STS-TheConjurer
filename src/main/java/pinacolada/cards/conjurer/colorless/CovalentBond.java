@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
+import pinacolada.cardmods.PermanentCostModifier;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
@@ -39,9 +40,10 @@ public class CovalentBond extends PCLCard {
                             GameUtilities.resetVisualProperties(c);
                             result.addInheritedCard(c);
                         }
-                        GameUtilities.modifyCostForCombat(result, -move.extra, true);
 
-                        order.makeCardInHand(result);
+                        order.makeCardInHand(result).addCallback(c -> {
+                            PermanentCostModifier.apply(result, -move.extra);
+                        });
                     }
                 });
     }

@@ -156,7 +156,7 @@ public class ConjurerElementButton extends EUIButton {
         }
         ConjurerReactionGroup group = reactions.get(af);
         if (group != null) {
-            return af.getFormattedAffinitySymbol() + " -> " + power.affinity.getFormattedAffinitySymbol() + COLON_SEPARATOR + group.getSkillsText();
+            return af.getFormattedAffinitySymbol() + " <-> " + power.affinity.getFormattedAffinitySymbol() + COLON_SEPARATOR + group.getSkillsText();
         }
         return null;
     }

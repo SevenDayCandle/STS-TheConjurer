@@ -41,7 +41,7 @@ public class Ecosystem extends PCLCard {
     }
 
     public void setup(Object input) {
-        addSpecialPower(0, (s, i) -> new EcosystemPower(i.source, i.source, s), 5, 2).setUpgrade(0, 1);
+        addSpecialPower(0, (s, i) -> new EcosystemPower(i.source, i.source, s), 5, 2).setUpgradeExtra(0, 1);
     }
 
     public static class EcosystemPower extends PSpecialCardPower implements OnIntensifySubscriber {

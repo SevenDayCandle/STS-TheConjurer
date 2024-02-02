@@ -8,6 +8,7 @@ import pinacolada.cards.base.PCLCardGroupHelper;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
+import pinacolada.effects.ConjurerEFK;
 import pinacolada.effects.PCLAttackVFX;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -27,6 +28,6 @@ public class CannonOfHaima extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.ICE).setChain(PMod.perCard(1, PCLCardGroupHelper.DiscardPile).edit(f -> f.setAffinity(PCLAffinity.Blue)), PTrait.damage(3).setUpgrade(1));
+        addDamageMove(ConjurerEFK.BLOW15).setChain(PMod.perCard(1, PCLCardGroupHelper.DiscardPile).edit(f -> f.setAffinity(PCLAffinity.Blue)), PTrait.damage(3).setUpgrade(1));
     }
 }

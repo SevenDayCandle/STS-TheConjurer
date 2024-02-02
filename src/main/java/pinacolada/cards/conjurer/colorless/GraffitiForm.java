@@ -24,6 +24,7 @@ import pinacolada.powers.PSpecialCardPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 import pinacolada.skills.PSkill;
+import pinacolada.skills.conjurer.conditions.PCond_AllyLink;
 import pinacolada.skills.skills.*;
 import pinacolada.skills.skills.base.conditions.PCond_OnAllyDeath;
 import pinacolada.skills.skills.base.conditions.PCond_OnAllyTrigger;
@@ -85,8 +86,8 @@ public class GraffitiForm extends PCLCard {
                     if (c instanceof EditorCard) {
                         skills.addAll(EUIUtils.filter(((EditorCard) c).getEffects(), e -> !(
                                 e instanceof PCustomCond || e instanceof PSpecialSkill || e instanceof PSpecialPowerSkill || e instanceof PCustomMod
-                                        || e instanceof PMove_StackCustomPower || e instanceof PCardPrimary || e instanceof PShift || e instanceof PLimit || e instanceof PCond_OnAllyDeath || e instanceof PCond_OnAllyTrigger
-                                || e instanceof PCond_OnSummon || e instanceof PCond_OnWithdraw || e.isMetascaling() || e.isBlank()
+                                        || e instanceof PMove_StackCustomPower || e instanceof PCardPrimary || e instanceof PShift || e instanceof PCond_OnAllyDeath || e instanceof PCond_OnAllyTrigger
+                                || e instanceof PCond_OnSummon || e instanceof PCond_OnWithdraw || e instanceof PCond_AllyLink || e.isMetascaling() || e.isBlank()
                         )));
                     }
                 }

@@ -22,7 +22,6 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardAffinities;
 import pinacolada.cards.base.fields.PCLCardAffinity;
-import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.monsters.PCLCardAlly;
 import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.conjurer.*;
@@ -31,7 +30,6 @@ import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerImages;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.resources.pcl.PCLCoreImages;
-import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
 import pinacolada.skills.PSkill;
 import pinacolada.utilities.GameUtilities;
@@ -306,8 +304,8 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
         return elements;
     }
 
-    private ArrayList<AbstractPCLElementalPower> getElementalPowers(AbstractCreature c) {
-        return c != null && c.powers != null ? EUIUtils.mapAsNonnull(c.powers, po -> EUIUtils.safeCast(po, AbstractPCLElementalPower.class)) : new ArrayList<>();
+    private ArrayList<AbstractElementPower> getElementalPowers(AbstractCreature c) {
+        return c != null && c.powers != null ? EUIUtils.mapAsNonnull(c.powers, po -> EUIUtils.safeCast(po, AbstractElementPower.class)) : new ArrayList<>();
     }
 
     @Override

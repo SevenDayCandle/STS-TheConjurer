@@ -27,6 +27,6 @@ public class AcidSurge extends PCLCard {
 
     public void setup(Object input) {
         addUseMove(PMove.applyToSingle(1, PCLPowerData.Weak, PCLPowerData.Vulnerable).setUpgrade(1));
-        addUseMove(PCond.checkPowerSelf(5, FlowPower.DATA), PMove.applyToSingle(3, PCLPowerData.Poison).setUpgrade(1));
+        addUseMove(CCond.react(PCLAffinity.Red), PMove.applyToSingle(3, PCLPowerData.Poison).setUpgrade(1));
     }
 }
