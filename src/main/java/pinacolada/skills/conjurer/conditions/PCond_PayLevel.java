@@ -10,10 +10,10 @@ import pinacolada.actions.utility.SequentialAction;
 import pinacolada.annotations.VisibleSkill;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.dungeon.ConjurerReactionMeter;
-import pinacolada.resources.PGR;
+import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.resources.conjurer.ConjurerEnum;
+import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;
 import pinacolada.skills.PSkillData;
 import pinacolada.skills.PSkillSaveData;
@@ -56,23 +56,18 @@ public class PCond_PayLevel extends PActiveCond<PField_Affinity> {
 
     @Override
     public String getSampleText(PSkill<?> callingSkill, PSkill<?> parentSkill) {
-        return TEXT.act_pay(TEXT.subjects_x, PGR.core.tooltips.level.title);
+        return TEXT.act_pay(TEXT.subjects_x, ConjurerResources.conjurer.tooltips.reaction.title);
     }
 
     @Override
     public String getSubText(PCLCardTarget perspective, Object requestor) {
-        return capital(TEXT.act_pay(getAmountRawString(), EUIRM.strings.adjNoun(fields.getAffinityAndString(), PGR.core.tooltips.level.title)), true);
+        return capital(TEXT.act_pay(getAmountRawString(), EUIRM.strings.adjNoun(fields.getAffinityAndString(), ConjurerResources.conjurer.tooltips.reaction.title)), true);
     }
 
     @Override
     protected PCLAction<?> useImpl(PCLUseInfo info, PCLActions order, ActionT1<PCLUseInfo> onComplete, ActionT1<PCLUseInfo> onFail) {
         return order.callback(new SequentialAction(EUIUtils.map(fields.affinities, af -> new AddAffinityLevel(af, -refreshAmount(info)))), () -> {
-            if (conditionMetCache) {
-                onComplete.invoke(info);
-            }
-            else {
-                onFail.invoke(info);
-            }
+            onComplete.invoke(info);
         });
     }
 }

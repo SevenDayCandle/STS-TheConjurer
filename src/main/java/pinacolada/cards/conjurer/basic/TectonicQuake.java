@@ -9,12 +9,10 @@ import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.effects.ConjurerEFK;
-import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.conjurer.PetraPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
-import pinacolada.skills.skills.base.modifiers.PMod_PayPerPower;
 
 @VisibleCard
 public class TectonicQuake extends PCLCard {

@@ -6,8 +6,8 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
+import pinacolada.skills.conjurer.conditions.PCond_React;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
@@ -22,6 +22,6 @@ public class Sublimation extends PCLCard {
     }
 
     public void setup(Object input) {
-        addGainPower(PTrigger.when(CCond.react(), PMove.loseHp(PCLCardTarget.AllEnemy, 2).setUpgrade(1)));
+        addGainPower(PTrigger.when(new PCond_React(new PCLAffinity[]{}), PMove.loseHp(PCLCardTarget.AllEnemy, 2).setUpgrade(1)));
     }
 }

@@ -3,10 +3,8 @@ package pinacolada.resources.conjurer;
 import extendedui.EUIUtils;
 import pinacolada.relics.conjurer.DisguisePropBox;
 import pinacolada.relics.conjurer.PeriodicTable;
-import pinacolada.relics.conjurer.QuadraticGlobe;
 import pinacolada.resources.PGR;
 import pinacolada.resources.loadout.PCLLoadout;
-import pinacolada.resources.loadout.PCLLoadoutData;
 
 import java.util.ArrayList;
 

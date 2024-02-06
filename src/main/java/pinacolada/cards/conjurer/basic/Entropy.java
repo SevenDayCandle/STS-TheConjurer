@@ -44,7 +44,7 @@ public class Entropy extends PCLCard {
                 PCLCardAffinities cardAffinities = GameUtilities.getPCLCardAffinities(c);
                 if (cardAffinities != null) {
                     for (PCLAffinity aff : cardAffinities.getAffinities(true, true)) {
-                        ElementPowerData debuff = ElementPowerData.get(aff);
+                        ElementPowerData debuff = ElementPowerData.getElement(aff);
                         if (debuff != null) {
                             order.applyPower(info.source, info.target, debuff, move.refreshAmount(info));
                         }

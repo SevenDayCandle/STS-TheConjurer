@@ -10,7 +10,6 @@ import pinacolada.actions.PCLActions;
 import pinacolada.interfaces.subscribers.OnTryReducePowerSubscriber;
 import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.PCLSubscribingPower;
-import pinacolada.powers.TemporaryPower;
 import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.utilities.PCLRenderHelpers;

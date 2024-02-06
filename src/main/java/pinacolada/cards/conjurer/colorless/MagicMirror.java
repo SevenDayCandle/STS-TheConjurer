@@ -34,7 +34,7 @@ public class MagicMirror extends PCLCard {
 
     public void setup(Object input) {
         addBlockMove();
-        addSpecialPower(0, (s, i) -> new MagicMirrorPower(i.source, i.source, s), 2).setUpgrade(1);
+        addSpecialPower(0, (t, o, s) -> new MagicMirrorPower(t, o, s), 2).setUpgrade(1);
     }
 
     public static class MagicMirrorPower extends PSpecialCardPower implements OnTryApplyPowerSubscriber {

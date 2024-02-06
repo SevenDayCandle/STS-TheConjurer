@@ -6,15 +6,12 @@ import com.megacrit.cardcrawl.actions.common.UpgradeSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
 import extendedui.EUI;
 import extendedui.EUIInputManager;
-import extendedui.utilities.ColoredString;
 import extendedui.utilities.EUIColors;
 import pinacolada.actions.PCLActions;
-import pinacolada.actions.utility.CallbackAction;
 import pinacolada.annotations.VisiblePower;
 import pinacolada.dungeon.CombatManager;
 import pinacolada.effects.PCLEffects;
@@ -61,7 +58,7 @@ public class ForgingPower extends PCLPower {
     }
 
     @Override
-    protected void renderPrimaryAmount(SpriteBatch sb, float x, float y, Color c) {
+    public void renderAmount(SpriteBatch sb, float x, float y, Color c) {
         FontHelper.renderFontRightTopAligned(sb, FontHelper.powerAmountFont, String.valueOf(amount), x, y, fontScale, amount >= PER_STACK ? EUIColors.green(c.a) : EUIColors.white(c.a) );
     }
 

@@ -4,12 +4,9 @@ import basemod.BaseMod;
 import basemod.ModPanel;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
-import extendedui.EUIUtils;
-import extendedui.configuration.EUIConfiguration;
 import extendedui.configuration.STSConfigItem;
 import extendedui.ui.settings.BasemodSettingsPage;
 import pinacolada.resources.PCLCharacterConfig;
-import pinacolada.resources.PCLMainConfig;
 import pinacolada.resources.PGR;
 
 public class ConjurerConfig extends PCLCharacterConfig {

@@ -9,7 +9,7 @@ import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.EffekseerEFK;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CMod;
+import pinacolada.skills.conjurer.modifiers.PMod_PerLevel;
 
 @VisibleCard
 public class FireSurge extends PCLCard {
@@ -24,6 +24,6 @@ public class FireSurge extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(EffekseerEFK.FIRE04).setBonus(CMod.perLevel(1, PCLAffinity.Red), 1, 1);
+        addDamageMove(EffekseerEFK.FIRE04).setBonus(new PMod_PerLevel(1, PCLAffinity.Red), 1, 1);
     }
 }

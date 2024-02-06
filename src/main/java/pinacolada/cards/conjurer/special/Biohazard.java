@@ -1,16 +1,15 @@
 package pinacolada.cards.conjurer.special;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
+import pinacolada.powers.PCLPowerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
-import pinacolada.skills.skills.PMultiSkill;
 
 @VisibleCard
 public class Biohazard extends PCLCard {
@@ -24,6 +23,6 @@ public class Biohazard extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PCond.onExhaust(), PMove.dealDamage(2, AbstractGameAction.AttackEffect.POISON, PCLCardTarget.SelfAllEnemy).setUpgrade(2));
+        addUseMove(PCond.onExhaust(), PMove.applyToEveryone(2, PCLPowerData.Vulnerable).setUpgrade(2));
     }
 }

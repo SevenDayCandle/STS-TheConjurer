@@ -43,7 +43,7 @@ public class ElementReaction extends PCLAction<AffinityReactions> {
 
         for (AbstractCreature mo : creatures) {
             PCLUseInfo info = CombatManager.playerSystem.generateInfo(card, source, mo);
-            CombatManager.subscriberDo(OnElementReactSubscriber.class, s -> s.onElementReact(reactions, mo));
+            CombatManager.subscriberDo(OnElementReactSubscriber.class, s -> s.onElementReact(info, reactions, mo));
             for (AbstractPower po : mo.powers) {
                 for (ConjurerElementButton button : ConjurerReactionMeter.meter.getElementButtons()) {
                     button.onReact(info, reactions, po);

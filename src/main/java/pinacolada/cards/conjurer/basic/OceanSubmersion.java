@@ -8,7 +8,6 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.powers.conjurer.AquaPower;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CMod;
 import pinacolada.skills.PMove;
 
 @VisibleCard

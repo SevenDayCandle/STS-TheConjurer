@@ -21,7 +21,7 @@
 		"conjurer:DeltaStream": {"NAME": "Delta Stream"},
 		"conjurer:Desiccation": {"NAME": "Desiccation"},
 		"conjurer:DustTornado": {"NAME": "Dust Tornado"},
-		"conjurer:Ecosystem": {"EXTENDED_DESCRIPTION": ["When you click on an Element's button, pay {0} of its Reaction to apply {1} of it to ALL characters for the turn"], "NAME": "Ecosystem"},
+		"conjurer:Ecosystem": {"EXTENDED_DESCRIPTION": ["At turn end, apply {0} of the corresponding Elements of each card in hand to ALL enemies"], "NAME": "Ecosystem"},
 		"conjurer:Entropy": {"EXTENDED_DESCRIPTION": ["Apply {0} of the corresponding Elements of each discarded card"], "NAME": "Entropy"},
 		"conjurer:ErodingTerra": {
 			"EXTENDED_DESCRIPTION": ["Cards Upgraded with [conjurer:Forging] are Retained and gain [Recast]"],
@@ -40,7 +40,7 @@
 		"conjurer:Liquefaction": {"NAME": "Liquefaction"},
 		"conjurer:Lithosphere": {"NAME": "Lithosphere"},
 		"conjurer:MagmaFlare": {"NAME": "Magma Flare"},
-		"conjurer:Melt": {"EXTENDED_DESCRIPTION": ["Whenever an Attack deals more than its base damage"], "NAME": "Melt"},
+		"conjurer:Melt": {"EXTENDED_DESCRIPTION": ["The target takes +{0}% damage from cards. Reactions on it increase this bonus by +{0}% for the turn"], "NAME": "Melt"},
 		"conjurer:MeteoriteEruption": {"NAME": "Meteorite Eruption"},
 		"conjurer:MudFissure": {"NAME": "Mud Fissure"},
 		"conjurer:NaturalSelection": {"NAME": "Natural Selection"},

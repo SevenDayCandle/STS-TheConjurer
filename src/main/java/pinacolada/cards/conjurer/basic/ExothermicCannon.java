@@ -7,9 +7,8 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.EffekseerEFK;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CCond;
-import pinacolada.skills.CMod;
 import pinacolada.skills.PMove;
+import pinacolada.skills.conjurer.conditions.PCond_React;
 
 @VisibleCard
 public class ExothermicCannon extends PCLCard {
@@ -25,6 +24,6 @@ public class ExothermicCannon extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(EffekseerEFK.SWORD24);
-        addUseMove(CCond.react(), PMove.modifyDamage(3));
+        addUseMove(new PCond_React(new PCLAffinity[]{}), PMove.modifyDamage(3));
     }
 }

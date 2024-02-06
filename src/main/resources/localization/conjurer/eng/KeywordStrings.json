@@ -48,6 +48,10 @@
 		"DESCRIPTION": "[A-R] #yElement. Playing [A-B], [A-G], or [A-O] cards on targets with [conjurer:Ignis] triggers #yReactions.",
 		"NAME": "Ignis"
 	},
+	"conjurer:Impedance": {
+		"DESCRIPTION": "Reduces damage taken from cards with specific #yAffinities.",
+		"NAME": "Impedance"
+	},
 	"conjurer:Link": {
 		"DESCRIPTION": "Activates when a #ySummon in front of or behind this #ySummon that meets this condition's requirements is #yTriggered.",
 		"NAME": "Link",

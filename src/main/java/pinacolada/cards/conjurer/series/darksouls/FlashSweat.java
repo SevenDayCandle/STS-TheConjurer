@@ -6,7 +6,6 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.powers.conjurer.BlastedPower;
 import pinacolada.powers.conjurer.ElementPowerData;
 import pinacolada.powers.conjurer.IgnisPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;

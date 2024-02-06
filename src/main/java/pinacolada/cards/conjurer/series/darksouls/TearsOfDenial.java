@@ -41,7 +41,7 @@ public class TearsOfDenial extends PCLCard {
 
     public void setup(Object input) {
         addUseMove(PMove.gain(4, PCLPowerData.Frail, PCLPowerData.Vulnerable, PCLPowerData.Weak).setVFX(ConjurerEFK.MGC_HealingSpell_LV2));
-        addSpecialPower(0, (s, i) -> new TearsOfDenialPower(i.source, i.source, s), 2, 1);
+        addSpecialPower(0, (t, o, s) -> new TearsOfDenialPower(t, o, s), 2, 1);
     }
 
     // TODO implement effect bonus subscriber to apply updates to this power

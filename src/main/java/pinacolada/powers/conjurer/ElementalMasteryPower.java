@@ -45,16 +45,4 @@ public class ElementalMasteryPower extends PCLSubscribingPower {
     public void playApplyPowerSfx() {
         PCLActions.top.playSFX(PCLSFX.HEAL_3);
     }
-
-    @Override
-    public void reducePower(int reduceAmount) {
-        super.reducePower(reduceAmount);
-        updateDescription();
-    }
-
-    @Override
-    public void stackPower(int stackAmount) {
-        super.stackPower(stackAmount);
-        updateDescription();
-    }
 }

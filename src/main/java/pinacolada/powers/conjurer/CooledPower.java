@@ -5,12 +5,10 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import pinacolada.annotations.VisiblePower;
-import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.effects.PCLSFX;
 import pinacolada.powers.PCLPower;
 import pinacolada.powers.PCLPowerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.utilities.GameUtilities;
 import pinacolada.utilities.PCLRenderHelpers;
 
 @VisiblePower

@@ -25,7 +25,7 @@ public class ElementPowerData extends PCLPowerData {
         AFFINITY_TO_ELEMENT.put(affinity, this);
     }
 
-    public static ElementPowerData get(PCLAffinity aff) {
+    public static ElementPowerData getElement(PCLAffinity aff) {
         return AFFINITY_TO_ELEMENT.getOrDefault(aff, LuxPower.DATA);
     }
 

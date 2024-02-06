@@ -4,7 +4,6 @@ package pinacolada.cards.conjurer.series.darksouls;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import pinacolada.actions.PCLActions;
@@ -40,7 +39,7 @@ public class CaressingTears extends PCLCard {
 
     public void setup(Object input) {
         addUseMove(PMove.applyToEveryone(3, AquaPower.DATA));
-        addSpecialPower(0, (s, i) -> new CaressingTearsPower(i.source, i.source, s), 2, 3).setUpgradeExtra(1);
+        addSpecialPower(0, (t, o, s) -> new CaressingTearsPower(t, o, s), 2, 3).setUpgradeExtra(1);
     }
 
     public static class CaressingTearsPower extends PSpecialCardPower implements OnTryApplyPowerSubscriber {

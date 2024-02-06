@@ -7,8 +7,8 @@ import pinacolada.relics.PCLPointerRelic;
 import pinacolada.relics.PCLRelicData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CCond;
 import pinacolada.skills.PMove;
+import pinacolada.skills.conjurer.conditions.PCond_CheckLevel;
 import pinacolada.skills.skills.PTrigger;
 
 @VisibleRelic
@@ -22,6 +22,6 @@ public class DarkMoonRing extends PCLPointerRelic {
     }
 
     public void setup() {
-        addUseMove(PTrigger.when(1, CCond.checkLevel(1, PCLAffinity.Blue), PMove.applyToEnemies(3, PCLPowerData.Blinded)));
+        addUseMove(PTrigger.when(1, new PCond_CheckLevel(1, PCLAffinity.Blue), PMove.applyToEnemies(3, PCLPowerData.Blinded)));
     }
 }

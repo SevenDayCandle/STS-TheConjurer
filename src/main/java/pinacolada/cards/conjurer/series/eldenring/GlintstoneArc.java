@@ -7,14 +7,10 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.effects.ConjurerEFK;
-import pinacolada.powers.PCLPowerData;
-import pinacolada.powers.conjurer.AquaPower;
 import pinacolada.powers.conjurer.FlowPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CMod;
 import pinacolada.skills.PMod;
-import pinacolada.skills.PMove;
 
 @VisibleCard
 public class GlintstoneArc extends PCLCard {

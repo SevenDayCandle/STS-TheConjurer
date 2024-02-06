@@ -1,7 +1,6 @@
 package pinacolada.cards.conjurer.series.eldenring;
 
 
-import basemod.abstracts.CustomPlayer;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;

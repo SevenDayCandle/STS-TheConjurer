@@ -33,8 +33,9 @@ public class ConjurerImages extends AbstractImages {
     }
 
     public static class Monsters {
-        public static final TextureCache airCloud1 = new TextureCache("images/conjurer/monsters/AirCloud1.png");
-        public static final TextureCache airCloud2 = new TextureCache("images/conjurer/monsters/AirCloud2.png");
+        public static final TextureCache airTrail1 = new TextureCache("images/conjurer/monsters/AirTrail1.png");
+        public static final TextureCache airTrail2 = new TextureCache("images/conjurer/monsters/AirTrail2.png");
+        public static final TextureCache airTrail3 = new TextureCache("images/conjurer/monsters/AirTrail3.png");
         public static final TextureCache air1 = new TextureCache("images/conjurer/monsters/Air1.png");
         public static final TextureCache air2 = new TextureCache("images/conjurer/monsters/Air2.png");
         public static final TextureCache air3 = new TextureCache("images/conjurer/monsters/Air3.png");

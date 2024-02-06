@@ -9,7 +9,6 @@ import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.ConjurerEFK;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CMod;
 import pinacolada.skills.PMove;
 
 @VisibleCard

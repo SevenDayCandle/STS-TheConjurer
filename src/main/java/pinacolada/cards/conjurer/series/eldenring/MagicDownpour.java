@@ -10,7 +10,6 @@ import pinacolada.effects.ConjurerEFK;
 import pinacolada.powers.conjurer.AquaPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CMod;
 import pinacolada.skills.PDelay;
 import pinacolada.skills.PMove;
 

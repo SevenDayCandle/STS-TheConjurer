@@ -7,12 +7,10 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.powers.PCLPowerData;
-import pinacolada.powers.conjurer.FlowPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CCond;
-import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
+import pinacolada.skills.conjurer.conditions.PCond_React;
 
 @VisibleCard
 public class AcidSurge extends PCLCard {
@@ -27,6 +25,6 @@ public class AcidSurge extends PCLCard {
 
     public void setup(Object input) {
         addUseMove(PMove.applyToSingle(1, PCLPowerData.Weak, PCLPowerData.Vulnerable).setUpgrade(1));
-        addUseMove(CCond.react(PCLAffinity.Red), PMove.applyToSingle(3, PCLPowerData.Poison).setUpgrade(1));
+        addUseMove(new PCond_React(PCLAffinity.Red), PMove.applyToSingle(3, PCLPowerData.Poison).setUpgrade(1));
     }
 }

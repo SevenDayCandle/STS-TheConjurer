@@ -5,13 +5,12 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.combat.PowerBuffEffect;
 import pinacolada.actions.PCLAction;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.dungeon.CombatManager;
 import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.effects.PCLEffects;
 
 public class AddAffinityLevel extends PCLAction<PCLAffinity> {
     public PCLAffinity affinity;
-    public boolean showEffect;
+    public boolean showEffect = true;
 
     public AddAffinityLevel(PCLAffinity affinity, int amount) {
         super(ActionType.SPECIAL, Settings.ACTION_DUR_XFAST);

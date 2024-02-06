@@ -4,7 +4,6 @@ import com.badlogic.gdx.graphics.Color;
 import pinacolada.annotations.VisiblePotion;
 import pinacolada.potions.PCLPotion;
 import pinacolada.potions.PCLPotionData;
-import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.conjurer.PetraPower;
 import pinacolada.powers.conjurer.VentusPower;
 import pinacolada.resources.conjurer.ConjurerResources;

@@ -6,7 +6,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
-import extendedui.utilities.ColoredString;
 import extendedui.utilities.EUIColors;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisiblePower;
@@ -90,7 +89,7 @@ public class FlowPower extends PCLPower implements DrawPileCardPreviewProvider {
     }
 
     @Override
-    protected void renderPrimaryAmount(SpriteBatch sb, float x, float y, Color c) {
+    public void renderAmount(SpriteBatch sb, float x, float y, Color c) {
         FontHelper.renderFontRightTopAligned(sb, FontHelper.powerAmountFont, String.valueOf(amount), x, y, fontScale, amount >= PER_STACK ? EUIColors.green(c.a) : EUIColors.white(c.a) );
     }
 

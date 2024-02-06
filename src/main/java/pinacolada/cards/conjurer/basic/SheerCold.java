@@ -1,9 +1,6 @@
 package pinacolada.cards.conjurer.basic;
 
-import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.MalleablePower;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
@@ -16,9 +13,6 @@ import pinacolada.powers.PSpecialCardPower;
 import pinacolada.powers.conjurer.CooledPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;
-import pinacolada.utilities.GameUtilities;
-
-import java.util.ArrayList;
 
 @VisibleCard
 public class SheerCold extends PCLCard {
@@ -34,7 +28,7 @@ public class SheerCold extends PCLCard {
     }
 
     public void setup(Object input) {
-        addSpecialPower(0, (s, i) -> new SheerColdPower(i.source, i.source, s), 20);
+        addSpecialPower(0, (t, o, s) -> new SheerColdPower(t, o, s), 20);
     }
 
     public static class SheerColdPower extends PSpecialCardPower {

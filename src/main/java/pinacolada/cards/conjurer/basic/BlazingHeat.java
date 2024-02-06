@@ -29,7 +29,7 @@ public class BlazingHeat extends PCLCard {
     }
 
     public void setup(Object input) {
-        addSpecialPower(0, (s, i) -> new BlazingHeatPower(i.source, i.source, s), 1);
+        addSpecialPower(0, BlazingHeatPower::new, 1);
     }
 
     public static class BlazingHeatPower extends PSpecialCardPower {

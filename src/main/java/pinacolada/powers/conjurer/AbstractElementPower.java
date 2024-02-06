@@ -24,11 +24,11 @@ import java.util.List;
 public abstract class AbstractElementPower extends PCLPower {
     private static List<PCLAffinity> hovered;
     private static AbstractCard last;
-    public static final String POWER_ID = createFullID(ConjurerResources.conjurer, AbstractElementPower.class);
     protected float flashTimer;
 
     public AbstractElementPower(ElementPowerData data, AbstractCreature owner, AbstractCreature source, int amount) {
         super(data, owner, source, amount);
+
     }
 
     public static float getIntensifyMultiplier(ElementPowerData powerID) {
@@ -76,8 +76,8 @@ public abstract class AbstractElementPower extends PCLPower {
 
     @Override
     public String getUpdatedDescription() {
-        String base = EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterBonus, PGR.core.strings.subjects_this);
         if (CombatManager.inBattle()) {
+            String base = EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterBonus, PGR.core.strings.subjects_this);
             return EUIUtils.joinStrings(EUIUtils.SPLIT_LINE, base, ConjurerReactionMeter.meter.getElementButton(getAffinity()).getEffectsString());
         }
         return super.getUpdatedDescription();

@@ -8,12 +8,10 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.powers.PCLPowerData;
-import pinacolada.powers.conjurer.CooledPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CCond;
-import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
+import pinacolada.skills.conjurer.conditions.PCond_React;
 
 @VisibleCard
 public class PestilentMist extends PCLCard {
@@ -29,6 +27,6 @@ public class PestilentMist extends PCLCard {
 
     public void setup(Object input) {
         addUseMove(PMove.applyToEnemies(3, PCLPowerData.Weak));
-        addUseMove(CCond.react(PCLAffinity.Blue), PMove.gain(1, PCLPowerData.Blur));
+        addUseMove(new PCond_React(PCLAffinity.Blue), PMove.gain(1, PCLPowerData.Blur));
     }
 }

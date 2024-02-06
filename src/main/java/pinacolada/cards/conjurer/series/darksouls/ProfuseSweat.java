@@ -8,12 +8,9 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.conjurer.AquaPower;
-import pinacolada.powers.conjurer.BlastedPower;
 import pinacolada.powers.conjurer.ElementPowerData;
-import pinacolada.powers.conjurer.IgnisPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CMove;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 

@@ -7,14 +7,9 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.dungeon.ConjurerReactionMeter;
-import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.effects.ConjurerEFK;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CMod;
-import pinacolada.skills.PSkill;
-import pinacolada.skills.PTrait;
-import pinacolada.skills.skills.PCustomMod;
+import pinacolada.skills.conjurer.modifiers.PMod_PerReaction;
 
 @VisibleCard
 public class MeteoriteEruption extends PCLCard {
@@ -29,6 +24,6 @@ public class MeteoriteEruption extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(ConjurerEFK.SPEAR03).setBonus(CMod.perReaction(1), 2, 1);
+        addDamageMove(ConjurerEFK.SPEAR03).setBonus(new PMod_PerReaction(1), 2, 1);
     }
 }

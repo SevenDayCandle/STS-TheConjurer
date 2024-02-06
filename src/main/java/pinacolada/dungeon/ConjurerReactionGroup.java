@@ -1,6 +1,5 @@
 package pinacolada.dungeon;
 
-import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.random.Random;
 import extendedui.EUIUtils;
@@ -8,11 +7,8 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.interfaces.providers.ValueProvider;
 import pinacolada.skills.PSkill;
-import pinacolada.utilities.GameUtilities;
 import pinacolada.utilities.WeightedList;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class ConjurerReactionGroup implements ValueProvider {
@@ -36,9 +32,18 @@ public class ConjurerReactionGroup implements ValueProvider {
     }
 
     public void addSkills(List<PSkill<?>> skills) {
-        this.skills.addAll(skills);
         for (PSkill<?> skill : skills) {
-            skill.setSource(this);
+            boolean stacked = false;
+            for (PSkill<?> orig : this.skills) {
+                if (orig.hasSameProperties(skill)) {
+                    orig.stack(skill);
+                    stacked = true;
+                }
+            }
+            if (!stacked) {
+                this.skills.add(skill);
+                skill.setSource(this);
+            }
         }
     }
 

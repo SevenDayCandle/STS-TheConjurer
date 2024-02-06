@@ -9,9 +9,8 @@ import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.powers.PCLPowerData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CMove;
-import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
+import pinacolada.skills.conjurer.moves.PMove_StabilizePower;
 
 @VisibleCard
 public class Lucidity extends PCLCard {
@@ -26,6 +25,6 @@ public class Lucidity extends PCLCard {
 
     public void setup(Object input) {
         addUseMove(PMove.gain(2, PCLPowerData.Warding).setUpgrade(2));
-        addUseMove(CMove.stabilize(PCLCardTarget.Team, PCLPowerData.Vigor, PCLPowerData.Warding));
+        addUseMove(new PMove_StabilizePower(PCLCardTarget.Team, PCLPowerData.Vigor, PCLPowerData.Warding));
     }
 }

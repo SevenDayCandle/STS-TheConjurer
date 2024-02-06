@@ -5,15 +5,14 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.esotericsoftware.spine.AnimationState;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import extendedui.ui.hitboxes.DraggableHitbox;
 import extendedui.ui.tooltips.EUITourTooltip;
 import pinacolada.actions.powers.ElementReaction;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.conjurer.basic.Condensation;
 import pinacolada.cards.conjurer.basic.Ignite;
 import pinacolada.cards.conjurer.basic.Lithosphere;
-import pinacolada.cards.conjurer.series.eldenring.Lucidity;
 import pinacolada.dungeon.ConjurerElementButton;
 import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.monsters.PCLCreatureData;
@@ -44,18 +43,21 @@ public class ConjurerTutorialMonster extends PCLTutorialMonster {
     public EUITourTooltip step1() {
         AbstractCard card = new Lithosphere();
         replaceHandWith(card);
+        ConjurerReactionMeter.meter.initialize();
         ConjurerElementButton button = ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Red);
         ConjurerReactionMeter.meter.hb.move(ConjurerReactionMeter.meter.hb.targetCx, ConjurerReactionMeter.meter.hb.targetCy);
         button.hb.update();
+        EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(card.hb, ConjurerResources.conjurer.tooltips.element.title, PGR.core.strings.tutorial_affinityTutorial)
+                .setPosition(hb.x - hb.width * 4, hb.y + hb.height)
+                .setCanDismiss(true));
         EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(button, ConjurerResources.conjurer.tooltips.element.title, ConjurerResources.conjurer.strings.conjurerInteractive1)
+                .setPosition(Settings.WIDTH * 0.5f, Settings.HEIGHT * 0.6f)
                 .setCanDismiss(true));
         EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(button, ConjurerResources.conjurer.tooltips.element.title, ConjurerResources.conjurer.strings.conjurerTutorial1)
-                .setCanDismiss(true));
-        EUITourTooltip.queueTutorial(AbstractDungeon.CurrentScreen.NONE, new EUITourTooltip(card.hb, ConjurerResources.conjurer.tooltips.element.title, PGR.core.strings.tutorial_affinityTutorial)
-                .setPosition(hb.x - hb.width * 3, hb.y + hb.height)
+                .setPosition(Settings.WIDTH * 0.5f, Settings.HEIGHT * 0.6f)
                 .setCanDismiss(true));
         return new EUITourTooltip(UseCardAction.class, ConjurerResources.conjurer.tooltips.element.title, ConjurerResources.conjurer.strings.conjurerInteractive2)
-                .setPosition(hb.x - hb.width * 3, hb.y + hb.height)
+                .setPosition(hb.x - hb.width * 4, hb.y + hb.height)
                 .setCanDismiss(false);
     }
 
@@ -66,7 +68,7 @@ public class ConjurerTutorialMonster extends PCLTutorialMonster {
         powers.add(p);
 
         return new EUITourTooltip(ElementReaction.class, ConjurerResources.conjurer.tooltips.element.title, ConjurerResources.conjurer.strings.conjurerInteractive3)
-                .setPosition(hb.x - hb.width * 3, hb.y + hb.height)
+                .setPosition(hb.x - hb.width * 4, hb.y + hb.height)
                 .setCanDismiss(false);
     }
 }

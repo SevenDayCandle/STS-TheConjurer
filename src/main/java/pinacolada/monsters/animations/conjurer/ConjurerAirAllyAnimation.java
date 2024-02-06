@@ -15,7 +15,7 @@ import pinacolada.resources.conjurer.ConjurerImages;
 import pinacolada.utilities.PCLRenderHelpers;
 
 public class ConjurerAirAllyAnimation extends PCLAllyAnimation {
-    public static final TextureCache[] IMAGES = {ConjurerImages.Monsters.airCloud1, ConjurerImages.Monsters.airCloud2};
+    public static final TextureCache[] IMAGES = {ConjurerImages.Monsters.airTrail1, ConjurerImages.Monsters.airTrail2, ConjurerImages.Monsters.airTrail3};
     public static final float RADIUS = Settings.scale * 240;
 
     public ConjurerAirAllyAnimation(PCLCreature creature) {

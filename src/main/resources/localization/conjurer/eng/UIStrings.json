@@ -23,7 +23,7 @@
 			"The counters on an #yElement's button denotes how many #yReactions you triggered from it this combat.",
 			"This button represents an #yElement. Hover over it to view the current effects of that #yElement.",
 			"I have given you a card that applies [conjurer:Petra]. Play it on me.",
-			"Drag your cards over the creature with [conjurer:Petra] to see what effects will be triggered. Try to trigger the #yReaction that causes you to gain [Block].",
+			"Drag your cards over the creature with [conjurer:Petra] to see what effects will be triggered. Try to trigger the #yReaction that causes you to gain [conjurer:Forging].",
 			"I have just given you some #yMatter. Try spending it to #yLevel up the [conjurer:Ignis] power.",
 			"I have given you a #ySummon card. Try playing it on one of your open #ySummon slots (it will starting flashing when you click on your card).",
 			"Try #oRight-Clicking on the #ySummon you just played and have it target me.",

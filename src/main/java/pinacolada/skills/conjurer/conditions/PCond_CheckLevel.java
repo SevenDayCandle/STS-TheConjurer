@@ -4,11 +4,11 @@ import extendedui.EUIRM;
 import pinacolada.annotations.VisibleSkill;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.dungeon.ConjurerReactionMeter;
-import pinacolada.interfaces.subscribers.OnIntensifySubscriber;
+import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerEnum;
+import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;
 import pinacolada.skills.PSkillData;
 import pinacolada.skills.PSkillSaveData;
@@ -70,8 +70,8 @@ public class PCond_CheckLevel extends PPassiveCond<PField_Affinity> {
     @Override
     public String getSubText(PCLCardTarget perspective, Object requestor) {
         if (isBranch()) {
-            return EUIRM.strings.nounVerb(TEXT.subjects_you, PGR.core.tooltips.level.title);
+            return EUIRM.strings.nounVerb(TEXT.subjects_you, ConjurerResources.conjurer.tooltips.reaction.title);
         }
-        return TEXT.cond_ifX(TEXT.cond_levelItem(getAmountRawString(), fields.getAffinityChoiceString()));
+        return getTargetHasStringPerspective(perspective, EUIRM.strings.numNoun(getAmountRawString(), ConjurerResources.conjurer.tooltips.reaction.title));
     }
 }

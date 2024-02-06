@@ -16,7 +16,6 @@ import extendedui.ui.controls.EUIImage;
 import extendedui.ui.hitboxes.EUIHitbox;
 import extendedui.ui.tooltips.EUIKeywordTooltip;
 import extendedui.utilities.EUIColors;
-import extendedui.utilities.EUIFontHelper;
 import org.apache.commons.lang3.StringUtils;
 import pinacolada.actions.PCLActions;
 import pinacolada.actions.cards.TryChooseChoice;
@@ -96,7 +95,7 @@ public class ConjurerElementButton extends EUIButton {
             group.addSkills(Arrays.asList(skills));
         }
         else {
-            ConjurerReactionMeter.meter.addReaction(this, ConjurerReactionMeter.meter.getElementButton(af), skills);
+            ConjurerReactionMeter.meter.createReaction(this, ConjurerReactionMeter.meter.getElementButton(af), skills);
         }
     }
 
@@ -280,7 +279,7 @@ public class ConjurerElementButton extends EUIButton {
             group.setSkills(Arrays.asList(skills));
         }
         else {
-            ConjurerReactionMeter.meter.addReaction(this, ConjurerReactionMeter.meter.getElementButton(af), skills);
+            ConjurerReactionMeter.meter.createReaction(this, ConjurerReactionMeter.meter.getElementButton(af), skills);
         }
     }
 

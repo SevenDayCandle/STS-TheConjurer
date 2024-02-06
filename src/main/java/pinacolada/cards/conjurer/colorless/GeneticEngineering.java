@@ -34,7 +34,7 @@ public class GeneticEngineering extends PCLCard {
     }
 
     public void setup(Object input) {
-        addSpecialPower(0, (s, i) -> new GeneticEngineeringPower(i.source, i.source, s), 2);
+        addSpecialPower(0, (t, o, s) -> new GeneticEngineeringPower(t, o, s), 2);
     }
 
     public static class GeneticEngineeringPower extends PSpecialCardPower implements OnCardCreatedSubscriber {

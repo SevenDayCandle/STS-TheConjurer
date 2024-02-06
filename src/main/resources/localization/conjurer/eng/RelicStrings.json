@@ -62,7 +62,7 @@
 	},
 	"conjurer:PeriodicTable":
 	{
-		"DESCRIPTIONS": ["The first card played each combat applies its corresponding #yElements to enemy targets. If it didn't target enemies, a random enemy is targeted instead."],
+		"DESCRIPTIONS": ["The first {0} #yReactions made each combat activates their effects twice."],
 		"FLAVOR": "A table that repeats itself every so often.",
 		"NAME": "Periodic Table"
 	},
@@ -74,33 +74,21 @@
 	},
 	"conjurer:QuadraticGlobe":
 	{
-		"DESCRIPTIONS": [],
+		"DESCRIPTIONS": ["The [A-R] to [A-B] #yReaction increases damage output of cards by #b{0}%. The [A-G] to [A-O] #yReaction increases #yBlock output of cards by #b{0}%."],
 		"FLAVOR": "The globe can spin any way you want it to.",
 		"NAME": "Quadratic Globe"
 	},
-	"conjurer:ScorpionStinger":
-	{
-		"DESCRIPTIONS": ["[Poison] is treated as [conjurer:Ventus]. At the end of round, [Poison] triggers an additional time and is cut in half."],
-		"FLAVOR": "Pass the power.",
-		"NAME": "Scorpion Stinger"
-	},
-	"conjurer:SharpClaw":
+	"conjurer:RimeBlueMossClump":
 	{
 		"DESCRIPTIONS": [],
-		"FLAVOR": "They dig it.",
-		"NAME": "Sharp Claw"
+		"FLAVOR": "Moss clump radiating gentle heat and light.",
+		"NAME": "Rime-Blue Moss Clump"
 	},
 	"conjurer:ShrivingStone":
 	{
 		"DESCRIPTIONS": ["[A-B] now #yReacts with [A-O]."],
 		"FLAVOR": "[A-B] now #yReacts with [A-O].",
 		"NAME": "Shriving Stone"
-	},
-	"conjurer:Snowflake":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "The definition of chill.",
-		"NAME": "Snowflake"
 	},
 	"conjurer:StochasticTable":
 	{

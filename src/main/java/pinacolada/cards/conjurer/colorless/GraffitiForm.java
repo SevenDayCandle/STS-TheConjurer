@@ -47,7 +47,7 @@ public class GraffitiForm extends PCLCard {
     }
 
     public void setup(Object input) {
-        addSpecialPower(0, (s, i) -> new GraffitiFormPower(i.source, i.source, s), 1, 3);
+        addSpecialPower(0, (t, o, s) -> new GraffitiFormPower(t, o, s), 1, 3);
     }
 
     public static class GraffitiFormPower extends PSpecialCardPower implements OnCardCreatedSubscriber {

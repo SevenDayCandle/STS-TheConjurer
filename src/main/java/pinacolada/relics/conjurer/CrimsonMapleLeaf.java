@@ -5,7 +5,6 @@ import pinacolada.powers.conjurer.FlowPower;
 import pinacolada.relics.PCLPointerRelic;
 import pinacolada.relics.PCLRelicData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CMove;
 import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PTrigger;

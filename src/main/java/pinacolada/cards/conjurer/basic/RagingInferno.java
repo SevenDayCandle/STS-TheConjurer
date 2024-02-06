@@ -11,7 +11,6 @@ import pinacolada.effects.EffekseerEFK;
 import pinacolada.powers.conjurer.AquaPower;
 import pinacolada.powers.conjurer.IgnisPower;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CMod;
 import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
 

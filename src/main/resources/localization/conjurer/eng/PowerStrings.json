@@ -1,14 +1,14 @@
 
 {
-	"conjurer:AbstractAffinityPower":
-	{
-		"DESCRIPTIONS": ["Receive #b{0}% more damage from {1} cards."],
-		"NAME": "Affinity"
-	},
 	"conjurer:AbstractElementPower":
 	{
 		"DESCRIPTIONS": ["Cards deal #b+{0}% damage and give #b+{0}% [Block] per {1}.", "Removed at the end of round.", "Lasts for {0} turns."],
 		"NAME": "Element"
+	},
+	"conjurer:AffinityImpedancePower":
+	{
+		"DESCRIPTIONS": ["Receive #b{0}% less damage from {1} cards.", "Receive #b{0}% more damage from {1} cards."],
+		"NAME": "Impedance"
 	},
 	"conjurer:AquaPower":
 	{

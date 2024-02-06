@@ -7,9 +7,12 @@ import pinacolada.annotations.VisibleSkill;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.dungeon.PCLUseInfo;
-import pinacolada.resources.PGR;
 import pinacolada.resources.conjurer.ConjurerEnum;
-import pinacolada.skills.*;
+import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.PMove;
+import pinacolada.skills.PSkill;
+import pinacolada.skills.PSkillData;
+import pinacolada.skills.PSkillSaveData;
 import pinacolada.skills.fields.PField_Affinity;
 
 @VisibleSkill
@@ -28,12 +31,12 @@ public class PMove_AddLevel extends PMove<PField_Affinity> {
 
     @Override
     public String getSampleText(PSkill<?> callingSkill, PSkill<?> parentSkill) {
-        return TEXT.act_gainAmount(TEXT.subjects_x, PGR.core.tooltips.level);
+        return TEXT.act_gainAmount(TEXT.subjects_x, ConjurerResources.conjurer.tooltips.reaction);
     }
 
     @Override
     public String getSubText(PCLCardTarget perspective, Object requestor) {
-        String base = TEXT.act_giveTargetAmount(fields.getAffinityChoiceString(), (amount > 0 ? ("+ " + getAmountRawString()) : getAmountRawString()), plural(PGR.core.tooltips.level));
+        String base = TEXT.act_giveTargetAmount(fields.getAffinityChoiceString(), (amount > 0 ? ("+ " + getAmountRawString()) : getAmountRawString()), plural(ConjurerResources.conjurer.tooltips.reaction));
         return fields.random ? TEXT.subjects_randomly(base) : base;
     }
 
@@ -41,13 +44,13 @@ public class PMove_AddLevel extends PMove<PField_Affinity> {
     public void use(PCLUseInfo info, PCLActions order) {
         int actualAmount = refreshAmount(info);
         if (fields.affinities.isEmpty()) {
-            order.tryChooseAffinitySkill(getName(), actualAmount, info.source, info.target, EUIUtils.map(PCLAffinity.getAvailableAffinities(), a -> CMove.addLevel(actualAmount, a)));
+            order.tryChooseAffinitySkill(getName(), actualAmount, info.source, info.target, EUIUtils.map(PCLAffinity.getAvailableAffinities(), a -> new PMove_AddLevel(actualAmount, a)));
         }
         else if (fields.affinities.size() == 1) {
             order.add(new AddAffinityLevel(fields.affinities.get(0), actualAmount));
         }
         else {
-            order.tryChooseAffinitySkill(getName(), actualAmount, info.source, info.target, EUIUtils.map(fields.affinities, a -> CMove.addLevel(actualAmount, a)));
+            order.tryChooseAffinitySkill(getName(), actualAmount, info.source, info.target, EUIUtils.map(fields.affinities, a -> new PMove_AddLevel(actualAmount, a)));
         }
         super.use(info, order);
     }

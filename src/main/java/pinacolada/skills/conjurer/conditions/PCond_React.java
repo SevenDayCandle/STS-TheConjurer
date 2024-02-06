@@ -5,9 +5,9 @@ import extendedui.EUIUtils;
 import pinacolada.annotations.VisibleSkill;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.dungeon.AffinityReactions;
 import pinacolada.dungeon.ConjurerReactionMeter;
+import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.interfaces.subscribers.OnElementReactSubscriber;
 import pinacolada.resources.conjurer.ConjurerEnum;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -59,7 +59,7 @@ public class PCond_React extends PPassiveCond<PField_Affinity> implements OnElem
     }
 
     @Override
-    public void onElementReact(AffinityReactions reactions, AbstractCreature abstractCreature) {
+    public void onElementReact(PCLUseInfo info, AffinityReactions reactions, AbstractCreature abstractCreature) {
         if (fields.affinities.isEmpty() ? reactions.hasReaction() : EUIUtils.all(fields.affinities, reactions::hasReaction)) {
             useFromTrigger(generateInfo(abstractCreature));
         }

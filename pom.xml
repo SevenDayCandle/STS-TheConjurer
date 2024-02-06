@@ -81,6 +81,7 @@
                         <configuration>
                             <target>
                                 <copy file="target/TheConjurer.jar" tofile="D:\Program Files\Steam\steamapps\common\SlayTheSpire\mods\TheConjurer.jar"/>
+                                <copy file="target/TheConjurer.jar" tofile="D:\Program Files\Steam\steamapps\common\SlayTheSpire\uploadConjurer\content\TheConjurer.jar"/>
                             </target>
                         </configuration>
                         <goals>

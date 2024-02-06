@@ -104,22 +104,30 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
     }
 
     public void addDefaultReactions() {
-        addReaction(fire, water, PMove.applyToSingle(3, BlastedPower.DATA).setUpgrade(2))
+        createReaction(fire, water, PMove.applyToSingle(3, BlastedPower.DATA).setUpgrade(2))
                 .addUpgrade(PMove.applyToSingle(1, PCLPowerData.Vulnerable), 2);
-        addReaction(fire, air, PMove.gainPlayer(3, PCLPowerData.Vigor).setUpgrade(2))
+        createReaction(fire, air, PMove.gainPlayer(3, PCLPowerData.Vigor).setUpgrade(2))
                 .addUpgrade(PMove.dealDamageToAll(3), 1);
-        addReaction(fire, earth, PMove.gainPlayer(3, ForgingPower.DATA).setUpgrade(2))
+        createReaction(fire, earth, PMove.gainPlayer(3, ForgingPower.DATA).setUpgrade(2))
                 .addUpgrade(PMove.upgrade(1).edit(f -> f.setRandom(true)), 2);
-        addReaction(water, air, PMove.gainPlayer(3, FlowPower.DATA).setUpgrade(2))
+        createReaction(water, air, PMove.gainPlayer(3, FlowPower.DATA).setUpgrade(2))
                 .addUpgrade(PMove.draw(1), 1);
-        addReaction(water, earth, PMove.applyToSingle(4, CooledPower.DATA).setUpgrade(3))
+        createReaction(water, earth, PMove.applyToSingle(4, CooledPower.DATA).setUpgrade(3))
                 .addUpgrade(PMove.applyToSingle(1, PCLPowerData.Weak), 1);
-        addReaction(air, earth, PMove.gainPlayer(3, PCLPowerData.Warding))
+        createReaction(air, earth, PMove.gainPlayer(3, PCLPowerData.Warding))
                 .addUpgrade(PMove.gainTempHP(2), 1)
                 .addUpgrade(PMove.applyToSingle(2, PCLPowerData.Poison), 1);
     }
 
-    public ConjurerReactionGroup addReaction(ConjurerElementButton a1, ConjurerElementButton a2, PSkill<?>... skills) {
+    public void addReaction(PCLAffinity a1, PCLAffinity a2, PSkill<?>... skills) {
+        addReaction(getElementButton(a1), a2, skills);
+    }
+
+    public void addReaction(ConjurerElementButton a1, PCLAffinity a2, PSkill<?>... skills) {
+        a1.addReaction(a2, skills);
+    }
+
+    protected ConjurerReactionGroup createReaction(ConjurerElementButton a1, ConjurerElementButton a2, PSkill<?>... skills) {
         ConjurerReactionGroup group = new ConjurerReactionGroup(a1.power.affinity, a1.power.affinity, Arrays.asList(skills));
         a1.reactions.put(a2.power.affinity, group);
         a2.reactions.put(a1.power.affinity, group);
@@ -516,7 +524,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
             value = 1;
         }
         if (affinity != null && info.target != null) {
-            ElementPowerData helper = ElementPowerData.get(affinity);
+            ElementPowerData helper = ElementPowerData.getElement(affinity);
             order.applyPower(info.target, helper, value);
             return true;
         }

@@ -8,7 +8,6 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.conjurer.special.Overheat;
 import pinacolada.powers.PCLPowerData;
-import pinacolada.powers.conjurer.IgnisPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;

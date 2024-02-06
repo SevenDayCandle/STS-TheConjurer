@@ -1,38 +1,28 @@
 package pinacolada.cards.conjurer.basic;
 
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import pinacolada.actions.PCLActions;
-import pinacolada.actions.affinity.AddAffinityLevel;
 import pinacolada.annotations.VisibleCard;
-import pinacolada.cardmods.PermanentBlockModifier;
-import pinacolada.cardmods.PermanentDamageModifier;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.dungeon.CombatManager;
-import pinacolada.dungeon.ConjurerElementButton;
-import pinacolada.dungeon.ConjurerReactionMeter;
-import pinacolada.dungeon.PCLUseInfo;
-import pinacolada.effects.vfx.ScreenLeavesEffect;
-import pinacolada.interfaces.subscribers.OnIntensifySubscriber;
-import pinacolada.interfaces.subscribers.OnSpecificPowerActivatedSubscriber;
+import pinacolada.cards.base.fields.PCLCardAffinities;
 import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.PSpecialCardPower;
 import pinacolada.powers.conjurer.ElementPowerData;
-import pinacolada.powers.conjurer.FlowPower;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CCond;
 import pinacolada.skills.PSkill;
-import pinacolada.skills.skills.PSpecialSkill;
-import pinacolada.skills.skills.PTrigger;
 import pinacolada.utilities.GameUtilities;
 
 @VisibleCard
 public class Ecosystem extends PCLCard {
     public static final PCLCardData DATA = register(Ecosystem.class, ConjurerResources.conjurer)
-            .setPower(0, CardRarity.RARE)
+            .setPower(1, CardRarity.RARE)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Green, PCLAffinity.Orange)
+            .setCostUpgrades(-1)
             .setMaxCopies(1)
             .setCore();
 
@@ -41,10 +31,10 @@ public class Ecosystem extends PCLCard {
     }
 
     public void setup(Object input) {
-        addSpecialPower(0, (s, i) -> new EcosystemPower(i.source, i.source, s), 5, 2).setUpgradeExtra(0, 1);
+        addSpecialPower(0, EcosystemPower::new, 1);
     }
 
-    public static class EcosystemPower extends PSpecialCardPower implements OnIntensifySubscriber {
+    public static class EcosystemPower extends PSpecialCardPower {
         public static final PCLPowerData PDATA = createFromCard(EcosystemPower.class, DATA);
 
         public EcosystemPower(AbstractCreature owner, AbstractCreature source, PSkill<?> move) {
@@ -52,15 +42,20 @@ public class Ecosystem extends PCLCard {
         }
 
         @Override
-        public void onIntensify(PCLAffinity affinity) {
-            ConjurerElementButton button = ConjurerReactionMeter.meter.getElementButton(affinity);
-            if (button != null && button.getLevel() >= move.amount) {
-                int actualAmount = move.refreshAmount(move.getInfo(null));
-                PCLActions.bottom.callback(new AddAffinityLevel(affinity, -actualAmount), __ -> {
-                    for (AbstractCreature target : GameUtilities.getAllCharacters(true)) {
-                        PCLActions.bottom.applyPower(owner, target, button.power, move.extra, true);
+        public void atEndOfTurn(boolean isPlayer) {
+            super.atEndOfTurn(isPlayer);
+            for (AbstractCard c : AbstractDungeon.player.hand.group) {
+                PCLCardAffinities cardAffinities = GameUtilities.getPCLCardAffinities(c);
+                if (cardAffinities != null) {
+                    for (PCLAffinity aff : cardAffinities.getAffinities(true, true)) {
+                        ElementPowerData debuff = ElementPowerData.getElement(aff);
+                        if (debuff != null) {
+                            for (AbstractMonster mo : GameUtilities.getEnemies(true)) {
+                                PCLActions.bottom.applyPower(owner, mo, debuff, amount);
+                            }
+                        }
                     }
-                });
+                }
             }
         }
     }

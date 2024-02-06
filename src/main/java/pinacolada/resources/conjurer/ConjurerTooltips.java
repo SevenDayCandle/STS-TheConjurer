@@ -19,6 +19,7 @@ public class ConjurerTooltips extends AbstractTooltips {
     public EUIKeywordTooltip forging = EUIKeywordTooltip.findByID("conjurer:Forging");
     public EUIKeywordTooltip frontLink = EUIKeywordTooltip.findByID("conjurer:Front Link");
     public EUIKeywordTooltip ignis = EUIKeywordTooltip.findByID("conjurer:Ignis");
+    public EUIKeywordTooltip impedance = EUIKeywordTooltip.findByID("conjurer:Impedance");
     public EUIKeywordTooltip link = EUIKeywordTooltip.findByID("conjurer:Link");
     public EUIKeywordTooltip lux = EUIKeywordTooltip.findByID("conjurer:Lux");
     public EUIKeywordTooltip petra = EUIKeywordTooltip.findByID("conjurer:Petra");

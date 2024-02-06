@@ -62,6 +62,18 @@ public class PCond_AllyLink extends PDelegateCardCond
         fields.setAffinity(affinities);
     }
 
+    public static PCond_AllyLink link(PCLAffinity... affinities) {
+        return new PCond_AllyLink(0, affinities);
+    }
+
+    public static PCond_AllyLink linkBack(PCLAffinity... affinities) {
+        return new PCond_AllyLink(-1, affinities);
+    }
+
+    public static PCond_AllyLink linkFront(PCLAffinity... affinities) {
+        return new PCond_AllyLink(1, affinities);
+    }
+
     protected boolean canAffixCard(AbstractCard card) {
         PCLCardAlly other = EUIUtils.safeCast(GameUtilities.getCardOwner(card), PCLCardAlly.class);
         if (other != null && source instanceof AbstractCard) {

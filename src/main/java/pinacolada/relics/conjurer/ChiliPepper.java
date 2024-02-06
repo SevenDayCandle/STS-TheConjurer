@@ -10,6 +10,7 @@ import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PMultiSkill;
 import pinacolada.skills.skills.PTrigger;
+import pinacolada.skills.skills.special.primary.PRoot;
 
 @VisibleRelic
 public class ChiliPepper extends PCLPointerRelic {
@@ -21,6 +22,6 @@ public class ChiliPepper extends PCLPointerRelic {
     }
 
     public void setup() {
-        addUseMove(PTrigger.when(PCond.onTurnStart(), PMultiSkill.join(PMove.applyToEnemies(3, BlastedPower.DATA))));
+        addUseMove(new PRoot(), PMove.applyToEnemies(2, IgnisPower.DATA));
     }
 }

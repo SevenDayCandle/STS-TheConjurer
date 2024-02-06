@@ -10,7 +10,6 @@ import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.conjurer.VentusPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.CMod;
 import pinacolada.skills.PMove;
 
 @VisibleCard

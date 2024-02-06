@@ -3,8 +3,6 @@ package pinacolada.cards.conjurer.basic;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import pinacolada.annotations.VisibleCard;
-import pinacolada.cardmods.PermanentBlockModifier;
-import pinacolada.cardmods.PermanentDamageModifier;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
@@ -12,7 +10,6 @@ import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.interfaces.subscribers.OnSpecificPowerActivatedSubscriber;
 import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.PSpecialCardPower;
-import pinacolada.powers.conjurer.FlowPower;
 import pinacolada.powers.conjurer.ForgingPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;
@@ -32,7 +29,7 @@ public class ErodingTerra extends PCLCard {
     }
 
     public void setup(Object input) {
-        addSpecialPower(0, (s, i) -> new ErodingTerraPower(i.source, i.source,  s), 1);
+        addSpecialPower(0, ErodingTerraPower::new, 1);
     }
 
     public static class ErodingTerraPower extends PSpecialCardPower implements OnSpecificPowerActivatedSubscriber {
