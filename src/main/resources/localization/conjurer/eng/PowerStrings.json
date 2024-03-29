@@ -5,7 +5,7 @@
 		"DESCRIPTIONS": ["Cards deal #b+{0}% damage and give #b+{0}% [Block] per {1}.", "Removed at the end of round.", "Lasts for {0} turns."],
 		"NAME": "Element"
 	},
-	"conjurer:AffinityImpedancePower":
+	"conjurer:AffinityPropertyPower":
 	{
 		"DESCRIPTIONS": ["Receive #b{0}% less damage from {1} cards.", "Receive #b{0}% more damage from {1} cards."],
 		"NAME": "Impedance"
@@ -22,7 +22,7 @@
 	},
 	"conjurer:CooledPower":
 	{
-		"DESCRIPTIONS": ["Takes #b+{0} damage from #yAttacks and #yOrbs, and deals #b-{0} damage. Loses this power at the end of round."],
+		"DESCRIPTIONS": ["Takes #b+{0} damage from #yAttacks and #yOrbs, and deals #b-{0} damage. Removed at round end."],
 		"NAME": "Cooled"
 	},
 	"conjurer:CorrosionPower":
@@ -47,7 +47,7 @@
 	},
 	"conjurer:ForgingPower":
 	{
-		"DESCRIPTIONS": ["When this power has at least #b{0} stacks, you may right-click a card in hand to spend #b{0} stacks and #yUpgrade that card."],
+		"DESCRIPTIONS": ["When this power has at least #b{0} stacks, #oRight-click a card in hand to spend #b{0} stacks, #yUpgrade that card, and increase its damage and #yBlock by #b{1}."],
 		"NAME": "Forging"
 	},
 	"conjurer:IgnisPower":

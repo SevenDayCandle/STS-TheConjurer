@@ -9,21 +9,22 @@ import pinacolada.interfaces.providers.ValueProvider;
 import pinacolada.skills.PSkill;
 import pinacolada.utilities.WeightedList;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ConjurerReactionGroup implements ValueProvider {
     private final WeightedList<PSkill<?>> upgrades;
     private int maxWeight;
     private int upgradeTimes;
-    private List<PSkill<?>> skills;
+    private ArrayList<PSkill<?>> skills;
     public final PCLAffinity a1;
     public final PCLAffinity a2;
 
-    public ConjurerReactionGroup(PCLAffinity a1, PCLAffinity a2, List<PSkill<?>> skills) {
+    public ConjurerReactionGroup(PCLAffinity a1, PCLAffinity a2, ArrayList<PSkill<?>> skills) {
         this(a1, a2, skills, 0);
     }
 
-    public ConjurerReactionGroup(PCLAffinity a1, PCLAffinity a2, List<PSkill<?>> skills, int upgradeTimes) {
+    public ConjurerReactionGroup(PCLAffinity a1, PCLAffinity a2, ArrayList<PSkill<?>> skills, int upgradeTimes) {
         this.a1 = a1;
         this.a2 = a2;
         this.upgradeTimes = upgradeTimes;
@@ -32,6 +33,7 @@ public class ConjurerReactionGroup implements ValueProvider {
     }
 
     public void addSkills(List<PSkill<?>> skills) {
+        ArrayList<PSkill<?>> toAdd = new ArrayList<>();
         for (PSkill<?> skill : skills) {
             boolean stacked = false;
             for (PSkill<?> orig : this.skills) {
@@ -41,10 +43,11 @@ public class ConjurerReactionGroup implements ValueProvider {
                 }
             }
             if (!stacked) {
-                this.skills.add(skill);
+                toAdd.add(skill);
                 skill.setSource(this);
             }
         }
+        this.skills.addAll(toAdd);
     }
 
     public ConjurerReactionGroup addUpgrade(PSkill<?> skill, int weight) {
@@ -90,7 +93,7 @@ public class ConjurerReactionGroup implements ValueProvider {
     public void refresh() {
     }
 
-    public void setSkills(List<PSkill<?>> skills) {
+    public void setSkills(ArrayList<PSkill<?>> skills) {
         this.skills = skills;
         for (PSkill<?> skill : skills) {
             skill.setSource(this);

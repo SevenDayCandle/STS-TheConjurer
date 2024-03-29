@@ -31,6 +31,7 @@ public class Melt extends PCLCard {
             .setSkill(1, CardRarity.RARE)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
             .setTags(PCLCardTag.Exhaust)
+            .setMaxCopies(2)
             .setCore();
 
     public Melt() {
@@ -38,7 +39,7 @@ public class Melt extends PCLCard {
     }
 
     public void setup(Object input) {
-        addSpecialPower(0, MeltPower::new, 10, 10).setUpgrade(10)
+        addSpecialPower(0, MeltPower::new, 10, 5).setUpgrade(10)
                 .setTarget(PCLCardTarget.Single);
     }
 
@@ -48,11 +49,12 @@ public class Melt extends PCLCard {
 
         public MeltPower(AbstractCreature owner, AbstractCreature source, PSkill<?> move) {
             super(PDATA, owner, source, move);
+            bonus = amount;
         }
 
         @Override
         public float atDamageReceive(float damage, DamageInfo.DamageType type) {
-            return type == DamageInfo.DamageType.NORMAL ? damage * (1 + bonus) : damage;
+            return type == DamageInfo.DamageType.NORMAL ? damage * (1 + bonus / 100f) : damage;
         }
 
         @Override
@@ -63,7 +65,7 @@ public class Melt extends PCLCard {
 
         @Override
         public float modifyOrbIncoming(float damage) {
-            return damage * (1 + bonus);
+            return damage * (1 + bonus / 100f);
         }
 
         @Override
@@ -78,6 +80,7 @@ public class Melt extends PCLCard {
         public void onInitialApplication() {
             super.onInitialApplication();
             PCLActions.bottom.playVFX(EffekseerEFK.efk(ConjurerEFK.MGC_PowerRelease));
+            bonus = amount;
         }
 
         @Override

@@ -22,6 +22,7 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardAffinities;
 import pinacolada.cards.base.fields.PCLCardAffinity;
+import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.monsters.PCLCardAlly;
 import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.conjurer.*;
@@ -104,7 +105,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
     }
 
     public void addDefaultReactions() {
-        createReaction(fire, water, PMove.applyToSingle(3, BlastedPower.DATA).setUpgrade(2))
+        createReaction(fire, water, PMove.apply(PCLCardTarget.SingleEnemy, 3, BlastedPower.DATA).setUpgrade(2))
                 .addUpgrade(PMove.applyToSingle(1, PCLPowerData.Vulnerable), 2);
         createReaction(fire, air, PMove.gainPlayer(3, PCLPowerData.Vigor).setUpgrade(2))
                 .addUpgrade(PMove.dealDamageToAll(3), 1);
@@ -112,7 +113,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
                 .addUpgrade(PMove.upgrade(1).edit(f -> f.setRandom(true)), 2);
         createReaction(water, air, PMove.gainPlayer(3, FlowPower.DATA).setUpgrade(2))
                 .addUpgrade(PMove.draw(1), 1);
-        createReaction(water, earth, PMove.applyToSingle(4, CooledPower.DATA).setUpgrade(3))
+        createReaction(water, earth, PMove.apply(PCLCardTarget.SingleEnemy, 4, CooledPower.DATA).setUpgrade(2))
                 .addUpgrade(PMove.applyToSingle(1, PCLPowerData.Weak), 1);
         createReaction(air, earth, PMove.gainPlayer(3, PCLPowerData.Warding))
                 .addUpgrade(PMove.gainTempHP(2), 1)
@@ -128,7 +129,7 @@ public class ConjurerReactionMeter extends PCLPlayerMeter {
     }
 
     protected ConjurerReactionGroup createReaction(ConjurerElementButton a1, ConjurerElementButton a2, PSkill<?>... skills) {
-        ConjurerReactionGroup group = new ConjurerReactionGroup(a1.power.affinity, a1.power.affinity, Arrays.asList(skills));
+        ConjurerReactionGroup group = new ConjurerReactionGroup(a1.power.affinity, a1.power.affinity, EUIUtils.arrayList(skills));
         a1.reactions.put(a2.power.affinity, group);
         a2.reactions.put(a1.power.affinity, group);
         return group;

@@ -4,6 +4,7 @@ package pinacolada.cards.conjurer.series.darksouls;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import pinacolada.actions.PCLActions;
@@ -39,7 +40,7 @@ public class CaressingTears extends PCLCard {
 
     public void setup(Object input) {
         addUseMove(PMove.applyToEveryone(3, AquaPower.DATA));
-        addSpecialPower(0, (t, o, s) -> new CaressingTearsPower(t, o, s), 2, 3).setUpgradeExtra(1);
+        addSpecialPower(0, CaressingTearsPower::new, 2, 3).setUpgradeExtra(1);
     }
 
     public static class CaressingTearsPower extends PSpecialCardPower implements OnTryApplyPowerSubscriber {
@@ -58,7 +59,7 @@ public class CaressingTears extends PCLCard {
 
         @Override
         public boolean tryApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source, AbstractGameAction action) {
-            if (VulnerablePower.POWER_ID.equals(power.ID) || WeakPower.POWER_ID.equals(power.ID) || CooledPower.DATA.ID.equals(power.ID)) {
+            if (VulnerablePower.POWER_ID.equals(power.ID) || WeakPower.POWER_ID.equals(power.ID) || FrailPower.POWER_ID.equals(power.ID)) {
                 PCLActions.bottom.gainTemporaryHP(move.extra);
                 flash();
                 return false;

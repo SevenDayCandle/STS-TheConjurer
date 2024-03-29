@@ -24,7 +24,6 @@ public class ConjurerTooltips extends AbstractTooltips {
     public EUIKeywordTooltip lux = EUIKeywordTooltip.findByID("conjurer:Lux");
     public EUIKeywordTooltip petra = EUIKeywordTooltip.findByID("conjurer:Petra");
     public EUIKeywordTooltip reaction = EUIKeywordTooltip.findByID("conjurer:Reaction");
-    public EUIKeywordTooltip stabilize = EUIKeywordTooltip.findByID("conjurer:Stabilize");
     public EUIKeywordTooltip umbra = EUIKeywordTooltip.findByID("conjurer:Umbra");
     public EUIKeywordTooltip ventus = EUIKeywordTooltip.findByID("conjurer:Ventus");
 
@@ -33,6 +32,6 @@ public class ConjurerTooltips extends AbstractTooltips {
         blasted.formatDescription(BlastedPower.DECAY);
         cooled.formatDescription(CooledPower.POTENCY);
         flow.formatDescription(FlowPower.PER_STACK);
-        forging.formatDescription(ForgingPower.PER_STACK);
+        forging.formatDescription(ForgingPower.PER_STACK, ForgingPower.BOOST);
     }
 }

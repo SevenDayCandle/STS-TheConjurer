@@ -5,6 +5,7 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.powers.conjurer.CooledPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -23,7 +24,7 @@ public class SnapFreeze extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMod.perPowerSingle(CooledPower.DATA), PMove.dealDamage(2));
+        addUseMove(PMod.perPowerSingle(CooledPower.DATA), PMove.loseHp(PCLCardTarget.Single, 2));
         addUseMove(PMove.applyToSingle(3, CooledPower.DATA).setUpgrade(2));
     }
 }

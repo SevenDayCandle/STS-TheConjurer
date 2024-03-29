@@ -17,7 +17,7 @@ import pinacolada.skills.PTrait;
 public class CannonOfHaima extends PCLCard {
     public static final PCLCardData DATA = register(CannonOfHaima.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.UNCOMMON, PCLAttackType.Ranged)
-            .setDamage(8, 1)
+            .setDamage(9, 1)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
@@ -26,6 +26,6 @@ public class CannonOfHaima extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(ConjurerEFK.BLOW15).setChain(PMod.perCard(1, PCLCardGroupHelper.DiscardPile).edit(f -> f.setAffinity(PCLAffinity.Blue)), PTrait.damage(3).setUpgrade(1));
+        addDamageMove(ConjurerEFK.BLOW15).setChain(PMod.perCard(1, PCLCardGroupHelper.DiscardPile).edit(f -> f.setAffinity(PCLAffinity.Blue)), PTrait.damage(2).setUpgrade(1));
     }
 }

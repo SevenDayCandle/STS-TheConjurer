@@ -276,7 +276,7 @@ public class ConjurerElementButton extends EUIButton {
     public void setReaction(PCLAffinity af, PSkill<?>... skills) {
         ConjurerReactionGroup group = reactions.get(af);
         if (group != null) {
-            group.setSkills(Arrays.asList(skills));
+            group.setSkills(EUIUtils.arrayList(skills));
         }
         else {
             ConjurerReactionMeter.meter.createReaction(this, ConjurerReactionMeter.meter.getElementButton(af), skills);
@@ -293,13 +293,12 @@ public class ConjurerElementButton extends EUIButton {
             strings.add(EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterReaction, level));
             strings.add(EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterBonus, power.getTooltip()));
             strings.add(getEffectsString());
-            //strings.add(EUIUtils.format(ConjurerResources.conjurer.strings.combat_conjurerMeterNextIntensity, currentCost)));
 
             keyword.setIcon(power.getTooltip().icon);
             keyword.setDescription(EUIUtils.joinStrings(EUIUtils.SPLIT_LINE, strings));
             if (keyword.children == null) {
                 keyword.setChildrenFromDescription(false);
-                keyword.children.removeIf(tip -> tip == power.tooltip || EUIUtils.any(PCLAffinity.basic(), af -> tip == af.tooltip));
+                keyword.children.removeIf(tip -> tip == power.tooltip);
             }
 
         }

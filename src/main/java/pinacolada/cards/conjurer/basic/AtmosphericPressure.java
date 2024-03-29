@@ -10,7 +10,7 @@ import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.powers.conjurer.VentusPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
-import pinacolada.skills.conjurer.moves.PMove_StabilizePower;
+import pinacolada.skills.skills.base.moves.PMove_StabilizePower;
 
 @VisibleCard
 public class AtmosphericPressure extends PCLCard {

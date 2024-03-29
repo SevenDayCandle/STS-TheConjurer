@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.colorless;
 
 
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
@@ -27,8 +28,10 @@ public class Enervate extends PCLCard {
     }
 
     public void action(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
-        int strength = GameUtilities.getPowerAmount(info.target, StrengthPower.POWER_ID) / 2;
-        order.applyPower(info.source, info.target, PCLPowerData.Strength, -(strength > 0 ? strength + move.refreshAmount(info) : move.refreshAmount(info)));
+        for (AbstractCreature target : move.getTargetListAsNew(info)) {
+            int strength = GameUtilities.getPowerAmount(target, StrengthPower.POWER_ID) / 2;
+            order.applyPower(info.source, target, PCLPowerData.Strength, -(strength > 0 ? strength + move.refreshAmount(info) : move.refreshAmount(info)));
+        }
     }
 
     public void setup(Object input) {

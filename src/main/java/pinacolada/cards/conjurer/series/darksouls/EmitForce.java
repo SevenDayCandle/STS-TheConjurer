@@ -16,7 +16,7 @@ import pinacolada.skills.PCond;
 public class EmitForce extends PCLCard {
     public static final PCLCardData DATA = register(EmitForce.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.COMMON, PCLAttackType.Ranged)
-            .setDamage(5, 2)
+            .setDamage(6, 3)
             .setAffinities(PCLAffinity.Green, PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.darkSouls);
 
@@ -25,6 +25,6 @@ public class EmitForce extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(EffekseerEFK.SWORD09).setBonus(PCond.pileHas(4, PCLCardGroupHelper.Hand), 6, 2);
+        addDamageMove(EffekseerEFK.SWORD09).setBonusPercent(PCond.pileHas(4, PCLCardGroupHelper.Hand), 100);
     }
 }

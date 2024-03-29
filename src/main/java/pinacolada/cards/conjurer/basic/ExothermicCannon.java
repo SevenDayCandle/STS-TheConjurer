@@ -14,7 +14,7 @@ import pinacolada.skills.conjurer.conditions.PCond_React;
 public class ExothermicCannon extends PCLCard {
     public static final PCLCardData DATA = register(ExothermicCannon.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.RARE, PCLAttackType.Immaterial)
-            .setDamage(9, 3)
+            .setDamage(9, 2)
             .setAffinities(PCLAffinity.Red)
             .setCore();
 
@@ -24,6 +24,6 @@ public class ExothermicCannon extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(EffekseerEFK.SWORD24);
-        addUseMove(new PCond_React(new PCLAffinity[]{}), PMove.modifyDamage(3));
+        addUseMove(new PCond_React(), PMove.modifyDamage(6).setUpgrade(2));
     }
 }

@@ -12,7 +12,11 @@ import extendedui.EUI;
 import extendedui.EUIInputManager;
 import extendedui.utilities.EUIColors;
 import pinacolada.actions.PCLActions;
+import pinacolada.actions.cards.ModifyBlock;
+import pinacolada.actions.cards.ModifyDamage;
 import pinacolada.annotations.VisiblePower;
+import pinacolada.cardmods.PermanentBlockModifier;
+import pinacolada.cardmods.PermanentDamageModifier;
 import pinacolada.dungeon.CombatManager;
 import pinacolada.effects.PCLEffects;
 import pinacolada.effects.PCLSFX;
@@ -31,6 +35,7 @@ public class ForgingPower extends PCLPower {
             .setEndTurnBehavior(PCLPowerData.Behavior.Permanent)
             .setTooltip(ConjurerResources.conjurer.tooltips.forging);
     public static final int PER_STACK = 5;
+    public static final int BOOST = 1;
     public static AbstractCard targetCard;
     private float pulse;
     private boolean busy;
@@ -41,7 +46,7 @@ public class ForgingPower extends PCLPower {
 
     @Override
     public String getUpdatedDescription() {
-        return formatDescription(0, PER_STACK);
+        return formatDescription(0, PER_STACK, BOOST);
     }
 
     @Override
@@ -77,6 +82,9 @@ public class ForgingPower extends PCLPower {
                 flash();
                 PCLActions.bottom.callback(new UpgradeSpecificCardAction(c), __ -> {
                     PCLEffects.TopLevelQueue.add(new UpgradeShineEffect(Settings.WIDTH / 2f, Settings.HEIGHT / 2f));
+                    ModifyDamage.modifyDamage(c, BOOST, false, false);
+                    ModifyBlock.modifyBlock(c, BOOST, false, false);
+                    c.calculateCardDamage(null);
                     busy = false;
                     targetCard = c;
                     CombatManager.onSpecificPowerActivated(this, owner, false);

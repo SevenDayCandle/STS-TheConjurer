@@ -16,7 +16,7 @@
 		"NAME": "Charge"
 	},
 	"conjurer:Cooled": {
-		"DESCRIPTION": "Every #b{0} stacks increases damage taken from #yAttacks and #yOrbs by #b1, and reduces damage dealt by #b1. Removed at round end.",
+		"DESCRIPTION": "Every #b{0} stacks increase damage taken from #yAttacks and #yOrbs by #b1 and reduce damage dealt by #b1. Removed at round end.",
 		"NAME": "Cooled"
 	},
 	"conjurer:Element": {
@@ -33,7 +33,7 @@
 		"NAME": "Flow"
 	},
 	"conjurer:Forging": {
-		"DESCRIPTION": "Right-click a card in hand to spend #b{0} [conjurer:Forging] and upgrade it.",
+		"DESCRIPTION": "Right-click a card in hand to spend #b{0} [conjurer:Forging], upgrade it, and increase its damage and #yBlock by #b{1}.",
 		"NAME": "Forging"
 	},
 	"conjurer:Front Link": {
@@ -83,13 +83,6 @@
 		"PLURAL": "${0}@>1:Reactions@:Reaction$",
 		"PRESENT": "Reacts",
 		"PROGRESSIVE": "Reacting"
-	},
-	"conjurer:Stabilize":	{
-		"DESCRIPTION": "Prevent a power from being reduced this turn.",
-		"NAME": "Stabilize",
-		"PAST": "Stabilized",
-		"PRESENT": "Stabilizes",
-		"PROGRESSIVE": "Stabilizing"
 	},
 	"conjurer:Umbra": {
 		"DESCRIPTION": "[A-P] #yElement. Reactions on a non-#ySummon, non-boss target have a chance to instantly kill it.",

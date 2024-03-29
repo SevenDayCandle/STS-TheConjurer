@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.colorless;
 
 
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
@@ -28,34 +29,36 @@ public class AtomicDisplacement extends PCLCard {
     }
 
     public void action(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
-        ArrayList<AbstractPower> playerPowers = new ArrayList<>();
-        ArrayList<AbstractPower> enemyPowers = new ArrayList<>();
-        for (AbstractPower po : info.source.powers) {
-            if (GameUtilities.isPCLDebuff(po)) {
-                playerPowers.add(po);
-                PCLActions.top.removePower(info.source, po);
+        for (AbstractCreature target : move.getTargetListAsNew(info)) {
+            ArrayList<AbstractPower> playerPowers = new ArrayList<>();
+            ArrayList<AbstractPower> enemyPowers = new ArrayList<>();
+            for (AbstractPower po : info.source.powers) {
+                if (GameUtilities.isPCLDebuff(po)) {
+                    playerPowers.add(po);
+                    PCLActions.top.removePower(info.source, po);
+                }
             }
-        }
-        for (AbstractPower po : info.target.powers) {
-            if (GameUtilities.isPCLDebuff(po)) {
-                enemyPowers.add(po);
-                PCLActions.top.removePower(info.target, po);
+            for (AbstractPower po : target.powers) {
+                if (GameUtilities.isPCLDebuff(po)) {
+                    enemyPowers.add(po);
+                    PCLActions.top.removePower(target, po);
+                }
             }
-        }
 
-        for (AbstractPower po : playerPowers) {
-            po.owner = info.target;
-            order.applyPower(info.source, info.target, po);
-        }
-        for (AbstractPower po : enemyPowers) {
-            po.owner = info.source;
-            order.applyPower(info.source, info.source, po);
-        }
+            for (AbstractPower po : playerPowers) {
+                po.owner = target;
+                order.applyPower(info.source, target, po);
+            }
+            for (AbstractPower po : enemyPowers) {
+                po.owner = info.source;
+                order.applyPower(info.source, info.source, po);
+            }
 
-        int gained = enemyPowers.size() - playerPowers.size();
-        int thp = gained * move.refreshAmount(info);
-        if (thp > 0) {
-            order.gainTemporaryHP(thp);
+            int gained = enemyPowers.size() - playerPowers.size();
+            int thp = gained * move.refreshAmount(info);
+            if (thp > 0) {
+                order.gainTemporaryHP(thp);
+            }
         }
     }
 

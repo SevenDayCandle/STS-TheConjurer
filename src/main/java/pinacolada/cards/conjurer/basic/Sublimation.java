@@ -22,6 +22,6 @@ public class Sublimation extends PCLCard {
     }
 
     public void setup(Object input) {
-        addGainPower(PTrigger.when(new PCond_React(new PCLAffinity[]{}), PMove.loseHp(PCLCardTarget.AllEnemy, 2).setUpgrade(1)));
+        addGainPower(PTrigger.when(new PCond_React(), PMove.loseHp(PCLCardTarget.AllEnemy, 2).setUpgrade(1)));
     }
 }

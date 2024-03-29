@@ -21,7 +21,7 @@ import pinacolada.skills.PMove;
 public class MeteoriteOfAstel extends PCLCard {
     public static final PCLCardData DATA = register(MeteoriteOfAstel.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.RARE, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
-            .setDamage(6, 2)
+            .setDamage(7, 3)
             .setAffinities(1, PCLAffinity.Orange, PCLAffinity.Purple)
             .setTags(PCLCardTag.Exhaust)
             .setLoadout(ConjurerPlayerData.eldenRing);
@@ -32,6 +32,6 @@ public class MeteoriteOfAstel extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.EARTH);
-        addUseMove(PDelay.turnStart(3), PMod.perPowerSelf(1, ForgingPower.DATA), PMove.dealDamageToAll(8).setVFX(ConjurerEFK.BLOW02).setUpgrade(3));
+        addUseMove(PDelay.turnStart(3), PMod.perPowerSelf(1, ForgingPower.DATA), PMove.dealDamageToAll(7).setVFX(ConjurerEFK.BLOW02).setUpgrade(2));
     }
 }

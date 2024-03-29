@@ -35,12 +35,6 @@ public class CooledPower extends PCLPower {
         return super.atDamageReceive(type == DamageInfo.DamageType.NORMAL ? damage + getPotency() : damage, type, card);
     }
 
-    @Override
-    public void atEndOfRound() {
-        super.atEndOfRound();
-        removePower();
-    }
-
     public float getPotency() {
         return this.amount / (float) POTENCY;
     }

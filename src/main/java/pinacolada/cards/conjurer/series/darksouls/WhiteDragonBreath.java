@@ -12,7 +12,7 @@ import pinacolada.effects.ConjurerEFK;
 import pinacolada.powers.conjurer.CooledPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.conjurer.moves.PMove_StabilizePower;
+import pinacolada.skills.skills.base.moves.PMove_StabilizePower;
 
 @VisibleCard
 public class WhiteDragonBreath extends PCLCard {

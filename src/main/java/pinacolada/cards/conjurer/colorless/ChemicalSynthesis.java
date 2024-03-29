@@ -1,5 +1,6 @@
 package pinacolada.cards.conjurer.colorless;
 
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import pinacolada.actions.PCLActions;
@@ -30,7 +31,9 @@ public class ChemicalSynthesis extends PCLCard {
     public void action(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
         for (AbstractPotion potion : AbstractDungeon.player.potions) {
             if (potion != null && potion.canUse()) {
-                order.usePotion(potion, info.target, move.refreshAmount(info));
+                for (AbstractCreature target : move.getTargetListAsNew(info)) {
+                    order.usePotion(potion, target, move.refreshAmount(info));
+                }
                 return;
             }
         }

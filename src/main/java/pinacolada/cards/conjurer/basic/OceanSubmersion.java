@@ -24,6 +24,6 @@ public class OceanSubmersion extends PCLCard {
 
     public void setup(Object input) {
         addBlockMove(PCLCardTarget.Team);
-        addUseMove(PMove.applyToEveryone(1, AquaPower.DATA));
+        addUseMove(PMove.applyToEnemies(1, AquaPower.DATA));
     }
 }

@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.basic;
 
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
@@ -8,6 +9,7 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.effects.vfx.ScreenFreezingEffect;
+import pinacolada.interfaces.subscribers.OnRemovePowerSubscriber;
 import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.PSpecialCardPower;
 import pinacolada.powers.conjurer.CooledPower;
@@ -28,10 +30,10 @@ public class SheerCold extends PCLCard {
     }
 
     public void setup(Object input) {
-        addSpecialPower(0, (t, o, s) -> new SheerColdPower(t, o, s), 20);
+        addSpecialPower(0, SheerColdPower::new);
     }
 
-    public static class SheerColdPower extends PSpecialCardPower {
+    public static class SheerColdPower extends PSpecialCardPower implements OnRemovePowerSubscriber {
         public static final PCLPowerData PDATA = createFromCard(SheerColdPower.class, DATA);
 
         public SheerColdPower(AbstractCreature owner, AbstractCreature source, PSkill<?> move) {
@@ -46,6 +48,14 @@ public class SheerCold extends PCLCard {
             PCLActions.bottom.callback(() -> {
                 ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Blue).addAdditionalPower(CooledPower.DATA.ID);
             });
+        }
+
+        @Override
+        public void onRemovePower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
+            // Was removed at end of round naturally
+            if (power instanceof CooledPower && ((CooledPower) power).turns <= 0) {
+                PCLActions.delayed.applyPower(power.owner, CooledPower.DATA, power.amount);
+            }
         }
     }
 }

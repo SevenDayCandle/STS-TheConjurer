@@ -5,6 +5,7 @@ import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
+import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.powers.conjurer.BlastedPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
@@ -23,7 +24,7 @@ public class GreatCombustion extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMod.perPowerSingle(BlastedPower.DATA), PMove.dealDamageToAll(1));
+        addUseMove(PMod.perPowerSingle(BlastedPower.DATA), PMove.loseHp(PCLCardTarget.AllEnemy, 1));
         addUseMove(PMove.applyToSingle(5, BlastedPower.DATA).setUpgrade(2));
     }
 }

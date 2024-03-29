@@ -1,6 +1,7 @@
 package pinacolada.cards.conjurer.colorless;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
@@ -29,8 +30,10 @@ public class Present extends PCLCard {
     public void action(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
         AbstractCard random = GameUtilities.getRandomCombatCard();
         if (random != null) {
-            order.playCopy(random, info.target)
-                    .addCallback(() -> PCLActions.bottom.makeCardInDiscardPile(random.makeStatEquivalentCopy()));
+            for (AbstractCreature target : move.getTargetListAsNew(info)) {
+                order.playCopy(random, target)
+                        .addCallback(() -> PCLActions.bottom.makeCardInDiscardPile(random.makeStatEquivalentCopy()));
+            }
         }
     }
 

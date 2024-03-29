@@ -3,6 +3,7 @@ package pinacolada.cards.conjurer.basic;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import pinacolada.actions.PCLActions;
+import pinacolada.actions.cards.ModifyCost;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cardmods.PermanentBlockModifier;
 import pinacolada.cardmods.PermanentDamageModifier;
@@ -31,7 +32,7 @@ public class VerdantGale extends PCLCard {
     }
 
     public void setup(Object input) {
-        addSpecialPower(0, (t, o, s) -> new VerdantGalePower(t, o, s), 3);
+        addSpecialPower(0, VerdantGalePower::new, 1);
     }
 
     public static class VerdantGalePower extends PSpecialCardPower implements OnSpecificPowerActivatedSubscriber {
@@ -51,8 +52,7 @@ public class VerdantGale extends PCLCard {
         @Override
         public boolean onPowerActivated(AbstractPower power, AbstractCreature source, boolean originalValue) {
             if (power instanceof FlowPower && FlowPower.drawn != null) {
-                PermanentDamageModifier.apply(FlowPower.drawn, amount);
-                PermanentBlockModifier.apply(FlowPower.drawn, amount);
+                ModifyCost.modifyCost(FlowPower.drawn, -amount, false, true);
             }
             return originalValue;
         }
