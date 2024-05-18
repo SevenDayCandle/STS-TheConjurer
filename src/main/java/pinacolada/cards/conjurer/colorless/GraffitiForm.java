@@ -37,7 +37,7 @@ import pinacolada.utilities.RandomizedList;
 @VisibleCard
 public class GraffitiForm extends PCLCard {
     public static final PCLCardData DATA = register(GraffitiForm.class, ConjurerResources.conjurer)
-            .setPower(0, CardRarity.RARE)
+            .setPower(0, CardRarity.SPECIAL)
             .setUTags(PCLCardTag.Innate)
             .setAffinities(PCLAffinity.Star)
             .setCore(true);

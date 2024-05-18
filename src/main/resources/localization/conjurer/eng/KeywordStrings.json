@@ -25,7 +25,7 @@
 		"PLURAL": "${0}@>1:Elements@:Element$"
 	},
 	"conjurer:Elemental Mastery": {
-		"DESCRIPTION": "Whenever you apply #yElements, increase their stacks.",
+		"DESCRIPTION": "The next card played applies their corresponding #yElements to its targets.",
 		"NAME": "Elemental Mastery"
 	},
 	"conjurer:Flow": {
@@ -33,7 +33,7 @@
 		"NAME": "Flow"
 	},
 	"conjurer:Forging": {
-		"DESCRIPTION": "Right-click a card in hand to spend #b{0} [conjurer:Forging], upgrade it, and increase its damage and #yBlock by #b{1}.",
+		"DESCRIPTION": "Right-click a card in hand to spend #b{0} [conjurer:Forging] and #yUpgrade it. This can #yUpgrade #pConjurer cards beyond their normal #yUpgrade limit.",
 		"NAME": "Forging"
 	},
 	"conjurer:Front Link": {

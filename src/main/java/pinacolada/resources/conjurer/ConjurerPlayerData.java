@@ -29,9 +29,9 @@ public class ConjurerPlayerData extends PCLPlayerData<ConjurerResources, Conjure
 
     public static ConjurerLoadout darkSouls = PCLLoadout.register(new DarkSouls());
     public static ConjurerLoadout eldenRing = PCLLoadout.register(new EldenRing());
-
+    
     public ConjurerPlayerData(ConjurerResources resources) {
-        super(resources);
+        super(resources, 70, 99, 5, 3, 0, 50, 20);
     }
 
     public static int getCostForMonster(String id) {

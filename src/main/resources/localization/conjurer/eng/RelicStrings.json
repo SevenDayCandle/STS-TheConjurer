@@ -84,11 +84,11 @@
 		"FLAVOR": "Moss clump radiating gentle heat and light.",
 		"NAME": "Rime-Blue Moss Clump"
 	},
-	"conjurer:ShrivingStone":
+	"conjurer:SmithingStone":
 	{
-		"DESCRIPTIONS": ["[A-B] now #yReacts with [A-O]."],
-		"FLAVOR": "[A-B] now #yReacts with [A-O].",
-		"NAME": "Shriving Stone"
+		"DESCRIPTIONS": ["Cards #yUpgraded with [conjurer:Forging] gain [Recast]."],
+		"FLAVOR": "Mined near the foot of the Erdtree, these stones are said to have been used to bolster the strength of the Royal forces.",
+		"NAME": "Smithing Stone"
 	},
 	"conjurer:StochasticTable":
 	{

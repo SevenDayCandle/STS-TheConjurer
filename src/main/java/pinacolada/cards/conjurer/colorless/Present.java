@@ -17,7 +17,7 @@ import pinacolada.utilities.GameUtilities;
 @VisibleCard
 public class Present extends PCLCard {
     public static final PCLCardData DATA = register(Present.class, ConjurerResources.conjurer)
-            .setSkill(1, CardRarity.RARE, PCLCardTarget.Single)
+            .setSkill(1, CardRarity.SPECIAL, PCLCardTarget.Single)
             .setTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Star)
             .setCostUpgrades(-1)

@@ -20,7 +20,7 @@ import pinacolada.utilities.GameUtilities;
 @VisibleCard
 public class Iridescence extends PCLCard {
     public static final PCLCardData DATA = register(Iridescence.class, ConjurerResources.conjurer)
-            .setSkill(0, CardRarity.UNCOMMON, PCLCardTarget.None)
+            .setSkill(0, CardRarity.SPECIAL, PCLCardTarget.None)
             .setAffinities(PCLAffinity.Star)
             .setTags(PCLCardTag.Exhaust)
             .setColorless();

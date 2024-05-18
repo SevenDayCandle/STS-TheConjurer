@@ -14,8 +14,8 @@ import extendedui.ui.screens.CustomCardLibraryScreen;
 import extendedui.ui.tooltips.EUITourTooltip;
 import pinacolada.actions.powers.ElementReaction;
 import pinacolada.actions.utility.SelectCreature;
-import pinacolada.cards.conjurer.basic.Condensation;
-import pinacolada.cards.conjurer.basic.Ignite;
+import pinacolada.cards.conjurer.series.darksouls.Fireball;
+import pinacolada.cards.conjurer.series.eldenring.OracleBubbles;
 import pinacolada.monsters.PCLCardAlly;
 import pinacolada.monsters.PCLCreatureData;
 import pinacolada.monsters.PCLTutorialMonster;
@@ -123,7 +123,7 @@ public class ConjurerSummonTutorialMonster extends PCLTutorialMonster {
     public EUITourTooltip step4() {
         this.setMove("", (byte) -1, Intent.ATTACK, 30, 2, true);
 
-        replaceHandWith(new Condensation(), new Ignite());
+        replaceHandWith(new OracleBubbles(), new Fireball());
 
         Hitbox targetHb = AbstractDungeon.player.hb;
         for (PCLCardAlly ally : GameUtilities.getSummons(true)) {

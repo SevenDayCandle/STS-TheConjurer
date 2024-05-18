@@ -52,7 +52,7 @@ public class PMove_AddImpedance extends PMove<PField_Affinity> {
 
     @Override
     public String getSubText(PCLCardTarget perspective, Object requestor) {
-        String amountString = getAmountRawString();
+        String amountString = getAmountRawString(requestor);
         String joinedString = fields.affinities.isEmpty() ? TEXT.subjects_randomX(ConjurerResources.conjurer.tooltips.impedance.title) : EUIRM.strings.adjNoun(fields.getAffinityAndString(), ConjurerResources.conjurer.tooltips.impedance.title);
         switch (target) {
             case Self:

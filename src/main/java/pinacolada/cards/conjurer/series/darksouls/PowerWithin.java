@@ -12,15 +12,17 @@ import pinacolada.effects.ConjurerEFK;
 import pinacolada.powers.PCLPowerData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.PCond;
 import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
+import pinacolada.skills.skills.PMultiSkill;
+import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
 public class PowerWithin extends PCLCard {
     public static final PCLCardData DATA = register(PowerWithin.class, ConjurerResources.conjurer)
-            .setSkill(0, CardRarity.RARE, PCLCardTarget.Team)
+            .setPower(0, CardRarity.RARE)
             .setAffinities(PCLAffinity.Red)
-            .setTags(PCLCardTag.Exhaust)
             .setLoadout(ConjurerPlayerData.darkSouls);
 
     public PowerWithin() {
@@ -28,7 +30,6 @@ public class PowerWithin extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMod.bonusPerCreature(PCLCardTarget.AllAlly, 2), PMove.gain(1, PCLPowerData.Strength).setVFX(ConjurerEFK.MGC_PowerUp).setUpgrade(1));
-        addUseMove(PMove.dealDamage(10, AbstractGameAction.AttackEffect.SMASH, PCLCardTarget.AllAlly));
+        addGainPower(PTrigger.when(PCond.onTurnStart(), PMultiSkill.join(PMove.gain(3, PCLPowerData.Strength).setUpgrade(1), PMove.loseHp(2)))).setVFX(ConjurerEFK.MGC_PowerUp);
     }
 }

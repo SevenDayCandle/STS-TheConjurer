@@ -17,7 +17,7 @@ import pinacolada.skills.skills.PSpecialSkill;
 @VisibleCard
 public class ChemicalSynthesis extends PCLCard {
     public static final PCLCardData DATA = register(ChemicalSynthesis.class, ConjurerResources.conjurer)
-            .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.Single)
+            .setSkill(1, CardRarity.SPECIAL, PCLCardTarget.Single)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Silver)
             .setTags(PCLCardTag.Purge)
             .setCostUpgrades(-1)

@@ -1,20 +1,17 @@
 package pinacolada.powers.conjurer;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import extendedui.EUIUtils;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisiblePower;
 import pinacolada.effects.PCLSFX;
+import pinacolada.powers.PCLPower;
 import pinacolada.powers.PCLPowerData;
-import pinacolada.powers.PCLSubscribingPower;
 import pinacolada.resources.conjurer.ConjurerResources;
 
 @VisiblePower
-public class ElementalMasteryPower extends PCLSubscribingPower {
+public class ElementalMasteryPower extends PCLPower {
     public static final PCLPowerData DATA = register(ElementalMasteryPower.class, ConjurerResources.conjurer)
             .setType(PowerType.BUFF)
             .setEndTurnBehavior(PCLPowerData.Behavior.Permanent)
@@ -25,20 +22,9 @@ public class ElementalMasteryPower extends PCLSubscribingPower {
     }
 
     @Override
-    public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        super.onApplyPower(power, target, source);
+    public void onPlayCard(AbstractCard c, AbstractMonster m) {
+        super.onPlayCard(c, m);
 
-        if (power.amount > 0 && (power instanceof AbstractElementPower)) {
-            power.amount += this.amount;
-
-            final AbstractGameAction action = AbstractDungeon.actionManager.currentAction;
-            if (action instanceof ApplyPowerAction) {
-                action.amount += this.amount;
-            }
-            else {
-                EUIUtils.logWarning(this, "Unknown action type: " + action.getClass().getName());
-            }
-        }
     }
 
     @Override

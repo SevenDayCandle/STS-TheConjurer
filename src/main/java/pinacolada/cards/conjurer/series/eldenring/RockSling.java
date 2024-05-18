@@ -11,14 +11,13 @@ import pinacolada.effects.PCLAttackVFX;
 import pinacolada.powers.conjurer.PetraPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PCond;
-import pinacolada.skills.PTrait;
+import pinacolada.skills.PMove;
 
 @VisibleCard
 public class RockSling extends PCLCard {
     public static final PCLCardData DATA = register(RockSling.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.COMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
-            .setDamage(8, 2, 2)
+            .setDamage(7, 2, 2)
             .setAffinities(PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
@@ -27,6 +26,7 @@ public class RockSling extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(PCLAttackVFX.EARTH).setChain(PCond.checkPower(PCLCardTarget.Any, 1, PetraPower.DATA), PTrait.hitCount(1));
+        addDamageMove(PCLAttackVFX.EARTH);
+        addUseMove(PMove.applyToEnemies(3, PetraPower.DATA));
     }
 }

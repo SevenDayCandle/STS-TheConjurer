@@ -44,6 +44,6 @@ public class PCond_CheckReaction extends PPassiveCond<PField_Not> {
 
     @Override
     public String getSubText(PCLCardTarget perpsective, Object requestor) {
-        return getTargetHasStringPerspective(perpsective, fields.getThresholdRawString(ConjurerResources.conjurer.tooltips.reaction.title));
+        return getTargetHasStringPerspective(perpsective, fields.getThresholdRawString(ConjurerResources.conjurer.tooltips.reaction.title, requestor));
     }
 }

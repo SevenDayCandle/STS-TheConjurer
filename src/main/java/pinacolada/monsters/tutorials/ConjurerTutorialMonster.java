@@ -10,9 +10,9 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import extendedui.ui.tooltips.EUITourTooltip;
 import pinacolada.actions.powers.ElementReaction;
 import pinacolada.cards.base.fields.PCLAffinity;
-import pinacolada.cards.conjurer.basic.Condensation;
-import pinacolada.cards.conjurer.basic.Ignite;
-import pinacolada.cards.conjurer.basic.Lithosphere;
+import pinacolada.cards.conjurer.series.darksouls.Fireball;
+import pinacolada.cards.conjurer.series.eldenring.StoneOfGurranq;
+import pinacolada.cards.conjurer.series.eldenring.OracleBubbles;
 import pinacolada.dungeon.ConjurerElementButton;
 import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.monsters.PCLCreatureData;
@@ -41,7 +41,7 @@ public class ConjurerTutorialMonster extends PCLTutorialMonster {
     }
 
     public EUITourTooltip step1() {
-        AbstractCard card = new Lithosphere();
+        AbstractCard card = new StoneOfGurranq();
         replaceHandWith(card);
         ConjurerReactionMeter.meter.initialize();
         ConjurerElementButton button = ConjurerReactionMeter.meter.getElementButton(PCLAffinity.Red);
@@ -62,7 +62,7 @@ public class ConjurerTutorialMonster extends PCLTutorialMonster {
     }
 
     public EUITourTooltip step2() {
-        replaceHandWith(new Ignite(), new Condensation());
+        replaceHandWith(new Fireball(), new OracleBubbles());
         PetraPower p = new PetraPower(this, this, 5);
         p.addTurns(2);
         powers.add(p);

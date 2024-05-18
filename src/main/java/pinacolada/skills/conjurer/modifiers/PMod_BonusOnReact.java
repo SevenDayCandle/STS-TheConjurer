@@ -34,7 +34,7 @@ public class PMod_BonusOnReact extends PMod_BonusOn<PField_Affinity> {
 
     @Override
     public String getConditionText(PCLCardTarget perpsective, Object requestor) {
-        return EUIRM.strings.generic2(getAmountRawString(), TEXT.cond_ifTargetHas(TEXT.subjects_this, PCLCardTarget.Single.ordinal(), fields.not ? TEXT.cond_not(getSubText(perpsective, requestor)) : getSubText(perpsective, requestor)));
+        return EUIRM.strings.generic2(getAmountRawString(requestor), TEXT.cond_ifTargetHas(TEXT.subjects_this, PCLCardTarget.Single.ordinal(), fields.not ? TEXT.cond_not(getSubText(perpsective, requestor)) : getSubText(perpsective, requestor)));
     }
 
     @Override

@@ -10,13 +10,11 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
 import extendedui.EUI;
 import extendedui.EUIInputManager;
+import extendedui.EUIUtils;
 import extendedui.utilities.EUIColors;
 import pinacolada.actions.PCLActions;
-import pinacolada.actions.cards.ModifyBlock;
-import pinacolada.actions.cards.ModifyDamage;
 import pinacolada.annotations.VisiblePower;
-import pinacolada.cardmods.PermanentBlockModifier;
-import pinacolada.cardmods.PermanentDamageModifier;
+import pinacolada.cards.base.PCLCard;
 import pinacolada.dungeon.CombatManager;
 import pinacolada.effects.PCLEffects;
 import pinacolada.effects.PCLSFX;
@@ -35,7 +33,6 @@ public class ForgingPower extends PCLPower {
             .setEndTurnBehavior(PCLPowerData.Behavior.Permanent)
             .setTooltip(ConjurerResources.conjurer.tooltips.forging);
     public static final int PER_STACK = 5;
-    public static final int BOOST = 1;
     public static AbstractCard targetCard;
     private float pulse;
     private boolean busy;
@@ -46,7 +43,7 @@ public class ForgingPower extends PCLPower {
 
     @Override
     public String getUpdatedDescription() {
-        return formatDescription(0, PER_STACK, BOOST);
+        return formatDescription(0, PER_STACK);
     }
 
     @Override
@@ -80,10 +77,12 @@ public class ForgingPower extends PCLPower {
             if (EUIInputManager.rightClick.isJustPressed() && !busy) {
                 busy = true;
                 flash();
+                PCLCard pC = EUIUtils.safeCast(c, PCLCard.class);
+                if (pC != null && pC.maxUpgrades() > 0 && pC.timesUpgraded >= pC.maxUpgrades()) {
+                    pC.upgradeLevelIncrease += 1;
+                }
                 PCLActions.bottom.callback(new UpgradeSpecificCardAction(c), __ -> {
                     PCLEffects.TopLevelQueue.add(new UpgradeShineEffect(Settings.WIDTH / 2f, Settings.HEIGHT / 2f));
-                    ModifyDamage.modifyDamage(c, BOOST, false, false);
-                    ModifyBlock.modifyBlock(c, BOOST, false, false);
                     c.calculateCardDamage(null);
                     busy = false;
                     targetCard = c;

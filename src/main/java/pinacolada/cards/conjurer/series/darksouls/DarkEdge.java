@@ -18,9 +18,9 @@ import pinacolada.skills.PMove;
 public class DarkEdge extends PCLCard {
     public static final PCLCardData DATA = register(DarkEdge.class, ConjurerResources.conjurer)
             .setAttack(1, CardRarity.UNCOMMON, PCLAttackType.Brutal)
-            .setDamage(10, 3)
+            .setDamage(14, 3)
             .setAffinities(PCLAffinity.Purple)
-            .setLoadout(ConjurerPlayerData.darkSouls, true);
+            .setLoadout(ConjurerPlayerData.darkSouls);
 
     public DarkEdge() {
         super(DATA);
@@ -28,6 +28,6 @@ public class DarkEdge extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(EffekseerEFK.SWORD11);
-        addUseMove(PCond.isAttacking(PCLCardTarget.Single), PMove.apply(PCLCardTarget.SelfSingle, 2, PCLPowerData.Blinded));
+        addUseMove(PMove.gain(-1, PCLPowerData.Strength));
     }
 }

@@ -72,6 +72,6 @@ public class PCond_CheckLevel extends PPassiveCond<PField_Affinity> {
         if (isBranch()) {
             return EUIRM.strings.nounVerb(TEXT.subjects_you, ConjurerResources.conjurer.tooltips.reaction.title);
         }
-        return getTargetHasStringPerspective(perspective, EUIRM.strings.numNoun(getAmountRawString(), ConjurerResources.conjurer.tooltips.reaction.title));
+        return getTargetHasStringPerspective(perspective, EUIRM.strings.numNoun(getAmountRawString(requestor), ConjurerResources.conjurer.tooltips.reaction.title));
     }
 }

@@ -29,7 +29,7 @@ public class Repair extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.remove(PCLCardTarget.Team, PCLPowerData.Frail, PCLPowerData.Vulnerable, PCLPowerData.Weak).setVFX(ConjurerEFK.MGC_HealingSpell_LV2));
-        addUseMove(PMod.payPerPower(1, ForgingPower.DATA).setExtra(10), PMove.gain(1, PCLPowerData.PlatedArmor));
+        addUseMove(PMove.remove(PCLCardTarget.Team, PCLPowerData.Frail, PCLPowerData.Weak).setVFX(ConjurerEFK.MGC_HealingSpell_LV2));
+        addUseMove(PMod.payPerPower(2, ForgingPower.DATA).setExtra(20), PMove.gain(1, PCLPowerData.PlatedArmor));
     }
 }

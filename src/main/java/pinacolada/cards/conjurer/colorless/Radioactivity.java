@@ -16,7 +16,7 @@ import pinacolada.skills.skills.PTrigger;
 @VisibleCard
 public class Radioactivity extends PCLCard {
     public static final PCLCardData DATA = register(Radioactivity.class, ConjurerResources.conjurer)
-            .setPower(2, CardRarity.UNCOMMON)
+            .setPower(2, CardRarity.SPECIAL)
             .setCostUpgrades(-1)
             .setAffinities(PCLAffinity.Green, PCLAffinity.Silver)
             .setCore(true);

@@ -8,7 +8,6 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.powers.PCLPower;
 import pinacolada.powers.PCLPowerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.resources.pcl.PCLCoreImages;
 import pinacolada.utilities.GameUtilities;
 
 public class AffinityPropertyPower extends PCLPower {

@@ -10,7 +10,7 @@ import pinacolada.resources.conjurer.ConjurerResources;
 @VisibleCard
 public class Polymerization extends PCLMultiCard {
     public static final PCLCardData DATA = register(Polymerization.class, ConjurerResources.conjurer)
-            .setSkill(-2, CardRarity.RARE, PCLCardTarget.Single)
+            .setSkill(-2, CardRarity.SPECIAL, PCLCardTarget.Single)
             .setAffinities(PCLAffinity.Star.make(1))
             .setColorless()
             .setObtainableInCombat(false);

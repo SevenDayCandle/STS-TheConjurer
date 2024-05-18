@@ -18,7 +18,7 @@ import pinacolada.utilities.GameUtilities;
 @VisibleCard
 public class CovalentBond extends PCLCard {
     public static final PCLCardData DATA = register(CovalentBond.class, ConjurerResources.conjurer)
-            .setSkill(1, CardRarity.RARE, PCLCardTarget.None)
+            .setSkill(1, CardRarity.SPECIAL, PCLCardTarget.None)
             .setCostUpgrades(-1)
             .setTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Yellow, PCLAffinity.Silver)

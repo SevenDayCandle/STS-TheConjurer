@@ -11,13 +11,15 @@ import pinacolada.effects.ConjurerEFK;
 import pinacolada.powers.conjurer.FlowPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
+import pinacolada.skills.skills.PMultiCond;
 
 @VisibleCard
 public class SwiftGlintstoneShard extends PCLCard {
     public static final PCLCardData DATA = register(SwiftGlintstoneShard.class, ConjurerResources.conjurer)
             .setAttack(0, CardRarity.SPECIAL, PCLAttackType.Ranged)
-            .setDamage(4, 4)
+            .setDamage(5, 5)
             .setTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.eldenRing);
@@ -28,6 +30,6 @@ public class SwiftGlintstoneShard extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(ConjurerEFK.BLOW04);
-        addUseMove(PMove.gain(3, FlowPower.DATA).setUpgrade(3));
+        addUseMove(PMultiCond.or(PCond.onDraw(), PCond.onDiscard()), PMove.gain(1, FlowPower.DATA));
     }
 }

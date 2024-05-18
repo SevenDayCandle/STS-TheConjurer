@@ -32,6 +32,6 @@ public class ConjurerTooltips extends AbstractTooltips {
         blasted.formatDescription(BlastedPower.DECAY);
         cooled.formatDescription(CooledPower.POTENCY);
         flow.formatDescription(FlowPower.PER_STACK);
-        forging.formatDescription(ForgingPower.PER_STACK, ForgingPower.BOOST);
+        forging.formatDescription(ForgingPower.PER_STACK);
     }
 }

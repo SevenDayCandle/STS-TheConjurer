@@ -19,8 +19,6 @@ public class CooledPower extends PCLPower {
             .setTooltip(ConjurerResources.conjurer.tooltips.cooled)
             .setPriority(3);
     public static final int POTENCY = 2;
-    public static final Color healthBarColor = Color.SKY.cpy();
-
     public CooledPower(AbstractCreature owner, AbstractCreature source, int amount) {
         super(DATA, owner, source, amount);
     }

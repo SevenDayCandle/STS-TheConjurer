@@ -12,7 +12,7 @@ import pinacolada.skills.PMove;
 @VisibleCard
 public class TreasureChest extends PCLCard {
     public static final PCLCardData DATA = register(TreasureChest.class, ConjurerResources.conjurer)
-            .setSkill(2, CardRarity.RARE)
+            .setSkill(2, CardRarity.SPECIAL)
             .setTags(PCLCardTag.Unplayable, PCLCardTag.Fleeting)
             .setAffinities(PCLAffinity.Orange)
             .setObtainableInCombat(false)

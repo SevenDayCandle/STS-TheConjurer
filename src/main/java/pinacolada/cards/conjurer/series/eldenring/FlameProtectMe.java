@@ -26,6 +26,5 @@ public class FlameProtectMe extends PCLCard {
 
     public void setup(Object input) {
         addBlockMove().setBonus(PMod.perPowerAny(1, IgnisPower.DATA), 2);
-        addUseMove(PMove.applyToEnemies(1, IgnisPower.DATA));
     }
 }

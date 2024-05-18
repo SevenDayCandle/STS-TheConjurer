@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import extendedui.EUIUtils;
 import extendedui.ui.EUIBase;
-import pinacolada.cards.conjurer.basic.StrikeR;
+import pinacolada.cards.conjurer.basic.StrikeI;
 import pinacolada.effects.PCLSFX;
 import pinacolada.effects.vfx.FadingParticleEffect;
 import pinacolada.effects.vfx.SmokeEffect;
@@ -81,7 +81,7 @@ public class ConjurerCharacter extends PCLCharacter {
 
     @Override
     public AbstractCard getStartCardForEvent() {
-        return StrikeR.DATA.create();
+        return StrikeI.DATA.create();
     }
 
     @Override

@@ -33,7 +33,7 @@ public class TearsOfDenial extends PCLCard {
             .setCostUpgrades(-1)
             .setTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Blue, PCLAffinity.Yellow)
-            .setLoadout(ConjurerPlayerData.darkSouls, true);
+            .setLoadout(ConjurerPlayerData.darkSouls);
 
     public TearsOfDenial() {
         super(DATA);
@@ -41,7 +41,7 @@ public class TearsOfDenial extends PCLCard {
 
     public void setup(Object input) {
         addUseMove(PMove.gain(4, PCLPowerData.Frail, PCLPowerData.Vulnerable, PCLPowerData.Weak).setVFX(ConjurerEFK.MGC_HealingSpell_LV2));
-        addSpecialPower(0, (t, o, s) -> new TearsOfDenialPower(t, o, s), 2, 1);
+        addSpecialPower(0, TearsOfDenialPower::new, 2, 1);
     }
 
     // TODO implement effect bonus subscriber to apply updates to this power

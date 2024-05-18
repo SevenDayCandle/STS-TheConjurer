@@ -9,15 +9,17 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.effects.ConjurerEFK;
+import pinacolada.powers.conjurer.PetraPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMod;
+import pinacolada.skills.PMove;
 
 @VisibleCard
 public class BoulderHeave extends PCLCard {
     public static final PCLCardData DATA = register(BoulderHeave.class, ConjurerResources.conjurer)
-            .setAttack(2, CardRarity.UNCOMMON, PCLAttackType.Normal, PCLCardTarget.Single)
-            .setDamage(11, 2)
+            .setSkill(2, CardRarity.COMMON, PCLCardTarget.Single)
+            .setBlock(13, 4)
             .setAffinities(2, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.darkSouls);
 
@@ -26,6 +28,7 @@ public class BoulderHeave extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(ConjurerEFK.MGC_EarthSpell_LV1_Impact).setBonus(PMod.perCard(PCLCardGroupHelper.Hand).edit(f -> f.setAffinity(PCLAffinity.Orange)), 4, 2);
+        addBlockMove();
+        addUseMove(PMove.applyToSingle(1, PetraPower.DATA), PMod.increaseOnUse(2));
     }
 }

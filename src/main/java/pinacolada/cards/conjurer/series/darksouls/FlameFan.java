@@ -15,7 +15,7 @@ import pinacolada.skills.PMove;
 @VisibleCard
 public class FlameFan extends PCLCard {
     public static final PCLCardData DATA = register(FlameFan.class, ConjurerResources.conjurer)
-            .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.Single)
+            .setSkill(1, CardRarity.COMMON, PCLCardTarget.Single)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Green)
             .setLoadout(ConjurerPlayerData.darkSouls);
 

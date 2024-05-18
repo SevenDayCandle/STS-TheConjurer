@@ -20,7 +20,6 @@ import pinacolada.interfaces.subscribers.OnTryApplyPowerSubscriber;
 import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.PSpecialCardPower;
 import pinacolada.powers.conjurer.AquaPower;
-import pinacolada.powers.conjurer.CooledPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;

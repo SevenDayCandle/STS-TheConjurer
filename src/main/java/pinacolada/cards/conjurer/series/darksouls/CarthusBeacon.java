@@ -20,7 +20,7 @@ public class CarthusBeacon extends PCLCard {
             .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.Self)
             .setCostUpgrades(-1)
             .setAffinities(PCLAffinity.Red, PCLAffinity.Blue)
-            .setLoadout(ConjurerPlayerData.darkSouls, true);
+            .setLoadout(ConjurerPlayerData.darkSouls);
 
     public CarthusBeacon() {
         super(DATA);

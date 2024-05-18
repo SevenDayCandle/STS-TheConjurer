@@ -12,7 +12,7 @@ import pinacolada.skills.skills.base.moves.PMove_RemoveCard;
 @VisibleCard
 public class PortableTrashCan extends PCLCard {
     public static final PCLCardData DATA = register(PortableTrashCan.class, ConjurerResources.conjurer)
-            .setSkill(0, CardRarity.RARE, PCLCardTarget.None)
+            .setSkill(0, CardRarity.SPECIAL, PCLCardTarget.None)
             .setTags(PCLCardTag.Fleeting.make(), PCLCardTag.Retain.make(0, -1))
             .setColorless();
 

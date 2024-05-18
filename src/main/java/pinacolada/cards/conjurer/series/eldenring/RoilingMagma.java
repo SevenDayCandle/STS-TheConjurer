@@ -26,6 +26,6 @@ public class RoilingMagma extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(ConjurerEFK.FIRE06);
-        addUseMove(new PMod_BonusOnReact(2), PMove.gain(2, ForgingPower.DATA));
+        addUseMove(new PMod_BonusOnReact(2), PMove.gain(2, ForgingPower.DATA).setUpgrade(1));
     }
 }

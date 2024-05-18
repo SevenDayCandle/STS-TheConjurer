@@ -27,7 +27,7 @@ public class SoulStream extends PCLCard {
     }
 
     public void setup(Object input) {
-        addDamageMove(ConjurerEFK.MGC_W2_ManaFire).setBonus(PMod.perCard(1, PCLCardGroupHelper.ExhaustPile).edit(f -> f.setAffinity(PCLAffinity.Blue)), 3).setUpgrade(1);
+        addDamageMove(ConjurerEFK.MGC_W2_ManaFire).setBonus(PMod.perCard(1, PCLCardGroupHelper.ExhaustPile).edit(f -> f.setAffinity(PCLAffinity.Red)), 3).setUpgrade(1);
         addUseMove(PCond.exhaust(1), PMove.gainTempHP(3));
     }
 }

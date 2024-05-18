@@ -37,7 +37,7 @@
 	},
 	"conjurer:ElementalMasteryPower":
 	{
-		"DESCRIPTIONS": ["When you apply an #yElement, apply #b{0} more of it."],
+		"DESCRIPTIONS": ["The next #b{0} cards played apply #b{1} of their #yElements to their targets."],
 		"NAME": "Elemental Mastery"
 	},
 	"conjurer:FlowPower":
@@ -47,7 +47,7 @@
 	},
 	"conjurer:ForgingPower":
 	{
-		"DESCRIPTIONS": ["When this power has at least #b{0} stacks, #oRight-click a card in hand to spend #b{0} stacks, #yUpgrade that card, and increase its damage and #yBlock by #b{1}."],
+		"DESCRIPTIONS": ["When this power has at least #b{0} stacks, #oRight-click a card in hand to spend #b{0} stacks and #yUpgrade that card. This can #yUpgrade #pConjurer cards beyond their normal #yUpgrade limit."],
 		"NAME": "Forging"
 	},
 	"conjurer:IgnisPower":

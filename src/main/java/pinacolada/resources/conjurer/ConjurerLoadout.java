@@ -13,8 +13,16 @@ public class ConjurerLoadout extends PCLLoadout {
         this(createID(ConjurerLoadout.class), -1);
     }
 
+    public ConjurerLoadout(PCLLoadoutGroup group, String id, int unlockLevel) {
+        super(group, ConjurerEnum.Cards.THE_CONJURER, id, unlockLevel, MAX_VALUE, MIN_CARDS, MAX_LIMIT);
+    }
+
     public ConjurerLoadout(String id, int unlockLevel) {
         super(ConjurerEnum.Cards.THE_CONJURER, id, unlockLevel, MAX_VALUE, MIN_CARDS, MAX_LIMIT);
+    }
+
+    public ConjurerLoadout(PCLLoadoutGroup group, String id) {
+        this(group, id, 0);
     }
 
     public ConjurerLoadout(String id) {
