@@ -17,7 +17,7 @@ public class FarronHail extends PCLCard {
     public static final PCLCardData DATA = register(FarronHail.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.COMMON, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
             .setDamage(9, 3)
-            .setAffinities(1, PCLAffinity.Blue, PCLAffinity.Green)
+            .setAffinities(1, PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.darkSouls);
 
     public FarronHail() {

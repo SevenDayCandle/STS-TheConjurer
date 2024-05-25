@@ -21,9 +21,11 @@ import pinacolada.utilities.GameUtilities;
 public class DivinePillarsOfLight extends PCLCard {
     public static final PCLCardData DATA = register(DivinePillarsOfLight.class, ConjurerResources.conjurer)
             .setSkill(2, CardRarity.RARE, PCLCardTarget.AllEnemy)
+            .setCostUpgrades(0, -1)
             .setTags(PCLCardTag.Exhaust)
             .setAffinities(PCLAffinity.Yellow)
-            .setLoadout(ConjurerPlayerData.darkSouls);
+            .setLoadout(ConjurerPlayerData.darkSouls)
+            .setMultiformData(2);
 
     public DivinePillarsOfLight() {
         super(DATA);
@@ -37,6 +39,6 @@ public class DivinePillarsOfLight extends PCLCard {
     }
 
     public void setup(Object input) {
-        addSpecialMove(0, this::action, 2).setUpgrade(1);
+        addSpecialMove(0, this::action, 2).setUpgrade(2, 0);
     }
 }

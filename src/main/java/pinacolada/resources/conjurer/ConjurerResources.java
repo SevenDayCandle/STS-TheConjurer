@@ -15,6 +15,7 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardAffinity;
 import pinacolada.cards.conjurer.series.darksouls.DorhysGnawing;
 import pinacolada.cards.conjurer.series.eldenring.BlackKnife;
+import pinacolada.cards.conjurer.series.eldenring.LifestealFist;
 import pinacolada.cards.pcl.curse.Curse_AscendersBane;
 import pinacolada.dungeon.CombatManager;
 import pinacolada.dungeon.ConjurerReactionMeter;
@@ -91,7 +92,7 @@ public class ConjurerResources extends PCLResources<ConjurerPlayerData, Conjurer
     public String getEventReplacement(String cardID) {
         switch (cardID) {
             case Bite.ID:
-                return DorhysGnawing.DATA.ID;
+                return LifestealFist.DATA.ID;
             case RitualDagger.ID:
                 return BlackKnife.DATA.ID;
         }

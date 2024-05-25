@@ -214,18 +214,23 @@ public class ConjurerElementButton extends EUIButton {
         return power.ID.equals(id) || EUIUtils.any(additionalPowers, s -> s.equals(id));
     }
 
-    public void onReact(PCLUseInfo info, AffinityReactions reactions, AbstractPower po) {
+    public void onReact(PCLUseInfo info, AffinityReactions reactions, AbstractPower po, boolean shouldConsume) {
         if (matchesPower(po.ID)) {
             HashMap<PCLAffinity, Integer> values = reactions.getReactants(power.affinity, po.owner);
             if (values != null && !values.isEmpty()) {
                 for (Map.Entry<PCLAffinity, Integer> entry : values.entrySet()) {
                     for (PSkill<?> skill : getReactEffects(entry.getKey())) {
                         for (int i = 0; i < entry.getValue(); i++) {
-                            PCLActions.bottom.add(new ApplyOrReducePowerAction(po.owner, po.owner, po, -1))
-                                    .forceIfDead(true)
-                                    .addCallback(p -> {
-                                        skill.use(info, PCLActions.bottom);
-                                    });
+                            if (shouldConsume) {
+                                PCLActions.bottom.add(new ApplyOrReducePowerAction(po.owner, po.owner, po, -1))
+                                        .forceIfDead(true)
+                                        .addCallback(p -> {
+                                            skill.use(info, PCLActions.bottom);
+                                        });
+                            }
+                            else {
+                                skill.use(info, PCLActions.bottom);
+                            }
                         }
                     }
                 }

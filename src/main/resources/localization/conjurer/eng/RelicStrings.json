@@ -1,5 +1,11 @@
 
 {
+	"conjurer:AcademyScroll":
+	{
+		"DESCRIPTIONS": ["The first {0} #yReactions made each combat activates their effects twice."],
+		"FLAVOR": "Scroll of the Academy of Raya Lucaria, the glintstone sorcerers' place of study.",
+		"NAME": "Academy Scroll"
+	},
 	"conjurer:AeonianButterfly":
 	{
 		"DESCRIPTIONS": [],
@@ -24,18 +30,6 @@
 		"FLAVOR": "Once upon a time, the stars of the night sky guided fate, and this is a recollection of those times.",
 		"NAME": "Celestial Dew"
 	},
-	"conjurer:ChiliPepper":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "The opposite of chill.",
-		"NAME": "Chili Pepper"
-	},
-	"conjurer:CrimsonMapleLeaf":
-	{
-		"DESCRIPTIONS": [],
-		"FLAVOR": "On this mountain path, where the red leaves lifeless lie... My heart calls for a companion, echoing the deer's cry...",
-		"NAME": "Crimson Maple Leaf"
-	},
 	"conjurer:CrimsonwhorlBubbletear":
 	{
 		"DESCRIPTIONS": [],
@@ -48,17 +42,29 @@
 		"FLAVOR": "Whoever thou mayest be, take not the ring from this place, the solitude beyond the night is better mine alone.",
 		"NAME": "Dark Moon Ring"
 	},
-	"conjurer:DisguisePropBox":
+	"conjurer:DewkissedHerba":
 	{
-		"DESCRIPTIONS": ["{#o:Right-Click in battle}: Target a creature and take its form. | At combat start, trigger an effect dependent on your current form.","#pCurrent #pEffect: {0}"],
-		"FLAVOR": "You can be whoever you want to be.",
-		"NAME": "Disguise Prop Box"
+		"DESCRIPTIONS": [],
+		"FLAVOR": "Soaked in arcane dew, it gives off the faint glow of starlight.",
+		"NAME": "Dewkissed Herba"
+	},
+	"conjurer:Firebomb":
+	{
+		"DESCRIPTIONS": [],
+		"FLAVOR": "The opposite of chill.",
+		"NAME": "Firebomb"
 	},
 	"conjurer:HeavyGem":
 	{
 		"DESCRIPTIONS": [],
 		"FLAVOR": "A warrior can appreciate a heavy weapon.",
 		"NAME": "Heavy Gem"
+	},
+	"conjurer:MimicsVeil":
+	{
+		"DESCRIPTIONS": ["{#o:Right-Click in battle}: Target a creature and take its form. | At combat start, trigger an effect dependent on your current form.","#pCurrent #pEffect: {0}"],
+		"FLAVOR": "You can be whoever you want to be.",
+		"NAME": "Mimic's Veil"
 	},
 	"conjurer:PeriodicTable":
 	{
@@ -84,11 +90,23 @@
 		"FLAVOR": "Moss clump radiating gentle heat and light.",
 		"NAME": "Rime-Blue Moss Clump"
 	},
+	"conjurer:RingOfFavor":
+	{
+		"DESCRIPTIONS": ["The [A-R] to [A-B] #yReaction increases damage output of cards by #b{0}%. The [A-G] to [A-O] #yReaction increases #yBlock output of cards by #b{0}%."],
+		"FLAVOR": "Soaked in arcane dew, it gives off the faint glow of starlight.",
+		"NAME": "Ring of Favor"
+	},
 	"conjurer:SmithingStone":
 	{
 		"DESCRIPTIONS": ["Cards #yUpgraded with [conjurer:Forging] gain [Recast]."],
 		"FLAVOR": "Mined near the foot of the Erdtree, these stones are said to have been used to bolster the strength of the Royal forces.",
 		"NAME": "Smithing Stone"
+	},
+	"conjurer:SoulOfACrystalSage":
+	{
+		"DESCRIPTIONS": ["The first {0} #yReactions made each combat do not consume #yElements."],
+		"FLAVOR": "Scroll of the Academy of Raya Lucaria, the glintstone sorcerers' place of study.",
+		"NAME": "Soul of a Crystal Sage"
 	},
 	"conjurer:StochasticTable":
 	{

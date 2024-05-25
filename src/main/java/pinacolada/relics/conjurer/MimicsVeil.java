@@ -22,13 +22,13 @@ import pinacolada.skills.PSkill;
 import pinacolada.utilities.GameUtilities;
 
 @VisibleRelic
-public class DisguisePropBox extends PCLRelic {
-    public static final PCLRelicData DATA = register(DisguisePropBox.class, ConjurerResources.conjurer)
+public class MimicsVeil extends PCLRelic {
+    public static final PCLRelicData DATA = register(MimicsVeil.class, ConjurerResources.conjurer)
             .setProps(RelicTier.SPECIAL, LandingSound.FLAT);
     protected transient PSkill<?> monsterSkill;
     protected String currentForm;
 
-    public DisguisePropBox() {
+    public MimicsVeil() {
         super(DATA);
     }
 

@@ -59,9 +59,10 @@ public class PCond_React extends PPassiveCond<PField_Affinity> implements OnElem
     }
 
     @Override
-    public void onElementReact(PCLUseInfo info, AffinityReactions reactions, AbstractCreature abstractCreature) {
+    public boolean onElementReact(PCLUseInfo info, AffinityReactions reactions, AbstractCreature abstractCreature) {
         if (fields.affinities.isEmpty() ? reactions.hasReaction() : EUIUtils.all(fields.affinities, reactions::hasReaction)) {
             useFromTrigger(generateInfo(abstractCreature));
         }
+        return true;
     }
 }

@@ -8,11 +8,10 @@ import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.powers.PCLPowerData;
-import pinacolada.powers.conjurer.FlowPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
-import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
+import pinacolada.skills.conjurer.conditions.PCond_React;
 
 @VisibleCard
 public class ToxicMist extends PCLCard {
@@ -27,6 +26,7 @@ public class ToxicMist extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMod.bonusPerPowerSelf(1, FlowPower.DATA).setExtra(2), PMove.applyToEnemies(3, PCLPowerData.Poison));
+        addUseMove(PMove.applyToEnemies(8, PCLPowerData.Poison));
+        addUseMove(new PCond_React(PCLAffinity.Blue), PMove.applyToEveryone(1, PCLPowerData.Vulnerable));
     }
 }

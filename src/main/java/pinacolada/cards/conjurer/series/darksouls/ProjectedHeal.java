@@ -6,25 +6,27 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.powers.PCLPowerData;
+import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.PCond;
+import pinacolada.skills.PDelay;
 import pinacolada.skills.PMove;
 
 @VisibleCard
-public class Rapport extends PCLCard {
-    public static final PCLCardData DATA = register(Rapport.class, ConjurerResources.conjurer)
-            .setSkill(0, CardRarity.UNCOMMON, PCLCardTarget.Single)
+public class ProjectedHeal extends PCLCard {
+    public static final PCLCardData DATA = register(ProjectedHeal.class, ConjurerResources.conjurer)
+            .setSkill(1, CardRarity.RARE, PCLCardTarget.Self)
             .setAffinities(PCLAffinity.Yellow)
             .setLoadout(ConjurerPlayerData.darkSouls)
-            .setMultiformData(2);
+            .setTags(PCLCardTag.Purge);
 
-    public Rapport() {
+    public ProjectedHeal() {
         super(DATA);
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.apply(PCLCardTarget.Single, 2, PCLPowerData.Strength).setUpgrade(0, 2));
-        addUseMove(PMove.apply(PCLCardTarget.Single, 10, PCLPowerData.Shackles).setUpgrade(2, 6));
+        addUseMove(PDelay.turnStart(2), PMove.heal(10).setUpgrade(3));
+        addUseMove(PCond.onExhaust(), PMove.gainTempHP(7));
     }
 }

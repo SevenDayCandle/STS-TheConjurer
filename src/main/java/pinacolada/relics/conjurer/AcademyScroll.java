@@ -12,6 +12,7 @@ import pinacolada.dungeon.PCLUseInfo;
 import pinacolada.interfaces.subscribers.OnElementReactSubscriber;
 import pinacolada.relics.PCLRelic;
 import pinacolada.relics.PCLRelicData;
+import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PSkill;
 
@@ -19,11 +20,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 @VisibleRelic
-public class PeriodicTable extends PCLRelic implements OnElementReactSubscriber {
-    public static final PCLRelicData DATA = register(PeriodicTable.class, ConjurerResources.conjurer)
-            .setProps(RelicTier.STARTER, LandingSound.SOLID);
+public class AcademyScroll extends PCLRelic implements OnElementReactSubscriber {
+    public static final PCLRelicData DATA = register(AcademyScroll.class, ConjurerResources.conjurer)
+            .setProps(RelicTier.STARTER, LandingSound.SOLID)
+            .setLoadout(ConjurerPlayerData.eldenRing);
 
-    public PeriodicTable() {
+    public AcademyScroll() {
         super(DATA);
     }
 
@@ -40,7 +42,7 @@ public class PeriodicTable extends PCLRelic implements OnElementReactSubscriber 
     }
 
     @Override
-    public void onElementReact(PCLUseInfo info, AffinityReactions reactions, AbstractCreature mo) {
+    public boolean onElementReact(PCLUseInfo info, AffinityReactions reactions, AbstractCreature mo) {
         if (counter > 0) {
             for (AbstractPower po : mo.powers) {
                 for (ConjurerElementButton button : ConjurerReactionMeter.meter.getElementButtons()) {
@@ -61,5 +63,6 @@ public class PeriodicTable extends PCLRelic implements OnElementReactSubscriber 
             counter -= 1;
             flash();
         }
+        return true;
     }
 }

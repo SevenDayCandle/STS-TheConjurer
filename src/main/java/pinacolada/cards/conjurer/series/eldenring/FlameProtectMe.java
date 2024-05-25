@@ -10,7 +10,6 @@ import pinacolada.powers.conjurer.IgnisPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMod;
-import pinacolada.skills.PMove;
 
 @VisibleCard
 public class FlameProtectMe extends PCLCard {

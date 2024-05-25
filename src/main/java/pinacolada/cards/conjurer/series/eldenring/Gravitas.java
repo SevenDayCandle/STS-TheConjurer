@@ -25,7 +25,8 @@ import java.util.List;
 public class Gravitas extends PCLCard {
     public static final PCLCardData DATA = register(Gravitas.class, ConjurerResources.conjurer)
             .setSkill(1, CardRarity.RARE)
-            .setAffinities(PCLAffinity.Blue, PCLAffinity.Yellow, PCLAffinity.Purple)
+            .setCostUpgrades(0, -1)
+            .setAffinities(PCLAffinity.Orange, PCLAffinity.Yellow, PCLAffinity.Purple)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
     public Gravitas() {
@@ -33,7 +34,7 @@ public class Gravitas extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.scry(3).setUpgrade(1, 0), getSpecialMove(0, this::specialMove, 1).setUpgrade(0, 1).setTarget(PCLCardTarget.Single));
+        addUseMove(PMove.scry(3).setUpgrade(2, 0), getSpecialMove(0, this::specialMove, 1).setTarget(PCLCardTarget.Single));
     }
 
     public void specialMove(PSpecialSkill move, PCLUseInfo info, PCLActions order) {

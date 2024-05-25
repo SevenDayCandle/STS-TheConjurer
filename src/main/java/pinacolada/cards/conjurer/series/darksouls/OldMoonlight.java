@@ -10,28 +10,24 @@ import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
-import pinacolada.skills.skills.PMultiSkill;
+import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
-public class Chameleon extends PCLCard {
-    public static final PCLCardData DATA = register(Chameleon.class, ConjurerResources.conjurer)
-            .setSkill(1, CardRarity.RARE, PCLCardTarget.Self)
+public class OldMoonlight extends PCLCard {
+    public static final PCLCardData DATA = register(OldMoonlight.class, ConjurerResources.conjurer)
+            .setSkill(2, CardRarity.RARE, PCLCardTarget.None)
             .setCostUpgrades(-1)
             .setTags(PCLCardTag.Exhaust)
-            .setAffinities(PCLAffinity.Green, PCLAffinity.Orange)
+            .setAffinities(PCLAffinity.Blue)
             .setLoadout(ConjurerPlayerData.darkSouls);
 
-    public Chameleon() {
+    public OldMoonlight() {
         super(DATA);
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.fetch(1, PCLCardGroupHelper.DiscardPile)
-                , PMultiSkill.join(
-                        PMove.modifyAffinity(1, PCLAffinity.Orange).useParent(true),
-                        PMove.modifyTag(1, 1, PCLCardTag.Bounce).useParent(true)
-                )
-        );
+        addGainPower(PTrigger.whenPerCombat(2, PCond.onExhaust().edit(f -> f.setType(CardType.ATTACK)), PMove.createCopy(1).useParent(true), PMove.modifyAffinity(PCLAffinity.Blue).useParent(true)));
     }
 }

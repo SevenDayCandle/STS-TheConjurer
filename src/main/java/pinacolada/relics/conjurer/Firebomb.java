@@ -4,16 +4,18 @@ import pinacolada.annotations.VisibleRelic;
 import pinacolada.powers.conjurer.IgnisPower;
 import pinacolada.relics.PCLPointerRelic;
 import pinacolada.relics.PCLRelicData;
+import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.special.primary.PRoot;
 
 @VisibleRelic
-public class ChiliPepper extends PCLPointerRelic {
-    public static final PCLRelicData DATA = register(ChiliPepper.class, ConjurerResources.conjurer)
-            .setProps(RelicTier.COMMON, LandingSound.FLAT);
+public class Firebomb extends PCLPointerRelic {
+    public static final PCLRelicData DATA = register(Firebomb.class, ConjurerResources.conjurer)
+            .setProps(RelicTier.COMMON, LandingSound.SOLID)
+            .setLoadout(ConjurerPlayerData.darkSouls);
 
-    public ChiliPepper() {
+    public Firebomb() {
         super(DATA);
     }
 

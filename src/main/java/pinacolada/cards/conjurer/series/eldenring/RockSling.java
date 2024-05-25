@@ -17,7 +17,7 @@ import pinacolada.skills.PMove;
 public class RockSling extends PCLCard {
     public static final PCLCardData DATA = register(RockSling.class, ConjurerResources.conjurer)
             .setAttack(2, CardRarity.COMMON, PCLAttackType.Normal, PCLCardTarget.RandomEnemy)
-            .setDamage(7, 2, 2)
+            .setDamage(5, 1, 3)
             .setAffinities(PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.eldenRing);
 
@@ -27,6 +27,6 @@ public class RockSling extends PCLCard {
 
     public void setup(Object input) {
         addDamageMove(PCLAttackVFX.EARTH);
-        addUseMove(PMove.applyToEnemies(3, PetraPower.DATA));
+        addUseMove(PMove.applyToRandom(3, PetraPower.DATA));
     }
 }

@@ -4,34 +4,31 @@ package pinacolada.cards.conjurer.series.darksouls;
 import pinacolada.annotations.VisibleCard;
 import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
-import pinacolada.cards.base.PCLCardGroupHelper;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
+import pinacolada.powers.conjurer.AquaPower;
+import pinacolada.powers.conjurer.CooledPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
+import pinacolada.skills.PCond;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PMultiSkill;
+import pinacolada.skills.skills.PTrigger;
 
 @VisibleCard
-public class Chameleon extends PCLCard {
-    public static final PCLCardData DATA = register(Chameleon.class, ConjurerResources.conjurer)
-            .setSkill(1, CardRarity.RARE, PCLCardTarget.Self)
-            .setCostUpgrades(-1)
+public class CrystalMagicWeapon extends PCLCard {
+    public static final PCLCardData DATA = register(CrystalMagicWeapon.class, ConjurerResources.conjurer)
+            .setSkill(1, CardRarity.UNCOMMON, PCLCardTarget.Self)
+            .setAffinities(2, PCLAffinity.Blue)
             .setTags(PCLCardTag.Exhaust)
-            .setAffinities(PCLAffinity.Green, PCLAffinity.Orange)
             .setLoadout(ConjurerPlayerData.darkSouls);
 
-    public Chameleon() {
+    public CrystalMagicWeapon() {
         super(DATA);
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.fetch(1, PCLCardGroupHelper.DiscardPile)
-                , PMultiSkill.join(
-                        PMove.modifyAffinity(1, PCLAffinity.Orange).useParent(true),
-                        PMove.modifyTag(1, 1, PCLCardTag.Bounce).useParent(true)
-                )
-        );
+        addGainPower(1, PTrigger.when(PCond.damage(PCLCardTarget.Self, 1), PMultiSkill.join(PMove.applyToSingle(5, AquaPower.DATA).setUpgrade(2))));
     }
 }

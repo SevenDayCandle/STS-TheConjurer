@@ -27,7 +27,7 @@ public class Seppuku extends PCLCard {
     }
 
     public void setup(Object input) {
-        addUseMove(PMove.gain(3, PCLPowerData.Bruised));
-        addGainPower(1, PTrigger.passive(PMod.perDistinctDebuff(PCLCardTarget.Self, 1), PTrait.damageMultiplier(50).setUpgrade(25)));
+        addUseMove(PMove.gain(2, PCLPowerData.Bruised));
+        addGainPower(1, PTrigger.passive(PMod.perDistinctDebuff(PCLCardTarget.Self, 1), PTrait.damageMultiplier(50)));
     }
 }

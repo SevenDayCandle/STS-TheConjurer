@@ -6,16 +6,11 @@ import pinacolada.cards.base.PCLCard;
 import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLCardTarget;
-import pinacolada.monsters.PCLIntentType;
-import pinacolada.powers.PCLPowerData;
 import pinacolada.powers.conjurer.AquaPower;
 import pinacolada.powers.conjurer.ElementPowerData;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PCond;
-import pinacolada.skills.PMod;
-import pinacolada.skills.PMove;
-import pinacolada.skills.skills.base.modifiers.PMod_PerCreatureIntent;
 
 @VisibleCard
 public class GreatMagicShield extends PCLCard {

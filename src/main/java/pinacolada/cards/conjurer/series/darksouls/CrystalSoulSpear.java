@@ -12,7 +12,6 @@ import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 import pinacolada.skills.conjurer.conditions.PCond_React;
-import pinacolada.skills.conjurer.modifiers.PMod_PerLevel;
 
 @VisibleCard
 public class CrystalSoulSpear extends PCLCard {

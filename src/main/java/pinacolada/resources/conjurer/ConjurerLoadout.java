@@ -1,8 +1,8 @@
 package pinacolada.resources.conjurer;
 
 import extendedui.EUIUtils;
-import pinacolada.relics.conjurer.DisguisePropBox;
-import pinacolada.relics.conjurer.PeriodicTable;
+import pinacolada.relics.conjurer.MimicsVeil;
+import pinacolada.relics.conjurer.AcademyScroll;
 import pinacolada.resources.PGR;
 import pinacolada.resources.loadout.PCLLoadout;
 
@@ -43,12 +43,12 @@ public class ConjurerLoadout extends PCLLoadout {
 
     public ArrayList<String> getAvailableRelicIDs() {
         ArrayList<String> list = super.getAvailableRelicIDs();
-        list.add(DisguisePropBox.DATA.ID);
+        list.add(MimicsVeil.DATA.ID);
         return list;
     }
 
     @Override
     public ArrayList<String> getBaseStartingRelics() {
-        return EUIUtils.arrayList(PeriodicTable.DATA.ID);
+        return EUIUtils.arrayList(AcademyScroll.DATA.ID);
     }
 }

@@ -7,5 +7,5 @@ import pinacolada.dungeon.PCLUseInfo;
 
 @CombatSubscriber
 public interface OnElementReactSubscriber extends PCLCombatSubscriber {
-    void onElementReact(PCLUseInfo info, AffinityReactions reactions, AbstractCreature m);
+    boolean onElementReact(PCLUseInfo info, AffinityReactions reactions, AbstractCreature m);
 }
