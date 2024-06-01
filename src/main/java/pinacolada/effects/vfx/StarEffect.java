@@ -23,7 +23,7 @@ public class StarEffect extends VisualEffect {
     }
 
     public StarEffect(float x, float y, float horizontalSpeed, float verticalSpeed, float rotationSpeed, float scale) {
-        super(random(0.5f, 1f), x, y, random(-10f, 10f), scale);
+        super(random(0.5f, 1.6f), x, y, random(-10f, 10f), scale);
 
         this.vX = horizontalSpeed;
         this.vY = verticalSpeed;
@@ -67,7 +67,7 @@ public class StarEffect extends VisualEffect {
             scale -= deltaTime * 2f;
         }
 
-        if ((1f - duration) < 0.1f) {
+        if ((startingDuration - duration) < 0.1f) {
             color.a = Interpolation.fade.apply(0.1f, 1f, (1f - duration) * 10f);
         }
         else {

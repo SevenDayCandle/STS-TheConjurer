@@ -7,29 +7,29 @@ import pinacolada.cards.base.PCLCardData;
 import pinacolada.cards.base.fields.PCLAffinity;
 import pinacolada.cards.base.fields.PCLAttackType;
 import pinacolada.cards.base.fields.PCLCardTarget;
+import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.effects.EffekseerEFK;
-import pinacolada.powers.conjurer.AquaPower;
-import pinacolada.powers.conjurer.BlastedPower;
-import pinacolada.powers.conjurer.IgnisPower;
 import pinacolada.resources.conjurer.ConjurerPlayerData;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMod;
 import pinacolada.skills.PMove;
+import pinacolada.skills.conjurer.modifiers.PMod_PerLevel;
 
 @VisibleCard
-public class Firestorm extends PCLCard {
-    public static final PCLCardData DATA = register(Firestorm.class, ConjurerResources.conjurer)
-            .setAttack(2, CardRarity.UNCOMMON, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
-            .setDamage(11, 3)
-            .setAffinities(PCLAffinity.Red)
+public class BurstingFireball extends PCLCard {
+    public static final PCLCardData DATA = register(BurstingFireball.class, ConjurerResources.conjurer)
+            .setAttack(1, CardRarity.UNCOMMON, PCLAttackType.Ranged, PCLCardTarget.AllEnemy)
+            .setDamage(7, 4)
+            .setAffinities(1, PCLAffinity.Red)
+            .setTags(PCLCardTag.Exhaust)
             .setLoadout(ConjurerPlayerData.darkSouls);
 
-    public Firestorm() {
+    public BurstingFireball() {
         super(DATA);
     }
 
     public void setup(Object input) {
-        addDamageMove(EffekseerEFK.SWORD04);
-        addUseMove(PMod.payPerPower(AquaPower.DATA).setTarget(PCLCardTarget.AllEnemy), PMove.applyToEnemies(3, BlastedPower.DATA).setUpgrade(1));
+        addDamageMove(EffekseerEFK.FIRE11);
+        addUseMove(PMod.perCreature(PCLCardTarget.AllEnemy, 1), PMove.create(1, Fireball.DATA.ID));
     }
 }

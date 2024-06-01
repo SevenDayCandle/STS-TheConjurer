@@ -27,6 +27,10 @@ public class PMove_AddImpedance extends PMove<PField_Affinity> {
         super(DATA, content);
     }
 
+    public PMove_AddImpedance() {
+        this(PCLCardTarget.Single, 1);
+    }
+
     public PMove_AddImpedance(int amount, PCLAffinity... stance) {
         this(PCLCardTarget.Single, amount, stance);
     }

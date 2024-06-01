@@ -8,18 +8,18 @@ import pinacolada.effects.PCLEffects;
 public class ShootingStarsEffect extends PCLEffect {
     protected float x;
     protected float y;
-    protected float spreadX;
-    protected float spreadY;
+    protected float spreadX = 55f;
+    protected float spreadY = 330f;
     protected float vfxTimer;
-    protected float vfxFrequency = 0.020f;
-    protected float horizontalSpeedMin = 2150;
-    protected float horizontalSpeedMax = 2650;
-    protected float verticalSpeedMin;
-    protected float verticalSpeedMax;
+    protected float vfxFrequency = 0.022f;
+    protected float horizontalSpeedMin = 1550;
+    protected float horizontalSpeedMax = 2250;
+    protected float verticalSpeedMin = -190;
+    protected float verticalSpeedMax = 190;
     protected boolean flipHorizontally;
 
     public ShootingStarsEffect(float startX, float startY) {
-        super(0.5f);
+        super(0.8f);
 
         this.x = startX;
         this.y = startY;

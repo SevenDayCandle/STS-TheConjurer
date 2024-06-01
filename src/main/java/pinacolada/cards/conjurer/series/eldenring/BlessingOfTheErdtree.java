@@ -21,7 +21,7 @@ import pinacolada.utilities.GameUtilities;
 @VisibleCard
 public class BlessingOfTheErdtree extends PCLCard {
     public static final PCLCardData DATA = register(BlessingOfTheErdtree.class, ConjurerResources.conjurer)
-            .setPower(1, CardRarity.RARE)
+            .setPower(2, CardRarity.RARE)
             .setAffinities(PCLAffinity.Yellow, PCLAffinity.Green, PCLAffinity.Orange)
             .setCostUpgrades(-1)
             .setMaxCopies(1)

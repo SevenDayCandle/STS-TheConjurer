@@ -28,6 +28,6 @@ public class OldMoonlight extends PCLCard {
     }
 
     public void setup(Object input) {
-        addGainPower(PTrigger.whenPerCombat(2, PCond.onExhaust().edit(f -> f.setType(CardType.ATTACK)), PMove.createCopy(1).useParent(true), PMove.modifyAffinity(PCLAffinity.Blue).useParent(true)));
+        addGainPower(PTrigger.whenPerCombat(2, PCond.onExhaust().edit(f -> f.setType(CardType.ATTACK)), PMove.createCopy(1).useParent(true), PMove.modifyAffinity(2, PCLAffinity.Blue).useParent(true)));
     }
 }

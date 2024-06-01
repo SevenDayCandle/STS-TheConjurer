@@ -22,7 +22,6 @@ import pinacolada.dungeon.ConjurerReactionMeter;
 import pinacolada.monsters.PCLCardAlly;
 import pinacolada.monsters.PCLTutorialMonster;
 import pinacolada.monsters.animations.PCLAllyAnimation;
-import pinacolada.monsters.animations.conjurer.*;
 import pinacolada.monsters.animations.pcl.PCLGeneralAllyAnimation;
 import pinacolada.monsters.tutorials.ConjurerSummonTutorialMonster;
 import pinacolada.monsters.tutorials.ConjurerTutorialMonster;
@@ -57,7 +56,7 @@ public class ConjurerResources extends PCLResources<ConjurerPlayerData, Conjurer
     }
 
     protected PCLAllyAnimation getAnimation(PCLCardAlly ally) {
-        HashSet<PCLAffinity> available = new HashSet<>(PCLAffinity.getAvailableAffinities());
+/*        HashSet<PCLAffinity> available = new HashSet<>(PCLAffinity.getAvailableAffinities());
         available.add(PCLAffinity.Star);
 
         PCLCardAffinity highest = ally.hasCard() ? ally.card.affinities.getHighest(cAff -> available.contains(cAff.type)) : null;
@@ -74,7 +73,7 @@ public class ConjurerResources extends PCLResources<ConjurerPlayerData, Conjurer
                 case PCLAffinity.ID_ORANGE:
                     return new ConjurerEarthAllyAnimation(ally);
             }
-        }
+        }*/
         return new PCLGeneralAllyAnimation(ally);
     }
 

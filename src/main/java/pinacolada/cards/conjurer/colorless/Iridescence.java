@@ -2,6 +2,7 @@ package pinacolada.cards.conjurer.colorless;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import pinacolada.actions.PCLActions;
 import pinacolada.annotations.VisibleCard;
@@ -12,6 +13,8 @@ import pinacolada.cards.base.fields.PCLCardSelection;
 import pinacolada.cards.base.fields.PCLCardTarget;
 import pinacolada.cards.base.tags.PCLCardTag;
 import pinacolada.dungeon.PCLUseInfo;
+import pinacolada.effects.PCLEffects;
+import pinacolada.effects.vfx.ShootingStarsEffect;
 import pinacolada.resources.conjurer.ConjurerResources;
 import pinacolada.skills.PMove;
 import pinacolada.skills.skills.PSpecialSkill;
@@ -30,6 +33,7 @@ public class Iridescence extends PCLCard {
     }
 
     public void action(PSpecialSkill move, PCLUseInfo info, PCLActions order) {
+        PCLEffects.Queue.add(new ShootingStarsEffect(-200 * Settings.scale, Settings.HEIGHT * 0.5f));
         order.selectFromPile(name, AbstractDungeon.player.hand.size(), AbstractDungeon.player.hand)
                 .setOrigin(PCLCardSelection.Random)
                 .addCallback(cards -> {

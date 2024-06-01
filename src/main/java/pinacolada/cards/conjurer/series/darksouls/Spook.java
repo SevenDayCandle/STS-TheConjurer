@@ -27,6 +27,6 @@ public class Spook extends PCLCard {
 
     public void setup(Object input) {
         addUseMove(PMove.applyToEveryone(2, PCLPowerData.Blinded));
-        addUseMove(PCond.onDraw(), PMove.applyToRandom(3, PCLPowerData.Blinded).setScope(1, 1));
+        addUseMove(PCond.onDraw(), PMove.applyToRandom(2, PCLPowerData.Blinded).setScope(1, 1));
     }
 }

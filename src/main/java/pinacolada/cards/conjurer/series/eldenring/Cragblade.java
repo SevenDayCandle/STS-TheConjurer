@@ -26,6 +26,6 @@ public class Cragblade extends PCLCard {
     }
 
     public void setup(Object input) {
-        addGainPower(2, PTrigger.when(PCond.damage(PCLCardTarget.Self, 1), PMultiSkill.join(PMove.applyToSingle(1, PetraPower.DATA), PMove.gainBlock(4).setUpgrade(1))));
+        addGainPower(2, PTrigger.when(PCond.damage(PCLCardTarget.Self, 1), PMultiSkill.join(PMove.applyToSingle(1, PetraPower.DATA), PMove.gainBlock(5).setUpgrade(1))));
     }
 }

@@ -29,6 +29,6 @@ public class FloatingChaos extends PCLCard {
     }
 
     public void setup(Object input) {
-        addGainPower(PTrigger.when(PCond.onTurnEnd(), new PMod_PerLevel(1, PCLAffinity.Red), PMove.applyToEnemies(1, BlastedPower.DATA)));
+        addGainPower(PTrigger.when(PCond.onTurnEnd(), new PMod_PerLevel(2, PCLAffinity.Red), PMove.applyToEnemies(1, BlastedPower.DATA)));
     }
 }
